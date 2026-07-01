@@ -1,0 +1,212 @@
+[
+  {
+    "subject": "Modern service meshes",
+    "subject_type": "CONCEPT",
+    "relation": "USES",
+    "object": "Envoy",
+    "object_type": "TOOL",
+    "confidence": 0.9,
+    "evidence_quote": "Modern service meshes leverage sidecar proxies like Envoy",
+    "year": 2021
+  },
+  {
+    "subject": "A distributed authorization framework",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "Istio service mesh",
+    "object_type": "TOOL",
+    "confidence": 1.0,
+    "evidence_quote": "Our method uses Istio service mesh",
+    "year": 2021
+  },
+  {
+    "subject": "A distributed authorization framework",
+    "subject_type": "METHOD",
+    "relation": "EVALUATES_ON",
+    "object": "Kubernetes clusters",
+    "object_type": "DATASET",
+    "confidence": 1.0,
+    "evidence_quote": "We evaluate on Kubernetes clusters.",
+    "year": 2021
+  },
+  {
+    "subject": "A distributed authorization framework",
+    "subject_type": "METHOD",
+    "relation": "IMPROVES",
+    "object": "Authorization speed",
+    "object_type": "METRIC",
+    "confidence": 1.0,
+    "evidence_quote": "The tool enforces JWT token verification at the proxy layer, improving authorization speed.",
+    "year": 2021
+  },
+  {
+    "subject": "A distributed authorization framework",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "JWT token verification",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "The tool enforces JWT token verification at the proxy layer",
+    "year": 2021
+  },
+  {
+    "subject": "Our tool",
+    "subject_type": "TOOL",
+    "relation": "ADDRESSES",
+    "object": "zero-trust requirements",
+    "object_type": "CONCEPT",
+    "confidence": 1.0,
+    "evidence_quote": "Our tool addresses zero-trust requirements in cloud-native applications.",
+    "year": 2022
+  },
+  {
+    "subject": "Our tool",
+    "subject_type": "TOOL",
+    "relation": "IMPROVES",
+    "object": "secure service mesh communication",
+    "object_type": "CONCEPT",
+    "confidence": 1.0,
+    "evidence_quote": "It improves secure service mesh communication.",
+    "year": 2022
+  },
+  {
+    "subject": "Our tool",
+    "subject_type": "TOOL",
+    "relation": "USES",
+    "object": "a method to automate security policy enforcement",
+    "object_type": "METHOD",
+    "confidence": 0.85,
+    "evidence_quote": "We present a method to automate security policy enforcement. Our tool addresses zero-trust requirements in cloud-native applications.",
+    "year": 2022
+  },
+  {
+    "subject": "Our tool",
+    "subject_type": "TOOL",
+    "relation": "USES",
+    "object": "autoencoders",
+    "object_type": "METHOD",
+    "confidence": 1.0,
+    "evidence_quote": "Our tool uses autoencoders",
+    "year": 2020
+  },
+  {
+    "subject": "Our tool",
+    "subject_type": "TOOL",
+    "relation": "PRODUCES",
+    "object": "anomaly scores",
+    "object_type": "METRIC",
+    "confidence": 1.0,
+    "evidence_quote": "It produces anomaly scores",
+    "year": 2020
+  },
+  {
+    "subject": "Our tool",
+    "subject_type": "TOOL",
+    "relation": "EVALUATES_ON",
+    "object": "intrusion datasets",
+    "object_type": "DATASET",
+    "confidence": 1.0,
+    "evidence_quote": "evaluated on intrusion datasets",
+    "year": 2020
+  },
+  {
+    "subject": "unsupervised anomaly detection method",
+    "subject_type": "METHOD",
+    "relation": "ADDRESSES",
+    "object": "Intrusion detection in microservices",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "Intrusion detection in microservices requires analyzing high-volume system calls. We introduce an unsupervised anomaly detection method.",
+    "year": 2020
+  },
+  {
+    "subject": "unsupervised anomaly detection method",
+    "subject_type": "METHOD",
+    "relation": "ADDRESSES",
+    "object": "analyzing high-volume system calls",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "Intrusion detection in microservices requires analyzing high-volume system calls. We introduce an unsupervised anomaly detection method.",
+    "year": 2020
+  },
+  {
+    "subject": "Drift detection method",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "System call telemetry",
+    "object_type": "DATASET",
+    "confidence": 1.0,
+    "evidence_quote": "The method uses system call telemetry",
+    "year": 2019
+  },
+  {
+    "subject": "Drift detection method",
+    "subject_type": "METHOD",
+    "relation": "ADDRESSES",
+    "object": "Configuration drift",
+    "object_type": "CONCEPT",
+    "confidence": 1.0,
+    "evidence_quote": "It addresses drift",
+    "year": 2019
+  },
+  {
+    "subject": "Drift detection tool",
+    "subject_type": "TOOL",
+    "relation": "ADDRESSES",
+    "object": "Configuration drift",
+    "object_type": "CONCEPT",
+    "confidence": 0.95,
+    "evidence_quote": "We propose a drift detection tool. ... It addresses drift",
+    "year": 2019
+  },
+  {
+    "subject": "The proposed system",
+    "subject_type": "TOOL",
+    "relation": "ADDRESSES",
+    "object": "security anomalies",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "we examine security anomalies",
+    "year": 2025
+  },
+  {
+    "subject": "The proposed system",
+    "subject_type": "TOOL",
+    "relation": "USES",
+    "object": "Envoy proxy",
+    "object_type": "TOOL",
+    "confidence": 1.0,
+    "evidence_quote": "We use Envoy proxy to collect traffic",
+    "year": 2025
+  },
+  {
+    "subject": "The paper",
+    "subject_type": "METHOD",
+    "relation": "PRODUCES",
+    "object": "anomaly detection method",
+    "object_type": "METHOD",
+    "confidence": 1.0,
+    "evidence_quote": "We propose an anomaly detection method",
+    "year": 2025
+  },
+  {
+    "subject": "Our tool",
+    "subject_type": "TOOL",
+    "relation": "EVALUATES_ON",
+    "object": "microservice traffic",
+    "object_type": "DATASET",
+    "confidence": 1.0,
+    "evidence_quote": "Our tool evaluates on microservice traffic",
+    "year": 2025
+  },
+  {
+    "subject": "Our tool",
+    "subject_type": "TOOL",
+    "relation": "LACKS",
+    "object": "Envoy JWT authorization rules",
+    "object_type": "CONCEPT",
+    "confidence": 1.0,
+    "evidence_quote": "lacks direct integration with Envoy JWT authorization rules",
+    "year": 2025
+  }
+]

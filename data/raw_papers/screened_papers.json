@@ -1,0 +1,47 @@
+[
+  {
+    "paperId": "sample_paper_001",
+    "title": "Distributed Authorization in Service Meshes using Envoy Proxy and JWT tokens",
+    "abstract": "Modern service meshes leverage sidecar proxies like Envoy to handle microservice traffic. In this paper, we propose a distributed authorization framework. Our method uses Istio service mesh to enforce access control. We evaluate on Kubernetes clusters. The tool enforces JWT token verification at the proxy layer, improving authorization speed.",
+    "year": 2021,
+    "citationCount": 45,
+    "relevance_score": 0.95,
+    "relevance_reason": "Loaded from sample data (pre-screened)"
+  },
+  {
+    "paperId": "sample_paper_002",
+    "title": "Security Policies and mTLS in Istio Service Mesh",
+    "abstract": "This work investigates mutual TLS (mTLS) configuration in Istio. We present a method to automate security policy enforcement. Our tool addresses zero-trust requirements in cloud-native applications. It improves secure service mesh communication.",
+    "year": 2022,
+    "citationCount": 38,
+    "relevance_score": 0.95,
+    "relevance_reason": "Loaded from sample data (pre-screened)"
+  },
+  {
+    "paperId": "sample_paper_003",
+    "title": "Unsupervised Anomaly Detection using Autoencoders in Cloud-Native Networks",
+    "abstract": "Intrusion detection in microservices requires analyzing high-volume system calls. We introduce an unsupervised anomaly detection method. Our tool uses autoencoders to build normal behavior baselines. It produces anomaly scores to flag threats, evaluated on intrusion datasets.",
+    "year": 2020,
+    "citationCount": 52,
+    "relevance_score": 0.95,
+    "relevance_reason": "Loaded from sample data (pre-screened)"
+  },
+  {
+    "paperId": "sample_paper_004",
+    "title": "Real-time Drift Detection for Microservice System Telemetry",
+    "abstract": "Microservice environments suffer from configuration drift. We propose a drift detection tool. The method uses system call telemetry to detect behavioral changes. It addresses drift in containerized environments.",
+    "year": 2019,
+    "citationCount": 21,
+    "relevance_score": 0.95,
+    "relevance_reason": "Loaded from sample data (pre-screened)"
+  },
+  {
+    "paperId": "sample_paper_005",
+    "title": "Lightweight Anomaly Detection inside Sidecar Proxies",
+    "abstract": "To prevent insider threats, behavioral analysis is crucial. In this paper, we examine security anomalies. We use Envoy proxy to collect traffic. We propose an anomaly detection method. Our tool evaluates on microservice traffic, but lacks direct integration with Envoy JWT authorization rules.",
+    "year": 2025,
+    "citationCount": 5,
+    "relevance_score": 0.95,
+    "relevance_reason": "Loaded from sample data (pre-screened)"
+  }
+]
