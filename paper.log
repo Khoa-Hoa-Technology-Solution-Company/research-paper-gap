@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.8)  1 JUL 2026 22:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.8)  1 JUL 2026 22:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -464,7 +464,13 @@ Package hyperref Info: Link coloring ON on input line 10.
 \@outlinefile=\write3
 \openout3 = `paper.out'.
 
- [1
+
+Overfull \hbox (3.04399pt too wide) in paragraph at lines 29--30
+[]\T1/cmr/m/n/9 Systematic Lit-er-a-ture Re-views (SLRs) are im-por-tant for id
+en-
+ []
+
+[1
 
 {C:/Users/leanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2]
 Package epstopdf Info: Source file: <fig1.eps>
@@ -482,7 +488,8 @@ File: fig1-eps-converted-to.pdf Graphic file (type pdf)
 <use fig1-eps-converted-to.pdf>
 Package pdftex.def Info: fig1-eps-converted-to.pdf  used on input line 63.
 (pdftex.def)             Requested size: 312.40906pt x 128.96095pt.
- [3 <./fig1-eps-converted-to.pdf>]
+
+[3 <./fig1-eps-converted-to.pdf>]
 Overfull \hbox (87.2714pt too wide) detected at line 85
 []
  []
@@ -500,13 +507,7 @@ Overfull \hbox (14.58311pt too wide) in paragraph at lines 92--93
 /cmm/m/it/10 t\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 e\OT1/cmr/m/n/10 ) = []$
  []
 
-[4]
-Overfull \hbox (15.76422pt too wide) in paragraph at lines 122--123
-\T1/cmr/m/n/10 nol-ogy) or \T1/cmtt/m/n/10 least_probable \T1/cmr/m/n/10 (spec-
-u-la-tive, re-quir-ing fun-da-men-tal break-throughs). 
- []
-
-[5]
+[4] [5]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -525,7 +526,7 @@ Here is how much of TeX's memory you used:
  38730 multiletter control sequences out of 15000+600000
  639796 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,10n,79p,1282b,601s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,10n,79p,1259b,601s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\leanh\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt
 1000.pk> <C:\Users\leanh\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ecti1000.pk> <C:\Users\leanh\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
@@ -546,7 +547,7 @@ ic/amsfonts/cm/cmr6.pfb><C:/Users/leanh/AppData/Local/Programs/MiKTeX/fonts/typ
 e1/public/amsfonts/cm/cmr7.pfb><C:/Users/leanh/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/leanh/AppData/Local/Programs/
 MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on paper.pdf (8 pages, 293082 bytes).
+Output written on paper.pdf (8 pages, 292856 bytes).
 PDF statistics:
  631 PDF objects out of 1000 (max. 8388607)
  47 named destinations out of 1000 (max. 500000)
