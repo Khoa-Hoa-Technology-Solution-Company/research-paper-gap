@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.8)  1 JUL 2026 22:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.8)  1 JUL 2026 22:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -465,7 +465,7 @@ Package hyperref Info: Link coloring ON on input line 10.
 \openout3 = `paper.out'.
 
 
-Overfull \hbox (3.04399pt too wide) in paragraph at lines 29--30
+Overfull \hbox (3.04399pt too wide) in paragraph at lines 34--35
 []\T1/cmr/m/n/9 Systematic Lit-er-a-ture Re-views (SLRs) are im-por-tant for id
 en-
  []
@@ -481,27 +481,27 @@ Package epstopdf Info: Source file: <fig1.eps>
 (epstopdf)                    size: 36500 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=fig1-eps-converted-t
 o.pdf fig1.eps>
-(epstopdf)             \includegraphics on input line 63.
+(epstopdf)             \includegraphics on input line 68.
 Package epstopdf Info: Output file is already uptodate.
-<fig1-eps-converted-to.pdf, id=60, 345.29pt x 142.5325pt>
+<fig1-eps-converted-to.pdf, id=59, 345.29pt x 142.5325pt>
 File: fig1-eps-converted-to.pdf Graphic file (type pdf)
 <use fig1-eps-converted-to.pdf>
-Package pdftex.def Info: fig1-eps-converted-to.pdf  used on input line 63.
+Package pdftex.def Info: fig1-eps-converted-to.pdf  used on input line 68.
 (pdftex.def)             Requested size: 312.40906pt x 128.96095pt.
 
 [3 <./fig1-eps-converted-to.pdf>]
-Overfull \hbox (87.2714pt too wide) detected at line 85
+Overfull \hbox (87.2714pt too wide) detected at line 90
 []
  []
 
 
-Overfull \hbox (4.46143pt too wide) in paragraph at lines 87--88
+Overfull \hbox (4.46143pt too wide) in paragraph at lines 92--93
 \T1/cmr/m/n/10 ferred to us-ing syn-onyms (e.g., "Mi-croser-vice ar-chi-tec-tur
 e" and "Microservice-
  []
 
 
-Overfull \hbox (14.58311pt too wide) in paragraph at lines 92--93
+Overfull \hbox (14.58311pt too wide) in paragraph at lines 97--98
 []\T1/cmr/bx/n/10 Temporal Tag-ging: \T1/cmr/m/n/10 Ev-ery edge $\OML/cmm/m/it/
 10 e \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 E$ \T1/cmr/m/n/10 is tagged with $\OML
 /cmm/m/it/10 t\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 e\OT1/cmr/m/n/10 ) = []$
@@ -545,11 +545,10 @@ mmi7.pfb><C:/Users/leanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmr10.pfb><C:/Users/leanh/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmr6.pfb><C:/Users/leanh/AppData/Local/Programs/MiKTeX/fonts/typ
 e1/public/amsfonts/cm/cmr7.pfb><C:/Users/leanh/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/leanh/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on paper.pdf (8 pages, 292856 bytes).
+nts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on paper.pdf (8 pages, 285822 bytes).
 PDF statistics:
- 631 PDF objects out of 1000 (max. 8388607)
+ 636 PDF objects out of 1000 (max. 8388607)
  47 named destinations out of 1000 (max. 500000)
  14 words of extra memory for PDF output out of 10000 (max. 10000000)
 
