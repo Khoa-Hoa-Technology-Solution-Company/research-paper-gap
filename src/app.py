@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import datetime
 import streamlit as st
 import networkx as nx
@@ -226,5 +227,3 @@ else:
             st.write(reviews_log[-5:])
         else:
             st.write("No verification reviews recorded yet.")
-            
-        import re # For community regex

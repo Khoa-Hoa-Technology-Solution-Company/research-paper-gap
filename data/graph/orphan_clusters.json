@@ -2,78 +2,84 @@
   {
     "cluster_id": 0,
     "nodes": [
-      "Modern service meshes",
-      "Envoy"
-    ],
-    "r_size": 0.07142857142857142,
-    "r_bridge": 0.0
-  },
-  {
-    "cluster_id": 1,
-    "nodes": [
-      "A distributed authorization framework",
+      "distributed authorization framework",
       "Istio service mesh",
       "Kubernetes clusters",
-      "Authorization speed",
-      "JWT token verification"
+      "authorization speed"
     ],
-    "r_size": 0.17857142857142858,
-    "r_bridge": 0.0
-  },
-  {
-    "cluster_id": 2,
-    "nodes": [
-      "Our tool",
-      "zero-trust requirements",
-      "secure service mesh communication",
-      "a method to automate security policy enforcement",
-      "autoencoders",
-      "anomaly scores",
-      "intrusion datasets",
-      "microservice traffic",
-      "Envoy JWT authorization rules"
-    ],
-    "r_size": 0.32142857142857145,
-    "r_bridge": 0.0
-  },
-  {
-    "cluster_id": 3,
-    "nodes": [
-      "unsupervised anomaly detection method",
-      "Intrusion detection in microservices",
-      "analyzing high-volume system calls"
-    ],
-    "r_size": 0.10714285714285714,
-    "r_bridge": 0.0
-  },
-  {
-    "cluster_id": 5,
-    "nodes": [
-      "Drift detection method",
-      "System call telemetry",
-      "Configuration drift",
-      "Drift detection tool"
-    ],
-    "r_size": 0.14285714285714285,
-    "r_bridge": 0.0
-  },
-  {
-    "cluster_id": 6,
-    "nodes": [
-      "The proposed system",
-      "security anomalies",
-      "Envoy proxy"
-    ],
-    "r_size": 0.10714285714285714,
+    "r_size": 0.14814814814814814,
     "r_bridge": 0.0
   },
   {
     "cluster_id": 4,
     "nodes": [
-      "The paper",
-      "anomaly detection method"
+      "Envoy",
+      "service meshes"
     ],
-    "r_size": 0.07142857142857142,
+    "r_size": 0.07407407407407407,
+    "r_bridge": 0.0
+  },
+  {
+    "cluster_id": 6,
+    "nodes": [
+      "method to automate security policy enforcement",
+      "security policy enforcement"
+    ],
+    "r_size": 0.07407407407407407,
+    "r_bridge": 0.0
+  },
+  {
+    "cluster_id": 1,
+    "nodes": [
+      "tool",
+      "zero-trust requirements",
+      "secure service mesh communication",
+      "cloud-native applications",
+      "autoencoders",
+      "anomaly scores",
+      "intrusion datasets"
+    ],
+    "r_size": 0.25925925925925924,
+    "r_bridge": 0.0
+  },
+  {
+    "cluster_id": 2,
+    "nodes": [
+      "unsupervised anomaly detection method",
+      "intrusion detection"
+    ],
+    "r_size": 0.07407407407407407,
+    "r_bridge": 0.0
+  },
+  {
+    "cluster_id": 3,
+    "nodes": [
+      "drift detection tool",
+      "system call telemetry",
+      "configuration drift",
+      "containerized environments"
+    ],
+    "r_size": 0.14814814814814814,
+    "r_bridge": 0.0
+  },
+  {
+    "cluster_id": 5,
+    "nodes": [
+      "anomaly detection method",
+      "Envoy proxy",
+      "microservice traffic",
+      "Envoy JWT authorization rules"
+    ],
+    "r_size": 0.14814814814814814,
+    "r_bridge": 0.0
+  },
+  {
+    "cluster_id": 7,
+    "nodes": [
+      "behavioral analysis",
+      "insider threats"
+    ],
+    "r_size": 0.07407407407407407,
     "r_bridge": 0.0
   }
 ]

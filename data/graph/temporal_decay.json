@@ -1,16 +1,23 @@
 [
   {
-    "node": "A distributed authorization framework",
+    "node": "distributed authorization framework",
     "node_type": "METHOD",
-    "total_events": 4,
+    "total_events": 3,
     "recent_events": 0,
     "decay_rate": 1.0
   },
   {
-    "node": "Our tool",
+    "node": "tool",
     "node_type": "TOOL",
-    "total_events": 8,
-    "recent_events": 2,
-    "decay_rate": 0.75
+    "total_events": 6,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "drift detection tool",
+    "node_type": "TOOL",
+    "total_events": 3,
+    "recent_events": 0,
+    "decay_rate": 1.0
   }
 ]

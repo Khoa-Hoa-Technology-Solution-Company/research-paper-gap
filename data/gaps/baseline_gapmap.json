@@ -1,1 +1,47 @@
-[]
+[
+  {
+    "Grounds": "Modern service meshes leverage sidecar proxies like Envoy to handle microservice traffic; the tool enforces JWT token verification at the proxy layer, improving authorization speed.",
+    "Claim": "The current approach lacks a mechanism to handle authorization state consistency and policy propagation latency across highly dynamic, multi-cluster environments where sidecar-local verification may lead to stale access decisions.",
+    "Warrant": "While proxy-level JWT verification optimizes latency, it assumes a static or globally synchronized security state; in distributed systems, the decoupling of the control plane from the data plane creates a window of vulnerability where revoked tokens or updated policies are not immediately reflected across all sidecars, necessitating a research focus on distributed consistency models for authorization.",
+    "Bucket": "more_probable",
+    "source_paper": "Distributed Authorization in Service Meshes using Envoy Proxy and JWT tokens",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The work automates mTLS configuration and policy enforcement in Istio to address zero-trust requirements in cloud-native applications.",
+    "Claim": "Current automated mTLS enforcement mechanisms lack context-aware validation of policy efficacy, leading to potential security regressions or performance bottlenecks during dynamic service mesh scaling.",
+    "Warrant": "While automation ensures policy deployment, it does not inherently verify that the resulting security posture aligns with the evolving runtime behavior of microservices, creating a gap between static policy enforcement and dynamic operational security requirements.",
+    "Bucket": "more_probable",
+    "source_paper": "Security Policies and mTLS in Istio Service Mesh",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The method relies on autoencoders to build normal behavior baselines from high-volume system calls in microservices to flag threats via anomaly scores.",
+    "Claim": "The current approach lacks a mechanism to distinguish between benign microservice evolution (concept drift) and actual malicious intrusions, leading to high false-positive rates in dynamic environments.",
+    "Warrant": "In microservice architectures, frequent deployments and scaling events cause legitimate shifts in system call patterns; an unsupervised model without temporal adaptation or drift-awareness will inevitably misclassify these architectural changes as anomalies, rendering the tool impractical for continuous integration pipelines.",
+    "Bucket": "more_probable",
+    "source_paper": "Unsupervised Anomaly Detection using Autoencoders in Cloud-Native Networks",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The method relies on system call telemetry to detect behavioral changes in containerized microservices to address configuration drift.",
+    "Claim": "The proposed approach lacks a mechanism to distinguish between intentional configuration updates (evolution) and unintentional configuration drift, leading to high false-positive rates in dynamic CI/CD environments.",
+    "Warrant": "In modern microservice architectures, system call patterns change frequently due to legitimate rolling updates and canary deployments; a detection tool that treats all behavioral deviations as drift without context-awareness fails to provide actionable insights for SRE teams.",
+    "Bucket": "more_probable",
+    "source_paper": "Real-time Drift Detection for Microservice System Telemetry",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The proposed anomaly detection method operates on microservice traffic collected via Envoy proxy but lacks direct integration with Envoy JWT authorization rules.",
+    "Claim": "There is a critical disconnect between behavioral anomaly detection and identity-based access control, preventing the system from correlating anomalous traffic patterns with specific authenticated user identities or authorization scopes.",
+    "Warrant": "In microservice architectures, security is enforced at the identity layer via JWTs; failing to integrate anomaly detection with these tokens prevents the system from distinguishing between compromised legitimate accounts and unauthorized malicious actors, thereby limiting the actionable context of detected threats.",
+    "Bucket": "more_probable",
+    "source_paper": "Lightweight Anomaly Detection inside Sidecar Proxies",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  }
+]
