@@ -1,85 +1,51 @@
 [
   {
-    "cluster_id": 0,
-    "nodes": [
-      "distributed authorization framework",
-      "Istio service mesh",
-      "Kubernetes clusters",
-      "authorization speed"
-    ],
-    "r_size": 0.14814814814814814,
-    "r_bridge": 0.0
-  },
-  {
-    "cluster_id": 4,
-    "nodes": [
-      "Envoy",
-      "service meshes"
-    ],
-    "r_size": 0.07407407407407407,
-    "r_bridge": 0.0
-  },
-  {
-    "cluster_id": 6,
-    "nodes": [
-      "method to automate security policy enforcement",
-      "security policy enforcement"
-    ],
-    "r_size": 0.07407407407407407,
-    "r_bridge": 0.0
-  },
-  {
     "cluster_id": 1,
     "nodes": [
-      "tool",
-      "zero-trust requirements",
-      "secure service mesh communication",
-      "cloud-native applications",
-      "autoencoders",
-      "anomaly scores",
-      "intrusion datasets"
+      "systematic review",
+      "SW in healthcare systems",
+      "five themes",
+      "taxonomy",
+      "Android security",
+      "general science",
+      "comprehensive literature search",
+      "findings",
+      "teacher leadership research",
+      "fluctuating yet declining trend in publications on teacher leadership",
+      "empirical studies investigating practical applications",
+      "transition probabilities between childhood dental health states",
+      "supporting data for current model-based research on pediatric caries progression"
     ],
-    "r_size": 0.25925925925925924,
+    "r_size": 0.09848484848484848,
     "r_bridge": 0.0
   },
   {
-    "cluster_id": 2,
+    "cluster_id": 8,
     "nodes": [
-      "unsupervised anomaly detection method",
-      "intrusion detection"
+      "current literature",
+      "demand-side costs in model objectives",
+      "uncertainty in funding, budget, asset and supply quantities, and infrastructure",
+      "prepositioning as a risk mitigation strategy",
+      "reliability for reducing the risk of loss",
+      "prepositioning of medical staff and emergency crew",
+      "social media to prepare for disasters"
     ],
-    "r_size": 0.07407407407407407,
+    "r_size": 0.05303030303030303,
     "r_bridge": 0.0
   },
   {
-    "cluster_id": 3,
+    "cluster_id": 32,
     "nodes": [
-      "drift detection tool",
-      "system call telemetry",
-      "configuration drift",
-      "containerized environments"
+      "scientometric analysis",
+      "CiteSpace",
+      "VOSviewer",
+      "Bibliometrix",
+      "bibliometric analysis",
+      "Scopus",
+      "OpenRefine",
+      "Mendeley"
     ],
-    "r_size": 0.14814814814814814,
-    "r_bridge": 0.0
-  },
-  {
-    "cluster_id": 5,
-    "nodes": [
-      "anomaly detection method",
-      "Envoy proxy",
-      "microservice traffic",
-      "Envoy JWT authorization rules"
-    ],
-    "r_size": 0.14814814814814814,
-    "r_bridge": 0.0
-  },
-  {
-    "cluster_id": 7,
-    "nodes": [
-      "behavioral analysis",
-      "insider threats"
-    ],
-    "r_size": 0.07407407407407407,
+    "r_size": 0.06060606060606061,
     "r_bridge": 0.0
   }
 ]

@@ -1,192 +1,922 @@
 [
   {
-    "subject": "distributed authorization framework",
-    "subject_type": "METHOD",
-    "relation": "USES",
-    "object": "Istio service mesh",
-    "object_type": "TOOL",
-    "confidence": 1.0,
-    "evidence_quote": "Our method uses Istio service mesh to enforce access control.",
-    "year": 2021
-  },
-  {
-    "subject": "distributed authorization framework",
-    "subject_type": "METHOD",
-    "relation": "EVALUATES_ON",
-    "object": "Kubernetes clusters",
-    "object_type": "DATASET",
-    "confidence": 0.9,
-    "evidence_quote": "We evaluate on Kubernetes clusters.",
-    "year": 2021
-  },
-  {
-    "subject": "distributed authorization framework",
-    "subject_type": "METHOD",
-    "relation": "IMPROVES",
-    "object": "authorization speed",
-    "object_type": "METRIC",
-    "confidence": 0.95,
-    "evidence_quote": "The tool enforces JWT token verification at the proxy layer, improving authorization speed.",
-    "year": 2021
-  },
-  {
-    "subject": "Envoy",
-    "subject_type": "TOOL",
-    "relation": "USES",
-    "object": "service meshes",
-    "object_type": "CONCEPT",
-    "confidence": 0.85,
-    "evidence_quote": "Modern service meshes leverage sidecar proxies like Envoy to handle microservice traffic.",
-    "year": 2021
-  },
-  {
-    "subject": "method to automate security policy enforcement",
-    "subject_type": "METHOD",
-    "relation": "PRODUCES",
-    "object": "security policy enforcement",
-    "object_type": "CONCEPT",
-    "confidence": 0.85,
-    "evidence_quote": "We present a method to automate security policy enforcement.",
-    "year": 2022
-  },
-  {
-    "subject": "tool",
-    "subject_type": "TOOL",
-    "relation": "ADDRESSES",
-    "object": "zero-trust requirements",
-    "object_type": "CONCEPT",
-    "confidence": 0.95,
-    "evidence_quote": "Our tool addresses zero-trust requirements in cloud-native applications.",
-    "year": 2022
-  },
-  {
-    "subject": "tool",
-    "subject_type": "TOOL",
-    "relation": "IMPROVES",
-    "object": "secure service mesh communication",
-    "object_type": "CONCEPT",
-    "confidence": 0.9,
-    "evidence_quote": "It improves secure service mesh communication.",
-    "year": 2022
-  },
-  {
-    "subject": "tool",
-    "subject_type": "TOOL",
-    "relation": "APPLIED_TO",
-    "object": "cloud-native applications",
-    "object_type": "CONCEPT",
-    "confidence": 0.8,
-    "evidence_quote": "Our tool addresses zero-trust requirements in cloud-native applications.",
-    "year": 2022
-  },
-  {
-    "subject": "unsupervised anomaly detection method",
-    "subject_type": "METHOD",
-    "relation": "ADDRESSES",
-    "object": "intrusion detection",
-    "object_type": "CONCEPT",
-    "confidence": 0.9,
-    "evidence_quote": "Intrusion detection in microservices requires analyzing high-volume system calls. We introduce an unsupervised anomaly detection method.",
-    "year": 2020
-  },
-  {
-    "subject": "tool",
-    "subject_type": "TOOL",
-    "relation": "USES",
-    "object": "autoencoders",
-    "object_type": "METHOD",
-    "confidence": 1.0,
-    "evidence_quote": "Our tool uses autoencoders to build normal behavior baselines.",
-    "year": 2020
-  },
-  {
-    "subject": "tool",
-    "subject_type": "TOOL",
-    "relation": "PRODUCES",
-    "object": "anomaly scores",
-    "object_type": "METRIC",
-    "confidence": 1.0,
-    "evidence_quote": "It produces anomaly scores to flag threats",
-    "year": 2020
-  },
-  {
-    "subject": "tool",
-    "subject_type": "TOOL",
-    "relation": "EVALUATES_ON",
-    "object": "intrusion datasets",
-    "object_type": "DATASET",
-    "confidence": 1.0,
-    "evidence_quote": "evaluated on intrusion datasets.",
-    "year": 2020
-  },
-  {
-    "subject": "drift detection tool",
-    "subject_type": "TOOL",
-    "relation": "USES",
-    "object": "system call telemetry",
-    "object_type": "DATASET",
-    "confidence": 0.95,
-    "evidence_quote": "The method uses system call telemetry to detect behavioral changes.",
-    "year": 2019
-  },
-  {
-    "subject": "drift detection tool",
-    "subject_type": "TOOL",
-    "relation": "ADDRESSES",
-    "object": "configuration drift",
-    "object_type": "CONCEPT",
-    "confidence": 0.9,
-    "evidence_quote": "It addresses drift in containerized environments.",
-    "year": 2019
-  },
-  {
-    "subject": "drift detection tool",
-    "subject_type": "TOOL",
-    "relation": "APPLIED_TO",
-    "object": "containerized environments",
-    "object_type": "CONCEPT",
-    "confidence": 0.9,
-    "evidence_quote": "It addresses drift in containerized environments.",
-    "year": 2019
-  },
-  {
-    "subject": "anomaly detection method",
-    "subject_type": "METHOD",
-    "relation": "USES",
-    "object": "Envoy proxy",
-    "object_type": "TOOL",
-    "confidence": 0.9,
-    "evidence_quote": "We use Envoy proxy to collect traffic. We propose an anomaly detection method.",
-    "year": 2025
-  },
-  {
-    "subject": "anomaly detection method",
-    "subject_type": "METHOD",
-    "relation": "EVALUATES_ON",
-    "object": "microservice traffic",
-    "object_type": "DATASET",
-    "confidence": 0.95,
-    "evidence_quote": "Our tool evaluates on microservice traffic",
-    "year": 2025
-  },
-  {
-    "subject": "anomaly detection method",
-    "subject_type": "METHOD",
-    "relation": "LACKS",
-    "object": "Envoy JWT authorization rules",
-    "object_type": "CONCEPT",
-    "confidence": 0.95,
-    "evidence_quote": "Our tool evaluates on microservice traffic, but lacks direct integration with Envoy JWT authorization rules.",
-    "year": 2025
-  },
-  {
-    "subject": "behavioral analysis",
+    "subject": "Semantic Web technology",
     "subject_type": "CONCEPT",
     "relation": "ADDRESSES",
-    "object": "insider threats",
+    "object": "information exchange across heterogeneous sources",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "Semantic Web (SW) technology can help to tackle these problems.",
+    "year": 2022
+  },
+  {
+    "subject": "Semantic Web technology",
+    "subject_type": "CONCEPT",
+    "relation": "IMPROVES",
+    "object": "knowledge exchange",
+    "object_type": "CONCEPT",
+    "confidence": 0.95,
+    "evidence_quote": "They can enhance knowledge exchange, information management, data interoperability, and decision support in healthcare systems.",
+    "year": 2022
+  },
+  {
+    "subject": "Semantic Web technology",
+    "subject_type": "CONCEPT",
+    "relation": "IMPROVES",
+    "object": "data interoperability",
+    "object_type": "CONCEPT",
+    "confidence": 0.95,
+    "evidence_quote": "They can enhance knowledge exchange, information management, data interoperability, and decision support in healthcare systems.",
+    "year": 2022
+  },
+  {
+    "subject": "systematic review",
+    "subject_type": "METHOD",
+    "relation": "EVALUATES_ON",
+    "object": "SW in healthcare systems",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "This systematic literature review (SLR) on SW in healthcare systems aims to assess and critique previous findings",
+    "year": 2022
+  },
+  {
+    "subject": "systematic review",
+    "subject_type": "METHOD",
+    "relation": "PRODUCES",
+    "object": "five themes",
+    "object_type": "FINDING",
+    "confidence": 0.85,
+    "evidence_quote": "We looked at 65 papers and came up with five themes: e‐service, disease, information management, frontier technology, and regulatory conditions.",
+    "year": 2022
+  },
+  {
+    "subject": "genre analysis",
+    "subject_type": "METHOD",
+    "relation": "APPLIED_TO",
+    "object": "ELT RA abstracts and introductions",
+    "object_type": "DATASET",
+    "confidence": 0.9,
+    "evidence_quote": "Using genre analysis, this study compared the use of research gap strategies in English Language Teaching (ELT) RA abstracts and introductions",
+    "year": 2021
+  },
+  {
+    "subject": "mixed-method study",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "genre analysis",
+    "object_type": "METHOD",
+    "confidence": 0.85,
+    "evidence_quote": "Using genre analysis, this study compared",
+    "year": 2021
+  },
+  {
+    "subject": "qualitative analysis",
+    "subject_type": "METHOD",
+    "relation": "PRODUCES",
+    "object": "similarities and differences in using the types of research gap strategy",
+    "object_type": "FINDING",
+    "confidence": 0.9,
+    "evidence_quote": "The results of the quantitative analysis in this study indicated that the three groups share similarities and differences in using the types of research gap strategy",
+    "year": 2021
+  },
+  {
+    "subject": "qualitative analysis",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "semi-structured interviews",
+    "object_type": "METHOD",
+    "confidence": 0.95,
+    "evidence_quote": "the qualitative analysis using semi-structured interviews",
+    "year": 2021
+  },
+  {
+    "subject": "semi-structured interviews",
+    "subject_type": "METHOD",
+    "relation": "PRODUCES",
+    "object": "problems in identifying research gaps",
+    "object_type": "FINDING",
+    "confidence": 0.9,
+    "evidence_quote": "semi-structured interviews with ten doctoral students revealed some problems encountered by them in identifying research gaps",
+    "year": 2021
+  },
+  {
+    "subject": "Current study's analysis",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "Swales’ (1990) framework",
+    "object_type": "METHOD",
+    "confidence": 0.95,
+    "evidence_quote": "analyzed using Swales’ (1990) framework",
+    "year": 2021
+  },
+  {
+    "subject": "Current study's analysis",
+    "subject_type": "METHOD",
+    "relation": "EVALUATES_ON",
+    "object": "Forty RAs from eight Scopus-indexed journals",
+    "object_type": "DATASET",
+    "confidence": 0.95,
+    "evidence_quote": "Forty RAs from eight Scopus-indexed journals in the field of English Language Teaching (ELT) were randomly collected and analyzed",
+    "year": 2021
+  },
+  {
+    "subject": "Current study's analysis",
+    "subject_type": "METHOD",
+    "relation": "COMBINES",
+    "object": "insights proposed by Lim (2012) and Kwan, Chan, and Lam (2012)",
+    "object_type": "METHOD",
+    "confidence": 0.85,
+    "evidence_quote": "taking into account the insights proposed by Lim (2012) and Kwan, Chan, and Lam (2012)",
+    "year": 2021
+  },
+  {
+    "subject": "Current study's analysis",
+    "subject_type": "METHOD",
+    "relation": "PRODUCES",
+    "object": "authors use five research gap strategies to present their research gaps",
+    "object_type": "FINDING",
+    "confidence": 0.9,
+    "evidence_quote": "The findings reveal that the authors use five research gap strategies to present their research gaps in their ELT RAIs.",
+    "year": 2021
+  },
+  {
+    "subject": "Previous investigations",
+    "subject_type": "METHOD",
+    "relation": "LACKS",
+    "object": "accounting for the way such strategies are applied across the Scopus journal quartiles",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "the previous investigations do not account for the way such strategies are applied across the Scopus journal quartiles",
+    "year": 2021
+  },
+  {
+    "subject": "prepositioning of assets and supplies",
+    "subject_type": "CONCEPT",
+    "relation": "IMPROVES",
+    "object": "response activities",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "Prepositioning of assets and supplies prior to a disaster strike accelerates the response activities",
+    "year": 2020
+  },
+  {
+    "subject": "current literature",
+    "subject_type": "DATASET",
+    "relation": "LACKS",
+    "object": "demand-side costs in model objectives",
+    "object_type": "CONCEPT",
+    "confidence": 0.95,
+    "evidence_quote": "there is a lack of papers that: consider demand-side costs in their proposed model objectives",
+    "year": 2020
+  },
+  {
+    "subject": "current literature",
+    "subject_type": "DATASET",
+    "relation": "LACKS",
+    "object": "uncertainty in funding, budget, asset and supply quantities, and infrastructure",
+    "object_type": "CONCEPT",
+    "confidence": 0.95,
+    "evidence_quote": "there is a lack of papers that: consider demand-side costs in their proposed model objectives; deal with uncertainty in funding, budget, asset and supply quantities, and infrastructure",
+    "year": 2020
+  },
+  {
+    "subject": "current literature",
+    "subject_type": "DATASET",
+    "relation": "LACKS",
+    "object": "prepositioning as a risk mitigation strategy",
+    "object_type": "CONCEPT",
+    "confidence": 0.95,
+    "evidence_quote": "there is a lack of papers that: consider demand-side costs in their proposed model objectives; deal with uncertainty in funding, budget, asset and supply quantities, and infrastructure; considering prepositioning as a risk mitigation strategy",
+    "year": 2020
+  },
+  {
+    "subject": "current literature",
+    "subject_type": "DATASET",
+    "relation": "LACKS",
+    "object": "reliability for reducing the risk of loss",
+    "object_type": "CONCEPT",
+    "confidence": 0.95,
+    "evidence_quote": "there is a lack of papers that: consider demand-side costs in their proposed model objectives; deal with uncertainty in funding, budget, asset and supply quantities, and infrastructure; considering prepositioning as a risk mitigation strategy; take reliability into account for reducing the risk of loss",
+    "year": 2020
+  },
+  {
+    "subject": "current literature",
+    "subject_type": "DATASET",
+    "relation": "LACKS",
+    "object": "prepositioning of medical staff and emergency crew",
+    "object_type": "CONCEPT",
+    "confidence": 0.95,
+    "evidence_quote": "there is a lack of papers that: consider demand-side costs in their proposed model objectives; deal with uncertainty in funding, budget, asset and supply quantities, and infrastructure; considering prepositioning as a risk mitigation strategy; take reliability into account for reducing the risk of loss; consider prepositioning of medical staff and emergency crew",
+    "year": 2020
+  },
+  {
+    "subject": "current literature",
+    "subject_type": "DATASET",
+    "relation": "LACKS",
+    "object": "social media to prepare for disasters",
+    "object_type": "TOOL",
+    "confidence": 0.95,
+    "evidence_quote": "there is a lack of papers that: consider demand-side costs in their proposed model objectives; deal with uncertainty in funding, budget, asset and supply quantities, and infrastructure; considering prepositioning as a risk mitigation strategy; take reliability into account for reducing the risk of loss; consider prepositioning of medical staff and emergency crew; discuss the best time to start prepositioning of supplies and assets in confronting a foreseen disaster; use social media to better prepare for upcoming disasters",
+    "year": 2020
+  },
+  {
+    "subject": "taxonomy",
+    "subject_type": "METHOD",
+    "relation": "ADDRESSES",
+    "object": "Android security",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "This paper presents a comprehensive and sound taxonomy to review the state-of-the-art approaches used in Android security.",
+    "year": 2021
+  },
+  {
+    "subject": "systematic review",
+    "subject_type": "METHOD",
+    "relation": "APPLIED_TO",
+    "object": "Android security",
     "object_type": "CONCEPT",
     "confidence": 0.85,
-    "evidence_quote": "To prevent insider threats, behavioral analysis is crucial.",
+    "evidence_quote": "To carry out this study, the proper systematic literature review process is followed and the results of nearly 200 research publications have been comprehended based on different security aspects.",
+    "year": 2021
+  },
+  {
+    "subject": "Chlorinated paraffins (CPs)",
+    "subject_type": "CONCEPT",
+    "relation": "APPLIED_TO",
+    "object": "consumer products",
+    "object_type": "CONCEPT",
+    "confidence": 0.95,
+    "evidence_quote": "Chlorinated paraffins (CPs) have been applied as additives in a wide range of consumer products",
+    "year": 2021
+  },
+  {
+    "subject": "This review",
+    "subject_type": "METHOD",
+    "relation": "ADDRESSES",
+    "object": "levels and trends of these contaminants in Africa",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "This review, therefore, examines the state of knowledge pertaining to the levels and trends of these contaminants in Africa",
+    "year": 2021
+  },
+  {
+    "subject": "Africa",
+    "subject_type": "CONCEPT",
+    "relation": "LACKS",
+    "object": "studies on SCCP concentration",
+    "object_type": "DATASET",
+    "confidence": 0.85,
+    "evidence_quote": "there are scarce/or limited studies on SCCP concentration in Africa",
+    "year": 2021
+  },
+  {
+    "subject": "SCCP inventories in Africa",
+    "subject_type": "DATASET",
+    "relation": "USES",
+    "object": "Stockholm Convention guidance document",
+    "object_type": "TOOL",
+    "confidence": 0.8,
+    "evidence_quote": "there is a need to develop robust SCCP inventories in Africa since the Stockholm Convention has already developed guidance document in this respect.",
+    "year": 2021
+  },
+  {
+    "subject": "online survey",
+    "subject_type": "METHOD",
+    "relation": "PRODUCES",
+    "object": "knowledge gaps in the prevention and control of African swine fever",
+    "object_type": "FINDING",
+    "confidence": 0.9,
+    "evidence_quote": "The most significant knowledge gaps in the prevention and control of African swine fever (ASF) were identified by the EU Veterinary services and other stakeholders involved in pig production and wild boar management through an online survey.",
+    "year": 2019
+  },
+  {
+    "subject": "research on communication methods",
+    "subject_type": "METHOD",
+    "relation": "IMPROVES",
+    "object": "awareness among all players involved in the epidemiology of ASF",
+    "object_type": "CONCEPT",
+    "confidence": 0.85,
+    "evidence_quote": "research on communication methods to increase awareness among all players involved in the epidemiology of ASF",
+    "year": 2019
+  },
+  {
+    "subject": "in-depth analysis of the possible pathways of introduction of ASFV",
+    "subject_type": "METHOD",
+    "relation": "ADDRESSES",
+    "object": "sources of ASFV introduction into unaffected countries",
+    "object_type": "CONCEPT",
+    "confidence": 0.85,
+    "evidence_quote": "Potential sources of ASFV introduction into unaffected countries need to be better understood by an in‐depth analysis of the possible pathways of introduction of ASFV",
+    "year": 2019
+  },
+  {
+    "subject": "theorization",
+    "subject_type": "CONCEPT",
+    "relation": "ADDRESSES",
+    "object": "industry-academia research gap",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "aiming to nurture the theorization process, in a way that could substantially contribute to industry’s needs and help to bridge the industry–academia research gap.",
+    "year": 2018
+  },
+  {
+    "subject": "theorization",
+    "subject_type": "CONCEPT",
+    "relation": "APPLIED_TO",
+    "object": "industry-based academic research projects",
+    "object_type": "CONCEPT",
+    "confidence": 0.8,
+    "evidence_quote": "They discuss how this focus could be instrumental in developing industry-based academic research projects.",
+    "year": 2018
+  },
+  {
+    "subject": "sustainable entrepreneurship",
+    "subject_type": "CONCEPT",
+    "relation": "ADDRESSES",
+    "object": "harmful environmental and societal impacts",
+    "object_type": "CONCEPT",
+    "confidence": 0.85,
+    "evidence_quote": "In facing the challenges of reducing harmful environmental and societal impacts created by current Unsustainable business practices, sustainable entrepreneurship (or sustainopreneurship) is increasing in importance",
+    "year": 2016
+  },
+  {
+    "subject": "sustainable entrepreneurship",
+    "subject_type": "CONCEPT",
+    "relation": "PRODUCES",
+    "object": "socially, economically, and environmentally sustainable society",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "sustainable entrepreneurship (or sustainopreneurship) is increasing in importance because it can lead to a socially, economically, and environmentally sustainable society.",
+    "year": 2016
+  },
+  {
+    "subject": "Innovation",
+    "subject_type": "METHOD",
+    "relation": "PRODUCES",
+    "object": "solutions for environmental sustainability",
+    "object_type": "CONCEPT",
+    "confidence": 0.85,
+    "evidence_quote": "Innovation is seen as key to find new solutions for environmental sustainability.",
+    "year": 2016
+  },
+  {
+    "subject": "stakeholder engagement",
+    "subject_type": "METHOD",
+    "relation": "PRODUCES",
+    "object": "innovations for sustainability",
+    "object_type": "CONCEPT",
+    "confidence": 0.85,
+    "evidence_quote": "scholars see stakeholder engagement as a new solution to create innovations for sustainability",
+    "year": 2016
+  },
+  {
+    "subject": "sustainable entrepreneurship",
+    "subject_type": "CONCEPT",
+    "relation": "LACKS",
+    "object": "empirical studies",
+    "object_type": "DATASET",
+    "confidence": 0.9,
+    "evidence_quote": "Since there have only been few empirical studies in sustainable entrepreneurship",
+    "year": 2016
+  },
+  {
+    "subject": "case study",
+    "subject_type": "METHOD",
+    "relation": "ADDRESSES",
+    "object": "university–industry collaboration in developing countries",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "This paper explores university–industry collaboration in developing countries through a case study",
+    "year": 2015
+  },
+  {
+    "subject": "in-depth semi-structured one-to-one interviews",
+    "subject_type": "METHOD",
+    "relation": "PRODUCES",
+    "object": "perceptions of four key Egyptian stakeholder groups",
+    "object_type": "FINDING",
+    "confidence": 0.85,
+    "evidence_quote": "The perceptions of four key Egyptian stakeholder groups – industry, university, government and non-governmental organisations – were identified via in-depth semi-structured one-to-one interviews.",
+    "year": 2015
+  },
+  {
+    "subject": "faculties of tourism and hotels",
+    "subject_type": "CONCEPT",
+    "relation": "LACKS",
+    "object": "research culture",
+    "object_type": "CONCEPT",
+    "confidence": 0.95,
+    "evidence_quote": "There was consensus of the absence of a research culture in faculties of tourism and hotels",
+    "year": 2015
+  },
+  {
+    "subject": "faculties of tourism and hotels",
+    "subject_type": "CONCEPT",
+    "relation": "LACKS",
+    "object": "first academic revolution",
+    "object_type": "CONCEPT",
+    "confidence": 0.95,
+    "evidence_quote": "Egyptian faculties of tourism and hotels had not undergone the first academic revolution",
+    "year": 2015
+  },
+  {
+    "subject": "university–industry research collaboration",
+    "subject_type": "CONCEPT",
+    "relation": "LACKS",
+    "object": "government interventions",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "There was no evidence of government interventions to drive university–industry research collaboration",
+    "year": 2015
+  },
+  {
+    "subject": "this study",
+    "subject_type": "METHOD",
+    "relation": "EVALUATES_ON",
+    "object": "150 research articles introductions in Computer Science disciplines",
+    "object_type": "DATASET",
+    "confidence": 0.9,
+    "evidence_quote": "this paper investigates the use of this strategy in 150 research articles introductions in Computer Science disciplines",
+    "year": 2015
+  },
+  {
+    "subject": "this study",
+    "subject_type": "METHOD",
+    "relation": "PRODUCES",
+    "object": "finding that indicating research gap is underutilized by Malaysians",
+    "object_type": "FINDING",
+    "confidence": 0.95,
+    "evidence_quote": "The finding of this study confirmed that indicating research gap” is underutilized by the Malaysians.",
+    "year": 2015
+  },
+  {
+    "subject": "this study",
+    "subject_type": "METHOD",
+    "relation": "PRODUCES",
+    "object": "four various ways on how this strategy is commonly used by the non-native writers",
+    "object_type": "FINDING",
+    "confidence": 0.9,
+    "evidence_quote": "this paper also described four various ways on how this strategy is commonly used by the non-native writers.",
+    "year": 2015
+  },
+  {
+    "subject": "Evidence mapping",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "systematic literature search",
+    "object_type": "METHOD",
+    "confidence": 0.95,
+    "evidence_quote": "Evidence mapping entails conducting a systematic literature search",
+    "year": 2020
+  },
+  {
+    "subject": "Evidence mapping",
+    "subject_type": "METHOD",
+    "relation": "ADDRESSES",
+    "object": "gaps in the scientific literature",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "Evidence mapping is a useful methodology for characterizing existing research on a broad topic and identifying gaps in the scientific literature.",
+    "year": 2020
+  },
+  {
+    "subject": "Diet-Related Fibers & Human Health Outcomes Database",
+    "subject_type": "DATASET",
+    "relation": "APPLIED_TO",
+    "object": "intervention studies examining dietary fiber",
+    "object_type": "CONCEPT",
+    "confidence": 0.85,
+    "evidence_quote": "The database captures intervention studies examining dietary fiber and 10 predefined physiological health outcomes",
+    "year": 2020
+  },
+  {
+    "subject": "whole grain database and evidence map",
+    "subject_type": "DATASET",
+    "relation": "PRODUCES",
+    "object": "need for better consistency in how whole grains are reported",
+    "object_type": "FINDING",
+    "confidence": 0.9,
+    "evidence_quote": "This work successfully highlighted the need for better consistency in how whole grains are reported",
+    "year": 2020
+  },
+  {
+    "subject": "fine-grained scientific data indicator framework",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "LLMs",
+    "object_type": "TOOL",
+    "confidence": 0.95,
+    "evidence_quote": "This paper constructs a fine-grained scientific data indicator framework using LLMs",
     "year": 2025
+  },
+  {
+    "subject": "fine-grained scientific data indicator framework",
+    "subject_type": "METHOD",
+    "relation": "APPLIED_TO",
+    "object": "carbon dioxide conversion and utilization technology",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "with empirical analysis carried out in the domain of carbon dioxide conversion and utilization technology.",
+    "year": 2025
+  },
+  {
+    "subject": "fine-grained scientific data indicator framework",
+    "subject_type": "METHOD",
+    "relation": "ADDRESSES",
+    "object": "limitations of traditional technology topic analysis",
+    "object_type": "CONCEPT",
+    "confidence": 0.95,
+    "evidence_quote": "This approach effectively addresses the inherent limitations of traditional technology topic analysis",
+    "year": 2025
+  },
+  {
+    "subject": "fine-grained scientific data indicator framework",
+    "subject_type": "METHOD",
+    "relation": "IMPROVES",
+    "object": "traditional technology topic analysis",
+    "object_type": "METHOD",
+    "confidence": 0.85,
+    "evidence_quote": "This approach effectively addresses the inherent limitations of traditional technology topic analysis, such as overly coarse metric granularity and the lack of quantitative features.",
+    "year": 2025
+  },
+  {
+    "subject": "systematic review",
+    "subject_type": "METHOD",
+    "relation": "APPLIED_TO",
+    "object": "general science",
+    "object_type": "CONCEPT",
+    "confidence": 0.85,
+    "evidence_quote": "This systematic review aims to identify and characterize current overarching trends and significant research gaps within general science",
+    "year": 2026
+  },
+  {
+    "subject": "systematic review",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "comprehensive literature search",
+    "object_type": "METHOD",
+    "confidence": 0.9,
+    "evidence_quote": "Employing a rigorous systematic review methodology, this paper synthesizes findings from a comprehensive literature search.",
+    "year": 2026
+  },
+  {
+    "subject": "systematic review",
+    "subject_type": "METHOD",
+    "relation": "PRODUCES",
+    "object": "findings",
+    "object_type": "FINDING",
+    "confidence": 0.9,
+    "evidence_quote": "Employing a rigorous systematic review methodology, this paper synthesizes findings from a comprehensive literature search.",
+    "year": 2026
+  },
+  {
+    "subject": "case vignettes",
+    "subject_type": "METHOD",
+    "relation": "ADDRESSES",
+    "object": "international servitization strategies",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "Key differences between international servitization strategies and strategic resource decisions are addressed through illustrative case vignettes from different industries.",
+    "year": 2023
+  },
+  {
+    "subject": "case vignettes",
+    "subject_type": "METHOD",
+    "relation": "ADDRESSES",
+    "object": "strategic resource decisions",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "Key differences between international servitization strategies and strategic resource decisions are addressed through illustrative case vignettes from different industries.",
+    "year": 2023
+  },
+  {
+    "subject": "services in support of product (SSPs)",
+    "subject_type": "CONCEPT",
+    "relation": "IMPROVES",
+    "object": "performance in international markets",
+    "object_type": "METRIC",
+    "confidence": 0.85,
+    "evidence_quote": "services in support of product (SSPs) and services in support of client's actions (SSCs)) that leverage their performance in international markets",
+    "year": 2023
+  },
+  {
+    "subject": "services in support of client's actions (SSCs)",
+    "subject_type": "CONCEPT",
+    "relation": "IMPROVES",
+    "object": "performance in international markets",
+    "object_type": "METRIC",
+    "confidence": 0.85,
+    "evidence_quote": "services in support of product (SSPs) and services in support of client's actions (SSCs)) that leverage their performance in international markets",
+    "year": 2023
+  },
+  {
+    "subject": "scientometric analysis",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "CiteSpace",
+    "object_type": "TOOL",
+    "confidence": 0.95,
+    "evidence_quote": "This study conducted a comprehensive scientometric analysis of NBC research applied to soils from 2012 to 2025 using CiteSpace",
+    "year": 2026
+  },
+  {
+    "subject": "scientometric analysis",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "VOSviewer",
+    "object_type": "TOOL",
+    "confidence": 0.95,
+    "evidence_quote": "using CiteSpace, VOSviewer, and Bibliometrix.",
+    "year": 2026
+  },
+  {
+    "subject": "scientometric analysis",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "Bibliometrix",
+    "object_type": "TOOL",
+    "confidence": 0.95,
+    "evidence_quote": "using CiteSpace, VOSviewer, and Bibliometrix.",
+    "year": 2026
+  },
+  {
+    "subject": "methodology",
+    "subject_type": "METHOD",
+    "relation": "COMBINES",
+    "object": "co-occurrence mapping",
+    "object_type": "METHOD",
+    "confidence": 0.9,
+    "evidence_quote": "The methodology combined co-occurrence mapping, thematic evolution, citation burst detection, and an author-level productivity assessment",
+    "year": 2026
+  },
+  {
+    "subject": "methodology",
+    "subject_type": "METHOD",
+    "relation": "COMBINES",
+    "object": "thematic evolution",
+    "object_type": "METHOD",
+    "confidence": 0.9,
+    "evidence_quote": "The methodology combined co-occurrence mapping, thematic evolution, citation burst detection, and an author-level productivity assessment",
+    "year": 2026
+  },
+  {
+    "subject": "methodology",
+    "subject_type": "METHOD",
+    "relation": "COMBINES",
+    "object": "citation burst detection",
+    "object_type": "METHOD",
+    "confidence": 0.9,
+    "evidence_quote": "The methodology combined co-occurrence mapping, thematic evolution, citation burst detection, and an author-level productivity assessment",
+    "year": 2026
+  },
+  {
+    "subject": "methodology",
+    "subject_type": "METHOD",
+    "relation": "COMBINES",
+    "object": "author-level productivity assessment",
+    "object_type": "METHOD",
+    "confidence": 0.9,
+    "evidence_quote": "The methodology combined co-occurrence mapping, thematic evolution, citation burst detection, and an author-level productivity assessment",
+    "year": 2026
+  },
+  {
+    "subject": "author-level productivity assessment",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "h-index",
+    "object_type": "METRIC",
+    "confidence": 0.95,
+    "evidence_quote": "author-level productivity assessment through h-index, g-index, and m-index evaluation.",
+    "year": 2026
+  },
+  {
+    "subject": "author-level productivity assessment",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "h-index",
+    "object_type": "METRIC",
+    "confidence": 0.95,
+    "evidence_quote": "author-level productivity assessment through h-index, g-index, and m-index evaluation.",
+    "year": 2026
+  },
+  {
+    "subject": "author-level productivity assessment",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "h-index",
+    "object_type": "METRIC",
+    "confidence": 0.95,
+    "evidence_quote": "author-level productivity assessment through h-index, g-index, and m-index evaluation.",
+    "year": 2026
+  },
+  {
+    "subject": "MMR literature",
+    "subject_type": "CONCEPT",
+    "relation": "LACKS",
+    "object": "discussion about research problems",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "the MMR literature offers a very limited discussion about “research problems.”",
+    "year": 2023
+  },
+  {
+    "subject": "Elliott’s conceptual framework",
+    "subject_type": "CONCEPT",
+    "relation": "ADDRESSES",
+    "object": "discussion about research problems",
+    "object_type": "CONCEPT",
+    "confidence": 0.85,
+    "evidence_quote": "To address this gap, this paper uses Elliott’s conceptual framework to offer guidance on how to identify and formulate research problems in MMR",
+    "year": 2023
+  },
+  {
+    "subject": "conceptual and methodological approach",
+    "subject_type": "METHOD",
+    "relation": "APPLIED_TO",
+    "object": "social and cultural contexts",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "offering a conceptual and methodological approach to describing and characterizing research problems for investigation in social and cultural contexts.",
+    "year": 2023
+  },
+  {
+    "subject": "systematic review",
+    "subject_type": "METHOD",
+    "relation": "APPLIED_TO",
+    "object": "teacher leadership research",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "Using a systematic literature review methodology, this study identifies a fluctuating yet declining trend in publications on teacher leadership.",
+    "year": 2025
+  },
+  {
+    "subject": "systematic review",
+    "subject_type": "METHOD",
+    "relation": "PRODUCES",
+    "object": "fluctuating yet declining trend in publications on teacher leadership",
+    "object_type": "FINDING",
+    "confidence": 0.92,
+    "evidence_quote": "Using a systematic literature review methodology, this study identifies a fluctuating yet declining trend in publications on teacher leadership.",
+    "year": 2025
+  },
+  {
+    "subject": "teacher leadership research",
+    "subject_type": "CONCEPT",
+    "relation": "LACKS",
+    "object": "empirical studies investigating practical applications",
+    "object_type": "METHOD",
+    "confidence": 0.88,
+    "evidence_quote": "Existing research predominantly focuses on theoretical exploration, conceptual clarification, and constructing theoretical frameworks, while empirical studies investigating practical applications remain scarce.",
+    "year": 2025
+  },
+  {
+    "subject": "systematic review",
+    "subject_type": "METHOD",
+    "relation": "ADDRESSES",
+    "object": "transition probabilities between childhood dental health states",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "This systematic review aimed to synthesize evidence on transition probabilities between childhood dental health states across diverse study designs and populations.",
+    "year": 2026
+  },
+  {
+    "subject": "methodological quality appraisal",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "JBI checklists",
+    "object_type": "TOOL",
+    "confidence": 0.95,
+    "evidence_quote": "methodological quality was appraised using established tools such as JBI checklists.",
+    "year": 2026
+  },
+  {
+    "subject": "Multi-state models",
+    "subject_type": "METHOD",
+    "relation": "PRODUCES",
+    "object": "bidirectional transitions and potential lesion reactivation",
+    "object_type": "FINDING",
+    "confidence": 0.85,
+    "evidence_quote": "Multi-state models capturing lesion depth and activity appear to reflect bidirectional transitions and potential lesion reactivation",
+    "year": 2026
+  },
+  {
+    "subject": "simpler two-state models",
+    "subject_type": "METHOD",
+    "relation": "PRODUCES",
+    "object": "unidirectional onset",
+    "object_type": "FINDING",
+    "confidence": 0.85,
+    "evidence_quote": "whereas simpler two-state models tend to reflect unidirectional onset.",
+    "year": 2026
+  },
+  {
+    "subject": "evidence",
+    "subject_type": "DATASET",
+    "relation": "LACKS",
+    "object": "robustness and comparability",
+    "object_type": "METRIC",
+    "confidence": 0.8,
+    "evidence_quote": "Methodological limitations, including bias, variability in lesion assessment, incomplete confounder adjustment, and restrictive modeling assumptions, reduced the robustness and comparability of the evidence.",
+    "year": 2026
+  },
+  {
+    "subject": "systematic review",
+    "subject_type": "METHOD",
+    "relation": "PRODUCES",
+    "object": "supporting data for current model-based research on pediatric caries progression",
+    "object_type": "FINDING",
+    "confidence": 0.9,
+    "evidence_quote": "this review offers supporting data for current model-based research on pediatric caries progression",
+    "year": 2026
+  },
+  {
+    "subject": "bibliometric analysis",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "Scopus",
+    "object_type": "DATASET",
+    "confidence": 0.9,
+    "evidence_quote": "retrieving bibliographic data from Scopus",
+    "year": 2025
+  },
+  {
+    "subject": "bibliometric analysis",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "OpenRefine",
+    "object_type": "TOOL",
+    "confidence": 0.95,
+    "evidence_quote": "refining and cleaning it using OpenRefine",
+    "year": 2025
+  },
+  {
+    "subject": "bibliometric analysis",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "Mendeley",
+    "object_type": "TOOL",
+    "confidence": 0.95,
+    "evidence_quote": "refining and cleaning it using OpenRefine and Mendeley",
+    "year": 2025
+  },
+  {
+    "subject": "bibliometric analysis",
+    "subject_type": "METHOD",
+    "relation": "USES",
+    "object": "VOSviewer",
+    "object_type": "TOOL",
+    "confidence": 0.95,
+    "evidence_quote": "analyzing it through VOSviewer",
+    "year": 2025
+  },
+  {
+    "subject": "Artificial Intelligence",
+    "subject_type": "CONCEPT",
+    "relation": "APPLIED_TO",
+    "object": "performance evaluation",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "The integration of Artificial Intelligence (AI) into performance evaluation",
+    "year": 2025
+  },
+  {
+    "subject": "scoping review",
+    "subject_type": "METHOD",
+    "relation": "ADDRESSES",
+    "object": "geographic distribution, methodological characteristics, and thematic priorities of published research",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "This scoping review systematically examines geographic distribution, methodological characteristics, and thematic priorities of published research",
+    "year": 2026
+  },
+  {
+    "subject": "scoping review",
+    "subject_type": "METHOD",
+    "relation": "EVALUATES_ON",
+    "object": "171 peer-reviewed studies on human MERS-CoV",
+    "object_type": "DATASET",
+    "confidence": 0.9,
+    "evidence_quote": "A total of 171 peer-reviewed studies on human MERS-CoV were included",
+    "year": 2026
+  },
+  {
+    "subject": "epidemiology and surveillance",
+    "subject_type": "CONCEPT",
+    "relation": "USES",
+    "object": "case fatality rate",
+    "object_type": "METRIC",
+    "confidence": 0.85,
+    "evidence_quote": "Epidemiology and surveillance constituted the primary research focus (∼24%), with case fatality rate being the most frequently reported metric (43.9%).",
+    "year": 2026
+  },
+  {
+    "subject": "evidence base",
+    "subject_type": "DATASET",
+    "relation": "LACKS",
+    "object": "expanded research scope",
+    "object_type": "CONCEPT",
+    "confidence": 0.9,
+    "evidence_quote": "Overall, the evidence base reflects geographic concentration, methodological heterogeneity, and thematic limitations, underscoring the need for expanded research scope",
+    "year": 2026
   }
 ]

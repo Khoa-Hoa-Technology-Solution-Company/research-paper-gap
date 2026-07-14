@@ -1,122 +1,506 @@
 [
   {
-    "Grounds": "The paper focuses exclusively on JWT token verification at the proxy layer within an Istio/Kubernetes environment.",
-    "Claim": "The framework lacks support for dynamic, fine-grained attribute-based access control (ABAC) that requires external policy decision points.",
-    "Warrant": "JWTs are static by nature; relying solely on them limits the ability to make authorization decisions based on real-time environmental context or changing user attributes, which is critical for complex microservice architectures.",
+    "Grounds": "The abstract highlights the need to 'minimize the difficulty of adopting SW in healthcare systems' and establish 'new approaches for SW-based medical systems’ progress.'",
+    "Claim": "There is a lack of standardized frameworks for evaluating the usability, workflow integration, and user acceptance of Semantic Web-based tools among medical practitioners in real-world clinical settings.",
+    "Warrant": "Even if Semantic Web technologies solve data interoperability issues, they will fail to improve healthcare outcomes if they are not seamlessly integrated into clinical workflows or if they increase the cognitive load on medical practitioners.",
     "Bucket": "more_probable",
-    "source_paper": "Distributed Authorization in Service Meshes using Envoy Proxy and JWT tokens",
+    "source_paper": "Semantic Web in Healthcare: A Systematic Literature Review of Application, Research Gap, and Future Research Avenues",
     "type": "simple_llm"
   },
   {
-    "Grounds": "The evaluation is conducted on standard Kubernetes clusters without mention of multi-cluster or multi-cloud interoperability.",
-    "Claim": "The scalability and consistency of the distributed authorization framework across heterogeneous, multi-cloud service mesh deployments remain unaddressed.",
-    "Warrant": "In modern enterprise environments, service meshes often span multiple clusters and cloud providers; ensuring consistent authorization policy propagation and low-latency verification in these distributed topologies is a significant unresolved challenge.",
+    "Grounds": "The abstract identifies 'letting the information exchange across heterogeneous sources and methods as well as establishing efficient tools and techniques' as a key challenge.",
+    "Claim": "There is a need for scalable, automated ontology alignment and data translation techniques that can handle real-time, heterogeneous streaming data from IoT and wearable medical devices.",
+    "Warrant": "Manual ontology mapping is too slow and resource-intensive for high-velocity healthcare data, meaning automated semantic translation is necessary to enable real-time patient monitoring and timely clinical decision support.",
     "Bucket": "more_probable",
-    "source_paper": "Distributed Authorization in Service Meshes using Envoy Proxy and JWT tokens",
+    "source_paper": "Semantic Web in Healthcare: A Systematic Literature Review of Application, Research Gap, and Future Research Avenues",
     "type": "simple_llm"
   },
   {
-    "Grounds": "The abstract highlights performance improvements in authorization speed but does not address security lifecycle management.",
-    "Claim": "The framework does not provide a mechanism for automated token revocation or short-lived credential rotation in the event of a proxy compromise.",
-    "Warrant": "JWTs are stateless and difficult to revoke before expiration; without a robust revocation mechanism integrated into the proxy layer, a compromised token remains valid, creating a significant security vulnerability in a distributed environment.",
+    "Grounds": "The abstract identifies 'regulatory conditions' as one of the five core themes and notes the challenges in adopting SW in healthcare systems.",
+    "Claim": "There is a lack of semantic models that dynamically integrate complex, jurisdiction-specific healthcare privacy regulations (such as GDPR and HIPAA) directly into data access control policies.",
+    "Warrant": "Because healthcare data is highly sensitive, Semantic Web systems cannot be widely adopted for cross-institutional or international collaboration without automated, legally compliant reasoning mechanisms that enforce data privacy rules at the data layer.",
     "Bucket": "least_probable",
-    "source_paper": "Distributed Authorization in Service Meshes using Envoy Proxy and JWT tokens",
+    "source_paper": "Semantic Web in Healthcare: A Systematic Literature Review of Application, Research Gap, and Future Research Avenues",
     "type": "simple_llm"
   },
   {
-    "Grounds": "The abstract focuses on automating policy enforcement for mTLS but does not mention performance overhead.",
-    "Claim": "The impact of automated mTLS policy enforcement on service mesh latency and resource consumption remains unquantified.",
-    "Warrant": "Automated security layers often introduce computational overhead; understanding this trade-off is critical for high-performance cloud-native environments.",
+    "Grounds": "The study limits its genre analysis of research gap strategies to English Language Teaching (ELT) research articles.",
+    "Claim": "Investigating research gap strategies across different academic disciplines beyond ELT, such as STEM or hard sciences.",
+    "Warrant": "Rhetorical conventions and the construction of novelty vary significantly across disciplines, meaning ELT-specific findings cannot be generalized to other academic fields.",
     "Bucket": "more_probable",
-    "source_paper": "Security Policies and mTLS in Istio Service Mesh",
+    "source_paper": "Previous studies have several limitations …: Indonesian Doctoral Students’, Indonesian Academics’, and International Authors’ Research Gap Strategies in ELT Research Article Abstracts and Introductions",
     "type": "simple_llm"
   },
   {
-    "Grounds": "The abstract addresses zero-trust requirements in cloud-native applications generally without specifying multi-cluster or hybrid-cloud environments.",
-    "Claim": "The effectiveness of the proposed automation tool in complex, multi-cluster, or cross-cloud Istio deployments is unexplored.",
-    "Warrant": "Security policies in distributed systems often face configuration drift and synchronization issues across heterogeneous network boundaries.",
+    "Grounds": "The qualitative analysis of problems encountered in identifying research gaps was limited to semi-structured interviews with ten doctoral students.",
+    "Claim": "Examining the specific challenges and problems encountered by established Indonesian academics and international authors in identifying and articulating research gaps.",
+    "Warrant": "Experienced academics and international authors may face different systemic or conceptual hurdles compared to doctoral students, which must be understood to support professional academic writing development.",
     "Bucket": "more_probable",
-    "source_paper": "Security Policies and mTLS in Istio Service Mesh",
+    "source_paper": "Previous studies have several limitations …: Indonesian Doctoral Students’, Indonesian Academics’, and International Authors’ Research Gap Strategies in ELT Research Article Abstracts and Introductions",
     "type": "simple_llm"
   },
   {
-    "Grounds": "The abstract focuses on mTLS configuration and policy enforcement but omits discussion of policy lifecycle management or revocation.",
-    "Claim": "The research lacks a framework for the dynamic lifecycle management and automated revocation of mTLS certificates within the policy enforcement tool.",
-    "Warrant": "Security is not static; without automated revocation and rotation mechanisms, the system remains vulnerable to compromised credentials that persist beyond policy updates.",
+    "Grounds": "The study focuses exclusively on research gap strategies in research article abstracts and introductions.",
+    "Claim": "Analyzing how research gaps are revisited, justified, and resolved in the Discussion and Conclusion sections of research articles.",
+    "Warrant": "While abstracts and introductions establish the gap, the rhetorical moves used to show how the gap was successfully addressed in the later sections of the paper remain unexplored.",
+    "Bucket": "more_probable",
+    "source_paper": "Previous studies have several limitations …: Indonesian Doctoral Students’, Indonesian Academics’, and International Authors’ Research Gap Strategies in ELT Research Article Abstracts and Introductions",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The study limits its dataset to \"Forty RAs from eight Scopus-indexed journals in the field of English Language Teaching (ELT)\".",
+    "Claim": "There is a need to investigate research gap strategies in research article introductions across Scopus quartiles in other disciplines, such as STEM or other social sciences.",
+    "Warrant": "Rhetorical conventions for establishing research gaps differ significantly between soft sciences (like ELT) and hard sciences, meaning the findings of this study cannot be generalized to other academic fields.",
+    "Bucket": "more_probable",
+    "source_paper": "The authors’ research gap strategies in ELT research article introductions: Does Scopus journal quartile matter?",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The study relies on a small sample size of \"Forty RAs from eight Scopus-indexed journals\" (averaging only 10 articles per Scopus quartile).",
+    "Claim": "Future research should conduct a large-scale corpus analysis of research gap strategies across Scopus quartiles to validate these findings.",
+    "Warrant": "A small sample size of 40 articles may lead to idiosyncratic findings that do not accurately represent the broader publishing standards and variations across Q1-Q4 journals.",
+    "Bucket": "more_probable",
+    "source_paper": "The authors’ research gap strategies in ELT research article introductions: Does Scopus journal quartile matter?",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The investigation is restricted specifically to \"research article introductions (RAIs)\".",
+    "Claim": "Future studies should examine how research gaps are framed and addressed in other sections of research articles, such as the Discussion or Conclusion.",
+    "Warrant": "Authors often re-state, expand upon, or justify the resolution of research gaps in later sections of a paper, and understanding this holistic structure is necessary to provide comprehensive guidance to novice writers.",
+    "Bucket": "more_probable",
+    "source_paper": "The authors’ research gap strategies in ELT research article introductions: Does Scopus journal quartile matter?",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract highlights a lack of papers that 'consider prepositioning of medical staff and emergency crew'.",
+    "Claim": "Future research should develop optimization models specifically tailored for the prepositioning and scheduling of human resources, such as medical staff and emergency response crews, prior to a disaster.",
+    "Warrant": "Human resources cannot be managed like static physical inventory; they involve complex constraints such as shift limits, fatigue, specialized skill sets, and safety protocols, requiring distinct modeling approaches to ensure timely medical response.",
+    "Bucket": "more_probable",
+    "source_paper": "Prepositioning of assets and supplies in disaster operations management: Review and research gap identification",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract notes a lack of papers that 'discuss the best time to start prepositioning of supplies and assets in confronting a foreseen disaster'.",
+    "Claim": "There is a need to formulate dynamic, time-indexed decision models that determine the optimal timing and trigger points to initiate prepositioning operations for forecasted disaster events.",
+    "Warrant": "Determining the exact timing of prepositioning is critical because initiating it too early risks wasting resources if the disaster path changes, while initiating it too late risks facing compromised infrastructure and blocked supply routes.",
+    "Bucket": "more_probable",
+    "source_paper": "Prepositioning of assets and supplies in disaster operations management: Review and research gap identification",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract identifies a lack of papers that 'use social media to better prepare for upcoming disasters'.",
+    "Claim": "Research is needed to integrate real-time social media data streams into pre-disaster prepositioning and demand forecasting models.",
+    "Warrant": "Social media data is highly unstructured, noisy, and transient, making it technically challenging to couple with traditional operations research models, yet it offers invaluable real-time insights into public behavior and localized needs.",
     "Bucket": "least_probable",
-    "source_paper": "Security Policies and mTLS in Istio Service Mesh",
+    "source_paper": "Prepositioning of assets and supplies in disaster operations management: Review and research gap identification",
     "type": "simple_llm"
   },
   {
-    "Grounds": "The abstract focuses on building normal behavior baselines using autoencoders for high-volume system calls in microservices.",
-    "Claim": "The research fails to address the temporal dependencies and sequential nature of microservice communication patterns.",
-    "Warrant": "Autoencoders often treat input data as independent samples, potentially missing complex, time-evolving attack vectors that manifest across distributed service chains.",
+    "Grounds": "The abstract states that 'each attack has become more damaging to the platform' and emphasizes the need to 'develop more stringent counter-measures to defend the mobile systems.'",
+    "Claim": "Development of real-time, adaptive mitigation frameworks capable of neutralizing highly damaging runtime attacks on Android devices.",
+    "Warrant": "Passive detection mechanisms are insufficient when attacks cause immediate, severe damage; active runtime mitigation is required to minimize payload impact.",
     "Bucket": "more_probable",
-    "source_paper": "Unsupervised Anomaly Detection using Autoencoders in Cloud-Native Networks",
+    "source_paper": "Android security assessment: A review, taxonomy and research gap study",
     "type": "simple_llm"
   },
   {
-    "Grounds": "The method is evaluated solely on static intrusion datasets.",
-    "Claim": "There is a lack of evaluation regarding the model's performance in dynamic, concept-drifting cloud-native environments.",
-    "Warrant": "Microservices frequently update and scale, causing the definition of 'normal' behavior to shift; a static baseline will likely result in high false-positive rates in production.",
+    "Grounds": "The abstract notes that despite progress in 'detection and mitigation of Android security, yet numerous challenges and gaps still exist.'",
+    "Claim": "Systematic evaluation of detection gaps concerning advanced evasion techniques such as dynamic code loading and multi-stage payloads.",
+    "Warrant": "Identifying specific gaps in current detection tools against evasion techniques is critical to designing next-generation analysis frameworks.",
     "Bucket": "more_probable",
-    "source_paper": "Unsupervised Anomaly Detection using Autoencoders in Cloud-Native Networks",
+    "source_paper": "Android security assessment: A review, taxonomy and research gap study",
     "type": "simple_llm"
   },
   {
-    "Grounds": "The abstract mentions using autoencoders for anomaly detection without specifying explainability mechanisms.",
-    "Claim": "The research does not provide a framework for interpreting the latent space representations to explain why a specific system call was flagged as anomalous.",
-    "Warrant": "In cloud-native security, black-box detection is insufficient for incident response; security teams require actionable insights to distinguish between malicious activity and benign system updates.",
+    "Grounds": "The abstract mentions reviewing 'nearly 200 research publications' to identify trends in 'objectives, analysis techniques, code representations, tools and frameworks.'",
+    "Claim": "Empirical benchmarking of the performance and resource overhead of the reviewed analysis tools on resource-constrained Android devices.",
+    "Warrant": "Many academic security frameworks are computationally expensive, making their practical deployment on physical mobile devices challenging without optimization studies.",
     "Bucket": "least_probable",
-    "source_paper": "Unsupervised Anomaly Detection using Autoencoders in Cloud-Native Networks",
+    "source_paper": "Android security assessment: A review, taxonomy and research gap study",
     "type": "simple_llm"
   },
   {
-    "Grounds": "The method relies exclusively on system call telemetry to detect behavioral changes.",
-    "Claim": "The research needs to investigate the integration of multi-modal telemetry data, such as application logs and network traffic, to improve detection accuracy.",
-    "Warrant": "System calls alone may fail to capture drift occurring at the application logic or API interaction level, leading to false negatives in complex microservice architectures.",
+    "Grounds": "The abstract states that 'there are scarce/or limited studies on SCCP concentration in Africa, particularly on consumer products, landfill leachates and sediment samples.'",
+    "Claim": "There is a lack of data regarding SCCP concentrations in consumer products, landfill leachates, and sediment samples within the African continent.",
+    "Warrant": "Quantifying SCCPs in these specific matrices is essential to identify primary exposure pathways and environmental sinks, which is critical for risk assessment and mitigation.",
     "Bucket": "more_probable",
-    "source_paper": "Real-time Drift Detection for Microservice System Telemetry",
+    "source_paper": "Status of short-chain chlorinated paraffins in matrices and research gap priorities in Africa: a review",
     "type": "simple_llm"
   },
   {
-    "Grounds": "The abstract focuses on detection but does not mention automated remediation or root cause analysis.",
-    "Claim": "Future research should explore automated drift remediation strategies or root cause diagnosis triggered by the detection tool.",
-    "Warrant": "Detecting drift is only the first step in operational stability; without automated recovery or diagnostic context, the mean time to repair (MTTR) remains high.",
+    "Grounds": "The abstract notes that 'there still remains a huge research gap in the continent of Africa on SCCPs. Consequently, there is a need to develop robust SCCP inventories in Africa...'",
+    "Claim": "There is an absence of robust, comprehensive SCCP inventories across African nations.",
+    "Warrant": "Establishing these inventories is crucial for regulatory compliance with the Stockholm Convention and for tracking the lifecycle of imported SCCPs to prevent environmental contamination.",
     "Bucket": "more_probable",
-    "source_paper": "Real-time Drift Detection for Microservice System Telemetry",
+    "source_paper": "Status of short-chain chlorinated paraffins in matrices and research gap priorities in Africa: a review",
     "type": "simple_llm"
   },
   {
-    "Grounds": "The scope is limited to containerized environments without specifying performance overhead or scalability in massive-scale distributed systems.",
-    "Claim": "The research needs to evaluate the performance overhead and scalability of the detection tool in high-throughput, massive-scale microservice clusters.",
-    "Warrant": "Real-time monitoring tools often introduce significant latency or resource consumption; understanding the trade-off between detection sensitivity and system performance is critical for production deployment.",
+    "Grounds": "The abstract mentions that 'published studies on SCCP concentration in the continent include SCCPs in egg samples, e-waste recycling area and indoor dust in Ghana and South Africa, despite absence of any production of SCCPs in Africa.'",
+    "Claim": "There is a lack of geographical diversity in SCCP research across Africa, with studies heavily restricted to Ghana and South Africa.",
+    "Warrant": "Without broader geographical data, it is impossible to understand the true scale of SCCP contamination, transport, and accumulation across the diverse regions of the entire African continent.",
     "Bucket": "least_probable",
-    "source_paper": "Real-time Drift Detection for Microservice System Telemetry",
+    "source_paper": "Status of short-chain chlorinated paraffins in matrices and research gap priorities in Africa: a review",
     "type": "simple_llm"
   },
   {
-    "Grounds": "The paper lacks direct integration with Envoy JWT authorization rules.",
-    "Claim": "Develop a mechanism to correlate anomaly detection scores with JWT-based identity and authorization metadata.",
-    "Warrant": "Without JWT integration, the system cannot distinguish between malicious behavior and legitimate actions performed by authorized users, leading to potential false positives in access-controlled environments.",
+    "Grounds": "The abstract states there is a 'need for research on ASFV survival and transmission from the environment, different products such as feed and feed materials, and potential arthropod vector transmission.'",
+    "Claim": "The specific mechanisms, survival rates, and transmission dynamics of ASFV through environmental reservoirs, feed ingredients, and potential arthropod vectors remain poorly understood.",
+    "Warrant": "Resolving this gap is critical to preventing indirect transmission of the virus, which can bypass traditional biosecurity measures and lead to unexpected outbreaks in domestic pig populations.",
     "Bucket": "more_probable",
-    "source_paper": "Lightweight Anomaly Detection inside Sidecar Proxies",
+    "source_paper": "Research gap analysis on African swine fever",
     "type": "simple_llm"
   },
   {
-    "Grounds": "The tool evaluates on microservice traffic but does not specify cross-service context.",
-    "Claim": "Investigate the impact of distributed tracing (e.g., OpenTelemetry) on the accuracy of sidecar-based anomaly detection.",
-    "Warrant": "Microservices are interdependent; analyzing traffic at a single sidecar proxy in isolation ignores the propagation of anomalies across the service mesh, which is critical for identifying complex attack chains.",
+    "Grounds": "The abstract highlights 'the need for better knowledge on wild boar management and surveillance, and improved knowledge on the possible mechanism for spread and persistence of ASF in wild boar populations.'",
+    "Claim": "There is a lack of effective management strategies, surveillance protocols, and epidemiological models to control the spread and long-term persistence of ASFV within wild boar populations.",
+    "Warrant": "Wild boars act as a major natural reservoir; without understanding how the virus persists in these populations and how to manage them, eradication of the disease and prevention of spillover to domestic pigs is extremely difficult.",
     "Bucket": "more_probable",
-    "source_paper": "Lightweight Anomaly Detection inside Sidecar Proxies",
+    "source_paper": "Research gap analysis on African swine fever",
     "type": "simple_llm"
   },
   {
-    "Grounds": "The focus is on lightweight detection inside sidecar proxies.",
-    "Claim": "Evaluate the trade-off between detection latency and resource overhead when scaling to high-throughput, multi-tenant environments.",
-    "Warrant": "Sidecar proxies share resources with the application container; if the anomaly detection logic is not optimized for extreme scale, it may introduce performance bottlenecks that degrade the overall microservice responsiveness.",
+    "Grounds": "The abstract notes the need 'to identify risk factors for ASFV entry into domestic pig holdings, to develop protocols to implement specific and appropriate biosecurity measures, and to improve the knowledge about the domestic pig–wild boar interface.'",
+    "Claim": "Current biosecurity protocols lack specificity for preventing ASFV entry at the domestic pig-wild boar interface, and the precise risk factors driving this transmission interface are not fully characterized.",
+    "Warrant": "Developing targeted biosecurity protocols based on quantified risk factors at this interface is essential to protect domestic swine farms from spillover events originating from infected wild populations.",
+    "Bucket": "more_probable",
+    "source_paper": "Research gap analysis on African swine fever",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract states that the authors present a 'research perspective' and an 'explicit articulation' of how academic research could focus on theorization, but does not mention any empirical testing, case studies, or validation of this perspective in actual industry-academia projects.",
+    "Claim": "There is a lack of empirical validation and case studies demonstrating the practical effectiveness and real-world outcomes of applying this theorization-focused framework to industry-academia collaborations.",
+    "Warrant": "Without empirical testing, it remains unproven whether focusing on theorization actually helps bridge the gap in practice, or if it inadvertently alienates industry partners who prioritize immediate, applied, and non-theoretical solutions.",
+    "Bucket": "more_probable",
+    "source_paper": "Theorization and industry-based research project development: Bridging the industry–academia research gap",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract notes that the theorization process aims to 'substantially contribute to industry’s needs' but does not specify the mechanisms or methodologies required to align abstract academic theories with diverse, fast-paced, and practical industry requirements.",
+    "Claim": "The literature lacks concrete methodologies or translation frameworks to align academic theorization processes with the heterogeneous, short-term, and highly specific needs of different industry sectors.",
+    "Warrant": "Because academic and industry timelines and goals differ significantly, a structured translation mechanism is necessary to ensure that theoretical contributions can be successfully operationalized into commercial or industrial value.",
+    "Bucket": "more_probable",
+    "source_paper": "Theorization and industry-based research project development: Bridging the industry–academia research gap",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract highlights that 'sustainably bridging' the gap is an ongoing concern, yet it does not address how to measure or evaluate the long-term sustainability and mutual benefits of this theorization-based approach over time.",
+    "Claim": "There is a lack of longitudinal studies and established metrics/KPIs to evaluate the long-term sustainability, health, and mutual ROI of theorization-focused research projects for both academic institutions and industry partners.",
+    "Warrant": "Longitudinal evaluation is critical to determine if theorization-based projects lead to sustained partnerships and continuous innovation, or if they suffer from high attrition rates once initial academic publications are secured.",
     "Bucket": "least_probable",
-    "source_paper": "Lightweight Anomaly Detection inside Sidecar Proxies",
+    "source_paper": "Theorization and industry-based research project development: Bridging the industry–academia research gap",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "Since there have only been few empirical studies in sustainable entrepreneurship ,the conditions, processes, features and outcomes that distinct this form of entrepreneurship are yet to be defined.",
+    "Claim": "There is a lack of empirical research defining the unique conditions, processes, features, and outcomes that distinguish sustainable entrepreneurship from traditional entrepreneurship.",
+    "Warrant": "Defining these distinct characteristics empirically is essential for researchers to build valid measurement instruments and for policymakers to design support mechanisms tailored to sustainable ventures.",
+    "Bucket": "more_probable",
+    "source_paper": "Research Gap in Sustainopreneurship",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "scholars see stakeholder engagement as a new solution to create innovations for sustainability and environmental sustainability in particular. Since there have only been few empirical studies in sustainable entrepreneurship... very limited researchers have taken regarding such issue.",
+    "Claim": "The specific role and mechanisms of stakeholder engagement in driving sustainable and environmental innovation within sustainopreneurship are not well understood.",
+    "Warrant": "Resolving this gap allows sustainable entrepreneurs to systematically integrate stakeholder feedback to foster innovation, reducing the risk of unsustainable business practices.",
+    "Bucket": "more_probable",
+    "source_paper": "Research Gap in Sustainopreneurship",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "More researchers need to be done to provide conceptual basis for stimulating scholarly thought and improving the understanding of sustainable entrepreneurship as an important field within entrepreneurship research and to perceive ultimate and definite concept of sustainability entrepreneurship.",
+    "Claim": "There is a lack of a unified, definitive conceptual framework that establishes the theoretical foundations of sustainability entrepreneurship.",
+    "Warrant": "Without a standardized conceptual basis, the field remains fragmented, hindering comparative academic analysis and the development of cohesive educational curricula.",
+    "Bucket": "least_probable",
+    "source_paper": "Research Gap in Sustainopreneurship",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "There was no evidence of government interventions to drive university–industry research collaboration for the tourism and hospitality industry, despite its undoubted importance to the Egyptian economy.",
+    "Claim": "Future research needs to investigate and design specific government policy frameworks and intervention models that can successfully incentivize and facilitate university-industry research collaboration in the tourism sectors of developing nations.",
+    "Warrant": "Developing and testing concrete policy intervention models is essential to provide governments with actionable strategies to bridge the collaboration gap, thereby preventing negative economic and social development impacts.",
+    "Bucket": "more_probable",
+    "source_paper": "Bridging the hospitality and tourism university–industry research gap in developing countries: The case of Egypt",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "Egyptian faculties of tourism and hotels had not undergone the first academic revolution experienced in the US and Europe in the late 19th century.",
+    "Claim": "There is a need to explore the institutional pathways, barriers, and strategies required for tourism and hospitality faculties in developing countries to undergo their own academic revolutions and transition into research-active institutions.",
+    "Warrant": "Directly applying historical Western models of academic evolution may fail in modern developing contexts; hence, identifying localized institutional transition pathways is critical for building a sustainable research culture.",
+    "Bucket": "least_probable",
+    "source_paper": "Bridging the hospitality and tourism university–industry research gap in developing countries: The case of Egypt",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "There was consensus of the absence of a research culture in faculties of tourism and hotels where social science research was perceived as having little/no value except as a part of academic degrees or for promotional purposes, rather than for knowledge creation or to inform industry’s practices.",
+    "Claim": "Research is required to identify effective incentive structures and collaborative mechanisms that align academic promotion criteria with industry-oriented knowledge creation to shift stakeholder perceptions of social science research.",
+    "Warrant": "Without understanding how to realign academic incentives and demonstrate the practical value of social science research to industry stakeholders, efforts to foster collaboration will remain superficial and fail to impact industry practices.",
+    "Bucket": "more_probable",
+    "source_paper": "Bridging the hospitality and tourism university–industry research gap in developing countries: The case of Egypt",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The study is limited to '150 research articles introductions in Computer Science disciplines written by academicians in Malaysian Universities.'",
+    "Claim": "The rhetorical strategies for indicating research gaps used by non-native English writers in other academic disciplines and other geographical/cultural regions remain unexamined.",
+    "Warrant": "Writing conventions and rhetorical expectations differ significantly across disciplines and cultural contexts, so findings from Malaysian Computer Science writers cannot be assumed to apply universally to all non-native English writers.",
+    "Bucket": "more_probable",
+    "source_paper": "\"Indicating a Research Gap\" in Computer Science Research Article Introductions by Non-Native English Writers",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract states that the identified 'confirmation and authentic examples may be useful in the teaching and learning of research article writing.'",
+    "Claim": "The empirical effectiveness of incorporating these specific four strategies and authentic examples into academic writing curricula for non-native English writers has not been tested.",
+    "Warrant": "Without empirical evaluation of pedagogical interventions, it is unknown whether teaching these specific strategies actually translates to improved publication success or writing quality for non-native scholars.",
+    "Bucket": "more_probable",
+    "source_paper": "\"Indicating a Research Gap\" in Computer Science Research Article Introductions by Non-Native English Writers",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The study confirms that 'indicating research gap' is underutilized by Malaysian writers and describes how it is used, but does not investigate the reasons behind this underutilization.",
+    "Claim": "The underlying socio-cultural, cognitive, or institutional factors that lead to the underutilization of the research gap strategy among non-native English writers need to be investigated.",
+    "Warrant": "Identifying the root causes of this underutilization is crucial for designing targeted educational interventions that address the specific barriers (e.g., cultural perceptions of authority or lack of training) faced by these writers.",
+    "Bucket": "more_probable",
+    "source_paper": "\"Indicating a Research Gap\" in Computer Science Research Article Introductions by Non-Native English Writers",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract notes that 'This work successfully highlighted the need for better consistency in how whole grains are reported with respect to amount and type of whole grains and intervention compliance.'",
+    "Claim": "There is a lack of standardized reporting methodologies and compliance metrics for whole grain interventions in clinical research.",
+    "Warrant": "Establishing standardized reporting for the type, quantity, and compliance of whole grains is essential to enable accurate cross-study comparisons, meta-analyses, and the translation of research into clear dietary guidelines.",
+    "Bucket": "more_probable",
+    "source_paper": "Evidence mapping to assess the available research on fiber, whole grains, and health",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract mentions 'new food labeling requirements by the US Food and Drug Administration that require fibers to have accepted scientific evidence of a physiological health benefit in order to be labeled as \"dietary fiber.\"'",
+    "Claim": "There is a need to conduct targeted clinical intervention studies to establish the specific physiological health benefits of novel or under-researched fiber types to meet regulatory standards.",
+    "Warrant": "Without rigorous scientific evidence linking specific fiber types to clear physiological benefits, these ingredients cannot be legally labeled as 'dietary fiber,' hindering food innovation and consumer education.",
+    "Bucket": "more_probable",
+    "source_paper": "Evidence mapping to assess the available research on fiber, whole grains, and health",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract states that 'The database captures intervention studies examining dietary fiber and 10 predefined physiological health outcomes...'",
+    "Claim": "The broader physiological health outcomes of dietary fiber consumption beyond the 10 predefined categories (such as mental health, sleep quality, or immune response) remain unmapped and poorly synthesized.",
+    "Warrant": "Expanding the scope of evidence mapping to include non-traditional health outcomes is necessary to uncover novel therapeutic benefits of dietary fiber and provide a more holistic understanding of its impact on human physiology.",
+    "Bucket": "least_probable",
+    "source_paper": "Evidence mapping to assess the available research on fiber, whole grains, and health",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract states that the proposed methodology's dimensions and indicators are generalizable to 'natural science and technology fields aimed at product development'.",
+    "Claim": "The applicability and adaptation of this LLM-based framework to non-product-oriented natural science fields, such as theoretical physics or basic ecology, need to be investigated.",
+    "Warrant": "Non-product fields do not align with dimensions like 'products' or 'materials', meaning the framework cannot be applied directly without defining and validating new, non-product-centric dimensions.",
+    "Bucket": "more_probable",
+    "source_paper": "Identifying Research Hotspots and Research Gaps in Specific Research Area Based on Fine-Grained Information Extraction via Large Language Models",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract mentions using LLMs to extract fine-grained scientific data (products, technologies, materials, performance) but does not address the validation of the extraction accuracy or the handling of LLM hallucinations.",
+    "Claim": "The extraction accuracy, hallucination rates, and error propagation of the LLMs when mining complex, quantitative scientific data indicators need to be systematically quantified.",
+    "Warrant": "Inaccurate data extraction by LLMs could lead to false identifications of research gaps or hotspots, undermining the reliability of the decision-making process for researchers and policymakers.",
+    "Bucket": "more_probable",
+    "source_paper": "Identifying Research Hotspots and Research Gaps in Specific Research Area Based on Fine-Grained Information Extraction via Large Language Models",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract states that 'four key scientific data dimensions' and 'six key scientific data indicators' were selected based on the characteristics of the technical field, implying a manual or domain-specific setup.",
+    "Claim": "An automated method for dynamically generating and selecting domain-specific dimensions and indicators across diverse scientific fields without manual expert intervention needs to be developed.",
+    "Warrant": "Relying on manual selection of indicators for each new field limits the scalability and speed of the framework when analyzing cross-disciplinary or rapidly emerging scientific domains.",
+    "Bucket": "least_probable",
+    "source_paper": "Identifying Research Hotspots and Research Gaps in Specific Research Area Based on Fine-Grained Information Extraction via Large Language Models",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract notes that 'pervasive research gaps were observed in methodological approaches for interdisciplinary synthesis'.",
+    "Claim": "There is a need to develop and validate standardized methodological frameworks that facilitate the integration of diverse data types, terminologies, and theories across disparate scientific disciplines.",
+    "Warrant": "Establishing robust interdisciplinary synthesis methods is critical because without them, cross-disciplinary collaboration remains fragmented, limiting the ability to address complex, multi-faceted global challenges that span multiple scientific domains.",
+    "Bucket": "more_probable",
+    "source_paper": "Current Trends and Research Gaps in General Science: A Systematic Review",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract highlights a gap in 'the examination of ethical implications associated with emerging technologies'.",
+    "Claim": "Future research must establish comprehensive ethical assessment frameworks and governance models specifically tailored to evaluate the societal and moral impacts of rapidly evolving technologies like AI.",
+    "Warrant": "Addressing this gap is essential to prevent algorithmic bias, privacy violations, and societal harms, ensuring that technological innovation aligns with human rights and maintains public trust.",
+    "Bucket": "more_probable",
+    "source_paper": "Current Trends and Research Gaps in General Science: A Systematic Review",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract identifies a gap concerning 'the scarcity of longitudinal studies on complex systems'.",
+    "Claim": "There is a need for long-term, multi-decade longitudinal research designs to track the evolution, feedback loops, and emergent properties of complex natural and social systems.",
+    "Warrant": "Short-term research fails to capture slow-moving variables and systemic shifts, meaning longitudinal data is necessary to build accurate predictive models for environmental, ecological, or societal stability.",
+    "Bucket": "least_probable",
+    "source_paper": "Current Trends and Research Gaps in General Science: A Systematic Review",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The authors derive a conceptual framework and illustrate international servitization strategies through a series of case vignettes, serving as a guideline for future research.",
+    "Claim": "There is a lack of large-scale empirical validation of the proposed conceptual framework linking strategic resources (slack resources and digital marketing capabilities) to international servitization performance.",
+    "Warrant": "While conceptual frameworks and case vignettes provide initial theoretical grounding, quantitative empirical testing is required to establish generalizability and verify the statistical significance of these relationships across different global markets.",
+    "Bucket": "more_probable",
+    "source_paper": "International servitization: theoretical roots, research gaps and implications",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract notes that the paper focuses on how strategic resource decisions help firms provide different service offerings (SSPs and SSCs) to leverage performance in international markets, but relies on illustrative vignettes.",
+    "Claim": "The moderating effects of host-country environmental factors (such as cultural distance and institutional differences) on the relationship between specific service types (SSPs vs. SSCs) and international performance remain unexamined.",
+    "Warrant": "International markets present diverse regulatory and cultural challenges that can alter the effectiveness of product-support versus client-support services, requiring a contingency perspective to understand when each strategy is viable.",
+    "Bucket": "more_probable",
+    "source_paper": "International servitization: theoretical roots, research gaps and implications",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The study relies on the resource-based view (RBV) to examine strategic resource decisions like slack resources and digital marketing capabilities in international servitization.",
+    "Claim": "The longitudinal process and dynamic capabilities required for firms to transition their servitization strategies from domestic to international markets over time are not addressed.",
+    "Warrant": "The resource-based view often provides a static perspective on resource configuration, whereas internationalization is a dynamic process requiring firms to continuously reconfigure and deploy capabilities to match evolving foreign market demands.",
+    "Bucket": "least_probable",
+    "source_paper": "International servitization: theoretical roots, research gaps and implications",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract highlights the 'urgent need for deeper ecotoxicological research' as risk assessment transitions toward a Motor Theme.",
+    "Claim": "There is a lack of comprehensive, long-term ecotoxicological data regarding the impact of nano-biochar (NBC) on soil organisms and terrestrial food webs.",
+    "Warrant": "Without detailed ecotoxicological profiling, the potential bioaccumulation and chronic toxicity of engineered nano-biochar in soil ecosystems cannot be fully understood, risking ecological damage during large-scale applications.",
+    "Bucket": "more_probable",
+    "source_paper": "Trends and research gaps in nano-biochar soil applications: a scientometric analysis",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract points out the 'urgent need for... the incorporation of NBC within regulatory and policy frameworks that govern soil remediation and sustainable resource management.'",
+    "Claim": "There are currently no standardized regulatory guidelines or policy frameworks specifically governing the environmental release, monitoring, and management of nano-biochar in agricultural soils.",
+    "Warrant": "The absence of clear regulatory standards prevents the safe, standardized, and commercially viable scaling of NBC technologies by leaving stakeholders without compliance benchmarks.",
+    "Bucket": "least_probable",
+    "source_paper": "Trends and research gaps in nano-biochar soil applications: a scientometric analysis",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract identifies 'machine-learning-assisted modeling and NBC–microbe interactions' as emerging directions.",
+    "Claim": "Predictive machine-learning models designed to simulate and optimize the synergistic interactions between nano-biochar, soil microbial communities, and diverse contaminants are underdeveloped.",
+    "Warrant": "Developing machine-learning-assisted models is crucial to forecast the long-term remediation efficacy and transport dynamics of NBC-microbe systems across heterogeneous soil types without relying solely on expensive, time-consuming empirical field trials.",
+    "Bucket": "more_probable",
+    "source_paper": "Trends and research gaps in nano-biochar soil applications: a scientometric analysis",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract indicates the paper \"uses Elliott’s conceptual framework to offer guidance\" and provides a \"conceptual and methodological approach,\" but does not mention empirical testing or validation of this guidance in actual research projects.",
+    "Claim": "There is a lack of empirical studies evaluating the practical utility and effectiveness of applying Elliott's conceptual framework to formulate research problems in real-world mixed methods studies.",
+    "Warrant": "Empirical validation is necessary to determine whether this conceptual guidance actually helps researchers design more robust mixed methods studies and resolve common pitfalls in problem formulation.",
+    "Bucket": "more_probable",
+    "source_paper": "Understanding the Nature of and Identifying and Formulating “Research Problems” in Mixed Methods Research",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract states that the article offers an approach for \"investigation in social and cultural contexts,\" leaving other domains unaddressed.",
+    "Claim": "The applicability and adaptation of this framework for formulating mixed methods research problems in non-social science domains, such as clinical health sciences or STEM education, remains unexplored.",
+    "Warrant": "Different disciplines have distinct epistemological standards and research problem structures, meaning a framework tailored for social/cultural contexts may require significant modification to be effective in clinical or technical fields.",
+    "Bucket": "more_probable",
+    "source_paper": "Understanding the Nature of and Identifying and Formulating “Research Problems” in Mixed Methods Research",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract notes that the paper addresses the \"very limited discussion about 'research problems'\" specifically by using \"Elliott's conceptual framework.\"",
+    "Claim": "There is a need to compare the effectiveness of Elliott's framework against other potential conceptual models for identifying and formulating research problems in mixed methods research.",
+    "Warrant": "A comparative analysis is essential for researchers to understand the unique advantages, limitations, and boundary conditions of Elliott's framework relative to alternative conceptual approaches.",
+    "Bucket": "more_probable",
+    "source_paper": "Understanding the Nature of and Identifying and Formulating “Research Problems” in Mixed Methods Research",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract states that 'Existing research predominantly focuses on theoretical exploration, conceptual clarification, and constructing theoretical frameworks, while empirical studies investigating practical applications remain scarce.'",
+    "Claim": "There is a lack of empirical research investigating the practical applications and real-world implementation of teacher leadership in Chinese schools.",
+    "Warrant": "Without empirical evidence on how teacher leadership operates in practice, educators and policymakers cannot validate theoretical frameworks or understand the actual impact of teacher leadership on school improvement and student outcomes.",
+    "Bucket": "more_probable",
+    "source_paper": "Teacher Leadership Research in China (2020–2024): Trends, Gaps, and Future Directions in Educational Development",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract notes that 'studies on teacher leadership in higher education institutions, particularly within the framework of high-quality development, remain significantly underdeveloped.'",
+    "Claim": "There is a shortage of research examining teacher leadership within higher education institutions, specifically aligned with China's high-quality educational development framework.",
+    "Warrant": "Higher education institutions have distinct organizational structures and professional demands compared to K-12 schools; understanding teacher leadership in this sector is crucial for fostering academic innovation and meeting national modernization goals.",
+    "Bucket": "more_probable",
+    "source_paper": "Teacher Leadership Research in China (2020–2024): Trends, Gaps, and Future Directions in Educational Development",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract highlights that 'future research should integrate contemporary educational policies, expand the scope of inquiry, and diversify research themes.'",
+    "Claim": "There is a gap in how teacher leadership research integrates and aligns with contemporary Chinese educational policies, such as the 14th Five-Year Plan and 2035 Long-Range Objectives.",
+    "Warrant": "Aligning teacher leadership research with current national policies ensures that leadership development initiatives are relevant, systemic, and directly supportive of the state's strategic educational modernization goals.",
+    "Bucket": "more_probable",
+    "source_paper": "Teacher Leadership Research in China (2020–2024): Trends, Gaps, and Future Directions in Educational Development",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract highlights 'variability in lesion assessment' and 'the need for harmonized health state definitions, standardized assessment procedures, and transparent reporting to improve future modeling'.",
+    "Claim": "There is a need to develop and validate a standardized, harmonized framework for defining and assessing pediatric dental caries health states across clinical and observational studies.",
+    "Warrant": "Establishing standardized definitions and assessment procedures is critical because the current variability prevents the comparison and pooling of data across different studies, thereby limiting the generalizability of caries progression models.",
+    "Bucket": "more_probable",
+    "source_paper": "Progressive health states and transition probabilities in pediatric dental caries: a systematic review of current evidence and research gaps",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract identifies 'incomplete confounder adjustment' as a key methodological limitation that reduced the robustness and comparability of the evidence.",
+    "Claim": "Future longitudinal studies must systematically identify and adjust for key confounding variables, such as dietary habits, fluoride exposure, and socioeconomic status, when calculating transition probabilities.",
+    "Warrant": "Without proper adjustment for these confounding factors, estimated transition probabilities may be biased, leading to inaccurate predictions of disease progression and ineffective targeted prevention strategies.",
+    "Bucket": "more_probable",
+    "source_paper": "Progressive health states and transition probabilities in pediatric dental caries: a systematic review of current evidence and research gaps",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract notes that 'restrictive modeling assumptions' reduced the robustness of the evidence, and that simpler two-state models fail to capture the bidirectional transitions and lesion reactivation observed in multi-state models.",
+    "Claim": "There is a need to transition from restrictive, unidirectional two-state models to advanced multi-state modeling approaches that capture bidirectional transitions (progression, regression, and reactivation) of caries lesions.",
+    "Warrant": "Simplistic models do not reflect the biological reality of caries dynamics, where lesions can arrest or remineralize, leading to inaccurate forecasting of disease trajectories and suboptimal clinical interventions.",
+    "Bucket": "more_probable",
+    "source_paper": "Progressive health states and transition probabilities in pediatric dental caries: a systematic review of current evidence and research gaps",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The abstract states that 'there remains a need for more harmonized and cross-disciplinary research efforts' despite the growing interest in AI-based performance evaluation.",
+    "Claim": "There is a lack of unified, cross-disciplinary frameworks that standardize AI-based performance evaluation methodologies across diverse industries.",
+    "Warrant": "Without harmonized frameworks, research remains fragmented in domain-specific silos (such as healthcare or cybersecurity), preventing the transfer of best practices, standardized metrics, and generalizable AI evaluation models across different sectors.",
+    "Bucket": "more_probable",
+    "source_paper": "A BIBLIOMETRIC ANALYSIS OF ARTIFICIAL INTELLIGENCE IN PERFORMANCE EVALUATION: TRENDS AND GAPS IN CONSTRUCTION RESEARCH",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The title highlights 'GAPS IN CONSTRUCTION RESEARCH', yet the abstract notes that highly cited papers are concentrated in other domains such as 'structural engineering, cybersecurity, and healthcare,' indicating a disparity in research distribution.",
+    "Claim": "There is a lack of targeted research applying and validating AI-driven performance evaluation models specifically within the broader construction management and operations sector.",
+    "Warrant": "The construction industry has unique operational challenges, safety requirements, and project-based structures that general AI models or those designed for cybersecurity/healthcare cannot address without domain-specific customization and empirical testing.",
+    "Bucket": "more_probable",
+    "source_paper": "A BIBLIOMETRIC ANALYSIS OF ARTIFICIAL INTELLIGENCE IN PERFORMANCE EVALUATION: TRENDS AND GAPS IN CONSTRUCTION RESEARCH",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "The study is limited to a bibliometric analysis mapping 'development, focus areas, and collaborative networks' using keywords and citation data, rather than evaluating the technical performance of the AI systems themselves.",
+    "Claim": "There is a lack of empirical, comparative studies that measure the actual accuracy, objectivity, and operational efficiency of different AI algorithms when applied to real-world performance evaluation tasks.",
+    "Warrant": "While bibliometric trends indicate rising academic interest, they do not provide empirical proof of the reliability, bias mitigation, or cost-effectiveness of AI tools in practice, which is necessary for industry adoption and policymaking.",
+    "Bucket": "least_probable",
+    "source_paper": "A BIBLIOMETRIC ANALYSIS OF ARTIFICIAL INTELLIGENCE IN PERFORMANCE EVALUATION: TRENDS AND GAPS IN CONSTRUCTION RESEARCH",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "A total of 171 peer-reviewed studies on human MERS-CoV were included, with a marked predominance from Saudi Arabia (88.3%).",
+    "Claim": "There is a lack of MERS-CoV epidemiological and clinical research focusing on GCC countries other than Saudi Arabia.",
+    "Warrant": "Without representative data from all GCC nations, regional public health authorities cannot formulate coordinated, evidence-based strategies to control cross-border transmission driven by trade and travel.",
+    "Bucket": "more_probable",
+    "source_paper": "Human Middle East Respiratory Syndrome Coronavirus (MERS-CoV) research in the Gulf Cooperation Council Countries: A mapping scoping review of epidemiology, clade, and research priority gaps.",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "Cross-sectional designs were most common (43.3%), with widespread reliance on non-probability sampling (95.3%).",
+    "Claim": "There is a shortage of prospective longitudinal cohort studies utilizing probability-based sampling to investigate MERS-CoV.",
+    "Warrant": "Over-reliance on cross-sectional designs and non-probability sampling limits the generalizability of findings and prevents the determination of causal risk factors and long-term clinical outcomes of survivors.",
+    "Bucket": "least_probable",
+    "source_paper": "Human Middle East Respiratory Syndrome Coronavirus (MERS-CoV) research in the Gulf Cooperation Council Countries: A mapping scoping review of epidemiology, clade, and research priority gaps.",
+    "type": "simple_llm"
+  },
+  {
+    "Grounds": "Limited genomic investigations were identified, with Clade B representing 71.4% of characterized strains.",
+    "Claim": "There is a lack of comprehensive genomic surveillance and characterization of circulating MERS-CoV strains in the GCC region.",
+    "Warrant": "Expanding genomic sequencing is essential to monitor viral evolution, identify emerging clades, and ensure that diagnostic assays and candidate vaccines remain effective against circulating variants.",
+    "Bucket": "more_probable",
+    "source_paper": "Human Middle East Respiratory Syndrome Coronavirus (MERS-CoV) research in the Gulf Cooperation Council Countries: A mapping scoping review of epidemiology, clade, and research priority gaps.",
     "type": "simple_llm"
   }
 ]

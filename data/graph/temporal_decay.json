@@ -1,21 +1,42 @@
 [
   {
-    "node": "distributed authorization framework",
-    "node_type": "METHOD",
+    "node": "Semantic Web technology",
+    "node_type": "CONCEPT",
     "total_events": 3,
     "recent_events": 0,
     "decay_rate": 1.0
   },
   {
-    "node": "tool",
-    "node_type": "TOOL",
+    "node": "systematic review",
+    "node_type": "METHOD",
+    "total_events": 10,
+    "recent_events": 7,
+    "decay_rate": 0.30000000000000004
+  },
+  {
+    "node": "Current study's analysis",
+    "node_type": "METHOD",
+    "total_events": 4,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "current literature",
+    "node_type": "DATASET",
     "total_events": 6,
     "recent_events": 0,
     "decay_rate": 1.0
   },
   {
-    "node": "drift detection tool",
-    "node_type": "TOOL",
+    "node": "sustainable entrepreneurship",
+    "node_type": "CONCEPT",
+    "total_events": 3,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "this study",
+    "node_type": "METHOD",
     "total_events": 3,
     "recent_events": 0,
     "decay_rate": 1.0

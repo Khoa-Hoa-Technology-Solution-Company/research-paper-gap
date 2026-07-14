@@ -1,46 +1,190 @@
 [
   {
-    "Grounds": "Modern service meshes leverage sidecar proxies like Envoy to handle microservice traffic; the tool enforces JWT token verification at the proxy layer, improving authorization speed.",
-    "Claim": "The current approach lacks a mechanism to handle authorization state consistency and policy propagation latency across highly dynamic, multi-cluster environments where sidecar-local verification may lead to stale access decisions.",
-    "Warrant": "While proxy-level JWT verification optimizes latency, it assumes a static or globally synchronized security state; in distributed systems, the decoupling of the control plane from the data plane creates a window of vulnerability where revoked tokens or updated policies are not immediately reflected across all sidecars, necessitating a research focus on distributed consistency models for authorization.",
+    "Grounds": "The key challenge in reaching this ambitious goal is letting the information exchange across heterogeneous sources and methods as well as establishing efficient tools and techniques.",
+    "Claim": "There is a lack of standardized, scalable software engineering frameworks to automate the integration of heterogeneous healthcare data using Semantic Web technologies.",
+    "Warrant": "Solving this gap enables software engineers to build interoperable, automated healthcare systems that reduce integration overhead and improve decision-support reliability.",
     "Bucket": "more_probable",
-    "source_paper": "Distributed Authorization in Service Meshes using Envoy Proxy and JWT tokens",
+    "source_paper": "Semantic Web in Healthcare: A Systematic Literature Review of Application, Research Gap, and Future Research Avenues",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "The work automates mTLS configuration and policy enforcement in Istio to address zero-trust requirements in cloud-native applications.",
-    "Claim": "Current automated mTLS enforcement mechanisms lack context-aware validation of policy efficacy, leading to potential security regressions or performance bottlenecks during dynamic service mesh scaling.",
-    "Warrant": "While automation ensures policy deployment, it does not inherently verify that the resulting security posture aligns with the evolving runtime behavior of microservices, creating a gap between static policy enforcement and dynamic operational security requirements.",
+    "Grounds": "The text highlights limited studies on variations in authors' research gap strategies and problems in identifying them, focusing specifically on English Language Teaching (ELT) research articles.",
+    "Claim": "There is an unaddressed need to investigate how research gap presentation strategies and identification challenges manifest within Software Engineering (SE) literature across different developer and researcher demographics.",
+    "Warrant": "Analyzing these strategies in Software Engineering is crucial because clear articulation of novelty drives the adoption of new software methodologies and tools, and identifying demographic-specific challenges can guide better academic training in the SE domain.",
     "Bucket": "more_probable",
-    "source_paper": "Security Policies and mTLS in Istio Service Mesh",
+    "source_paper": "Previous studies have several limitations …: Indonesian Doctoral Students’, Indonesian Academics’, and International Authors’ Research Gap Strategies in ELT Research Article Abstracts and Introductions",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "The method relies on autoencoders to build normal behavior baselines from high-volume system calls in microservices to flag threats via anomaly scores.",
-    "Claim": "The current approach lacks a mechanism to distinguish between benign microservice evolution (concept drift) and actual malicious intrusions, leading to high false-positive rates in dynamic environments.",
-    "Warrant": "In microservice architectures, frequent deployments and scaling events cause legitimate shifts in system call patterns; an unsupervised model without temporal adaptation or drift-awareness will inevitably misclassify these architectural changes as anomalies, rendering the tool impractical for continuous integration pipelines.",
+    "Grounds": "The text highlights that research gap strategies vary across journal quartiles but limits its scope to English Language Teaching (ELT) publications.",
+    "Claim": "There is an unaddressed need to investigate how research gap strategies are utilized across different journal quartiles specifically within Software Engineering literature.",
+    "Warrant": "Analyzing these patterns in Software Engineering helps identify domain-specific publication standards, enabling the creation of targeted automated writing tools to assist software engineers in successfully publishing in top-tier venues.",
     "Bucket": "more_probable",
-    "source_paper": "Unsupervised Anomaly Detection using Autoencoders in Cloud-Native Networks",
+    "source_paper": "The authors’ research gap strategies in ELT research article introductions: Does Scopus journal quartile matter?",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "The method relies on system call telemetry to detect behavioral changes in containerized microservices to address configuration drift.",
-    "Claim": "The proposed approach lacks a mechanism to distinguish between intentional configuration updates (evolution) and unintentional configuration drift, leading to high false-positive rates in dynamic CI/CD environments.",
-    "Warrant": "In modern microservice architectures, system call patterns change frequently due to legitimate rolling updates and canary deployments; a detection tool that treats all behavioral deviations as drift without context-awareness fails to provide actionable insights for SRE teams.",
+    "Grounds": "The text identifies a lack of research integrating social media and addressing uncertainty in infrastructure and supply quantities for disaster prepositioning.",
+    "Claim": "There is a gap in software engineering architectures for real-time, data-driven decision support systems that dynamically process uncertain disaster data.",
+    "Warrant": "Addressing this gap is crucial for developing reliable, fault-tolerant software systems that can ingest volatile social media feeds and sensor data to optimize emergency logistics.",
     "Bucket": "more_probable",
-    "source_paper": "Real-time Drift Detection for Microservice System Telemetry",
+    "source_paper": "Prepositioning of assets and supplies in disaster operations management: Review and research gap identification",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "The proposed anomaly detection method operates on microservice traffic collected via Envoy proxy but lacks direct integration with Envoy JWT authorization rules.",
-    "Claim": "There is a critical disconnect between behavioral anomaly detection and identity-based access control, preventing the system from correlating anomalous traffic patterns with specific authenticated user identities or authorization scopes.",
-    "Warrant": "In microservice architectures, security is enforced at the identity layer via JWTs; failing to integrate anomaly detection with these tokens prevents the system from distinguishing between compromised legitimate accounts and unauthorized malicious actors, thereby limiting the actionable context of detected threats.",
+    "Grounds": "The text notes that despite significant research progress in Android security detection and mitigation, numerous challenges and gaps still exist, and current literature focuses primarily on taxonomizing past approaches.",
+    "Claim": "There is a lack of research translating taxonomic classifications of Android security threats into active, real-time adaptive mitigation frameworks.",
+    "Warrant": "Developing active mitigation frameworks is essential because static taxonomies alone cannot defend mobile systems against rapidly escalating and increasingly damaging real-time attacks.",
     "Bucket": "more_probable",
-    "source_paper": "Lightweight Anomaly Detection inside Sidecar Proxies",
+    "source_paper": "Android security assessment: A review, taxonomy and research gap study",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Consequently, there is a need to develop robust SCCP inventories in Africa since the Stockholm Convention has already developed guidance document in this respect. Additionally, there are scarce/or limited studies on SCCP concentration in Africa, particularly on consumer products, landfill leachates and sediment samples.",
+    "Claim": "There is a lack of standardized software architectures, data integration pipelines, and digital inventory management systems designed to collect, validate, and model sparse environmental contaminant data (specifically SCCPs) in developing regions.",
+    "Warrant": "From a software engineering perspective, building robust environmental informatics systems requires specialized data schemas, ETL (Extract, Transform, Load) pipelines for heterogeneous data sources, and collaborative cloud platforms. Without these software tools, environmental scientists cannot effectively implement the Stockholm Convention's guidance documents, leading to fragmented data silos and an inability to perform predictive modeling on contaminant distribution in data-scarce regions.",
+    "Bucket": "more_probable",
+    "source_paper": "Status of short-chain chlorinated paraffins in matrices and research gap priorities in Africa: a review",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The respondents stressed the need for better knowledge on wild boar management and surveillance, the need to identify risk factors for ASFV entry into domestic pig holdings, to develop protocols to implement specific and appropriate biosecurity measures, and research on communication methods to increase awareness among all players involved in the epidemiology of ASF (including truck drivers, hunters and tourists) and to increase compliance with existing control measures.",
+    "Claim": "There is a lack of specialized software engineering frameworks and architectural patterns for designing decentralized, multi-stakeholder socio-technical systems that can integrate heterogeneous real-time data (GIS, transport, human movement) to simulate biosecurity risks and track compliance.",
+    "Warrant": "Developing software for biosecurity requires handling highly heterogeneous, distributed data streams and ensuring compliance across diverse, non-technical user groups. Without dedicated software engineering paradigms, design patterns, and validation frameworks for these socio-technical systems, developers cannot guarantee the reliability, interoperability, and usability of critical epidemiological tracking and risk-mitigation software.",
+    "Bucket": "more_probable",
+    "source_paper": "Research gap analysis on African swine fever",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text asserts that focusing academic research on theorization can develop industry-based projects and bridge the industry-academia gap.",
+    "Claim": "There is an implicit gap regarding the lack of empirical methodologies that operationalize abstract academic theories into concrete, actionable software engineering practices for industry.",
+    "Warrant": "Bridging this gap is crucial because software engineering practitioners require practical, validated tools rather than abstract models to adopt academic research.",
+    "Bucket": "more_probable",
+    "source_paper": "Theorization and industry-based research project development: Bridging the industry–academia research gap",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text highlights that sustainable entrepreneurship is a new field with few empirical studies, undefined processes, and a need for innovation and stakeholder engagement to solve environmental problems.",
+    "Claim": "There is a lack of empirical software engineering methodologies and collaborative platforms tailored to support stakeholder-driven innovation in sustainable startups.",
+    "Warrant": "Developing specialized software engineering frameworks is essential to enable sustainable enterprises to systematically gather stakeholder requirements and manage green innovation lifecycles.",
+    "Bucket": "more_probable",
+    "source_paper": "Research Gap in Sustainopreneurship",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "There was consensus of the absence of a research culture in faculties of tourism and hotels where social science research was perceived as having little/no value except as a part of academic degrees or for promotional purposes, rather than for knowledge creation or to inform industry’s practices. There was no evidence of government interventions to drive university–industry research collaboration...",
+    "Claim": "There is a lack of specialized socio-technical frameworks and collaborative software platforms designed to facilitate and sustain university-industry knowledge transfer in developing regions that lack established academic research cultures and government support.",
+    "Warrant": "In Software Engineering, successful technology transfer and empirical validation of software methodologies depend on active university-industry collaboration. Developing and deploying collaborative platforms tailored to low-resource, low-trust academic environments is critical to enabling software engineering researchers to co-design, test, and deploy software solutions with local industries, thereby driving digital transformation.",
+    "Bucket": "more_probable",
+    "source_paper": "Bridging the hospitality and tourism university–industry research gap in developing countries: The case of Egypt",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Although many non-native English writers are aware of the importance of the research gap, not much is known on how this strategy is being practiced... this paper investigates the use of this strategy in 150 research articles introductions in Computer Science disciplines... [and] described four various ways on how this strategy is commonly used by the non-native writers.",
+    "Claim": "There is a lack of automated, NLP-driven writing assistants or software tools that operationalize these identified rhetorical patterns to help non-native Software Engineering researchers dynamically formulate and validate research gaps in their drafts.",
+    "Warrant": "In Software Engineering, clear articulation of the research niche and gap is critical for peer-review acceptance. Developing automated tools that scaffold this process for non-native English speakers can lower barriers to entry, improve the diversity of published SE literature, and reduce communication overhead with editors and reviewers.",
+    "Bucket": "more_probable",
+    "source_paper": "\"Indicating a Research Gap\" in Computer Science Research Article Introductions by Non-Native English Writers",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text describes manual database creation for evidence mapping and notes inconsistencies in how intervention data and grain types are reported.",
+    "Claim": "There is a lack of automated software engineering frameworks to dynamically ingest, standardize, and map heterogeneous scientific literature to resolve reporting inconsistencies.",
+    "Warrant": "Developing automated data pipeline architectures for evidence mapping is critical in software engineering to scale database curation and ensure data consistency across diverse scientific domains.",
+    "Bucket": "more_probable",
+    "source_paper": "Evidence mapping to assess the available research on fiber, whole grains, and health",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "This paper constructs a fine-grained scientific data indicator framework using LLMs... This approach effectively addresses the inherent limitations of traditional technology topic analysis... the proposed methodology demonstrates broad applicability.",
+    "Claim": "The framework lacks an automated validation and verification mechanism to ensure the accuracy and consistency of the LLM-extracted fine-grained indicators, particularly against hallucinations in specialized scientific domains.",
+    "Warrant": "In software engineering, relying on unverified LLM extractions for domain-specific frameworks can introduce errors in downstream analysis, making automated verification pipelines essential for maintaining data integrity and trust in automated knowledge mining systems.",
+    "Bucket": "more_probable",
+    "source_paper": "Identifying Research Hotspots and Research Gaps in Specific Research Area Based on Fine-Grained Information Extraction via Large Language Models",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Concurrently, pervasive research gaps were observed in methodological approaches for interdisciplinary synthesis, the examination of ethical implications associated with emerging technologies, the scarcity of longitudinal studies on complex systems, and limitations in translating basic scientific research into practical applications.",
+    "Claim": "There is a lack of concrete software engineering methodologies, design patterns, and automated verification tools to translate high-level ethical AI principles into practical, deployable software development workflows.",
+    "Warrant": "As AI integration becomes pervasive, software engineers require actionable frameworks to embed ethical constraints (such as fairness, accountability, and transparency) directly into the software development lifecycle (SDLC). Without translating abstract ethical guidelines into concrete architectural patterns and automated testing tools, developers cannot systematically verify or guarantee the ethical compliance of emerging software systems.",
+    "Bucket": "more_probable",
+    "source_paper": "Current Trends and Research Gaps in General Science: A Systematic Review",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Relying on the resource-based view and the boundary conditions function, the authors aim to identify a set of research gaps focusing on how strategic resource decisions (i.e. slack resources and digital marketing capabilities) help industrial firms to provide different types of service offerings (i.e. services in support of product (SSPs) and services in support of client's actions (SSCs)) that leverage their performance in international markets.",
+    "Claim": "There is an implicit gap in understanding how software engineering organizations dynamically allocate slack technical resources and digital capabilities to support international SaaS/PaaS service offerings.",
+    "Warrant": "Addressing this gap is crucial for software engineering as it helps organizations optimize resource allocation, manage technical debt, and scale software-as-a-service architectures effectively across diverse international markets.",
+    "Bucket": "more_probable",
+    "source_paper": "International servitization: theoretical roots, research gaps and implications",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Current hotspots converge on adsorption, microbial-driven remediation, and toxicity reduction, while emerging directions highlight machine-learning-assisted modeling and NBC–microbe interactions. Importantly, findings indicate that risk assessment is transitioning toward a Motor Theme, underscoring the urgent need for deeper ecotoxicological research and the incorporation of NBC within regulatory and policy frameworks that govern soil remediation and sustainable resource management.",
+    "Claim": "There is a lack of standardized, open-source software architectures and reproducible MLOps pipelines tailored for simulating, validating, and deploying machine-learning-assisted models of NBC-microbe interactions and ecotoxicological risk assessments.",
+    "Warrant": "From a software engineering perspective, without standardized software frameworks and MLOps pipelines, environmental machine learning models remain isolated scripts that lack reproducibility, scalability, and interoperability. Developing robust software platforms is critical to transition these emerging ML models into reliable, production-ready decision-support systems that regulatory bodies can trust and audit.",
+    "Bucket": "more_probable",
+    "source_paper": "Trends and research gaps in nano-biochar soil applications: a scientometric analysis",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text highlights that MMR literature lacks discussion on 'research problems' and proposes a general social/cultural framework to address this.",
+    "Claim": "There is an implicit gap in empirical software engineering regarding domain-specific guidelines for formulating mixed-methods research problems.",
+    "Warrant": "Software engineering research requires distinct socio-technical problem formulation that general social science frameworks do not adequately cover.",
+    "Bucket": "more_probable",
+    "source_paper": "Understanding the Nature of and Identifying and Formulating “Research Problems” in Mixed Methods Research",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Existing research predominantly focuses on theoretical exploration, conceptual clarification, and constructing theoretical frameworks, while empirical studies investigating practical applications remain scarce. Findings also indicate that studies on teacher leadership in higher education institutions, particularly within the framework of high-quality development, remain significantly underdeveloped.",
+    "Claim": "There is a lack of empirical, data-driven frameworks and software tools to implement, track, and evaluate teacher leadership practices in higher education.",
+    "Warrant": "In software engineering education and academic collaborative environments, empirical leadership models are essential for designing effective computer-supported collaborative learning (CSCL) systems and educational management software that align with quality standards.",
+    "Bucket": "more_probable",
+    "source_paper": "Teacher Leadership Research in China (2020–2024): Trends, Gaps, and Future Directions in Educational Development",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Methodological limitations, including bias, variability in lesion assessment, incomplete confounder adjustment, and restrictive modeling assumptions, reduced the robustness and comparability of the evidence... highlighting the need for harmonized health state definitions, standardized assessment procedures, and transparent reporting to improve future modeling.",
+    "Claim": "There is a lack of standardized, open-source software frameworks and unified computational modeling architectures that can dynamically simulate multi-state, bidirectional pediatric caries progression while handling variable inputs and confounding factors.",
+    "Warrant": "In medical software engineering and clinical decision support systems (CDSS), the absence of standardized modeling frameworks or domain-specific languages (DSLs) for disease progression leads to fragmented, non-interoperable implementations. Developing a reusable, configurable software engine for multi-state transition modeling would enable researchers to systematically validate, compare, and integrate diverse clinical datasets without rebuilding simulation logic from scratch, thereby improving software reliability and reproducibility in digital health.",
+    "Bucket": "more_probable",
+    "source_paper": "Progressive health states and transition probabilities in pediatric dental caries: a systematic review of current evidence and research gaps",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "However, despite growing interest, the literature remains fragmented, and a comprehensive understanding of global research trends is lacking. ... However, there remains a need for more harmonized and cross-disciplinary research efforts.",
+    "Claim": "There is a lack of unified, cross-disciplinary frameworks and standardized metrics for evaluating AI performance across heterogeneous software engineering domains.",
+    "Warrant": "Without harmonized evaluation standards, software engineers cannot reliably benchmark AI-driven systems, leading to integration challenges, inconsistent quality assurance, and reduced reproducibility in software development lifecycles.",
+    "Bucket": "more_probable",
+    "source_paper": "A BIBLIOMETRIC ANALYSIS OF ARTIFICIAL INTELLIGENCE IN PERFORMANCE EVALUATION: TRENDS AND GAPS IN CONSTRUCTION RESEARCH",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Overall, the evidence base reflects geographic concentration, methodological heterogeneity, and thematic limitations, underscoring the need for expanded research scope and enhanced regional collaboration. Limited genomic investigations were identified...",
+    "Claim": "There is a lack of standardized, federated software architectures and collaborative data integration pipelines designed to harmonize heterogeneous epidemiological and genomic data across the GCC region.",
+    "Warrant": "In software engineering, addressing data heterogeneity and regional silos requires the design of interoperable, federated data platforms and automated genomic analysis pipelines. Without these software systems, researchers cannot easily share, normalize, or collaboratively analyze cross-border health data, perpetuating the geographic concentration of research and limiting real-time epidemiological tracking.",
+    "Bucket": "more_probable",
+    "source_paper": "Human Middle East Respiratory Syndrome Coronavirus (MERS-CoV) research in the Gulf Cooperation Council Countries: A mapping scoping review of epidemiology, clade, and research priority gaps.",
     "chunk_index": 0,
     "type": "gapmap_text"
   }
