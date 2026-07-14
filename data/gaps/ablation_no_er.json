@@ -1,0 +1,74 @@
+[
+  {
+    "Grounds": "Modularity clustering isolated Community A (demand-side costs, uncertainty in funding/assets, prepositioning strategies, social media disaster prep) and Community B (scientometric analysis, CiteSpace, VOSviewer, Bibliometrix, OpenRefine). There are zero bridge relations between these nodes in the literature graph.",
+    "Claim": "Developing automated bibliometric and data-refining pipelines (using OpenRefine and Bibliometrix) to systematically extract, clean, and map empirical uncertainty parameters (such as demand-side costs and funding limits) from disaster response literature to parameterize emergency logistics optimization software.",
+    "Warrant": "Disaster response optimization software relies heavily on accurate parameterization of uncertainties and costs, which are currently scattered across heterogeneous literature. Bridging these communities allows software engineers to build automated pipelines that ingest, clean, and synthesize empirical model parameters from global scientific literature, replacing manual parameter estimation with data-driven, literature-derived distributions.",
+    "Bucket": "more_probable",
+    "type": "orphan_cluster",
+    "source": "Community 8 vs Community 46"
+  },
+  {
+    "Grounds": "Modularity clustering isolated Community A (demand-side costs, uncertainty in funding/budget/supplies, prepositioning of medical staff/emergency crew, social media for disaster prep) and Community B (co-occurrence mapping, thematic evolution, citation burst detection, h-index, g-index, m-index). There are zero bridge relations between these nodes in the literature graph.",
+    "Claim": "Utilizing thematic evolution and citation burst detection to map the software engineering paradigms, algorithmic models, and data pipelines used for disaster response resource prepositioning and uncertainty management.",
+    "Warrant": "Disaster response systems require highly reliable software architectures to handle extreme uncertainties in funding, logistics, and real-time social media data. Bridging these communities allows software engineering researchers to systematically identify architectural trends, algorithmic maturity (e.g., in prepositioning optimization), and research gaps in emergency software systems, preventing redundant development and highlighting under-researched technical challenges.",
+    "Bucket": "more_probable",
+    "type": "orphan_cluster",
+    "source": "Community 8 vs Community 36"
+  },
+  {
+    "Grounds": "Modularity clustering isolated Community A (scientometric analysis, CiteSpace, VOSviewer, Bibliometrix, bibliometric analysis, Scopus, OpenRefine, Mendeley) and Community B (methodology, co-occurrence mapping, thematic evolution, citation burst detection, author-level productivity assessment, h-index, g-index, m-index). There are zero bridge relations between these nodes in the literature graph.",
+    "Claim": "Developing an integrated, automated pipeline that bridges data cleaning and bibliometric tools (OpenRefine, Bibliometrix) with advanced citation burst detection and author-level productivity metrics (h-index, g-index, m-index) to dynamically track thematic evolution in software engineering research.",
+    "Warrant": "Software engineering researchers heavily rely on systematic literature reviews (SLRs) and mapping studies to track rapid technological shifts. Currently, data cleaning (OpenRefine) and bibliometric visualization (VOSviewer, CiteSpace) are disconnected from the algorithmic calculation of dynamic metrics (citation bursts, thematic evolution, m-index). Bridging this gap enables automated, reproducible, and real-time tracking of software engineering trends and researcher productivity, reducing manual synthesis errors.",
+    "Bucket": "more_probable",
+    "type": "orphan_cluster",
+    "source": "Community 46 vs Community 36"
+  },
+  {
+    "Grounds": "Stagnant concept 'Semantic Web technology' has a temporal decay rate of 1.00, representing a complete decline in new research activity and connections in the literature graph.",
+    "Claim": "Integrating Semantic Web ontologies and RDF graphs with modern Large Language Model (LLM) agents to enforce deterministic schema validation and reasoning in automated software engineering tasks.",
+    "Warrant": "Modern LLMs suffer from hallucinations and lack formal reasoning capabilities. Reintroducing Semantic Web technologies as a structured knowledge layer allows LLM agents to query and reason over codebase architectures with mathematical certainty, bridging the gap between probabilistic generation and deterministic software verification.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: Semantic Web technology"
+  },
+  {
+    "Grounds": "Stagnant concept 'systematic literature review' has a temporal decay rate of 0.50, indicating a 50% decline in new research activity and connections in the literature graph in recent years.",
+    "Claim": "Developing automated, continuous 'Living Systematic Literature Review' (L-SLR) frameworks that leverage Large Language Models (LLMs) and semantic knowledge graphs to dynamically update and synthesize software engineering evidence bases.",
+    "Warrant": "Traditional manual SLRs in software engineering are labor-intensive and quickly become outdated due to the rapid pace of technological advancement. Automating the screening, extraction, and synthesis phases using LLMs allows for real-time, self-updating literature reviews, enabling practitioners to make evidence-based decisions using the most current research.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: systematic literature review"
+  },
+  {
+    "Grounds": "The stagnant concept 'Current study's analysis' has a temporal decay rate of 1.00, indicating a complete decline in recent research activity and a lack of integration with modern automated synthesis techniques.",
+    "Claim": "Developing automated, continuous meta-analysis frameworks that dynamically extract, normalize, and synthesize the findings of 'current study's analysis' sections in empirical software engineering literature.",
+    "Warrant": "Empirical software engineering suffers from a replication crisis and outdated systematic reviews. Automating the synthesis of individual study analyses into a unified, queryable knowledge graph allows software engineers to instantly access aggregated evidence on tool efficacy, developer productivity, and methodology success rates.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: Current study's analysis"
+  },
+  {
+    "Grounds": "Stagnant concept 'current literature' has a temporal decay rate of 1.00, indicating a complete decline in recent research activity. In the literature graph, it lacks connections to 'Retrieval-Augmented Generation (RAG)' and 'Continuous Integration (CI)' pipelines.",
+    "Claim": "Automating the continuous synthesis of software engineering literature by integrating Retrieval-Augmented Generation (RAG) with CI/CD-like pipelines to dynamically update systematic literature reviews (SLRs).",
+    "Warrant": "Manual literature reviews in software engineering are labor-intensive and quickly become obsolete due to the rapid pace of technological advancement. Automating this process ensures that software practitioners and researchers have real-time access to consolidated, up-to-date empirical evidence on software tools and methodologies.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: current literature"
+  },
+  {
+    "Grounds": "Stagnant concept 'sustainable entrepreneurship' has a temporal decay rate of 1.00, showing a complete decline in recent research activity and a lack of connection to modern green software engineering practices.",
+    "Claim": "Integrating automated carbon-intensity tracking and energy-efficiency metrics into the DevOps pipelines of early-stage software startups to enable sustainable entrepreneurship.",
+    "Warrant": "Startups prioritize rapid deployment and cost over sustainability. Bridging sustainable entrepreneurship with green software engineering via automated CI/CD tooling allows startups to measure and optimize their software's carbon footprint from inception, satisfying emerging environmental regulations without hindering development velocity.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: sustainable entrepreneurship"
+  },
+  {
+    "Grounds": "The stagnant concept 'this study' has a temporal decay rate of 1.00, indicating a complete decline in recent research activity and connections to this self-referential node in the scientific knowledge graph.",
+    "Claim": "Developing automated frameworks that transition 'this study' from a static, self-referential text description into an executable, continuous-integration-backed living document that automatically updates its empirical results as the target software repository evolves.",
+    "Warrant": "Traditional software engineering papers ('this study') are static artifacts that quickly become obsolete as codebases change, leading to a reproducibility crisis. Transforming the concept of a 'study' into a version-controlled, executable pipeline ensures that empirical evaluations of software tools remain synchronized with their actual code implementations.",
+    "Bucket": "least_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: this study"
+  }
+]

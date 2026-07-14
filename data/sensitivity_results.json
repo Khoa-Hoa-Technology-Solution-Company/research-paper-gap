@@ -1,0 +1,262 @@
+{
+  "louvain_sweep": [
+    {
+      "min_size_ratio": 0.03,
+      "max_bridge_ratio": 0.05,
+      "orphan_clusters": 10
+    },
+    {
+      "min_size_ratio": 0.03,
+      "max_bridge_ratio": 0.1,
+      "orphan_clusters": 10
+    },
+    {
+      "min_size_ratio": 0.03,
+      "max_bridge_ratio": 0.15,
+      "orphan_clusters": 10
+    },
+    {
+      "min_size_ratio": 0.03,
+      "max_bridge_ratio": 0.2,
+      "orphan_clusters": 10
+    },
+    {
+      "min_size_ratio": 0.05,
+      "max_bridge_ratio": 0.05,
+      "orphan_clusters": 3
+    },
+    {
+      "min_size_ratio": 0.05,
+      "max_bridge_ratio": 0.1,
+      "orphan_clusters": 3
+    },
+    {
+      "min_size_ratio": 0.05,
+      "max_bridge_ratio": 0.15,
+      "orphan_clusters": 3
+    },
+    {
+      "min_size_ratio": 0.05,
+      "max_bridge_ratio": 0.2,
+      "orphan_clusters": 3
+    },
+    {
+      "min_size_ratio": 0.07,
+      "max_bridge_ratio": 0.05,
+      "orphan_clusters": 1
+    },
+    {
+      "min_size_ratio": 0.07,
+      "max_bridge_ratio": 0.1,
+      "orphan_clusters": 1
+    },
+    {
+      "min_size_ratio": 0.07,
+      "max_bridge_ratio": 0.15,
+      "orphan_clusters": 1
+    },
+    {
+      "min_size_ratio": 0.07,
+      "max_bridge_ratio": 0.2,
+      "orphan_clusters": 1
+    },
+    {
+      "min_size_ratio": 0.1,
+      "max_bridge_ratio": 0.05,
+      "orphan_clusters": 0
+    },
+    {
+      "min_size_ratio": 0.1,
+      "max_bridge_ratio": 0.1,
+      "orphan_clusters": 0
+    },
+    {
+      "min_size_ratio": 0.1,
+      "max_bridge_ratio": 0.15,
+      "orphan_clusters": 0
+    },
+    {
+      "min_size_ratio": 0.1,
+      "max_bridge_ratio": 0.2,
+      "orphan_clusters": 0
+    }
+  ],
+  "decay_sweep": [
+    {
+      "decay_threshold": 0.2,
+      "stagnant_concepts": 6
+    },
+    {
+      "decay_threshold": 0.3,
+      "stagnant_concepts": 6
+    },
+    {
+      "decay_threshold": 0.4,
+      "stagnant_concepts": 5
+    },
+    {
+      "decay_threshold": 0.5,
+      "stagnant_concepts": 5
+    },
+    {
+      "decay_threshold": 0.6,
+      "stagnant_concepts": 5
+    },
+    {
+      "decay_threshold": 0.7,
+      "stagnant_concepts": 5
+    }
+  ],
+  "entity_resolution_sweep": [
+    {
+      "fuzzy_threshold": 75,
+      "cosine_threshold": 0.75,
+      "entities_after": 123,
+      "entities_merged": 17
+    },
+    {
+      "fuzzy_threshold": 75,
+      "cosine_threshold": 0.8,
+      "entities_after": 124,
+      "entities_merged": 16
+    },
+    {
+      "fuzzy_threshold": 75,
+      "cosine_threshold": 0.85,
+      "entities_after": 127,
+      "entities_merged": 13
+    },
+    {
+      "fuzzy_threshold": 75,
+      "cosine_threshold": 0.9,
+      "entities_after": 127,
+      "entities_merged": 13
+    },
+    {
+      "fuzzy_threshold": 75,
+      "cosine_threshold": 0.95,
+      "entities_after": 128,
+      "entities_merged": 12
+    },
+    {
+      "fuzzy_threshold": 80,
+      "cosine_threshold": 0.75,
+      "entities_after": 125,
+      "entities_merged": 15
+    },
+    {
+      "fuzzy_threshold": 80,
+      "cosine_threshold": 0.8,
+      "entities_after": 127,
+      "entities_merged": 13
+    },
+    {
+      "fuzzy_threshold": 80,
+      "cosine_threshold": 0.85,
+      "entities_after": 131,
+      "entities_merged": 9
+    },
+    {
+      "fuzzy_threshold": 80,
+      "cosine_threshold": 0.9,
+      "entities_after": 132,
+      "entities_merged": 8
+    },
+    {
+      "fuzzy_threshold": 80,
+      "cosine_threshold": 0.95,
+      "entities_after": 133,
+      "entities_merged": 7
+    },
+    {
+      "fuzzy_threshold": 85,
+      "cosine_threshold": 0.75,
+      "entities_after": 124,
+      "entities_merged": 16
+    },
+    {
+      "fuzzy_threshold": 85,
+      "cosine_threshold": 0.8,
+      "entities_after": 128,
+      "entities_merged": 12
+    },
+    {
+      "fuzzy_threshold": 85,
+      "cosine_threshold": 0.85,
+      "entities_after": 132,
+      "entities_merged": 8
+    },
+    {
+      "fuzzy_threshold": 85,
+      "cosine_threshold": 0.9,
+      "entities_after": 133,
+      "entities_merged": 7
+    },
+    {
+      "fuzzy_threshold": 85,
+      "cosine_threshold": 0.95,
+      "entities_after": 134,
+      "entities_merged": 6
+    },
+    {
+      "fuzzy_threshold": 90,
+      "cosine_threshold": 0.75,
+      "entities_after": 126,
+      "entities_merged": 14
+    },
+    {
+      "fuzzy_threshold": 90,
+      "cosine_threshold": 0.8,
+      "entities_after": 131,
+      "entities_merged": 9
+    },
+    {
+      "fuzzy_threshold": 90,
+      "cosine_threshold": 0.85,
+      "entities_after": 135,
+      "entities_merged": 5
+    },
+    {
+      "fuzzy_threshold": 90,
+      "cosine_threshold": 0.9,
+      "entities_after": 137,
+      "entities_merged": 3
+    },
+    {
+      "fuzzy_threshold": 90,
+      "cosine_threshold": 0.95,
+      "entities_after": 139,
+      "entities_merged": 1
+    },
+    {
+      "fuzzy_threshold": 95,
+      "cosine_threshold": 0.75,
+      "entities_after": 127,
+      "entities_merged": 13
+    },
+    {
+      "fuzzy_threshold": 95,
+      "cosine_threshold": 0.8,
+      "entities_after": 132,
+      "entities_merged": 8
+    },
+    {
+      "fuzzy_threshold": 95,
+      "cosine_threshold": 0.85,
+      "entities_after": 136,
+      "entities_merged": 4
+    },
+    {
+      "fuzzy_threshold": 95,
+      "cosine_threshold": 0.9,
+      "entities_after": 138,
+      "entities_merged": 2
+    },
+    {
+      "fuzzy_threshold": 95,
+      "cosine_threshold": 0.95,
+      "entities_after": 140,
+      "entities_merged": 0
+    }
+  ]
+}

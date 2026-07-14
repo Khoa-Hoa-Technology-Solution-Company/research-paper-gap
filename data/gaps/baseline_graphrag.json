@@ -1,0 +1,170 @@
+[
+  {
+    "Grounds": "The knowledge graph shows that Semantic Web technologies are used to improve data interoperability and knowledge exchange across heterogeneous sources in healthcare. It also shows that systematic reviews have addressed transition probabilities between childhood dental health states to support pediatric caries progression models. However, there is currently no integration mapping Semantic Web technologies to these specific childhood dental health transition models.",
+    "Claim": "There is a research gap in applying Semantic Web technologies (such as ontologies and RDF schemas) to standardize, link, and model transition probabilities and clinical data for childhood dental health states.",
+    "Warrant": "Applying Semantic Web technologies to pediatric dental health data would resolve heterogeneity issues, enabling automated data interoperability and federated querying across different clinical studies investigating pediatric caries progression.",
+    "Bucket": "more_probable",
+    "source_paper": "Semantic Web in Healthcare: A Systematic Literature Review of Application, Research Gap, and Future Research Avenues",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The target paper investigates research gap strategies in English Language Teaching (ELT) research articles using genre analysis for Indonesian and international authors. Meanwhile, the knowledge graph references a study that evaluates research gap strategies in Computer Science disciplines, focusing on Malaysian and non-native writers.",
+    "Claim": "There is an unexplored gap in systematically comparing research gap presentation strategies across different academic domains (e.g., ELT/humanities vs. Computer Science/STEM) and diverse non-native English-speaking cohorts (e.g., Indonesian vs. Malaysian academics).",
+    "Warrant": "Academic writing conventions and rhetorical moves differ significantly between soft sciences and hard sciences. A comparative analysis would help identify whether the underutilization or specific strategies of presenting research gaps are discipline-specific or culturally influenced, thereby informing more tailored English for Academic Purposes (EAP) pedagogical frameworks.",
+    "Bucket": "more_probable",
+    "source_paper": "Previous studies have several limitations …: Indonesian Doctoral Students’, Indonesian Academics’, and International Authors’ Research Gap Strategies in ELT Research Article Abstracts and Introductions",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The target paper investigates research gap strategies across Scopus journal quartiles specifically within the English Language Teaching (ELT) field using 40 RAs. Meanwhile, the knowledge graph indicates that research gap strategies have also been evaluated in Computer Science disciplines (150 RAIs) focusing on non-native writers, but without considering the Scopus quartile lens or comparing it to ELT.",
+    "Claim": "There is a lack of cross-disciplinary comparative research examining how research gap strategies in research article introductions (RAIs) vary across Scopus journal quartiles between soft sciences (like ELT) and hard sciences (like Computer Science).",
+    "Warrant": "Rhetorical structures and academic writing conventions for establishing research gaps differ significantly between soft and hard sciences. A cross-disciplinary comparison across Scopus quartiles would reveal whether journal prestige influences writing strategies uniformly or if discipline-specific expectations dictate how research gaps must be framed to achieve publication in high-quartile (Q1/Q2) journals.",
+    "Bucket": "more_probable",
+    "source_paper": "The authors’ research gap strategies in ELT research article introductions: Does Scopus journal quartile matter?",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The target paper identifies a critical gap in the prepositioning of medical staff and emergency crews during disasters. Meanwhile, the knowledge graph indicates that systematic reviews have evaluated software (SW) in healthcare systems, but there is no intersection showing these software evaluations applied to disaster response or emergency crew prepositioning.",
+    "Claim": "There is a lack of research focusing on the design, evaluation, and reliability of software systems (specifically emergency and healthcare SW) used to coordinate and preposition medical staff and emergency crews in disaster operations.",
+    "Warrant": "While Operations Research models provide mathematical frameworks for prepositioning, their real-world execution depends on the software systems used by emergency responders. Without evaluating the software engineering aspects (such as reliability, interoperability, and usability under stress) of these healthcare and coordination systems, the theoretical models cannot be effectively deployed in high-stakes disaster scenarios.",
+    "Bucket": "more_probable",
+    "source_paper": "Prepositioning of assets and supplies in disaster operations management: Review and research gap identification",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The target paper conducts a systematic literature review of nearly 200 publications to identify research gaps and trends in Android security. Meanwhile, the knowledge graph indicates that articulating research gaps in Computer Science literature is underutilized, particularly by non-native writers.",
+    "Claim": "There is a lack of structured guidelines or translation mechanisms to help Android security researchers effectively articulate, position, and address the research gaps identified in systematic reviews.",
+    "Warrant": "While systematic reviews successfully compile and categorize research gaps in Android security, these insights cannot easily translate into concrete research progress if CS researchers struggle to formally define and communicate how their new solutions address these established gaps.",
+    "Bucket": "more_probable",
+    "source_paper": "Android security assessment: A review, taxonomy and research gap study",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The knowledge graph shows that Africa lacks studies on SCCP concentration, yet needs to develop SCCP inventories using the Stockholm Convention guidance document. The abstract highlights that SCCPs are applied to consumer products, but studies on consumer products, landfill leachates, and sediment samples in Africa are scarce.",
+    "Claim": "There is a lack of localized empirical concentration data across key environmental and consumer matrices in Africa, which prevents the practical implementation and validation of the Stockholm Convention's inventory guidance document in the region.",
+    "Warrant": "To build robust and actionable SCCP inventories as guided by the Stockholm Convention, researchers require region-specific empirical data. Without addressing the lack of studies on consumer products and landfill leachates, the inventories will remain theoretical, limiting their utility for environmental monitoring and regulatory enforcement.",
+    "Bucket": "more_probable",
+    "source_paper": "Status of short-chain chlorinated paraffins in matrices and research gap priorities in Africa: a review",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The knowledge graph shows that 'research on communication methods' improves 'awareness among all players involved in the epidemiology of ASF'. However, the abstract highlights a dual need: to increase both awareness and 'compliance with existing control measures' among diverse stakeholders such as truck drivers, hunters, and tourists.",
+    "Claim": "There is a lack of empirical research on the translation of ASF awareness into actual behavioral compliance with biosecurity and control measures among non-professional stakeholders.",
+    "Warrant": "While communication methods can successfully raise awareness, awareness alone does not guarantee behavioral compliance. Without understanding the specific behavioral barriers and motivators for stakeholders like tourists and truck drivers, communication campaigns may fail to prevent ASFV transmission pathways associated with human movement.",
+    "Bucket": "more_probable",
+    "source_paper": "Research gap analysis on African swine fever",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The paper and KG establish that 'theorization' is applied to 'industry-based academic research projects' to address the 'industry-academia research gap'. However, the proposed approach is conceptual and lacks empirical validation or a structured methodology for execution.",
+    "Claim": "There is a lack of empirical evaluation and concrete methodological frameworks to guide and measure the practical application of theorization in diverse industry-academia collaborative projects.",
+    "Warrant": "Without empirical validation and operational guidelines, researchers cannot systematically replicate the theorization process or objectively assess its effectiveness in bridging the industry-academia gap across different software engineering contexts.",
+    "Bucket": "more_probable",
+    "source_paper": "Theorization and industry-based research project development: Bridging the industry–academia research gap",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The paper and knowledge graph highlight that stakeholder engagement produces innovations for sustainability, and innovation is key to environmental sustainability. However, the graph and paper also state that sustainable entrepreneurship lacks empirical studies to define its conditions, processes, and outcomes.",
+    "Claim": "There is a lack of empirical research investigating how stakeholder engagement drives innovation processes specifically within sustainable entrepreneurship to address environmental and societal impacts.",
+    "Warrant": "Without empirical validation of how stakeholder-driven innovation operates within sustainable enterprises, the field lacks actionable, evidence-based frameworks to guide entrepreneurs in successfully balancing economic viability with social and environmental goals.",
+    "Bucket": "more_probable",
+    "source_paper": "Research Gap in Sustainopreneurship",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The target paper addresses university-industry collaboration in developing countries using a localized case study of Egypt, while the knowledge graph indicates that evidence in this domain lacks robustness and comparability.",
+    "Claim": "There is a lack of comparative, multi-country empirical studies that provide robust and standardized evidence on the barriers to university-industry research collaboration in the tourism and hospitality sectors of developing economies.",
+    "Warrant": "Relying on isolated qualitative case studies limits the generalizability of findings, preventing policy-makers from benchmarking progress or identifying systemic, cross-border patterns necessary to design effective regional interventions.",
+    "Bucket": "more_probable",
+    "source_paper": "Bridging the hospitality and tourism university–industry research gap in developing countries: The case of Egypt",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The study identifies four specific ways non-native writers commonly indicate research gaps in 150 CS introductions, but the analysis is purely manual and descriptive.",
+    "Claim": "There is a lack of automated pedagogical tools or NLP-based writing assistants designed to detect, classify, and provide feedback on these four specific research gap-indication strategies in CS drafts.",
+    "Warrant": "Translating these empirical patterns into automated tools would scale the pedagogical benefits, enabling non-native CS writers to receive real-time, actionable feedback to improve their manuscript introductions and increase publication success.",
+    "Bucket": "more_probable",
+    "source_paper": "\"Indicating a Research Gap\" in Computer Science Research Article Introductions by Non-Native English Writers",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The knowledge graph indicates that 'evidence lacks robustness and comparability' and that the 'whole grain database and evidence map produces a need for better consistency in how whole grains are reported'. The abstract highlights that regulatory bodies like the FDA require accepted scientific evidence of physiological benefits, yet current databases reveal inconsistencies in reporting intervention compliance, amounts, and types.",
+    "Claim": "There is a lack of standardized reporting frameworks and harmonized data schemas within evidence mapping databases to ensure the comparability and regulatory utility of clinical evidence for dietary interventions.",
+    "Warrant": "Without standardized reporting metrics for intervention details (such as compliance and exposure types), evidence maps cannot effectively aggregate heterogeneous study data. This limits the ability of researchers and regulators to perform robust cross-study comparisons or validate health claims for food labeling.",
+    "Bucket": "more_probable",
+    "source_paper": "Evidence mapping to assess the available research on fiber, whole grains, and health",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The target paper and KG establish that the fine-grained scientific data indicator framework uses LLMs to extract quantitative scientific data (such as performance metrics and material properties) to improve traditional technology topic analysis. However, the framework relies on LLMs for direct extraction without integrating a verification or grounding mechanism to validate the accuracy of the extracted quantitative values.",
+    "Claim": "There is a lack of automated verification and grounding mechanisms to ensure the factual accuracy and reliability of quantitative scientific data indicators extracted by LLMs from scientific literature.",
+    "Warrant": "Because LLMs are prone to hallucinations and struggle with precise numerical reasoning, extracting quantitative performance metrics without a validation loop (such as cross-referencing with experimental databases or using constraint-based verification) can lead to erroneous research hotspot analyses and flawed strategic decisions in product development.",
+    "Bucket": "more_probable",
+    "source_paper": "Identifying Research Hotspots and Research Gaps in Specific Research Area Based on Fine-Grained Information Extraction via Large Language Models",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The target paper identifies a key research gap in 'methodological approaches for interdisciplinary synthesis' within general science. The knowledge graph defines a 'methodology' that 'combines' 'co-occurrence mapping', 'thematic evolution', 'citation burst detection', and 'author-level productivity assessment'.",
+    "Claim": "There is a lack of systematic reviews in general science that apply a combined bibliometric methodology (integrating co-occurrence mapping, thematic evolution, citation burst detection, and author-level productivity) to resolve the challenges of interdisciplinary synthesis.",
+    "Warrant": "Integrating these advanced bibliometric techniques into general science reviews would provide a rigorous, quantitative framework to map cross-disciplinary knowledge flows, track the evolution of shared concepts, and identify emerging collaborative fronts, directly addressing the need for robust interdisciplinary synthesis methods.",
+    "Bucket": "more_probable",
+    "source_paper": "Current Trends and Research Gaps in General Science: A Systematic Review",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The target paper relies on conceptual frameworks and illustrative case vignettes to address international servitization strategies and strategic resource decisions. The knowledge graph shows that while systematic reviews are widely applied to synthesize findings and produce supporting data in other domains (such as Android security and healthcare), there is no connection indicating a systematic review has been conducted for international servitization strategies, specifically regarding how SSPs and SSCs improve performance in international markets.",
+    "Claim": "There is a lack of a systematic literature review that synthesizes empirical evidence on the relationship between international servitization strategies (SSPs and SSCs) and firm performance in international markets.",
+    "Warrant": "A systematic review is necessary to consolidate fragmented empirical studies, resolve conflicting findings across different industries, and validate the conceptual propositions and case vignettes presented in current literature, thereby providing a stronger evidence-based foundation for decision-makers.",
+    "Bucket": "more_probable",
+    "source_paper": "International servitization: theoretical roots, research gaps and implications",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The knowledge graph shows that systematic reviews and literature analyses have been applied to fields like Android security, teacher leadership, and healthcare software, but lacks representation in emerging environmental engineering domains. The target paper addresses this by applying a multi-method bibliometric approach—combining co-occurrence mapping, thematic evolution, citation burst detection, and author-level productivity metrics (h-index)—specifically to nano-biochar (NBC) soil applications.",
+    "Claim": "There is a lack of comprehensive, multi-dimensional scientometric frameworks that integrate both macro-level thematic mapping and micro-level author productivity metrics to identify research gaps and developmental phases in emerging environmental remediation technologies like nano-biochar.",
+    "Warrant": "Without integrating thematic evolution with author-level productivity and citation bursts, researchers and policymakers cannot systematically identify when an emerging environmental technology transitions from exploratory phases to consolidation, nor can they pinpoint critical regulatory gaps like ecotoxicological risk assessment that are necessary for safe, scalable technology implementation.",
+    "Bucket": "more_probable",
+    "source_paper": "Trends and research gaps in nano-biochar soil applications: a scientometric analysis",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The knowledge graph and abstract show that the MMR literature lacks discussion on research problems, and the proposed conceptual and methodological approach using Elliott's framework is specifically applied to social and cultural contexts.",
+    "Claim": "There is a lack of established frameworks or methodologies for identifying and formulating mixed methods research (MMR) problems within technical and engineering domains like Software Engineering.",
+    "Warrant": "Software engineering involves complex socio-technical systems where research problems span both human aspects and technical artifacts. Applying frameworks designed strictly for social and cultural contexts may fail to capture the technical nuances and integration challenges inherent in software engineering MMR.",
+    "Bucket": "more_probable",
+    "source_paper": "Understanding the Nature of and Identifying and Formulating “Research Problems” in Mixed Methods Research",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The target paper's abstract notes that research on teacher leadership in China is dominated by theoretical exploration while empirical studies on practical applications are scarce. This is mirrored in the knowledge graph by the relation (teacher leadership research) --[LACKS]--> (empirical studies investigating practical applications). Additionally, the abstract highlights that studies within higher education institutions under the high-quality development framework are underdeveloped.",
+    "Claim": "There is a critical lack of empirical research investigating the practical application and operationalization of teacher leadership within Chinese higher education institutions under the high-quality education development framework.",
+    "Warrant": "Empirical validation is necessary to translate theoretical frameworks of teacher leadership into actionable practices. Without empirical studies in higher education, institutions cannot effectively implement policy-driven educational reforms or measure the actual impact of teacher leadership on educational quality.",
+    "Bucket": "more_probable",
+    "source_paper": "Teacher Leadership Research in China (2020–2024): Trends, Gaps, and Future Directions in Educational Development",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The systematic review and graph indicate that multi-state models produce bidirectional transitions and potential lesion reactivation, whereas simpler two-state models produce unidirectional onset. However, the evidence lacks robustness and comparability due to restrictive modeling assumptions, incomplete confounder adjustment, and variability in lesion assessment.",
+    "Claim": "There is a lack of standardized, reusable software modeling frameworks that support multi-state transition modeling with automated confounder adjustment and harmonized health state definitions for pediatric dental caries.",
+    "Warrant": "Developing standardized software frameworks for multi-state caries modeling is crucial to reduce restrictive modeling assumptions, enable consistent confounder adjustment, and ensure comparability across different clinical datasets and study designs.",
+    "Bucket": "more_probable",
+    "source_paper": "Progressive health states and transition probabilities in pediatric dental caries: a systematic review of current evidence and research gaps",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The target paper's title highlights 'construction research', yet the abstract notes that the literature on AI in performance evaluation remains fragmented across diverse domains like structural engineering, cybersecurity, and healthcare. Furthermore, the knowledge graph shows systematic reviews and bibliometric analyses applied to Android security, healthcare, and teacher leadership, but lacks a consolidated mapping for construction-specific AI performance evaluation.",
+    "Claim": "There is a lack of systematic bibliometric mapping and trend analysis specifically focusing on the application of Artificial Intelligence in performance evaluation within the construction industry.",
+    "Warrant": "Without a dedicated bibliometric analysis in construction research, the literature remains fragmented. Synthesizing this domain is necessary to identify industry-specific AI adoption trends (such as project scheduling, safety compliance, and site productivity) and guide researchers and policymakers in addressing construction-specific challenges rather than relying on generalized engineering insights.",
+    "Bucket": "more_probable",
+    "source_paper": "A BIBLIOMETRIC ANALYSIS OF ARTIFICIAL INTELLIGENCE IN PERFORMANCE EVALUATION: TRENDS AND GAPS IN CONSTRUCTION RESEARCH",
+    "type": "graphrag"
+  },
+  {
+    "Grounds": "The abstract highlights that 88.3% of MERS-CoV research in the GCC is concentrated in Saudi Arabia, with a heavy reliance on cross-sectional designs (43.3%) and non-probability sampling (95.3%). Furthermore, genomic investigations are highly limited, and the KG indicates that the current evidence base lacks an expanded research scope while epidemiology/surveillance heavily relies on basic metrics like case fatality rates.",
+    "Claim": "There is a lack of representative, longitudinal epidemiological studies and diverse genomic surveillance (beyond Clade B and outside Saudi Arabia) to track MERS-CoV transmission dynamics and evolutionary variations across the broader GCC region.",
+    "Warrant": "Relying on localized, cross-sectional data and limited genomic sequencing prevents researchers from identifying real-time viral mutations, understanding long-term transmission patterns, and formulating coordinated, region-wide public health responses.",
+    "Bucket": "more_probable",
+    "source_paper": "Human Middle East Respiratory Syndrome Coronavirus (MERS-CoV) research in the Gulf Cooperation Council Countries: A mapping scoping review of epidemiology, clade, and research priority gaps.",
+    "type": "graphrag"
+  }
+]

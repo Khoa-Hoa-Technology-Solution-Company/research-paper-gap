@@ -1,0 +1,44 @@
+[
+  {
+    "method": "Full KG-TABI",
+    "total_gaps": 9,
+    "unique_gaps": 9,
+    "avg_words": 27.7,
+    "nli_entailment": 100.0
+  },
+  {
+    "method": "-Louvain",
+    "total_gaps": 6,
+    "unique_gaps": 6,
+    "avg_words": 25.8,
+    "nli_entailment": 100.0
+  },
+  {
+    "method": "-Decay",
+    "total_gaps": 3,
+    "unique_gaps": 3,
+    "avg_words": 31.3,
+    "nli_entailment": 100.0
+  },
+  {
+    "method": "-KG (B3 GAPMAP)",
+    "total_gaps": 21,
+    "unique_gaps": 21,
+    "avg_words": 25.2,
+    "nli_entailment": 57.1
+  },
+  {
+    "method": "-Entity Resolution",
+    "total_gaps": 9,
+    "unique_gaps": 9,
+    "avg_words": 27.6,
+    "nli_entailment": 88.9
+  },
+  {
+    "method": "-3-shot Examples",
+    "total_gaps": 9,
+    "unique_gaps": 9,
+    "avg_words": 26.2,
+    "nli_entailment": 55.6
+  }
+]

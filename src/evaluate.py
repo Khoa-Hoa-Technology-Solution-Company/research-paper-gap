@@ -165,6 +165,9 @@ def run_evaluation():
         "B1 (Mulla RAG)": os.path.join(config.GAPS_DIR, "baseline_mulla_rag.json"),
         "B2 (Simple LLM)": os.path.join(config.GAPS_DIR, "baseline_simple_llm.json"),
         "B3 (GAPMAP Text)": os.path.join(config.GAPS_DIR, "baseline_gapmap.json"),
+        "B4 (GraphRAG)": os.path.join(config.GAPS_DIR, "baseline_graphrag.json"),
+        "B5 (LightRAG)": os.path.join(config.GAPS_DIR, "baseline_lightrag.json"),
+        "B6 (HippoRAG)": os.path.join(config.GAPS_DIR, "baseline_hipporag.json"),
     }
     
     all_gaps = {}

@@ -1,0 +1,170 @@
+[
+  {
+    "Grounds": "The target paper highlights the challenges in adopting Semantic Web (SW) technologies in healthcare systems and emphasizes the need for regulatory frameworks and information management. Passage 3 demonstrates that university-industry-government collaboration is a critical but often neglected factor in technology transfer and research implementation, particularly in developing regions.",
+    "Claim": "There is a lack of research investigating the role of university-industry-government collaboration models in facilitating the adoption and practical implementation of Semantic Web technologies within healthcare systems.",
+    "Warrant": "Although Semantic Web technologies offer theoretical solutions for healthcare data interoperability, their actual deployment is hindered by adoption difficulties. Investigating multi-stakeholder collaboration frameworks (involving academic researchers, healthcare providers, and government regulators) is necessary to align technological innovations with industry needs and regulatory standards, ensuring successful translation from research to practice.",
+    "Bucket": "more_probable",
+    "source_paper": "Semantic Web in Healthcare: A Systematic Literature Review of Application, Research Gap, and Future Research Avenues",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper analyzes research gap strategies in ELT research articles across different author groups (Indonesian students, academics, and international authors). Passage 3 investigates the university-industry research gap in the Egyptian hospitality and tourism industry using stakeholder interviews.",
+    "Claim": "There is a lack of comparative research investigating how academic training in research gap formulation strategies (as studied in ELT) directly influences or correlates with the ability of researchers to bridge practical, industry-specific research gaps in applied sectors within developing countries.",
+    "Warrant": "Connecting genre analysis of academic writing (target paper) with empirical studies on university-industry collaboration gaps (Passage 3) would reveal whether pedagogical deficiencies in identifying research gaps during doctoral studies contribute to the wider university-industry knowledge gap in developing nations.",
+    "Bucket": "more_probable",
+    "source_paper": "Previous studies have several limitations …: Indonesian Doctoral Students’, Indonesian Academics’, and International Authors’ Research Gap Strategies in ELT Research Article Abstracts and Introductions",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper investigates research gap strategies in English Language Teaching (ELT) research article introductions across Scopus quartiles, while the provided passages represent highly diverse domains such as environmental soil remediation (Passage 1), dental health modeling (Passage 2), and university-industry collaboration in tourism (Passage 3).",
+    "Claim": "There is a lack of comparative, cross-disciplinary studies analyzing how research gap strategies in research article introductions vary between soft sciences (like ELT) and hard/applied sciences (like environmental and health sciences) across different Scopus journal quartiles.",
+    "Warrant": "Investigating these strategies across distinct disciplines would determine whether the framing of research gaps is influenced more by disciplinary norms or by the indexing quality (quartile) of the target journals, thereby providing more comprehensive guidance for academic writing.",
+    "Bucket": "more_probable",
+    "source_paper": "The authors’ research gap strategies in ELT research article introductions: Does Scopus journal quartile matter?",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper identifies key research gaps in disaster prepositioning, such as dealing with uncertainties in funding, infrastructure, and logistics. Passage 3 highlights the significant gap between university research and industry/government practice in developing countries.",
+    "Claim": "There is a lack of research on how university-industry-government collaboration frameworks can be leveraged to implement and validate disaster prepositioning models in developing countries.",
+    "Warrant": "Integrating university-industry collaboration frameworks into disaster operations management research can help address practical implementation challenges, such as funding constraints and infrastructure uncertainties, by aligning academic OR/MS models with the operational realities of local industries and government agencies.",
+    "Bucket": "more_probable",
+    "source_paper": "Prepositioning of assets and supplies in disaster operations management: Review and research gap identification",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper identifies that despite significant research progress in Android security detection and mitigation, numerous challenges and gaps still exist in the practical application of these security assessments. Passage 3 highlights a wide research gap in university-industry collaboration (UIC) within developing countries, specifically noting the misalignment of perceptions among university, industry, and government stakeholders.",
+    "Claim": "There is a lack of research exploring how university-industry collaboration frameworks can be tailored to bridge the gap between academic Android security assessment research and its practical adoption by mobile software industries in developing countries.",
+    "Warrant": "While academic research has produced numerous Android security tools and taxonomies, their industry adoption remains low. Investigating UIC models specifically for mobile security in developing countries would help align academic research objectives (e.g., static/dynamic analysis tools) with the practical constraints and security needs of local software developers.",
+    "Bucket": "least_probable",
+    "source_paper": "Android security assessment: A review, taxonomy and research gap study",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper highlights that while short-chain chlorinated paraffins (SCCPs) are globally restricted under the Stockholm Convention, there is a severe lack of research and data on SCCP concentrations in Africa, specifically regarding consumer products, landfill leachates, and sediment samples.",
+    "Claim": "There is a critical research gap in the systematic monitoring, quantification, and inventory development of SCCP concentrations across diverse environmental matrices and consumer products in Africa.",
+    "Warrant": "Establishing localized data and robust inventories for SCCPs in African matrices is necessary to enable effective regulatory compliance with the Stockholm Convention and to mitigate the ecological and public health risks of these persistent organic pollutants.",
+    "Bucket": "more_probable",
+    "source_paper": "Status of short-chain chlorinated paraffins in matrices and research gap priorities in Africa: a review",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper identifies a critical need for research on communication methods to increase awareness and compliance with African swine fever (ASF) control measures among key stakeholders, including tourists. Passage 3 highlights the role of university-industry-government collaborations in addressing research gaps and stakeholder perceptions within the hospitality and tourism industry.",
+    "Claim": "There is a lack of research on how university-industry-government collaboration frameworks within the hospitality and tourism sector can be leveraged to design and disseminate ASF biosecurity communication strategies for tourists.",
+    "Warrant": "While tourists are recognized as potential vectors for ASFV transmission, veterinary science lacks established frameworks to engage the tourism industry. Adapting collaborative models from the hospitality sector could bridge this gap, but the integration of tourism management and veterinary biosecurity communication remains unexplored.",
+    "Bucket": "least_probable",
+    "source_paper": "Research gap analysis on African swine fever",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper proposes that focusing on 'theorization' (developing or contributing to theories) in academic research can bridge the industry-academia research gap. Meanwhile, Passage 3 highlights that the university-industry research gap is particularly wide in developing countries (such as Egypt) and specific service sectors like hospitality and tourism, driven by differing perceptions among stakeholders (industry, university, government, and NGOs).",
+    "Claim": "There is a lack of empirical research on how the theorization-driven framework for bridging the industry-academia gap can be adapted and applied to the unique institutional and stakeholder dynamics of developing countries and their service industries.",
+    "Warrant": "While theorization is proposed as a general mechanism to align academic research with industry needs, its application may fail in developing countries where structural barriers, lack of trust, and differing stakeholder priorities (government, NGOs, universities, and local businesses) require contextualized collaborative models. Investigating this adaptation is necessary to make theorization-based research project development viable in non-Western or developing contexts.",
+    "Bucket": "more_probable",
+    "source_paper": "Theorization and industry-based research project development: Bridging the industry–academia research gap",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper highlights that stakeholder engagement is a crucial but under-researched pathway to driving innovation in sustainable entrepreneurship (sustainopreneurship), noting a lack of empirical studies on its processes and outcomes. Passage 3 identifies a significant gap in university-industry-government-NGO collaboration within developing countries, specifically noting the disconnect between academic research and industry needs.",
+    "Claim": "There is a lack of empirical research exploring how multi-stakeholder collaboration frameworks (specifically university-industry-government-NGO partnerships) can be structured to foster sustainable entrepreneurship and sustainability-driven innovation in developing economies.",
+    "Warrant": "By bridging the target paper's call for stakeholder-driven sustainability innovation with Passage 3's focus on university-industry collaboration gaps, researchers can define the empirical conditions and processes necessary to translate academic sustainability research into viable, self-sustaining green enterprises.",
+    "Bucket": "more_probable",
+    "source_paper": "Research Gap in Sustainopreneurship",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper highlights a severe university-industry research gap in the Egyptian hospitality and tourism sector, characterized by a lack of research culture and failure to inform industry practices. Passage 3 discusses using bibliometric analysis and AI-integrated performance evaluation to map fragmented research trends and improve decision-making efficiency.",
+    "Claim": "There is a lack of research utilizing bibliometric analysis and AI-driven performance evaluation frameworks to map and address the university-industry research collaboration gap in the hospitality and tourism sectors of developing nations.",
+    "Warrant": "Applying bibliometric mapping and AI-based evaluation tools to the academic output of hospitality faculties in developing countries would provide policy-makers with data-driven insights to measure research impact, identify industry-aligned topics, and systematically address the lack of research culture.",
+    "Bucket": "least_probable",
+    "source_paper": "Bridging the hospitality and tourism university–industry research gap in developing countries: The case of Egypt",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper investigates the rhetorical strategy of indicating research gaps in Computer Science article introductions by Malaysian (non-native English) writers, noting its underutilization. Passage 3 highlights university-industry research gaps in a different developing country context (Egypt) and a different domain (hospitality and tourism).",
+    "Claim": "There is a lack of comparative research analyzing how non-native English writers express and structure research gaps across different academic disciplines (e.g., hard sciences like Computer Science versus applied social sciences like hospitality and tourism) within developing countries.",
+    "Warrant": "Disciplinary cultures and regional academic environments heavily influence writing conventions. Comparing how research gaps are framed in technical versus applied social science fields would help develop more tailored, discipline-specific academic writing pedagogy for non-native English scholars.",
+    "Bucket": "more_probable",
+    "source_paper": "\"Indicating a Research Gap\" in Computer Science Research Article Introductions by Non-Native English Writers",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper outlines a university-industry collaboration (Tufts University and General Mills) that developed a whole grain database, noting a critical lack of consistency in reporting whole grain types, amounts, and intervention compliance. Passage 3 highlights that university-industry collaborations often suffer from gaps in alignment, stakeholder perceptions, and structured frameworks.",
+    "Claim": "There is a lack of standardized reporting frameworks and compliance metrics specifically designed for university-industry collaborative databases to ensure consistency in dietary intervention data (such as whole grains).",
+    "Warrant": "Establishing standardized reporting guidelines within university-industry database collaborations is essential to ensure data quality, comparability, and compliance, which are necessary for evidence mapping and meeting regulatory standards (like FDA labeling).",
+    "Bucket": "more_probable",
+    "source_paper": "Evidence mapping to assess the available research on fiber, whole grains, and health",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper proposes an LLM-based fine-grained scientific data indicator framework to identify research hotspots and gaps, overcoming the limitations of traditional coarse-grained topic analysis. Passage 1 relies on traditional scientometric analysis (CiteSpace) to review nano-biochar research for soil remediation, which lacks the fine-grained, quantitative extraction of specific technical dimensions like materials, technologies, and performance indicators.",
+    "Claim": "There is a lack of application of fine-grained LLM-based information extraction frameworks to map research hotspots and gaps in environmental remediation technologies, such as nano-biochar application in soil remediation.",
+    "Warrant": "Applying the target paper's LLM-based framework to the nano-biochar domain would allow researchers to extract precise, multi-dimensional indicators (e.g., specific soil contaminants, biochar modification techniques, and remediation performance metrics) that traditional bibliometric tools like CiteSpace cannot capture.",
+    "Bucket": "more_probable",
+    "source_paper": "Identifying Research Hotspots and Research Gaps in Specific Research Area Based on Fine-Grained Information Extraction via Large Language Models",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper identifies a pervasive research gap in translating basic scientific research into practical applications, aligning with SDG 9 (Industry, Innovation, and Infrastructure) and SDG 17 (Partnerships). Passage 3 empirically supports this by highlighting a wide research gap in university-industry collaboration within developing countries.",
+    "Claim": "There is a lack of scalable, context-specific frameworks for university-industry collaboration to translate basic scientific research into practical applications in developing countries.",
+    "Warrant": "Translating basic research into industry applications requires aligning the disparate perceptions of stakeholders (universities, industry, government, and NGOs). Without structured collaboration frameworks tailored to developing countries, the translation of scientific knowledge into practical, societal, and industrial solutions remains limited.",
+    "Bucket": "more_probable",
+    "source_paper": "Current Trends and Research Gaps in General Science: A Systematic Review",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper examines international servitization strategies, focusing on how strategic resource decisions (slack resources and digital marketing capabilities) enable industrial firms to offer services in support of products (SSPs) and client's actions (SSCs) in international markets. Passage 3 highlights the research gap in university-industry collaboration (UIC) within developing countries, specifically in the hospitality and tourism service sector.",
+    "Claim": "There is a lack of research investigating how university-industry collaborations in developing countries can serve as a strategic external resource to facilitate international servitization and the deployment of SSPs and SSCs in foreign markets.",
+    "Warrant": "While the resource-based view in the target paper focuses on internal firm resources (slack resources and digital capabilities), firms in developing countries often face severe resource constraints. Investigating how external collaborative resources, such as university-industry partnerships (Passage 3), can mitigate these constraints and support international servitization remains unexplored.",
+    "Bucket": "least_probable",
+    "source_paper": "International servitization: theoretical roots, research gaps and implications",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper identifies machine-learning-assisted modeling and ecotoxicological risk assessment as emerging, critical directions for nano-biochar (NBC) soil applications. Meanwhile, Passage 3 highlights that the integration of Artificial Intelligence (AI) for performance evaluation remains fragmented across various domains, requiring systematic mapping and framework development.",
+    "Claim": "There is a lack of standardized, AI-driven performance evaluation frameworks to model and predict the long-term ecotoxicological risks and microbial community interactions of nano-biochar in soil remediation.",
+    "Warrant": "Applying AI and machine-learning-assisted modeling to NBC performance evaluation will allow researchers to quantitatively predict ecotoxicological outcomes and microbial dynamics, addressing the target paper's call for robust risk assessment frameworks to guide regulatory and policy decisions.",
+    "Bucket": "more_probable",
+    "source_paper": "Trends and research gaps in nano-biochar soil applications: a scientometric analysis",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper notes that mixed methods research (MMR) literature lacks adequate discussion and frameworks for identifying and formulating 'research problems' in social and cultural contexts. Passage 3 highlights a study on university-industry collaboration in Egypt that relies primarily on qualitative semi-structured interviews, indicating a reliance on single-method approaches to address complex stakeholder relationships.",
+    "Claim": "There is a lack of structured mixed methods research (MMR) frameworks designed to formulate and investigate multi-stakeholder research problems in university-industry collaborations within developing countries.",
+    "Warrant": "By integrating the target paper's conceptual approach to formulating MMR research problems with the multi-stakeholder challenges identified in Passage 3, researchers can move beyond purely qualitative interviews to design integrated mixed-methods studies that capture both qualitative stakeholder perceptions and quantitative collaboration metrics.",
+    "Bucket": "more_probable",
+    "source_paper": "Understanding the Nature of and Identifying and Formulating “Research Problems” in Mixed Methods Research",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper identifies a lack of empirical studies on teacher leadership in Chinese higher education, while Passage 3 highlights a gap in university-industry collaboration within developing nations.",
+    "Claim": "There is a lack of empirical research investigating the role of teacher leadership in fostering university-industry collaboration within higher education institutions in developing economies.",
+    "Warrant": "Integrating teacher leadership frameworks with university-industry collaboration models can address the practical implementation gaps identified in both educational leadership and regional development literature.",
+    "Bucket": "more_probable",
+    "source_paper": "Teacher Leadership Research in China (2020–2024): Trends, Gaps, and Future Directions in Educational Development",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper identifies key limitations in pediatric dental caries research, including high variability in lesion assessment, restrictive modeling assumptions, and incomplete confounder adjustment. Passage 3 discusses the integration of Artificial Intelligence (AI) to improve objectivity, accuracy, and efficiency in evaluation processes.",
+    "Claim": "There is a research gap in utilizing Artificial Intelligence (AI) and machine learning algorithms to automate and standardize pediatric dental caries lesion assessment and to model complex multi-state transition probabilities.",
+    "Warrant": "Applying AI-based computer vision can standardize lesion detection to reduce human observer bias, while machine learning multi-state models can better capture non-linear, bidirectional transitions and automatically adjust for confounding variables compared to traditional, restrictive statistical models.",
+    "Bucket": "more_probable",
+    "source_paper": "Progressive health states and transition probabilities in pediatric dental caries: a systematic review of current evidence and research gaps",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper identifies a need for cross-disciplinary research and harmonized frameworks in AI-based performance evaluation, noting its application across diverse industries. Passage 3 highlights a critical gap in university-industry collaboration (UIC) in developing countries, where academic research is disconnected from industry needs.",
+    "Claim": "There is a lack of research exploring how AI-based performance evaluation models can be applied to measure, analyze, and optimize the effectiveness of university-industry collaborations in developing countries.",
+    "Warrant": "Applying AI-based performance evaluation techniques (such as machine learning and citation network analysis) to university-industry collaboration data can help identify misalignment, predict partnership success, and provide objective metrics to bridge the gap between academic research and industry application.",
+    "Bucket": "more_probable",
+    "source_paper": "A BIBLIOMETRIC ANALYSIS OF ARTIFICIAL INTELLIGENCE IN PERFORMANCE EVALUATION: TRENDS AND GAPS IN CONSTRUCTION RESEARCH",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper highlights a significant geographic concentration of MERS-CoV research in Saudi Arabia (88.3%) and explicitly calls for 'enhanced regional collaboration' to address thematic and methodological limitations. Meanwhile, Passage 3 demonstrates the utility of analyzing multi-stakeholder collaborations (university, industry, government, and NGOs) to identify and bridge research-to-practice gaps in developing regions.",
+    "Claim": "There is a lack of empirical research investigating the structural barriers, stakeholder dynamics, and policy frameworks that hinder or facilitate multi-sectoral (university-industry-government) and cross-border regional collaboration for MERS-CoV research and therapeutic development in the GCC.",
+    "Warrant": "Investigating these collaborative frameworks using multi-stakeholder qualitative or mixed-methods approaches is essential to design effective regional research networks, transition MERS-CoV studies from isolated epidemiological surveillance to collaborative translational medicine, and optimize resource allocation across the GCC.",
+    "Bucket": "more_probable",
+    "source_paper": "Human Middle East Respiratory Syndrome Coronavirus (MERS-CoV) research in the Gulf Cooperation Council Countries: A mapping scoping review of epidemiology, clade, and research priority gaps.",
+    "type": "hipporag"
+  }
+]

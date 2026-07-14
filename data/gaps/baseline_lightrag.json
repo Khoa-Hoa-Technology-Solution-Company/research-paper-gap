@@ -1,0 +1,170 @@
+[
+  {
+    "Grounds": "The target paper conducts a systematic literature review (SLR) of 65 papers to identify five themes in Semantic Web (SW) healthcare applications. However, the related entities highlight 'methodological quality appraisal', 'VOSviewer', 'CiteSpace', and 'co-occurrence mapping', which are tools and methods for bibliometric analysis and quality assessment that are not fully utilized to map the structural relationships and evaluate the bias of the reviewed literature.",
+    "Claim": "There is a lack of systematic literature reviews on Semantic Web in healthcare that integrate advanced bibliometric co-occurrence mapping tools (such as VOSviewer and CiteSpace) with formal methodological quality appraisals of the primary studies.",
+    "Warrant": "Relying solely on manual thematic categorization in SLRs can introduce subjective bias. Integrating automated co-occurrence mapping with rigorous methodological quality appraisal provides a reproducible, quantitative visualization of research trends and ensures the reliability of the synthesized evidence regarding data interoperability and knowledge exchange in healthcare.",
+    "Bucket": "more_probable",
+    "source_paper": "Semantic Web in Healthcare: A Systematic Literature Review of Application, Research Gap, and Future Research Avenues",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper investigates the similarities and differences in research gap strategies used by different groups of authors in ELT research articles. However, it does not consider how these strategies might differ based on the ranking or prestige of the publishing venue, which relates to the entity 'accounting for the way such strategies are applied across the Scopus journal quartiles'.",
+    "Claim": "There is a lack of research examining how research gap presentation strategies in research article abstracts and introductions vary across different Scopus journal quartiles.",
+    "Warrant": "Analyzing research gap strategies across Scopus quartiles (Q1 to Q4) would reveal whether the prestige and selectivity of a journal influence the rhetorical choices authors make to establish novelty, offering more granular guidance for researchers aiming to publish in high-impact venues.",
+    "Bucket": "more_probable",
+    "source_paper": "Previous studies have several limitations …: Indonesian Doctoral Students’, Indonesian Academics’, and International Authors’ Research Gap Strategies in ELT Research Article Abstracts and Introductions",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper relies on manual genre analysis of a small sample (40 research articles) to identify research gap strategies based on frameworks by Swales, Lim, and Kwan et al. The related knowledge graph entities suggest tools like VOSviewer, OpenRefine, Mendeley, and methods like traditional technology topic analysis in domains such as teacher leadership research.",
+    "Claim": "There is a lack of automated, tool-supported frameworks that integrate bibliometric mapping (VOSviewer), data cleaning (OpenRefine), and reference management (Mendeley) to systematically identify and analyze research gap strategies and 'problems in identifying research gaps' at scale.",
+    "Warrant": "Manual genre analysis is labor-intensive and limits the generalizability of findings across Scopus quartiles. Combining data refinement tools and bibliometric visualization with topic analysis can scale the extraction of research gaps, allowing researchers to analyze thousands of articles across diverse fields like teacher leadership research.",
+    "Bucket": "more_probable",
+    "source_paper": "The authors’ research gap strategies in ELT research article introductions: Does Scopus journal quartile matter?",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper identifies a significant research gap regarding the 'prepositioning of medical staff and emergency crew' in disaster operations management. Additionally, the KG entity 'Evidence mapping' represents a structured methodology to visually represent and analyze the distribution of evidence in a specific research field.",
+    "Claim": "There is a lack of systematic evidence mapping studies that categorize, evaluate, and visualize the existing literature and mathematical models specifically designed for the prepositioning of medical staff and emergency crew in disaster response.",
+    "Warrant": "While physical assets and supplies have established location-allocation models, prepositioning human resources (medical staff and emergency crew) introduces distinct variables such as shift constraints, specialized skill sets, and psychological readiness. Applying evidence mapping to this sub-domain will systematically identify where current Operations Research/Management Science (OR/MS) models fail to address these human-centric constraints.",
+    "Bucket": "more_probable",
+    "source_paper": "Prepositioning of assets and supplies in disaster operations management: Review and research gap identification",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper conducts a systematic literature review of nearly 200 publications to identify research gaps in Android security assessment. However, it does not analyze the rhetorical patterns or genre strategies used to establish these gaps. The KG entities highlight the need for 'genre analysis' of '150 research articles introductions in Computer Science disciplines' to identify 'similarities and differences in using the types of research gap strategy' across 'Scopus journal quartiles' based on insights from Lim (2012) and Kwan et al. (2012).",
+    "Claim": "There is a lack of genre-based meta-analysis examining how research gap establishment strategies are rhetorically constructed and distributed across different Scopus journal quartiles within Computer Science and Android security literature.",
+    "Warrant": "Applying genre analysis to Android security literature introductions would reveal how researchers frame their contributions and whether the choice of research gap strategies (e.g., challenging, extending, or identifying a novelty) correlates with the publication's journal quartile ranking, thereby improving academic writing and review standards in the field.",
+    "Bucket": "least_probable",
+    "source_paper": "Android security assessment: A review, taxonomy and research gap study",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper reviews the status and research gaps of short-chain chlorinated paraffins (SCCPs) in Africa, but does not analyze the rhetorical structure of how these gaps are established. The related entities highlight genre analysis, research gap strategies (e.g., Lim 2012; Kwan, Chan, and Lam 2012), and their application across Scopus journal quartiles.",
+    "Claim": "There is a lack of systematic genre analysis investigating how research gap identification strategies are formulated and distributed across different Scopus journal quartiles in environmental science review papers.",
+    "Warrant": "Applying genre analysis to environmental reviews helps identify common problems in establishing research gaps, allowing researchers to adopt more effective rhetorical strategies to highlight critical environmental issues in under-studied regions like Africa.",
+    "Bucket": "more_probable",
+    "source_paper": "Status of short-chain chlorinated paraffins in matrices and research gap priorities in Africa: a review",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The paper and related KG entities highlight that stakeholders identified critical knowledge gaps in the 'sources of ASFV introduction into unaffected countries' and called for an 'in-depth analysis of the possible pathways of introduction of ASFV' (focusing on food, feed, transport, and human movements), alongside a need for 'research on communication methods' to improve 'awareness among all players involved in the epidemiology of ASF'.",
+    "Claim": "There is a lack of comprehensive, quantitative pathway analyses for ASFV introduction into unaffected regions (specifically via feed, transport, and human movement) and a shortage of evidence-based communication strategies to ensure stakeholder compliance.",
+    "Warrant": "Without precise quantitative risk models for these specific transmission pathways, biosecurity protocols remain generalized and potentially ineffective. Furthermore, without structured communication frameworks, epidemiological guidelines cannot be successfully translated into behavioral compliance among diverse stakeholders like truck drivers, hunters, and tourists.",
+    "Bucket": "more_probable",
+    "source_paper": "Research gap analysis on African swine fever",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The paper introduces a conceptual perspective on using 'theorization' to bridge the 'industry-academia research gap' within 'industry-based academic research projects', but it focuses primarily on the theoretical articulation rather than empirical validation.",
+    "Claim": "There is a lack of empirical evidence and concrete, operationalized frameworks to guide software engineering researchers in applying and evaluating this theorization-driven approach in practical industry-academia collaborations.",
+    "Warrant": "Without empirical validation (such as case studies or action research) and structured guidelines, it remains unclear how effectively the theorization process can be adapted to diverse software engineering contexts and whether it successfully addresses industry's immediate practical needs.",
+    "Bucket": "more_probable",
+    "source_paper": "Theorization and industry-based research project development: Bridging the industry–academia research gap",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The paper explicitly highlights that there have only been a few empirical studies in sustainable entrepreneurship, meaning the conditions, processes, features, and outcomes that distinguish this form of entrepreneurship are yet to be defined. It also notes that more research is needed to provide a conceptual basis for understanding how stakeholder engagement and innovation lead to solutions for environmental sustainability.",
+    "Claim": "There is a lack of empirical evidence and established conceptual frameworks defining the distinct processes, conditions, and outcomes of sustainable entrepreneurship, particularly regarding how stakeholder engagement and innovation translate into environmental and economic sustainability.",
+    "Warrant": "Without empirical validation, the theoretical links between stakeholder engagement, innovation, and sustainable entrepreneurship remain speculative. Empirical studies are necessary to define actionable pathways and distinct characteristics that differentiate sustainopreneurship from traditional business models.",
+    "Bucket": "more_probable",
+    "source_paper": "Research Gap in Sustainopreneurship",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper investigates the university-industry research gap in Egyptian faculties of tourism and hotels using qualitative in-depth semi-structured one-to-one interviews, highlighting a lack of research culture. However, it does not employ quantitative bibliometric methods to map the actual research landscape.",
+    "Claim": "There is a lack of systematic bibliometric and co-occurrence mapping analyses (using tools like VOSviewer or CiteSpace) to empirically evaluate the research outputs, collaboration networks, and thematic trends of Egyptian faculties of tourism and hotels.",
+    "Warrant": "Applying bibliometric tools like VOSviewer and CiteSpace for co-occurrence mapping would provide objective, quantifiable evidence of the research landscape and actual university-industry collaboration patterns, validating or refining the qualitative perceptions obtained from stakeholder interviews.",
+    "Bucket": "more_probable",
+    "source_paper": "Bridging the hospitality and tourism university–industry research gap in developing countries: The case of Egypt",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper analyzes 150 research article introductions in Computer Science disciplines to show that \"indicating a research gap\" is underutilized by Malaysian non-native English writers, but it relies on textual analysis. Related entities highlight qualitative methods like \"in-depth semi-structured one-to-one interviews\" and other academic domains like \"faculties of tourism and hotels\".",
+    "Claim": "There is a lack of qualitative studies employing in-depth semi-structured one-to-one interviews to explore the underlying reasons, perceptions, and challenges of non-native English writers (across Computer Science and other faculties like tourism and hotels) regarding the underutilization of the \"indicating a research gap\" strategy.",
+    "Warrant": "While textual analysis of introductions identifies the frequency and patterns of gap-indication, it fails to capture the subjective difficulties, lack of training, or cultural factors influencing the writers. Utilizing semi-structured interviews would explain the \"why\" behind the underutilization, bridging the gap between textual evidence and pedagogical solutions.",
+    "Bucket": "more_probable",
+    "source_paper": "\"Indicating a Research Gap\" in Computer Science Research Article Introductions by Non-Native English Writers",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The paper highlights the development of the Diet-Related Fibers & Human Health Outcomes Database and a whole grain database for evidence mapping, noting a critical 'need for better consistency in how whole grains are reported'. The related entities suggest bibliometric visualization tools (VOSviewer, CiteSpace, co-occurrence mapping) and methodological quality appraisal as relevant techniques.",
+    "Claim": "Current nutrition evidence mapping databases lack integration with automated bibliometric visualization tools and methodological quality appraisal frameworks to systematically identify and resolve reporting inconsistencies.",
+    "Warrant": "Integrating co-occurrence mapping tools like VOSviewer or CiteSpace and automated methodological quality appraisal into dietary databases would enable researchers to programmatically detect reporting discrepancies in intervention studies and dynamically visualize the strength of evidence across physiological outcomes.",
+    "Bucket": "more_probable",
+    "source_paper": "Evidence mapping to assess the available research on fiber, whole grains, and health",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper proposes an LLM-based framework to extract fine-grained scientific data indicators (products, technologies, materials, performance) to overcome the coarse granularity of traditional technology topic analysis. However, standard bibliometric and co-occurrence mapping tools like CiteSpace and VOSviewer typically rely on coarse metadata (e.g., keywords, co-citations) and lack native support for visualizing these multi-dimensional, quantitative scientific indicators.",
+    "Claim": "There is a lack of integration between LLM-extracted fine-grained scientific data indicators and traditional co-occurrence mapping tools (such as CiteSpace and VOSviewer) for visualizing research hotspots and gaps.",
+    "Warrant": "To bridge this gap, researchers need to develop interoperable data pipelines or preprocessing methodologies (potentially utilizing tools like OpenRefine) that can translate structured, multi-dimensional LLM extractions into network formats compatible with bibliometric visualization software, thereby enabling fine-grained quantitative co-occurrence mapping.",
+    "Bucket": "more_probable",
+    "source_paper": "Identifying Research Hotspots and Research Gaps in Specific Research Area Based on Fine-Grained Information Extraction via Large Language Models",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper identifies a critical research gap in the methodological approaches for interdisciplinary synthesis. Concurrently, the knowledge graph entities highlight bibliometric tools (VOSviewer, CiteSpace, co-occurrence mapping) and the need for analyzing the similarities and differences in research gap strategies, specifically accounting for how these strategies are applied across Scopus journal quartiles.",
+    "Claim": "There is a lack of systematic frameworks that combine bibliometric co-occurrence mapping tools (like VOSviewer and CiteSpace) to evaluate and compare how research gap identification strategies are formulated and applied across different Scopus journal quartiles.",
+    "Warrant": "Developing a methodology that maps research gap strategies against Scopus journal quartiles using bibliometric tools will reveal how journal prestige and indexing impact the reporting of scientific gaps, thereby improving the rigor and quality appraisal of interdisciplinary literature syntheses.",
+    "Bucket": "more_probable",
+    "source_paper": "Current Trends and Research Gaps in General Science: A Systematic Review",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper conceptualizes international servitization strategies and services in support of product (SSPs) using case vignettes, but notes limitations in addressing diverse external environments. The related entities highlight a connection between SSPs, social and cultural contexts, and the need for a robust conceptual and methodological approach such as MMR (Mixed Methods Research) literature.",
+    "Claim": "There is a lack of empirical research employing mixed methods research (MMR) approaches to investigate how diverse social and cultural contexts influence the adoption and performance of international servitization strategies, specifically services in support of product (SSPs).",
+    "Warrant": "Utilizing MMR methodologies would bridge the gap between qualitative contextual nuances (social and cultural factors) and quantitative performance outcomes of SSPs, providing a more holistic validation of international servitization frameworks than case vignettes alone.",
+    "Bucket": "more_probable",
+    "source_paper": "International servitization: theoretical roots, research gaps and implications",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper performs a scientometric analysis of nano-biochar soil applications using VOSviewer and CiteSpace to map research trends, but it relies purely on citation metrics and co-occurrence mapping without performing a systematic methodological quality appraisal of the underlying studies.",
+    "Claim": "There is a lack of integrated frameworks that combine bibliometric mapping tools (like VOSviewer and CiteSpace) with systematic methodological quality appraisal to filter and weight literature based on experimental rigor in environmental science reviews.",
+    "Warrant": "Without incorporating methodological quality appraisal into the scientometric workflow, trend analyses risk giving equal weight to methodologically flawed studies and high-rigor research, potentially misidentifying 'hotspots' or 'emerging directions' based on volume rather than scientific validity.",
+    "Bucket": "more_probable",
+    "source_paper": "Trends and research gaps in nano-biochar soil applications: a scientometric analysis",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper highlights that the mixed methods research (MMR) literature offers a very limited discussion about defining and formulating 'research problems'. While it proposes a conceptual and methodological approach using Elliott's framework for social and cultural contexts, this framework has not been tailored or applied to complex industrial and software service domains, such as those involving 'international servitization strategies' and 'services in support of product (SSPs)'.",
+    "Claim": "There is a lack of structured methodological guidance for identifying and formulating mixed methods research problems specifically within the domains of international servitization strategies and services in support of product (SSPs).",
+    "Warrant": "Investigating international servitization and SSPs requires analyzing complex, multi-level socio-technical systems that combine qualitative organizational shifts with quantitative operational and financial metrics. Without adapting MMR problem-formulation frameworks to these specific domains, researchers cannot systematically design studies that adequately integrate these disparate data types to address industry-specific challenges.",
+    "Bucket": "more_probable",
+    "source_paper": "Understanding the Nature of and Identifying and Formulating “Research Problems” in Mixed Methods Research",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper conducts a systematic literature review of teacher leadership research in China (2020–2024), highlighting a decline in publications and a lack of empirical studies. However, the review relies on traditional qualitative synthesis without utilizing advanced bibliometric tools like CiteSpace or VOSviewer for co-occurrence mapping, nor does it incorporate a formal methodological quality appraisal of the selected literature.",
+    "Claim": "There is a lack of quantitative bibliometric mapping and methodological quality appraisal to systematically analyze the thematic evolution, co-occurrence networks, and empirical quality of teacher leadership research in China.",
+    "Warrant": "Applying bibliometric mapping tools (such as CiteSpace and VOSviewer) alongside data cleaning (OpenRefine) and methodological quality appraisal would provide a more objective, reproducible, and visually structured analysis of the intellectual landscape, helping to pinpoint specific empirical and theoretical clusters that require development.",
+    "Bucket": "more_probable",
+    "source_paper": "Teacher Leadership Research in China (2020–2024): Trends, Gaps, and Future Directions in Educational Development",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper performs a manual systematic review of 11 studies on pediatric dental caries transition probabilities, identifying significant methodological limitations, assessment variability, and restrictive modeling assumptions. The related KG entities suggest tools like VOSviewer, CiteSpace, and OpenRefine, alongside research gap identification strategies (Lim 2012; Kwan, Chan, and Lam 2012).",
+    "Claim": "There is a lack of automated bibliometric mapping and structured genre analysis to systematically categorize and visualize the methodological gaps and modeling assumptions in pediatric dental caries literature across different journal quartiles.",
+    "Warrant": "By utilizing bibliometric software (such as VOSviewer and CiteSpace) and text-mining tools (like OpenRefine) combined with established research gap frameworks (Lim 2012), researchers can map co-occurrence networks of modeling limitations and objectively analyze how reporting quality and transition model complexities vary across Scopus journal quartiles, which manual systematic reviews cannot easily scale or visualize.",
+    "Bucket": "least_probable",
+    "source_paper": "Progressive health states and transition probabilities in pediatric dental caries: a systematic review of current evidence and research gaps",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper conducts a bibliometric analysis of 801 documents on AI-based performance evaluation using Scopus, OpenRefine, Mendeley, and VOSviewer. While it maps keyword co-occurrences and citation networks, it does not incorporate a formal methodological quality appraisal of the included studies.",
+    "Claim": "Current bibliometric studies on AI in performance evaluation lack integration with systematic methodological quality appraisal, leaving the scientific rigor and validity of the mapped AI models unassessed.",
+    "Warrant": "Without combining bibliometric co-occurrence mapping with methodological quality appraisal, researchers cannot distinguish between highly cited but methodologically weak AI frameworks and robust, validated performance evaluation models, potentially skewing the identified research trends.",
+    "Bucket": "more_probable",
+    "source_paper": "A BIBLIOMETRIC ANALYSIS OF ARTIFICIAL INTELLIGENCE IN PERFORMANCE EVALUATION: TRENDS AND GAPS IN CONSTRUCTION RESEARCH",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper identifies significant methodological heterogeneity, thematic limitations, and a reliance on non-probability sampling (95.3%) in GCC MERS-CoV research, but does not perform a systematic methodological quality appraisal or utilize advanced bibliometric tools for co-occurrence mapping.",
+    "Claim": "There is a critical gap in utilizing advanced bibliometric tools (such as VOSviewer and CiteSpace) to perform co-occurrence mapping combined with formal methodological quality appraisal to systematically evaluate the evolution and scientific rigor of MERS-CoV literature.",
+    "Warrant": "Combining co-occurrence mapping with methodological quality appraisal enables researchers to visualize thematic shifts (e.g., the focus on case fatality rates versus genomic clades) while simultaneously filtering or weighting the literature by its methodological strength, leading to more reliable research priority identification.",
+    "Bucket": "more_probable",
+    "source_paper": "Human Middle East Respiratory Syndrome Coronavirus (MERS-CoV) research in the Gulf Cooperation Council Countries: A mapping scoping review of epidemiology, clade, and research priority gaps.",
+    "type": "lightrag"
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "Grounds": "Community A establishes taxonomies and security frameworks for software in healthcare systems, while Community B addresses the logistics, budgeting, and resource prepositioning for disaster response and emergency management, with no existing overlap between them.",
+    "Claim": "There is an unaddressed research gap concerning the security and reliability of mobile/Android-based software systems used by emergency crews for resource prepositioning and disaster logistics.",
+    "Warrant": "Securing the software infrastructure used by emergency responders is critical to prevent data breaches and system failures during high-stakes disaster relief operations.",
+    "Bucket": "more_probable",
+    "type": "orphan_cluster",
+    "source": "Community 1 vs 8"
+  },
+  {
+    "Grounds": "Community A focuses on systematic reviews of healthcare software and Android security, while Community B focuses on bibliometric tools, with no current overlap.",
+    "Claim": "A research gap exists in using bibliometric mapping tools to analyze the structural development of Android security research in healthcare.",
+    "Warrant": "Combining bibliometric tools with systematic reviews provides a comprehensive macro-to-micro understanding of the healthcare security literature.",
+    "Bucket": "more_probable",
+    "type": "orphan_cluster",
+    "source": "Community 1 vs 32"
+  },
+  {
+    "Grounds": "The knowledge graph analysis reveals a complete absence of bridge relations between Community A (focused on disaster operations management, prepositioning strategies, and uncertainty modeling) and Community B (focused on bibliometric and scientometric analysis tools such as CiteSpace, VOSviewer, and Bibliometrix).",
+    "Claim": "There is a lack of comprehensive, tool-driven scientometric reviews mapping the intellectual structure, evolutionary trends, and research fronts of disaster prepositioning and emergency logistics under uncertainty.",
+    "Warrant": "If a research domain characterized by complex, multi-variable optimization and risk mitigation strategies (Community A) remains unexamined by systematic bibliometric mapping tools (Community B), researchers lack a structured, data-driven understanding of the field's conceptual evolution, key collaborative networks, and emerging thematic frontiers.",
+    "Bucket": "more_probable",
+    "type": "orphan_cluster",
+    "source": "Community 8 vs 32"
+  },
+  {
+    "Grounds": "Semantic Web technology exhibits a temporal decay rate of 1.00, indicating that traditional symbolic knowledge representation standards like RDF, OWL, and SPARQL have stagnated due to high manual curation costs, schema rigidity, and computational bottlenecks in reasoning engines.",
+    "Claim": "There is an unaddressed research gap in developing automated, neuro-symbolic frameworks that dynamically align and translate probabilistic vector embeddings from large language models into deterministic, structured ontological schemas without manual human intervention.",
+    "Warrant": "If the decay of Semantic Web technologies is driven by their rigidity and high maintenance overhead compared to modern probabilistic AI, then bridging the gap between sub-symbolic LLMs and symbolic knowledge graphs is the most logical pathway to revitalize the utility of structured web data.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: Semantic Web technology"
+  },
+  {
+    "Grounds": "The methodology of 'systematic review' exhibits a significant temporal decay rate of 0.30, indicating that synthesized evidence and conclusions rapidly become obsolete or inaccurate post-publication.",
+    "Claim": "There is a critical research gap in the development of automated, real-time 'living' systematic review frameworks that dynamically ingest and synthesize new primary data to mitigate this decay.",
+    "Warrant": "Since static systematic reviews cannot maintain validity under a 0.30 decay rate, traditional manual update cycles are insufficient, necessitating continuous, algorithmic updating mechanisms to preserve the utility of synthesized evidence.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: systematic review"
+  },
+  {
+    "Grounds": "The analytical framework and findings of the current study exhibit a temporal decay rate of 1.00, indicating that the relevance and validity of the analysis diminish completely and immediately after the initial observation period.",
+    "Claim": "There is an unaddressed need for dynamic, real-time updating mechanisms or longitudinal analytical models to sustain the validity of the findings over time.",
+    "Warrant": "Because static analyses with a decay rate of 1.00 lose all utility instantly, continuous or adaptive methodologies are required to bridge the gap between immediate observation and long-term applicability.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: Current study's analysis"
+  },
+  {
+    "Grounds": "The temporal decay rate of 'current literature' is 1.00, indicating that published scientific knowledge becomes obsolete immediately upon its release.",
+    "Claim": "Current academic infrastructure lacks real-time, self-updating synthesis frameworks capable of integrating and validating knowledge at a rate that matches this instantaneous decay.",
+    "Warrant": "If literature decays instantly, traditional static publishing and peer-review cycles are fundamentally incompatible with maintaining an accurate, actionable state-of-the-art, necessitating continuous-stream dissemination models.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: current literature"
+  },
+  {
+    "Grounds": "The conceptual utility of 'sustainable entrepreneurship' has reached a temporal decay rate of 1.00, indicating that traditional triple-bottom-line frameworks have become saturated, co-opted, or insufficient for addressing rapid ecological destabilization.",
+    "Claim": "There is an unaddressed research gap concerning the transition pathways and operational frameworks of 'post-sustainability' or 'regenerative' entrepreneurship, specifically how ventures operate when ecological restoration, rather than mere harm mitigation, is the baseline.",
+    "Warrant": "If a foundational concept has fully decayed, legacy research models lose their predictive and prescriptive power, necessitating a paradigm shift toward regenerative and post-growth entrepreneurial theories to explain contemporary venture behavior.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: sustainable entrepreneurship"
+  },
+  {
+    "Grounds": "Empirical research frameworks traditionally assume that the findings of 'this study' persist over time, yet in high-velocity data environments, the temporal decay rate of contextual relevance reaches 1.00, causing immediate obsolescence of static conclusions.",
+    "Claim": "There is an unaddressed methodological gap in developing self-updating, continuous-stream research designs that can operate effectively when the temporal validity of any single static study is zero.",
+    "Warrant": "Since a temporal decay rate of 1.00 invalidates static observations immediately upon publication, traditional discrete research outputs must be replaced by continuous-loop synthesis models to maintain empirical utility.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: this study"
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "triple_extraction": {
+    "raw_triples": 92,
+    "resolved_triples": 92,
+    "avg_confidence": 0.901,
+    "high_confidence_pct": 100.0
+  },
+  "entity_resolution": {
+    "entities_before": 140,
+    "entities_after": 132,
+    "merges": 8,
+    "merge_groups": 5,
+    "merge_ratio_pct": 5.7
+  },
+  "graph_structure": {
+    "nodes": 132,
+    "edges": 90,
+    "density": 0.0052,
+    "connected_components": 42,
+    "largest_component_pct": 9.8,
+    "avg_degree": 1.36,
+    "max_degree": 10
+  },
+  "entity_type_distribution": {
+    "CONCEPT": 63,
+    "DATASET": 18,
+    "FINDING": 14,
+    "METHOD": 72,
+    "METRIC": 7,
+    "TOOL": 10
+  },
+  "relation_type_distribution": {
+    "ADDRESSES": 14,
+    "IMPROVES": 7,
+    "EVALUATES_ON": 4,
+    "PRODUCES": 17,
+    "APPLIED_TO": 10,
+    "USES": 19,
+    "COMBINES": 5,
+    "LACKS": 16
+  }
+}
