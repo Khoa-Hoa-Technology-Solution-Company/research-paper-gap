@@ -429,6 +429,40 @@ Nếu dùng **API trả phí**, pipeline hoàn thành trong **1–2 phút**.
 
 ---
 
+## 📄 Biên dịch LaTeX sang PDF
+
+Để biên dịch bài báo khoa học từ file nguồn [paper.tex](file:///d:/Workspace/research-paper-gap/paper.tex) sang định dạng PDF ([paper.pdf](file:///d:/Workspace/research-paper-gap/paper.pdf)), bạn cần cài đặt một bản phân phối LaTeX (như **MiKTeX** trên Windows hoặc **TeX Live** trên Linux/macOS).
+
+### 1. Sử dụng CLI (Command Line)
+Chạy lệnh sau trong thư mục gốc của dự án để biên dịch (chạy 2 lần để cập nhật đầy đủ số thứ tự bảng biểu và tài liệu tham khảo chéo):
+
+**Bằng pdflatex:**
+```powershell
+pdflatex -interaction=nonstopmode paper.tex
+pdflatex -interaction=nonstopmode paper.tex
+```
+
+**Bằng xelatex (nếu có dùng font hệ thống đặc biệt):**
+```powershell
+xelatex -interaction=nonstopmode paper.tex
+```
+
+**Bằng latexmk (tự động giải quyết liên kết chéo và thư mục tài liệu tham khảo):**
+```powershell
+latexmk -pdf paper.tex
+```
+
+### 2. Biên dịch tài liệu tham khảo (Bibliography)
+Nếu bạn cập nhật tài liệu tham khảo trong file `references.bib`, hãy chạy chuỗi lệnh sau để cập nhật danh sách trích dẫn:
+```powershell
+pdflatex paper.tex
+bibtex paper
+pdflatex paper.tex
+pdflatex paper.tex
+```
+
+---
+
 ## 📄 Trích dẫn
 
 Nếu bạn sử dụng framework này trong nghiên cứu, vui lòng trích dẫn:
