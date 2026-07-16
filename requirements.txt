@@ -1,0 +1,11 @@
+openai>=1.0.0
+requests>=2.31.0
+networkx>=3.0
+python-louvain>=0.16
+rapidfuzz>=3.6.0
+sentence-transformers>=2.2.2
+nltk>=3.8.1
+numpy>=1.24.0
+streamlit>=1.30.0
+pyvis>=0.3.2
+python-dotenv>=1.0.0

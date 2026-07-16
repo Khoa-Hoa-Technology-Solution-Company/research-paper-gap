@@ -1,0 +1,61 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+/dist
+/build
+/out
+/.expo
+/.expo-shared
+**/dist
+**/build
+**/out
+**/.expo
+**/.expo-shared
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+**/.env
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# TypeScript / cache
+*.tsbuildinfo
+.cache/
+.eslintcache
+coverage/
+
+# Expo / React Native
+.expo/
+.expo-shared/
+android/
+ios/
+*.keystore
+*.p8
+*.p12
+*.pem
+
+# Misc
+*.tmp
+*.swp

@@ -1,0 +1,802 @@
+[
+  {
+    "Grounds": "The target paper highlights that while identifying research gaps is a primary goal of literature reviews, there is a lack of methodological guidelines for doing so rigorously and replicably within qualitative reviews. Related entities point to quantitative methodologies and automated tools like GapFinder, which do not address the subjective and thematic nature of qualitative synthesis.",
+    "Claim": "There is a lack of standardized, rigorous methodological guidelines and supporting tools for identifying research gaps specifically within qualitative literature reviews.",
+    "Warrant": "Unlike quantitative reviews that can utilize statistical meta-analysis or automated text-mining tools, qualitative reviews require interpretive synthesis, meaning existing quantitative gap-detection methods cannot ensure rigor and replicability in qualitative contexts.",
+    "Bucket": "more_probable",
+    "source_paper": "A Framework for Rigorously Identifying Research Gaps in Qualitative Literature Reviews",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper highlights that 69% of methods used to identify health research gaps rely on manual knowledge synthesis (such as systematic and scoping reviews), indicating a lack of standardized, automated approaches. Concurrently, the related KG entities suggest the existence of computational approaches like the 'BERTopic topic modeling technique' and 'GapFinder'.",
+    "Claim": "There is a lack of integration of automated computational tools and topic modeling techniques (such as BERTopic and GapFinder) to systematically identify, prioritize, and visualize research gaps in health research, which remains dominated by manual and resource-intensive scoping reviews.",
+    "Warrant": "Applying automated NLP and topic modeling techniques to large-scale scientific databases (like Scopus) can standardize the gap identification process, minimize human bias, and significantly reduce the time and resource constraints associated with traditional manual scoping reviews.",
+    "Bucket": "more_probable",
+    "source_paper": "A scoping review describes methods used to identify, prioritize and display gaps in health research.",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper highlights that identifying research gaps is crucial for directing new research, but notes that constraints and poor tools often hinder this process. The KG entities suggest that while traditional methods rely on manual 'earlier reviews', advanced tools like 'GapFinder' and the 'BERTopic topic modeling technique' can be applied to 'scientific articles indexed in Scopus and SINTA' to systematically uncover these gaps.",
+    "Claim": "There is a lack of widespread adoption and integration of automated NLP-based tools (such as BERTopic and GapFinder) to systematically identify and categorize research gaps from large-scale scientific databases (like Scopus and SINTA), leaving researchers to rely on subjective and manual literature reviews.",
+    "Warrant": "Automated topic modeling and gap detection algorithms can process thousands of indexed publications rapidly, minimizing human bias and uncovering latent thematic gaps that manual reviews might overlook due to cognitive limits and volume constraints.",
+    "Bucket": "more_probable",
+    "source_paper": "Research gaps for future research and their identification",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The paper acknowledges that the analysis was limited to abstracts (33,206 abstracts) rather than full texts or discussion sections, and highlights the need to evaluate more efficient modeling algorithms that combine topic modeling with statistical uncertainty quantification.",
+    "Claim": "Existing machine learning-based research gap identification methods are constrained by their reliance on document abstracts rather than full-text discussion sections, and they lack integration with statistical uncertainty quantification techniques to validate topic modeling results.",
+    "Warrant": "Abstracts often lack the detailed future work directions and limitations found in full-text discussion sections. Integrating statistical uncertainty quantification, such as conformal prediction, with topic modeling algorithms like BERTopic would provide statistical confidence bounds on the identified research gaps, reducing false positives in gap detection.",
+    "Bucket": "more_probable",
+    "source_paper": "Machine Learning–Based Approach for Identifying Research Gaps: COVID-19 as a Case Study",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The GapFinder paper proposes an NLP-based approach to extract research gaps from PDF documents, while the knowledge graph entities highlight qualitative analysis methods (Corbin and Strauss coding) and specific application domains (energy forecasting, fish welfare). Currently, there is no established framework connecting automated NLP gap extraction with systematic qualitative coding methodologies.",
+    "Claim": "The integration of automated NLP research gap detection tools with qualitative coding frameworks (such as Corbin and Strauss open, axial, and selective coding) remains unexplored in domain-specific literatures like energy forecasting and fish welfare.",
+    "Warrant": "Combining automated NLP extraction with structured qualitative coding would allow researchers to validate and categorize automatically detected gaps, reducing false positives and structuring the gaps into thematic hierarchies.",
+    "Bucket": "more_probable",
+    "source_paper": "GapFinder: Exploring Research Gaps with Artificial Intelligence",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper notes that identifying research gaps is tedious and expensive, and existing approaches (such as GapFinder or trend analysis) focus less on automated gap identification. They lack mechanisms to filter out gaps that are currently too difficult to study or offer little novelty.",
+    "Claim": "Automated research gap identification methods struggle to filter out unfeasible or low-novelty topics, leaving researchers with a high volume of impractical gaps to screen manually.",
+    "Warrant": "Implementing a double-thresholding method on co-occurrence subgraphs of domain terms allows researchers to systematically exclude both overly difficult and low-novelty gaps, focusing only on feasible, high-novelty research opportunities.",
+    "Bucket": "more_probable",
+    "source_paper": "Co-Occurrence-Based Double Thresholding Method for Research Topic Identification",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper highlights that postgraduate students and researchers struggle to conduct rigorous literature reviews and identify research gaps (empirical, theoretical, methodological, etc.), leading to biased inferences. Furthermore, the related entities point to the 'limitations of traditional SR methods' and tools like 'GapFinder' and 'science mapping'.",
+    "Claim": "There is a lack of automated, tool-supported frameworks (such as NLP-based gap detection or science mapping) integrated into systematic literature review methodologies to help researchers systematically identify and classify specific types of research gaps.",
+    "Warrant": "Integrating automated text-mining and gap-detection tools into the literature review pipeline reduces human bias, addresses the skill deficit in manual synthesis, and systematically maps out empirical or methodological gaps that are otherwise easily overlooked in traditional manual reviews.",
+    "Bucket": "more_probable",
+    "source_paper": "The Science of Literature Reviews: Searching, Identifying, Selecting, and Synthesising",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper proposes the Epistemological Gap Framework (EGF) to integrate quantitative and qualitative paradigms for research gap identification in Islamic Education using conceptual Systematic Literature Review (SLR). The KG entities highlight automated gap identification and analysis techniques such as 'GapFinder', 'sentiment analysis', and 'science mapping' applied to scientific articles.",
+    "Claim": "There is a lack of automated computational tools and NLP techniques (such as GapFinder, sentiment analysis, and science mapping) integrated with the Epistemological Gap Framework (EGF) to systematically detect and classify research gaps in Islamic Education literature.",
+    "Warrant": "While the EGF provides a conceptual foundation for combining verification and exploration logics, manual SLR is time-consuming and prone to bias. Integrating computational tools like GapFinder and sentiment analysis would allow researchers to scale the framework across large volumes of Scopus and SINTA indexed publications, automatically categorizing gaps of extension, conflict, void, or emergent meaning.",
+    "Bucket": "more_probable",
+    "source_paper": "Integrating Mixed Methods Paradigms for Research Gap Identification in Islamic Education Research",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper's bibliometric review reveals that despite the growing literature on Industry 4.0 and sustainability, existing research fails to provide concrete insights into the actual realization of initiatives to introduce Sustainable Industry 4.0. This aligns with the knowledge graph entity highlighting that successful implementation of recommendations from regulatory institutions depends heavily on political commitment and implementation capacities, which are currently under-explored in the context of I4.0 integration.",
+    "Claim": "There is a lack of empirical research and practical frameworks detailing the realization and implementation of Sustainable Industry 4.0 initiatives, particularly regarding how organizational implementation capacities and political commitments influence the adoption of regulatory recommendations.",
+    "Warrant": "While theoretical and bibliometric frameworks map the intersection of Industry 4.0 and sustainability, they do not translate to actionable deployment strategies. Investigating the socio-political and capacity-related factors of implementation is necessary to bridge the gap between conceptual sustainability benefits and actual industrial execution.",
+    "Bucket": "more_probable",
+    "source_paper": "Impact of Industry 4.0 on Sustainability—Bibliometric Literature Review",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper reviews OR/MS literature on prepositioning assets and supplies in natural disasters and assesses it using the Methodological issues framework (specifically Kovacs and Moshtari, 2018), highlighting gaps such as a lack of models considering demand-side costs, uncertainty in funding/infrastructure, and reliability.",
+    "Claim": "There is a lack of disaster operations management research that systematically addresses methodological issues—such as demand-side costs, funding/infrastructure uncertainties, and personnel prepositioning—within a unified methodological issues framework.",
+    "Warrant": "Utilizing a structured methodological issues framework allows researchers to move beyond basic location-allocation models and address complex, real-world constraints (e.g., budget uncertainty, staff prepositioning) in humanitarian logistics.",
+    "Bucket": "more_probable",
+    "source_paper": "Prepositioning of assets and supplies in disaster operations management: Review and research gap identification",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The paper highlights that female athletes are historically underrepresented in sports science and sports medicine (SSSM) research, leading to a reliance on male-based data. The related entities point to 'earlier reviews' and the need for a 'quantitative methodology' to audit this representation systematically.",
+    "Claim": "There is a lack of standardized, quantitative audit methodologies to systematically evaluate and compare the representation of female athletes across SSSM research subdisciplines over time.",
+    "Warrant": "Developing a standardized audit protocol with quantitative metrics is necessary to establish a baseline of female representation, identify specific research gaps, and track the progress of sex equity initiatives across different SSSM fields.",
+    "Bucket": "more_probable",
+    "source_paper": "Methodology Review: A Protocol to Audit the Representation of Female Athletes in Sports Science and Sports Medicine Research.",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper highlights that researchers lack clarity on SLR approaches and need guidelines to synthesize literature to identify research gaps. The related entities point to specific tools and methods such as 'GapFinder', 'BERTopic topic modeling technique', and 'methodological guidelines for identifying research gaps'.",
+    "Claim": "There is a lack of integration between traditional systematic literature review (SLR) guidelines and automated, tool-supported approaches (such as GapFinder or BERTopic topic modeling) for systematically identifying and characterizing research gaps.",
+    "Warrant": "While traditional SLR guidelines rely on manual synthesis to identify research gaps, integrating automated tools like GapFinder or BERTopic can reduce subjectivity, handle large volumes of scientific articles, and systematically map out unexplored thematic areas.",
+    "Bucket": "more_probable",
+    "source_paper": "How to Undertake an Impactful Literature Review: Understanding Review Approaches and Guidelines for High-impact Systematic Literature Reviews",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper outlines the conceptual scope and limitations of GenAI in literature reviews, specifically identifying 'research gap identification' as a key activity. However, the related entities highlight the existence of 'methodological guidelines for identifying research gaps' and tools like 'GapFinder' in the context of 'qualitative literature reviews', suggesting a disconnect between conceptual GenAI capabilities and structured, tool-supported methodologies.",
+    "Claim": "There is a lack of systematic frameworks that integrate GenAI with established methodological guidelines and specialized gap-finding tools (like GapFinder) to conduct rigorous research gap identification in qualitative literature reviews.",
+    "Warrant": "GenAI tools often suffer from hallucinations and lack the domain-specific structured reasoning needed for reliable gap identification. Integrating GenAI with formal methodological guidelines and rule-based gap-detection tools ensures that the identified gaps are valid, reproducible, and grounded in the literature corpus.",
+    "Bucket": "more_probable",
+    "source_paper": "Exploring the scope of generative AI in literature review development",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The paper explicitly states that after screening literature from the COVID-19 Open Research Dataset (CORD-19), they noted a paucity of COVID-19 studies among children and susceptible sub-groups, including pregnant women, racial minorities, refugees/migrants, and healthcare workers, with very few studies examining protective factors.",
+    "Claim": "There is a significant research gap regarding protective factors and the impact of COVID-19 on specific vulnerable sub-populations such as children, pregnant women, racial minorities, refugees/migrants, and healthcare workers.",
+    "Warrant": "Identifying risk and protective factors for specific sub-populations is critical for tailored public health responses; however, early pandemic research indexed in datasets like CORD-19 disproportionately focused on general demographic and physiological comorbidities, leaving these vulnerable groups understudied.",
+    "Bucket": "more_probable",
+    "source_paper": "Risk and Protective Factors in the COVID-19 Pandemic: A Rapid Evidence Map",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper identifies nine research gaps in Green Human Resource Management (GHRM) using a manual desk research strategy and literature review. The related entities highlight structured gap identification tools and frameworks such as 'GapFinder', 'five-step synthesis methodology', and 'Methodological issues framework'.",
+    "Claim": "There is a lack of automated, tool-supported, and framework-driven synthesis methods (such as GapFinder or the Methodological issues framework) applied to Green Human Resource Management (GHRM) literature to systematically identify and classify empirical, theoretical, and methodological research gaps.",
+    "Warrant": "While manual desk research can identify broad research gaps, it is highly subjective and time-consuming. Utilizing automated gap-finding tools and structured synthesis frameworks can scale the analysis of GHRM literature, reducing bias and systematically categorizing gaps to guide future empirical and longitudinal studies.",
+    "Bucket": "more_probable",
+    "source_paper": "Identification of Some Research Gaps in Green Human Resource Management",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper highlights that while several studies have investigated the genetic causes of syndromic and nonsyndromic hearing loss (NSHL/SHL) in Saudi Arabia, they suffer from limitations, and there is a need to systematically identify research gaps in this domain. The related entities point to automated and qualitative gap identification methods such as GapFinder, BERTopic topic modeling, and Corbin and Strauss coding applied to scientific articles.",
+    "Claim": "There is a lack of automated, systematic, and scalable text-mining frameworks (such as GapFinder or BERTopic topic modeling) to identify, categorize, and map research gaps in the genetic literature of syndromic and nonsyndromic hearing loss.",
+    "Warrant": "Current literature reviews on the genetic causes of hearing loss rely on manual synthesis, which is time-consuming, subjective, and difficult to scale. Applying automated NLP techniques like BERTopic or gap-detection tools like GapFinder to scientific articles indexed in databases like Scopus would enable an objective, comprehensive, and multi-dimensional mapping of under-researched genetic variants and demographic cohorts.",
+    "Bucket": "more_probable",
+    "source_paper": "Review and research gap identification in genetics causes of syndromic and nonsyndromic hearing loss in Saudi Arabia",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper relies on manual desk research and a literature survey of 84 selected articles to identify 10 research gaps and develop a conceptual framework. This manual approach is subject to the limitations of traditional SR (systematic review) methods, such as selection bias and limited scalability.",
+    "Claim": "There is a lack of automated, NLP-driven approaches (such as BERTopic topic modeling or GapFinder) applied to a larger corpus of scientific articles indexed in Scopus to systematically and objectively identify research gaps in green innovation and competitive advantage.",
+    "Warrant": "Applying automated topic modeling (like BERTopic) and gap identification tools (like GapFinder) overcomes the limitations of traditional manual reviews by processing thousands of publications, reducing human bias, and uncovering latent thematic gaps that manual synthesis might overlook.",
+    "Bucket": "more_probable",
+    "source_paper": "Identifying Research Gaps and Developing a Nomological Framework on Green Innovation and Competitive Advantage",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper's LDA analysis of 462 peer-reviewed articles shows that environmental monitoring & impact indicators, disease hotspots, and landscape changes are the least represented topics, with weak co-occurrence connections between monitoring indicators and toxicological or biodiversity-focused studies.",
+    "Claim": "There is a significant research gap in integrating environmental monitoring indicators with toxicological and biodiversity-focused studies, alongside a lack of research on broader-scale ecological processes and early-warning indicators for mining impacts in the Amazon.",
+    "Warrant": "Without bridging monitoring indicators with toxicological and biodiversity data, researchers and policymakers cannot establish early-warning systems or assess broader-scale ecological processes, leaving a critical gap in evidence-based responses to safeguard the Amazon.",
+    "Bucket": "more_probable",
+    "source_paper": "Ecological Impacts of Mining in the Amazon: Thematic Trends and Research Gaps",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper highlights that traditional literature reviews are highly manual and struggle to identify research gaps in large, rapidly evolving bodies of literature. The related entities highlight qualitative literature reviews, Corbin and Strauss coding, BERTopic topic modeling, and the need for methodological guidelines for identifying research gaps.",
+    "Claim": "There is a lack of integrated methodological frameworks that combine machine learning-based topic modeling (such as BERTopic) with traditional qualitative coding techniques (like Corbin and Strauss's open, axial, and selective coding) to systematically identify research gaps in large-scale literature reviews.",
+    "Warrant": "While machine learning can efficiently process and structure large volumes of unstructured text, it lacks the deep semantic interpretation provided by qualitative coding. Combining BERTopic with Corbin and Strauss coding allows researchers to computationally scale the literature review process while maintaining the qualitative rigor needed to identify nuanced research gaps.",
+    "Bucket": "more_probable",
+    "source_paper": "THE APPLICATION OF MACHINE LEARNING IN LITERATURE REVIEWS: A FRAMEWORK",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper relies on a manual systematic literature review (SLR) of over 350 articles to identify research gaps in the Smart Factory and employee engagement domain, which is subject to the 'limitations of traditional SR methods' highlighted in the related entities.",
+    "Claim": "There is a methodological gap in utilizing automated gap-detection tools (such as GapFinder) and science mapping techniques to systematically and objectively identify research gaps and trends at the intersection of Smart Factories and employee engagement.",
+    "Warrant": "Traditional manual SLR methods are labor-intensive and susceptible to selection and cognitive biases. Employing automated text-mining, science mapping, and tools like GapFinder on large databases of scientific articles (e.g., Scopus) can scale the literature analysis, minimize bias, and uncover latent thematic connections that manual reviews might overlook.",
+    "Bucket": "more_probable",
+    "source_paper": "Employee Engagement in Smart Factories: Research Gaps and a Nomological Framework for the Sri Lankan Apparel Sector",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper conducts a manual systematic review of 38 studies to identify research and policy gaps concerning neglected heavy metals in the Niger Delta. However, it highlights a lack of regulatory frameworks and biomonitoring without utilizing automated gap-detection tools (like GapFinder) or structured frameworks to analyze 'methodological biases and emerging priorities in agriculture–environment interactions' and the 'successful implementation of recommendations from regulatory institutions based on political commitment and implementation capacities'.",
+    "Claim": "There is a lack of automated, tool-supported systematic mapping and impact-oriented environmental evaluation frameworks to identify research gaps, methodological biases, and regulatory implementation capacities regarding neglected heavy metal contamination.",
+    "Warrant": "Applying automated gap-analysis tools (e.g., GapFinder) and impact-oriented evaluation methodologies to environmental toxicology literature can systematically expose research biases and assess the feasibility of policy recommendations, overcoming the limitations and manual effort of traditional systematic reviews.",
+    "Bucket": "more_probable",
+    "source_paper": "Neglected Heavy Metals in the Niger Delta Region of Nigeria: A Systematic Review of Toxicity, Environmental Contamination, Health Risks, and Research Gaps",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper outlines a manual, process-based methodology for systematic mapping in environmental sciences, which includes labor-intensive stages such as screening, coding, and manual database production to identify knowledge gaps. The related KG entities highlight computational approaches like the 'BERTopic topic modeling technique' and 'GapFinder'.",
+    "Claim": "There is a lack of integration of automated topic modeling and text-mining tools (such as BERTopic and GapFinder) into the systematic mapping methodology for environmental sciences to streamline the screening, coding, and gap-identification phases.",
+    "Warrant": "Incorporating automated NLP and machine learning techniques into the systematic mapping protocol can significantly reduce the manual effort and time required to analyze large volumes of environmental literature, thereby improving the scalability and efficiency of evidence synthesis.",
+    "Bucket": "more_probable",
+    "source_paper": "A methodology for systematic mapping in environmental sciences",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The systematic literature review of hospitality and tourism research up to 2016 reveals that the field is fragmented and lacks a unifying structure.",
+    "Claim": "There is a lack of a comprehensive conceptual framework that integrates business intelligence and big data domains with tourism and hospitality management and development.",
+    "Warrant": "Without a conceptual framework, it is difficult to identify critical business problems systematically and link data science approaches to hospitality management theory and practice.",
+    "Bucket": "more_probable",
+    "source_paper": "Business intelligence and big data in hospitality and tourism: a systematic literature review",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The paper's abstract explicitly notes that 'Lacking were trials exploring treatments for binge eating disorder (BED) and eating disorder not otherwise specified (EDNOS)' and 'Relapse prevention strategies were notably absent across the eating disorders.' This aligns with the related entities 'trials exploring treatments for binge eating disorder' and 'relapse prevention strategies'.",
+    "Claim": "There is a significant research gap regarding controlled trials for the treatment of binge eating disorder (BED) and the development of relapse prevention strategies for eating disorders in young people.",
+    "Warrant": "Although the literature contains substantial evidence for Bulimia Nervosa and Anorexia Nervosa, the evidence mapping methodology reveals that BED and EDNOS are severely under-represented in clinical trials, and there is a critical lack of longitudinal research focusing on maintaining treatment gains through relapse prevention.",
+    "Bucket": "more_probable",
+    "source_paper": "Mapping the evidence for the prevention and treatment of eating disorders in young people",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper conducts a manual systematic review of a limited sample size (41 articles) to identify circular economy (CE) knowledge gaps, which highlights the limitations of traditional SR (systematic review) methods in keeping pace with the exponentially growing literature in this domain.",
+    "Claim": "Current circular economy research in construction lacks the integration of automated text mining and science mapping techniques, such as BERTopic topic modeling, to systematically and objectively analyze large-scale literature databases.",
+    "Warrant": "Applying advanced NLP techniques like BERTopic topic modeling and science mapping can overcome the scalability and subjectivity limitations of traditional manual coding methods (e.g., Corbin and Strauss coding), enabling researchers to synthesize thousands of publications and uncover hidden thematic structures and knowledge gaps more efficiently.",
+    "Bucket": "more_probable",
+    "source_paper": "Circular economy in construction: A systematic review of knowledge gaps towards a novel research framework",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The paper highlights a significant misalignment between the research community's focus (primarily energy consumption) and end-user preferences (such as color-changing features) in the smart lighting domain. The KG entities suggest the use of text mining techniques like BERTopic, sentiment analysis, and GapFinder on literature and reviews.",
+    "Claim": "There is a lack of automated, continuous gap-detection frameworks that integrate advanced topic modeling (like BERTopic) and sentiment analysis to dynamically reconcile the divergence between academic research priorities and actual consumer expectations in smart lighting systems.",
+    "Warrant": "Although static text mining and aspect-based sentiment analysis can expose historical discrepancies between literature and product reviews, they do not provide a real-time, closed-loop feedback mechanism to help software engineers and product designers translate these identified gaps into actionable, user-centric design requirements.",
+    "Bucket": "more_probable",
+    "source_paper": "Application of text mining in smart lighting literature - an analysis of existing literature and a research agenda",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The systematic review of literature from 2000 to 2021 indicates that research on megaproject management is premature, lacks holistic coverage across the entire project life cycle, and fails to provide clear guidelines for a complete and conclusive project management system.",
+    "Claim": "There is a lack of a holistic, life-cycle-spanning framework and clear guidelines for megaproject management systems in the existing literature.",
+    "Warrant": "Without a comprehensive framework covering the entire project life cycle, practitioners lack the necessary guidelines to manage the complexities and scale of modern megaprojects successfully, leading to fragmented management practices.",
+    "Bucket": "more_probable",
+    "source_paper": "Gaps in megaproject management system literature: a systematic overview",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper performs a systematic literature review on green innovation using PRISMA and bibliometric analysis on 381 articles to identify research gaps. The related entities suggest the existence of advanced computational methods such as the 'BERTopic topic modeling technique' and 'GapFinder' for analyzing scientific literature.",
+    "Claim": "There is a lack of automated, NLP-driven approaches (such as BERTopic and GapFinder) applied to systematic literature reviews in the green innovation domain to identify latent research gaps and thematic structures.",
+    "Warrant": "Manual systematic literature reviews are prone to subjective bias and are labor-intensive, limiting their ability to scale. Applying BERTopic and GapFinder to green innovation literature can objectively map large-scale datasets and automatically pinpoint precise, under-researched areas.",
+    "Bucket": "more_probable",
+    "source_paper": "Mapping the knowledge of green innovation: a systematic literature review",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper utilizes a combination of latent Dirichlet allocation (LDA) and food keyword searches to identify literature gaps and relevant publications in food science. However, related entities point to advanced literature analysis techniques such as 'GapFinder', 'sentiment analysis', and 'comparisons over time and between research subdisciplines' which are absent from the paper's current methodology.",
+    "Claim": "Existing text mining and literature screening workflows in food science do not integrate automated gap-discovery tools, sentiment analysis, or cross-subdisciplinary temporal comparisons to systematically detect and characterize research gaps.",
+    "Warrant": "While LDA and keyword searches successfully categorize documents into topics, they fail to capture the sentiment of scientific consensus/controversy or track how research gaps shift over time across different subdisciplines. Integrating tools like GapFinder and sentiment analysis would allow for a more dynamic and automated identification of high-value research opportunities.",
+    "Bucket": "more_probable",
+    "source_paper": "Applying text mining to identify relevant literature in food science: Cold denaturation as a case study.",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper analyzed 494 scoping reviews and explicitly noted that they did not identify any guidelines for reporting scoping reviews or studies that assessed the quality of scoping review reporting, highlighting that only 13% of reviews reported using a protocol.",
+    "Claim": "There is a lack of standardized reporting guidelines and quality assessment frameworks specifically tailored for scoping reviews to address inconsistencies in their conduct and reporting.",
+    "Warrant": "Without dedicated reporting guidelines (such as a PRISMA extension for scoping reviews), researchers lack a structured framework to ensure methodological transparency, consistency, and reproducibility, leading to highly variable quality in published scoping reviews.",
+    "Bucket": "more_probable",
+    "source_paper": "A scoping review on the conduct and reporting of scoping reviews",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper highlights that existing literature reviews on Social Entrepreneurship (SE) lack studies that classify the literature into multiple research themes and distinguish between popular and less popular research areas.",
+    "Claim": "There is a lack of systematic thematic classification in social entrepreneurship literature that identifies and compares popular and under-researched themes.",
+    "Warrant": "Conducting a systematic thematic review of peer-reviewed articles allows researchers to categorize the domain into distinct themes, thereby exposing under-explored areas and providing a structured agenda for future research.",
+    "Bucket": "more_probable",
+    "source_paper": "Social entrepreneurship research: A review and future research agenda",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper states that current research on service robots is fragmented, largely conceptual, and focused on the initial adoption stage, indicating a need for empirical research on long-term usage. The KG entities highlight 'longitudinal studies' as a relevant methodological approach.",
+    "Claim": "There is a lack of empirical, longitudinal studies examining the long-term impacts of service robots on the actual behaviors, well-being, and ethical risks for customers and service employees.",
+    "Warrant": "While initial adoption studies capture immediate reactions, longitudinal studies are required to understand the sustained psychological, behavioral, and ethical consequences of human-robot collaboration over time.",
+    "Bucket": "more_probable",
+    "source_paper": "Service robots, customers and service employees: what can we learn from the academic literature and where are the gaps?",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper highlights that while lean manufacturing's operational benefits are known, its effects on the triple bottom line (economic, environmental, and social) are split between two branches: one supporting complementary interactions and another showing trade-offs. The five-step synthesis methodology applied to 69 papers confirms that knowledge gaps remain regarding these multidimensional effects.",
+    "Claim": "There is a lack of consensus and systematic reconciliation regarding the complementary interactions versus trade-offs of lean manufacturing across all three pillars of sustainable performance.",
+    "Warrant": "Although qualitative reviews identify these divergent research branches, they do not resolve the contradictions, indicating a need for advanced mixed bibliographic and bibliometric methods or quantitative methodologies to map and analyze the effect of lean manufacturing on sustainable performance.",
+    "Bucket": "more_probable",
+    "source_paper": "Lean manufacturing and sustainable performance: Trends and future challenges",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper identifies significant methodological inconsistencies and demographic underrepresentation (e.g., younger children, rural areas, disabled youth) in global physical activity (PA) surveillance initiatives. The related KG entities highlight automated literature analysis and gap-detection tools such as GapFinder and the BERTopic topic modeling technique.",
+    "Claim": "There is a lack of automated, NLP-driven frameworks (utilizing techniques like BERTopic or GapFinder) to systematically identify, map, and harmonize methodological inconsistencies and demographic data gaps in global physical activity surveillance literature.",
+    "Warrant": "Applying advanced topic modeling (like BERTopic) and automated gap-detection tools (like GapFinder) to global health surveillance literature can accelerate the harmonization of PA measurement instruments by algorithmically clustering inconsistent methodologies and highlighting underrepresented demographic segments.",
+    "Bucket": "more_probable",
+    "source_paper": "Global prevalence of physical activity for children and adolescents; inconsistencies, research gaps, and recommendations: a narrative review",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The paper evaluates ChatGPT's performance across different stages of the systematic review (SR) process, showing high accuracy (88%) and F-1 scores (91% and 88%) for article discarding and classification, but explicitly notes 'limitations in its suitability for article extraction' as a key bottleneck.",
+    "Claim": "There is a research gap in effectively automating the data/article extraction phase of systematic reviews using LLMs, as current models like ChatGPT struggle with the precision required for extracting detailed information compared to their success in filtering and classification.",
+    "Warrant": "Article extraction requires high-fidelity retrieval of specific, structured data points from complex academic texts, where LLMs are prone to hallucinations or formatting inconsistencies, unlike classification tasks which only require categorical decision-making.",
+    "Bucket": "more_probable",
+    "source_paper": "Harnessing the Power of ChatGPT for Automating Systematic Review Process: Methodology, Case Study, Limitations, and Future Directions",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper's abstract explicitly highlights that despite identifying deficits across neurocognitive domains in eating disorders, existing reviews point to critical methodological limitations. Specifically, it notes a lack of prospective designs, insufficient consideration of confounding influences, and a failure to examine the interrelationships between different neurocognitive domains and their relationships with other behavioral constructs.",
+    "Claim": "There is a lack of prospective longitudinal studies, rigorous control for confounding variables, and empirical examination of the interrelationships between distinct neurocognitive domains and behavioral constructs in eating disorders research.",
+    "Warrant": "Without prospective designs and control for confounders, researchers cannot establish causality or determine whether neurocognitive deficits are pre-existing vulnerabilities, scar effects of eating disorders, or state-dependent characteristics. Furthermore, examining the interrelationships between neurocognitive domains is necessary to build a cohesive conceptual framework of cognitive functioning in these clinical populations.",
+    "Bucket": "more_probable",
+    "source_paper": "A systematic review of reviews of neurocognitive functioning in eating disorders: The state of the literature and future directions",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The systematic review of 104 sampled publications indicates that TAM research during the COVID-19 pandemic in higher education has predominantly focused on student samples and quantitative methodology, specifically PLS-SEM.",
+    "Claim": "There is a lack of TAM-based research focusing on lecturers, higher education personnel, and mixed groups, as well as a shortage of qualitative and mixed-methods studies.",
+    "Warrant": "Understanding technology acceptance in higher education requires a holistic view that includes educators and administrative staff, and qualitative methods are necessary to provide deeper insights that quantitative models like PLS-SEM cannot capture.",
+    "Bucket": "more_probable",
+    "source_paper": "A Systematic Review of the Technology Acceptance Model for the Sustainability of Higher Education during the COVID-19 Pandemic and Identified Research Gaps",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The systematic review of literature on violence against healthcare in conflict zones identified only 45 relevant articles over four decades and highlighted that existing documentation of attacks on health lacks consistency, thoroughness, accessibility, diverse perspectives, and a clear taxonomy.",
+    "Claim": "There is a critical research gap in standardized, consistent, and accessible documentation frameworks and taxonomies for recording attacks on healthcare in conflict settings, which limits cross-context comparisons and the practical utility of data for advocacy, protection, and accountability.",
+    "Warrant": "Developing standardized documentation methodologies and unified taxonomies is essential for enabling systematic data aggregation, cross-context analysis, and the translation of empirical evidence into actionable policy and accountability mechanisms.",
+    "Bucket": "more_probable",
+    "source_paper": "Violence against healthcare in conflict: a systematic review of the literature and agenda for future research",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The systematic literature review reveals that the majority of prior studies on Malaysian corporate governance are quantitative, rely on archived data from non-financial firms, and primarily focus on firm performance outcomes.",
+    "Claim": "There is a lack of qualitative research, studies focusing on financial firms, and investigations into the non-performance outcomes or behavioral processes of corporate governance in Malaysia.",
+    "Warrant": "Over-reliance on quantitative archival data from non-financial firms restricts the literature's ability to capture the qualitative nuances, internal board dynamics, and sector-specific governance challenges (such as in financial institutions) that influence how corporate governance codes are actually implemented and practiced.",
+    "Bucket": "more_probable",
+    "source_paper": "The development of corporate governance literature in Malaysia: a systematic literature review and research agenda",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper highlights that traditional literature reviews in logistics and supply chain management (L&SCM) focus heavily on identifying research gaps and categorizing literature, yet they fail to advance or challenge theoretical perspectives. This is directly connected to the related entity 'methodological guidelines for identifying research gaps', which represents the current, limited focus of review methodologies.",
+    "Claim": "Existing methodological guidelines for literature reviews in L&SCM lack structured frameworks that align the chosen review type with the maturity level of the underlying theory, preventing reviews from effectively advancing theory.",
+    "Warrant": "To move beyond mere categorization and gap identification, literature reviews must match their methodological approach (e.g., inductive theory building, interpretive sensemaking) to the state of the theory (nascent, intermediate, or mature) to systematically generate new theoretical insights.",
+    "Bucket": "more_probable",
+    "source_paper": "How to advance theory through literature reviews in logistics and supply chain management",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The systematic literature review of 101 research articles on rural hospitality and tourism (RHT) entrepreneurship reveals a predominance of qualitative studies with limited theoretically-grounded and generalizable empirical studies, alongside a high concentration of studies focused on European countries.",
+    "Claim": "There is a lack of generalizable, theoretically-grounded quantitative empirical studies and geographic diversity (specifically non-European contexts) in rural hospitality and tourism (RHT) entrepreneurship research.",
+    "Warrant": "Addressing this gap by employing quantitative methodologies and expanding research to diverse geographical regions will enhance the generalizability and theoretical robustness of RHT entrepreneurship frameworks.",
+    "Bucket": "more_probable",
+    "source_paper": "Entrepreneurship in rural hospitality and tourism. A systematic literature review of past achievements and future promises",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The paper's bibliometric and co-citation analysis reveals that literature on technology adoption in the apparel industry focuses predominantly on the diffusion of innovation and the theory of reasoned action, leaving a significant gap in the application of other established frameworks.",
+    "Claim": "There is a lack of research investigating technology-organization-environment (TOE) and institutional theories for technology adoption within the apparel industry.",
+    "Warrant": "While individual-level adoption theories (like TRA) and innovation-centric models (like DOI) are well-explored, organizational and environmental determinants (TOE) and external institutional pressures remain under-researched, limiting the industry's ability to address systemic adoption challenges.",
+    "Bucket": "more_probable",
+    "source_paper": "Technology adoption in the apparel industry: insight from literature review and research directions",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper highlights that conservation agriculture literature in Malawi is polarized into distinct agro-ecological and socio-economic approaches, neither of which can individually explain the 'why' behind low adoption rates. Related entities such as 'Methodological issues framework', 'longitudinal studies', and 'research gap' underscore the lack of structured, long-term, and integrated methodologies to resolve this disciplinary divide.",
+    "Claim": "The lack of integrated methodological frameworks and longitudinal studies that bridge the disciplinary gap between agro-ecological and socio-economic research in conservation agriculture.",
+    "Warrant": "To holistically evaluate complex farming systems, researchers need to combine qualitative farmer participation and ethnography with quantitative biophysical trials. An integrated methodological framework and longitudinal research designs are technically required to generate compatible, comprehensive datasets that capture the dynamic socio-ecological feedback loops influencing farmer decision-making over time.",
+    "Bucket": "more_probable",
+    "source_paper": "Bridging the disciplinary gap in conservation agriculture research, in Malawi. A review",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper's literature review of 164 peer-reviewed journal papers on CEM project success reveals that the majority of studies target developed regions (such as Hong Kong), while research targeting developing economies remains weak. Furthermore, it highlights the need to investigate the relationships between critical success factors (CSFs) and actual success outcomes.",
+    "Claim": "There is a lack of research focusing on construction engineering and management (CEM) project success within developing economies, as well as a lack of empirical understanding regarding the direct relationships between critical success factors (CSFs) and project success outcomes.",
+    "Warrant": "Investigating CEM project success in developing countries and mapping CSFs to outcomes is crucial because project environments in developing regions differ significantly from developed ones, and understanding these relationships provides actionable insights for successful project execution.",
+    "Bucket": "more_probable",
+    "source_paper": "Identifying the gaps in project success research",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The systematic review of 196 research reports on refugee health in Canada shows that mental health outcomes and cross-sectional studies dominate the literature, while screenings are biased towards communicable diseases.",
+    "Claim": "There is a critical shortage of longitudinal research and data addressing non-communicable diseases, particularly cardiovascular diseases and their antecedents, among refugees resettled in Canada.",
+    "Warrant": "Without longitudinal studies and a broader focus on non-communicable diseases like cardiovascular health, healthcare systems cannot adequately monitor, evaluate, or create policies for the long-term chronic health needs of resettled refugees.",
+    "Bucket": "more_probable",
+    "source_paper": "Identifying Gaps in Health Research among Refugees Resettled in Canada",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The literature review indicates that the majority of Airbnb and P2P accommodation research has been concentrated in Europe and North America, with limited studies in developing regions such as South America and Africa.",
+    "Claim": "There is a lack of cross-cultural and empirical research on P2P accommodation sharing platforms within developing nations, particularly in South America and Africa.",
+    "Warrant": "Expanding research to these underrepresented regions is necessary to understand how diverse cultural settings and varying socio-economic conditions influence host and consumer behavior, which cannot be generalized from existing Western-centric studies.",
+    "Bucket": "more_probable",
+    "source_paper": "Airbnb phenomenon: a review of literature and future research directions",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The scoping review of 832 scientific papers on Baltic coastal eutrophication shows that few studies investigate pressures and impacts together (indicating understudied feedbacks), only 6% use remote sensing, 3% use participatory methods, and human/socio-economic aspects and legacy nutrient sources are significantly underrepresented.",
+    "Claim": "There is a critical research gap in integrating pressures and impacts (feedbacks) within Baltic coastal eutrophication studies, compounded by a lack of remote sensing, participatory methods, and socio-economic/human dimension analyses.",
+    "Warrant": "To design effective cross-scale management responses, research must move beyond isolated data collection of pressures or ecological impacts to synthetic modeling that captures feedbacks, utilizes spatial remote sensing, and incorporates stakeholder participation and socio-economic drivers.",
+    "Bucket": "more_probable",
+    "source_paper": "Gap identification in coastal eutrophication research - Scoping review for the Baltic system case.",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper generates a large dataset of 1,422 research questions through a Delphi survey and manually codes them using a predefined taxonomy of 118 research concepts to identify high-priority gaps in trauma care.",
+    "Claim": "There is a lack of automated, scalable qualitative analysis and topic modeling frameworks (such as BERTopic or Corbin and Strauss open, axial, and selective coding) applied to systematically categorize, cluster, and synthesize large-scale consensus-driven research gap datasets.",
+    "Warrant": "Relying solely on manual coding against a rigid, predefined taxonomy is labor-intensive and may overlook latent thematic relationships or emerging paradigms. Applying advanced topic modeling (like BERTopic) alongside structured qualitative coding methodologies would enable a more objective, data-driven, and scalable synthesis of massive research gap databases.",
+    "Bucket": "more_probable",
+    "source_paper": "Developing a National Trauma Research Action Plan: Results from the acute resuscitation, initial patient evaluation, imaging, and management research gap Delphi survey",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper conducts a systematic review of startups (1990-2019) highlighting their vulnerability to external influences (investors, partners, suppliers) using traditional bibliometric tools like VOSviewer and IRaMuTeQ. The related KG entities point to advanced synthesis methodologies, specifically the combination of latent Dirichlet allocation (LDA) and sentiment analysis, as well as the role of regulatory institutions.",
+    "Claim": "Current startup literature reviews lack the application of advanced NLP-driven synthesis methods, such as combining Latent Dirichlet Allocation (LDA) and sentiment analysis, to systematically evaluate how startups strategically respond to regulatory pressures and external stakeholder sentiments.",
+    "Warrant": "Traditional bibliometric and text-mining tools used in startup reviews (e.g., VOSviewer) only map keyword co-occurrences and citation networks. They cannot capture the nuanced strategic sentiments or latent thematic structures regarding how startups navigate external regulatory compliance and investor relations, which can be resolved by integrating LDA with sentiment analysis.",
+    "Bucket": "more_probable",
+    "source_paper": "Startups: a systematic review of literature and future research directions",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The systematic literature review of 24 primary studies selected from 1,379 search results shows that current research at the intersection of unstructured data and process mining predominantly focuses on textual data and event log extraction for process discovery.",
+    "Claim": "There is a lack of research on leveraging non-textual unstructured data (such as image and video data) and applying unstructured data to process mining phases other than process discovery (such as conformance checking and process enhancement).",
+    "Warrant": "By focusing almost exclusively on text and process discovery, the field misses opportunities to utilize rich visual or multi-modal unstructured data to check process compliance or enhance existing process models.",
+    "Bucket": "more_probable",
+    "source_paper": "Unstructured Data in Process Mining: A Systematic Literature Review",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The text mining study of 34,481 PubMed abstracts from 1963 to 2023 revealed that 49.4% did not mention any of the four key population characteristics (sex, age, offender type, and nationality), and only 1.3% reported all four, despite the existence of research reporting guidelines.",
+    "Claim": "There is a significant gap in the adequate reporting of key population characteristics within justice health research abstracts, which limits the ability of automated text mining and topic modeling techniques to map the field and build a stronger evidence base.",
+    "Warrant": "Incomplete reporting of demographic metadata in abstracts prevents advanced NLP tools, such as BERTopic or GapFinder, from accurately extracting population-level trends, thereby hindering systematic reviews and the identification of research gaps needed to guide equitable health interventions.",
+    "Bucket": "more_probable",
+    "source_paper": "Population Characteristics in Justice Health Research Based on PubMed Abstracts From 1963 to 2023: Text Mining Study",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper conducts a systematic review of canine bacterial endocarditis using basic text mining (TF-IDF) and topic analysis on a small dataset of 86 records retrieved solely from the Scopus database.",
+    "Claim": "There is a lack of systematic literature analyses in veterinary medicine, specifically canine bacterial endocarditis, that leverage advanced topic modeling techniques like BERTopic and automated gap detection tools like GapFinder across broader multi-database sources.",
+    "Warrant": "Applying advanced transformer-based topic modeling (BERTopic) and dedicated gap-finding algorithms (GapFinder) to a wider corpus of scientific articles (e.g., indexing Scopus alongside other databases) would yield more precise semantic clusters, track temporal trends more dynamically, and objectively pinpoint under-researched areas in canine endocarditis.",
+    "Bucket": "more_probable",
+    "source_paper": "Canine Bacterial Endocarditis: A Text Mining and Topics Modeling Analysis as an Approach for a Systematic Review",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper highlights that applying NLP to bioplastics is challenging due to the unstructured and heterogeneous nature of the literature, and their unsupervised MatBERT approach without fine-tuning has limitations. The related entities point to techniques like BERTopic topic modeling and GapFinder for gap identification.",
+    "Claim": "There is a lack of specialized, fine-tuned NLP frameworks that integrate advanced topic modeling (such as BERTopic) and automated gap discovery tools (such as GapFinder) to systematically map ingredient-property relations and identify unexplored formulation gaps in the heterogeneous bioplastics literature.",
+    "Warrant": "Using language models like MatBERT without fine-tuning cannot fully resolve the complex, domain-specific semantic relationships in unstructured bioplastics literature. Integrating targeted topic modeling and gap-finding algorithms with domain-specific fine-tuning is necessary to systematically discover novel seaweed-based bioplastic formulations.",
+    "Bucket": "more_probable",
+    "source_paper": "Seaweed-Based Bioplastics: Data Mining Ingredient-Property Relations from the Scientific Literature",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper reviews 107 studies from Scopus and Web of Science on sustainable business management (SBM) in higher education institutions (HEIs) using BERTopic. However, it notes geographical imbalances and conceptual silos, and the related entities highlight that successful implementation of regulatory recommendations depends heavily on political commitment and implementation capacities.",
+    "Claim": "There is a lack of research examining how political commitment and internal implementation capacities within HEIs affect the successful execution of SBM recommendations issued by regulatory institutions.",
+    "Warrant": "While thematic reviews identify broad categories of scholarly impact, they often overlook the operational and political dynamics within HEIs. Investigating the intersection of regulatory pressure, political will, and capacity is essential to bridge the gap between theoretical SBM frameworks and actual institutional compliance.",
+    "Bucket": "more_probable",
+    "source_paper": "Sustainable Business Management in Higher Education Institutions: A Strategic Roadmap for Addressing Research Gaps and Shaping the Forthcoming Agenda",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper highlights the difficulty of navigating the 'jungle of health IS research' due to the plethora of existing works. While 'earlier reviews' exist, they often rely on manual qualitative methods (like 'Corbin and Strauss open, axial, and selective coding') on smaller datasets (such as '104 sampled publications'), whereas 'this study' analyzes a larger corpus of 484 papers using a text mining approach.",
+    "Claim": "Prior literature reviews in health information systems (IS) research are limited by manual qualitative synthesis methods and small sample sizes, preventing a comprehensive and scalable mapping of the rapidly evolving digital health landscape.",
+    "Warrant": "Automated text mining techniques (such as 'BERTopic topic modeling technique') allow researchers to systematically analyze larger volumes of scientific articles, uncovering latent thematic structures, trends, and knowledge gaps that manual coding methods cannot scale to detect.",
+    "Bucket": "more_probable",
+    "source_paper": "Advancing digital health in information systems research: Insights from a text mining analysis",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper utilizes latent Dirichlet allocation (LDA) text-mining on 162 articles from Web of Science and Scopus to identify sustainability topics in family firms, but it does not incorporate sentiment analysis or science mapping to evaluate stakeholder attitudes or the structural evolution of the research field.",
+    "Claim": "Prior literature reviews on family firm sustainability lack the integration of sentiment analysis and science mapping with topic modeling, limiting the depth of thematic and attitudinal insights.",
+    "Warrant": "Combining LDA topic modeling with sentiment analysis and science mapping would enable a multi-dimensional analysis that not only identifies key themes but also maps their conceptual evolution and assesses the prevailing sentiment towards sustainability adoption in family businesses.",
+    "Bucket": "more_probable",
+    "source_paper": "Past, present and future of family firms and their sustainability developments: a text-mining approach",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper highlights that nature-based solutions (NbS) are underutilized in aquaculture due to a lack of synthesized evidence regarding their environmental and production efficacy. The related KG entities point to 'impact-oriented environmental evaluation', 'methodological biases and emerging priorities in agriculture–environment interactions', and 'Improving fish welfare' as key concepts connected to addressing research gaps in this domain.",
+    "Claim": "There is a lack of standardized, impact-oriented environmental evaluation frameworks that address methodological biases and emerging priorities, such as fish welfare, within nature-based aquaculture systems.",
+    "Warrant": "Without a structured, impact-oriented evaluation framework that accounts for methodological biases and integrates animal welfare, stakeholders cannot reliably assess the trade-offs and benefits of NbS, which hinders their adoption in aquaculture policy and practice.",
+    "Bucket": "more_probable",
+    "source_paper": "What evidence exists for the environmental outcomes of nature-based aquaculture systems? a systematic map protocol.",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The paper states that while the PRISMA statement exists for systematic reviews, scoping reviews serve a different purpose and have different methodological approaches. Prior to this study, a reporting guideline specifically for scoping reviews did not exist, leading to a lack of consensus and low reporting quality in the literature.",
+    "Claim": "There is a lack of a dedicated, standardized reporting guideline for scoping reviews to ensure methodological transparency and complete reporting.",
+    "Warrant": "Because scoping reviews address broader research questions and omit elements like risk-of-bias assessments or meta-analyses, they cannot be adequately guided by the standard PRISMA statement, necessitating a specialized extension (PRISMA-ScR).",
+    "Bucket": "more_probable",
+    "source_paper": "PRISMA Extension for Scoping Reviews (PRISMA-ScR): Checklist and Explanation",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The paper's abstract states that existing systematic literature review (SLR) guidelines in management research are scattered and overly centered on the design and conduct of the SLR, while failing to guide researchers in crafting and presenting their findings in an impactful way.",
+    "Claim": "Prior SLR guidelines lack integrated, actionable guidance on the synthesis and reporting phases, preventing researchers from effectively translating literature samples into theory-based and impact-oriented findings.",
+    "Warrant": "Although existing methodologies address the initial steps of literature search and selection, the lack of structured guidance on synthesis and reporting leads to reviews that lack theoretical depth, replicability, and clear contributions to the field.",
+    "Bucket": "more_probable",
+    "source_paper": "How to conduct systematic literature reviews in management research: a guide in 6 steps and 14 decisions",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The systematic literature review of drought vulnerability and risk assessments shows that 62% of studies apply static, index-based approaches, only 11% conduct any form of validation, and only 10% develop future scenarios of drought risk.",
+    "Claim": "Current drought risk assessments lack dynamic modeling, validation of index-based approaches, and future scenario projections, limiting their utility for long-term adaptation planning.",
+    "Warrant": "Relying on static indices without validation or future projections makes it difficult to assess how drought risk evolves over time, thereby hindering the development of robust, forward-looking drought risk reduction and adaptation strategies.",
+    "Bucket": "more_probable",
+    "source_paper": "Drought vulnerability and risk assessments: state of the art, persistent gaps, and research agenda",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper identifies a significant gap in empirical research concerning the role of regulation, ethics, and policy in AI-driven financial services like insurance and pensions. Concurrently, the knowledge graph highlights that the successful implementation of regulatory recommendations relies heavily on political commitment and implementation capacities.",
+    "Claim": "There is a lack of empirical research examining how political commitment and organizational implementation capacities influence the adoption and enforcement of AI regulations and ethical guidelines in customer-facing financial sectors such as insurance and pensions.",
+    "Warrant": "Bridging this gap requires integrating policy implementation theory with AI governance frameworks to empirically evaluate the structural and political barriers that financial institutions face when operationalizing AI ethics and regulatory mandates.",
+    "Bucket": "more_probable",
+    "source_paper": "Artificial intelligence in customer-facing financial services: a systematic literature review and agenda for future research",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper highlights that prior to this study, there was a lack of comprehensive synthesis and analysis of factors affecting digital payment adoption. It specifically notes that existing theories fail to consider social and cultural facets and that there are scant reviews using systematic review methodologies. This is supported by KG entities pointing to the 'limitations of traditional SR methods' and the need for 'methodological guidelines for identifying research gaps'.",
+    "Claim": "There is a lack of systematic literature reviews in the digital payment adoption domain that utilize structured, reproducible methodologies to synthesize research and identify gaps, particularly concerning the influence of social and cultural factors.",
+    "Warrant": "Traditional literature reviews in this domain often rely on subjective, ad-hoc synthesis rather than systematic, tool-supported methodologies (such as BERTopic or GapFinder), which prevents a comprehensive and unbiased aggregation of complex, multi-dimensional technology adoption factors.",
+    "Bucket": "more_probable",
+    "source_paper": "The Evolving Research of Customer Adoption of Digital Payment: Learning from Content and Statistical Analysis of the Literature",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper's abstract explicitly highlights the 'lack of standardized evaluation metrics and studies on integration challenges and security considerations' as key research gaps in the application of nature-inspired algorithms within IoT-based healthcare.",
+    "Claim": "There is a lack of standardized evaluation metrics, integration frameworks, and security considerations for deploying nature-inspired algorithms in IoT-based healthcare systems.",
+    "Warrant": "Without standardized metrics and robust security protocols, nature-inspired algorithms—which are currently evaluated primarily via simulation environments like MATLAB—cannot be safely, consistently, or effectively transitioned into real-world, safety-critical healthcare IoT deployments.",
+    "Bucket": "more_probable",
+    "source_paper": "The applications of nature‐inspired algorithms in Internet of Things‐based healthcare service: A systematic literature review",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The systematic review analyzed 30 studies on drug reminder packaging using the ECHO (Economic, Clinical, and Humanistic Outcomes) model and found that while clinical outcomes were often reported, there was a significant lack of data regarding humanistic and economic outcomes, as well as neglected safety issues.",
+    "Claim": "There is a critical research gap in evaluating the economic and humanistic outcomes, as well as safety issues, of drug reminder packaging interventions.",
+    "Warrant": "Without assessing economic (cost-effectiveness) and humanistic (patient satisfaction, quality of life) dimensions alongside clinical adherence, researchers and healthcare providers cannot draw firm conclusions regarding the overall value and safety of drug reminder packaging.",
+    "Bucket": "more_probable",
+    "source_paper": "Effect of drug reminder packaging on medication adherence: a systematic review revealing research gaps",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper's systematic review using the TCCM framework explicitly identifies research gaps related to emerging markets, (digital) services, individual marketing mix elements, and customer-related performance outcomes.",
+    "Claim": "There is a lack of comprehensive research examining the performance consequences of marketing standardization versus adaptation specifically within the contexts of emerging markets and digital services, as well as a shortage of studies focusing on individual marketing mix elements and customer-related performance outcomes.",
+    "Warrant": "Addressing these specific contextual and characteristic gaps using dynamic theoretical perspectives will help resolve the currently mixed and inconclusive findings regarding the performance impacts of marketing standardization/adaptation.",
+    "Bucket": "more_probable",
+    "source_paper": "Performance consequences of marketing standardization/adaptation: A systematic literature review and future research agenda",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper utilizes a two-dimensional text mining approach combining traditional clustering and bibliometric/network analysis to identify research trends in design research.",
+    "Claim": "Prior studies in design research trend analysis have not leveraged advanced transformer-based topic modeling techniques, such as BERTopic, relying instead on traditional clustering and bibliometric methods.",
+    "Warrant": "Traditional clustering methods often fail to capture the deep semantic context and polysemy in scientific literature. Utilizing BERTopic, which leverages contextualized document embeddings, would allow for more precise, semantically coherent topic extraction and dynamic trend tracking in design research.",
+    "Bucket": "more_probable",
+    "source_paper": "Using Text Mining Techniques to Identify Research Trends: A Case Study of Design Research",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper highlights a lack of clarity and transparency in describing the science mapping process and calls for incorporating text mining approaches to support bibliometric analysis. The KG entities highlight 'limitations of traditional SR methods' and specific text mining/analysis tools like 'BERTopic topic modeling technique' and 'GapFinder'.",
+    "Claim": "There is a lack of systematic integration of advanced text mining techniques (such as BERTopic and GapFinder) to overcome the limitations of traditional systematic review (SR) methods and improve the transparency and efficiency of science mapping in bibliometric analysis.",
+    "Warrant": "By incorporating advanced text mining and topic modeling techniques into the science mapping workflow, researchers can automate the identification of thematic structures and research gaps, reducing subjectivity and addressing the transparency limitations of traditional manual review methods.",
+    "Bucket": "more_probable",
+    "source_paper": "When text mining meets science mapping in the bibliometric analysis: A review and future opportunities",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The systematic literature review on software risk management reveals that research has shifted away from integrated risk management processes to focus on specific activities, and highlights a clear lack of scientific rigor in validation processes and a deficiency in the use of standards or de facto models.",
+    "Claim": "There is a lack of scientific rigor in validation processes and a deficiency in the adoption of standards or de facto models in software risk management research.",
+    "Warrant": "Without rigorous validation and adherence to standardized models, proposed software risk management approaches lack the empirical support and consistency needed for reliable industry adoption.",
+    "Bucket": "more_probable",
+    "source_paper": "Risk management in the software life cycle: A systematic literature review",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper conducts a systematic review of 75 papers on masstige marketing using Corbin and Strauss open, axial, and selective coding to identify value-based and masstige-evolution dimensions. However, the review highlights the need for diverse methodological approaches to address existing research gaps.",
+    "Claim": "There is a lack of longitudinal studies investigating the temporal dynamics and long-term shifts within the value-based and masstige-evolution dimensions of masstige marketing.",
+    "Warrant": "Current research predominantly relies on static, cross-sectional data and manual qualitative coding. Implementing longitudinal studies would allow researchers to track how middle-class consumers' perceptions and purchase intentions toward masstige brands change over time, providing a more robust understanding of brand equity sustainability.",
+    "Bucket": "more_probable",
+    "source_paper": "Two decades of research on “masstige” marketing: A systematic literature review and future research agenda",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper outlines a protocol to map methodological gaps in gray literature searching for systematic reviews (SRs) on population health in the MENA region. Related entities highlight the importance of the 'PRISMA statement', 'Methodological issues framework', and 'published guidance by the EQUATOR Network' in establishing a 'stronger evidence base' from 'existing research'.",
+    "Claim": "There is a lack of a specialized methodological issues framework that operationalizes PRISMA statement guidelines specifically for the search, retrieval, and quality assessment of gray literature in public health research within developing regions like the MENA.",
+    "Warrant": "While general guidelines like PRISMA and AMSTAR exist, they do not provide localized or context-specific operational frameworks to address the unique challenges of indexing, language barriers, and accessibility of gray literature in the MENA region, which limits the ability of researchers to build a stronger evidence base.",
+    "Bucket": "more_probable",
+    "source_paper": "Gray literature in systematic reviews on population health in the Middle East and North Africa: protocol of an overview of systematic reviews and evidence mapping",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The paper highlights that scientific interest in small ruminant farming's role in sustainability has grown, but notes that 'insufficient attention has been given to ecosystem disservices' and 'the lack of standardised frameworks for evaluating ecosystem services limits the ability to compare findings globally.' It also calls for the integration of advanced tools like artificial intelligence and remote sensing.",
+    "Claim": "There is a critical research gap in the availability of standardized, universal frameworks for evaluating ecosystem services and disservices in mountain small ruminant farming, as well as a lack of integration of advanced monitoring technologies like AI and remote sensing.",
+    "Warrant": "Developing universal assessment frameworks and integrating AI/remote sensing tools will allow researchers to systematically compare global findings, address ecosystem disservices, and improve the monitoring and management of mountain ecosystems.",
+    "Bucket": "more_probable",
+    "source_paper": "Ecosystem Services Linked to Extensive Sheep and Goat Farming in Mountain Areas: A Global Literature Analysis Using Text Mining and Topic Analysis",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper utilizes the BERTopic topic modeling technique to analyze 3,941 academic publications retrieved solely from the Scopus database over a short timeframe (2023-2024) to identify trends in LLMs in medicine.",
+    "Claim": "There is a lack of longitudinal studies and broader multi-database bibliometric analyses (incorporating regional databases like SINTA alongside Scopus) to track the long-term evolution, regional research disparities, and practical implementation challenges of LLMs in healthcare.",
+    "Warrant": "Limiting the data source to Scopus and the timeframe to 2023-2024 prevents the identification of historical trends from earlier reviews, misses localized research trends indexed in databases like SINTA, and fails to capture the long-term socio-political and capacity-related factors influencing the actual clinical adoption of these technologies.",
+    "Bucket": "more_probable",
+    "source_paper": "LLM-Based Generative AI in Medicine: Analysis of Current Research Trends With BERTopic",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The paper highlights that while text mining can connect entities like drugs, genes, and phenotypes using informatics algorithms to build a 'connected map of entities' and assist in 'tracking new findings' from 'Medline', current methods often rely on simple term co-occurrence rather than advanced semantic understanding, and struggle to scale with the double-exponential growth of literature.",
+    "Claim": "There is a research gap in developing scalable, high-precision semantic relationship extraction techniques that can automatically synthesize complex, multi-entity interactions into a dynamically updated and reliable pharmacogenomics knowledge map.",
+    "Warrant": "Although entity recognition has matured, moving from simple co-occurrence to deep semantic understanding of multi-entity relationships is necessary to prevent false positives and accurately capture the intricate pathways and networks described in unstructured biomedical texts.",
+    "Bucket": "more_probable",
+    "source_paper": "Teaching computers to read the pharmacogenomics literature … so you don’t have to",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper utilizes traditional multivariate and descriptive analyses—such as word extraction, cluster analysis, and co-occurrence networks—to analyze fisheries literature, while the KG introduces advanced NLP methods like the 'BERTopic topic modeling technique'.",
+    "Claim": "There is a research gap in applying advanced transformer-based topic modeling techniques, such as BERTopic, to fisheries scientific literature to extract deeper semantic themes and trends beyond traditional word co-occurrence and clustering.",
+    "Warrant": "Traditional text mining methods rely on bag-of-words representations and frequency-based clustering, which ignore word order and context. Utilizing BERTopic would leverage contextualized embeddings to capture latent semantic structures and improve the granularity and coherence of topic detection in fisheries science.",
+    "Bucket": "more_probable",
+    "source_paper": "Text mining in fisheries scientific literature: A term coding approach",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper utilizes collocation analysis on a dataset of 52 peer-reviewed publications to identify risks in sustainable procurement. However, the related entities highlight the availability of the 'BERTopic topic modeling technique' and 'scientific articles indexed in Scopus and SINTA'.",
+    "Claim": "There is a research gap in applying advanced transformer-based topic modeling techniques like BERTopic to a larger, multi-database corpus (such as articles indexed in Scopus and SINTA) to systematically uncover latent risk themes in sustainable construction procurement.",
+    "Warrant": "Collocation analysis is limited to identifying surface-level word co-occurrences, whereas BERTopic leverages deep contextual embeddings to capture semantic relationships and cluster topics more accurately across larger text corpora, potentially revealing hidden risk dimensions that traditional NLP methods miss.",
+    "Bucket": "more_probable",
+    "source_paper": "Identifying risks in sustainable procurement for construction: a systematic literature review and text-mining approach",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper conducts a systematic literature review on ostrich welfare using traditional text mining and topic analysis on 122 Scopus documents. The related knowledge graph entities highlight 'BERTopic topic modeling technique' and 'Improving fish welfare'.",
+    "Claim": "There is a lack of research applying advanced transformer-based topic modeling techniques, such as BERTopic, to perform comparative cross-species welfare analyses (e.g., comparing ostrich welfare issues with fish welfare issues).",
+    "Warrant": "Traditional text mining and frequency-based topic analysis methods struggle to capture deep semantic and contextual relationships across heterogeneous literatures. Utilizing BERTopic would enable a more nuanced, semantic mapping of common welfare challenges (such as transport and management) across different animal domains.",
+    "Bucket": "more_probable",
+    "source_paper": "Text Mining and Topic Analysis for Ostriches’ Welfare Based on Systematic Literature Review from 1983 to 2023",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The paper states that out of 2,019 retrieved records, only 185 showed a connection between fish welfare and antimicrobial use/resistance (AMU/AR), and explicitly highlights the link between these two research fields as an area requiring further investigation.",
+    "Claim": "There is a significant research gap regarding the direct, empirical link between improving fish welfare and the reduction of antimicrobial use (AMU) and antibiotic resistance (AR) in aquaculture.",
+    "Warrant": "Although topic modeling reveals distinct research areas such as fish stress response and antibiotic resistance, there is a lack of integrated studies that quantitatively connect fish welfare indicators to AMU/AR reduction strategies, which is critical for operationalizing One Health policies in aquaculture.",
+    "Bucket": "more_probable",
+    "source_paper": "Text mining and topic modeling insights on fish welfare and antimicrobial use in aquaculture",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper utilizes Word2Vec and K-means clustering to map research themes and manually identify research gaps in mathematical geoscience literature.",
+    "Claim": "Prior bibliometric approaches in mathematical geoscience do not leverage advanced transformer-based topic modeling (like BERTopic) or automated gap-detection tools (like GapFinder) to systematically discover latent research gaps.",
+    "Warrant": "Word2Vec and K-means clustering capture static semantic similarities but lack the contextual representation of transformer models and the explicit algorithmic design required to automatically detect underrepresented research areas.",
+    "Bucket": "more_probable",
+    "source_paper": "Mapping the Evolution of Mathematical Geoscience Research with Big Literature Data and Context-Aware Text Mining",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The systematic review of the Scopus database yielded only 18 records since 1994 regarding the use of nutraceuticals for canine leishmaniosis, showing a very limited body of literature.",
+    "Claim": "There is a critical shortage of scientific literature and empirical studies evaluating the therapeutic and immunomodulatory effects of nutritional supplements on canine leishmaniosis.",
+    "Warrant": "Text mining and topic analysis of the existing literature reveal that while specific areas like AHCC, nucleotides, and Vitamin D3 have been touched upon, the overall volume of research is insufficient to draw robust clinical conclusions, representing a clear gap in veterinary pharmacology and nutrition.",
+    "Bucket": "more_probable",
+    "source_paper": "Trends and Gaps in the Scientific Literature about the Effects of Nutritional Supplements on Canine Leishmaniosis",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper utilizes text-mining on 3,302 bibliographic records to identify methodological biases and emerging priorities in agriculture–environment interactions. However, related entities highlight a 'research gap' where 'earlier reviews' were limited to smaller samples (such as '70 peer-reviewed articles') and did not employ advanced NLP methods like the 'BERTopic topic modeling technique' to construct a 'systematic map'.",
+    "Claim": "Prior reviews in agricultural sustainability assessment lack the scale and advanced semantic analysis, such as BERTopic topic modeling, required to systematically map methodological biases and emerging priorities in agriculture-environment interactions.",
+    "Warrant": "Using advanced transformer-based topic modeling (BERTopic) on larger bibliographic datasets overcomes the limitations of small-scale manual reviews and basic term-frequency analyses, enabling the discovery of latent thematic structures and evolution in sustainability frameworks.",
+    "Bucket": "more_probable",
+    "source_paper": "Environmental Priorities and Methodological Shifts in Agricultural Sustainability Assessment: A Text-Mining Analysis of Scientific Literature",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper acknowledges that its rule-based text mining approach is limited to a defined subset of soybean genomics literature that explicitly uses standardized Glyma identifiers, leaving out studies with non-standardized nomenclature. Furthermore, the related KG entities point to advanced literature analysis tools and techniques such as 'BERTopic topic modeling technique', 'GapFinder', and broader indexing databases like 'Scopus'.",
+    "Claim": "There is a lack of advanced semantic text-mining and topic-modeling frameworks applied to multi-database plant genomics literature to resolve non-standardized gene nomenclature and identify latent research gaps beyond simple regular-expression matching of standardized identifiers.",
+    "Warrant": "Simple regular expressions fail to capture gene synonyms, historical naming variations, and contextual semantic relationships. Utilizing advanced NLP techniques like BERTopic and semantic gap-finding tools across broader databases allows for the clustering of latent themes and the identification of under-researched genomic areas without relying on the strict adoption of standardized nomenclature.",
+    "Bucket": "more_probable",
+    "source_paper": "Mining Two Decades of Soybean Genomics Literature Using Rule-Based Text Mining: Chromosome-Resolved Patterns of Glyma Gene Mentions",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The paper identifies research gaps in fragmented reporting standards, technological barriers, and the need for adaptive regulation in BDA-enabled sustainability accounting. The related entities highlight that successful implementation of regulatory recommendations depends on political commitment and implementation capacities.",
+    "Claim": "There is a lack of empirical research examining how political commitment and organizational implementation capacities affect the standardization and integration of big data analytics (BDA) within sustainability accounting and ESG reporting frameworks.",
+    "Warrant": "Overcoming technological barriers and fragmented reporting standards requires understanding the governance and capacity constraints that influence how organizations adopt BDA for sustainability, bridging the gap between regulatory policy and practical execution.",
+    "Bucket": "more_probable",
+    "source_paper": "Systematic review analysis through an overview applying methodologies text mining and coding: big data analytics for sustainability accounting",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The bibliometric analysis of 21,457 documents reveals that 47.0% of the retrieved literature is concentrated in the psychosocial and mental health domain, while non-communicable diseases (8.9%) and infectious diseases (13.7%) receive significantly less attention. Additionally, research contributions from Asian, African, Latin American, Middle Eastern, and Eastern European countries are low, skewing the literature toward high-income destination countries.",
+    "Claim": "Global migration health research is heavily biased, as mental health outcomes dominate the research landscape, resulting in a lack of representation for other critical health domains and perspectives from low- and middle-income origin countries.",
+    "Warrant": "To inform effective global health policies and achieve the Sustainable Development Goals, the evidence base must align with actual global migration patterns and address a broader spectrum of health issues across diverse geographic regions, rather than focusing disproportionately on mental health in high-income destination countries.",
+    "Bucket": "more_probable",
+    "source_paper": "Bibliometric analysis of global migration health research in peer-reviewed literature (2000–2016)",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The abstract highlights that the sharp increase in scholarly publications on misinformation, disinformation, and fake news since events like Brexit and the 2016 U.S. Presidential elections has led to a risk of fragmentation across disciplines and a lack of research cumulativity.",
+    "Claim": "There is a lack of interdisciplinary synthesis and cumulative overview of the rapidly growing, fragmented literature on misinformation, disinformation, and fake news.",
+    "Warrant": "A systematic literature review of a large corpus (such as 1,261 journal articles) is required to map the contributing disciplines, methodologies, and data usage, thereby bridging the fragmentation and identifying future research directions.",
+    "Bucket": "more_probable",
+    "source_paper": "Misinformation, disinformation, and fake news: lessons from an interdisciplinary, systematic literature review",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The structured literature review of non-financial reporting formats in public sector organizations reveals that existing studies have focused primarily on sustainability reporting in higher education institutions, local governments, and state-owned enterprises, while remaining silent on the healthcare sector.",
+    "Claim": "There is a lack of research and empirical investigation into non-financial reporting formats within the healthcare sector of public sector organizations.",
+    "Warrant": "Since healthcare organizations have distinct operational structures, regulatory requirements, and stakeholder expectations compared to local governments or state-owned enterprises, studying their non-financial reporting formats is essential for developing comprehensive, sector-specific reporting standards and practices.",
+    "Bucket": "more_probable",
+    "source_paper": "Non-financial reporting formats in public sector organizations: a structured literature review",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper conducts an overview of 31 review articles on AI in tourism indexed in Web of Science using traditional synthesis methods. However, related entities highlight the 'limitations of traditional SR methods' and suggest the utility of tools like the 'BERTopic topic modeling technique', 'GapFinder', and expanding the search to 'scientific articles indexed in Scopus and SINTA'.",
+    "Claim": "Current literature reviews on AI in tourism are constrained by manual, traditional systematic review methodologies and limited database coverage, failing to utilize automated topic modeling and algorithmic gap detection to synthesize a broader corpus of research.",
+    "Warrant": "Traditional systematic reviews are prone to human bias and scalability limitations. Integrating automated NLP approaches like BERTopic for topic modeling and GapFinder for gap detection on wider databases (such as Scopus and SINTA) allows for a more objective, comprehensive, and scalable synthesis of the rapidly growing AI tourism literature.",
+    "Bucket": "more_probable",
+    "source_paper": "Artificial Intelligence in the Tourism Industry: An Overview of Reviews",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The systematic literature review of the 104 sampled publications on corporate risk disclosure reveals that past research has focused excessively on immediate firm-level characteristics (such as firm size, growth, leverage, value, and cost of capital) while neglecting broader contexts.",
+    "Claim": "There is a significant research gap concerning the influence of cross-country drivers of risk (including national accounting, auditing, economic, governance, language, and legal systems) as well as a lack of empirical focus on developing countries, private institutions, and non-profit organizations.",
+    "Warrant": "Analyzing cross-country institutional drivers and expanding the research scope to developing countries and non-profit sectors is necessary to build a comprehensive, generalizable framework for risk disclosure that transcends basic firm-level metrics.",
+    "Bucket": "more_probable",
+    "source_paper": "A systematic literature review on risk disclosure research: State-of-the-art and future research agenda",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper's abstract explicitly states that the implementation of distant sensing and imaging methods to monitor and detect the impact of severe weather occurrences (such as floods, droughts, and landslides in China) remains underdeveloped.",
+    "Claim": "There is a significant research gap in the development, integration, and application of remote sensing (distant sensing) and advanced imaging technologies for monitoring and detecting the impacts of extreme weather events on human and environmental systems in China.",
+    "Warrant": "Although existing literature reviews focus on the socio-economic impacts of natural disasters, they lack technical frameworks for real-time spatial monitoring. Advancing remote sensing and imaging methodologies is critical to providing the high-resolution, timely data necessary for effective disaster adaptation, mitigation, and strategic governance.",
+    "Bucket": "more_probable",
+    "source_paper": "Human–Environment Natural Disasters Interconnection in China: A Review",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The systematic literature review (SLR) conducted on the intersection of entrepreneurship education (EE) and public policies yielded only nine articles in the final review, highlighting a severe lack of academic literature. The paper explicitly identifies the understanding of decision-making processes associated with the implementation of EE programs as a 'missing link' and a gap in academic knowledge.",
+    "Claim": "There is a critical research gap in understanding the decision-making processes regarding the implementation of entrepreneurship education (EE) programs and their integration into public policy-making.",
+    "Warrant": "The scarcity of literature (only nine articles found via a systematic algorithm-based review) demonstrates that existing research has not adequately addressed how decision-making processes, political commitment, and implementation capacities affect the execution of EE programs, necessitating further scientific investigation.",
+    "Bucket": "more_probable",
+    "source_paper": "Entrepreneurship Education: A Systematic Literature Review and Identification of an Existing Gap in the Field",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper conducts a manual systematic literature review of 46 articles to identify research gaps in hotel customer experience (CX). The related entities suggest the existence of automated and structured approaches such as the 'BERTopic topic modeling technique', 'GapFinder', and 'methodological guidelines for identifying research gaps'.",
+    "Claim": "Current literature reviews on hotel customer experience (CX) rely on manual qualitative synthesis, lacking the integration of automated topic modeling techniques and specialized gap-detection tools to systematically identify research gaps.",
+    "Warrant": "Manual identification of research gaps is subjective and limited in scale. Integrating automated tools like BERTopic and GapFinder, guided by formal methodological frameworks, can process larger volumes of literature to uncover hidden thematic patterns and objective research gaps.",
+    "Bucket": "more_probable",
+    "source_paper": "Customer experience in the hotel industry: a systematic literature review and research agenda",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper's gap analysis of 116 peer-reviewed articles published since 2015 highlights that current literature on emerging gambling trends (such as Internet gambling and the convergence of video gaming and gambling) lacks longitudinal designs, qualitative depth, and tested public health frameworks, which directly connects to the 'longitudinal studies' and 'research gap' entities.",
+    "Claim": "A lack of longitudinal studies and qualitative research evaluating the long-term behavioral impacts of emerging digital gambling technologies and the efficacy of public health interventions designed to mitigate their harms.",
+    "Warrant": "Without longitudinal methodologies and qualitative insights, researchers cannot establish causal relationships between exposure to emerging digital gambling formats and long-term psychological or financial harms, limiting the ability to design and validate effective public health prevention strategies.",
+    "Bucket": "more_probable",
+    "source_paper": "A Literature Review and Gap Analysis of Emerging Technologies and New Trends in Gambling",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The paper's bibliometric analysis and scientific mapping reveal that multi-criteria decision making (MCDM) approaches are currently underutilized in addressing heritage building reuse and preservation. Furthermore, the abstract explicitly highlights a lack of complex problem-solving approaches in the cultural heritage buildings domain.",
+    "Claim": "There is a significant research gap in the application of multi-criteria decision making (MCDM) methods and integrated, complex problem-solving frameworks for the preservation and adaptive reuse of heritage buildings.",
+    "Warrant": "Decisions regarding heritage buildings involve balancing diverse and often conflicting criteria such as structural integrity, energy efficiency, cultural value, and economic sustainability. The absence of structured MCDM applications and complex decision frameworks limits the ability of stakeholders to make optimal, systematic, and reproducible conservation decisions.",
+    "Bucket": "more_probable",
+    "source_paper": "A BIBLIOMETRIC DATA ANALYSIS OF MULTI-CRITERIA DECISION MAKING METHODS IN HERITAGE BUILDINGS",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper highlights that current research on recycling behavior lacks a comprehensive, holistic analysis of all stakeholders and suggests future research directions in smart city design and sensor network systems. Furthermore, the related entities point to methodological tools like BERTopic, LDA, and qualitative coding (Corbin and Strauss) which are not fully exploited in earlier reviews of this domain.",
+    "Claim": "There is a research gap in applying advanced topic modeling (such as BERTopic or combined LDA) and qualitative coding frameworks to explore the integration of smart city design, sensor networks, and stakeholder responsibilisation in recycling behavior literature.",
+    "Warrant": "Integrating advanced text mining techniques like BERTopic with qualitative coding allows researchers to uncover latent thematic structures and stakeholder dynamics that traditional co-word analysis and bibliometrics overlook, thereby addressing the complex, interdisciplinary challenges of modern waste management systems.",
+    "Bucket": "more_probable",
+    "source_paper": "Recycling behaviour: Mapping knowledge domain through bibliometrics and text mining.",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper conducts a systematic literature review on digital leadership using a limited sample of 53 academic documents. The related entities highlight 'earlier reviews', '104 sampled publications', 'BERTopic topic modeling technique', and 'Corbin and Strauss open, axial, and selective coding'.",
+    "Claim": "Prior systematic reviews on digital leadership are limited by small sample sizes and manual synthesis methods, leaving a gap in utilizing hybrid approaches that combine automated topic modeling with structured qualitative coding on a larger corpus of literature.",
+    "Warrant": "Applying the BERTopic topic modeling technique alongside Corbin and Strauss's open, axial, and selective coding to a larger dataset of 104 sampled publications enables a more scalable, objective, and deeply categorized thematic analysis of the digital leadership domain compared to traditional manual reviews of smaller datasets.",
+    "Bucket": "more_probable",
+    "source_paper": "Digital leadership: a systematic literature review and future research agenda",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper highlights that current research on circular economy technologies is biased due to its heavy reliance on manual literature reviews and expert opinions, and it disproportionately focuses on digital technologies while neglecting other areas.",
+    "Claim": "There is a lack of automated, comprehensive, and unbiased methodologies to identify and map the diverse technological landscape within the circular economy paradigm.",
+    "Warrant": "Applying Natural Language Processing (NLP) and text mining to a large corpus of scientific publications enables the objective extraction of diverse technological domains, mitigating the limitations and biases of traditional systematic review methods.",
+    "Bucket": "more_probable",
+    "source_paper": "Identifying technologies in circular economy paradigm through text mining on scientific literature",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper states that while there have been systematic literature reviews in the past to identify trends in digital game-based learning (DGBL) across diverse subjects and educational levels, there is a lack of reviews focusing specifically on mathematics education at the primary school level.",
+    "Claim": "There is a lack of systematic literature reviews focusing exclusively on digital game-based learning (DGBL) in primary school mathematics education.",
+    "Warrant": "Broad reviews of DGBL fail to capture the unique pedagogical needs, game genres, and learning outcomes associated with early childhood mathematics, necessitating a targeted synthesis to guide future research and curriculum development in this specific domain.",
+    "Bucket": "more_probable",
+    "source_paper": "Digital game-based learning in mathematics education at primary school level: A systematic literature review",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper identifies a significant gap between the research and practice of code smell identification, noting that developers strongly associate identification with smell removal and bug incidence, which are only partially addressed by current research.",
+    "Claim": "Current code smell identification research lacks integration with practical smell removal workflows and empirical bug-prediction models that align with developers' cognitive associations.",
+    "Warrant": "Aligning identification tools with developer practices (removal and bug prevention) will bridge the research-practice gap by making smell detection actionable and directly beneficial to software quality.",
+    "Bucket": "more_probable",
+    "source_paper": "Do Research and Practice of Code Smell Identification Walk Together? A Social Representations Analysis",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The systematic literature review of AI and ML applications in SCM from 2019 to 2023 identifies limited data accessibility and the lack of deep and hybrid models as the main research gaps in the shortlisted studies.",
+    "Claim": "There is a critical research gap in Supply Chain Management (SCM) regarding the limited accessibility of data and the underutilization of deep and hybrid AI/ML models.",
+    "Warrant": "Although demand forecasting and risk management in SCM utilize basic ANN, regression, and classification models, addressing data accessibility and transitioning to deep and hybrid architectures is necessary to handle complex supply chain dynamics.",
+    "Bucket": "more_probable",
+    "source_paper": "AI and ML Applications in Supply Chain Management Field: A Systematic Literature Review",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper utilizes a static CHO bioprocess bibliome manually compiled in 2016 to perform topic modeling and document classification. The related KG entities highlight the need for a 'systematic map', 'GapFinder', and 'comparisons over time and between research subdisciplines' to identify research gaps.",
+    "Claim": "Current text mining and classification approaches for the CHO bioprocess literature lack integration with automated systematic mapping tools (like GapFinder) that can perform dynamic, longitudinal comparisons over time and across diverse research subdisciplines.",
+    "Warrant": "Relying on a static, manually compiled bibliome from a specific year (2016) limits the ability to track the real-time evolution of scientific literature. Integrating machine learning classifiers with automated systematic mapping frameworks would enable continuous, automated detection of emerging research gaps and cross-disciplinary trends without requiring manual dataset updates.",
+    "Bucket": "more_probable",
+    "source_paper": "Text mining of CHO bioprocess bibliome: Topic modeling and document classification",
+    "type": "lightrag"
+  },
+  {
+    "Grounds": "The target paper identifies a lack of systematic, cross-domain synthesis regarding R-based energy forecasting methods and workflow accessibility, which motivated their text-mining analysis of 49 SCIE articles. The related KG entities suggest the utility of the 'BERTopic topic modeling technique' and indexing databases like 'Scopus and SINTA' for identifying research gaps in literature.",
+    "Claim": "Prior reviews in energy forecasting do not leverage advanced topic modeling techniques (such as BERTopic) over broader bibliographic databases (like Scopus and SINTA) to systematically map the landscape of R-based forecasting tools and accessibility for non-experts.",
+    "Warrant": "While the paper uses basic text mining on a limited set of 49 SCIE articles, employing advanced NLP techniques like BERTopic on a larger, multi-database corpus (Scopus/SINTA) would allow for unsupervised, semantic clustering of literature, revealing hidden methodological trends and tool usage patterns that manual or simple keyword-based text mining might miss.",
+    "Bucket": "more_probable",
+    "source_paper": "Beginner-Friendly Review of Research on R-Based Energy Forecasting: Insights from Text Mining",
+    "type": "lightrag"
+  }
+]

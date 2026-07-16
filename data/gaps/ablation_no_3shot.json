@@ -1,0 +1,370 @@
+[
+  {
+    "Grounds": "The knowledge graph analysis reveals zero bridge relations between Community A, which utilizes topic modeling (LDA) and statistical uncertainty quantification for text mining, and Community B, which focuses on systematic literature network analysis and bibliographic synthesis within hospitality and tourism management.",
+    "Claim": "A significant research gap exists in the application of probabilistic topic modeling and statistical uncertainty quantification to systematic literature network analyses within the hospitality and tourism management domain.",
+    "Warrant": "Integrating machine learning-based topic modeling with traditional bibliographic network analysis will enhance the rigor of systematic reviews in hospitality and tourism by providing automated, statistically validated thematic structures instead of relying solely on manual or descriptive citation mapping.",
+    "Bucket": "more_probable",
+    "type": "orphan_cluster",
+    "source": "Community 7 vs 14"
+  },
+  {
+    "Grounds": "The knowledge graph reveals zero bridge relations between Community A (focused on machine learning, topic modeling, and statistical uncertainty quantification in literature reviews) and Community B (focused on systematic literature review methodologies, PRISMA guidelines, and screening/quality assessment processes).",
+    "Claim": "There is an unaddressed research gap in integrating automated topic modeling and statistical uncertainty quantification frameworks directly into standardized systematic literature review (SLR) pipelines.",
+    "Warrant": "Bridging these communities would allow researchers to leverage machine learning for automated screening and data extraction while maintaining the rigorous, transparent standards required by SLR guidelines like PRISMA.",
+    "Bucket": "more_probable",
+    "type": "orphan_cluster",
+    "source": "Community 7 vs 35"
+  },
+  {
+    "Grounds": "Community A focuses on computational text mining, LDA, and statistical uncertainty quantification for literature reviews, whereas Community B relies on traditional, manual thematic reviews and PRISMA guidelines for environmental health and software engineering domains, with zero bridge relations between them.",
+    "Claim": "There is a significant research gap in applying machine learning-driven topic modeling and statistical uncertainty quantification to automate and validate thematic reviews concerning the human health risks of neglected heavy metals.",
+    "Warrant": "Integrating computational topic modeling with traditional systematic review frameworks (like PRISMA) reduces subjective bias, quantifies thematic uncertainty, and enhances the scalability of literature synthesis in complex environmental health domains.",
+    "Bucket": "more_probable",
+    "type": "orphan_cluster",
+    "source": "Community 7 vs 92"
+  },
+  {
+    "Grounds": "The knowledge graph analysis shows zero bridge relations between Community A (bibliometric network analysis and conceptual frameworks in hospitality/tourism) and Community B (PRISMA guidelines, screening protocols, and SLR project management systems).",
+    "Claim": "There is an unaddressed research gap regarding the integration of structured SLR project management systems and PRISMA-compliant screening protocols into bibliometric and network-based literature reviews within the hospitality and tourism sector.",
+    "Warrant": "Applying rigorous SLR screening and project management standards to bibliometric analyses will improve the methodological transparency and reproducibility of research syntheses in hospitality and tourism.",
+    "Bucket": "more_probable",
+    "type": "orphan_cluster",
+    "source": "Community 14 vs 35"
+  },
+  {
+    "Grounds": "There is a total absence of bridging relations between Community A, which focuses on systematic literature network analysis and bibliometric profiling methodologies, and Community B, which focuses on thematic reviews of human health risks of neglected heavy metals.",
+    "Claim": "A significant research gap exists in applying advanced systematic literature network analysis and bibliometric mapping to the domain of human health risks associated with neglected heavy metals.",
+    "Warrant": "Methodological tools from bibliometric network analysis can uncover hidden thematic structures, citation networks, and evolution trends in environmental health domains that traditional thematic reviews might overlook.",
+    "Bucket": "more_probable",
+    "type": "orphan_cluster",
+    "source": "Community 14 vs 92"
+  },
+  {
+    "Grounds": "Community A focuses on rigorous SLR methodologies, project management systems, and quality assessment guidelines (e.g., PRISMA, Scopus database), while Community B focuses on thematic reviews of human health risks of neglected heavy metals and classifying SE literature, with zero bridge relations between them.",
+    "Claim": "There is an unaddressed gap in applying structured SLR project management systems and rigorous quality assessment guidelines to thematic reviews concerning human health risks of neglected heavy metals and SE literature.",
+    "Warrant": "Integrating systematic project management and quality assessment methods into environmental health and SE thematic reviews will improve the reproducibility, minimize bias, and resolve the dearth of systematic classifications in these domains.",
+    "Bucket": "more_probable",
+    "type": "orphan_cluster",
+    "source": "Community 35 vs 92"
+  },
+  {
+    "Grounds": "The concept of a 'proposed framework' exhibits a temporal decay rate of 1.00, signaling that the academic utility and novelty of introducing new conceptual or theoretical frameworks have completely depreciated.",
+    "Claim": "There is a critical research gap concerning the empirical validation, comparative benchmarking, and consolidation of existing frameworks, rather than the generation of new ones.",
+    "Warrant": "A maximum decay rate for 'proposed frameworks' implies an oversaturated landscape of untested theories, meaning future research must pivot from design-oriented proposals to empirical testing and synthesis to remain impactful.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: proposed framework"
+  },
+  {
+    "Grounds": "Bibliometric tracking indicates that the temporal decay rate of identified research gaps in emerging technology sectors is 0.67, meaning approximately two-thirds of documented gaps are resolved or rendered obsolete within a single publication cycle.",
+    "Claim": "There is a critical lack of dynamic, real-time literature synthesis frameworks capable of automatically deprecating obsolete research gaps, leading to redundant funding and misallocated academic labor.",
+    "Warrant": "Since static systematic literature reviews require months to publish, they cannot keep pace with a 0.67 decay rate, necessitating the development of continuous, algorithmic gap-tracking systems to maintain research efficiency.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: research gap"
+  },
+  {
+    "Grounds": "The traditional scoping review methodology exhibits a temporal decay rate of 1.00, indicating that static, manual literature mapping rapidly loses relevance and fails to keep pace with the exponential growth of scientific publications.",
+    "Claim": "There is a critical research gap in the development of automated, real-time, and 'living' evidence synthesis frameworks that can dynamically map literature landscapes without the temporal obsolescence of traditional scoping reviews.",
+    "Warrant": "Since a decay rate of 1.00 implies that static scoping reviews become obsolete almost immediately upon publication, researchers require dynamic, continuous synthesis methodologies to maintain accurate, up-to-date maps of rapidly evolving scientific fields.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: scoping review"
+  },
+  {
+    "Grounds": "The concept of 'knowledge gaps' exhibits a temporal decay rate of 1.00, indicating that identified gaps in scientific or organizational knowledge become obsolete or irrelevant immediately after detection.",
+    "Claim": "Current research methodologies lack dynamic, real-time predictive models to identify and track knowledge gaps as they evolve, relying instead on static, retrospective literature reviews that cannot keep pace with this decay.",
+    "Warrant": "Because static gap-identification methods require time to compile and publish, a decay rate of 1.00 guarantees that any documented knowledge gap is already obsolete by the time it is read, necessitating a transition to real-time, automated detection systems.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: knowledge gaps"
+  },
+  {
+    "Grounds": "The generic 'machine learning-based approach' has reached a temporal decay rate of 1.00, indicating complete saturation, methodological obsolescence, and a critical loss of novelty in recent scientific literature.",
+    "Claim": "There is an urgent research gap requiring a shift from standard statistical machine learning to hybrid neuro-symbolic frameworks that integrate domain-specific physical laws or deductive reasoning.",
+    "Warrant": "When a foundational methodology's decay rate reaches its maximum, further application yields diminishing returns, necessitating the integration of structured prior knowledge to overcome the inherent data-dependency and interpretability limitations of pure machine learning.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: machine learning-based approach"
+  },
+  {
+    "Grounds": "The temporal decay rate of the BERTopic topic modeling technique has reached 1.00, indicating that standard static embedding-based clustering approaches are rapidly losing utility and relevance in modern NLP pipelines.",
+    "Claim": "There is a critical research gap in developing hybrid, self-updating topic modeling frameworks that integrate BERTopic's clustering efficiency with real-time generative LLM feedback to handle continuous semantic drift in streaming data.",
+    "Warrant": "A decay rate of 1.00 signifies that static vector-space partitioning (like UMAP+HDBSCAN in BERTopic) cannot keep pace with the dynamic, context-heavy requirements of modern text streams, necessitating a shift toward adaptive, generative-hybrid topic models.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: BERTopic topic modeling technique"
+  },
+  {
+    "Grounds": "The relevance and validity of identified research gaps decay at a high temporal rate of 0.60, meaning the majority of their scientific utility is lost within a single cycle of standard academic publication.",
+    "Claim": "Traditional static literature review methodologies and multi-year funding cycles are structurally incapable of addressing highly transient research gaps, creating a systemic gap in real-time scientific discovery frameworks.",
+    "Warrant": "Because traditional research pipelines assume that identified gaps remain stable long enough to be investigated and published, a high decay rate of 0.60 invalidates this assumption, requiring a shift toward dynamic, continuous literature-monitoring systems.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: research gaps"
+  },
+  {
+    "Grounds": "Standard dynamic topic models rely on historical priors to smooth topic transitions, but when the temporal decay rate of topic relevance is 1.00, past topic distributions provide zero predictive value for incoming data streams.",
+    "Claim": "Current NLP frameworks lack real-time topic modeling architectures capable of instantaneous adaptation without historical dependencies, creating a gap in analyzing ultra-high-velocity, transient data streams.",
+    "Warrant": "Since a decay rate of 1.00 renders historical topic states obsolete, effective topic modeling in such environments requires algorithms that treat topic detection as a continuous, history-independent clustering problem rather than a sequential evolutionary process.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: topic modeling"
+  },
+  {
+    "Grounds": "The temporal decay rate of static literature reviews is 1.00, indicating that their relevance and comprehensiveness degrade to zero immediately upon publication due to the continuous influx of new research.",
+    "Claim": "There is a critical lack of automated, self-updating literature synthesis systems that can dynamically integrate new publications in real-time.",
+    "Warrant": "Because static reviews become obsolete instantly under a decay rate of 1.00, maintaining an accurate state-of-the-art understanding requires shifting from periodic manual reviews to continuous, algorithmic knowledge-graph updates.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: literature review"
+  },
+  {
+    "Grounds": "Systematic research reviews exhibit a high temporal decay rate of 0.83, indicating that the validity and relevance of synthesized literature rapidly decline shortly after publication.",
+    "Claim": "There is an unaddressed need for automated, continuous-updating (living) systematic review methodologies to maintain the currency of synthesized evidence.",
+    "Warrant": "Because static reviews lose their temporal utility at a high rate of 0.83, traditional manual update cycles are insufficient, warranting real-time algorithmic synthesis tools to bridge the gap between publication velocity and evidence integration.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: systematic research review"
+  },
+  {
+    "Grounds": "The temporal decay rate of 1.00 for the 'standardized audit process' indicates that static, periodic compliance methodologies have reached complete obsolescence in rapidly evolving, data-dense corporate environments.",
+    "Claim": "A research gap exists in developing dynamic, continuous, and AI-driven auditing frameworks that can autonomously adapt to real-time data streams, replacing traditional static audit standards.",
+    "Warrant": "Because static standards decay when they cannot keep pace with the velocity and complexity of modern digital transactions, transitioning to adaptive auditing models is necessary to maintain audit relevance and integrity.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: standardized audit process"
+  },
+  {
+    "Grounds": "Traditional review systems operate under the assumption of long-term information stability, whereas a temporal decay rate of 1.00 implies that the validity and relevance of a review depreciate to zero immediately after its creation.",
+    "Claim": "Current literature lacks dynamic, continuous-stream review frameworks capable of updating evaluation metrics in real-time to counteract instantaneous information decay.",
+    "Warrant": "If the utility of a review decays completely immediately (decay rate = 1.00), static review databases become obsolete, necessitating a paradigm shift toward real-time, ephemeral evaluation architectures.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: review"
+  },
+  {
+    "Grounds": "Latent Dirichlet Allocation (LDA) exhibits a moderate temporal decay rate of 0.50, signaling that traditional bag-of-words topic modeling is losing research traction in favor of dense vector representations.",
+    "Claim": "A critical research gap exists in the integration of LDA's probabilistic topic structures with contextualized transformer embeddings to model topics in highly dynamic, short-text streams.",
+    "Warrant": "A decay rate of 0.50 suggests the method is not obsolete but requires hybridization; combining LDA's mathematical interpretability with deep learning's semantic richness addresses the limitations of both paradigms in modern NLP.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: Latent Dirichlet Allocation"
+  },
+  {
+    "Grounds": "The traditional concept of a 'framework' exhibits a temporal decay rate of 1.00, signaling the rapid obsolescence of static, rigid conceptual structures in contemporary, high-velocity scientific and technological landscapes.",
+    "Claim": "There is an unaddressed research gap in the formulation of 'generative conceptual models'—dynamic, self-updating ontological structures that adapt in real-time to streaming empirical data, effectively replacing static theoretical frameworks.",
+    "Warrant": "Because static frameworks assume stable variables and fixed relationships, a maximum decay rate of 1.00 indicates that environmental volatility renders these structures obsolete immediately upon publication. Therefore, scientific inquiry must shift from constructing fixed frameworks to engineering adaptive, algorithmic modeling systems that evolve continuously with the phenomena they describe.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: framework"
+  },
+  {
+    "Grounds": "The concept 'text mining' exhibits a significant temporal decay rate of 0.56, indicating a rapid decline in literature focusing on traditional statistical, rule-based, and bag-of-words text extraction methodologies in favor of deep learning and transformer-based architectures.",
+    "Claim": "There is an unaddressed research gap in designing hybrid neuro-symbolic frameworks that systematically integrate the deterministic, resource-efficient pattern discovery of classic text mining with the contextual representation capabilities of large language models.",
+    "Warrant": "Because traditional text mining is decaying due to the paradigm shift toward generative AI, the unique advantages of classic methods—namely computational efficiency, strict interpretability, and deterministic extraction—are being neglected. Bridging these paradigms is necessary to mitigate the high computational costs and hallucination risks inherent in pure deep learning approaches.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: text mining"
+  },
+  {
+    "Grounds": "The Technology Acceptance Model (TAM) exhibits a high temporal decay rate of 0.67, indicating that its foundational constructs of Perceived Usefulness and Perceived Ease of Use are rapidly losing explanatory power in the context of modern, complex systems.",
+    "Claim": "There is an urgent research gap concerning how user acceptance is negotiated in autonomous, generative, and immersive technology ecosystems, which requires shifting focus from basic usability to constructs of algorithmic trust, cognitive load, and relational co-presence.",
+    "Warrant": "A high temporal decay rate implies that the traditional utility-usability paradigm of TAM is becoming obsolete as technologies transition from passive tools to active, agentic partners, necessitating new theoretical frameworks to explain contemporary user behavior.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: Technology Acceptance Model"
+  },
+  {
+    "Grounds": "The temporal decay rate of 0.67 for 'PRISMA guidelines' indicates a significant decline in the alignment and utility of traditional reporting standards within contemporary evidence synthesis.",
+    "Claim": "There is a critical research gap regarding the adaptation of PRISMA guidelines for AI-assisted, automated, and living systematic review methodologies.",
+    "Warrant": "As literature synthesis increasingly relies on machine learning and real-time data feeds, static reporting frameworks naturally decay in relevance unless updated to standardize algorithmic transparency and continuous update protocols.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: PRISMA guidelines"
+  },
+  {
+    "Grounds": "The concept of 'thematic review' exhibits a high temporal decay rate of 0.81, indicating that the relevance and validity of synthesized thematic insights diminish rapidly after publication.",
+    "Claim": "There is a critical research gap regarding the development of dynamic, continuous-integration thematic review frameworks that automatically update qualitative syntheses in real-time.",
+    "Warrant": "Because static thematic reviews suffer from rapid obsolescence (decay rate 0.81), traditional manual synthesis methodologies are insufficient for maintaining up-to-date literature baselines, necessitating automated pipelines to ingest and re-theme new literature continuously.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: thematic review"
+  },
+  {
+    "Grounds": "The concept of 'systematic methods' exhibits a high temporal decay rate of 0.67, indicating that structured, static procedural frameworks rapidly lose their utility and relevance over time.",
+    "Claim": "There is an unaddressed need for dynamic, self-correcting methodological frameworks that adapt to rapid environmental shifts, preventing the premature obsolescence of research designs.",
+    "Warrant": "If traditional systematic methods decay rapidly, then maintaining rigid procedural structures without integrating real-time adaptive mechanisms inevitably leads to obsolete research outcomes.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: systematic methods"
+  },
+  {
+    "Grounds": "The Scopus database exhibits a temporal decay rate of 1.00, indicating that its indexed metadata, citation counts, and journal coverage lists become obsolete or change almost immediately post-extraction.",
+    "Claim": "Current literature review and bibliometric methodologies lack real-time, dynamic data-updating frameworks to prevent rapid obsolescence of Scopus-derived research findings.",
+    "Warrant": "Because static extractions of Scopus data decay at the maximum rate, traditional one-off bibliometric analyses quickly lose validity, necessitating the development of continuous, API-driven synthesis models.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: Scopus database"
+  },
+  {
+    "Grounds": "The traditional 'conceptual framework' exhibits a temporal decay rate of 1.00, indicating that static structural models lose their explanatory utility and relevance almost immediately when applied to rapidly evolving, high-velocity research domains.",
+    "Claim": "There is an unaddressed methodological gap concerning the formulation of 'dynamic' or 'adaptive' conceptual frameworks that can self-update in real-time to maintain construct validity in volatile environments.",
+    "Warrant": "Because static frameworks decay at the maximum rate (1.00), relying on them for longitudinal or fast-paced empirical research introduces systemic bias and obsolescence, necessitating a paradigm shift toward temporally-aware, fluid conceptual modeling.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: conceptual framework"
+  },
+  {
+    "Grounds": "Evidence maps traditionally rely on static, manual curation of literature at a specific point in time, which, under a temporal decay rate of 1.00, renders their cataloged findings immediately obsolete as new research emerges.",
+    "Claim": "There is a critical research gap in developing automated, self-updating ('living') evidence mapping methodologies that integrate real-time data ingestion and machine learning to counteract instantaneous temporal decay.",
+    "Warrant": "Because a decay rate of 1.00 indicates that static evidence maps lose their validity immediately upon publication, only a continuous, automated pipeline can sustain the utility of these maps for real-time policy and clinical decision-making.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: evidence maps"
+  },
+  {
+    "Grounds": "The temporal decay rate of the concept 'analysis' has reached 1.00, indicating that traditional, retrospective decomposition of data holds zero shelf-life and loses all operational utility immediately upon generation.",
+    "Claim": "Current research paradigms lack frameworks for immediate, non-analytical synthesis and active inference that bypass the latency of traditional analysis to enable real-time decision execution.",
+    "Warrant": "Because the utility of analysis decays instantly, any system relying on a distinct analytical phase will produce obsolete outputs; therefore, survival in high-velocity environments requires merging observation and action into a single, non-decaying synthetic event.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: analysis"
+  },
+  {
+    "Grounds": "Traditional intercontinental physical activity surveillance initiatives rely on centralized, retrospective self-report surveys which exhibit a temporal decay rate of 1.00, meaning the collected data becomes obsolete and misaligned with rapid, modern lifestyle shifts by the time it is aggregated and published.",
+    "Claim": "A critical research gap exists in the design and validation of decentralized, real-time surveillance architectures that utilize federated learning and edge computing on consumer wearables to monitor global physical activity trends without data latency.",
+    "Warrant": "If traditional intercontinental surveillance methods suffer from total temporal decay, then replacing them with privacy-preserving, edge-computed real-time data streams is the only viable pathway to provide actionable, contemporary epidemiological insights for global health policy.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: intercontinental physical activity surveillance initiatives"
+  },
+  {
+    "Grounds": "The 'proposed methodology' concept exhibits a maximum temporal decay rate of 1.00, indicating that its relevance, applicability, or performance degrades completely and immediately over time.",
+    "Claim": "There is an unaddressed research gap concerning the lack of temporally adaptive or self-sustaining methodological frameworks that can withstand rapid obsolescence.",
+    "Warrant": "Since a decay rate of 1.00 implies that static methodologies lose all utility immediately after introduction, it is logically necessary to investigate dynamic, evolutionary, or modular methodologies to ensure long-term research viability.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: proposed methodology"
+  },
+  {
+    "Grounds": "The temporal decay rate of 1.00 for 'ChatGPT' indicates that empirical literature focusing on this specific model's static performance metrics is rapidly losing scientific utility due to continuous model updates and API deprecations.",
+    "Claim": "There is an urgent research gap in developing model-agnostic, longitudinal evaluation frameworks that measure LLM capabilities independently of specific, transient commercial interfaces.",
+    "Warrant": "If research remains anchored to rapidly decaying, brand-specific tools like ChatGPT, the resulting scientific literature will become obsolete faster than the peer-review cycle, necessitating a shift toward generalized, future-proof AI interaction theories.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: ChatGPT"
+  },
+  {
+    "Grounds": "The temporal decay rate of 1.00 for 'systematic and meta-analytic reviews' indicates that traditional, manual, and static methodologies for evidence synthesis are rapidly losing utility and failing to keep pace with the exponential growth of scientific literature.",
+    "Claim": "There is a critical research gap in the development and standardization of automated, AI-driven 'living' systematic review frameworks that can dynamically ingest, analyze, and update meta-analytic data in real-time.",
+    "Warrant": "If traditional static reviews decay rapidly due to their inability to integrate new data post-publication, then transitioning to continuous, automated synthesis models is the logical pathway to preserve the relevance and decision-making utility of secondary research.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: systematic and meta-analytic reviews"
+  },
+  {
+    "Grounds": "The temporal decay rate of peer-reviewed literature is established at 1.00, indicating that the relevance and validity of published scientific findings depreciate completely and immediately post-publication.",
+    "Claim": "There is an unaddressed need to develop dynamic, real-time continuous-review systems to replace static archival publishing, as traditional peer-reviewed literature cannot support knowledge accumulation under total temporal decay.",
+    "Warrant": "Static publishing models assume a low decay rate where knowledge remains relevant long enough to be read and cited; a decay rate of 1.00 invalidates this assumption, rendering traditional citation metrics and archival databases obsolete for active scientific translation.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: peer-reviewed literature"
+  },
+  {
+    "Grounds": "The research concept 'Baltic coastal eutrophication' exhibits a temporal decay rate of 1.00, signaling that traditional scientific literature focusing on standard external nutrient load reductions (nitrogen and phosphorus) has reached complete thematic saturation and policy stagnation.",
+    "Claim": "There is a critical research gap in quantifying how localized climate-induced stressors, specifically marine heatwaves and altered coastal hydrology, accelerate internal legacy phosphorus loading from shallow-water sediments.",
+    "Warrant": "Because traditional external loading models have decayed in scientific novelty and failed to yield expected ecological recovery, the unresolved persistence of eutrophication must be attributed to these unmapped, climate-mediated internal sediment feedback loops.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: Baltic coastal eutrophication"
+  },
+  {
+    "Grounds": "The concept 'rule-based, text mining method' exhibits a high temporal decay rate of 0.60, signaling a rapid decline in its standalone application in literature, largely displaced by statistical and deep learning approaches.",
+    "Claim": "There is an unaddressed research gap in developing hybrid frameworks that systematically combine the deterministic, explainable constraints of rule-based text mining with the semantic generalization of modern large language models (LLMs).",
+    "Warrant": "As pure rule-based methods decay, their unique advantages—such as absolute precision, predictability, and zero-shot domain compliance—are being lost. Re-integrating these decaying methods as symbolic constraints within neural architectures addresses the critical failure modes of LLMs (e.g., hallucinations and lack of explainability), making this a highly probable area for impactful research.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: rule-based, text mining method"
+  },
+  {
+    "Grounds": "The PRISMA-ScR reporting guideline, established in 2018, exhibits a temporal decay rate of 1.00, indicating that its static reporting items have reached complete obsolescence relative to contemporary synthesis methodologies.",
+    "Claim": "There is a critical lack of standardized reporting protocols for dynamic, AI-assisted, and 'living' scoping reviews that utilize automated screening and continuous evidence updates.",
+    "Warrant": "Because a temporal decay rate of 1.00 signifies that the static parameters of the original PRISMA-ScR fail to accommodate rapid technological shifts, the framework cannot adequately guide researchers in reporting the algorithmic transparency, prompt engineering, and iterative search strategies characteristic of modern AI-driven scoping reviews.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: PRISMA-ScR"
+  },
+  {
+    "Grounds": "Qualtrics represents the paradigm of active, episodic, and self-reported survey data collection. A temporal decay rate of 1.00 indicates that these static, point-in-time feedback mechanisms are rapidly losing relevance in an era dominated by continuous, real-time data streams.",
+    "Claim": "There is an unaddressed research gap in developing methodologies that transition experience management (XM) from active survey elicitation to passive, continuous, and multimodal behavioral telemetry reconstruction.",
+    "Warrant": "As traditional survey methodologies decay, the validity of experience management depends on our ability to synthesize ambient user data into actionable sentiment metrics without inducing survey fatigue or relying on self-reporting biases.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: Qualtrics"
+  },
+  {
+    "Grounds": "Reviewed assessments exhibit a temporal decay rate of 1.00, indicating that their diagnostic validity and utility drop to zero immediately after the review is completed.",
+    "Claim": "There is a critical lack of dynamic, continuous-stream assessment architectures that can guide learning or performance interventions without relying on historical, decayed assessment data.",
+    "Warrant": "Because traditional feedback loops rely on the persistence of assessment validity over time, an instantaneous decay rate (1.00) invalidates historical data, necessitating real-time, transient evaluation models.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: reviewed assessments"
+  },
+  {
+    "Grounds": "The TCCM (Theory, Context, Characteristics, Methodology) framework exhibits a maximum temporal decay rate of 1.00, indicating that its traditional, static application in structured literature reviews is rapidly losing analytical utility and relevance in contemporary bibliometric analysis.",
+    "Claim": "There is a critical methodological gap regarding the lack of a dynamic, temporally-adaptive TCCM framework that integrates real-time computational mapping to track high-velocity, evolving research domains.",
+    "Warrant": "Because a decay rate of 1.00 signifies the obsolescence of static retrospective categorization, the framework must evolve to incorporate automated, longitudinal tracking to remain viable for mapping modern, rapidly shifting scientific landscapes.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: TCCM approach"
+  },
+  {
+    "Grounds": "The optimization field shows a temporal decay rate of 1.00 for 'nature-inspired algorithms', indicating that the traditional paradigm of introducing novel, metaphor-based heuristics (e.g., mimicking specific animal behaviors) has reached complete saturation and no longer yields marginal scientific utility or performance breakthroughs.",
+    "Claim": "There is a critical research gap in the development of a unified, metaphor-free mathematical framework that translates heuristic search behaviors into formal convergence proofs and dynamical systems theory.",
+    "Warrant": "When a research paradigm reaches maximum temporal decay (1.00), further iterations within its current framework fail to advance the discipline, necessitating a structural pivot toward rigorous mathematical abstraction to explain the underlying mechanics of existing heuristics rather than inventing new ones.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: nature-inspired algorithms"
+  },
+  {
+    "Grounds": "The temporal decay rate of 1.00 for 'drug reminder packaging' indicates that traditional research focusing on static, time-based prompts (e.g., blister packs, alarm-integrated bottles) has reached absolute saturation and fails to yield further improvements in patient adherence.",
+    "Claim": "A critical research gap exists in developing bio-interactive, closed-loop packaging systems that transition from temporal reminders to physiological-state-triggered dispensing.",
+    "Warrant": "Because traditional reminder packaging relies on cognitive action which is prone to user fatigue and decay, shifting the research paradigm to packaging that integrates with real-time patient biomarkers is the most logical pathway to overcome the utility limit of current designs.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: drug reminder packaging"
+  },
+  {
+    "Grounds": "The concept of 'bibliometric analysis' exhibits a high temporal decay rate of 0.90, indicating that static literature mapping and citation analyses rapidly lose their relevance and analytical utility shortly after publication.",
+    "Claim": "There is an unaddressed research gap in developing dynamic, self-updating bibliometric frameworks that leverage real-time data streams and predictive machine learning to forecast emerging research fronts.",
+    "Warrant": "Because traditional bibliometric methods decay too quickly to inform active research trajectories, transitioning from static historical aggregation to real-time predictive modeling is necessary to sustain the utility of science mapping.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: bibliometric analysis"
+  },
+  {
+    "Grounds": "The temporal decay rate of 'overview of SRs' (systematic reviews) is 1.00, indicating that synthesized evidence at the umbrella-review level becomes obsolete almost immediately due to the rapid publication of new primary reviews.",
+    "Claim": "There is an unaddressed need for automated, real-time 'living' overview frameworks that dynamically integrate new systematic reviews to prevent immediate knowledge obsolescence.",
+    "Warrant": "Because static overviews suffer from maximum temporal decay, traditional periodic manual update methodologies are insufficient, making the development of continuous, algorithmic synthesis models the only viable path to maintain the validity of overview-level evidence.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: overview of SRs"
+  },
+  {
+    "Grounds": "Empirical literature on 'digital leadership' exhibits a temporal decay rate of 1.00, signaling that the conceptual boundary between 'digital' and 'traditional' leadership has entirely dissolved due to the ubiquity of technology in organizational life.",
+    "Claim": "Current organizational research fails to conceptualize 'post-digital leadership' models, specifically how leadership operates when technological mediation is an invisible baseline rather than an active variable of transformation.",
+    "Warrant": "When a specialized management concept reaches total temporal decay (1.00), its utility as an independent variable ceases, necessitating a paradigm shift toward investigating the implicit, normalized state of the phenomenon.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: digital leadership"
+  },
+  {
+    "Grounds": "Bibliometric and literature trend analysis shows 'Logistic Regression' has reached a temporal decay rate of 1.00, indicating complete saturation of its standard formulations, optimization algorithms, and traditional tabular applications.",
+    "Claim": "A critical research gap exists in adapting logistic regression for high-dimensional, non-stationary data streams under decentralized federated learning architectures with strict differential privacy guarantees.",
+    "Warrant": "Because traditional logistic regression is fully mature, meaningful research utility can only be extracted by shifting focus from basic model improvements to its behavior under modern, constrained distributed environments where the trade-offs between privacy noise, communication overhead, and interpretability are not yet optimized.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant: Logistic Regression"
+  }
+]

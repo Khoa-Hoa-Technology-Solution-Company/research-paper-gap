@@ -1,0 +1,443 @@
+﻿1. Tr╞░ß╗¢c hß║┐t: Research gap thß╗▒c sß╗▒ l├á g├¼? 
+Giß║ú sß╗¡ c├│ 100 paper vß╗ü: 
+AI Code Review 
+Kh├┤ng thß╗â n├│i: 
+ΓÇ£Ch╞░a c├│ nhiß╗üu paper vß╗ü AI Code Review cho sinh vi├¬n Viß╗çt Nam ΓåÆ ─æ├óy l├á gap.ΓÇ¥ 
+Ch╞░a chß║»c. 
+Mß╗Öt research gap c├│ gi├í trß╗ï phß║úi gß║ºn vß╗¢i cß║Ñu tr├║c: 
+What is known ΓåÆWhat is missing / uncertain ΓåÆWhy it matters ΓåÆEvidence 
+ 
+V├¡ dß╗Ñ giß║ú ─æß╗ïnh: 
+Nhiß╗üu nghi├¬n cß╗⌐u ─æ├ú ─æ├ính gi├í LLM trong code review tr├¬n public benchmark datasets. Tuy 
+nhi├¬n, bß║▒ng chß╗⌐ng vß╗ü hiß╗çu quß║ú cß╗ºa feedback do LLM tß║ío ra ─æß╗æi vß╗¢i novice developers trong 
+qu├í tr├¼nh sß╗¡a code nhiß╗üu v├▓ng c├▓n hß║ín chß║┐. V├¼ vß║¡y, cß║ºn nghi├¬n cß╗⌐u ─æ├ính gi├í longitudinal hoß║╖c 
+controlled experiment ─æß╗æi vß╗¢i nh├│m ng╞░ß╗¥i hß╗ìc. 
+ß╗₧ ─æ├óy c├│: 
+ΓÇó 
+c├íi ─æ├ú biß║┐t;  
+ΓÇó 
+c├íi ch╞░a biß║┐t;  
+ΓÇó 
+phß║ím vi cß╗Ñ thß╗â;  
+ΓÇó 
+h╞░ß╗¢ng nghi├¬n cß╗⌐u tiß║┐p theo;  
+ΓÇó 
+khß║ú n─âng kiß╗âm chß╗⌐ng.  
+─É├│ mß╗¢i l├á cß║Ñu tr├║c m├á tool cß╗ºa bß║ín cß║ºn tß║ío ra. 
+2. Sai lß║ºm lß╗¢n nhß║Ñt: ├¡t paper Γëá research gap 
+─É├óy l├á chß╗ù m├¼nh ngh─⌐ nh├│m bß║ín phß║úi cß╗▒c kß╗│ cß║⌐n thß║¡n. 
+Giß║ú sß╗¡ tool thß║Ñy: 
+Topic 
+Paper count 
+LLM Code Generation 
+430 
+
+Topic 
+Paper count 
+LLM Code Review 
+120 
+LLM Debugging for Students  9 
+Kh├┤ng thß╗â kß║┐t luß║¡n: 
+LLM Debugging for Students l├á research gap. 
+V├¼ c├│ thß╗â: 
+1. bß║ín t├¼m sai keyword;  
+2. paper d├╣ng thuß║¡t ngß╗» kh├íc;  
+3. chß╗º ─æß╗ü nß║▒m trong mß╗Öt taxonomy kh├íc;  
+4. ─æ├ú c├│ paper rß║Ñt mß║ính giß║úi quyß║┐t n├│;  
+5. chß╗º ─æß╗ü ├¡t ng╞░ß╗¥i nghi├¬n cß╗⌐u v├¼ kh├┤ng quan trß╗ìng;  
+6. c├óu hß╗Åi nghi├¬n cß╗⌐u kh├┤ng khß║ú thi.  
+C├íc systematic mapping studies th╞░ß╗¥ng kh├┤ng chß╗ë ─æß║┐m b├ái; ch├║ng ph├ón c├│ paper rß║Ñt mß║ính giß║úi 
+quyß║┐t n├│; 
+5. chß╗º ─æß╗ü ├¡t ng╞░ß╗¥i nghi├¬n cß╗⌐u v├¼ kh├┤ng loß║íi nghi├¬n cß╗⌐u theo topic, contribution, method hoß║╖c 
+evidence rß╗ôi mß╗¢i chß╗ë ra v├╣ng thiß║┐u bß║▒ng chß╗⌐ng. Chß║│ng hß║ín, mß╗Öt mapping study vß╗ü Infrastructure 
+as Code ─æ├ú t├¼m v├á s├áng lß╗ìc h├áng chß╗Ñc ngh├¼n publication candidates, sau ─æ├│ ph├ón ß╗â nhß║¡n diß╗çn c├íc 
+khu vß╗▒c nghi├¬n cß╗⌐u c├▓n thiß║┐u. εêÇciteεêÇturn900161academia1εêÇ 
+ 
+Vß║¡y n├¬n: 
+Low coverage chß╗ë l├á t├¡n hiß╗çu ph├ít hiß╗çn gap, kh├┤ng phß║úi bß║▒ng chß╗⌐ng ─æß╗º ─æß╗â x├íc nhß║¡n gap. 
+3. M├¼nh ngh─⌐ tool cß╗ºa bß║ín n├¬n chia gap th├ánh 6 loß║íi 
+Hiß╗çn proposal cß╗ºa SciHub n├│i engine sß║╜ query OpenAlex v├á Semantic Scholar, d├╣ng RAG, sinh 
+gap rß╗ôity, evidence strength v├á scope alignment. εêÇfileciteεêÇturn0file0εêÇL97-L105εêÇ 
+─Éß╗â l├ám ─æ╞░ß╗úc thß║¡t, tr╞░ß╗¢c ti├¬n cß║ºn mß╗Öt Gap Taxonomy. 
+Loß║íi 1 ΓÇö Explicit Gap 
+T├íc giß║ú n├│i trß╗▒c tiß║┐p: 
+
+However, little is known about... 
+Future work should investigate... 
+Existing studies have not evaluated... 
+─É├óy l├á loß║íi dß╗à nhß║Ñt. 
+Tool c├│ thß╗â extract tß╗½: 
+ΓÇó 
+Introduction;  
+ΓÇó 
+Discussion;  
+ΓÇó 
+Limitations;  
+ΓÇó 
+Threats to Validity;  
+ΓÇó 
+Future Work;  
+ΓÇó 
+Conclusion.  
+Nh╞░ng l╞░u ├╜: 
+Paper n─âm 2021 n├│i ΓÇ£future work should investigate XΓÇ¥ kh├┤ng c├│ ngh─⌐a n─âm 2026 X vß║½n l├á gap. 
+─É├óy ch├¡nh l├á l├╜ do cß║ºn b╞░ß╗¢c Gap Closure Check. 
+ 
+Loß║íi 2 ΓÇö Contradictory Evidence Gap 
+V├¡ dß╗Ñ giß║ú ─æß╗ïnh: 
+ΓÇó 
+Paper A: Technique X tß╗æt h╞ín Y.  
+ΓÇó 
+Paper B: X kh├┤ng kh├íc biß╗çt ─æ├íng kß╗â vß╗¢i Y.  
+ΓÇó 
+Paper C: X chß╗ë tß╗æt tr├¬n small dataset.  
+Gap: 
+Ch╞░a r├╡ ─æiß╗üu kiß╗çn n├áo quyß║┐t ─æß╗ïnh hiß╗çu quß║ú cß╗ºa X. 
+─É├óy th╞░ß╗¥ng l├á gap tß╗æt v├¼ c├│ vß║Ñn ─æß╗ü khoa hß╗ìc thß║¡t sß╗▒ cß║ºn giß║úi th├¡ch. 
+ 
+Loß║íi 3 ΓÇö Methodological Gap 
+V├¡ dß╗Ñ: 
+
+C├│ nhiß╗üu nghi├¬n cß╗⌐u vß╗ü AI coding assistant, nh╞░ng: 
+ΓÇó 
+phß║ºn lß╗¢n l├á survey;  
+ΓÇó 
+thiß║┐u controlled experiment;  
+ΓÇó 
+thiß║┐u longitudinal study;  
+ΓÇó 
+thiß║┐u replication study;  
+ΓÇó 
+chß╗ë ─æ├ính gi├í bß║▒ng accuracy;  
+ΓÇó 
+ch╞░a ─æ├ính gi├í maintainability.  
+Gap kh├┤ng nß║▒m ß╗ƒ topic, m├á nß║▒m ß╗ƒ c├ích nghi├¬n cß╗⌐u topic. 
+ 
+Loß║íi 4 ΓÇö Context / Population Gap 
+V├¡ dß╗Ñ giß║ú ─æß╗ïnh: 
+Mß╗Öt kß╗╣ thuß║¡t ─æ├ú ─æ╞░ß╗úc thß╗¡ nghiß╗çm tr├¬n: 
+ΓÇó 
+professional developers;  
+ΓÇó 
+open-source contributors;  
+nh╞░ng ch╞░a r├╡ kß║┐t quß║ú c├│ generalize sang: 
+ΓÇó 
+undergraduate developers;  
+ΓÇó 
+novice developers;  
+ΓÇó 
+team project environment.  
+Loß║íi n├áy phß║úi rß║Ñt cß║⌐n thß║¡n. Kh├┤ng thß╗â cß╗⌐ thay: 
+Mß╗╣ ΓåÆ Viß╗çt Nam 
+rß╗ôi gß╗ìi l├á research gap. 
+Phß║úi giß║úi th├¡ch ─æ╞░ß╗úc: 
+V├¼ sao context mß╗¢i c├│ khß║ú n─âng l├ám thay ─æß╗òi kß║┐t quß║ú? 
+ 
+Loß║íi 5 ΓÇö Coverage Intersection Gap 
+V├¡ dß╗Ñ c├│: 
+
+ΓÇó 
+nhiß╗üu paper vß╗ü LLM + testing;  
+ΓÇó 
+nhiß╗üu paper vß╗ü novice programmers;  
+ΓÇó 
+nh╞░ng rß║Ñt ├¡t nghi├¬n cß╗⌐u giao nhau giß╗»a LLM testing feedback ├ù novice programmers ├ù 
+longitudinal evaluation.  
+Tool c├│ thß╗â ph├ít hiß╗çn qua evidence matrix. 
+V├¡ dß╗Ñ: 
+Problem 
+Method Population Evaluation Count 
+Debugging LLM 
+Professional Accuracy 
+35 
+Debugging LLM 
+Student 
+Accuracy 
+12 
+Debugging LLM 
+Student 
+Longitudinal 1 
+├ö cuß╗æi c├╣ng l├á mß╗Öt gap candidate. 
+Ch╞░a phß║úi verified gap. 
+ 
+Loß║íi 6 ΓÇö Evaluation Gap 
+C├│ tool/framework mß╗¢i, nh╞░ng: 
+ΓÇó 
+chß╗ë demo;  
+ΓÇó 
+ch╞░a benchmark;  
+ΓÇó 
+ch╞░a so vß╗¢i baseline;  
+ΓÇó 
+dataset qu├í nhß╗Å;  
+ΓÇó 
+kh├┤ng c├│ external validation;  
+ΓÇó 
+kh├┤ng c├│ human evaluation.  
+─Éß╗æi vß╗¢i Software Engineering, m├¼nh ngh─⌐ ─æ├óy sß║╜ l├á mß╗Öt nh├│m gap rß║Ñt hß╗»u ├¡ch. 
+6. L├ám sao biß║┐t candidate gap n├áy c├│ ─æ├║ng kh├┤ng? 
+─É├óy ch├¡nh l├á c├óu hß╗Åi quan trß╗ìng nhß║Ñt cß╗ºa bß║ín. 
+C├óu trß║ú lß╗¥i cß╗ºa m├¼nh: 
+Kh├┤ng c├│ c├ích n├áo ─æß║úm bß║úo tuyß╗çt ─æß╗æi 100% 
+
+Bß║ín chß╗ë c├│ thß╗â t─âng ─æß╗Ö tin cß║¡y bß║▒ng mß╗Öt quy tr├¼nh kiß╗âm chß╗⌐ng. 
+M├¼nh ─æß╗ü xuß║Ñt 5 lß╗¢p validation. 
+ 
+Validation 1 ΓÇö Evidence Support 
+Mß╗ùi gap phß║úi c├│ ├¡t nhß║Ñt mß╗Öt evidence bundle. 
+V├¡ dß╗Ñ: 
+Candidate Gap G01 
+ 
+Claim: 
+Limited longitudinal evidence exists... 
+ 
+Supporting evidence: 
+P12: limitation section 
+P19: future work section 
+P31: systematic review finding 
+P44: methodological limitation 
+ 
+Evidence consistency: 
+4/5 supporting papers agree 
+Kh├┤ng c├│ evidence ΓåÆ kh├┤ng ─æ╞░ß╗úc output Verified Gap. 
+ 
+Validation 2 ΓÇö Gap Closure Search 
+─É├óy l├á feature m├¼nh ─æß║╖c biß╗çt khuy├¬n nh├│m bß║ín l├ám. 
+Giß║ú sß╗¡ LLM sinh: 
+Lack of longitudinal studies evaluating LLM code review for novice developers. 
+System tß╗▒ ─æß╗Öng tß║ío query: 
+"LLM code review" AND novice developers AND longitudinal 
+v├á semantic query t╞░╞íng ─æ╞░╞íng. 
+Sau ─æ├│ t├¼m lß║íi c├íc paper: 
+
+2024 
+2025 
+2026 
+Nß║┐u t├¼m thß║Ñy: 
+A Longitudinal Study of LLM Code Review Feedback 
+for Novice Programmers 
+th├¼ phß║úi kiß╗âm tra: 
+Does this paper fully close the gap? 
+Does it only partially address it? 
+Different population? 
+Different outcome? 
+Different research setting? 
+Kß║┐t quß║ú c├│ thß╗â l├á: 
+OPEN 
+PARTIALLY ADDRESSED 
+LIKELY CLOSED 
+UNCERTAIN 
+─É├óy tß╗æt h╞ín nhiß╗üu so vß╗¢i Boolean isGap = true. 
+ 
+Validation 3 ΓÇö Novelty Check 
+Novelty kh├┤ng n├¬n ─æ╞ín giß║ún l├á: 
+semantic similarity < 0.7 
+M├¼nh sß║╜ kiß╗âm tra nhiß╗üu lß╗¢p: 
+Exact topic overlap 
+Method overlap 
+Population overlap 
+Context overlap 
+Research question overlap 
+Evaluation overlap 
+Recency 
+V├¡ dß╗Ñ c├│ paper gß║ºn 90% vß╗ü semantic similarity, nh╞░ng: 
+
+Paper c┼⌐: 
+LLM code feedback 
+professional programmers 
+offline benchmark 
+Candidate: 
+LLM code feedback 
+novice programmers 
+classroom experiment 
+learning outcome 
+C├│ thß╗â vß║½n l├á gap. 
+ 
+Validation 4 ΓÇö Importance Check 
+C├│ nhß╗»ng thß╗⌐ ch╞░a ai nghi├¬n cß╗⌐u nh╞░ng kh├┤ng ─æ├íng nghi├¬n cß╗⌐u. 
+V├¡ dß╗Ñ giß║ú ─æß╗ïnh: 
+So s├ính m├áu nß╗ün IDE xanh v├á t├¡m vß╗¢i tß╗æc ─æß╗Ö sinh code cß╗ºa LLM. 
+C├│ thß╗â ch╞░a ai l├ám. 
+Nh╞░ng: 
+novelty Γëá significance. 
+Do ─æ├│ tool phß║úi hß╗Åi: 
+Does this gap address a recognized problem? 
+ 
+Is it connected to limitations of existing work? 
+ 
+Would closing it add knowledge? 
+ 
+Is there a plausible scientific contribution? 
+ 
+Validation 5 ΓÇö Feasibility Check 
+V├¼ target cß╗ºa project bß║ín l├á undergraduate researcher, ─æ├óy l├á ─æiß╗âm rß║Ñt hay. 
+
+Proposal cß╗ºa bß║ín x├íc ─æß╗ïnh hß╗ç thß╗æß╗⌐u v├á tß║ío topic recommendation c├│ scoring. 
+εêÇfileciteεêÇturn0file0εêÇL61-L70εêÇ 
+Mß╗Öt gap c├│ thß╗â rß║Ñt thß║¡t: 
+Develop a new foundation model with 100B parameters for source-code reasoning. 
+Gap c├│ thß╗â valid. 
+Nh╞░ng thesis topic cho undergraduate? 
+Kh├┤ng ph├╣ hß╗úp. 
+Tool n├¬n t├ích: 
+Scientific Gap Validity Score: 0.89 
+ 
+Undergraduate Feasibility Score: 0.18 
+Kh├┤ng gß╗Öp th├ánh mß╗Öt ─æiß╗âm. 
+ 
+7. Scoring model m├¼nh ─æß╗ü xuß║Ñt cho SciHub 
+Trong proposal bß║ín ─æang c├│: 
+ΓÇó 
+Novelty  
+ΓÇó 
+Feasibility  
+ΓÇó 
+Evidence Strength  
+ΓÇó 
+Scope Alignment  
+M├¼nh thß║Ñy kh├í ß╗òn, nh╞░ng n├¬n th├¬m Gap Openness. 
+V├¡ dß╗Ñ: 
+≡¥æå≡¥æÉ≡¥æ£≡¥æƒ≡¥æÆ= 0.25≡¥É╕+ 0.20≡¥æé+ 0.20≡¥æü+ 0.15≡¥É╝+ 0.15≡¥É╣+ 0.05≡¥æå 
+ 
+Trong ─æ├│: 
+Metric ├¥ ngh─⌐a 
+E 
+Evidence Strength 
+
+Metric ├¥ ngh─⌐a 
+O 
+Gap Openness 
+N 
+Novelty 
+I 
+Importance 
+F 
+Feasibility 
+S 
+Scope Alignment 
+Nh╞░ng m├¼nh kh├┤ng khuy├¬n gß╗ìi score n├áy l├á: 
+Gap Accuracy = 91% 
+V├¼ score heuristic kh├┤ng phß║úi x├íc suß║Ñt thß╗æng k├¬. 
+N├¬n hiß╗ân thß╗ï: 
+Gap Confidence: HIGH 
+Evidence Strength: STRONG 
+Gap Status: LIKELY OPEN 
+Novelty: HIGH 
+Feasibility: MEDIUM 
+Mentor Verification: PENDING 
+C├ích tr├¼nh b├áy n├áy khoa hß╗ìc v├á ph├▓ng thß╗º tß╗æt h╞ín khi bß║úo vß╗ç. 
+ 
+Kß║┐t luß║¡n: 
+L├ám sao x├íc ─æß╗ïnh ch├¡nh x├íc n├│ l├á gap? 
+Kh├┤ng phß║úi bß║▒ng mß╗Öt prompt. C┼⌐ng kh├┤ng phß║úi bß║▒ng sß╗æ l╞░ß╗úng paper thß║Ñp. 
+Cß║ºn: 
+Map literature + Detect candidate + Collect evidence + Search counter-evidence
++Check closure + Assess importance + Assess feasibility + Expert validation
+ 
+ 
+V├á vß╗¢i project sß║╜ ─æß╗ïnh ngh─⌐a ─æß║ºu ra l├á: 
+Evidence-backed Research Gap Candidate 
+
+chß╗⌐ kh├┤ng phß║úi: 
+True Research Gap 
+cho ─æß║┐n khi qua b╞░ß╗¢c validation. 
+Phß║ºn tiß║┐p theo ─æ├íng l├ám nhß║Ñt l├á dß╗▒ng l├á mß╗Öt Research Gap Discovery Framework ho├án chß╗ënh 
+cho SciHub, bao gß╗ôm taxonomy, pipeline tß╗½ng b╞░ß╗¢c, JSON input/output cß╗ºa AI microservice, 
+thuß║¡t to├ín Gap Challenger, c├┤ng thß╗⌐c scoring v├á c├ích evaluate ─æß╗â viß║┐t paper. 
+ 
+C├ích ─æ├íng tin cß║¡y nhß║Ñt ─æß╗â x├íc ─æß╗ïnh mß╗Öt vß║Ñn ─æß╗ü c├│ thß║¡t sß╗▒ l├á research gap hay kh├┤ng l├á: 
+Kh├┤ng t├¼m bß║▒ng LLM tr╞░ß╗¢c. H├úy t├¼m mß╗Öt ΓÇ£candidate gapΓÇ¥, rß╗ôi chß╗º ─æß╗Öng t├¼m bß║▒ng chß╗⌐ng ─æß╗â b├íc 
+bß╗Å n├│. Nß║┐u sau khi t├¼m rß╗Öng, t├¼m theo tß╗½ ─æß╗ông ngh─⌐a, t├¼m paper mß╗¢i nhß║Ñt v├á kiß╗âm tra review 
+paper m├á vß║½n kh├┤ng c├│ nghi├¬n cß╗⌐u giß║úi quyß║┐t trß╗▒c tiß║┐p hoß║╖c chß╗ë giß║úi quyß║┐t mß╗Öt phß║ºn, th├¼ mß╗¢i 
+kß║┐t luß║¡n l├á Likely Open Research Gap. 
+ 
+ 
+C├│ thß╗â t├│m lß║íi th├ánh 5 b╞░ß╗¢c: 
+1. X├íc ─æß╗ïnh c├íi ─æ├ú biß║┐t 
+─Éß╗ìc literature ─æß╗â biß║┐t: 
+ΓÇó 
+ng╞░ß╗¥i ta ─æ├ú nghi├¬n cß╗⌐u g├¼;  
+ΓÇó 
+tr├¬n ─æß╗æi t╞░ß╗úng n├áo;  
+ΓÇó 
+bß║▒ng ph╞░╞íng ph├íp n├áo;  
+ΓÇó 
+trong bß╗æi cß║únh n├áo;  
+ΓÇó 
+kß║┐t quß║ú v├á hß║ín chß║┐ l├á g├¼.  
+2. Ph├ít hiß╗çn phß║ºn thiß║┐u 
+V├¡ dß╗Ñ: 
+C├íc nghi├¬n cß╗⌐u ─æ├ú l├ám A tr├¬n professional developers, nh╞░ng ch╞░a r├╡ kß║┐t quß║ú tr├¬n novice 
+developers. 
+─É├óy mß╗¢i chß╗ë l├á: 
+Candidate Gap 
+
+ch╞░a phß║úi gap ─æ├ú x├íc nhß║¡n. 
+3. T├¼m c├ích b├íc bß╗Å candidate ─æ├│ 
+─É├óy l├á b╞░ß╗¢c quan trß╗ìng nhß║Ñt. 
+V├¡ dß╗Ñ candidate: 
+Ch╞░a c├│ nghi├¬n cß╗⌐u longitudinal vß╗ü LLM code review cho novice developers. 
+Tool phß║úi t├¼m lß║íi bß║▒ng nhiß╗üu c├ích: 
+LLM code review novice developer longitudinal 
+AI code feedback student long-term study 
+generative AI code review programming education 
+LLM feedback novice programmer repeated measures 
+Kh├┤ng chß╗ë t├¼m exact keyword m├á phß║úi c├│: 
+ΓÇó 
+synonym expansion;  
+ΓÇó 
+semantic search;  
+ΓÇó 
+backward citation search;  
+ΓÇó 
+forward citation search;  
+ΓÇó 
+paper mß╗¢i nhß║Ñt;  
+ΓÇó 
+systematic review hoß║╖c mapping study li├¬n quan.  
+4. Kiß╗âm tra paper t├¼m ─æ╞░ß╗úc c├│ thß╗▒c sß╗▒ ─æ├│ng gap kh├┤ng 
+Mß╗ùi paper phß║ún biß╗çn cß║ºn so theo c├íc chiß╗üu: 
+Research Problem 
+Method 
+Population 
+Context 
+Dataset 
+Outcome 
+Evaluation 
+Time scale 
+V├¡ dß╗Ñ paper ─æ├ú nghi├¬n cß╗⌐u LLM code review nh╞░ng: 
+Population: Professional developer 
+
+trong khi candidate cß╗ºa bß║ín l├á: 
+Population: Undergraduate novice developer 
+th├¼ ch╞░a chß║»c gap ─æ├ú ─æ├│ng. 
+5. Ph├ón loß║íi trß║íng th├íi 
+─Éß╗½ng trß║ú vß╗ü TRUE/FALSE. 
+N├¬n trß║ú: 
+OPEN 
+PARTIALLY ADDRESSED 
+LIKELY CLOSED 
+UNCERTAIN 
+V├¼ trong nghi├¬n cß╗⌐u khoa hß╗ìc gß║ºn nh╞░ kh├┤ng thß╗â chß╗⌐ng minh tuyß╗çt ─æß╗æi: 
+ΓÇ£Tr├¬n thß║┐ giß╗¢i ch╞░a ai tß╗½ng nghi├¬n cß╗⌐u vß║Ñn ─æß╗ü n├áy.ΓÇ¥ 
+ 
+C├┤ng thß╗⌐c ngß║»n nhß║Ñt cho tool cß╗ºa bß║ín 
+Candidate Gap 
+      Γåô 
+Supporting Evidence 
+      Γåô 
+Counter-Evidence Search 
+      Γåô 
+Gap Closure Check 
+      Γåô 
+Expert Validation 
+      Γåô 
+Likely Open Gap 
+Hay n├│i ─æ╞ín giß║ún nhß║Ñt: 
+Mß╗Öt gap ─æ├íng tin kh├┤ng phß║úi l├á thß╗⌐ LLM ngh─⌐ ra, m├á l├á mß╗Öt khoß║úng trß╗æng ─æ╞░ß╗úc ph├ít hiß╗çn tß╗½ 
+literature v├á vß║½n ─æß╗⌐ng vß╗»ng sau khi hß╗ç thß╗æng cß╗æ gß║»ng t├¼m nghi├¬n cß╗⌐u ─æß╗â b├íc bß╗Å n├│. 
+Gap Confidence = Evidence Support + Search Coverage + Counter-Evidence Check
++Gap Closure Check + Expert Validation
+ 
+ 
+

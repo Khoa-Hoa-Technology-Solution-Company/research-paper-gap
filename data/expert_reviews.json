@@ -1,0 +1,13 @@
+[
+  {
+    "timestamp": "2026-07-02 15:52:26.007576",
+    "reviewer": "Expert_Reviewer_1",
+    "original_claim": "A secure-by-design Android software framework for emergency healthcare systems that integrates resource prepositioning algorithms and demand-side cost models to maintain operational reliability under infrastructure and funding uncertainty.",
+    "original_warrant": "Mobile healthcare applications (mHealth) on Android are vital for emergency crews during disasters, yet they lack architectural patterns that handle both strict data security and extreme resource/infrastructure constraints. Bridging these communities enables the development of resilient software architectures that dynamically adapt data synchronization and security protocols based on real-time resource availability and network degradation.",
+    "verdict": "Modify",
+    "modified_claim": "A secure-by-design Android software framework for emergency healthcare systems that integrates resource prepositioning algorithms and demand-side cost models to maintain operational reliability under infrastructure and funding uncertainty.",
+    "modified_warrant": "Mobile healthcare applications (mHealth) on Android are vital for emergency crews during disasters, yet they lack architectural patterns that handle both strict data security and extreme resource/infrastructure constraints. Bridging these communities enables the development of resilient software architectures that dynamically adapt data synchronization and security protocols based on real-time resource availability and network degradation.",
+    "source": "Community 1 vs Community 8",
+    "type": "orphan_cluster"
+  }
+]

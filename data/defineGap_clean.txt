@@ -1,0 +1,430 @@
+1. Trước hết: Research gap thực sự là gì? 
+Giả sử có 100 paper về: 
+AI Code Review 
+Không thể nói: 
+“Chưa có nhiều paper về AI Code Review cho sinh viên Việt Nam → đây là gap.” 
+Chưa chắc. 
+Một research gap có giá trị phải gần với cấu trúc: 
+What is known →What is missing / uncertain →Why it matters →Evidence 
+ 
+Ví dụ giả định: 
+Nhiều nghiên cứu đã đánh giá LLM trong code review trên public benchmark datasets. Tuy 
+nhiên, bằng chứng về hiệu quả của feedback do LLM tạo ra đối với novice developers trong 
+quá trình sửa code nhiều vòng còn hạn chế. Vì vậy, cần nghiên cứu đánh giá longitudinal hoặc 
+controlled experiment đối với nhóm người học. 
+Ở đây có: 
+• 
+cái đã biết;  
+• 
+cái chưa biết;  
+• 
+phạm vi cụ thể;  
+• 
+hướng nghiên cứu tiếp theo;  
+• 
+khả năng kiểm chứng.  
+Đó mới là cấu trúc mà tool của bạn cần tạo ra. 
+2. Sai lầm lớn nhất: ít paper ≠ research gap 
+Đây là chỗ mình nghĩ nhóm bạn phải cực kỳ cẩn thận. 
+Giả sử tool thấy: 
+Topic 
+Paper count 
+LLM Code Generation 
+430 
+Topic 
+Paper count 
+LLM Code Review 
+120 
+LLM Debugging for Students  9 
+Không thể kết luận: 
+LLM Debugging for Students là research gap. 
+Vì có thể: 
+1. bạn tìm sai keyword;  
+2. paper dùng thuật ngữ khác;  
+3. chủ đề nằm trong một taxonomy khác;  
+4. đã có paper rất mạnh giải quyết nó;  
+5. chủ đề ít người nghiên cứu vì không quan trọng;  
+6. câu hỏi nghiên cứu không khả thi.  
+Các systematic mapping studies thường không chỉ đếm bài; chúng phân có paper rất mạnh giải 
+quyết nó; 
+5. chủ đề ít người nghiên cứu vì không loại nghiên cứu theo topic, contribution, method hoặc 
+evidence rồi mới chỉ ra vùng thiếu bằng chứng. Chẳng hạn, một mapping study về Infrastructure 
+as Code đã tìm và sàng lọc hàng chục nghìn publication candidates, sau đó phân ể nhận diện các 
+khu vực nghiên cứu còn thiếu. citeturn900161academia1 
+ 
+Vậy nên: 
+Low coverage chỉ là tín hiệu phát hiện gap, không phải bằng chứng đủ để xác nhận gap. 
+3. Mình nghĩ tool của bạn nên chia gap thành 6 loại 
+Hiện proposal của SciHub nói engine sẽ query OpenAlex và Semantic Scholar, dùng RAG, sinh 
+gap rồity, evidence strength và scope alignment. fileciteturn0file0L97-L105 
+Để làm được thật, trước tiên cần một Gap Taxonomy. 
+Loại 1 — Explicit Gap 
+Tác giả nói trực tiếp: 
+However, little is known about... 
+Future work should investigate... 
+Existing studies have not evaluated... 
+Đây là loại dễ nhất. 
+Tool có thể extract từ: 
+• 
+Introduction;  
+• 
+Discussion;  
+• 
+Limitations;  
+• 
+Threats to Validity;  
+• 
+Future Work;  
+• 
+Conclusion.  
+Nhưng lưu ý: 
+Paper năm 2021 nói “future work should investigate X” không có nghĩa năm 2026 X vẫn là gap. 
+Đây chính là lý do cần bước Gap Closure Check. 
+ 
+Loại 2 — Contradictory Evidence Gap 
+Ví dụ giả định: 
+• 
+Paper A: Technique X tốt hơn Y.  
+• 
+Paper B: X không khác biệt đáng kể với Y.  
+• 
+Paper C: X chỉ tốt trên small dataset.  
+Gap: 
+Chưa rõ điều kiện nào quyết định hiệu quả của X. 
+Đây thường là gap tốt vì có vấn đề khoa học thật sự cần giải thích. 
+ 
+Loại 3 — Methodological Gap 
+Ví dụ: 
+Có nhiều nghiên cứu về AI coding assistant, nhưng: 
+• 
+phần lớn là survey;  
+• 
+thiếu controlled experiment;  
+• 
+thiếu longitudinal study;  
+• 
+thiếu replication study;  
+• 
+chỉ đánh giá bằng accuracy;  
+• 
+chưa đánh giá maintainability.  
+Gap không nằm ở topic, mà nằm ở cách nghiên cứu topic. 
+ 
+Loại 4 — Context / Population Gap 
+Ví dụ giả định: 
+Một kỹ thuật đã được thử nghiệm trên: 
+• 
+professional developers;  
+• 
+open-source contributors;  
+nhưng chưa rõ kết quả có generalize sang: 
+• 
+undergraduate developers;  
+• 
+novice developers;  
+• 
+team project environment.  
+Loại này phải rất cẩn thận. Không thể cứ thay: 
+Mỹ → Việt Nam 
+rồi gọi là research gap. 
+Phải giải thích được: 
+Vì sao context mới có khả năng làm thay đổi kết quả? 
+ 
+Loại 5 — Coverage Intersection Gap 
+Ví dụ có: 
+• 
+nhiều paper về LLM + testing;  
+• 
+nhiều paper về novice programmers;  
+• 
+nhưng rất ít nghiên cứu giao nhau giữa LLM testing feedback × novice programmers × 
+longitudinal evaluation.  
+Tool có thể phát hiện qua evidence matrix. 
+Ví dụ: 
+Problem 
+Method Population Evaluation Count 
+Debugging LLM 
+Professional Accuracy 
+35 
+Debugging LLM 
+Student 
+Accuracy 
+12 
+Debugging LLM 
+Student 
+Longitudinal 1 
+Ô cuối cùng là một gap candidate. 
+Chưa phải verified gap. 
+ 
+Loại 6 — Evaluation Gap 
+Có tool/framework mới, nhưng: 
+• 
+chỉ demo;  
+• 
+chưa benchmark;  
+• 
+chưa so với baseline;  
+• 
+dataset quá nhỏ;  
+• 
+không có external validation;  
+• 
+không có human evaluation.  
+Đối với Software Engineering, mình nghĩ đây sẽ là một nhóm gap rất hữu ích. 
+6. Làm sao biết candidate gap này có đúng không? 
+Đây chính là câu hỏi quan trọng nhất của bạn. 
+Câu trả lời của mình: 
+Không có cách nào đảm bảo tuyệt đối 100% 
+Bạn chỉ có thể tăng độ tin cậy bằng một quy trình kiểm chứng. 
+Mình đề xuất 5 lớp validation. 
+ 
+Validation 1 — Evidence Support 
+Mỗi gap phải có ít nhất một evidence bundle. 
+Ví dụ: 
+Candidate Gap G01 
+ 
+Claim: 
+Limited longitudinal evidence exists... 
+ 
+Supporting evidence: 
+P12: limitation section 
+P19: future work section 
+P31: systematic review finding 
+P44: methodological limitation 
+ 
+Evidence consistency: 
+4/5 supporting papers agree 
+Không có evidence → không được output Verified Gap. 
+ 
+Validation 2 — Gap Closure Search 
+Đây là feature mình đặc biệt khuyên nhóm bạn làm. 
+Giả sử LLM sinh: 
+Lack of longitudinal studies evaluating LLM code review for novice developers. 
+System tự động tạo query: 
+"LLM code review" AND novice developers AND longitudinal 
+và semantic query tương đương. 
+Sau đó tìm lại các paper: 
+2024 
+2025 
+2026 
+Nếu tìm thấy: 
+A Longitudinal Study of LLM Code Review Feedback 
+for Novice Programmers 
+thì phải kiểm tra: 
+Does this paper fully close the gap? 
+Does it only partially address it? 
+Different population? 
+Different outcome? 
+Different research setting? 
+Kết quả có thể là: 
+OPEN 
+PARTIALLY ADDRESSED 
+LIKELY CLOSED 
+UNCERTAIN 
+Đây tốt hơn nhiều so với Boolean isGap = true. 
+ 
+Validation 3 — Novelty Check 
+Novelty không nên đơn giản là: 
+semantic similarity < 0.7 
+Mình sẽ kiểm tra nhiều lớp: 
+Exact topic overlap 
+Method overlap 
+Population overlap 
+Context overlap 
+Research question overlap 
+Evaluation overlap 
+Recency 
+Ví dụ có paper gần 90% về semantic similarity, nhưng: 
+Paper cũ: 
+LLM code feedback 
+professional programmers 
+offline benchmark 
+Candidate: 
+LLM code feedback 
+novice programmers 
+classroom experiment 
+learning outcome 
+Có thể vẫn là gap. 
+ 
+Validation 4 — Importance Check 
+Có những thứ chưa ai nghiên cứu nhưng không đáng nghiên cứu. 
+Ví dụ giả định: 
+So sánh màu nền IDE xanh và tím với tốc độ sinh code của LLM. 
+Có thể chưa ai làm. 
+Nhưng: 
+novelty ≠ significance. 
+Do đó tool phải hỏi: 
+Does this gap address a recognized problem? 
+ 
+Is it connected to limitations of existing work? 
+ 
+Would closing it add knowledge? 
+ 
+Is there a plausible scientific contribution? 
+ 
+Validation 5 — Feasibility Check 
+Vì target của project bạn là undergraduate researcher, đây là điểm rất hay. 
+Proposal của bạn xác định hệ thốứu và tạo topic recommendation có scoring. 
+fileciteturn0file0L61-L70 
+Một gap có thể rất thật: 
+Develop a new foundation model with 100B parameters for source-code reasoning. 
+Gap có thể valid. 
+Nhưng thesis topic cho undergraduate? 
+Không phù hợp. 
+Tool nên tách: 
+Scientific Gap Validity Score: 0.89 
+ 
+Undergraduate Feasibility Score: 0.18 
+Không gộp thành một điểm. 
+ 
+7. Scoring model mình đề xuất cho SciHub 
+Trong proposal bạn đang có: 
+• 
+Novelty  
+• 
+Feasibility  
+• 
+Evidence Strength  
+• 
+Scope Alignment  
+Mình thấy khá ổn, nhưng nên thêm Gap Openness. 
+Ví dụ: 
+𝑆𝑐𝑜𝑟𝑒= 0.25𝐸+ 0.20𝑂+ 0.20𝑁+ 0.15𝐼+ 0.15𝐹+ 0.05𝑆 
+ 
+Trong đó: 
+Metric Ý nghĩa 
+E 
+Evidence Strength 
+Metric Ý nghĩa 
+O 
+Gap Openness 
+N 
+Novelty 
+I 
+Importance 
+F 
+Feasibility 
+S 
+Scope Alignment 
+Nhưng mình không khuyên gọi score này là: 
+Gap Accuracy = 91% 
+Vì score heuristic không phải xác suất thống kê. 
+Nên hiển thị: 
+Gap Confidence: HIGH 
+Evidence Strength: STRONG 
+Gap Status: LIKELY OPEN 
+Novelty: HIGH 
+Feasibility: MEDIUM 
+Mentor Verification: PENDING 
+Cách trình bày này khoa học và phòng thủ tốt hơn khi bảo vệ. 
+ 
+Kết luận: 
+Làm sao xác định chính xác nó là gap? 
+Không phải bằng một prompt. Cũng không phải bằng số lượng paper thấp. 
+Cần: 
+Map literature + Detect candidate + Collect evidence + Search counter-evidence
++Check closure + Assess importance + Assess feasibility + Expert validation
+ 
+ 
+Và với project sẽ định nghĩa đầu ra là: 
+Evidence-backed Research Gap Candidate 
+chứ không phải: 
+True Research Gap 
+cho đến khi qua bước validation. 
+Phần tiếp theo đáng làm nhất là dựng là một Research Gap Discovery Framework hoàn chỉnh 
+cho SciHub, bao gồm taxonomy, pipeline từng bước, JSON input/output của AI microservice, 
+thuật toán Gap Challenger, công thức scoring và cách evaluate để viết paper. 
+ 
+Cách đáng tin cậy nhất để xác định một vấn đề có thật sự là research gap hay không là: 
+Không tìm bằng LLM trước. Hãy tìm một “candidate gap”, rồi chủ động tìm bằng chứng để bác 
+bỏ nó. Nếu sau khi tìm rộng, tìm theo từ đồng nghĩa, tìm paper mới nhất và kiểm tra review 
+paper mà vẫn không có nghiên cứu giải quyết trực tiếp hoặc chỉ giải quyết một phần, thì mới 
+kết luận là Likely Open Research Gap. 
+ 
+ 
+Có thể tóm lại thành 5 bước: 
+1. Xác định cái đã biết 
+Đọc literature để biết: 
+• 
+người ta đã nghiên cứu gì;  
+• 
+trên đối tượng nào;  
+• 
+bằng phương pháp nào;  
+• 
+trong bối cảnh nào;  
+• 
+kết quả và hạn chế là gì.  
+2. Phát hiện phần thiếu 
+Ví dụ: 
+Các nghiên cứu đã làm A trên professional developers, nhưng chưa rõ kết quả trên novice 
+developers. 
+Đây mới chỉ là: 
+Candidate Gap 
+chưa phải gap đã xác nhận. 
+3. Tìm cách bác bỏ candidate đó 
+Đây là bước quan trọng nhất. 
+Ví dụ candidate: 
+Chưa có nghiên cứu longitudinal về LLM code review cho novice developers. 
+Tool phải tìm lại bằng nhiều cách: 
+LLM code review novice developer longitudinal 
+AI code feedback student long-term study 
+generative AI code review programming education 
+LLM feedback novice programmer repeated measures 
+Không chỉ tìm exact keyword mà phải có: 
+• 
+synonym expansion;  
+• 
+semantic search;  
+• 
+backward citation search;  
+• 
+forward citation search;  
+• 
+paper mới nhất;  
+• 
+systematic review hoặc mapping study liên quan.  
+4. Kiểm tra paper tìm được có thực sự đóng gap không 
+Mỗi paper phản biện cần so theo các chiều: 
+Research Problem 
+Method 
+Population 
+Context 
+Dataset 
+Outcome 
+Evaluation 
+Time scale 
+Ví dụ paper đã nghiên cứu LLM code review nhưng: 
+Population: Professional developer 
+trong khi candidate của bạn là: 
+Population: Undergraduate novice developer 
+thì chưa chắc gap đã đóng. 
+5. Phân loại trạng thái 
+Đừng trả về TRUE/FALSE. 
+Nên trả: 
+OPEN 
+PARTIALLY ADDRESSED 
+LIKELY CLOSED 
+UNCERTAIN 
+Vì trong nghiên cứu khoa học gần như không thể chứng minh tuyệt đối: 
+“Trên thế giới chưa ai từng nghiên cứu vấn đề này.” 
+ 
+Công thức ngắn nhất cho tool của bạn 
+Candidate Gap 
+      ↓ 
+Supporting Evidence 
+      ↓ 
+Counter-Evidence Search 
+      ↓ 
+Gap Closure Check 
+      ↓ 
+Expert Validation 
+      ↓ 
+Likely Open Gap 
+Hay nói đơn giản nhất: 
+Một gap đáng tin không phải là thứ LLM nghĩ ra, mà là một khoảng trống được phát hiện từ 
+literature và vẫn đứng vững sau khi hệ thống cố gắng tìm nghiên cứu để bác bỏ nó. 
+Gap Confidence = Evidence Support + Search Coverage + Counter-Evidence Check
++Gap Closure Check + Expert Validation
+ 
+ 
