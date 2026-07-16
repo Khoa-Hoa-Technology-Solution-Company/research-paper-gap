@@ -4,10 +4,10 @@ This report summarizes the comparison between our proposed **KG-TABI** framework
 
 | Method | Total Gaps | Unique Gaps | Avg Words/Claim | NLI Entailment Rate | Jaccard Overlap vs KG-TABI |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **KG-TABI (Ours)** | 9 | 9 | 27.7 | 100.0% | N/A |
-| **B1 (Mulla RAG)** | 21 | 21 | 61.2 | 71.4% | 0.106 |
-| **B2 (Simple LLM)** | 63 | 62 | 23.2 | 63.5% | 0.081 |
-| **B3 (GAPMAP Text)** | 21 | 21 | 25.2 | 57.1% | 0.122 |
-| **B4 (GraphRAG)** | 21 | 21 | 29.5 | 76.2% | 0.122 |
-| **B5 (LightRAG)** | 21 | 21 | 32.0 | 61.9% | 0.126 |
-| **B6 (HippoRAG)** | 21 | 21 | 30.2 | 66.7% | 0.103 |
+| **KG-TABI (Ours)** | 46 | 45 | 24.4 | 76.1% | N/A |
+| **B1 (Mulla RAG)** | 100 | 100 | 61.3 | 50.0% | 0.166 |
+| **B2 (Simple LLM)** | 300 | 296 | 22.9 | 65.7% | 0.147 |
+| **B3 (GAPMAP Text)** | 101 | 100 | 26.1 | 63.4% | 0.212 |
+| **B4 (GraphRAG)** | 97 | 97 | 28.0 | 72.2% | 0.213 |
+| **B5 (LightRAG)** | 100 | 98 | 30.6 | 83.0% | 0.186 |
+| **B6 (HippoRAG)** | 92 | 88 | 31.6 | 79.3% | 0.204 |

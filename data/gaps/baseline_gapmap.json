@@ -1,190 +1,910 @@
 [
   {
-    "Grounds": "The key challenge in reaching this ambitious goal is letting the information exchange across heterogeneous sources and methods as well as establishing efficient tools and techniques.",
-    "Claim": "There is a lack of standardized, scalable software engineering frameworks to automate the integration of heterogeneous healthcare data using Semantic Web technologies.",
-    "Warrant": "Solving this gap enables software engineers to build interoperable, automated healthcare systems that reduce integration overhead and improve decision-support reliability.",
+    "Grounds": "The text highlights the absence of methodological guidelines for identifying research gaps in qualitative literature reviews.",
+    "Claim": "The proposed framework's effectiveness and adaptability have not been evaluated specifically for software engineering qualitative reviews.",
+    "Warrant": "Software engineering literature involves unique technical taxonomies that require domain-specific adaptation of qualitative review frameworks to ensure validity.",
     "Bucket": "more_probable",
-    "source_paper": "Semantic Web in Healthcare: A Systematic Literature Review of Application, Research Gap, and Future Research Avenues",
+    "source_paper": "A Framework for Rigorously Identifying Research Gaps in Qualitative Literature Reviews",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "The text highlights limited studies on variations in authors' research gap strategies and problems in identifying them, focusing specifically on English Language Teaching (ELT) research articles.",
-    "Claim": "There is an unaddressed need to investigate how research gap presentation strategies and identification challenges manifest within Software Engineering (SE) literature across different developer and researcher demographics.",
-    "Warrant": "Analyzing these strategies in Software Engineering is crucial because clear articulation of novelty drives the adoption of new software methodologies and tools, and identifying demographic-specific challenges can guide better academic training in the SE domain.",
+    "Grounds": "Different methods to examine research gaps have been described, but there are still no standard methods for identifying, prioritizing, or reporting research gaps.",
+    "Claim": "There is a lack of standardized, automated frameworks to systematically identify, prioritize, and visualize research gaps specifically tailored for Software Engineering.",
+    "Warrant": "Establishing standardized gap-identification methods in Software Engineering reduces subjectivity in systematic literature reviews and accelerates the discovery of high-impact research directions.",
     "Bucket": "more_probable",
-    "source_paper": "Previous studies have several limitations …: Indonesian Doctoral Students’, Indonesian Academics’, and International Authors’ Research Gap Strategies in ELT Research Article Abstracts and Introductions",
+    "source_paper": "A scoping review describes methods used to identify, prioritize and display gaps in health research.",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "The text highlights that research gap strategies vary across journal quartiles but limits its scope to English Language Teaching (ELT) publications.",
-    "Claim": "There is an unaddressed need to investigate how research gap strategies are utilized across different journal quartiles specifically within Software Engineering literature.",
-    "Warrant": "Analyzing these patterns in Software Engineering helps identify domain-specific publication standards, enabling the creation of targeted automated writing tools to assist software engineers in successfully publishing in top-tier venues.",
+    "Grounds": "Research gaps arise from study constraints, poor tools, or external influences, and identifying these gaps drives new research.",
+    "Claim": "There is a lack of automated, systematic methods to identify and classify research gaps resulting from tool limitations in software engineering literature.",
+    "Warrant": "Automating the identification of tool-related gaps allows researchers to quickly address engineering bottlenecks and develop better software tools.",
     "Bucket": "more_probable",
-    "source_paper": "The authors’ research gap strategies in ELT research article introductions: Does Scopus journal quartile matter?",
+    "source_paper": "Research gaps for future research and their identification",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "The text identifies a lack of research integrating social media and addressing uncertainty in infrastructure and supply quantities for disaster prepositioning.",
-    "Claim": "There is a gap in software engineering architectures for real-time, data-driven decision support systems that dynamically process uncertain disaster data.",
-    "Warrant": "Addressing this gap is crucial for developing reliable, fault-tolerant software systems that can ingest volatile social media feeds and sensor data to optimize emergency logistics.",
+    "Grounds": "Furthermore, future studies could evaluate more efficient modeling algorithms, especially those combining topic modeling with statistical uncertainty quantification, such as conformal prediction. When feasible, full texts or, at minimum, discussion sections should be analyzed rather than limiting their analysis to abstracts.",
+    "Claim": "There is a lack of automated literature analysis frameworks that integrate topic modeling with statistical uncertainty quantification (such as conformal prediction) to reliably identify and validate research gaps from full-text software engineering publications.",
+    "Warrant": "In Software Engineering, where literature is highly technical and rapidly expanding across diverse domains, relying on uncalibrated topic models can lead to misidentified gaps. Incorporating conformal prediction provides statistical guarantees on topic assignments, allowing SE researchers to systematically prioritize verified areas of future work with quantified confidence.",
+    "Bucket": "more_probable",
+    "source_paper": "Machine Learning–Based Approach for Identifying Research Gaps: COVID-19 as a Case Study",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "GapFinder applies Natural Language Processing (NLP) algorithms to identify potential research gaps in scientific documents using mining and extracting information techniques from unstructured texts in Portable Document Format (PDF).",
+    "Claim": "The reliance on unstructured PDF parsing introduces significant data extraction errors that limit the accuracy of downstream NLP gap-detection algorithms.",
+    "Warrant": "Robust software engineering tools require high-fidelity semantic data extraction; parsing raw PDFs often loses structural metadata, directly degrading the reliability of the identified research gaps.",
+    "Bucket": "more_probable",
+    "source_paper": "GapFinder: Exploring Research Gaps with Artificial Intelligence",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The methodology relies on extracting subgraphs for less-frequent co-occurrences of key terms and is only evaluated via a case study in the electronic design automation (EDA) domain.",
+    "Claim": "There is an implicit gap concerning the generalizability of keyword co-occurrence subgraphs across diverse software engineering domains, as well as the omission of semantic relationships that cannot be captured by term frequency alone.",
+    "Warrant": "Software engineering domains exhibit highly diverse and rapidly evolving vocabularies; relying solely on term co-occurrences without semantic context limits the portability and accuracy of automated gap identification tools.",
+    "Bucket": "more_probable",
+    "source_paper": "Co-Occurrence-Based Double Thresholding Method for Research Topic Identification",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Many postgraduate students in higher education institutions lack the necessary skills and understanding to conduct in-depth literature reviews. This may lead to the presentation of incorrect, false or biased inferences in their theses or dissertations. [...] This article prompts established scholars to explore more innovative ways through which scientific literature reviews can be conducted to identify gaps (empirical, knowledge, theoretical, methodological, application and population gap) and propose a future research agenda.",
+    "Claim": "There is a lack of automated, tool-supported frameworks (such as LLM-based or NLP-driven assistants) specifically designed to guide novice software engineering researchers through the systematic literature review (SLR) pipeline to minimize human bias and automate gap detection.",
+    "Warrant": "In Software Engineering, conducting Systematic Literature Reviews (SLRs) and Systematic Mapping Studies (SMSs) is highly labor-intensive and vulnerable to researcher bias during study selection and data extraction. Providing automated tool support for these steps is critical to ensuring the reproducibility, efficiency, and methodological rigor of empirical software engineering research.",
+    "Bucket": "more_probable",
+    "source_paper": "The Science of Literature Reviews: Searching, Identifying, Selecting, and Synthesising",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The integration of both paradigms produces the Epistemological Gap Framework (EGF), a conceptual model that combines the logic of verification and exploration in formulating research gaps... expected to strengthen methodological rigor, enhance epistemological awareness, and enrich the scholarly contribution.",
+    "Claim": "The Epistemological Gap Framework (EGF) has not been adapted, formalized, or evaluated within Empirical Software Engineering (ESE) to address the methodological disconnect between quantitative software metrics verification and qualitative developer experience exploration.",
+    "Warrant": "Software engineering research frequently employs mixed-methods but lacks unified epistemological frameworks to synthesize quantitative data (such as repository mining and performance metrics) with qualitative insights (such as developer interviews and usability studies). Adapting the EGF to ESE would systematically guide researchers in identifying multi-dimensional research gaps, preventing methodological silos and improving the validity of empirical software engineering studies.",
+    "Bucket": "more_probable",
+    "source_paper": "Integrating Mixed Methods Paradigms for Research Gap Identification in Islamic Education Research",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The literature overlooks sustainability challenges in Industry 4.0 and lacks insights into the practical realization of Sustainable Industry 4.0 initiatives.",
+    "Claim": "There is a lack of concrete software engineering frameworks and empirical methodologies to implement and validate sustainable practices in Industry 4.0 systems.",
+    "Warrant": "Software engineering requires actionable architectural patterns and deployment guidelines to translate theoretical sustainability goals into operational cyber-physical systems.",
+    "Bucket": "more_probable",
+    "source_paper": "Impact of Industry 4.0 on Sustainability—Bibliometric Literature Review",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text identifies a lack of research in using social media for disaster preparation and managing uncertainty in logistics.",
+    "Claim": "There is a need for software frameworks that integrate real-time social media data with predictive logistics APIs.",
+    "Warrant": "Developing these frameworks enables software engineers to build more resilient and adaptive disaster response systems.",
     "Bucket": "more_probable",
     "source_paper": "Prepositioning of assets and supplies in disaster operations management: Review and research gap identification",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "The text notes that despite significant research progress in Android security detection and mitigation, numerous challenges and gaps still exist, and current literature focuses primarily on taxonomizing past approaches.",
-    "Claim": "There is a lack of research translating taxonomic classifications of Android security threats into active, real-time adaptive mitigation frameworks.",
-    "Warrant": "Developing active mitigation frameworks is essential because static taxonomies alone cannot defend mobile systems against rapidly escalating and increasingly damaging real-time attacks.",
+    "Grounds": "To direct the priorities for future research, it is prudent to first develop a comprehensive understanding of the gaps in current knowledge by systematically 'auditing' the literature... This paper therefore presents a standardized audit methodology to establish the representation of female athletes in subdisciplines of existing SSSM research, including a template for reporting the results of key metrics.",
+    "Claim": "There is a lack of automated software engineering tools and natural language processing (NLP) pipelines designed to systematically scale, extract, and analyze demographic and sex-representation metrics from scientific literature databases.",
+    "Warrant": "Manual literature auditing is highly labor-intensive and scales poorly. In Software Engineering, developing automated text-mining and NLP frameworks for systematic literature reviews is critical to efficiently identify data biases, ensuring that downstream medical software, machine learning models, and clinical decision support systems are not trained on biased, male-centric datasets.",
     "Bucket": "more_probable",
-    "source_paper": "Android security assessment: A review, taxonomy and research gap study",
+    "source_paper": "Methodology Review: A Protocol to Audit the Representation of Female Athletes in Sports Science and Sports Medicine Research.",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "Consequently, there is a need to develop robust SCCP inventories in Africa since the Stockholm Convention has already developed guidance document in this respect. Additionally, there are scarce/or limited studies on SCCP concentration in Africa, particularly on consumer products, landfill leachates and sediment samples.",
-    "Claim": "There is a lack of standardized software architectures, data integration pipelines, and digital inventory management systems designed to collect, validate, and model sparse environmental contaminant data (specifically SCCPs) in developing regions.",
-    "Warrant": "From a software engineering perspective, building robust environmental informatics systems requires specialized data schemas, ETL (Extract, Transform, Load) pipelines for heterogeneous data sources, and collaborative cloud platforms. Without these software tools, environmental scientists cannot effectively implement the Stockholm Convention's guidance documents, leading to fragmented data silos and an inability to perform predictive modeling on contaminant distribution in data-scarce regions.",
+    "Grounds": "Researchers lack clarity on approaches during the planning phase of literature reviews, leading to high rejection rates.",
+    "Claim": "There is a lack of automated, domain-specific tools to guide software engineering researchers through the planning and validation phases of systematic literature reviews.",
+    "Warrant": "Automating the planning phase of systematic literature reviews in software engineering reduces methodological errors and improves paper acceptance rates.",
     "Bucket": "more_probable",
-    "source_paper": "Status of short-chain chlorinated paraffins in matrices and research gap priorities in Africa: a review",
+    "source_paper": "How to Undertake an Impactful Literature Review: Understanding Review Approaches and Guidelines for High-impact Systematic Literature Reviews",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "The respondents stressed the need for better knowledge on wild boar management and surveillance, the need to identify risk factors for ASFV entry into domestic pig holdings, to develop protocols to implement specific and appropriate biosecurity measures, and research on communication methods to increase awareness among all players involved in the epidemiology of ASF (including truck drivers, hunters and tourists) and to increase compliance with existing control measures.",
-    "Claim": "There is a lack of specialized software engineering frameworks and architectural patterns for designing decentralized, multi-stakeholder socio-technical systems that can integrate heterogeneous real-time data (GIS, transport, human movement) to simulate biosecurity risks and track compliance.",
-    "Warrant": "Developing software for biosecurity requires handling highly heterogeneous, distributed data streams and ensuring compliance across diverse, non-technical user groups. Without dedicated software engineering paradigms, design patterns, and validation frameworks for these socio-technical systems, developers cannot guarantee the reliability, interoperability, and usability of critical epidemiological tracking and risk-mitigation software.",
+    "Grounds": "The text highlights GenAI's role in knowledge development and advocates for a human-centered, synergistic approach where AI complements researchers.",
+    "Claim": "There is a lack of empirical frameworks for operationalizing and evaluating human-AI collaboration in software engineering literature reviews.",
+    "Warrant": "Developing these frameworks is necessary to ensure the reliability and validity of secondary studies in software engineering.",
     "Bucket": "more_probable",
-    "source_paper": "Research gap analysis on African swine fever",
+    "source_paper": "Exploring the scope of generative AI in literature review development",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "The text asserts that focusing academic research on theorization can develop industry-based projects and bridge the industry-academia gap.",
-    "Claim": "There is an implicit gap regarding the lack of empirical methodologies that operationalize abstract academic theories into concrete, actionable software engineering practices for industry.",
-    "Warrant": "Bridging this gap is crucial because software engineering practitioners require practical, validated tools rather than abstract models to adopt academic research.",
+    "Grounds": "We developed a protocol that includes a study goal, study questions, a PECO statement, and a process for screening literature by combining semi-automated machine learning with the expertise of our review team... After screening 3,521 of these to achieve 99% estimated recall, 217 relevant studies were identified.",
+    "Claim": "Current semi-automated literature screening software pipelines lack the algorithmic efficiency to significantly reduce human screening overhead, still requiring manual review of over 80% of the dataset to achieve high recall.",
+    "Warrant": "In software engineering, optimizing human-in-the-loop machine learning pipelines and developing adaptive active learning architectures is critical to reducing cognitive load and engineering more efficient systematic literature review tools.",
     "Bucket": "more_probable",
-    "source_paper": "Theorization and industry-based research project development: Bridging the industry–academia research gap",
+    "source_paper": "Risk and Protective Factors in the COVID-19 Pandemic: A Rapid Evidence Map",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "The text highlights that sustainable entrepreneurship is a new field with few empirical studies, undefined processes, and a need for innovation and stakeholder engagement to solve environmental problems.",
-    "Claim": "There is a lack of empirical software engineering methodologies and collaborative platforms tailored to support stakeholder-driven innovation in sustainable startups.",
-    "Warrant": "Developing specialized software engineering frameworks is essential to enable sustainable enterprises to systematically gather stakeholder requirements and manage green innovation lifecycles.",
+    "Grounds": "Green Human Resource Management (GHRM) is an emerging field critical for environmental sustainability, with identified empirical, theoretical, and methodological gaps that require future research designed to fill them.",
+    "Claim": "There is a lack of software engineering frameworks, tool support, and empirical software metrics to automate, monitor, and validate GHRM practices within enterprise resource planning (ERP) and HR software systems.",
+    "Warrant": "Since modern HR processes are mediated by software systems, operationalizing GHRM requires software engineering research to design green software architectures and automated tracking tools that translate GHRM policies into measurable, code-level energy savings and resource optimizations.",
     "Bucket": "more_probable",
-    "source_paper": "Research Gap in Sustainopreneurship",
+    "source_paper": "Identification of Some Research Gaps in Green Human Resource Management",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "There was consensus of the absence of a research culture in faculties of tourism and hotels where social science research was perceived as having little/no value except as a part of academic degrees or for promotional purposes, rather than for knowledge creation or to inform industry’s practices. There was no evidence of government interventions to drive university–industry research collaboration...",
-    "Claim": "There is a lack of specialized socio-technical frameworks and collaborative software platforms designed to facilitate and sustain university-industry knowledge transfer in developing regions that lack established academic research cultures and government support.",
-    "Warrant": "In Software Engineering, successful technology transfer and empirical validation of software methodologies depend on active university-industry collaboration. Developing and deploying collaborative platforms tailored to low-resource, low-trust academic environments is critical to enabling software engineering researchers to co-design, test, and deploy software solutions with local industries, thereby driving digital transformation.",
+    "Grounds": "The text notes that studies on the genetic factors of NSHL and SHL in Saudi patients have encountered limitations, leaving gaps in fully understanding these genetic foundations.",
+    "Claim": "There is an implicit gap in specialized bioinformatics software and data integration pipelines optimized for analyzing population-specific genetic variants of hearing loss.",
+    "Warrant": "Software engineering must address this by developing robust, scalable genomic processing pipelines and database schemas tailored to localized cohort data to improve diagnostic tool accuracy.",
     "Bucket": "more_probable",
-    "source_paper": "Bridging the hospitality and tourism university–industry research gap in developing countries: The case of Egypt",
+    "source_paper": "Review and research gap identification in genetics causes of syndromic and nonsyndromic hearing loss in Saudi Arabia",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "Although many non-native English writers are aware of the importance of the research gap, not much is known on how this strategy is being practiced... this paper investigates the use of this strategy in 150 research articles introductions in Computer Science disciplines... [and] described four various ways on how this strategy is commonly used by the non-native writers.",
-    "Claim": "There is a lack of automated, NLP-driven writing assistants or software tools that operationalize these identified rhetorical patterns to help non-native Software Engineering researchers dynamically formulate and validate research gaps in their drafts.",
-    "Warrant": "In Software Engineering, clear articulation of the research niche and gap is critical for peer-review acceptance. Developing automated tools that scaffold this process for non-native English speakers can lower barriers to entry, improve the diversity of published SE literature, and reduce communication overhead with editors and reviewers.",
+    "Grounds": "This study is limited to conceptual model development; however, shade a new light on green innovation by injecting a theoretical perspective into the emerging field of green innovation. Further, it has presented vibrant contributions to managers of the apparel industry and policymakers...",
+    "Claim": "There is a lack of empirical validation and adaptation of the green innovation nomological framework specifically within the software engineering and IT services sector.",
+    "Warrant": "Software engineering possesses unique operational paradigms, such as algorithmic efficiency and cloud resource optimization, meaning generic or apparel-focused green innovation frameworks must be empirically validated to address software-specific lifecycle metrics and competitive advantages.",
     "Bucket": "more_probable",
-    "source_paper": "\"Indicating a Research Gap\" in Computer Science Research Article Introductions by Non-Native English Writers",
+    "source_paper": "Identifying Research Gaps and Developing a Nomological Framework on Green Innovation and Competitive Advantage",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "The text describes manual database creation for evidence mapping and notes inconsistencies in how intervention data and grain types are reported.",
-    "Claim": "There is a lack of automated software engineering frameworks to dynamically ingest, standardize, and map heterogeneous scientific literature to resolve reporting inconsistencies.",
-    "Warrant": "Developing automated data pipeline architectures for evidence mapping is critical in software engineering to scale database curation and ensure data consistency across diverse scientific domains.",
+    "Grounds": "The co-occurrence–based dissimilarity analysis revealed weak connections among several topic pairs and highlighted substantial gaps, particularly the infrequent association between monitoring indicators and either toxicological or biodiversity-focused studies.",
+    "Claim": "Current environmental monitoring software systems lack integrated data-fusion architectures and semantic schemas capable of dynamically linking real-time telemetry/monitoring indicators with toxicological and biodiversity impact models.",
+    "Warrant": "In Software Engineering, designing robust data-integration pipelines and semantic middleware is critical for cyber-physical and environmental monitoring systems. Without standardized software architectures to bridge these disparate data streams, developers cannot build unified early-warning systems, leading to fragmented software tools that fail to translate raw sensor data into actionable ecological and health risk assessments.",
     "Bucket": "more_probable",
-    "source_paper": "Evidence mapping to assess the available research on fiber, whole grains, and health",
+    "source_paper": "Ecological Impacts of Mining in the Amazon: Thematic Trends and Research Gaps",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "This paper constructs a fine-grained scientific data indicator framework using LLMs... This approach effectively addresses the inherent limitations of traditional technology topic analysis... the proposed methodology demonstrates broad applicability.",
-    "Claim": "The framework lacks an automated validation and verification mechanism to ensure the accuracy and consistency of the LLM-extracted fine-grained indicators, particularly against hallucinations in specialized scientific domains.",
-    "Warrant": "In software engineering, relying on unverified LLM extractions for domain-specific frameworks can introduce errors in downstream analysis, making automated verification pipelines essential for maintaining data integrity and trust in automated knowledge mining systems.",
+    "Grounds": "However, a traditional literature review method is characterized by a highly manual process, while technologies and methods in big data, machine learning, and text mining have advanced. [...] The unstructured text data is transformed into a structured form through data preparation realized with text mining, making it applicable for various machine learning techniques.",
+    "Claim": "Existing machine learning-assisted literature review frameworks lack automated, real-time semantic synthesis and continuous integration capabilities for rapidly evolving software engineering literature, still relying on static, batch-processed data preparation phases.",
+    "Warrant": "Software engineering research and technologies evolve at a rapid pace; static literature review frameworks quickly become obsolete without continuous, incremental learning pipelines that automatically ingest, parse, and map new publications to existing taxonomies.",
     "Bucket": "more_probable",
-    "source_paper": "Identifying Research Hotspots and Research Gaps in Specific Research Area Based on Fine-Grained Information Extraction via Large Language Models",
+    "source_paper": "THE APPLICATION OF MACHINE LEARNING IN LITERATURE REVIEWS: A FRAMEWORK",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "Concurrently, pervasive research gaps were observed in methodological approaches for interdisciplinary synthesis, the examination of ethical implications associated with emerging technologies, the scarcity of longitudinal studies on complex systems, and limitations in translating basic scientific research into practical applications.",
-    "Claim": "There is a lack of concrete software engineering methodologies, design patterns, and automated verification tools to translate high-level ethical AI principles into practical, deployable software development workflows.",
-    "Warrant": "As AI integration becomes pervasive, software engineers require actionable frameworks to embed ethical constraints (such as fairness, accountability, and transparency) directly into the software development lifecycle (SDLC). Without translating abstract ethical guidelines into concrete architectural patterns and automated testing tools, developers cannot systematically verify or guarantee the ethical compliance of emerging software systems.",
+    "Grounds": "The study limits itself to nomological framework development based on literature from 1990 to 2024, without empirical validation of the proposed integrated framework.",
+    "Claim": "There is an implicit gap concerning the empirical validation and software architecture design for integrating employee engagement metrics within Smart Factory execution systems.",
+    "Warrant": "Empirical validation is necessary to translate theoretical human-centric frameworks into actionable software requirements and system architectures for manufacturing environments.",
     "Bucket": "more_probable",
-    "source_paper": "Current Trends and Research Gaps in General Science: A Systematic Review",
+    "source_paper": "Employee Engagement in Smart Factories: Research Gaps and a Nomological Framework for the Sri Lankan Apparel Sector",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "Relying on the resource-based view and the boundary conditions function, the authors aim to identify a set of research gaps focusing on how strategic resource decisions (i.e. slack resources and digital marketing capabilities) help industrial firms to provide different types of service offerings (i.e. services in support of product (SSPs) and services in support of client's actions (SSCs)) that leverage their performance in international markets.",
-    "Claim": "There is an implicit gap in understanding how software engineering organizations dynamically allocate slack technical resources and digital capabilities to support international SaaS/PaaS service offerings.",
-    "Warrant": "Addressing this gap is crucial for software engineering as it helps organizations optimize resource allocation, manage technical debt, and scale software-as-a-service architectures effectively across diverse international markets.",
+    "Grounds": "Neglected heavy metals represent a serious but poorly characterised public health threat in the Niger Delta. Comprehensive biomonitoring studies, stronger regulatory frameworks, and community-level health surveillance programmes are urgently needed.",
+    "Claim": "There is a lack of specialized software engineering frameworks, data integration architectures, and automated decision-support systems designed to support real-time biomonitoring and community-level health surveillance for neglected heavy metals in resource-constrained environments.",
+    "Warrant": "Software engineering must provide the architectural patterns and data pipelines necessary to aggregate heterogeneous environmental and biological data from disparate sources. Without standardized software platforms for environmental health informatics, public health officials and regulators cannot effectively analyze, visualize, or act upon toxicological data, rendering policy enforcement and community surveillance impractical.",
     "Bucket": "more_probable",
-    "source_paper": "International servitization: theoretical roots, research gaps and implications",
+    "source_paper": "Neglected Heavy Metals in the Niger Delta Region of Nigeria: A Systematic Review of Toxicity, Environmental Contamination, Health Risks, and Research Gaps",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "Current hotspots converge on adsorption, microbial-driven remediation, and toxicity reduction, while emerging directions highlight machine-learning-assisted modeling and NBC–microbe interactions. Importantly, findings indicate that risk assessment is transitioning toward a Motor Theme, underscoring the urgent need for deeper ecotoxicological research and the incorporation of NBC within regulatory and policy frameworks that govern soil remediation and sustainable resource management.",
-    "Claim": "There is a lack of standardized, open-source software architectures and reproducible MLOps pipelines tailored for simulating, validating, and deploying machine-learning-assisted models of NBC-microbe interactions and ecotoxicological risk assessments.",
-    "Warrant": "From a software engineering perspective, without standardized software frameworks and MLOps pipelines, environmental machine learning models remain isolated scripts that lack reproducibility, scalability, and interoperability. Developing robust software platforms is critical to transition these emerging ML models into reliable, production-ready decision-support systems that regulatory bodies can trust and audit.",
+    "Grounds": "Here we describe the translation of systematic mapping methodology from social sciences for use in environmental sciences. We provide the first process-based methodology for systematic maps, describing the stages involved: establishing the review team and engaging stakeholders; setting the scope and question; setting inclusion criteria for studies; scoping stage; protocol development and publication; searching for evidence; screening evidence; coding; production of a systematic map database; critical appraisal (optional); describing and visualising the findings; report production and supporting information.",
+    "Claim": "There is a lack of a formalized, process-based systematic mapping methodology specifically tailored for the Software Engineering (SE) domain that addresses SE-specific evidence sources (such as grey literature, API documentation, and software repositories) and the rapid obsolescence of software technologies.",
+    "Warrant": "Software engineering research relies on highly volatile and heterogeneous data sources, including open-source repositories, developer forums, and practitioner blogs. Applying a generic systematic mapping methodology translated from environmental or social sciences without SE-specific adaptations leads to inefficient evidence synthesis, difficulty in screening non-peer-reviewed technical literature, and rapidly outdated knowledge maps.",
     "Bucket": "more_probable",
-    "source_paper": "Trends and research gaps in nano-biochar soil applications: a scientometric analysis",
+    "source_paper": "A methodology for systematic mapping in environmental sciences",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "The text highlights that MMR literature lacks discussion on 'research problems' and proposes a general social/cultural framework to address this.",
-    "Claim": "There is an implicit gap in empirical software engineering regarding domain-specific guidelines for formulating mixed-methods research problems.",
-    "Warrant": "Software engineering research requires distinct socio-technical problem formulation that general social science frameworks do not adequately cover.",
+    "Grounds": "The text highlights a lack of conceptual frameworks linking business intelligence and big data to hospitality management, alongside missing epistemological foundations for big data-driven knowledge.",
+    "Claim": "There is an implicit gap in software engineering methodologies for designing domain-specific, theoretically-grounded data architectures that integrate heterogeneous big data sources with business intelligence systems.",
+    "Warrant": "Addressing this gap enables software engineers to build standardized, scalable architectural patterns and data integration pipelines that translate raw big data into structured, domain-specific business insights.",
     "Bucket": "more_probable",
-    "source_paper": "Understanding the Nature of and Identifying and Formulating “Research Problems” in Mixed Methods Research",
+    "source_paper": "Business intelligence and big data in hospitality and tourism: a systematic literature review",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "Existing research predominantly focuses on theoretical exploration, conceptual clarification, and constructing theoretical frameworks, while empirical studies investigating practical applications remain scarce. Findings also indicate that studies on teacher leadership in higher education institutions, particularly within the framework of high-quality development, remain significantly underdeveloped.",
-    "Claim": "There is a lack of empirical, data-driven frameworks and software tools to implement, track, and evaluate teacher leadership practices in higher education.",
-    "Warrant": "In software engineering education and academic collaborative environments, empirical leadership models are essential for designing effective computer-supported collaborative learning (CSCL) systems and educational management software that align with quality standards.",
+    "Grounds": "Relapse prevention strategies were notably absent across the eating disorders. For those identified as being at-risk, there is need for prevention research exploring strategies other than passive PE. Treatment interventions targeting BED and EDNOS are required.",
+    "Claim": "There is a lack of specialized software engineering frameworks, design patterns, and interactive system architectures tailored for deploying active digital therapeutics (DTx) and real-time relapse prevention systems for eating disorders.",
+    "Warrant": "In empirical software engineering and digital health informatics, standardizing software architectures for interactive, real-time clinical interventions is crucial to ensure system reliability, data privacy (HIPAA compliance), usability, and the integration of sensor/telemetry data for adaptive intervention delivery.",
     "Bucket": "more_probable",
-    "source_paper": "Teacher Leadership Research in China (2020–2024): Trends, Gaps, and Future Directions in Educational Development",
+    "source_paper": "Mapping the evidence for the prevention and treatment of eating disorders in young people",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "Methodological limitations, including bias, variability in lesion assessment, incomplete confounder adjustment, and restrictive modeling assumptions, reduced the robustness and comparability of the evidence... highlighting the need for harmonized health state definitions, standardized assessment procedures, and transparent reporting to improve future modeling.",
-    "Claim": "There is a lack of standardized, open-source software frameworks and unified computational modeling architectures that can dynamically simulate multi-state, bidirectional pediatric caries progression while handling variable inputs and confounding factors.",
-    "Warrant": "In medical software engineering and clinical decision support systems (CDSS), the absence of standardized modeling frameworks or domain-specific languages (DSLs) for disease progression leads to fragmented, non-interoperable implementations. Developing a reusable, configurable software engine for multi-state transition modeling would enable researchers to systematically validate, compare, and integrate diverse clinical datasets without rebuilding simulation logic from scratch, thereby improving software reliability and reproducibility in digital health.",
+    "Grounds": "The text proposes a framework with a 'circular platform' domain but notes the construction industry is fragmented and conservative, without detailing how these platforms are computationally realized.",
+    "Claim": "There is a lack of research on the software engineering architectures and integration patterns required to build scalable, decentralized circular platforms for fragmented industries.",
+    "Warrant": "Defining these software architectures is essential for software engineers to enable secure, interoperable data exchange across independent stakeholders in a circular economy.",
     "Bucket": "more_probable",
-    "source_paper": "Progressive health states and transition probabilities in pediatric dental caries: a systematic review of current evidence and research gaps",
+    "source_paper": "Circular economy in construction: A systematic review of knowledge gaps towards a novel research framework",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "However, despite growing interest, the literature remains fragmented, and a comprehensive understanding of global research trends is lacking. ... However, there remains a need for more harmonized and cross-disciplinary research efforts.",
-    "Claim": "There is a lack of unified, cross-disciplinary frameworks and standardized metrics for evaluating AI performance across heterogeneous software engineering domains.",
-    "Warrant": "Without harmonized evaluation standards, software engineers cannot reliably benchmark AI-driven systems, leading to integration challenges, inconsistent quality assurance, and reduced reproducibility in software development lifecycles.",
+    "Grounds": "The text notes a divergence between research focus on energy consumption and user interest in color-changing features.",
+    "Claim": "A research gap exists in aligning software engineering priorities with user-centric feature demands in smart technology.",
+    "Warrant": "Aligning these priorities ensures software engineering research produces practically relevant and user-adopted technologies.",
     "Bucket": "more_probable",
-    "source_paper": "A BIBLIOMETRIC ANALYSIS OF ARTIFICIAL INTELLIGENCE IN PERFORMANCE EVALUATION: TRENDS AND GAPS IN CONSTRUCTION RESEARCH",
+    "source_paper": "Application of text mining in smart lighting literature - an analysis of existing literature and a research agenda",
     "chunk_index": 0,
     "type": "gapmap_text"
   },
   {
-    "Grounds": "Overall, the evidence base reflects geographic concentration, methodological heterogeneity, and thematic limitations, underscoring the need for expanded research scope and enhanced regional collaboration. Limited genomic investigations were identified...",
-    "Claim": "There is a lack of standardized, federated software architectures and collaborative data integration pipelines designed to harmonize heterogeneous epidemiological and genomic data across the GCC region.",
-    "Warrant": "In software engineering, addressing data heterogeneity and regional silos requires the design of interoperable, federated data platforms and automated genomic analysis pipelines. Without these software systems, researchers cannot easily share, normalize, or collaboratively analyze cross-border health data, perpetuating the geographic concentration of research and limiting real-time epidemiological tracking.",
+    "Grounds": "The text highlights that megaproject management literature is premature and lacks holistic lifecycle guidelines.",
+    "Claim": "There is an implicit gap in standardized, tool-supported software engineering frameworks for managing megaproject lifecycles.",
+    "Warrant": "Addressing this gap is essential for applying software engineering discipline to scale and manage the complexity of large-scale systems development.",
     "Bucket": "more_probable",
-    "source_paper": "Human Middle East Respiratory Syndrome Coronavirus (MERS-CoV) research in the Gulf Cooperation Council Countries: A mapping scoping review of epidemiology, clade, and research priority gaps.",
+    "source_paper": "Gaps in megaproject management system literature: a systematic overview",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text states that green innovation lacks sufficient scholarly attention and identifies gaps in green technological innovation.",
+    "Claim": "There is a lack of research on how green innovation principles are systematically integrated into software engineering methodologies.",
+    "Warrant": "Software engineering requires specific guidelines to implement green technological innovation effectively in software development lifecycles.",
+    "Bucket": "more_probable",
+    "source_paper": "Mapping the knowledge of green innovation: a systematic literature review",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text indicates the screening method achieves a low precision of 0.419 and that the code is only available upon request.",
+    "Claim": "There is a lack of open-source, high-precision literature classification tools integrated into standard software package managers.",
+    "Warrant": "Software developers need accessible, high-precision tools to automate knowledge extraction without high false-positive rates.",
+    "Bucket": "more_probable",
+    "source_paper": "Applying text mining to identify relevant literature in food science: Cold denaturation as a case study.",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "We did not identify any guidelines for reporting scoping reviews or studies that assessed the quality of scoping review reporting. [...] only 13 % of the scoping reviews reported the use of a protocol [...] there is need for a guideline to standardize reporting.",
+    "Claim": "There is a lack of standardized reporting guidelines and quality assessment frameworks for scoping reviews, which limits the transparency, reproducibility, and methodological rigor of secondary studies.",
+    "Warrant": "In Software Engineering, scoping reviews are widely used to map emerging technologies and methodologies. The absence of standardized reporting guidelines and quality assessment tools prevents SE researchers from systematically validating the evidence base, potentially leading to biased research agendas and unreliable technology adoption decisions in industry.",
+    "Bucket": "more_probable",
+    "source_paper": "A scoping review on the conduct and reporting of scoping reviews",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text highlights a lack of systematic classification of Social Entrepreneurship literature into distinct research themes.",
+    "Claim": "There is an implicit gap in utilizing automated software engineering classification frameworks and text-mining tools to categorize this interdisciplinary literature.",
+    "Warrant": "Applying software engineering taxonomy and machine learning classification methods is essential to efficiently scale and update literature reviews in rapidly evolving domains.",
+    "Bucket": "more_probable",
+    "source_paper": "Social entrepreneurship research: A review and future research agenda",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "We also conclude that current research on service robots is fragmented, is largely conceptual in nature and focused on the initial adoption stage. In addition, more empirical research is needed, especially on the long(er)-term usage service robots on actual behaviors, the well-being and potential downsides and (ethical) risks for customers and service employees.",
+    "Claim": "There is a lack of empirical software engineering frameworks, architectural patterns, and telemetry systems designed to monitor and manage the long-term behavioral evolution and ethical compliance of service robots post-adoption.",
+    "Warrant": "Software engineering requires robust lifecycle models and continuous monitoring architectures to ensure that autonomous service systems remain reliable, safe, and aligned with user well-being over extended operational lifetimes.",
+    "Bucket": "more_probable",
+    "source_paper": "Service robots, customers and service employees: what can we learn from the academic literature and where are the gaps?",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "It contributes on the identification of the main current research trends, which favors branches: one which supports complementary interactions between lean manufacturing and all three pillars of the triple bottom line, and the other, which evidences trade-offs among them. According to the results of the review, knowledge gaps on the matter remain, which require further research.",
+    "Claim": "There is a lack of empirical frameworks and decision-support models to identify, quantify, and resolve the trade-offs between Lean Software Development (LSD) practices and the Triple Bottom Line (economic, environmental, and social sustainability) pillars.",
+    "Warrant": "While Lean Software Development (LSD) focuses on waste elimination and rapid delivery, its systemic impact on software sustainability—such as the energy consumption of continuous integration pipelines (environmental) and developer burnout from relentless pacing (social)—remains unquantified. Bridging this gap is critical for Software Engineering to transition from purely operational efficiency to sustainable, green software engineering practices without compromising economic viability.",
+    "Bucket": "more_probable",
+    "source_paper": "Lean manufacturing and sustainable performance: Trends and future challenges",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text identifies substantial methodological inconsistencies and data discrepancies across global physical activity surveillance initiatives, calling for a harmonized measurement instrument.",
+    "Claim": "There is an implicit research gap in the design of interoperable software frameworks and data-harmonization pipelines capable of standardizing heterogeneous health surveillance data.",
+    "Warrant": "Addressing this gap is vital for software engineering to establish robust data integration standards, ensuring data consistency and reliability across diverse global health systems.",
+    "Bucket": "more_probable",
+    "source_paper": "Global prevalence of physical activity for children and adolescents; inconsistencies, research gaps, and recommendations: a narrative review",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "However, we identify limitations in its suitability for article extraction.",
+    "Claim": "There is a lack of specialized prompt engineering frameworks, hybrid human-in-the-loop workflows, or fine-tuned domain-specific language models to resolve the inaccuracies and limitations of general LLMs in full-text data extraction for systematic reviews.",
+    "Warrant": "In software engineering, systematic reviews require highly precise extraction of technical parameters, methodologies, and metrics; failure to extract this data accurately leads to invalid empirical syntheses and compromises evidence-based software engineering decisions.",
+    "Bucket": "more_probable",
+    "source_paper": "Harnessing the Power of ChatGPT for Automating Systematic Review Process: Methodology, Case Study, Limitations, and Future Directions",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "While these reviews have generally suggested varying patterns of neurocognitive deficits across EDs, there remain critical limitations regarding the methodological quality of these studies (e.g., the lack of prospective designs, consideration of confounding influences, or examination of interrelationships between neurocognitive domains and relationships between neurocognition and other relevant behavioral constructs).",
+    "Claim": "There is a lack of prospective, multi-modal empirical frameworks in software engineering that model the interrelationships between different developer neurocognitive domains (such as working memory, set-shifting, and attention bias) and their combined impact on software engineering behavioral constructs (such as code comprehension, debugging performance, and developer burnout).",
+    "Warrant": "Software engineering is a cognitively demanding activity, yet current developer cognition research is fragmented, typically isolating single cognitive metrics (e.g., measuring working memory load via EEG). Understanding the interrelationships between multiple cognitive domains and behavioral outcomes through prospective designs is critical for building adaptive IDEs, optimizing task-switching workflows, and mitigating cognitive fatigue in software teams.",
+    "Bucket": "more_probable",
+    "source_paper": "A systematic review of reviews of neurocognitive functioning in eating disorders: The state of the literature and future directions",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text notes that 'Future technologies such as 5G, AI, cloud computing, augmented reality, virtual reality, and BYOD represent new TAM-related research gaps' and that 'existing studies have focused mainly on student samples, so further investigation is needed into lecturers, higher education personnel, and mixed groups.'",
+    "Claim": "There is an implicit gap in understanding how non-student stakeholders (lecturers and administrative personnel) accept and adopt emerging software technologies (like AI, cloud computing, and AR/VR) within higher education environments.",
+    "Warrant": "For software engineers designing educational platforms, understanding the acceptance factors of instructors and staff is critical to ensuring successful system integration, usability, and deployment of advanced software architectures in institutional settings.",
+    "Bucket": "more_probable",
+    "source_paper": "A Systematic Review of the Technology Acceptance Model for the Sustainability of Higher Education during the COVID-19 Pandemic and Identified Research Gaps",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text highlights that only one study focused on documentation methods and calls for more consistent, accessible, and taxonomically clear data.",
+    "Claim": "There is an implicit gap in standardized software architectures and data schemas designed to ingest, harmonize, and secure heterogeneous conflict data.",
+    "Warrant": "Software engineering research must address this by designing interoperable data pipelines and unified taxonomies to ensure data integrity and cross-system analysis.",
+    "Bucket": "more_probable",
+    "source_paper": "Violence against healthcare in conflict: a systematic review of the literature and agenda for future research",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Likewise, the review reveals that the majority of prior studies are quantitative and were carried out using archived data from non-financial firms. Also, the existing literature has primarily focused on the outcomes of CG, especially firm performance.",
+    "Claim": "There is a lack of qualitative, process-oriented research focusing on the internal dynamics and decision-making processes of corporate governance, particularly in financial firms or technology-driven sectors.",
+    "Warrant": "In Software Engineering, understanding governance (e.g., IT governance, open-source governance) requires qualitative insights into developer behavior and decision-making, which quantitative archival data cannot fully capture.",
+    "Bucket": "more_probable",
+    "source_paper": "The development of corporate governance literature in Malaysia: a systematic literature review and research agenda",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The discipline's most common uses for literature reviews—identifying gaps, developing research agendas, and categorizing the literature—too often fail to challenge, change or advance theoretical perspectives. The key to theory advancement is consistency between the state of theory and the chosen review type.",
+    "Claim": "There is a lack of structured methodologies in Software Engineering to systematically align the maturity level of a software engineering domain with the most effective literature review type to foster theoretical advancement.",
+    "Warrant": "Software Engineering frequently relies on Systematic Literature Reviews (SLRs) for categorization rather than theory building. Establishing a framework that matches domain maturity (e.g., nascent vs. mature software paradigms) to specific review types is essential for developing robust, predictive software engineering theories.",
+    "Bucket": "more_probable",
+    "source_paper": "How to advance theory through literature reviews in logistics and supply chain management",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The content analysis revealed different gaps and limitations in the understanding of entrepreneurship in RHT, including a predominance of qualitative studies with limited theoretically-grounded and generalizable empirical studies. Furthermore, a high concentration of studies is from European countries.",
+    "Claim": "There is a lack of generalizable, empirically-validated software engineering frameworks and architectural patterns tailored to support digital platforms within Rural Hospitality and Tourism (RHT) ecosystems, particularly for non-European contexts.",
+    "Warrant": "As RHT ecosystems increasingly rely on digital platforms for innovation and value creation, software engineers require empirically-grounded design patterns that address rural-specific constraints (e.g., low bandwidth, offline-first synchronization, localized payment systems). Without these frameworks, software solutions for rural tourism remain ad-hoc, poorly scalable, and difficult to generalize across diverse geographic regions.",
+    "Bucket": "more_probable",
+    "source_paper": "Entrepreneurship in rural hospitality and tourism. A systematic literature review of past achievements and future promises",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text highlights that apparel industry literature lacks investigations into technology-organization-environment (TOE) and institutional theories, focusing primarily on individual-centric models.",
+    "Claim": "There is an implicit gap in understanding how organizational and environmental factors influence the adoption and integration of enterprise software systems in the apparel supply chain.",
+    "Warrant": "Investigating these factors is crucial for software engineering to ensure that system architectures and deployment strategies align with organizational readiness and external regulatory pressures.",
+    "Bucket": "more_probable",
+    "source_paper": "Technology adoption in the apparel industry: insight from literature review and research directions",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text states that neither agro-ecological nor socio-economic approaches can address the full scope of why Conservation Agriculture works, highlighting a need for compatible, comprehensive datasets and integrated methodological approaches.",
+    "Claim": "There is a lack of integrated data architectures and interoperable software platforms capable of unifying heterogeneous socio-economic and agro-ecological datasets for holistic agricultural decision-making.",
+    "Warrant": "Addressing this gap is crucial for software engineering to establish design patterns and semantic integration standards for complex, multi-disciplinary socio-technical systems.",
+    "Bucket": "more_probable",
+    "source_paper": "Bridging the disciplinary gap in conservation agriculture research, in Malawi. A review",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Questionnaire, interview and case study have comprised the main data collection methods, and descriptive data analysis was performed in most of the case/field studies. [...] Four implications, namely, megaproject success, project success in developing countries, relationships between CSFs and success outcomes, and the influence of human factors are highlighted in future research.",
+    "Claim": "There is a lack of empirical, causal modeling frameworks that quantitatively link human-centric Critical Success Factors (CSFs) to objective software project success metrics, particularly within diverse socio-economic development contexts.",
+    "Warrant": "Software engineering project management heavily inherits paradigms from traditional engineering. By failing to move beyond descriptive statistics of qualitative surveys, the SE field cannot build predictive models that translate human factors (e.g., developer experience, communication overhead) into concrete software quality and delivery outcomes, which is critical for optimizing globalized, distributed software teams.",
+    "Bucket": "more_probable",
+    "source_paper": "Identifying the gaps in project success research",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Second, cross-sectional studies are most commonly the study design of choice... Fourth, there is a notable lack of information on cardiovascular diseases and its antecedents. Fifth, indications show that screenings for pre-existing conditions are biased towards communicable diseases.",
+    "Claim": "There is a lack of specialized software architectures and data integration frameworks designed to support longitudinal, multi-dimensional health monitoring and predictive analytics for resettled refugee populations.",
+    "Warrant": "Addressing this gap requires software engineering research into robust, privacy-preserving data pipelines and interoperable system architectures that can aggregate fragmented, multi-lingual, and heterogeneous health data over time, which is critical for transitioning from static cross-sectional analysis to longitudinal health monitoring systems.",
+    "Bucket": "more_probable",
+    "source_paper": "Identifying Gaps in Health Research among Refugees Resettled in Canada",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Future studies should include South America, Africa and other developing nations. More cross-cultural studies are required to understand consumer and host behavior in different cultural settings.",
+    "Claim": "There is a lack of software engineering frameworks and localized algorithmic trust models tailored to the unique socio-technical and infrastructural constraints of developing regions in P2P accommodation platforms.",
+    "Warrant": "P2P platforms rely heavily on software-driven trust verification and reputation systems. Since these systems are typically optimized for Western contexts, software engineers need to research and design culturally-adaptive and network-resilient architectures to support users in developing nations with different trust paradigms and infrastructure limitations.",
+    "Bucket": "more_probable",
+    "source_paper": "Airbnb phenomenon: a review of literature and future research directions",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Regarding methods, more studies focus on data collection (62%) than on linking and synthetic methods (44%; e.g., modelling)... Overall, few studies investigate synergies, trade-offs and incentives for various solutions to address cross-scale multi-solution management.",
+    "Claim": "There is a lack of integrated software architectures and decision-support systems (DSS) designed to model complex feedback loops, simulate cross-scale socio-ecological interactions, and optimize multi-solution trade-offs.",
+    "Warrant": "From a software engineering perspective, addressing this gap requires the development of modular, scalable simulation frameworks and data-integration pipelines that can ingest heterogeneous data (such as remote sensing and participatory inputs) and execute multi-objective optimization algorithms to support collaborative environmental decision-making.",
+    "Bucket": "more_probable",
+    "source_paper": "Gap identification in coastal eutrophication research - Scoping review for the Baltic system case.",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "There were 1,422 questions generated, of which 992 (69.8%) reached consensus... Research questions were coded using a taxonomy of 118 research concepts that were standard across all National Trauma Research Action Plan panels.",
+    "Claim": "There is a lack of automated software engineering frameworks and semantic mapping tools to translate large-scale, consensus-derived clinical research questions and taxonomies into structured, executable requirements for Clinical Decision Support Systems (CDSS).",
+    "Warrant": "Manually translating hundreds of high-priority clinical questions and taxonomies into software specifications for CDSS is slow and error-prone. Developing automated software pipelines using NLP and ontological mapping is critical to bridge the gap between clinical consensus data and deployable healthcare software systems.",
+    "Bucket": "more_probable",
+    "source_paper": "Developing a National Trauma Research Action Plan: Results from the acute resuscitation, initial patient evaluation, imaging, and management research gap Delphi survey",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text states that startups are young, inexperienced organizations heavily influenced by external factors like investors and partners, requiring strategic action, based on literature mapped up to 2019.",
+    "Claim": "There is a research gap concerning how modern software engineering practices and architectures dynamically adapt to these external stakeholder pressures in early-stage startups.",
+    "Warrant": "Investigating this gap is critical for software engineering to establish development frameworks that balance rapid product iteration with the volatile strategic demands of external startup influencers.",
+    "Bucket": "more_probable",
+    "source_paper": "Startups: a systematic review of literature and future research directions",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Current research predominantly focuses on textual data and event log extraction for process discovery, while unstructured data also includes image and video formats.",
+    "Claim": "There is a lack of methodologies for integrating non-textual unstructured data, such as video and images, into advanced process mining phases.",
+    "Warrant": "Expanding process mining to support visual and multi-modal unstructured data is essential for analyzing complex, modern software workflows and user interface interactions.",
+    "Bucket": "more_probable",
+    "source_paper": "Unstructured Data in Process Mining: A Systematic Literature Review",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Half (n=17,039, 49.4%) of the 34,481 abstracts did not have any characteristic mentions and only 1.3% (n=443) reported sex, age, offender type, and nationality. [...] Our findings highlight that despite the presence of several research reporting guidelines, justice health abstracts still do not adequately describe the investigated populations.",
+    "Claim": "There is a lack of automated software validation tools (such as semantic linters or submission-stage compliance checkers) designed to detect and enforce the inclusion of mandatory population characteristics in scientific abstracts before publication.",
+    "Warrant": "While reporting guidelines exist, manual compliance checks are failing, as evidenced by the high percentage of incomplete abstracts. In software engineering, static analysis and automated linting are standard practices to enforce compliance with coding standards. Translating this to scientific publishing by developing automated NLP-based validation software would prevent the publication of abstracts with missing metadata, thereby improving downstream data mining and systematic reviews.",
+    "Bucket": "more_probable",
+    "source_paper": "Population Characteristics in Justice Health Research Based on PubMed Abstracts From 1963 to 2023: Text Mining Study",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text highlights that early-stage diagnosis of bacterial endocarditis is challenging and relies on manual text mining of literature to identify research gaps.",
+    "Claim": "There is a lack of automated, real-time software tools that integrate text mining and topic analysis directly into veterinary clinical workflows for early diagnosis.",
+    "Warrant": "Software engineering must bridge this gap by developing specialized clinical decision support systems and data pipelines to process veterinary medical records efficiently.",
+    "Bucket": "more_probable",
+    "source_paper": "Canine Bacterial Endocarditis: A Text Mining and Topics Modeling Analysis as an Approach for a Systematic Review",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text states that the unstructured and heterogeneous nature of bioplastics literature requires ad hoc fine-tuning strategies for state-of-the-art language models.",
+    "Claim": "There is a lack of standardized, automated fine-tuning frameworks and benchmark datasets for adapting general-purpose scientific language models to heterogeneous material science domains.",
+    "Warrant": "Developing systematic fine-tuning pipelines for domain-specific NLP models improves the reliability and scalability of software tools used for automated knowledge extraction in materials engineering.",
+    "Bucket": "more_probable",
+    "source_paper": "Seaweed-Based Bioplastics: Data Mining Ingredient-Property Relations from the Scientific Literature",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text highlights the existence of conceptual silos, methodological preferences, and geographical imbalances in sustainable business management (SBM) literature for higher education.",
+    "Claim": "There is an implicit gap in software tools and collaborative platforms designed to integrate these siloed methodologies and standardize SBM data collection across diverse regions.",
+    "Warrant": "Developing unified software frameworks is essential to enable interoperability, automate data synthesis, and support multi-stakeholder collaboration in sustainability engineering.",
+    "Bucket": "more_probable",
+    "source_paper": "Sustainable Business Management in Higher Education Institutions: A Strategic Roadmap for Addressing Research Gaps and Shaping the Forthcoming Agenda",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text highlights the difficulty of navigating the vast health IS literature and emphasizes the need for closer collaboration with related fields to address emerging technologies and stakeholders.",
+    "Claim": "There is an implicit gap in translating high-level IS health research findings into concrete software engineering design patterns and architectural frameworks for digital health systems.",
+    "Warrant": "Addressing this gap is essential for software engineers to systematically apply IS insights to build scalable, secure, and context-sensitive healthcare applications.",
+    "Bucket": "more_probable",
+    "source_paper": "Advancing digital health in information systems research: Insights from a text mining analysis",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Through a text-mining approach utilising latent Dirichlet allocation (LDA), latent topics were extracted... Managers can obtain relevant information that may encourage them to invest in sustainability and reduce information asymmetry and regulators can improve current and future guidelines.",
+    "Claim": "There is a lack of automated software engineering frameworks and tool support to operationalize these LDA-derived sustainability topics into real-time, deployable software systems (such as ESG monitoring dashboards or automated compliance APIs) for family-owned businesses.",
+    "Warrant": "In Software Engineering, translating domain-specific taxonomies into functional software requirements and automated data-processing pipelines is crucial. Without dedicated software architectures and tools, family firms cannot systematically track, validate, or report their sustainability metrics to stakeholders, leaving a gap between theoretical literature classification and practical software implementation.",
+    "Bucket": "more_probable",
+    "source_paper": "Past, present and future of family firms and their sustainability developments: a text-mining approach",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Retrieved records will be screened at title, abstract, and full-text levels against predefined eligibility criteria. Data from eligible studies will be extracted and summarized descriptively, followed by a narrative synthesis to identify thematic clusters, geographical patterns, and gaps in the evidence base.",
+    "Claim": "There is a lack of automated, open-source software tools or NLP-driven pipelines designed to automate the screening, extraction, and synthesis of heterogeneous environmental and aquaculture literature for systematic mapping.",
+    "Warrant": "Automating systematic mapping through software engineering solutions (e.g., NLP, machine learning pipelines) reduces the manual effort, subjectivity, and time constraints of evidence synthesis, enabling continuous, real-time updates to evidence bases in interdisciplinary domains.",
+    "Bucket": "more_probable",
+    "source_paper": "What evidence exists for the environmental outcomes of nature-based aquaculture systems? a systematic map protocol.",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "A recent scoping review by members of our team suggested that although the number of scoping reviews in the literature is increasing steadily, methodological and reporting quality needs to improve in order to facilitate complete and transparent reporting (1). [...] Reporting guidelines outline a minimum set of items to include in research reports and have been shown to increase methodological transparency and uptake of research findings (8, 9).",
+    "Claim": "There is a lack of automated compliance-checking tools or natural language processing (NLP) frameworks to verify and assist software engineering researchers in adhering to scoping review reporting guidelines (like PRISMA-ScR) during manuscript preparation.",
+    "Warrant": "In Software Engineering, systematic mapping studies (the discipline's equivalent to scoping reviews) are highly prevalent but often suffer from inconsistent reporting quality. Manually verifying compliance with multi-item checklists like PRISMA-ScR is labor-intensive and error-prone for authors and peer reviewers; developing automated linter-like tools for scientific papers would systematically improve the transparency and reproducibility of secondary studies in SE.",
+    "Bucket": "more_probable",
+    "source_paper": "PRISMA Extension for Scoping Reviews (PRISMA-ScR): Checklist and Explanation",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Those who could not attend the in-person meeting participated via an online discussion exercise using Conceptboard... A summary of the Conceptboard discussion, as well as the annotated meeting transcript and master summary document, were shared so that participants could learn about the perspectives of the in-person group before rescoring. To harmonize the data from the 2 groups, a third round of scoring exercise was administered... The meeting was audio-recorded and transcribed using TranscribeMe (24), and 3 note-takers independently documented the main discussion points.",
+    "Claim": "There is a lack of automated, integrated tooling to dynamically synthesize, harmonize, and track consensus across heterogeneous synchronous (audio/in-person) and asynchronous (virtual whiteboard/survey) collaboration channels during collaborative software engineering standards and checklist development.",
+    "Warrant": "Developing software engineering standards, taxonomies, and empirical guidelines (such as reporting guidelines for SE experiments) heavily relies on Delphi-like consensus methods. The current manual synthesis of multi-channel qualitative feedback (transcripts, notes, surveys) is labor-intensive, prone to facilitator bias, and slow. Automating this synthesis using semantic alignment and NLP techniques would accelerate standard-setting processes, reduce cognitive load, and ensure objective traceability of consensus decisions.",
+    "Bucket": "more_probable",
+    "source_paper": "PRISMA Extension for Scoping Reviews (PRISMA-ScR): Checklist and Explanation",
+    "chunk_index": 1,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text states that existing SLR guidance is 'scattered across a number of core references and is overly centered on the design and conduct of the SLR, while failing to guide researchers in crafting and presenting their findings in an impactful way.'",
+    "Claim": "There is a lack of a unified, decision-based reporting framework specifically tailored for presenting impactful Systematic Literature Reviews (SLRs) within the Software Engineering domain.",
+    "Warrant": "Software Engineering SLRs deal with highly heterogeneous technical artifacts and empirical methods, meaning generic management-focused reporting guidelines fail to address the specific presentation needs required to influence SE practitioners and researchers.",
+    "Bucket": "more_probable",
+    "source_paper": "How to conduct systematic literature reviews in management research: a guide in 6 steps and 14 decisions",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Our analysis shows that, of the reviewed assessments, (iii) 62% apply static, index-based approaches, (v) only 11% conduct any form of validation, and (vii) only about 40% of the assessments establish a direct link to drought risk reduction or adaptation strategies.",
+    "Claim": "There is a lack of dynamic, automated software architectures and validation frameworks designed to support real-time, validated, and actionable drought risk assessment and decision support systems.",
+    "Warrant": "From a software engineering perspective, addressing these limitations requires the design of modular, data-driven software architectures that support dynamic simulation, automated validation pipelines, and integration interfaces for adaptation strategies, ensuring the reliability and scalability of environmental decision support systems.",
+    "Bucket": "more_probable",
+    "source_paper": "Drought vulnerability and risk assessments: state of the art, persistent gaps, and research agenda",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The results indicate a split between data-driven and theory-driven research, with most studies either adopting an experimental research design focused on testing the accuracy and performance of AI algorithms... Future work may want to investigate back-office and operations contexts.",
+    "Claim": "There is a lack of empirical software engineering frameworks that integrate front-end AI model performance with back-office operational workflows and regulatory compliance systems in financial software.",
+    "Warrant": "Bridging this gap is critical for software engineering to establish design patterns and architectural standards that ensure end-to-end reliability, data consistency, and compliance verification across distributed financial systems.",
+    "Bucket": "more_probable",
+    "source_paper": "Artificial intelligence in customer-facing financial services: a systematic literature review and agenda for future research",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The key limitation of the existing theories is their inability to consider the role of social and cultural facets in the adoption of new technology.",
+    "Claim": "There is a lack of socio-technical software engineering frameworks that integrate cultural and social variables directly into the requirements engineering and architectural design of digital payment systems.",
+    "Warrant": "Integrating social and cultural factors into software design models ensures that system architectures align with user behavior, reducing adoption failure rates.",
+    "Bucket": "more_probable",
+    "source_paper": "The Evolving Research of Customer Adoption of Digital Payment: Learning from Content and Statistical Analysis of the Literature",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "MATLAB emerges as the predominant programming language, constituting 37.9% of cases, showcasing a prevalent choice among researchers.",
+    "Claim": "There is a lack of production-ready, open-source implementations of nature-inspired algorithms optimized for real-world IoT healthcare deployments.",
+    "Warrant": "Software engineering requires transitioning from simulation tools like MATLAB to deployable, high-performance languages to resolve integration and security challenges on actual IoT devices.",
+    "Bucket": "more_probable",
+    "source_paper": "The applications of nature‐inspired algorithms in Internet of Things‐based healthcare service: A systematic literature review",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The study highlights poor reporting, missing humanistic and economic outcomes, and neglected safety issues in drug reminder packaging research.",
+    "Claim": "There is an implicit gap in software engineering frameworks for systematically tracking and validating humanistic, economic, and safety metrics in digital health interventions.",
+    "Warrant": "Developing standardized software architectures for health informatics is essential to reliably capture and analyze multidimensional clinical trial data.",
+    "Bucket": "more_probable",
+    "source_paper": "Effect of drug reminder packaging on medication adherence: a systematic review revealing research gaps",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text identifies mixed performance outcomes of standardization versus adaptation and highlights gaps in digital services and dynamic theoretical perspectives.",
+    "Claim": "There is a lack of research applying standardization versus adaptation frameworks to software engineering processes and architecture in digital service platforms.",
+    "Warrant": "Investigating this gap helps software engineers optimize the balance between reusable software components (standardization) and customized user features (adaptation) to improve system performance.",
+    "Bucket": "more_probable",
+    "source_paper": "Performance consequences of marketing standardization/adaptation: A systematic literature review and future research agenda",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The authors rely on a two-dimensional text mining approach combining bibliometric and network analysis of historical scientific literature to detect trends and evolution in design research.",
+    "Claim": "There is an implicit gap in predicting future or emerging design research trends, as the methodology is retrospective and relies on already published academic literature.",
+    "Warrant": "For software engineering researchers, relying on retrospective analysis delays the identification of cutting-edge paradigms; integrating predictive analytics or real-time developer community data is crucial for proactive technology adoption.",
+    "Bucket": "more_probable",
+    "source_paper": "Using Text Mining Techniques to Identify Research Trends: A Case Study of Design Research",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text highlights a lack of clarity and transparency in describing the science mapping process, alongside a need to incorporate text mining approaches to support literature analysis.",
+    "Claim": "There is a lack of standardized, open-source tooling that integrates text mining with science mapping specifically tailored for software engineering literature.",
+    "Warrant": "Establishing transparent and automated science mapping pipelines is critical for software engineering researchers to reliably track and synthesize rapidly evolving technology trends.",
+    "Bucket": "more_probable",
+    "source_paper": "When text mining meets science mapping in the bibliometric analysis: A review and future opportunities",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text highlights a shift from integrated risk management processes to isolated activities, a lack of scientific rigour in validation, and a deficiency in using standards or de facto models.",
+    "Claim": "There is a lack of standardized, scientifically validated, and integrated risk management frameworks for modern complex software projects.",
+    "Warrant": "Developing integrated and validated frameworks based on standards is essential to manage the complexity of modern software development and ensure the reliability of risk management outcomes.",
+    "Bucket": "more_probable",
+    "source_paper": "Risk management in the software life cycle: A systematic literature review",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "the review outlines the theoretical perspective like masstige and bandwagon (Theory); identifies the contextual elements like B2B space and culture (Context); reveals the antecedents, gaps, and outcome variables, that is, CBBE and purchase intention (Characteristics); and suggest diverse approaches, that is, mixed and experimental methods (Methodology).",
+    "Claim": "There is a lack of software engineering frameworks, architectural patterns, and empirical guidelines to design, deploy, and maintain software systems that support 'masstige' product strategies (balancing premium/luxury features with mass-market scalability and affordability).",
+    "Warrant": "As software systems increasingly power hybrid business models like tiered SaaS and freemium platforms, software engineers require systematic architectural patterns to manage the trade-offs between high-end, resource-intensive features and cost-effective, mass-market infrastructure. Bridging this gap prevents architectural drift and ensures consistent quality of service across diverse consumer segments.",
+    "Bucket": "more_probable",
+    "source_paper": "Two decades of research on “masstige” marketing: A systematic literature review and future research agenda",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Two reviewers will independently conduct a multilevel screening on Rayyan software. Extraction of relevant data will be done on Statistical Package for the Social Sciences (SPSS) software. We will include MENA countries with Arabic, English, French, and/or Urdu as primary official languages and/or media of instruction in universities.",
+    "Claim": "There is a lack of automated, multilingual software tools and data pipelines designed to systematically search, scrape, and quality-assess heterogeneous gray literature sources across diverse languages for systematic reviews.",
+    "Warrant": "In software engineering and empirical research, systematic reviews heavily rely on manual screening and generic statistical tools. Automating the ingestion, multilingual translation, and quality assessment of gray literature through specialized software tools would drastically reduce manual labor, minimize human bias, and accelerate evidence synthesis.",
+    "Bucket": "more_probable",
+    "source_paper": "Gray literature in systematic reviews on population health in the Middle East and North Africa: protocol of an overview of systematic reviews and evidence mapping",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text identifies a lack of standardized frameworks and calls for integrating AI and remote sensing to monitor mountain ecosystems.",
+    "Claim": "There is a research gap in standardized software architectures and data integration pipelines for deploying AI and remote sensing in environmental monitoring.",
+    "Warrant": "Standardized software frameworks are necessary to ensure interoperability and consistent data analysis across different global monitoring applications.",
+    "Bucket": "more_probable",
+    "source_paper": "Ecosystem Services Linked to Extensive Sheep and Goat Farming in Mountain Areas: A Global Literature Analysis Using Text Mining and Topic Analysis",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text highlights that LLMs are concentrated in specific medical fields and emphasizes the necessity of 'responsible GenAI applications' based on a bibliometric analysis of publications from 2023 to 2024.",
+    "Claim": "There is an implicit research gap regarding the concrete software engineering frameworks, architectural patterns, and verification methodologies required to implement and deploy these 'responsible' LLM systems in clinical production.",
+    "Warrant": "Bridging this gap is critical for software engineering to establish standardized design patterns, testing pipelines, and safety-critical middleware that ensure LLM reliability, determinism, and compliance in healthcare deployments.",
+    "Bucket": "more_probable",
+    "source_paper": "LLM-Based Generative AI in Medicine: Analysis of Current Research Trends With BERTopic",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Knowledge reported in the literature is often embedded in dormant PDF documents, disconnected from related information and underlying data... Text mining can connect these entities... The automation of these tasks provides a method that scales with the double-exponential growth of Medline.",
+    "Claim": "There is a lack of software architectures and data integration pipelines designed to continuously resolve semantic conflicts, inconsistencies, and provenance tracking in automatically extracted, large-scale pharmacogenomic knowledge graphs.",
+    "Warrant": "In software engineering, building reliable knowledge-graph-based systems requires robust data pipeline architectures that handle data quality, schema evolution, and conflicting assertions extracted from heterogeneous sources. Without addressing this, downstream software applications like clinical decision support systems will ingest unreliable or contradictory data, leading to system failures.",
+    "Bucket": "more_probable",
+    "source_paper": "Teaching computers to read the pharmacogenomics literature … so you don’t have to",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Abstract Text mining has not yet been fully explored in fisheries scientific literature and applications in existing studies have been limited.",
+    "Claim": "There is a lack of specialized, domain-specific NLP pipelines and software tools tailored for extracting and synthesizing multi-dimensional (ecological, economic, social) data from fisheries literature.",
+    "Warrant": "Developing robust software engineering frameworks for domain-specific text mining enables automated knowledge discovery and decision-support systems in niche scientific domains.",
+    "Bucket": "more_probable",
+    "source_paper": "Text mining in fisheries scientific literature: A term coding approach",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Notably, the study highlights a lack of integrated risk management strategies that align with sustainability goals in construction procurement. The study provides actionable insights for industry practitioners and policymakers by recommending the development of targeted risk management frameworks, cost-benefit assessment tools, and collaborative supplier engagement models tailored to sustainable procurement contexts.",
+    "Claim": "There is a lack of automated, software-driven decision support systems (DSS) that dynamically integrate and model sustainable procurement risks in real-time.",
+    "Warrant": "To operationalize these recommended risk frameworks and cost-benefit tools, software engineering research must address how to design scalable, interoperable DSS architectures that ingest heterogeneous supply chain data and apply NLP-driven risk extraction within enterprise software systems.",
+    "Bucket": "more_probable",
+    "source_paper": "Identifying risks in sustainable procurement for construction: a systematic literature review and text-mining approach",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "A bibliometric analysis of metadata and content analysis based on text mining and topic modeling techniques has been conducted on a sample of approximately n. 987 publications... Descriptive statistics, TM, and TA were applied to a total of n. 122 documents included.",
+    "Claim": "Current systematic literature review (SLR) software tools lack automated, domain-specific semantic filtering capabilities, requiring researchers to manually down-select datasets (e.g., from 987 to 122 papers) before applying text mining and topic modeling algorithms.",
+    "Warrant": "In Software Engineering, particularly in Evidence-Based Software Engineering (EBSE), automating the SLR pipeline is crucial. Developing software tools that integrate active learning or zero-shot NLP classifiers into PRISMA workflows would reduce manual screening overhead, minimize human bias, and scale up the synthesis of rapidly growing scientific literature.",
+    "Bucket": "more_probable",
+    "source_paper": "Text Mining and Topic Analysis for Ostriches’ Welfare Based on Systematic Literature Review from 1983 to 2023",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The study employed a systematic approach following the PRISMA guidelines, and machine learning techniques were used... The results indicate a growing interest in fish welfare and AMU/AR, while also highlighting areas that require further investigation, such as the link between these research fields.",
+    "Claim": "There is a lack of specialized software frameworks and data integration architectures capable of systematically mapping and modeling the complex, multi-dimensional causal relationships between animal welfare telemetry (e.g., stress indicators) and pharmacological/genomic data (AMU/AR) within One Health software systems.",
+    "Warrant": "For software engineers, addressing this gap is crucial for designing interoperable, multi-domain decision support systems. It requires the development of novel data fusion pipelines, standardized ontologies, and scalable machine learning architectures that can bridge heterogeneous environmental, biological, and clinical datasets, which are currently siloed.",
+    "Bucket": "more_probable",
+    "source_paper": "Text mining and topic modeling insights on fish welfare and antimicrobial use in aquaculture",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Typical bibliometric methods do not fully capture nuanced characteristics and interconnections of research topics, and the proposed workflow is limited to specific journals and manual keyword clustering.",
+    "Claim": "There is an implicit gap concerning the generalizability and scalability of this semantic bibliometric workflow when applied to heterogeneous, large-scale software engineering repositories.",
+    "Warrant": "Software engineering research requires scalable, automated literature classification to track rapid technological shifts across diverse platforms without manual intervention.",
+    "Bucket": "more_probable",
+    "source_paper": "Mapping the Evolution of Mathematical Geoscience Research with Big Literature Data and Context-Aware Text Mining",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text highlights that despite academic interest, only 18 records were found, indicating a significant scarcity of studies on nutraceuticals in canine leishmaniosis.",
+    "Claim": "There is an implicit gap in software tools and text mining methodologies optimized for extracting insights from extremely small, niche medical datasets.",
+    "Warrant": "Addressing this gap in software engineering allows for the creation of robust data-mining pipelines that can handle low-sample literature, preventing data sparsity issues in specialized medical research.",
+    "Bucket": "more_probable",
+    "source_paper": "Trends and Gaps in the Scientific Literature about the Effects of Nutritional Supplements on Canine Leishmaniosis",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "However, the extent to which scientific assessment methods capture these environmental-system interactions remains unclear. [...] Life Cycle Assessment (LCA) was the most frequently identified methodology, reflecting the prominence of impact-oriented environmental evaluation. In contrast, integrative and farm-scale frameworks, including Driver–Pressure–State–Impact–Response (DPSIR), Sustainability Assessment of Food and Agriculture Systems (SAFA), and the Tool for Agroecology Performance Evaluation (TAPE), among others, indicated increasing attention to governance, resilience, and agroecological transitions. [...] Strengthening integrated assessment approaches will be essential for managing natural resources and supporting resilient and environmentally sustainable food systems.",
+    "Claim": "There is a lack of interoperable software architectures and data integration frameworks capable of unifying heterogeneous agricultural sustainability assessment methodologies (such as LCA, DPSIR, SAFA, and TAPE) into a cohesive, multi-dimensional evaluation platform.",
+    "Warrant": "In Software Engineering, managing highly heterogeneous data schemas, diverse modeling paradigms, and multi-scale metrics requires robust integration patterns and semantic interoperability. Without standardized software frameworks and APIs to bridge these disparate assessment tools, developers cannot build scalable, automated decision-support systems for holistic environmental impact analysis.",
+    "Bucket": "more_probable",
+    "source_paper": "Environmental Priorities and Methodological Shifts in Agricultural Sustainability Assessment: A Text-Mining Analysis of Scientific Literature",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "This analysis captures reporting patterns in studies that explicitly use standardized Glyma identifiers and therefore represents a defined subset of the broader soybean genomics literature. Within this scope, the findings highlight uneven adoption of standardized gene nomenclature and chromosome-level differences in research emphasis.",
+    "Claim": "There is a lack of robust, semantic-aware entity resolution and normalization software pipelines capable of mapping non-standardized gene synonyms, aliases, and historical nomenclature to standardized Glyma identifiers in plant genomics literature.",
+    "Warrant": "In software engineering for bioinformatics and text mining, relying solely on rule-based regular expressions for standardized identifiers introduces significant selection bias and high false-negative rates due to inconsistent nomenclature adoption. Developing automated entity-linking and normalization software architectures is critical to building comprehensive, unbiased literature-mining tools and biological knowledge graphs.",
+    "Bucket": "more_probable",
+    "source_paper": "Mining Two Decades of Soybean Genomics Literature Using Rule-Based Text Mining: Chromosome-Resolved Patterns of Glyma Gene Mentions",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The study highlights the need to address fragmented reporting standards and technological barriers, emphasizing the urgency of aligned and data-driven ESG policies, robust assurance mechanisms and adaptive regulation.",
+    "Claim": "There is a lack of standardized software engineering frameworks and middleware to resolve data heterogeneity and interoperability issues between fragmented ESG reporting standards and big data systems.",
+    "Warrant": "Without standardized software architectures and integration patterns, developers cannot build scalable, reusable, and verifiable systems for automated sustainability accounting and assurance.",
+    "Bucket": "more_probable",
+    "source_paper": "Systematic review analysis through an overview applying methodologies text mining and coding: big data analytics for sustainability accounting",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The contribution of authors and institutions in Asian countries, Latin America, Africa, Middle East, and Eastern European countries was low. Literature in GMH represents the perspectives of high-income migrant destination countries. [...] Research collaboration and networks should be encouraged to prioritize research in GMH.",
+    "Claim": "There is a lack of open-source, federated software architectures and collaborative platforms tailored for low-resource environments to support decentralized global health research and data sharing.",
+    "Warrant": "In software engineering, addressing this gap requires developing lightweight, offline-first, and interoperable collaborative tools that mitigate the infrastructure disparities in LMICs. Without such software frameworks, researchers in developing regions cannot easily integrate their data or participate in global research networks, sustaining the bias in global datasets.",
+    "Bucket": "more_probable",
+    "source_paper": "Bibliometric analysis of global migration health research in peer-reviewed literature (2000–2016)",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text highlights that the field is mostly data-driven, focusing on the prevalence, dissemination, detection, or characteristics of misinformation, which risks fragmentation and a lack of research cumulativity.",
+    "Claim": "There is an implicit gap regarding the software engineering methodologies, architectural patterns, and system designs required to operationalize and scale these data-driven detection models in production environments.",
+    "Warrant": "Bridging this gap is critical for software engineering to establish standardized frameworks and deployment pipelines that transition theoretical detection models into reliable, maintainable, and scalable anti-misinformation systems.",
+    "Bucket": "more_probable",
+    "source_paper": "Misinformation, disinformation, and fake news: lessons from an interdisciplinary, systematic literature review",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The literature review indicates a lack of research on non-financial reporting formats within the public healthcare sector.",
+    "Claim": "There is an implicit gap in software engineering research regarding the design and implementation of specialized non-financial reporting systems for public healthcare IT infrastructures.",
+    "Warrant": "Addressing this gap is crucial for developing secure, interoperable, and compliant data-reporting software architectures tailored to healthcare standards.",
+    "Bucket": "more_probable",
+    "source_paper": "Non-financial reporting formats in public sector organizations: a structured literature review",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text notes a need to identify effective AI uses and explore the nexus of technology and sustainability in tourism.",
+    "Claim": "There is a lack of empirical software engineering frameworks evaluating the energy efficiency and operational trade-offs of AI architectures in tourism applications.",
+    "Warrant": "Software engineers need concrete architectural patterns to balance computational sustainability with real-time performance requirements in domain-specific AI deployments.",
+    "Bucket": "more_probable",
+    "source_paper": "Artificial Intelligence in the Tourism Industry: An Overview of Reviews",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The findings also indicate that limited studies focus on developing countries, private institutions, and non-profit organizations. Similarly, our findings show that existing research that examines other firm and cross-country drivers of risk, such as national accounting, auditing, economic, governance, language, and legal systems, are not well documented.",
+    "Claim": "There is a lack of empirical software engineering research investigating how cross-country governance, legal frameworks, and diverse organizational structures (such as non-profit open-source foundations) influence software risk disclosure and security compliance reporting.",
+    "Warrant": "Modern software supply chains are highly globalized and rely heavily on open-source software managed by non-profit entities. Understanding how regional legal systems (e.g., GDPR, EU AI Act) and governance models affect software risk reporting is critical for developing standardized, cross-border security compliance and risk mitigation frameworks in software engineering.",
+    "Bucket": "more_probable",
+    "source_paper": "A systematic literature review on risk disclosure research: State-of-the-art and future research agenda",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text highlights that implementing remote sensing and imaging methods to monitor and detect severe weather impacts remains underdeveloped.",
+    "Claim": "There is a lack of robust software architectures and automated data pipelines designed to integrate and process real-time remote sensing data for disaster monitoring.",
+    "Warrant": "Developing scalable software systems for processing geospatial data is critical to enabling reliable, real-time decision support systems in environmental software engineering.",
+    "Bucket": "more_probable",
+    "source_paper": "Human–Environment Natural Disasters Interconnection in China: A Review",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text highlights that understanding decision processes for implementing entrepreneurship education (EE) is a 'missing link' and an academic gap, supported by only nine articles found in the systematic literature review.",
+    "Claim": "There is an absence of formalized, data-driven decision-making frameworks to guide the integration of entrepreneurship education into public policy and school curricula.",
+    "Warrant": "Developing software systems for educational policy implementation requires formalized decision models to ensure software requirements align with regulatory constraints and stakeholder capacities.",
+    "Bucket": "more_probable",
+    "source_paper": "Entrepreneurship Education: A Systematic Literature Review and Identification of an Existing Gap in the Field",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text states that academic studies on hotel customer experience (CX) are scarce and dispersed, despite the growing focus on delivering distinctive experiences.",
+    "Claim": "There is an implicit gap in software engineering methodologies for systematically translating qualitative hotel CX frameworks into concrete software requirements and system architectures.",
+    "Warrant": "Developing software for the hospitality industry requires formal engineering models to map customer experience variables to software design patterns and system quality attributes.",
+    "Bucket": "more_probable",
+    "source_paper": "Customer experience in the hotel industry: a systematic literature review and research agenda",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "From a methods perspective, researchers saw the need for longitudinal studies, more qualitative research and improved outcome measures. The development and testing of a public health approach to addressing the harms associated with gambling in these areas is needed.",
+    "Claim": "There is a lack of specialized software engineering frameworks and data architectures designed to support longitudinal tracking and privacy-preserving telemetry for public health interventions in digital gambling platforms.",
+    "Warrant": "Developing standardized software architectures for longitudinal data collection is critical to enable reliable, long-term outcome measurement and qualitative analysis in complex digital ecosystems.",
+    "Bucket": "more_probable",
+    "source_paper": "A Literature Review and Gap Analysis of Emerging Technologies and New Trends in Gambling",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text states that MCDM approaches are not widely used in heritage building reuse and preservation, and there is a lack of a complex problem-solving approach in this area.",
+    "Claim": "There is an implicit gap in the integration of automated, scalable software tools and decision support systems that implement MCDM algorithms specifically tailored for heritage building preservation.",
+    "Warrant": "Addressing this gap requires software engineering research into designing interoperable decision-support architectures that can ingest heterogeneous structural and environmental data to execute MCDM workflows.",
+    "Bucket": "more_probable",
+    "source_paper": "A BIBLIOMETRIC DATA ANALYSIS OF MULTI-CRITERIA DECISION MAKING METHODS IN HERITAGE BUILDINGS",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text highlights future research directions in smart city design and sensor network systems, alongside a need for a holistic analysis of all stakeholders.",
+    "Claim": "There is an implicit gap in software engineering frameworks that integrate real-time sensor network data with multi-stakeholder behavioral models for smart waste management.",
+    "Warrant": "Developing these integrated software architectures is crucial for enabling scalable, data-driven decision-making systems in smart cities.",
+    "Bucket": "more_probable",
+    "source_paper": "Recycling behaviour: Mapping knowledge domain through bibliometrics and text mining.",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The literature review limits the context of digital leadership to school education, government governance, and business management.",
+    "Claim": "There is a lack of research on how digital leadership models apply to software engineering teams and technical development environments.",
+    "Warrant": "Software engineering requires managing complex technical debt and agile workflows, which necessitates domain-specific digital leadership strategies.",
+    "Bucket": "more_probable",
+    "source_paper": "Digital leadership: a systematic literature review and future research agenda",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text highlights a reliance on literature reviews and a focus on digital technologies, prompting the use of NLP to analyze publications and identify industrial implementation challenges.",
+    "Claim": "There is a lack of automated software engineering frameworks to integrate and monitor these identified circular economy technologies in real-time industrial systems.",
+    "Warrant": "Developing these frameworks is crucial for software engineers to operationalize circular economy concepts into scalable, production-ready software architectures.",
+    "Bucket": "more_probable",
+    "source_paper": "Identifying technologies in circular economy paradigm through text mining on scientific literature",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text highlights a lack of systematic reviews focusing on DGBL for primary school mathematics and analyzes 45 articles to identify trends in research issues, methodologies, and game genres.",
+    "Claim": "There is an implicit gap in translating these pedagogical trends and game genres into standardized software engineering design patterns and architectural frameworks for educational game development.",
+    "Warrant": "Defining these software patterns is essential for developers to systematically build scalable, interoperable, and pedagogically effective DGBL applications.",
+    "Bucket": "more_probable",
+    "source_paper": "Digital game-based learning in mathematics education at primary school level: A systematic literature review",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The text states that the current state of the art on smell identification only partially addresses the social representations of software developers, who strongly associate the task with smell removal and bug incidence.",
+    "Claim": "There is a lack of research on smell identification methodologies that directly integrate with developer workflows for smell removal and bug prevention.",
+    "Warrant": "Bridging this gap is critical to ensure that smell detection tools align with developers' mental models, thereby improving tool adoption and practical relevance in software maintenance.",
+    "Bucket": "more_probable",
+    "source_paper": "Do Research and Practice of Code Smell Identification Walk Together? A Social Representations Analysis",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The review identified that demand forecasting and supply chain risk management utilize distinct ML techniques, and highlighted gaps in data accessibility and the need for deep and hybrid models.",
+    "Claim": "There is a lack of standardized software architectures and integration frameworks for deploying hybrid deep learning models that securely share data across fragmented supply chain entities.",
+    "Warrant": "Developing robust integration patterns and privacy-preserving software frameworks is essential for enabling collaborative AI training without compromising proprietary supply chain data.",
+    "Bucket": "more_probable",
+    "source_paper": "AI and ML Applications in Supply Chain Management Field: A Systematic Literature Review",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "The authors developed a supervised Logistic Regression model using top terms as features to classify CHO bioprocessing papers from a manually compiled 2016 bibliome.",
+    "Claim": "There is a lack of evaluation on how static feature-based classifiers perform over time as biomedical terminology evolves, highlighting a gap in adaptive, continuous-learning classification pipelines.",
+    "Warrant": "In software engineering, maintaining the accuracy of text-mining pipelines requires understanding model degradation over time; addressing this gap enables the design of self-updating software architectures for scientific literature classification.",
+    "Bucket": "more_probable",
+    "source_paper": "Text mining of CHO bioprocess bibliome: Topic modeling and document classification",
+    "chunk_index": 0,
+    "type": "gapmap_text"
+  },
+  {
+    "Grounds": "Notably, few studies incorporated automated model selection or explainable AI; however, there is a growing shift toward interpretable and beginner-friendly workflows. [...] nonspecialists without a background in artificial intelligence (AI) face significant barriers to entry.",
+    "Claim": "There is a lack of integrated, beginner-friendly R software frameworks that combine automated model selection (AutoML) with explainable AI (XAI) specifically tailored for energy forecasting applications.",
+    "Warrant": "In software engineering, democratizing complex ML workflows for domain experts requires high-level abstractions. Developing automated and explainable software pipelines in R reduces cognitive load, prevents implementation errors in model selection, and builds trust in automated energy management systems through built-in interpretability.",
+    "Bucket": "more_probable",
+    "source_paper": "Beginner-Friendly Review of Research on R-Based Energy Forecasting: Insights from Text Mining",
     "chunk_index": 0,
     "type": "gapmap_text"
   }

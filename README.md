@@ -28,7 +28,7 @@ Thay vì chỉ đọc văn bản như các phương pháp truyền thống (RAG,
 1. **Xây dựng Đồ thị Tri thức (Knowledge Graph)** từ các bài báo khoa học.
 2. **Phân tích cấu trúc topo** (topology) của đồ thị để tìm ra các vùng tri thức bị cô lập hoặc đình trệ.
 3. **Suy luận logic** theo khung lập luận Toulmin để sinh ra các phát biểu khoảng trống có cơ sở.
-4. **So sánh đối chứng** với 3 phương pháp baseline và đánh giá bằng NLI (Natural Language Inference).
+4. **So sánh đối chứng** với 6 phương pháp baseline (bao gồm GraphRAG, LightRAG, HippoRAG) và đánh giá bằng NLI (Natural Language Inference).
 
 ---
 
@@ -51,7 +51,7 @@ Thay vì chỉ đọc văn bản như các phương pháp truyền thống (RAG,
 │  │  Stage 6    │◀──│  Stage 5    │◀──│  Stage 4     │               │
 │  │  Expert     │   │  Baselines  │   │  TABI        │               │
 │  │  Dashboard  │   │  & Evaluate │   │  Inference   │               │
-│  │  (Streamlit)│   │  (B1,B2,B3) │   │  (Toulmin)   │               │
+│  │  (Streamlit)│   │  (B1-B6)    │   │  (Toulmin)   │               │
 │  └─────────────┘   └─────────────┘   └──────────────┘               │
 └──────────────────────────────────────────────────────────────────────┘
 ```
@@ -82,7 +82,10 @@ research-paper-gap/
 ├── baselines/                    # Các phương pháp baseline để so sánh
 │   ├── mulla_rag.py              # B1: Mulla et al. RAG (Retrieve + LLM)
 │   ├── simple_llm.py             # B2: Simple LLM (LLM trực tiếp, không KG)
-│   └── gapmap_text.py            # B3: GAPMAP Text-only (TABI trên text thô)
+│   ├── gapmap_text.py            # B3: GAPMAP Text-only (TABI trên text thô)
+│   ├── graphrag.py               # B4: GraphRAG (subgraph retrieval + LLM)
+│   ├── lightrag.py               # B5: LightRAG (entity co-occurrence + LLM)
+│   └── hipporag.py               # B6: HippoRAG (KG-based re-ranking + LLM)
 │
 ├── data/                         # Dữ liệu đầu vào và đầu ra
 │   ├── raw_papers/               # Bài báo thô, chunks, sample data
@@ -101,7 +104,10 @@ research-paper-gap/
 │   │   ├── kgtabi_gaps.json      # ⭐ Khoảng trống từ KG-TABI (phương pháp đề xuất)
 │   │   ├── baseline_mulla_rag.json
 │   │   ├── baseline_simple_llm.json
-│   │   └── baseline_gapmap.json
+│   │   ├── baseline_gapmap.json
+│   │   ├── baseline_graphrag.json
+│   │   ├── baseline_lightrag.json
+│   │   └── baseline_hipporag.json
 │   └── evaluation_results.md     # 📊 Bảng so sánh thực nghiệm cuối cùng
 │
 ├── paper.tex                     # Bài báo khoa học LaTeX
@@ -164,7 +170,7 @@ Mở file `.env` bằng editor và điền thông tin:
 ```env
 LLM_PROVIDER=openai
 LLM_API_KEY=your_gemini_api_key_here
-LLM_MODEL=gemini-2.5-flash
+LLM_MODEL=gemini-3.5-flash-low
 LLM_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai/
 ```
 
@@ -320,13 +326,16 @@ Input: kgtabi_gaps.json + gaps từ các baselines
 Output: data/evaluation_results.md 📊
 ```
 
-**3 phương pháp baseline để so sánh:**
+**6 phương pháp baseline để so sánh:**
 
 | Baseline | Mô tả | File |
 |---|---|---|
 | **B1 (Mulla RAG)** | Lấy 3 bài báo tương tự nhất (S-BERT Cosine), truyền vào LLM | `baselines/mulla_rag.py` |
 | **B2 (Simple LLM)** | Gửi trực tiếp abstract cho LLM, không dùng KG | `baselines/simple_llm.py` |
 | **B3 (GAPMAP Text)** | Chạy TABI trên text thô, không qua đồ thị | `baselines/gapmap_text.py` |
+| **B4 (GraphRAG)** | Xây subgraph quanh entity, truy xuất multi-hop neighbor | `baselines/graphrag.py` |
+| **B5 (LightRAG)** | Xây đồ thị co-occurrence, truy xuất entity liên kết | `baselines/lightrag.py` |
+| **B6 (HippoRAG)** | Re-rank text chunks dùng KG dựa trên entity density | `baselines/hipporag.py` |
 
 **5 chỉ số đánh giá tự động:**
 
@@ -366,19 +375,23 @@ Kết quả kiểm duyệt được lưu tự động vào `data/expert_reviews.
 
 ## 📊 Kết quả thực nghiệm
 
-Kết quả trên tập dữ liệu mẫu 5 bài báo về **Cloud-Native Microservices Security**:
+Kết quả trên tập dữ liệu **100 bài báo thực tế** về **Research Gap Identification** (LLM: `gemini-3.5-flash-low`):
 
 | Phương pháp | Total Gaps | Unique Gaps | Avg Words | NLI Entailment | Jaccard Overlap |
 |:---|:---:|:---:|:---:|:---:|:---:|
-| **KG-TABI (Ours)** | **31** | **29** | **20.3** | **100.0%** | N/A |
-| B1 (Mulla RAG) | 5 | 5 | 35.4 | 0.0% | 0.185 |
-| B2 (Simple LLM) | 15 | 15 | 17.7 | 66.7% | 0.162 |
-| B3 (GAPMAP Text) | 5 | 5 | 26.8 | 100.0% | 0.158 |
+| **KG-TABI (Ours)** | **46** | **45** | **24.4** | **76.1%** | N/A |
+| B1 (Mulla RAG) | 100 | 100 | 61.3 | 50.0% | 0.166 |
+| B2 (Simple LLM) | 300 | 296 | 22.9 | 65.7% | 0.147 |
+| B3 (GAPMAP Text) | 101 | 100 | 26.1 | 63.4% | 0.212 |
+| B4 (GraphRAG) | 97 | 97 | 28.0 | 72.2% | 0.213 |
+| B5 (LightRAG) | 100 | 98 | 30.6 | 83.0% | 0.186 |
+| B6 (HippoRAG) | 92 | 88 | 31.6 | 79.3% | 0.204 |
 
 **Nhận xét chính:**
-- KG-TABI phát hiện gấp **6× nhiều gaps** hơn so với baseline, với **93.5% gaps là độc bản**.
-- **100% NLI Entailment** chứng minh tất cả Claim đều được suy luận logic chặt chẽ từ bằng chứng topo.
-- **Jaccard Overlap thấp** (~16-18%) cho thấy KG-TABI phát hiện các gaps **hoàn toàn mới** mà LLM thông thường không tìm ra.
+- KG-TABI đạt **76.1% NLI Entailment**, chứng minh phần lớn Claim được suy luận logic chặt chẽ từ bằng chứng topo.
+- **Jaccard Overlap thấp** (<0.22) cho thấy KG-TABI phát hiện các gaps **hoàn toàn mới** mà các phương pháp text-only hoặc RAG không tìm ra.
+- KG-TABI tạo ra ít gaps hơn (46) nhưng **97.8% là độc bản** (45/46), so với B2 tạo 300 gaps nhưng chất lượng NLI chỉ 65.7%.
+- Đồ thị tri thức gồm **550 nodes**, **425 edges**, phát hiện **4 cụm mồ côi** và **40 khái niệm đình trệ**.
 
 ---
 
@@ -422,9 +435,10 @@ Nếu bạn sử dụng framework này trong nghiên cứu, vui lòng trích d�
 
 ```bibtex
 @inproceedings{kgtabi2026,
-  title     = {KG-TABI: Automated Research Gap Detection via Knowledge Graph
-               Topology and Toulmin-Abductive Inference},
-  author    = {Khoa Pham Le Vu},
+  title     = {KG-TABI: Automating Research Gap Detection via Dynamic
+               Knowledge Graphs and Toulmin-Abductive Inference},
+  author    = {Le, Anh Hoa and Nguyen, Duc Hoang and Phan, Ly Van Khoa
+               and Nguyen, Dinh Thanh and Ho, Dinh Anh and Truong, Long},
   booktitle = {Proceedings of the International Conference on Software Engineering},
   year      = {2026}
 }

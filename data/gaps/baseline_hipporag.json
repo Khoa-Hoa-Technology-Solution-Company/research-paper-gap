@@ -1,170 +1,738 @@
 [
   {
-    "Grounds": "The target paper highlights the challenges in adopting Semantic Web (SW) technologies in healthcare systems and emphasizes the need for regulatory frameworks and information management. Passage 3 demonstrates that university-industry-government collaboration is a critical but often neglected factor in technology transfer and research implementation, particularly in developing regions.",
-    "Claim": "There is a lack of research investigating the role of university-industry-government collaboration models in facilitating the adoption and practical implementation of Semantic Web technologies within healthcare systems.",
-    "Warrant": "Although Semantic Web technologies offer theoretical solutions for healthcare data interoperability, their actual deployment is hindered by adoption difficulties. Investigating multi-stakeholder collaboration frameworks (involving academic researchers, healthcare providers, and government regulators) is necessary to align technological innovations with industry needs and regulatory standards, ensuring successful translation from research to practice.",
+    "Grounds": "The target paper addresses the lack of methodological guidelines for identifying research gaps in qualitative literature reviews by proposing a grounded-theory-based framework. However, Passage 2 highlights that traditional literature review methods for identifying gaps are time-consuming, labor-intensive, and prone to bias, while Passage 1 demonstrates the application of computational techniques like text mining and topic modeling to identify knowledge gaps.",
+    "Claim": "There is a lack of hybrid methodologies that integrate computational text mining and topic modeling with qualitative frameworks to automate and scale the identification of research gaps while maintaining qualitative rigor.",
+    "Warrant": "While qualitative frameworks improve rigor, they remain manual and labor-intensive. Combining them with computational text mining (as seen in Passage 1) addresses the scalability and bias limitations of traditional reviews highlighted in Passage 2.",
     "Bucket": "more_probable",
-    "source_paper": "Semantic Web in Healthcare: A Systematic Literature Review of Application, Research Gap, and Future Research Avenues",
+    "source_paper": "A Framework for Rigorously Identifying Research Gaps in Qualitative Literature Reviews",
     "type": "hipporag"
   },
   {
-    "Grounds": "The target paper analyzes research gap strategies in ELT research articles across different author groups (Indonesian students, academics, and international authors). Passage 3 investigates the university-industry research gap in the Egyptian hospitality and tourism industry using stakeholder interviews.",
-    "Claim": "There is a lack of comparative research investigating how academic training in research gap formulation strategies (as studied in ELT) directly influences or correlates with the ability of researchers to bridge practical, industry-specific research gaps in applied sectors within developing countries.",
-    "Warrant": "Connecting genre analysis of academic writing (target paper) with empirical studies on university-industry collaboration gaps (Passage 3) would reveal whether pedagogical deficiencies in identifying research gaps during doctoral studies contribute to the wider university-industry knowledge gap in developing nations.",
+    "Grounds": "The target paper shows that current methods for identifying research gaps heavily rely on manual secondary research (such as systematic and scoping reviews), while Passage 2 highlights that these traditional methods are time-consuming, labor-intensive, prone to bias, and struggle with rapidly evolving fields.",
+    "Claim": "There is a lack of standardized, automated, and scalable computational frameworks (e.g., using NLP or text mining) to systematically identify, prioritize, and visualize research gaps across large scientific literatures.",
+    "Warrant": "Developing automated NLP pipelines that extract semantic contradictions, under-researched concepts, and conflicting evidence from literature databases can overcome the scalability and bias limitations of manual scoping reviews, providing a more objective and rapid method for gap identification.",
     "Bucket": "more_probable",
-    "source_paper": "Previous studies have several limitations …: Indonesian Doctoral Students’, Indonesian Academics’, and International Authors’ Research Gap Strategies in ELT Research Article Abstracts and Introductions",
+    "source_paper": "A scoping review describes methods used to identify, prioritize and display gaps in health research.",
     "type": "hipporag"
   },
   {
-    "Grounds": "The target paper investigates research gap strategies in English Language Teaching (ELT) research article introductions across Scopus quartiles, while the provided passages represent highly diverse domains such as environmental soil remediation (Passage 1), dental health modeling (Passage 2), and university-industry collaboration in tourism (Passage 3).",
-    "Claim": "There is a lack of comparative, cross-disciplinary studies analyzing how research gap strategies in research article introductions vary between soft sciences (like ELT) and hard/applied sciences (like environmental and health sciences) across different Scopus journal quartiles.",
-    "Warrant": "Investigating these strategies across distinct disciplines would determine whether the framing of research gaps is influenced more by disciplinary norms or by the indexing quality (quartile) of the target journals, thereby providing more comprehensive guidance for academic writing.",
+    "Grounds": "The target paper establishes that identifying research gaps is fundamental to directing new research, while Passage 2 highlights that traditional manual methods of gap identification are labor-intensive, prone to bias, and inefficient for rapidly evolving fields.",
+    "Claim": "There is a critical need for scalable, automated methodologies to identify research gaps in rapidly expanding scientific literatures.",
+    "Warrant": "Leveraging computational techniques such as text mining, topic modeling, or knowledge graphs can systematically map literature at scale to detect knowledge omissions more objectively and rapidly than manual reviews.",
     "Bucket": "more_probable",
-    "source_paper": "The authors’ research gap strategies in ELT research article introductions: Does Scopus journal quartile matter?",
+    "source_paper": "Research gaps for future research and their identification",
     "type": "hipporag"
   },
   {
-    "Grounds": "The target paper identifies key research gaps in disaster prepositioning, such as dealing with uncertainties in funding, infrastructure, and logistics. Passage 3 highlights the significant gap between university research and industry/government practice in developing countries.",
-    "Claim": "There is a lack of research on how university-industry-government collaboration frameworks can be leveraged to implement and validate disaster prepositioning models in developing countries.",
-    "Warrant": "Integrating university-industry collaboration frameworks into disaster operations management research can help address practical implementation challenges, such as funding constraints and infrastructure uncertainties, by aligning academic OR/MS models with the operational realities of local industries and government agencies.",
+    "Grounds": "The target paper proposes a BERTopic-based approach to identify research gaps but notes limitations in using only abstracts and suggests that future studies should combine topic modeling with statistical uncertainty quantification, such as conformal prediction. Passage 2 identifies a specific gap in understanding the directions and trends of the Technology Acceptance Model (TAM) in higher education during the COVID-19 pandemic due to the rapid acceleration of literature.",
+    "Claim": "There is a lack of automated, uncertainty-quantified topic modeling frameworks applied to full-text literatures to systematically identify research gaps in rapidly expanding domains, such as the evolution of the Technology Acceptance Model (TAM) during the COVID-19 pandemic.",
+    "Warrant": "Applying conformal prediction to topic modeling algorithms (like BERTopic) on full-text publications of TAM during COVID-19 would allow researchers to statistically bound the uncertainty of topic classifications, thereby providing a more reliable and automated mapping of research gaps than traditional manual reviews or unquantified ML approaches.",
+    "Bucket": "more_probable",
+    "source_paper": "Machine Learning–Based Approach for Identifying Research Gaps: COVID-19 as a Case Study",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper introduces GapFinder, which uses NLP to extract research gaps from unstructured PDF documents. Passage 2 highlights that traditional gap identification is time-consuming and falls short when dealing with rapidly evolving or time-sensitive subjects, necessitating scalable, innovative methods.",
+    "Claim": "Existing AI-driven gap identification tools like GapFinder are limited by their reliance on static, batch-processed PDF documents, failing to dynamically track and identify gaps in rapidly evolving, real-time scientific literature streams.",
+    "Warrant": "To scale gap identification for time-sensitive subjects, NLP pipelines must evolve from parsing static PDF files to processing live, streaming publication feeds (e.g., preprints and metadata APIs) using incremental learning and dynamic topic modeling.",
+    "Bucket": "more_probable",
+    "source_paper": "GapFinder: Exploring Research Gaps with Artificial Intelligence",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper proposes a co-occurrence-based double thresholding method to identify research gaps in a domain (e.g., EDA). However, Passage 2 points out that identifying research gaps in rapidly evolving or time-sensitive subjects is a major challenge where traditional methods fall short. Passage 3 provides a concrete example of this challenge, where a sudden surge of publications during the COVID-19 pandemic created rapid shifts in the Technology Acceptance Model (TAM) literature.",
+    "Claim": "Current automated research gap identification methods lack the ability to dynamically adapt to rapidly evolving or time-sensitive publication trends, limiting their effectiveness in fast-paced research domains.",
+    "Warrant": "Static double-thresholding co-occurrence methods rely on cumulative term frequencies and static subgraphs, which fail to capture the temporal dynamics and sudden velocity of new topics emerging during crises or rapid domain shifts.",
+    "Bucket": "more_probable",
+    "source_paper": "Co-Occurrence-Based Double Thresholding Method for Research Topic Identification",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper highlights that postgraduate students often lack the skills to conduct rigorous literature reviews, leading to biased inferences, and calls for innovative ways to identify various research gaps (empirical, theoretical, methodological, etc.). Passage 2 points out that traditional literature reviews for identifying research gaps are time-consuming, labor-intensive, and prone to bias, necessitating innovative and scalable methods. Passage 1 demonstrates the use of text mining and topic modeling to identify gaps in a specific domain.",
+    "Claim": "There is a lack of automated, scalable, and NLP-driven methodologies designed to systematically identify, extract, and classify specific types of research gaps (e.g., methodological, empirical, or theoretical gaps) from large corpuses of scientific literature to assist researchers and reduce human bias.",
+    "Warrant": "Manual literature reviews are limited by human cognitive capacity and subjective bias when synthesizing rapidly growing scientific literature. Developing automated text-mining and machine learning pipelines to classify and map specific gap types would scale the literature review process, reduce bias, and provide postgraduate students with objective, tool-supported guidance for identifying research opportunities.",
+    "Bucket": "more_probable",
+    "source_paper": "The Science of Literature Reviews: Searching, Identifying, Selecting, and Synthesising",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper proposes the Epistemological Gap Framework (EGF) to integrate quantitative and qualitative paradigms for research gap identification using conceptual Systematic Literature Reviews (SLR). However, Passage 2 notes that traditional manual methods for identifying research gaps are time-consuming, labor-intensive, and prone to bias, necessitating scalable and innovative methods. Passage 1 demonstrates the application of text mining and topic modeling to automate knowledge gap identification.",
+    "Claim": "Current research gap identification frameworks, such as the Epistemological Gap Framework (EGF), lack integration with automated, scalable computational techniques like text mining and topic modeling to analyze large-scale literature databases.",
+    "Warrant": "Integrating computational text mining and topic modeling with the EGF would overcome the scalability, labor-intensity, and bias limitations of manual SLRs while maintaining the framework's epistemological rigor in combining verification and exploration logics.",
+    "Bucket": "more_probable",
+    "source_paper": "Integrating Mixed Methods Paradigms for Research Gap Identification in Islamic Education Research",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper utilizes a systematic literature network analysis to identify research gaps in the intersection of Industry 4.0 and sustainability, concluding that current literature lacks insights into the realization of Sustainable Industry 4.0 initiatives. Meanwhile, Passage 2 highlights that traditional literature review methods for identifying research gaps are time-consuming, labor-intensive, and fall short when dealing with rapidly evolving subjects.",
+    "Claim": "There is a lack of automated, scalable methodologies to dynamically identify research gaps and practical implementation pathways in the rapidly evolving domain of Sustainable Industry 4.0, which currently relies on slow and potentially biased manual bibliometric reviews.",
+    "Warrant": "As Industry 4.0 and sustainability are rapidly evolving paradigms, traditional bibliometric reviews cannot keep pace with the influx of new literature. Implementing scalable, innovative gap-identification methods would allow researchers to quickly pinpoint and address the lack of practical realization initiatives in Sustainable Industry 4.0 without the delays and biases of manual reviews.",
+    "Bucket": "more_probable",
+    "source_paper": "Impact of Industry 4.0 on Sustainability—Bibliometric Literature Review",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper identifies a lack of research on using social media to prepare for upcoming disasters and determining the optimal timing to start prepositioning supplies. Furthermore, Passage 2 highlights that traditional methods of identifying research gaps are labor-intensive and fall short when dealing with rapidly evolving, time-sensitive subjects.",
+    "Claim": "There is a lack of dynamic operations research models in disaster management that integrate real-time social media data to optimize the timing and location-allocation of prepositioned relief assets.",
+    "Warrant": "Incorporating real-time social media streams into mathematical location-allocation models can mitigate data latency and uncertainty regarding infrastructure and demand, allowing for more agile and reliable pre-disaster logistics planning.",
     "Bucket": "more_probable",
     "source_paper": "Prepositioning of assets and supplies in disaster operations management: Review and research gap identification",
     "type": "hipporag"
   },
   {
-    "Grounds": "The target paper identifies that despite significant research progress in Android security detection and mitigation, numerous challenges and gaps still exist in the practical application of these security assessments. Passage 3 highlights a wide research gap in university-industry collaboration (UIC) within developing countries, specifically noting the misalignment of perceptions among university, industry, and government stakeholders.",
-    "Claim": "There is a lack of research exploring how university-industry collaboration frameworks can be tailored to bridge the gap between academic Android security assessment research and its practical adoption by mobile software industries in developing countries.",
-    "Warrant": "While academic research has produced numerous Android security tools and taxonomies, their industry adoption remains low. Investigating UIC models specifically for mobile security in developing countries would help align academic research objectives (e.g., static/dynamic analysis tools) with the practical constraints and security needs of local software developers.",
-    "Bucket": "least_probable",
-    "source_paper": "Android security assessment: A review, taxonomy and research gap study",
-    "type": "hipporag"
-  },
-  {
-    "Grounds": "The target paper highlights that while short-chain chlorinated paraffins (SCCPs) are globally restricted under the Stockholm Convention, there is a severe lack of research and data on SCCP concentrations in Africa, specifically regarding consumer products, landfill leachates, and sediment samples.",
-    "Claim": "There is a critical research gap in the systematic monitoring, quantification, and inventory development of SCCP concentrations across diverse environmental matrices and consumer products in Africa.",
-    "Warrant": "Establishing localized data and robust inventories for SCCPs in African matrices is necessary to enable effective regulatory compliance with the Stockholm Convention and to mitigate the ecological and public health risks of these persistent organic pollutants.",
+    "Grounds": "The target paper proposes an ML-assisted framework for literature reviews to help identify research gaps, but it still relies on manual oversight and structured data preparation. Passage 2 notes that traditional gap identification is labor-intensive and fails in rapidly evolving or time-sensitive subjects. Passage 3 demonstrates this challenge through the rapid, overwhelming surge of TAM literature during the COVID-19 pandemic, which quickly obscured research directions.",
+    "Claim": "Current ML-assisted literature review frameworks lack the capability to dynamically and automatically detect, track, and synthesize emerging research gaps in real-time within rapidly evolving, time-sensitive scientific domains.",
+    "Warrant": "Existing frameworks require manual interpretation and static data preparation steps. To handle rapid literature growth, frameworks must integrate real-time stream processing of scientific databases with dynamic topic modeling and automated gap-detection algorithms that flag under-researched areas or contradictions without human-in-the-loop bottlenecks.",
     "Bucket": "more_probable",
-    "source_paper": "Status of short-chain chlorinated paraffins in matrices and research gap priorities in Africa: a review",
+    "source_paper": "THE APPLICATION OF MACHINE LEARNING IN LITERATURE REVIEWS: A FRAMEWORK",
     "type": "hipporag"
   },
   {
-    "Grounds": "The target paper identifies a critical need for research on communication methods to increase awareness and compliance with African swine fever (ASF) control measures among key stakeholders, including tourists. Passage 3 highlights the role of university-industry-government collaborations in addressing research gaps and stakeholder perceptions within the hospitality and tourism industry.",
-    "Claim": "There is a lack of research on how university-industry-government collaboration frameworks within the hospitality and tourism sector can be leveraged to design and disseminate ASF biosecurity communication strategies for tourists.",
-    "Warrant": "While tourists are recognized as potential vectors for ASFV transmission, veterinary science lacks established frameworks to engage the tourism industry. Adapting collaborative models from the hospitality sector could bridge this gap, but the integration of tourism management and veterinary biosecurity communication remains unexplored.",
-    "Bucket": "least_probable",
-    "source_paper": "Research gap analysis on African swine fever",
-    "type": "hipporag"
-  },
-  {
-    "Grounds": "The target paper proposes that focusing on 'theorization' (developing or contributing to theories) in academic research can bridge the industry-academia research gap. Meanwhile, Passage 3 highlights that the university-industry research gap is particularly wide in developing countries (such as Egypt) and specific service sectors like hospitality and tourism, driven by differing perceptions among stakeholders (industry, university, government, and NGOs).",
-    "Claim": "There is a lack of empirical research on how the theorization-driven framework for bridging the industry-academia gap can be adapted and applied to the unique institutional and stakeholder dynamics of developing countries and their service industries.",
-    "Warrant": "While theorization is proposed as a general mechanism to align academic research with industry needs, its application may fail in developing countries where structural barriers, lack of trust, and differing stakeholder priorities (government, NGOs, universities, and local businesses) require contextualized collaborative models. Investigating this adaptation is necessary to make theorization-based research project development viable in non-Western or developing contexts.",
+    "Grounds": "The target paper identifies empirical, knowledge, methodological, and theoretical gaps regarding employee engagement in Smart Factories within the apparel sector, specifically noting the need to integrate the Technology Acceptance Model (TAM) with human-centered frameworks like the Job Demands-Resources (JD-R) model and Social Exchange Theory (SET). Passage 3 highlights that while TAM has been widely applied in sectors like higher education, there remains a gap in understanding its evolving directions and trends in other rapidly changing domains.",
+    "Claim": "There is a lack of empirical validation and theoretical integration of the Technology Acceptance Model (TAM) with employee engagement and operational efficiency frameworks within the Smart Factory context of the apparel manufacturing industry.",
+    "Warrant": "Integrating TAM with JD-R and SET allows researchers to address the human-centered dimensions of Industry 4.0. Without empirical studies testing these integrated nomological frameworks, organizations cannot systematically align smart technology adoption with employee engagement to improve operational efficiency.",
     "Bucket": "more_probable",
-    "source_paper": "Theorization and industry-based research project development: Bridging the industry–academia research gap",
+    "source_paper": "Employee Engagement in Smart Factories: Research Gaps and a Nomological Framework for the Sri Lankan Apparel Sector",
     "type": "hipporag"
   },
   {
-    "Grounds": "The target paper highlights that stakeholder engagement is a crucial but under-researched pathway to driving innovation in sustainable entrepreneurship (sustainopreneurship), noting a lack of empirical studies on its processes and outcomes. Passage 3 identifies a significant gap in university-industry-government-NGO collaboration within developing countries, specifically noting the disconnect between academic research and industry needs.",
-    "Claim": "There is a lack of empirical research exploring how multi-stakeholder collaboration frameworks (specifically university-industry-government-NGO partnerships) can be structured to foster sustainable entrepreneurship and sustainability-driven innovation in developing economies.",
-    "Warrant": "By bridging the target paper's call for stakeholder-driven sustainability innovation with Passage 3's focus on university-industry collaboration gaps, researchers can define the empirical conditions and processes necessary to translate academic sustainability research into viable, self-sustaining green enterprises.",
+    "Grounds": "The target paper manually screened 4,019 publications to identify research gaps regarding neglected heavy metals in the Niger Delta, a process that Passage 2 identifies as highly time-consuming, labor-intensive, and prone to bias. Furthermore, Passage 1 demonstrates the viability of using text mining and topic modeling to automate knowledge gap identification in large literature datasets.",
+    "Claim": "There is a lack of automated, scalable text-mining and topic-modeling frameworks designed to systematically identify and map research gaps in environmental toxicology literature, particularly for underreported contaminants like neglected heavy metals.",
+    "Warrant": "Developing automated NLP pipelines for environmental toxicology would eliminate the manual screening bottleneck of traditional systematic reviews, allowing researchers to dynamically track emerging chemical hazards, exposure pathways, and geographic data gaps across thousands of publications.",
     "Bucket": "more_probable",
-    "source_paper": "Research Gap in Sustainopreneurship",
+    "source_paper": "Neglected Heavy Metals in the Niger Delta Region of Nigeria: A Systematic Review of Toxicity, Environmental Contamination, Health Risks, and Research Gaps",
     "type": "hipporag"
   },
   {
-    "Grounds": "The target paper highlights a severe university-industry research gap in the Egyptian hospitality and tourism sector, characterized by a lack of research culture and failure to inform industry practices. Passage 3 discusses using bibliometric analysis and AI-integrated performance evaluation to map fragmented research trends and improve decision-making efficiency.",
-    "Claim": "There is a lack of research utilizing bibliometric analysis and AI-driven performance evaluation frameworks to map and address the university-industry research collaboration gap in the hospitality and tourism sectors of developing nations.",
-    "Warrant": "Applying bibliometric mapping and AI-based evaluation tools to the academic output of hospitality faculties in developing countries would provide policy-makers with data-driven insights to measure research impact, identify industry-aligned topics, and systematically address the lack of research culture.",
-    "Bucket": "least_probable",
-    "source_paper": "Bridging the hospitality and tourism university–industry research gap in developing countries: The case of Egypt",
-    "type": "hipporag"
-  },
-  {
-    "Grounds": "The target paper investigates the rhetorical strategy of indicating research gaps in Computer Science article introductions by Malaysian (non-native English) writers, noting its underutilization. Passage 3 highlights university-industry research gaps in a different developing country context (Egypt) and a different domain (hospitality and tourism).",
-    "Claim": "There is a lack of comparative research analyzing how non-native English writers express and structure research gaps across different academic disciplines (e.g., hard sciences like Computer Science versus applied social sciences like hospitality and tourism) within developing countries.",
-    "Warrant": "Disciplinary cultures and regional academic environments heavily influence writing conventions. Comparing how research gaps are framed in technical versus applied social science fields would help develop more tailored, discipline-specific academic writing pedagogy for non-native English scholars.",
+    "Grounds": "The target paper outlines a manual, process-based systematic mapping methodology to identify knowledge gaps in environmental sciences. However, Passage 2 highlights that traditional literature review methods for identifying research gaps are time-consuming, labor-intensive, and prone to bias, calling for scalable, innovative methods. Passage 1 demonstrates the use of text mining and topic modeling to automate gap identification in literature reviews.",
+    "Claim": "There is a lack of integration of automated, scalable computational techniques (such as text mining, NLP, and topic modeling) within the systematic mapping methodology for environmental sciences to identify knowledge gaps and clusters.",
+    "Warrant": "Systematic mapping in environmental sciences currently relies on manual screening, coding, and database production, which is highly labor-intensive and susceptible to reviewer bias. Incorporating automated text mining and topic modeling algorithms into the systematic mapping workflow would scale the methodology to handle rapidly growing environmental literature, reduce manual effort, and minimize bias in identifying knowledge gaps.",
     "Bucket": "more_probable",
-    "source_paper": "\"Indicating a Research Gap\" in Computer Science Research Article Introductions by Non-Native English Writers",
+    "source_paper": "A methodology for systematic mapping in environmental sciences",
     "type": "hipporag"
   },
   {
-    "Grounds": "The target paper outlines a university-industry collaboration (Tufts University and General Mills) that developed a whole grain database, noting a critical lack of consistency in reporting whole grain types, amounts, and intervention compliance. Passage 3 highlights that university-industry collaborations often suffer from gaps in alignment, stakeholder perceptions, and structured frameworks.",
-    "Claim": "There is a lack of standardized reporting frameworks and compliance metrics specifically designed for university-industry collaborative databases to ensure consistency in dietary intervention data (such as whole grains).",
-    "Warrant": "Establishing standardized reporting guidelines within university-industry database collaborations is essential to ensure data quality, comparability, and compliance, which are necessary for evidence mapping and meeting regulatory standards (like FDA labeling).",
+    "Grounds": "The target paper's systematic review is limited to literature published before 2017, leaving subsequent research unexamined. Meanwhile, Passage 2 highlights that traditional manual literature reviews are time-consuming, labor-intensive, and inadequate for rapidly evolving fields.",
+    "Claim": "There is a lack of automated, scalable methodologies to dynamically identify and update research gaps in the business intelligence and big data literature for hospitality and tourism.",
+    "Warrant": "Integrating automated text mining and topic modeling techniques would enable real-time synthesis of literature, overcoming the temporal lag and manual effort associated with traditional systematic reviews in fast-evolving domains.",
     "Bucket": "more_probable",
-    "source_paper": "Evidence mapping to assess the available research on fiber, whole grains, and health",
+    "source_paper": "Business intelligence and big data in hospitality and tourism: a systematic literature review",
     "type": "hipporag"
   },
   {
-    "Grounds": "The target paper proposes an LLM-based fine-grained scientific data indicator framework to identify research hotspots and gaps, overcoming the limitations of traditional coarse-grained topic analysis. Passage 1 relies on traditional scientometric analysis (CiteSpace) to review nano-biochar research for soil remediation, which lacks the fine-grained, quantitative extraction of specific technical dimensions like materials, technologies, and performance indicators.",
-    "Claim": "There is a lack of application of fine-grained LLM-based information extraction frameworks to map research hotspots and gaps in environmental remediation technologies, such as nano-biochar application in soil remediation.",
-    "Warrant": "Applying the target paper's LLM-based framework to the nano-biochar domain would allow researchers to extract precise, multi-dimensional indicators (e.g., specific soil contaminants, biochar modification techniques, and remediation performance metrics) that traditional bibliometric tools like CiteSpace cannot capture.",
+    "Grounds": "The target paper relies on manual evidence mapping (screening 197 trials and 22 reviews) to identify gaps in eating disorder treatments, such as the lack of BED, EDNOS, and relapse prevention studies. Passage 2 notes that traditional literature reviews for identifying research gaps are time-consuming, labor-intensive, and prone to bias, while Passage 1 demonstrates the use of text mining and topic modeling to identify gaps in literature.",
+    "Claim": "There is a lack of automated, scalable text-mining and topic-modeling frameworks to dynamically map literature and identify research gaps in eating disorder interventions.",
+    "Warrant": "By transitioning from manual evidence mapping to automated text-mining and topic-modeling pipelines, researchers can identify clinical trial gaps (such as those in BED and relapse prevention) more rapidly, objectively, and scalably as new literature emerges.",
     "Bucket": "more_probable",
-    "source_paper": "Identifying Research Hotspots and Research Gaps in Specific Research Area Based on Fine-Grained Information Extraction via Large Language Models",
+    "source_paper": "Mapping the evidence for the prevention and treatment of eating disorders in young people",
     "type": "hipporag"
   },
   {
-    "Grounds": "The target paper identifies a pervasive research gap in translating basic scientific research into practical applications, aligning with SDG 9 (Industry, Innovation, and Infrastructure) and SDG 17 (Partnerships). Passage 3 empirically supports this by highlighting a wide research gap in university-industry collaboration within developing countries.",
-    "Claim": "There is a lack of scalable, context-specific frameworks for university-industry collaboration to translate basic scientific research into practical applications in developing countries.",
-    "Warrant": "Translating basic research into industry applications requires aligning the disparate perceptions of stakeholders (universities, industry, government, and NGOs). Without structured collaboration frameworks tailored to developing countries, the translation of scientific knowledge into practical, societal, and industrial solutions remains limited.",
+    "Grounds": "The target paper highlights that research on circular economy (CE) in construction is growing exponentially, yet it relies on a manual systematic review of only 41 articles to identify 155 knowledge gaps. Passage 2 points out that traditional manual methods for identifying research gaps are time-consuming, labor-intensive, and prone to bias, especially in rapidly evolving fields. Passage 1 demonstrates that text mining and topic modeling can scale literature analysis to much larger datasets (e.g., 987 publications).",
+    "Claim": "There is a lack of automated, scalable text-mining and natural language processing (NLP) frameworks to dynamically identify and update research gaps in the rapidly expanding literature of circular economy in construction.",
+    "Warrant": "As CE literature in construction grows exponentially, manual systematic reviews quickly become outdated and are limited in sample size. Applying automated text mining and topic modeling to this domain would allow researchers to continuously map, categorize, and update knowledge gaps across the seven CE dimensions without the labor-intensiveness and bias of manual reviews.",
     "Bucket": "more_probable",
-    "source_paper": "Current Trends and Research Gaps in General Science: A Systematic Review",
+    "source_paper": "Circular economy in construction: A systematic review of knowledge gaps towards a novel research framework",
     "type": "hipporag"
   },
   {
-    "Grounds": "The target paper examines international servitization strategies, focusing on how strategic resource decisions (slack resources and digital marketing capabilities) enable industrial firms to offer services in support of products (SSPs) and client's actions (SSCs) in international markets. Passage 3 highlights the research gap in university-industry collaboration (UIC) within developing countries, specifically in the hospitality and tourism service sector.",
-    "Claim": "There is a lack of research investigating how university-industry collaborations in developing countries can serve as a strategic external resource to facilitate international servitization and the deployment of SSPs and SSCs in foreign markets.",
-    "Warrant": "While the resource-based view in the target paper focuses on internal firm resources (slack resources and digital capabilities), firms in developing countries often face severe resource constraints. Investigating how external collaborative resources, such as university-industry partnerships (Passage 3), can mitigate these constraints and support international servitization remains unexplored.",
-    "Bucket": "least_probable",
-    "source_paper": "International servitization: theoretical roots, research gaps and implications",
-    "type": "hipporag"
-  },
-  {
-    "Grounds": "The target paper identifies machine-learning-assisted modeling and ecotoxicological risk assessment as emerging, critical directions for nano-biochar (NBC) soil applications. Meanwhile, Passage 3 highlights that the integration of Artificial Intelligence (AI) for performance evaluation remains fragmented across various domains, requiring systematic mapping and framework development.",
-    "Claim": "There is a lack of standardized, AI-driven performance evaluation frameworks to model and predict the long-term ecotoxicological risks and microbial community interactions of nano-biochar in soil remediation.",
-    "Warrant": "Applying AI and machine-learning-assisted modeling to NBC performance evaluation will allow researchers to quantitatively predict ecotoxicological outcomes and microbial dynamics, addressing the target paper's call for robust risk assessment frameworks to guide regulatory and policy decisions.",
+    "Grounds": "The target paper utilizes text mining (topic modeling and sentiment analysis) to compare academic literature with Amazon reviews to identify a gap between research focus (energy consumption) and consumer interest (color-changing features) in smart lighting. Meanwhile, Passage 2 highlights that traditional methods for identifying research gaps are labor-intensive, time-consuming, and prone to bias, indicating a need for scalable, automated methods.",
+    "Claim": "There is a lack of generalized, automated, and domain-independent text-mining frameworks that can systematically ingest and compare heterogeneous data sources (such as academic literature and consumer reviews) to identify research-practice gaps across diverse technology domains.",
+    "Warrant": "Current approaches, such as the one in the target paper, are manually configured for specific domains (e.g., smart lighting). Developing a domain-agnostic, automated pipeline that maps academic topics to consumer sentiment aspects would allow researchers to dynamically identify misalignments between scientific research and market demands at scale, mitigating the biases and labor constraints of traditional literature reviews.",
     "Bucket": "more_probable",
-    "source_paper": "Trends and research gaps in nano-biochar soil applications: a scientometric analysis",
+    "source_paper": "Application of text mining in smart lighting literature - an analysis of existing literature and a research agenda",
     "type": "hipporag"
   },
   {
-    "Grounds": "The target paper notes that mixed methods research (MMR) literature lacks adequate discussion and frameworks for identifying and formulating 'research problems' in social and cultural contexts. Passage 3 highlights a study on university-industry collaboration in Egypt that relies primarily on qualitative semi-structured interviews, indicating a reliance on single-method approaches to address complex stakeholder relationships.",
-    "Claim": "There is a lack of structured mixed methods research (MMR) frameworks designed to formulate and investigate multi-stakeholder research problems in university-industry collaborations within developing countries.",
-    "Warrant": "By integrating the target paper's conceptual approach to formulating MMR research problems with the multi-stakeholder challenges identified in Passage 3, researchers can move beyond purely qualitative interviews to design integrated mixed-methods studies that capture both qualitative stakeholder perceptions and quantitative collaboration metrics.",
+    "Grounds": "The target paper highlights that megaproject management literature is premature and lacks holistic guidelines across the project life cycle, relying on manual systematic reviews to identify these gaps. Meanwhile, Passage 2 points out that traditional literature reviews are time-consuming, labor-intensive, and prone to bias, and Passage 1 demonstrates the use of text mining and topic modeling to identify knowledge gaps in other fields.",
+    "Claim": "There is a lack of automated, scalable text-mining and topic-modeling frameworks applied to megaproject management literature to dynamically and objectively identify research gaps across the project life cycle.",
+    "Warrant": "Applying automated text-mining and topic-modeling techniques to megaproject management literature would overcome the scalability and bias limitations of traditional manual systematic reviews, enabling a more comprehensive and objective mapping of the domain's evolution and outstanding research gaps.",
     "Bucket": "more_probable",
-    "source_paper": "Understanding the Nature of and Identifying and Formulating “Research Problems” in Mixed Methods Research",
+    "source_paper": "Gaps in megaproject management system literature: a systematic overview",
     "type": "hipporag"
   },
   {
-    "Grounds": "The target paper identifies a lack of empirical studies on teacher leadership in Chinese higher education, while Passage 3 highlights a gap in university-industry collaboration within developing nations.",
-    "Claim": "There is a lack of empirical research investigating the role of teacher leadership in fostering university-industry collaboration within higher education institutions in developing economies.",
-    "Warrant": "Integrating teacher leadership frameworks with university-industry collaboration models can address the practical implementation gaps identified in both educational leadership and regional development literature.",
+    "Grounds": "The target paper conducts a traditional systematic literature review (SLR) and bibliometric analysis on 381 articles to identify research gaps in green innovation. However, Passage 2 points out that traditional literature reviews are time-consuming, labor-intensive, prone to bias, and struggle with rapidly evolving subjects, creating a need for scalable, innovative methods. Passage 1 shows that text mining and topic modeling can be applied to bibliometric analysis to identify gaps.",
+    "Claim": "There is a lack of automated, scalable, and computationally-assisted methods (such as text mining and topic modeling) applied to map the knowledge base and dynamically identify research gaps in the rapidly evolving field of green innovation.",
+    "Warrant": "Applying automated text mining and topic modeling to green innovation literature would overcome the labor-intensiveness and inherent human bias of traditional SLRs, allowing researchers to scale their analysis to larger databases and keep pace with the rapid growth of green technology and finance literature.",
     "Bucket": "more_probable",
-    "source_paper": "Teacher Leadership Research in China (2020–2024): Trends, Gaps, and Future Directions in Educational Development",
+    "source_paper": "Mapping the knowledge of green innovation: a systematic literature review",
     "type": "hipporag"
   },
   {
-    "Grounds": "The target paper identifies key limitations in pediatric dental caries research, including high variability in lesion assessment, restrictive modeling assumptions, and incomplete confounder adjustment. Passage 3 discusses the integration of Artificial Intelligence (AI) to improve objectivity, accuracy, and efficiency in evaluation processes.",
-    "Claim": "There is a research gap in utilizing Artificial Intelligence (AI) and machine learning algorithms to automate and standardize pediatric dental caries lesion assessment and to model complex multi-state transition probabilities.",
-    "Warrant": "Applying AI-based computer vision can standardize lesion detection to reduce human observer bias, while machine learning multi-state models can better capture non-linear, bidirectional transitions and automatically adjust for confounding variables compared to traditional, restrictive statistical models.",
+    "Grounds": "The target paper applies LDA and keyword searches to filter literature but achieves a low precision of 0.419. Passage 2 notes that traditional methods for identifying research gaps are time-consuming and prone to bias, creating a need for innovative, scalable methods for rapidly evolving subjects.",
+    "Claim": "Current text mining approaches for literature screening struggle to precisely and automatically identify specific research gaps in rapidly expanding scientific fields without high false-positive rates.",
+    "Warrant": "Simple topic modeling (LDA) and keyword searches rely on term co-occurrences rather than semantic synthesis, which fails to distinguish between established knowledge and actual research gaps, resulting in low precision and requiring significant manual analysis.",
     "Bucket": "more_probable",
-    "source_paper": "Progressive health states and transition probabilities in pediatric dental caries: a systematic review of current evidence and research gaps",
+    "source_paper": "Applying text mining to identify relevant literature in food science: Cold denaturation as a case study.",
     "type": "hipporag"
   },
   {
-    "Grounds": "The target paper identifies a need for cross-disciplinary research and harmonized frameworks in AI-based performance evaluation, noting its application across diverse industries. Passage 3 highlights a critical gap in university-industry collaboration (UIC) in developing countries, where academic research is disconnected from industry needs.",
-    "Claim": "There is a lack of research exploring how AI-based performance evaluation models can be applied to measure, analyze, and optimize the effectiveness of university-industry collaborations in developing countries.",
-    "Warrant": "Applying AI-based performance evaluation techniques (such as machine learning and citation network analysis) to university-industry collaboration data can help identify misalignment, predict partnership success, and provide objective metrics to bridge the gap between academic research and industry application.",
+    "Grounds": "The target paper identifies a critical lack of reporting guidelines and quality assessment studies for scoping reviews, despite their growing use to identify knowledge gaps. Passage 2 highlights that traditional literature review methods for identifying research gaps are labor-intensive, time-consuming, and prone to bias, indicating a need for scalable, innovative methods.",
+    "Claim": "There is a lack of standardized reporting guidelines and automated, scalable quality assessment methodologies for scoping reviews, which limits their reliability and efficiency in identifying research gaps.",
+    "Warrant": "Developing standardized reporting guidelines and integrating automated or scalable evaluation methods would address the high inconsistency and labor-intensiveness of scoping reviews, making the identification of research gaps more systematic and less prone to bias.",
     "Bucket": "more_probable",
-    "source_paper": "A BIBLIOMETRIC ANALYSIS OF ARTIFICIAL INTELLIGENCE IN PERFORMANCE EVALUATION: TRENDS AND GAPS IN CONSTRUCTION RESEARCH",
+    "source_paper": "A scoping review on the conduct and reporting of scoping reviews",
     "type": "hipporag"
   },
   {
-    "Grounds": "The target paper highlights a significant geographic concentration of MERS-CoV research in Saudi Arabia (88.3%) and explicitly calls for 'enhanced regional collaboration' to address thematic and methodological limitations. Meanwhile, Passage 3 demonstrates the utility of analyzing multi-stakeholder collaborations (university, industry, government, and NGOs) to identify and bridge research-to-practice gaps in developing regions.",
-    "Claim": "There is a lack of empirical research investigating the structural barriers, stakeholder dynamics, and policy frameworks that hinder or facilitate multi-sectoral (university-industry-government) and cross-border regional collaboration for MERS-CoV research and therapeutic development in the GCC.",
-    "Warrant": "Investigating these collaborative frameworks using multi-stakeholder qualitative or mixed-methods approaches is essential to design effective regional research networks, transition MERS-CoV studies from isolated epidemiological surveillance to collaborative translational medicine, and optimize resource allocation across the GCC.",
+    "Grounds": "The target paper relies on a manual systematic review of 188 articles to classify Social Entrepreneurship (SE) themes and identify gaps. However, Passage 2 highlights that traditional manual literature reviews are time-consuming, labor-intensive, and prone to bias, while Passage 1 demonstrates the utility of automated text mining and topic modeling for large-scale bibliometric analysis.",
+    "Claim": "There is a lack of automated, scalable text-mining and topic-modeling methodologies applied to the Social Entrepreneurship (SE) literature to objectively classify research themes and identify emerging research gaps.",
+    "Warrant": "Transitioning from manual classification to automated text mining and topic modeling would mitigate human bias and labor constraints, enabling researchers to analyze larger volumes of SE literature dynamically as the field rapidly evolves.",
     "Bucket": "more_probable",
-    "source_paper": "Human Middle East Respiratory Syndrome Coronavirus (MERS-CoV) research in the Gulf Cooperation Council Countries: A mapping scoping review of epidemiology, clade, and research priority gaps.",
+    "source_paper": "Social entrepreneurship research: A review and future research agenda",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper states that current research on service robots is fragmented, largely conceptual, and focused on the initial adoption stage, highlighting a need for empirical research on long-term usage, actual behaviors, and ethical risks. Passage 3 illustrates the heavy academic focus on initial adoption frameworks like the Technology Acceptance Model (TAM), which aligns with the target paper's critique of the literature's current limitations.",
+    "Claim": "There is a lack of empirical, longitudinal research investigating the long-term behavioral, psychological, and ethical impacts of service robots on customers and employees, as current literature remains dominated by conceptual frameworks and initial adoption models.",
+    "Warrant": "Although initial acceptance models (such as TAM) are widely researched, they fail to capture the ongoing socio-technical dynamics, employee well-being, and ethical risks associated with sustained, long-term human-robot collaboration in service environments. Empirical longitudinal studies are required to transition from theoretical acceptance to understanding actual long-term outcomes.",
+    "Bucket": "more_probable",
+    "source_paper": "Service robots, customers and service employees: what can we learn from the academic literature and where are the gaps?",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper conducts a manual five-step literature review of 69 papers to identify trends and knowledge gaps in lean manufacturing and sustainable performance. Passage 2 points out that traditional literature reviews are time-consuming, labor-intensive, and prone to bias, especially for rapidly evolving subjects, while Passage 1 demonstrates the use of text mining and topic modeling to identify gaps in literature.",
+    "Claim": "Current research lacks automated, scalable, and objective text-mining or topic-modeling frameworks to continuously synthesize and identify research gaps in the rapidly evolving literature on lean manufacturing and its multidimensional impact on the Triple Bottom Line (TBL).",
+    "Warrant": "By relying on manual synthesis, existing reviews on lean manufacturing and sustainability cannot easily scale to accommodate the growing volume of literature or dynamically resolve conflicting findings (trade-offs vs. complementarities) without subjective bias. Applying automated NLP and topic modeling techniques would provide a scalable, reproducible, and unbiased mapping of the domain's evolution.",
+    "Bucket": "more_probable",
+    "source_paper": "Lean manufacturing and sustainable performance: Trends and future challenges",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper relies on expert-driven and non-systematic literature searches to identify physical activity surveillance initiatives and analyze research gaps. Passage 2 highlights that these traditional manual methods of identifying research gaps are time-consuming, labor-intensive, and prone to bias, especially when dealing with rapidly evolving subjects. Passage 1 demonstrates the use of text mining and topic modeling to identify knowledge gaps in literature.",
+    "Claim": "There is a lack of automated, scalable computational frameworks (e.g., utilizing text mining, topic modeling, or knowledge graphs) to systematically identify, harmonize, and analyze methodological inconsistencies and research gaps in global physical activity surveillance data.",
+    "Warrant": "Applying automated text mining and topic modeling to global health surveillance literature can overcome the limitations of manual, expert-driven reviews by reducing bias, saving labor, and enabling continuous, scalable monitoring of inconsistencies across diverse international datasets.",
+    "Bucket": "more_probable",
+    "source_paper": "Global prevalence of physical activity for children and adolescents; inconsistencies, research gaps, and recommendations: a narrative review",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper notes that while ChatGPT is highly effective for article filtering and classification (88% accuracy), it exhibits significant limitations in its suitability for article/data extraction. Meanwhile, Passage 2 emphasizes that traditional methods for identifying research gaps are labor-intensive and biased, highlighting a critical need for scalable, automated gap-identification methods.",
+    "Claim": "Current LLM-based systematic review pipelines cannot reliably automate the identification of research gaps due to performance bottlenecks and inaccuracies in the underlying data extraction phase.",
+    "Warrant": "Automating the identification of research gaps requires precise extraction of specific variables, methodologies, and findings from full-text papers. Because ChatGPT and similar LLMs struggle with accurate data extraction (as shown in the target paper), any subsequent automated content analysis or gap identification will inherit these errors, rendering the automated gap detection unreliable without manual intervention.",
+    "Bucket": "more_probable",
+    "source_paper": "Harnessing the Power of ChatGPT for Automating Systematic Review Process: Methodology, Case Study, Limitations, and Future Directions",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper manually synthesizes 28 systematic and meta-analytic reviews to identify research gaps in neurocognitive functioning in eating disorders. However, Passage 2 highlights that traditional manual literature reviews are time-consuming, labor-intensive, and prone to bias, while Passage 1 demonstrates the utility of text mining and topic modeling to automate the identification of knowledge gaps in literature.",
+    "Claim": "There is a lack of automated, scalable text-mining and topic-modeling frameworks specifically designed to synthesize clinical neurocognitive literature and systematically identify research gaps, which currently relies on manual and bias-prone systematic reviews of reviews.",
+    "Warrant": "Developing NLP-driven topic modeling and text-mining pipelines for clinical databases would allow researchers to dynamically map neurocognitive domains, identify methodological inconsistencies, and extract research gaps with significantly reduced manual effort and bias compared to traditional review methods.",
+    "Bucket": "more_probable",
+    "source_paper": "A systematic review of reviews of neurocognitive functioning in eating disorders: The state of the literature and future directions",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper's systematic review of 104 publications reveals that existing TAM studies in higher education during the COVID-19 pandemic have focused mainly on student samples and quantitative analysis (specifically PLS-SEM), leaving lecturers, higher education personnel, and qualitative/mixed-method approaches underrepresented.",
+    "Claim": "There is a critical research gap in applying qualitative and mixed-method research designs to evaluate the Technology Acceptance Model (TAM) among non-student cohorts, such as lecturers and administrative personnel in higher education.",
+    "Warrant": "Understanding technology acceptance from the perspective of educators and staff using qualitative depth is essential for a holistic view of educational sustainability, as quantitative student-focused data fails to capture the institutional and pedagogical challenges faced by those implementing the technology.",
+    "Bucket": "more_probable",
+    "source_paper": "A Systematic Review of the Technology Acceptance Model for the Sustainability of Higher Education during the COVID-19 Pandemic and Identified Research Gaps",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper conducts a manual systematic review of 1,479 papers to identify trends and gaps in research on violence against healthcare in conflict. Passage 2 notes that traditional manual literature reviews are time-consuming, labor-intensive, and prone to bias, particularly for rapidly evolving subjects. Passage 1 demonstrates the application of text mining and topic modeling to automate bibliometric analysis and identify knowledge gaps in a large literature sample.",
+    "Claim": "There is a lack of automated, scalable text-mining and topic-modeling frameworks to dynamically analyze the growing literature on violence against healthcare in conflict to identify research gaps, taxonomy inconsistencies, and advocacy trends.",
+    "Warrant": "By integrating NLP-based topic modeling and text mining into the analysis of conflict-related healthcare literature, researchers can overcome the scalability and bias limitations of manual systematic reviews. This allows for real-time synthesis of heterogeneous data sources, helping to standardize taxonomy and track how documentation is utilized for advocacy and protection.",
+    "Bucket": "more_probable",
+    "source_paper": "Violence against healthcare in conflict: a systematic review of the literature and agenda for future research",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper utilizes a traditional systematic literature review (SLR) of 125 manual samples to identify research gaps in Malaysian corporate governance. However, Passage 2 points out that traditional literature reviews are time-consuming, labor-intensive, and prone to bias, suggesting a need for innovative scalable methods. Passage 1 shows that text mining and topic modeling can be used to analyze larger sets of literature to identify knowledge gaps.",
+    "Claim": "There is a lack of automated, scalable text mining and topic modeling approaches applied to the corporate governance literature in Malaysia to identify research gaps and map domain trends.",
+    "Warrant": "By transitioning from manual SLRs to automated text mining and topic modeling, researchers can analyze larger volumes of corporate governance literature, minimize subjective selection bias, and rapidly adapt to evolving corporate governance codes and publications.",
+    "Bucket": "more_probable",
+    "source_paper": "The development of corporate governance literature in Malaysia: a systematic literature review and research agenda",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper proposes a framework to advance theory by matching literature review types to the state of theory (nascent, intermediate, mature). However, Passage 2 points out that traditional literature reviews are time-consuming, labor-intensive, and prone to bias, suggesting a need for innovative, scalable methods. Furthermore, Passage 1 demonstrates the use of text mining and topic modeling to analyze large volumes of literature.",
+    "Claim": "There is a lack of automated, computational tools to operationalize the target paper's framework, specifically for automatically classifying the state of theory (nascent, intermediate, or mature) within a body of literature to guide the selection of review types.",
+    "Warrant": "Developing NLP and text-mining pipelines to analyze literature metadata and content can objectively determine the maturity of a field. This reduces the manual effort and bias of traditional reviews while enabling the systematic application of the target paper's theorization framework at scale.",
+    "Bucket": "more_probable",
+    "source_paper": "How to advance theory through literature reviews in logistics and supply chain management",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper utilizes a traditional systematic literature review of 101 articles to identify research gaps in rural hospitality and tourism (RHT) entrepreneurship, while Passage 2 notes that traditional review methods are labor-intensive, time-consuming, and prone to bias compared to innovative, scalable computational methods.",
+    "Claim": "There is a lack of automated, scalable text-mining and topic-modeling approaches applied to synthesizing the literature on RHT entrepreneurship.",
+    "Warrant": "Applying computational literature profiling methods would reduce human bias and allow researchers to dynamically analyze larger volumes of evolving RHT literature beyond the limitations of manual reviews.",
+    "Bucket": "more_probable",
+    "source_paper": "Entrepreneurship in rural hospitality and tourism. A systematic literature review of past achievements and future promises",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper's abstract states that literature on technology adoption in the apparel industry focuses mainly on the diffusion of innovation and the theory of reasoned action, and highlights a lack of investigations using the technology-organization-environment (TOE) framework and institutional theories.",
+    "Claim": "There is a critical research gap in applying the Technology-Organization-Environment (TOE) framework and institutional theories to study technology adoption within the apparel industry.",
+    "Warrant": "While individual-level adoption models (such as TAM, DOI, and TRA) are widely utilized across domains to study technology acceptance, they fail to capture the organizational, environmental, and regulatory pressures unique to the apparel supply chain. Integrating TOE and institutional theories would address this gap by providing a multi-level perspective on how organizational readiness, environmental factors, and institutional pressures influence technology adoption in this sector.",
+    "Bucket": "more_probable",
+    "source_paper": "Technology adoption in the apparel industry: insight from literature review and research directions",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper relies on a manual literature review to identify a disciplinary gap between agro-ecological and socio-economic approaches in Malawi's conservation agriculture. Passage 2 highlights that traditional manual literature reviews for identifying research gaps are time-consuming, labor-intensive, and prone to bias, while Passage 1 demonstrates the utility of text mining and topic modeling to systematically identify knowledge gaps in literature.",
+    "Claim": "There is a lack of automated, scalable, and NLP-driven methodologies to systematically identify and bridge interdisciplinary research gaps (such as the divide between agro-ecological and socio-economic factors in conservation agriculture) from heterogeneous literature databases.",
+    "Warrant": "Applying automated text mining, topic modeling, and bibliometric analysis to multi-disciplinary literature corpuses can objectively map the intersections of disparate fields, identifying hidden gaps and integration points (e.g., the 'why' of technology adoption) far more rapidly and with less bias than manual qualitative reviews.",
+    "Bucket": "more_probable",
+    "source_paper": "Bridging the disciplinary gap in conservation agriculture research, in Malawi. A review",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper conducts a literature review of 164 papers using mixed bibliographic and bibliometric methods to identify gaps in CEM project success. Passage 2 states that traditional literature reviews for identifying research gaps are time-consuming, labor-intensive, and prone to bias, highlighting the need for innovative, scalable methods.",
+    "Claim": "There is a lack of automated, scalable computational frameworks (such as text mining or topic modeling) to identify and monitor research gaps in the Construction Engineering and Management (CEM) project success domain.",
+    "Warrant": "Applying automated gap-identification techniques to CEM literature would overcome the scalability and bias limitations of traditional manual bibliometric reviews, allowing researchers to dynamically track evolving trends and gaps in project success factors.",
+    "Bucket": "more_probable",
+    "source_paper": "Identifying the gaps in project success research",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper manually screened over 5,000 articles to conduct a systematic review of refugee health research in Canada, identifying gaps such as the lack of cardiovascular disease research. Passage 2 notes that traditional literature reviews for identifying research gaps are time-consuming, labor-intensive, and prone to bias, while Passage 1 demonstrates the use of text mining and topic modeling to automate gap identification in other domains.",
+    "Claim": "There is a lack of automated, scalable text-mining and topic-modeling frameworks applied to the domain of refugee health literature to dynamically identify research gaps and trends without relying on manual systematic reviews.",
+    "Warrant": "By integrating natural language processing (NLP) and topic modeling techniques, researchers can systematically parse large corpuses of public health literature to automatically cluster research themes, detect underrepresented medical conditions (like cardiovascular diseases), and track temporal trends, thereby mitigating the manual labor and bias inherent in traditional review methodologies.",
+    "Bucket": "more_probable",
+    "source_paper": "Identifying Gaps in Health Research among Refugees Resettled in Canada",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper relies on manual content analysis of 101 papers to identify research gaps in the Airbnb and P2P accommodation literature, particularly focusing on recent shifts like COVID-19. However, Passage 2 points out that traditional literature reviews for identifying research gaps are time-consuming, labor-intensive, and prone to bias, especially for rapidly evolving subjects. Passage 1 demonstrates the use of text mining and topic modeling for bibliometric analysis to identify gaps in large datasets.",
+    "Claim": "There is a lack of automated, scalable bibliometric and topic modeling approaches applied to map the rapidly evolving literature on P2P accommodation sharing and systematically identify research gaps.",
+    "Warrant": "By transitioning from manual content analysis to automated text mining and topic modeling, researchers can analyze a much larger corpus of P2P accommodation literature without the constraints of manual labor and subjective bias, allowing for real-time tracking of emerging trends like post-COVID-19 recovery and macro-level impacts.",
+    "Bucket": "more_probable",
+    "source_paper": "Airbnb phenomenon: a review of literature and future research directions",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper relies on a manual scoping review of 832 papers to identify research gaps in Baltic coastal eutrophication, while Passage 2 notes that traditional manual literature reviews for gap identification are time-consuming, labor-intensive, and prone to bias, highlighting the need for scalable, automated methods.",
+    "Claim": "There is a lack of automated, scalable text-mining and NLP-based frameworks to systematically identify research gaps in environmental science domains like coastal eutrophication, which currently depend on manual scoping reviews.",
+    "Warrant": "By developing and applying automated text-mining, topic modeling, or knowledge graph-based extraction techniques to large environmental science corpuses, researchers can rapidly and objectively map research trends, identify understudied areas (such as legacy nutrient sources or remote sensing applications), and reduce the manual labor of reviewing hundreds of papers.",
+    "Bucket": "more_probable",
+    "source_paper": "Gap identification in coastal eutrophication research - Scoping review for the Baltic system case.",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper utilizes a manual, expert-driven Delphi consensus survey involving 43 experts over four rounds to identify and prioritize 1,422 trauma research gaps. Conversely, Passage 2 points out that traditional expert-opinion and literature review methods for identifying research gaps are highly time-consuming, labor-intensive, and prone to bias, highlighting the need for innovative, scalable, and automated approaches.",
+    "Claim": "There is a lack of automated, scalable computational frameworks (such as text mining, NLP, or knowledge graph analysis) to systematically identify and prioritize clinical research gaps in trauma care, which currently relies on resource-intensive manual consensus methodologies.",
+    "Warrant": "Developing automated gap-detection tools for clinical literature would significantly reduce the time, labor, and subjective bias inherent in manual Delphi processes, allowing for more rapid, objective, and continuously updated national research agendas.",
+    "Bucket": "more_probable",
+    "source_paper": "Developing a National Trauma Research Action Plan: Results from the acute resuscitation, initial patient evaluation, imaging, and management research gap Delphi survey",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper conducts a systematic literature review on startups using traditional bibliometric tools (HistCite, VOSviewer, R Studio) and manual reading of 68% of the articles. Passage 2 notes that traditional literature review methods for identifying research gaps are time-consuming, labor-intensive, prone to bias, and fall short when dealing with rapidly evolving subjects.",
+    "Claim": "There is a lack of scalable, automated, and dynamic research gap identification methods applied to the rapidly evolving domain of startup literature, which currently relies on static and labor-intensive systematic reviews.",
+    "Warrant": "Startups represent a highly dynamic and rapidly evolving field. Applying automated text mining, topic modeling, or knowledge graph-based gap detection would overcome the limitations of manual systematic reviews by reducing bias, saving labor, and enabling real-time tracking of emerging startup trends.",
+    "Bucket": "more_probable",
+    "source_paper": "Startups: a systematic review of literature and future research directions",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper's systematic literature review of 24 primary studies reveals that existing research at the intersection of unstructured data and process mining predominantly focuses on textual data and event log extraction for process discovery. Additionally, Passage 2 highlights that traditional manual literature reviews are labor-intensive and prone to bias, which limits the rapid identification of such evolving research trends.",
+    "Claim": "There is a lack of research on leveraging non-textual unstructured data (such as image and video data) and applying unstructured data analysis to process mining phases beyond process discovery, such as conformance checking and process enhancement.",
+    "Warrant": "Process mining requires multi-modal data inputs to accurately reflect complex real-world processes. Restricting unstructured data integration to text-based event log extraction limits the ability of process mining tools to perform advanced conformance checking or enhancement using rich visual or auditory data sources.",
+    "Bucket": "more_probable",
+    "source_paper": "Unstructured Data in Process Mining: A Systematic Literature Review",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper reveals that 49.4% of justice health abstracts failed to mention any population characteristics and only 1.3% reported all four, indicating poor adherence to reporting guidelines despite their existence. The study utilized a rule-based text mining method to extract these characteristics. Passage 2 notes that traditional methods for identifying research gaps and analyzing literature are time-consuming and prone to bias, necessitating scalable and innovative methods. Passage 1 demonstrates the utility of combining text mining with topic modeling to identify knowledge gaps in literature databases.",
+    "Claim": "There is a lack of automated, scalable NLP frameworks that combine machine learning-based Named Entity Recognition (NER) and topic modeling to systematically audit, monitor, and classify the compliance of justice health literature with population reporting guidelines.",
+    "Warrant": "While rule-based text mining can identify predefined keywords, it lacks the semantic flexibility to capture diverse reporting styles and latent thematic gaps. Developing an advanced NLP pipeline with machine learning-based NER and topic modeling would allow researchers and journal editors to automatically evaluate abstract completeness, track compliance trends, and dynamically identify underrepresented research populations without manual rule definition.",
+    "Bucket": "more_probable",
+    "source_paper": "Population Characteristics in Justice Health Research Based on PubMed Abstracts From 1963 to 2023: Text Mining Study",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper applies text mining and topic analysis to a small, manually screened dataset of 86 records to identify research gaps in canine bacterial endocarditis. Passage 1 similarly applies these techniques to a limited dataset of 987 publications on ostrich welfare. Passage 2 highlights that traditional methods for identifying research gaps are time-consuming, labor-intensive, and prone to bias, indicating a need for innovative and scalable methods.",
+    "Claim": "There is a lack of scalable, automated, and cross-domain text mining frameworks capable of dynamically identifying and synthesizing research gaps across diverse veterinary medicine literatures without relying on manual, study-specific systematic review protocols.",
+    "Warrant": "Current applications of text mining and topic modeling in veterinary literature reviews are constrained to small, manually curated datasets and require manual screening (e.g., PRISMA guidelines). Developing automated, scalable NLP pipelines that integrate cross-domain knowledge graphs and dynamic topic modeling would overcome the labor-intensive and biased nature of traditional literature reviews, allowing for real-time gap detection in rapidly evolving scientific fields.",
+    "Bucket": "more_probable",
+    "source_paper": "Canine Bacterial Endocarditis: A Text Mining and Topics Modeling Analysis as an Approach for a Systematic Review",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper highlights that applying NLP to extract ingredient-property relations in bioplastics is challenging due to the unstructured and heterogeneous nature of the literature, which demands ad hoc fine-tuning strategies for state-of-the-art language models like MatBERT. Meanwhile, Passage 2 notes that traditional manual methods for identifying research gaps are time-consuming and prone to bias, emphasizing the need for scalable, automated approaches.",
+    "Claim": "There is a lack of domain-specific, fine-tuned language models and automated NLP workflows designed to handle the unstructured and heterogeneous literature of bioplastics for systematic research gap identification and formulation optimization.",
+    "Warrant": "Without ad hoc fine-tuning, general materials-science language models struggle with the diverse terminology and unstructured data formats characteristic of bioplastics literature. Developing specialized fine-tuning strategies and automated pipelines is essential to reliably extract ingredient-property relationships and discover underrepresented material formulations at scale.",
+    "Bucket": "more_probable",
+    "source_paper": "Seaweed-Based Bioplastics: Data Mining Ingredient-Property Relations from the Scientific Literature",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper utilizes BERTopic semantic text mining to identify thematic trajectories and manually diagnose research gaps in Sustainable Business Management (SBM) within Higher Education Institutions (HEIs). However, Passage 2 highlights that traditional methods of identifying research gaps are time-consuming, labor-intensive, and prone to bias, creating a need for innovative, scalable methods in rapidly evolving subjects.",
+    "Claim": "There is a lack of automated, scalable, and objective NLP frameworks designed to directly extract, classify, and map research gaps (such as methodological limitations or geographical imbalances) from scientific literature, rather than relying on manual interpretation of topic modeling outputs.",
+    "Warrant": "While topic modeling algorithms like BERTopic can cluster literature into thematic topics, they do not automatically identify or categorize the nature of research gaps (e.g., contradictory findings, lack of empirical data, or geographic bias). Developing specialized NLP pipelines that combine semantic clustering with sentiment analysis, contradiction detection, or meta-data analysis is necessary to automate the identification of research gaps.",
+    "Bucket": "more_probable",
+    "source_paper": "Sustainable Business Management in Higher Education Institutions: A Strategic Roadmap for Addressing Research Gaps and Shaping the Forthcoming Agenda",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper utilizes text mining to analyze 484 papers to identify knowledge gaps in digital health IS research. Meanwhile, Passage 2 highlights that traditional methods for identifying research gaps are time-consuming, labor-intensive, and prone to bias, creating a need for innovative, scalable methods to handle rapidly evolving subjects.",
+    "Claim": "There is a lack of automated, scalable, and standardized text-mining frameworks specifically designed to dynamically detect and map evolving research gaps in rapidly expanding scientific domains.",
+    "Warrant": "Although the target paper and Passage 1 demonstrate the ad-hoc application of text mining to identify gaps in specific domains (digital health and ostrich welfare), they do not provide a generalized, scalable, and automated methodology to systematically address the limitations of traditional, bias-prone literature reviews in rapidly changing fields.",
+    "Bucket": "more_probable",
+    "source_paper": "Advancing digital health in information systems research: Insights from a text mining analysis",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper utilizes a text-mining approach (LDA) on a small dataset of 162 articles to identify research gaps in family firm sustainability. Meanwhile, Passage 2 points out that traditional methods of identifying research gaps are time-consuming, labor-intensive, and prone to bias, especially in rapidly evolving fields, indicating a need for innovative, scalable automated methods.",
+    "Claim": "There is a lack of scalable, automated methodologies to dynamically identify and synthesize research gaps across large, rapidly evolving scientific literatures, as current text-mining applications remain restricted to static, small-scale topic modeling that requires heavy manual interpretation.",
+    "Warrant": "While LDA can extract latent topics from a small corpus (162 papers), it does not automatically pinpoint specific 'unanswered questions' or research gaps. Scaling this to thousands of papers in rapidly changing domains requires advanced, automated gap-detection algorithms that go beyond basic topic modeling to minimize human bias and labor.",
+    "Bucket": "more_probable",
+    "source_paper": "Past, present and future of family firms and their sustainability developments: a text-mining approach",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper proposes a manual, structured systematic mapping protocol to identify evidence and research gaps regarding nature-based solutions (NbS) in aquaculture. Passage 2 highlights that traditional literature review methods for identifying research gaps are time-consuming, labor-intensive, and prone to bias, requiring innovative scalable methods. Passage 1 demonstrates that text mining and topic modeling can be successfully used to automate the identification of knowledge gaps in large literature datasets.",
+    "Claim": "There is a lack of automated, scalable text-mining and topic-modeling workflows to systematically map and identify research gaps in nature-based aquaculture systems, which currently rely on manual and labor-intensive systematic mapping protocols.",
+    "Warrant": "Integrating automated text-mining and topic-modeling techniques into the evidence-synthesis process for aquaculture NbS would mitigate the time constraints and potential biases of traditional manual systematic maps, enabling a more rapid and objective characterization of environmental outcomes.",
+    "Bucket": "more_probable",
+    "source_paper": "What evidence exists for the environmental outcomes of nature-based aquaculture systems? a systematic map protocol.",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper establishes the PRISMA-ScR guidelines to improve the reporting and conduct of scoping reviews, which are widely used to identify research gaps. However, Passage 2 points out that traditional literature review methods for identifying these gaps are highly time-consuming, labor-intensive, and prone to human bias.",
+    "Claim": "There is a lack of automated, scalable, and computationally objective methods to systematically identify research gaps in scientific literature, leaving researchers reliant on manual scoping review processes.",
+    "Warrant": "While guidelines like PRISMA-ScR standardize the reporting of manual scoping reviews, they do not alleviate the manual effort required. Developing NLP and text-mining frameworks to automate the detection of research gaps would address the scalability limitations of traditional scoping reviews, especially in rapidly growing fields.",
+    "Bucket": "more_probable",
+    "source_paper": "PRISMA Extension for Scoping Reviews (PRISMA-ScR): Checklist and Explanation",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper notes that systematic literature reviews (SLRs) often lack replicability and impact due to scattered guidelines and a lack of structured guidance on presenting findings. Conversely, Passage 2 highlights that traditional literature review methods for identifying research gaps are time-consuming, labor-intensive, and prone to bias, requiring innovative and scalable methods.",
+    "Claim": "Current SLR guidelines lack integration with automated, scalable computational tools (such as text mining and topic modeling) to assist researchers in executing the selection, synthesis, and gap-identification steps of the review process.",
+    "Warrant": "While the target paper provides a conceptual 6-step and 14-decision framework to improve SLR quality, executing these steps manually remains highly labor-intensive and susceptible to human bias. Incorporating automated text-mining and topic-modeling techniques (as hinted in Passage 1 and 2) into the SLR selection and synthesis steps would scale the process and improve objectivity.",
+    "Bucket": "more_probable",
+    "source_paper": "How to conduct systematic literature reviews in management research: a guide in 6 steps and 14 decisions",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper conducts a manual systematic literature review to identify gaps in drought vulnerability and risk assessments, such as the lack of validation (only 11%) and future scenarios (only 10%). Passage 2 notes that traditional literature reviews for identifying research gaps are time-consuming, labor-intensive, and prone to bias. Passage 1 demonstrates the use of text mining and topic modeling to automate gap identification in literature.",
+    "Claim": "There is a lack of automated, scalable text-mining and topic-modeling frameworks to systematically identify and map research gaps in drought vulnerability and risk assessment literature.",
+    "Warrant": "Applying natural language processing and topic modeling to the rapidly growing body of drought risk literature would mitigate the manual labor and subjective bias of traditional systematic reviews, enabling more dynamic and comprehensive tracking of research trends and gaps.",
+    "Bucket": "more_probable",
+    "source_paper": "Drought vulnerability and risk assessments: state of the art, persistent gaps, and research agenda",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper highlights a split in AI customer-facing financial services research, noting that most studies focus on credit scoring performance or consumer adoption in banking. It calls for research extending theoretical perspectives (such as actor networks) to other financial contexts like insurance and pensions, while addressing regulation, ethics, and policy. Passage 3 discusses the prominence of the Technology Acceptance Model (TAM) in understanding technology adoption trends.",
+    "Claim": "There is a lack of research applying and extending comprehensive theoretical frameworks (such as actor-network theory or advanced technology acceptance models) to investigate consumer behaviors, regulation, ethics, and policy within non-banking financial services like insurance and pensions.",
+    "Warrant": "While technology acceptance models are widely used to study user adoption, their application to AI in financial services has been largely restricted to banking. Extending these theoretical perspectives to non-banking sectors is critical to understanding the unique socio-technical, ethical, and regulatory dynamics of AI in insurance and pensions.",
+    "Bucket": "more_probable",
+    "source_paper": "Artificial intelligence in customer-facing financial services: a systematic literature review and agenda for future research",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper highlights that existing electronic payment adoption theories fail to account for social and cultural facets, and notes a lack of systematic reviews. Passage 2 points out that traditional literature reviews for identifying research gaps are labor-intensive, prone to bias, and struggle with rapidly evolving subjects. Passage 3 shows that technology acceptance models (TAM) are evolving rapidly, creating a gap in understanding their directions.",
+    "Claim": "There is a lack of scalable, automated literature synthesis methods to systematically map the rapid evolution of digital payment adoption theories, specifically regarding the integration of social and cultural factors into technology acceptance models.",
+    "Warrant": "Applying scalable, automated text-mining or topic-modeling approaches to literature analysis can mitigate the bias and labor constraints of traditional reviews, enabling a systematic and up-to-date synthesis of how social and cultural variables are integrated into digital payment adoption frameworks.",
+    "Bucket": "more_probable",
+    "source_paper": "The Evolving Research of Customer Adoption of Digital Payment: Learning from Content and Statistical Analysis of the Literature",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper conducts a manual Systematic Literature Review (SLR) to categorize nature-inspired algorithms in IoT-based healthcare and identify research gaps. Passage 2 notes that traditional literature reviews are time-consuming, labor-intensive, and prone to bias, especially in rapidly evolving fields. Passage 1 demonstrates the application of text mining and topic modeling to automate literature analysis and gap identification.",
+    "Claim": "There is a lack of automated, scalable, and text-mining-driven frameworks to dynamically identify research gaps and track algorithmic trends in IoT-based healthcare, leaving researchers dependent on manual and static systematic literature reviews.",
+    "Warrant": "As nature-inspired algorithms and IoT technologies evolve rapidly, manual SLRs quickly become outdated. Applying automated text mining and topic modeling can scale the identification of emerging algorithms, integration challenges, and security considerations without the labor-intensiveness and bias inherent in traditional review methodologies.",
+    "Bucket": "more_probable",
+    "source_paper": "The applications of nature‐inspired algorithms in Internet of Things‐based healthcare service: A systematic literature review",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper's systematic review of 30 studies on drug reminder packaging reveals that while there is a positive effect on medication adherence, there are critical gaps in the literature, specifically a lack of data on humanistic and economic outcomes, as well as neglected safety issues. Additionally, Passage 2 highlights that traditional literature reviews to identify such gaps are labor-intensive and prone to bias, indicating a need for more robust and standardized reporting.",
+    "Claim": "There is a lack of evidence and systematic evaluation regarding the economic viability, humanistic outcomes, and safety implications of drug reminder packaging interventions.",
+    "Warrant": "Evaluating clinical adherence alone is insufficient for widespread healthcare adoption; researchers must integrate economic cost-benefit analyses, patient-reported humanistic outcomes (such as quality of life), and safety assessments to determine the holistic feasibility and safety of drug reminder packaging.",
+    "Bucket": "more_probable",
+    "source_paper": "Effect of drug reminder packaging on medication adherence: a systematic review revealing research gaps",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper relies on a manual systematic literature review using the TCCM framework to identify research gaps in marketing standardization/adaptation. However, Passage 2 highlights that traditional literature reviews are time-consuming, labor-intensive, and prone to bias, creating a need for innovative, scalable methods. Passage 1 shows how text mining and topic modeling can automate the identification of knowledge gaps in literature.",
+    "Claim": "There is a lack of automated, scalable computational approaches (such as text mining, topic modeling, or knowledge graphs) applied to synthesize literature and identify research gaps in the marketing standardization/adaptation domain, which currently relies on manual and potentially biased review frameworks.",
+    "Warrant": "Applying automated text mining and NLP techniques to the marketing standardization/adaptation literature would mitigate the limitations of manual TCCM reviews by reducing human bias, saving labor, and enabling real-time updates as new studies emerge.",
+    "Bucket": "more_probable",
+    "source_paper": "Performance consequences of marketing standardization/adaptation: A systematic literature review and future research agenda",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper utilizes a combination of bibliometric and network analysis to map historical trends and academic branches in design research. However, Passage 2 highlights that traditional methods for identifying research gaps are time-consuming and prone to bias, creating a critical need for scalable, automated methods to detect unexplored research gaps, especially in rapidly evolving fields.",
+    "Claim": "Existing text mining and bibliometric frameworks for trend analysis lack the capability to dynamically and automatically detect unexplored research gaps (unanswered questions or missing thematic links) rather than merely mapping existing thematic clusters and historical trends.",
+    "Warrant": "While retrospective bibliometric and network analyses are effective at clustering published literature and showing historical evolution, they do not integrate predictive algorithms or semantic gap-detection techniques (such as identifying structural holes in co-occurrence networks or semantic voids in topic models) to systematically highlight what is missing or under-researched in a domain.",
+    "Bucket": "more_probable",
+    "source_paper": "Using Text Mining Techniques to Identify Research Trends: A Case Study of Design Research",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper highlights a lack of clarity and transparency in science mapping and calls for the deployment of text mining techniques to support bibliometric analysis. Meanwhile, Passage 2 notes that traditional methods for identifying research gaps are time-consuming, labor-intensive, and prone to bias, requiring innovative and scalable alternatives.",
+    "Claim": "There is a lack of integrated, transparent, and automated text-mining frameworks within science mapping to systematically detect and visualize research gaps in rapidly expanding scientific domains.",
+    "Warrant": "By combining text mining techniques (such as topic modeling and semantic analysis) with science mapping, researchers can transition from subjective, manual literature reviews to scalable, algorithmic pipelines that objectively identify underrepresented research areas and structural gaps in bibliometric networks.",
+    "Bucket": "more_probable",
+    "source_paper": "When text mining meets science mapping in the bibliometric analysis: A review and future opportunities",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper identifies a lack of scientific rigor in validating software risk management (RM) studies, a deficiency in using standards/de facto models, and a shift away from integrated RM processes. Passage 2 highlights that traditional literature reviews for identifying research gaps in rapidly evolving fields are time-consuming, labor-intensive, and prone to bias.",
+    "Claim": "There is a critical gap in the availability of scientifically rigorous, standardized, and integrated software risk management frameworks, as well as a lack of automated, scalable methods to track and validate these rapidly evolving practices.",
+    "Warrant": "As software engineering rapidly evolves, manual systematic reviews struggle to keep pace with emerging RM challenges. Developing standardized, integrated RM frameworks validated with scientific rigor, alongside scalable gap-analysis tools, is necessary to ensure robust project execution and reduce bias in software engineering research.",
+    "Bucket": "more_probable",
+    "source_paper": "Risk management in the software life cycle: A systematic literature review",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper conducts a systematic literature review of 75 papers on 'masstige' marketing using manual coding, inductive analysis, and the SPAR-4/TCCM protocols to identify research gaps. However, Passage 2 points out that traditional literature reviews and manual gap identification methods are time-consuming, labor-intensive, and prone to bias. Furthermore, Passage 1 highlights the utility of text mining and topic modeling techniques in conducting systematic reviews to identify knowledge gaps.",
+    "Claim": "There is a lack of automated, scalable computational approaches (such as text mining and topic modeling) applied to the masstige marketing literature to identify research gaps, leaving current reviews reliant on subjective and labor-intensive manual coding methods.",
+    "Warrant": "Transitioning from manual coding protocols (like Corbin and Strauss coding) to automated text mining and topic modeling would reduce human bias, lower the labor overhead of reviewing literature, and enable a more objective, scalable synthesis of rapidly evolving marketing research.",
+    "Bucket": "more_probable",
+    "source_paper": "Two decades of research on “masstige” marketing: A systematic literature review and future research agenda",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper proposes a manual protocol involving two reviewers screening on Rayyan and extracting data in SPSS to map methodological gaps in gray literature searching. Meanwhile, Passage 2 highlights that traditional literature review methods for identifying research gaps are time-consuming, labor-intensive, and prone to bias, suggesting a need for scalable, innovative methods.",
+    "Claim": "There is a lack of automated, scalable text-mining or NLP-based approaches to identify and map methodological gaps in gray literature searching within population health systematic reviews in the MENA region.",
+    "Warrant": "Relying solely on manual screening and extraction is resource-intensive and limits the scalability of evidence mapping. Integrating automated text mining or topic modeling techniques could reduce human bias and accelerate the identification of gaps in gray literature usage across large volumes of literature.",
+    "Bucket": "more_probable",
+    "source_paper": "Gray literature in systematic reviews on population health in the Middle East and North Africa: protocol of an overview of systematic reviews and evidence mapping",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper identifies a lack of standardized frameworks for evaluating ecosystem services of small ruminant farming in mountain areas, which limits global comparison, and notes that insufficient attention has been given to ecosystem disservices. Additionally, Passage 2 highlights that traditional literature review methods for identifying research gaps are time-consuming and prone to bias, indicating a need for scalable, innovative methods.",
+    "Claim": "There is a lack of standardized, automated, and scalable frameworks to systematically evaluate, monitor, and compare both ecosystem services and disservices of small ruminant farming globally.",
+    "Warrant": "Integrating advanced tools like AI, remote sensing, and automated text mining can overcome the limitations of traditional, labor-intensive literature reviews while establishing the universal assessment frameworks needed to compare global findings on ecosystem services and disservices.",
+    "Bucket": "more_probable",
+    "source_paper": "Ecosystem Services Linked to Extensive Sheep and Goat Farming in Mountain Areas: A Global Literature Analysis Using Text Mining and Topic Analysis",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper utilizes BERTopic to analyze 3,941 publications from 2023-2024 to identify research trends and gaps in the rapidly growing field of LLMs in medicine. Meanwhile, Passage 2 highlights that traditional methods for identifying research gaps are time-consuming, biased, and inadequate for rapidly evolving or time-sensitive subjects, calling for innovative and scalable approaches.",
+    "Claim": "There is a lack of automated, scalable frameworks that combine advanced topic modeling (such as BERTopic) with semantic gap-detection algorithms to dynamically identify and validate actual research gaps in rapidly evolving scientific domains.",
+    "Warrant": "Although topic modeling tools like BERTopic can cluster large volumes of literature to show dominant themes, they do not inherently distinguish between a high volume of low-quality papers and genuine, unaddressed research questions. Developing automated pipelines that pair topic modeling with semantic analysis of 'future work' or 'limitations' sections is required to scale gap identification in fast-moving fields like medical AI.",
+    "Bucket": "more_probable",
+    "source_paper": "LLM-Based Generative AI in Medicine: Analysis of Current Research Trends With BERTopic",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper highlights the rapid growth of pharmacogenomics literature and the use of text mining to extract entities (drugs, genes, phenotypes) and relationships to build knowledge maps. Passage 2 notes that traditional methods for identifying research gaps are time-consuming, labor-intensive, and prone to bias, creating a need for innovative, scalable automated methods.",
+    "Claim": "There is a lack of automated, scalable text-mining frameworks specifically designed to systematically detect and map research gaps (such as unexplored gene-drug-phenotype interactions or conflicting findings) in the rapidly expanding pharmacogenomics literature.",
+    "Warrant": "While current text-mining techniques in pharmacogenomics focus on extracting known entities and relationships to build knowledge maps, they do not explicitly model or identify 'gaps' (unanswered questions or under-researched areas). Integrating automated gap-detection algorithms with pharmacogenomic relation extraction would allow researchers to systematically and rapidly identify unexplored pathways or conflicting evidence without relying on manual, bias-prone literature reviews.",
+    "Bucket": "more_probable",
+    "source_paper": "Teaching computers to read the pharmacogenomics literature … so you don’t have to",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper utilizes quantitative text analysis (word extraction, cluster analysis, and correspondence analysis) to identify trends and gaps in fisheries literature. Passage 1 applies text mining and topic modeling to ostrich welfare literature, while Passage 2 highlights that traditional manual methods for identifying research gaps are time-consuming, labor-intensive, and prone to bias, necessitating scalable and innovative methods.",
+    "Claim": "There is a lack of automated, scalable, and domain-agnostic text mining frameworks that leverage advanced semantic NLP techniques and knowledge graphs to systematically detect and classify research gaps across diverse scientific literatures without relying on manual term coding.",
+    "Warrant": "Current domain-specific studies rely on manual term coding or basic statistical text analysis (like word co-occurrence and correspondence analysis), which are difficult to scale to other fields. By integrating advanced NLP (such as neural topic modeling) with knowledge graphs, researchers can automate the semantic mapping of literature to detect actual knowledge gaps (unanswered questions or conflicting results as defined in Passage 2) dynamically and at scale.",
+    "Bucket": "more_probable",
+    "source_paper": "Text mining in fisheries scientific literature: A term coding approach",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper highlights that empirical studies on sustainable procurement risks remain limited, particularly in the Australian construction sector, and notes a lack of integrated risk management strategies. Additionally, Passage 2 points out that traditional methods for identifying research gaps and risks (such as manual literature reviews) are time-consuming, labor-intensive, and prone to bias.",
+    "Claim": "There is a lack of empirical research and integrated risk management frameworks addressing sustainable procurement risks in the construction industry, particularly within specific regional contexts like Australia, which is compounded by a reliance on traditional, manual literature review methods to identify these evolving risks.",
+    "Warrant": "Integrating text-mining and natural language processing (NLP) techniques with empirical regional studies can overcome the limitations of traditional manual reviews, allowing researchers and practitioners to dynamically identify, categorize, and mitigate sustainable procurement risks in construction.",
+    "Bucket": "more_probable",
+    "source_paper": "Identifying risks in sustainable procurement for construction: a systematic literature review and text-mining approach",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper utilizes traditional systematic literature review (SLR) methods, PRISMA guidelines, and basic text mining/topic analysis to identify research gaps in ostrich welfare. However, Passage 1 highlights that traditional literature reviews for identifying research gaps are time-consuming, labor-intensive, prone to bias, and struggle with rapidly evolving subjects, necessitating innovative and scalable methods.",
+    "Claim": "There is a lack of automated, scalable, and bias-reduced research gap identification frameworks applied to niche animal welfare domains like ostrich farming, which currently rely on manual or semi-automated systematic literature reviews.",
+    "Warrant": "By developing and applying automated, scalable gap-detection algorithms (as suggested by Passage 1's critique of traditional reviews) to the ostrich welfare literature, researchers can dynamically identify emerging welfare concerns and management gaps without the labor-intensive and bias-prone constraints of traditional PRISMA-based text mining.",
+    "Bucket": "more_probable",
+    "source_paper": "Text Mining and Topic Analysis for Ostriches’ Welfare Based on Systematic Literature Review from 1983 to 2023",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper highlights a critical need for further investigation into the direct link between fish welfare and antimicrobial use/antibiotic resistance (AMU/AR) in aquaculture. Additionally, Passage 2 points out that traditional literature review methods for identifying such research gaps are time-consuming and prone to bias, indicating a need for innovative, scalable methods.",
+    "Claim": "There is a lack of integrated, data-driven frameworks that systematically analyze and quantify the direct relationship between fish welfare indicators and antimicrobial resistance (AMU/AR) trends in aquaculture.",
+    "Warrant": "While text mining and topic modeling can identify broad research themes (as shown in the target paper and Passage 1), they do not automatically model the causal or correlational links between distinct domains like animal welfare and pharmacology. Developing scalable, automated gap-detection methods (Passage 2) specifically tailored to cross-domain relationships is necessary to bridge the One Health policy goals with empirical aquaculture data.",
+    "Bucket": "more_probable",
+    "source_paper": "Text mining and topic modeling insights on fish welfare and antimicrobial use in aquaculture",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper notes that typical bibliometric methods fail to capture nuanced semantic connections in research topics, while Passage 2 highlights that traditional literature reviews for identifying research gaps are time-consuming, labor-intensive, and prone to bias.",
+    "Claim": "There is a lack of automated, scalable, and semantics-aware literature analysis workflows capable of dynamically mapping research trends and identifying research gaps in rapidly growing scientific domains without relying on manual, bias-prone reviews.",
+    "Warrant": "Integrating context-aware word embeddings (like Word2Vec) with clustering algorithms (like K-means) and co-occurrence matrices allows for the extraction of semantic relationships between key phrases rather than single keywords, overcoming the scalability limits of traditional reviews and the low resolution of standard bibliometrics.",
+    "Bucket": "more_probable",
+    "source_paper": "Mapping the Evolution of Mathematical Geoscience Research with Big Literature Data and Context-Aware Text Mining",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper notes that despite academic interest, only 18 records were found in the Scopus database regarding nutraceuticals for Canine Leishmaniosis (CanL), indicating a significant literature gap. Additionally, Passage 2 highlights that traditional methods for identifying research gaps are time-consuming, labor-intensive, and prone to bias, suggesting a need for innovative, scalable methods.",
+    "Claim": "There is a lack of automated, low-resource text mining and topic modeling frameworks designed to reliably identify research gaps and trends in niche veterinary medical domains with extremely limited literature (e.g., less than 20 publications).",
+    "Warrant": "Applying standard text mining and topic analysis to very small datasets (like the 18 records in the target paper) limits the statistical reliability and depth of the identified topics. Developing specialized NLP techniques for low-resource corpora is necessary to scale gap identification without the bias of manual screening.",
+    "Bucket": "more_probable",
+    "source_paper": "Trends and Gaps in the Scientific Literature about the Effects of Nutritional Supplements on Canine Leishmaniosis",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper utilizes standard text-mining techniques (term-frequency, lexical classification, and co-occurrence networks) to map agricultural sustainability literature, noting a heavy bias toward environmental dimensions over social/economic ones. Meanwhile, Passage 2 highlights that traditional methods for identifying research gaps are labor-intensive and prone to bias, calling for innovative, scalable computational approaches to detect gaps in rapidly evolving fields.",
+    "Claim": "Current agricultural sustainability assessments lack automated, scalable NLP and semantic-aware frameworks capable of dynamically identifying latent research gaps and methodological imbalances across multi-dimensional (environmental, social, economic) scientific literature.",
+    "Warrant": "While basic text-mining and bibliometric analyses map explicit keyword frequencies and co-occurrences, they fail to capture semantic relations, latent themes, or structural holes in the literature. Implementing advanced NLP, such as transformer-based topic modeling or knowledge graph-based gap detection, is technically necessary to automatically and objectively identify under-researched areas and methodological biases without manual intervention.",
+    "Bucket": "more_probable",
+    "source_paper": "Environmental Priorities and Methodological Shifts in Agricultural Sustainability Assessment: A Text-Mining Analysis of Scientific Literature",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper acknowledges that its rule-based text mining approach is limited to studies explicitly using standardized Glyma identifiers, representing only a 'defined subset of the broader soybean genomics literature' due to 'uneven adoption of standardized gene nomenclature.' Furthermore, Passage 1 and Passage 2 highlight the utility of advanced text mining, topic modeling, and scalable methods to identify broader research trends and gaps.",
+    "Claim": "There is a lack of advanced text-mining frameworks (such as semantic entity linking or machine learning-based named entity recognition) capable of resolving gene synonyms and non-standardized nomenclature in plant genomics literature, which currently limits bibliometric analyses to rigid, rule-based matching of standardized identifiers.",
+    "Warrant": "Rule-based regular expressions are unable to detect semantic variations, historical aliases, or informal gene names. Implementing machine learning-based entity extraction and normalization would enable comprehensive literature mapping across the entire body of plant genomics research, overcoming the bias toward studies that strictly adhere to standardized nomenclature.",
+    "Bucket": "more_probable",
+    "source_paper": "Mining Two Decades of Soybean Genomics Literature Using Rule-Based Text Mining: Chromosome-Resolved Patterns of Glyma Gene Mentions",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper utilizes systematic literature review and thematic coding to identify research gaps in big data analytics (BDA) for sustainability accounting, while Passage 2 notes that traditional literature reviews are time-consuming, labor-intensive, and prone to bias.",
+    "Claim": "There is a lack of automated, scalable, and objective methodologies to dynamically identify research gaps in the rapidly evolving domain of BDA in sustainability accounting.",
+    "Warrant": "Applying automated text mining and machine learning tools for gap identification can mitigate human bias and handle the rapid growth of literature in sustainability accounting technology.",
+    "Bucket": "more_probable",
+    "source_paper": "Systematic review analysis through an overview applying methodologies text mining and coding: big data analytics for sustainability accounting",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper relies on expert-validated keyword searches and traditional bibliometric analysis to identify research gaps in global migration health (GMH) literature. However, Passage 2 points out that traditional methods for identifying research gaps, such as manual literature reviews and expert opinions, are time-consuming, labor-intensive, prone to bias, and inadequate for rapidly evolving subjects.",
+    "Claim": "There is a lack of automated, scalable text-mining and topic-modeling methodologies applied to global migration health literature to dynamically identify research gaps and track evolving migration health trends without relying on manual expert-defined search strategies.",
+    "Warrant": "Applying automated text-mining and topic-modeling techniques (as demonstrated in Passage 1 for other domains) to GMH literature databases would mitigate the biases and labor-intensiveness of traditional bibliometric methods, enabling real-time, scalable identification of under-researched migration health topics and geographic disparities.",
+    "Bucket": "more_probable",
+    "source_paper": "Bibliometric analysis of global migration health research in peer-reviewed literature (2000–2016)",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper highlights a massive, fragmented, and rapidly growing body of literature on misinformation (1261 papers analyzed). Passage 2 points out that traditional literature reviews are time-consuming, labor-intensive, and struggle to keep pace with rapidly evolving, time-sensitive subjects.",
+    "Claim": "There is a lack of automated, scalable, and dynamic literature synthesis frameworks (utilizing text mining and topic modeling) to continuously map the rapidly evolving and interdisciplinary landscape of misinformation research.",
+    "Warrant": "Because misinformation is a highly time-sensitive and rapidly evolving domain, static manual reviews quickly become outdated. Applying automated text mining and NLP techniques would enable real-time tracking of research trends and automated gap detection, overcoming the labor-intensive limitations of traditional review methods.",
+    "Bucket": "more_probable",
+    "source_paper": "Misinformation, disinformation, and fake news: lessons from an interdisciplinary, systematic literature review",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper states that research on non-financial reporting formats in public sector organizations has focused on higher education, local governments, and state-owned enterprises, but remains silent on the healthcare sector. Additionally, Passage 2 highlights that traditional literature reviews for identifying such research gaps are labor-intensive and prone to bias.",
+    "Claim": "There is a lack of empirical research on non-financial reporting formats within public healthcare organizations, and a corresponding lack of automated, scalable literature analysis methods to track these reporting trends.",
+    "Warrant": "Addressing the healthcare sector is crucial due to its distinct operational and stakeholder profile compared to other public entities. Utilizing scalable text-mining and topic modeling techniques, as mentioned in Passage 1 and 2, would allow researchers to systematically map and reduce bias in identifying reporting trends across understudied public sectors.",
+    "Bucket": "more_probable",
+    "source_paper": "Non-financial reporting formats in public sector organizations: a structured literature review",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper utilizes a traditional 'overview of reviews' methodology to manually analyze 31 review articles to identify research gaps in AI applications within tourism. However, Passage 2 points out that traditional literature review methods for identifying research gaps are time-consuming, labor-intensive, prone to bias, and inadequate for rapidly evolving subjects like AI.",
+    "Claim": "There is a lack of automated, scalable, and computationally-driven literature synthesis methods (such as text mining or topic modeling) applied to map the rapidly evolving landscape of AI in the tourism industry.",
+    "Warrant": "AI in tourism is a fast-growing field. Relying on manual review methodologies limits the ability to synthesize literature dynamically and comprehensively. Applying automated text mining and NLP-based gap detection would mitigate human bias, reduce labor, and scale to accommodate the rapid influx of new publications.",
+    "Bucket": "more_probable",
+    "source_paper": "Artificial Intelligence in the Tourism Industry: An Overview of Reviews",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper's systematic review of 104 corporate risk disclosure (RD) studies reveals that past research has excessively focused on immediate firm-level characteristics (such as size, growth, leverage, value, and cost of capital) while neglecting broader institutional and geographic contexts.",
+    "Claim": "There is a significant research gap in corporate risk disclosure literature regarding the impact of cross-country drivers (such as national accounting, auditing, economic, governance, language, and legal systems) and the application of RD research to developing countries, private institutions, and non-profit organizations.",
+    "Warrant": "Investigating cross-country drivers and non-corporate or developing contexts is essential because macro-level institutional, legal, and cultural frameworks significantly shape risk reporting behaviors, and findings from developed, public firms cannot be generalized to these understudied domains.",
+    "Bucket": "more_probable",
+    "source_paper": "A systematic literature review on risk disclosure research: State-of-the-art and future research agenda",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper highlights that implementing distant sensing and imaging methods to monitor and detect the impact of severe weather occurrences is still underdeveloped. Additionally, Passage 2 points out that traditional methods of identifying research gaps and analyzing evolving environmental/scientific trends are time-consuming and prone to bias, necessitating scalable, innovative approaches.",
+    "Claim": "There is a critical research gap in the development and deployment of remote sensing and advanced imaging methodologies for the real-time monitoring, detection, and impact assessment of extreme weather events like floods, droughts, and landslides.",
+    "Warrant": "Integrating remote sensing and imaging technologies provides high-resolution, objective, and scalable spatial-temporal data. This overcomes the limitations of traditional, labor-intensive impact assessment methods, enabling more precise and timely adaptation, mitigation, and strategic governance planning.",
+    "Bucket": "more_probable",
+    "source_paper": "Human–Environment Natural Disasters Interconnection in China: A Review",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper identifies a critical shortage of academic literature (only nine articles found via a systematic literature review) concerning the decision-making processes for implementing entrepreneurship education (EE) programs in schools and integrating them into public policy. Additionally, Passage 2 highlights that traditional literature reviews used to identify such gaps are labor-intensive and prone to bias.",
+    "Claim": "There is a significant research gap regarding the specific decision-making processes, political commitments, and implementation capacities that influence how entrepreneurship education (EE) is integrated into public policy and school curricula.",
+    "Warrant": "Although regulatory bodies advocate for entrepreneurship education to foster entrepreneurial youth, the structural and political decision-making pathways that translate these recommendations into practice remain unmapped, and traditional review methodologies are insufficient to rapidly synthesize this evolving policy domain.",
+    "Bucket": "more_probable",
+    "source_paper": "Entrepreneurship Education: A Systematic Literature Review and Identification of an Existing Gap in the Field",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper utilizes a traditional systematic literature review (SLR) of 46 articles to identify research gaps in hotel customer experience (CX). Passage 2 states that traditional literature reviews for identifying research gaps are time-consuming, labor-intensive, and prone to bias. Passage 1 demonstrates the use of text mining and topic modeling to analyze a larger corpus (987 publications) to identify knowledge gaps.",
+    "Claim": "There is a lack of automated, scalable text mining and natural language processing (NLP) methodologies applied to the hospitality literature to identify research gaps in hotel customer experience (CX) objectively.",
+    "Warrant": "Transitioning from manual SLRs to automated text mining and topic modeling would allow researchers to analyze a significantly larger volume of hospitality literature, reducing human bias and labor constraints while dynamically identifying evolving research trends and gaps.",
+    "Bucket": "more_probable",
+    "source_paper": "Customer experience in the hotel industry: a systematic literature review and research agenda",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper relies on a traditional literature review of 116 articles to identify research gaps in emerging gambling technologies. Passage 2 notes that traditional literature reviews are time-consuming, labor-intensive, and struggle with rapidly evolving subjects. Passage 1 demonstrates the application of text mining and topic modeling to identify knowledge gaps in literature reviews.",
+    "Claim": "There is a lack of automated, scalable, and computationally-driven literature analysis methods (such as text mining or topic modeling) applied to identifying research gaps in the rapidly evolving domain of emerging gambling technologies.",
+    "Warrant": "Because digital gambling and emerging technologies evolve rapidly, traditional manual literature reviews quickly become outdated and are prone to bias. Utilizing scalable text-mining and topic-modeling techniques would enable researchers and regulators to dynamically and objectively identify research gaps in real-time.",
+    "Bucket": "more_probable",
+    "source_paper": "A Literature Review and Gap Analysis of Emerging Technologies and New Trends in Gambling",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper highlights that MCDM approaches are not widely used in heritage building preservation and notes a lack of complex problem-solving approaches. Passage 2 states that traditional literature reviews for identifying research gaps are time-consuming and prone to bias, while Passage 1 shows how text mining and topic modeling can enhance bibliometric analysis to identify knowledge gaps.",
+    "Claim": "There is a lack of automated, text-mining-driven bibliometric frameworks to systematically map and identify research gaps in the application of Multi-Criteria Decision Making (MCDM) for heritage building preservation.",
+    "Warrant": "Applying text mining and topic modeling to the MCDM heritage building literature would overcome the limitations of manual bibliometric reviews, providing a scalable, unbiased, and automated way to identify complex decision-making criteria and under-researched areas.",
+    "Bucket": "more_probable",
+    "source_paper": "A BIBLIOMETRIC DATA ANALYSIS OF MULTI-CRITERIA DECISION MAKING METHODS IN HERITAGE BUILDINGS",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper utilizes bibliometrics and text mining to map the recycling behavior domain and manually infer future research directions. However, Passage 2 highlights that traditional methods of identifying research gaps are time-consuming, labor-intensive, and prone to bias, particularly when dealing with rapidly expanding literature.",
+    "Claim": "There is a lack of automated, scalable, and unbiased NLP-driven frameworks capable of directly extracting, classifying, and formulating actionable research gaps from scientific literature databases without requiring manual bibliometric synthesis.",
+    "Warrant": "While bibliometric mapping and text mining (as used in the target paper and Passage 1) help visualize domain structures, they still rely on human interpretation to pinpoint gaps. Developing automated gap-detection algorithms using semantic analysis and knowledge graphs would overcome the scalability and bias limitations identified in Passage 2.",
+    "Bucket": "more_probable",
+    "source_paper": "Recycling behaviour: Mapping knowledge domain through bibliometrics and text mining.",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper relies on a manual systematic literature review of 53 documents to identify research gaps and future directions in digital leadership. Passage 2 points out that traditional literature reviews are time-consuming, prone to bias, and struggle with rapidly evolving subjects, while Passage 1 shows the utility of text mining and topic modeling for identifying gaps in larger literature samples.",
+    "Claim": "There is a lack of scalable, automated literature profiling and topic modeling approaches applied to the digital leadership domain to identify research gaps and trends.",
+    "Warrant": "Relying on manual reviews of small sample sizes (53 papers) limits the comprehensiveness and objectivity of the identified research agenda. Utilizing computational methods like text mining and topic modeling would enable a less biased, more scalable analysis of the rapidly evolving digital leadership literature.",
+    "Bucket": "more_probable",
+    "source_paper": "Digital leadership: a systematic literature review and future research agenda",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper highlights that identifying technologies in the circular economy heavily relies on literature reviews and expert opinions, which introduces bias and neglects non-digital technological areas. Passage 2 supports this by stating that traditional methods for identifying research gaps are time-consuming, labor-intensive, and prone to bias, particularly in rapidly evolving fields.",
+    "Claim": "Traditional manual literature review methods fail to provide an unbiased, comprehensive, and scalable mapping of diverse technological domains within rapidly evolving fields like the circular economy.",
+    "Warrant": "By relying on manual reviews, researchers introduce cognitive bias and tend to over-represent popular trends (such as digital technologies), whereas automated text mining and NLP techniques applied to large-scale scientific corpora are required to objectively uncover neglected technological domains and emerging trends.",
+    "Bucket": "more_probable",
+    "source_paper": "Identifying technologies in circular economy paradigm through text mining on scientific literature",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper conducts a traditional systematic literature review using the PRISMA flow diagram to manually code and analyze 45 articles on digital game-based learning (DGBL) in primary mathematics. However, Passage 2 points out that traditional literature reviews for identifying research gaps are time-consuming, labor-intensive, and prone to bias, while Passage 1 demonstrates the use of text mining and topic modeling to automate bibliometric analysis.",
+    "Claim": "There is a lack of automated, scalable text-mining and topic-modeling approaches applied to synthesize literature and identify research gaps in the rapidly evolving field of digital game-based learning (DGBL) for primary mathematics education.",
+    "Warrant": "Applying automated text mining and topic modeling to DGBL literature would mitigate the labor-intensiveness and potential bias of manual systematic reviews, allowing researchers to scale their analysis as the volume of publications in educational technology continues to grow rapidly.",
+    "Bucket": "more_probable",
+    "source_paper": "Digital game-based learning in mathematics education at primary school level: A systematic literature review",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper identifies a significant gap between the research and practice of code smell identification, showing that developers associate it with smell removal, bug incidence, and individual skills, which are only partially addressed by current research. Passage 2 highlights that traditional methods for identifying research gaps are time-consuming, labor-intensive, and prone to bias.",
+    "Claim": "There is a lack of automated, scalable approaches to continuously monitor and align the evolving practical concerns of software developers regarding code smells with academic research directions.",
+    "Warrant": "Using manual questionnaires to capture social representations is labor-intensive and static. Developing automated text-mining and topic-modeling techniques to analyze developer discussions alongside research publications would enable real-time, unbiased identification of gaps between software engineering practice and research.",
+    "Bucket": "more_probable",
+    "source_paper": "Do Research and Practice of Code Smell Identification Walk Together? A Social Representations Analysis",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper conducts a manual systematic literature review on AI/ML in SCM but is limited by a small review size (analyzing only 10 selected papers out of 50). Passage 2 points out that traditional manual methods for identifying research gaps are time-consuming, labor-intensive, and prone to bias. Passage 1 demonstrates that text mining and topic modeling can scale literature analysis to much larger datasets (e.g., 987 publications).",
+    "Claim": "There is a lack of automated, scalable literature analysis frameworks (such as text mining and topic modeling) applied to mapping AI and ML applications in Supply Chain Management, which restricts current reviews to small, manually-screened sample sizes.",
+    "Warrant": "By transitioning from manual systematic reviews to automated text mining and topic modeling, researchers can analyze thousands of SCM publications rapidly, reducing selection bias and providing a more comprehensive, large-scale mapping of evolving AI/ML techniques and research gaps.",
+    "Bucket": "more_probable",
+    "source_paper": "AI and ML Applications in Supply Chain Management Field: A Systematic Literature Review",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper utilizes a manually compiled CHO bioprocess bibliome from 2016 to train and evaluate its topic modeling (LDA) and document classification (Logistic Regression) models. Meanwhile, Passage 2 highlights that traditional, manual methods for literature review and identifying research gaps are time-consuming, labor-intensive, and prone to bias, particularly when dealing with rapidly evolving scientific fields.",
+    "Claim": "Current text mining approaches for bioprocess literature rely on static, manually curated historical datasets, creating a gap in automated, dynamic systems that can identify emerging research trends and gaps in real-time without human intervention.",
+    "Warrant": "Although LDA and Logistic Regression can categorize documents based on historical data, they lack the capability to dynamically detect novel, out-of-distribution research gaps or adapt to rapidly evolving literature without continuous, labor-intensive manual labeling and retraining.",
+    "Bucket": "more_probable",
+    "source_paper": "Text mining of CHO bioprocess bibliome: Topic modeling and document classification",
+    "type": "hipporag"
+  },
+  {
+    "Grounds": "The target paper highlights that despite the growth in R-based energy forecasting, few studies have incorporated automated model selection or explainable AI (XAI) in their workflows. Additionally, Passage 2 notes that traditional manual methods of synthesizing literature and identifying research gaps are labor-intensive and prone to bias, emphasizing the need for scalable, automated solutions.",
+    "Claim": "There is a significant research gap in the integration of automated model selection and explainable AI (XAI) within R-based energy forecasting frameworks, which hinders the development of accessible, reproducible, and interpretable workflows for non-specialists.",
+    "Warrant": "By automating model selection and embedding explainable AI (XAI) techniques into R-based energy forecasting, researchers can lower the barrier to entry for domain experts (e.g., in statistics or engineering) who lack advanced AI training, thereby reducing manual workflow complexity and improving model trust.",
+    "Bucket": "more_probable",
+    "source_paper": "Beginner-Friendly Review of Research on R-Based Energy Forecasting: Insights from Text Mining",
     "type": "hipporag"
   }
 ]

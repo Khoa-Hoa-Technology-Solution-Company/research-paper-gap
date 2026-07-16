@@ -1,74 +1,370 @@
 [
   {
-    "Grounds": "Modularity clustering isolated Community A (systematic review, SW in healthcare systems, taxonomy, Android security) and Community B (demand-side costs in model objectives, uncertainty in funding, budget, asset and supply quantities, and infrastructure, prepositioning of medical staff and emergency crew). There are zero bridge relations between these nodes in the literature graph.",
-    "Claim": "A secure-by-design Android software framework for emergency healthcare systems that integrates resource prepositioning algorithms and demand-side cost models to maintain operational reliability under infrastructure and funding uncertainty.",
-    "Warrant": "Mobile healthcare applications (mHealth) on Android are vital for emergency crews during disasters, yet they lack architectural patterns that handle both strict data security and extreme resource/infrastructure constraints. Bridging these communities enables the development of resilient software architectures that dynamically adapt data synchronization and security protocols based on real-time resource availability and network degradation.",
+    "Grounds": "Modularity clustering isolated Community A (topic modeling, statistical uncertainty quantification, Latent Dirichlet Allocation, machine learning, text mining) and Community B (systematic research review, systematic literature network analysis, bibliographic networks, Scopus/SINTA indexing). There are zero bridge relations between these nodes in the literature graph.",
+    "Claim": "Integrating Latent Dirichlet Allocation (LDA) topic modeling and statistical uncertainty quantification into systematic literature network analysis workflows to automate and validate the synthesis of bibliographic networks.",
+    "Warrant": "Traditional systematic literature reviews and bibliographic network analyses rely on manual categorization or deterministic clustering, which lack scalability and introduce researcher bias. By embedding probabilistic topic modeling (LDA) with statistical uncertainty quantification, researchers can automatically extract thematic structures from large-scale citation databases (like Scopus) while mathematically bounding the classification error, ensuring reproducible and objective literature synthesis.",
     "Bucket": "more_probable",
     "type": "orphan_cluster",
-    "source": "Community 1 vs Community 8"
+    "source": "Community 7 vs Community 14"
   },
   {
-    "Grounds": "Modularity clustering isolated Community A (systematic review, SW in healthcare systems, taxonomy, Android security) and Community B (scientometric analysis, CiteSpace, VOSviewer, Bibliometrix). There are zero bridge relations between these nodes in the literature graph.",
-    "Claim": "Integrating automated bibliometric and scientometric analysis tools (such as CiteSpace and VOSviewer) into the systematic literature review pipeline to semi-automatically construct taxonomies and identify research themes in specialized software engineering domains like Android security in healthcare.",
-    "Warrant": "Traditional systematic reviews in software engineering rely on manual, labor-intensive screening and subjective thematic synthesis. Bridging these communities allows researchers to leverage quantitative citation networks and keyword co-occurrence mapping to objectively guide the taxonomy definition and thematic classification of software security literature, reducing researcher bias and handling large-scale publication datasets.",
+    "Grounds": "Modularity clustering isolated Community A (topic modeling, statistical uncertainty quantification, Latent Dirichlet Allocation, machine learning, text mining) and Community B (screening, data extraction, quality assessment, PRISMA guidelines, SLR methodology). There are zero bridge relations between these nodes in the literature graph.",
+    "Claim": "Integrating Latent Dirichlet Allocation (LDA) with statistical uncertainty quantification into the screening and quality assessment phases of PRISMA-compliant Systematic Literature Reviews (SLRs).",
+    "Warrant": "Conducting SLRs is highly labor-intensive and susceptible to human bias during screening and data extraction. While machine learning and topic modeling can accelerate text mining, their lack of statistical uncertainty quantification prevents their adoption in rigorous, guidelines-compliant SLRs. Bridging these domains enables semi-automated, statistically validated screening that maintains the methodological rigor required by PRISMA.",
     "Bucket": "more_probable",
     "type": "orphan_cluster",
-    "source": "Community 1 vs Community 32"
+    "source": "Community 7 vs Community 35"
   },
   {
-    "Grounds": "Modularity clustering isolated Community A (demand-side costs, uncertainty in funding/assets, prepositioning strategies, disaster social media) and Community B (scientometric analysis, CiteSpace, VOSviewer, Bibliometrix). There are zero bridge relations between these nodes in the literature graph.",
-    "Claim": "Applying scientometric and bibliometric analysis tools (such as CiteSpace, VOSviewer, and Bibliometrix) to systematically map and categorize the software modeling paradigms, uncertainty parameters, and prepositioning algorithms in disaster response logistics literature.",
-    "Warrant": "Disaster response optimization models suffer from fragmented development across software engineering and operations research. Using bibliometric tools to map this landscape will reveal how uncertainty (funding, assets) and real-time data (social media) are integrated into software architectures, guiding the design of more resilient, standardized emergency management systems.",
+    "Grounds": "Modularity clustering isolated Community A (topic modeling, statistical uncertainty quantification, Latent Dirichlet Allocation, machine learning, text mining) and Community B (thematic review, PRISMA, classifying SE literature, overview of recent SE research). There are zero bridge relations between these nodes in the literature graph.",
+    "Claim": "Developing a machine-learning-driven framework that integrates Latent Dirichlet Allocation (LDA) with statistical uncertainty quantification to automate the thematic classification and PRISMA-compliant screening of Software Engineering literature.",
+    "Warrant": "Systematic literature reviews (SLRs) in software engineering are labor-intensive and prone to human bias during manual thematic classification. While topic modeling (LDA) can automate text mining, it lacks reliability metrics. Introducing statistical uncertainty quantification to LDA-based classification provides SE researchers with confidence intervals for automated paper categorization, ensuring rigorous, reproducible, and scalable PRISMA-compliant reviews.",
     "Bucket": "more_probable",
     "type": "orphan_cluster",
-    "source": "Community 8 vs Community 32"
+    "source": "Community 7 vs Community 92"
   },
   {
-    "Grounds": "Stagnant concept 'Semantic Web technology' has a temporal decay rate of 1.00, indicating a complete decline in new research activity connected to it in recent years.",
-    "Claim": "Integrating Semantic Web technologies (such as RDF/OWL ontologies and knowledge graphs) with Large Language Model (LLM) agents to ground code generation and API integration in deterministic, verifiable domain semantics.",
-    "Warrant": "Modern software engineering heavily relies on LLMs for code generation, which suffer from hallucinations and lack formal reasoning. Reviving Semantic Web technologies to represent software architectures and API constraints formally allows LLMs to query structured knowledge bases, ensuring semantic correctness and reducing integration errors.",
+    "Grounds": "Modularity clustering isolated Community A (systematic literature network analysis, analysis of bibliographic networks, conceptual framework, hospitality and tourism management) and Community B (Screening, data extraction, and quality assessment, PRISMA guidelines, SLR methodology, project management system). There are zero bridge relations between these nodes in the literature graph.",
+    "Claim": "Integrating systematic literature network analysis and bibliographic network algorithms into PRISMA-compliant SLR project management systems to automate screening, data extraction, and quality assessment of empirical software engineering literature.",
+    "Warrant": "Traditional software engineering SLRs rely on manual screening and data extraction, which is time-consuming and prone to researcher bias. Bridging bibliographic network analysis with SLR project management tools allows researchers to leverage citation topology and co-occurrence networks to automatically identify relevant studies, map conceptual frameworks, and verify study quality, significantly accelerating the empirical synthesis process.",
     "Bucket": "more_probable",
-    "type": "temporal_decay",
-    "source": "Stagnant Concept: Semantic Web technology"
+    "type": "orphan_cluster",
+    "source": "Community 14 vs Community 35"
   },
   {
-    "Grounds": "Stagnant concept 'systematic review' has a temporal decay rate of 0.30. In the literature graph, it lacks connections to 'Large Language Model (LLM) agents' and 'continuous integration pipelines'.",
-    "Claim": "Developing continuous integration pipelines for 'living' systematic reviews that use LLM agents to automatically ingest, screen, and synthesize newly published software engineering literature.",
-    "Warrant": "Traditional systematic reviews are static and quickly become obsolete due to the rapid pace of software engineering research. Integrating LLM agents into a continuous integration pipeline allows for real-time synthesis of literature, ensuring practitioners and researchers always have access to up-to-date evidence-based software engineering practices.",
+    "Grounds": "Modularity clustering isolated Community A (systematic literature network analysis, analysis of bibliographic networks, conceptual framework) and Community B (dearth of studies classifying the existing SE literature, thematic review, PRISMA). There are zero bridge relations between these nodes in the literature graph.",
+    "Claim": "Utilizing systematic literature network analysis and bibliographic network mapping to resolve the dearth of studies classifying the existing software engineering (SE) literature, transitioning from manual PRISMA thematic reviews to automated, graph-based conceptual frameworks of SE research directions.",
+    "Warrant": "Current software engineering secondary studies (SLRs) rely on manual thematic synthesis (PRISMA), which struggles to scale with the exponential growth of SE publications. Integrating bibliographic network analysis allows for the automated detection of research clusters, citation dynamics, and emerging paradigms, providing a more objective, reproducible, and scalable map of the SE research landscape.",
     "Bucket": "more_probable",
-    "type": "temporal_decay",
-    "source": "Stagnant Concept: systematic review"
+    "type": "orphan_cluster",
+    "source": "Community 14 vs Community 92"
   },
   {
-    "Grounds": "The stagnant concept 'Current study's analysis' has a temporal decay rate of 1.00, indicating a complete decline in recent research activity and connections in the literature graph.",
-    "Claim": "Developing automated, LLM-driven pipelines to dynamically extract, execute, and verify replication packages and empirical claims ('current study's analysis') from software engineering literature to enable continuous meta-analysis.",
-    "Warrant": "Empirical software engineering suffers from a reproducibility crisis and slow manual synthesis of study results. Automating the extraction and execution of empirical analyses directly from papers ensures that software engineering benchmarks, tool evaluations, and methodologies remain continuously validated and updated without manual systematic literature reviews.",
+    "Grounds": "Modularity clustering isolated Community A (Screening, data extraction, quality assessment, SLR methodology, project management system) and Community B (Thematic review, dearth of studies classifying existing SE literature, SSCI journal articles, human health risks). There are zero bridge relations between these nodes in the literature graph.",
+    "Claim": "Developing a specialized project management and automated data extraction framework for systematic literature reviews (SLRs) to classify and map interdisciplinary software engineering literature, specifically targeting the dearth of structured classifications in SSCI-indexed SE research and environmental/health-related SE applications.",
+    "Warrant": "While SLR methodologies and project management systems exist for core SE topics, they lack tailored support for interdisciplinary SE research (such as SE applied to health risks or social sciences). Bridging these communities enables researchers to systematically extract, quality-assess, and classify heterogeneous, non-traditional SE literature, accelerating the identification of future research directions in emerging interdisciplinary SE domains.",
     "Bucket": "more_probable",
-    "type": "temporal_decay",
-    "source": "Stagnant Concept: Current study's analysis"
+    "type": "orphan_cluster",
+    "source": "Community 35 vs Community 92"
   },
   {
-    "Grounds": "The stagnant concept 'current literature' has a temporal decay rate of 1.00, indicating a complete decline in new research activity and a lack of integration with modern automated software engineering tools in the literature graph.",
-    "Claim": "Developing automated, real-time pipelines that continuously ingest, synthesize, and inject empirical findings from current software engineering literature directly into developer IDEs as contextual code recommendations.",
-    "Warrant": "Traditional systematic literature reviews and manual state-of-the-art analyses are static and quickly become obsolete. By automating the extraction of empirical evidence (such as API performance, security flaws, and design patterns) from current literature and mapping it to active codebases, developers can make evidence-based decisions in real-time, bridging the gap between academic research and industry practice.",
-    "Bucket": "more_probable",
-    "type": "temporal_decay",
-    "source": "Stagnant Concept: current literature"
-  },
-  {
-    "Grounds": "The stagnant concept 'sustainable entrepreneurship' has a temporal decay rate of 1.00, indicating a complete decline in recent research activity and a lack of integration with modern software engineering paradigms.",
-    "Claim": "Integrating automated green software metrics and carbon-intensity profiling directly into DevOps pipelines for early-stage software startups to operationalize sustainable entrepreneurship.",
-    "Warrant": "Software startups often neglect environmental sustainability due to time-to-market pressures. Providing automated, low-overhead carbon profiling in CI/CD pipelines allows software entrepreneurs to optimize cloud resource consumption and minimize carbon footprints during active development, bridging the gap between business sustainability goals and software architecture decisions.",
-    "Bucket": "more_probable",
-    "type": "temporal_decay",
-    "source": "Stagnant Concept: sustainable entrepreneurship"
-  },
-  {
-    "Grounds": "Stagnant concept 'this study' has a temporal decay rate of 1.00, indicating a complete decline in new research activity and connections to this self-referential entity in the scientific knowledge graph.",
-    "Claim": "Developing automated NLP pipelines to extract, formalize, and link the semantic context of 'this study' (e.g., empirical claims, datasets, and limitations) in software engineering literature to enable automated meta-analyses and replication tracking.",
-    "Warrant": "Empirical software engineering relies heavily on manual literature reviews and meta-analyses to consolidate knowledge. By pivoting the generic 'this study' concept into a structured, machine-readable semantic representation of a paper's empirical core, researchers can automatically detect conflicting findings, track replication success, and synthesize evidence across thousands of software engineering publications.",
+    "Grounds": "The stagnant concept 'proposed framework' has a temporal decay rate of 1.00, indicating a complete decline in recent research activity and a lack of integration with modern automated validation methods.",
+    "Claim": "Developing automated pipelines that extract architectural constraints from textual 'proposed frameworks' in literature and verify them against actual software implementations using static analysis and LLMs.",
+    "Warrant": "Software engineering literature is saturated with conceptual frameworks that lack empirical validation or real-world adoption. By automating the extraction of architectural rules from these papers and checking them against codebases, we can validate academic designs and prevent architectural drift in practice.",
     "Bucket": "least_probable",
     "type": "temporal_decay",
-    "source": "Stagnant Concept: this study"
+    "source": "Stagnant Concept: proposed framework"
+  },
+  {
+    "Grounds": "Stagnant concept 'research gap' has a temporal decay rate of 0.67, indicating a 67% decline in new research activity and connections in the literature graph.",
+    "Claim": "Automating the identification of software engineering research gaps by applying contrastive learning and semantic contradiction detection to scientific literature and developer forums.",
+    "Warrant": "Manual systematic literature reviews (SLRs) are slow and fail to keep pace with the rapid evolution of software technologies. Automating the extraction of conflicting empirical claims, unresolved trade-offs, and unaddressed limitations from papers and developer discussions allows researchers to dynamically discover high-value, real-world research gaps.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: research gap"
+  },
+  {
+    "Grounds": "The concept 'scoping review' has a temporal decay rate of 1.00, indicating a complete decline in new research activity and connections to this methodology in recent years within the software engineering literature graph.",
+    "Claim": "Automating the synthesis and thematic mapping of software engineering literature through LLM-based agentic workflows to enable continuous, real-time scoping reviews of rapidly evolving technical domains.",
+    "Warrant": "Manual scoping reviews in software engineering are labor-intensive and quickly become obsolete due to the high velocity of software research. Transitioning to automated, agent-driven scoping reviews allows researchers and practitioners to maintain living knowledge maps of emerging technologies, reducing synthesis time from months to hours while maintaining methodological rigor.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: scoping review"
+  },
+  {
+    "Grounds": "The stagnant concept 'knowledge gaps' has a temporal decay rate of 1.00, representing a complete decline in recent research activity and a lack of connection to modern developer workflows in the literature graph.",
+    "Claim": "Integrating real-time developer telemetry and AST-based code diffing to dynamically detect and bridge developer knowledge gaps during AI-assisted programming sessions.",
+    "Warrant": "AI code assistants accelerate development but often widen developer knowledge gaps when engineers accept code they do not fully comprehend. Detecting these gaps through IDE telemetry (e.g., dwell time, edit patterns, and structural code changes) allows for the automated generation of targeted micro-documentation, improving code maintainability and developer onboarding.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: knowledge gaps"
+  },
+  {
+    "Grounds": "The stagnant concept 'machine learning-based approach' has a temporal decay rate of 1.00, indicating a complete decline in recent research activity and connections in the software engineering literature graph.",
+    "Claim": "Pivoting from generic 'machine learning-based approaches' to neuro-symbolic software engineering frameworks that combine statistical machine learning with formal semantic reasoning to guarantee code correctness.",
+    "Warrant": "Traditional machine learning approaches in software engineering suffer from a lack of explainability and formal correctness guarantees, leading to their decline. Integrating symbolic reasoning with machine learning allows developers to leverage statistical pattern recognition while enforcing strict syntactic and semantic constraints, reviving the utility of ML in safety-critical software systems.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: machine learning-based approach"
+  },
+  {
+    "Grounds": "The stagnant concept 'BERTopic topic modeling technique' has a temporal decay rate of 1.00, indicating a complete decline in new research activity and connections in the literature graph.",
+    "Claim": "Integrating BERTopic with structural code representation models (such as AST-based or Control Flow Graph embeddings) to perform semantic topic modeling directly on source code structure rather than natural language comments.",
+    "Warrant": "Traditional topic modeling in software engineering relies on natural language identifiers and comments, which are frequently missing, outdated, or obfuscated. By bridging BERTopic with structural code embeddings, developers can automatically categorize source code files based on execution logic and structural patterns, significantly improving automated software architecture recovery and code comprehension.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: BERTopic topic modeling technique"
+  },
+  {
+    "Grounds": "Stagnant concept 'research gaps' has a temporal decay rate of 0.60, indicating a 60% decline in recent years of active research connected to identifying, mapping, or resolving research gaps in software engineering literature.",
+    "Claim": "Automating the identification and synthesis of software engineering research gaps by deploying LLM-based agentic workflows over scientific literature databases to construct dynamic, queryable knowledge graphs of open problems.",
+    "Warrant": "Manual systematic literature reviews to identify research gaps are slow and become obsolete quickly due to the rapid pace of software engineering innovation. Automating this process via LLMs and knowledge graphs enables real-time mapping of open challenges, helping researchers and practitioners align their efforts with actual industry needs and avoid redundant work.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: research gaps"
+  },
+  {
+    "Grounds": "The concept 'topic modeling' has a temporal decay rate of 1.00, indicating a complete decline in new research activity and a lack of integration with modern contextual representation techniques in the software engineering literature graph.",
+    "Claim": "Integrating contextualized neural embeddings and large language models (LLMs) with traditional topic modeling to extract semantic themes from heterogeneous software artifacts.",
+    "Warrant": "Traditional statistical topic modeling (e.g., LDA) fails to capture semantic relationships and context in software artifacts like source code and commit messages. Pivoting toward neural topic modeling allows researchers to analyze developer discussions and software evolution with higher semantic accuracy, reviving the utility of repository mining.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: topic modeling"
+  },
+  {
+    "Grounds": "The stagnant concept 'literature review' has a temporal decay rate of 1.00, indicating a complete decline in recent research activity and a lack of connection to modern automated software engineering techniques.",
+    "Claim": "Automating the synthesis of software engineering empirical evidence through continuous, multi-agent LLM pipelines that generate self-updating 'living' literature reviews.",
+    "Warrant": "Manual systematic literature reviews (SLRs) in software engineering are labor-intensive and quickly become outdated due to the rapid pace of publication. By pivoting to automated, continuous synthesis pipelines, the software engineering community can maintain real-time, queryable maps of empirical evidence, significantly reducing the time-to-insight for practitioners adopting new methodologies.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: literature review"
+  },
+  {
+    "Grounds": "The stagnant concept 'systematic research review' has a temporal decay rate of 0.83, indicating an 83% decline in recent research activity and a lack of integration with modern automated synthesis techniques.",
+    "Claim": "Developing automated, continuous systematic research review pipelines in software engineering by leveraging LLM-based multi-agent systems to dynamically ingest, screen, and synthesize newly published literature.",
+    "Warrant": "Traditional systematic literature reviews in software engineering are highly manual, error-prone, and become obsolete shortly after publication due to the rapid pace of technological advancement. Automating this process using LLMs and semantic search ensures that software engineering researchers and practitioners have access to real-time, up-to-date evidence-based guidelines without the prohibitive manual overhead.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: systematic research review"
+  },
+  {
+    "Grounds": "Stagnant concept 'standardized audit process' has a temporal decay rate of 1.00, indicating a complete decline in new research activity connected to it in recent years.",
+    "Claim": "Integrating automated compliance-as-code frameworks into continuous integration pipelines to dynamically verify standardized audit processes.",
+    "Warrant": "Traditional standardized audit processes are manual, slow, and disconnected from modern DevOps workflows. Automating these audits via compliance-as-code ensures continuous verification of security and regulatory standards without slowing down deployment velocity.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: standardized audit process"
+  },
+  {
+    "Grounds": "The stagnant concept 'review' has a temporal decay rate of 1.00, indicating a complete decline in new research activity and connections in the literature graph in recent years.",
+    "Claim": "Developing automated, context-aware code review frameworks specifically designed to validate LLM-generated pull requests by combining semantic diff analysis with runtime execution sandboxing.",
+    "Warrant": "Traditional code review research focuses on human-authored code and human-centric workflows. The proliferation of LLM-generated code introduces novel risks like API hallucinations and subtle logic drifts at an unprecedented scale. Pivoting code review research toward automated validation of AI-generated code is critical to prevent developer fatigue and maintain software quality in AI-assisted development.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: review"
+  },
+  {
+    "Grounds": "Stagnant concept 'Latent Dirichlet Allocation' has a temporal decay rate of 0.50, indicating a 50% decline in new research activity connected to it in recent years.",
+    "Claim": "Integrating Latent Dirichlet Allocation (LDA) with Retrieval-Augmented Generation (RAG) to perform topic-guided context filtering for large-scale software repository analysis.",
+    "Warrant": "While LLMs excel at code generation, they suffer from context window limitations and high token costs when analyzing entire repositories. Reviving LDA as a lightweight, unsupervised pre-filtering step allows partitioning codebases into semantic topics, ensuring the LLM only receives highly relevant contextual documents, thereby reducing noise and inference costs.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: Latent Dirichlet Allocation"
+  },
+  {
+    "Grounds": "The concept 'framework' has a temporal decay rate of 1.00, indicating a complete decline in new research activity connected to it in the literature graph.",
+    "Claim": "Automated, LLM-driven framework migration and API refactoring tools that can translate legacy application code across major framework version boundaries or paradigm shifts.",
+    "Warrant": "Traditional framework research has plateaued because framework design patterns are mature. However, software maintenance suffers from 'framework lock-in' and high migration costs due to breaking API changes. Leveraging generative AI to automate framework-to-framework translation or major version upgrades resolves this maintenance bottleneck, reviving framework research through the lens of automated software evolution.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: framework"
+  },
+  {
+    "Grounds": "Stagnant concept 'text mining' has a temporal decay rate of 0.56, indicating a 56% decline in new research activity connected to it in recent years.",
+    "Claim": "Integrating traditional text mining techniques (like semantic clustering and topic modeling) with Large Language Model (LLM) context windows to optimize software artifact retrieval and reduce prompt token overhead.",
+    "Warrant": "Modern software engineering relies heavily on LLMs for code explanation and documentation analysis, but processing massive software repositories is cost-prohibitive and prone to context window limitations. Reviving text mining as a lightweight pre-filtering layer allows developers to extract relevant semantic clusters before querying LLMs, balancing computational efficiency with deep semantic understanding.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: text mining"
+  },
+  {
+    "Grounds": "The stagnant concept 'Technology Acceptance Model' has a temporal decay rate of 0.67, reflecting a 67% decline in recent research activity and a lack of integration with modern developer toolchains.",
+    "Claim": "The lack of a telemetry-driven, real-time adaptation of the Technology Acceptance Model (TAM) that utilizes IDE interaction logs (such as suggestion acceptance rates, code churn, and dwell time) instead of subjective post-hoc surveys to evaluate developer acceptance of Generative AI coding assistants.",
+    "Warrant": "Traditional TAM relies on self-reported surveys, which suffer from recall bias and fail to capture the dynamic, non-deterministic nature of AI-assisted programming. Transitioning TAM to an objective, telemetry-based framework allows software organizations to continuously measure, predict, and optimize developer trust and tool adoption directly within the development workflow.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: Technology Acceptance Model"
+  },
+  {
+    "Grounds": "Stagnant concept 'PRISMA guidelines' has a temporal decay rate of 0.67, indicating a 67% decline in recent research activity and a lack of integration with modern automated software engineering workflows.",
+    "Claim": "Developing automated, continuous PRISMA compliance verification tools (such as static analysis linters or CI/CD pipeline plugins) to enable living systematic literature reviews in software engineering.",
+    "Warrant": "Traditional manual application of PRISMA guidelines in software engineering systematic reviews is labor-intensive and results in static papers that quickly become obsolete. Automating compliance checks and screening processes allows researchers to maintain 'living' reviews that dynamically update with new literature, ensuring evidence-based software engineering remains current and reliable.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: PRISMA guidelines"
+  },
+  {
+    "Grounds": "The stagnant concept 'thematic review' has a temporal decay rate of 0.81, indicating an 81% decline in recent research activity and a lack of integration with modern automated qualitative analysis techniques.",
+    "Claim": "Automating thematic reviews of developer communication channels (e.g., GitHub issues, Slack) using Large Language Models (LLMs) to dynamically detect socio-technical debt and developer friction.",
+    "Warrant": "Traditional thematic reviews in software engineering are manual, retrospective, and labor-intensive. Pivoting this methodology to use LLMs for automated qualitative coding allows organizations to continuously synthesize developer feedback in real-time, transforming a static research method into an active tool for monitoring team health.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: thematic review"
+  },
+  {
+    "Grounds": "The stagnant concept 'systematic methods' has a temporal decay rate of 0.67, reflecting a 67% decline in new research activity and connections within the software engineering literature graph.",
+    "Claim": "Integrating LLM-based multi-agent systems with formal systematic specification methods (such as TLA+ or Alloy) to automate the verification of generative software pipelines.",
+    "Warrant": "Traditional systematic methods provide rigorous correctness guarantees but have declined due to high manual effort and slow adaptation to agile workflows. Automating these methods using generative AI agents bridges the gap between rapid code generation and formal software verification, ensuring safety-critical systems can be built quickly and reliably.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: systematic methods"
+  },
+  {
+    "Grounds": "The stagnant concept 'Scopus database' has a temporal decay rate of 1.00, indicating a complete decline in new research activity and connections within the software engineering literature graph.",
+    "Claim": "Integrating Scopus metadata extraction pipelines with automated, LLM-driven semantic search agents to conduct continuous, self-updating systematic literature reviews in software engineering.",
+    "Warrant": "Manual literature searches in databases like Scopus are time-consuming and quickly become obsolete. Automating the ingestion and semantic mapping of Scopus data allows software engineering researchers to maintain living systematic reviews with minimal manual overhead.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: Scopus database"
+  },
+  {
+    "Grounds": "Stagnant concept 'conceptual framework' has a temporal decay rate of 1.00, indicating a complete decline in new research activity connected to it in recent years.",
+    "Claim": "Developing automated, LLM-driven semantic synthesis tools to dynamically generate and update conceptual frameworks from heterogeneous software engineering literature.",
+    "Warrant": "Conceptual frameworks in software engineering are traditionally static, manual constructs that fail to keep pace with rapid technological shifts. Automating their synthesis allows researchers to systematically map emerging paradigms and identify structural gaps in real-time.",
+    "Bucket": "least_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: conceptual framework"
+  },
+  {
+    "Grounds": "The concept 'evidence maps' has a temporal decay rate of 1.00, indicating a complete cessation of new research activity and a lack of connections to modern automated synthesis methods in the literature graph.",
+    "Claim": "Developing an automated framework for generating dynamic, real-time evidence maps of software engineering practices by combining Large Language Models (LLMs) with incremental knowledge graph construction.",
+    "Warrant": "Traditional evidence maps in software engineering are static, manual, and quickly become obsolete. Transitioning to LLM-driven dynamic evidence mapping allows practitioners to continuously query and visualize the state of evidence for software technologies and methodologies, bridging the gap between academic research and industry adoption.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: evidence maps"
+  },
+  {
+    "Grounds": "Stagnant concept 'analysis' has a temporal decay rate of 1.00, indicating a complete decline in new research activity connected to it in recent years, and it lacks integration with modern generative AI and LLM agent workflows.",
+    "Claim": "Developing real-time, lightweight static and dynamic analysis frameworks integrated directly into LLM-based code generation pipelines to validate synthesized code before execution.",
+    "Warrant": "Traditional program analysis is designed for offline, developer-in-the-loop workflows. As autonomous LLM agents increasingly generate and execute code on the fly, there is a critical need to pivot analysis techniques to run inline, preventing prompt injection, runtime errors, and security vulnerabilities in AI-synthesized code.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: analysis"
+  },
+  {
+    "Grounds": "The stagnant concept 'intercontinental physical activity surveillance initiatives' has a temporal decay rate of 1.00, indicating a complete decline in new research activity and connections in the literature graph.",
+    "Claim": "The lack of a decentralized, federated software architecture that enables cross-border physical activity data aggregation and analysis without violating regional data sovereignty laws (e.g., GDPR, CCPA).",
+    "Warrant": "Software engineers designing global health surveillance systems face a trade-off between data utility and compliance. A federated architecture with local differential privacy at the edge allows global analytics (surveillance) while ensuring compliance by design, reviving the feasibility of intercontinental initiatives.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: intercontinental physical activity surveillance initiatives"
+  },
+  {
+    "Grounds": "The concept 'proposed methodology' has a temporal decay rate of 1.00, indicating a complete decline in new research activity and connections in the literature graph in recent years.",
+    "Claim": "The lack of automated frameworks that translate static 'proposed methodology' descriptions into executable, containerized replication packages within continuous integration pipelines to dynamically verify empirical software engineering claims.",
+    "Warrant": "Traditional software engineering research relies on static descriptions of methodologies, which contributes to reproducibility issues and rapid concept decay. Integrating automated translation into executable pipelines ensures that new methodologies are immediately verifiable, benchmarked, and reusable by the community.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: proposed methodology"
+  },
+  {
+    "Grounds": "Stagnant concept 'ChatGPT' has a temporal decay rate of 1.00, indicating a complete decline in new research connections. In the literature graph, it lacks connections to 'Formal Runtime Verification'.",
+    "Claim": "Integrating ChatGPT-driven automated program repair with formal runtime verification frameworks to dynamically validate and constrain LLM-generated patches against safety invariants.",
+    "Warrant": "ChatGPT's code generation capabilities have stalled in research due to reliability and hallucination issues. By bridging ChatGPT with formal runtime verification, software engineers can automatically synthesize code patches while ensuring they do not violate critical system invariants at runtime, providing mathematical safety guarantees for AI-generated code.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: ChatGPT"
+  },
+  {
+    "Grounds": "Stagnant concept 'systematic and meta-analytic reviews' has a temporal decay rate of 1.00, indicating a complete decline in new research activity and a lack of integration with modern automated synthesis techniques in the literature graph.",
+    "Claim": "Developing automated, continuous 'living' systematic review pipelines that leverage LLM-based multi-agent systems to dynamically screen, extract, and synthesize empirical software engineering evidence.",
+    "Warrant": "Traditional systematic reviews in software engineering are highly manual and become obsolete quickly. Automating this process via LLMs and continuous integration pipelines ensures that empirical evidence remains up-to-date, allowing practitioners and researchers to make decisions based on the latest synthesized knowledge without the multi-year lag of manual reviews.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: systematic and meta-analytic reviews"
+  },
+  {
+    "Grounds": "The stagnant concept 'peer-reviewed literature' has a temporal decay rate of 1.00, indicating a complete decline in recent research activity and a lack of integration with modern automated software engineering workflows.",
+    "Claim": "Automating the ingestion and semantic indexing of peer-reviewed software engineering literature to serve as a real-time, empirically-grounded knowledge base for Retrieval-Augmented Generation (RAG) in LLM-based code generation tools.",
+    "Warrant": "Current AI code assistants rely on raw web data, often propagating insecure or inefficient coding patterns. By bridging peer-reviewed empirical evidence with LLM generation pipelines, developers can automatically verify that generated code and architectural decisions align with scientifically validated software engineering principles and empirical benchmarks.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: peer-reviewed literature"
+  },
+  {
+    "Grounds": "The stagnant concept 'Baltic coastal eutrophication' has a temporal decay rate of 1.00, indicating a complete decline in new research activity and a lack of integration with modern software engineering paradigms in the literature graph.",
+    "Claim": "Designing a cloud-native, event-driven software architecture pattern that containerizes legacy biogeochemical simulation models to enable real-time, stream-processed monitoring of Baltic coastal eutrophication.",
+    "Warrant": "Existing eutrophication models are legacy monoliths that process data offline, preventing real-time ecological response. Applying modern software engineering principles—such as containerization, microservices, and reactive stream processing—allows these models to ingest live IoT sensor telemetry, enabling automated, low-latency environmental alerting systems.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: Baltic coastal eutrophication"
+  },
+  {
+    "Grounds": "Stagnant concept 'rule-based, text mining method' has a temporal decay rate of 0.60, indicating a 60% decline in new research activity and connections in the literature graph.",
+    "Claim": "Developing hybrid neuro-symbolic frameworks that use Large Language Models to automatically synthesize and maintain deterministic rule-based text mining patterns for extracting API constraints from software documentation.",
+    "Warrant": "Purely deep-learning-based text mining lacks the determinism and explainability required for safety-critical software engineering tasks like API compliance checking. Reviving rule-based methods by automating rule generation via LLMs combines the flexibility of neural models with the verifiable, zero-hallucination execution of rule-based engines.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: rule-based, text mining method"
+  },
+  {
+    "Grounds": "Stagnant concept 'PRISMA-ScR' has a temporal decay rate of 1.00, indicating a complete decline in new research activity and connections to modern software engineering methodology literature.",
+    "Claim": "Developing automated, LLM-driven compliance verification tools to assess and enforce PRISMA-ScR standards in software engineering scoping reviews.",
+    "Warrant": "Scoping reviews in software engineering often suffer from poor reporting quality and reproducibility issues. Manually verifying compliance with the 20 items of the PRISMA-ScR checklist is labor-intensive and error-prone. Automating this process using LLMs with retrieval-augmented generation (RAG) ensures methodological rigor, accelerates the peer-review process for secondary studies, and improves the overall quality of evidence-based software engineering (EBSE).",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: PRISMA-ScR"
+  },
+  {
+    "Grounds": "The stagnant concept 'Qualtrics' has a temporal decay rate of 1.00, indicating a complete decline in new research activity and connections to modern software engineering methodologies in the literature graph.",
+    "Claim": "Integrating Qualtrics-based developer experience (DevEx) micro-surveys directly into IDE telemetry and CI/CD pipelines to capture real-time, context-aware qualitative feedback during software development tasks.",
+    "Warrant": "Traditional software engineering surveys suffer from recall bias and low response rates because they are administered retrospectively. By triggering micro-surveys immediately after specific developer events (e.g., a merge conflict resolution or a build failure), researchers and organizations can correlate objective telemetry data with subjective developer sentiment, leading to more accurate DevEx models.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: Qualtrics"
+  },
+  {
+    "Grounds": "The stagnant concept 'reviewed assessments' has a temporal decay rate of 1.00, indicating a complete halt in new research activity and a lack of integration with modern continuous integration and automated analysis paradigms in the literature graph.",
+    "Claim": "Developing a continuous, LLM-driven framework that automatically updates and re-verifies historical 'reviewed assessments' (such as security compliance and architectural reviews) in response to real-time codebase changes.",
+    "Warrant": "Manual software assessments quickly become stale as codebases evolve. By leveraging LLMs and AST-based change impact analysis to automatically flag drift and update previously 'reviewed assessments', development teams can maintain continuous compliance and security alignment without manual re-evaluation overhead.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: reviewed assessments"
+  },
+  {
+    "Grounds": "The stagnant concept 'TCCM approach' has a temporal decay rate of 1.00, indicating a complete cessation of new research activity and a lack of active connections to modern software engineering methodologies in the literature graph.",
+    "Claim": "Automating the Theory-Context-Characteristics-Methodology (TCCM) framework using Large Language Models (LLMs) and semantic parsing to dynamically synthesize software engineering literature.",
+    "Warrant": "Manual systematic literature reviews using the TCCM approach are labor-intensive and become outdated quickly. By automating TCCM extraction via LLMs, software engineering researchers can generate real-time, self-updating maps of research domains, accelerating the identification of actual engineering gaps.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: TCCM approach"
+  },
+  {
+    "Grounds": "Stagnant concept 'nature-inspired algorithms' has a temporal decay rate of 1.00, indicating a complete decline in new research activity and connections in the literature graph.",
+    "Claim": "Integrating nature-inspired search algorithms (such as genetic programming) with Large Language Models (LLMs) to perform multi-objective automated program repair (APR) that optimizes for both functional correctness and non-functional properties.",
+    "Warrant": "While LLMs excel at generating syntactically correct code patches, they lack the capability to systematically optimize for non-functional constraints. Reintroducing nature-inspired algorithms as a search-based wrapper around LLM-generated patch spaces allows developers to automatically evolve patches that are not only correct but also optimized for resource-constrained environments.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: nature-inspired algorithms"
+  },
+  {
+    "Grounds": "Stagnant concept 'drug reminder packaging' has a temporal decay rate of 1.00, indicating a complete decline in new research activity connected to it in the literature graph.",
+    "Claim": "Developing standardized middleware architectures and automated integration testing frameworks to connect IoT-enabled drug reminder packaging with modern Electronic Health Record (EHR) systems.",
+    "Warrant": "Existing research on drug reminder packaging focuses on physical design or isolated hardware, lacking integration with enterprise healthcare software. Bridging this concept with software engineering middleware standards enables interoperable, secure, and automated data synchronization between patient devices and clinical systems.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: drug reminder packaging"
+  },
+  {
+    "Grounds": "The stagnant concept 'bibliometric analysis' has a temporal decay rate of 0.90, indicating a 90% decline in new research activity and connections in the literature graph in recent years.",
+    "Claim": "Integrating bibliometric citation network analysis with open-source software (OSS) dependency graphs and repository metadata to dynamically trace the translation of academic software engineering research into production code.",
+    "Warrant": "Traditional bibliometrics in software engineering is limited to academic citation counts, failing to measure actual industry adoption. Bridging bibliometrics with repository mining allows researchers to quantify the practical impact of software technologies, identify translation bottlenecks, and direct funding toward highly transferable research.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: bibliometric analysis"
+  },
+  {
+    "Grounds": "Stagnant concept 'overview of SRs' has a temporal decay rate of 1.00, indicating that traditional manual tertiary reviews in software engineering have ceased to attract new research activity.",
+    "Claim": "The lack of automated, continuous ('living') synthesis frameworks that leverage LLMs and semantic knowledge graphs to dynamically aggregate, update, and resolve contradictions across software engineering systematic reviews.",
+    "Warrant": "Traditional overviews of SRs are static and require years to produce, making them obsolete upon publication. Automating the synthesis of SRs using LLMs allows software engineering researchers to maintain real-time, evidence-based consensus on software technologies, methodologies, and tools, thereby reviving the utility of tertiary studies.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: overview of SRs"
+  },
+  {
+    "Grounds": "Stagnant concept 'digital leadership' has a temporal decay rate of 1.00, indicating a complete decline in new research activity and a lack of integration with modern software engineering telemetry and developer experience (DevEx) frameworks.",
+    "Claim": "Developing automated, telemetry-driven digital leadership frameworks that leverage developer experience (DevEx) metrics and repository-mining organizational network analysis (ONA) to guide engineering management decisions.",
+    "Warrant": "Traditional digital leadership relies on qualitative, manual management frameworks that fail to scale with highly distributed, asynchronous software teams. By grounding digital leadership in quantitative Git, Jira, and CI/CD telemetry, engineering leaders can proactively identify team bottlenecks, prevent burnout, and optimize resource allocation based on real-time software development activity.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: digital leadership"
+  },
+  {
+    "Grounds": "Stagnant concept 'Logistic Regression' has a temporal decay rate of 1.00, indicating a complete decline in new research activity connected to it in the literature graph.",
+    "Claim": "Utilizing logistic regression as a lightweight, self-explaining surrogate model integrated directly into CI/CD pipelines to explain complex deep learning-based code vulnerability detectors.",
+    "Warrant": "Modern deep learning models for vulnerability detection achieve high accuracy but lack interpretability and incur high computational overhead. Reviving logistic regression as a fast, interpretable surrogate provides developers with immediate, transparent feature-level explanations for model predictions without delaying the build pipeline.",
+    "Bucket": "more_probable",
+    "type": "temporal_decay",
+    "source": "Stagnant Concept: Logistic Regression"
   }
 ]

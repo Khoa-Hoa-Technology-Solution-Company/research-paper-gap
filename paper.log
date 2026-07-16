@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.8)  14 JUL 2026 11:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.8)  16 JUL 2026 22:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -527,37 +527,56 @@ Overfull \hbox (10.9043pt too wide) in paragraph at lines 185--186
 10 each gap. All de-ci-sions are logged to \T1/cmtt/m/n/10 expert_reviews.json
  []
 
-[6] [7] [8]
-Overfull \hbox (0.61246pt too wide) in paragraph at lines 298--300
-[]\T1/cmr/m/n/10 The in-de-pen-dent De-BERTa NLI rates were: **KG-TABI (44.4%)*
-*, B1 Mulla
- []
-
-[9]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (40.08878pt too wide) in paragraph at lines 394--406
+[6]
+Overfull \hbox (79.37411pt too wide) in paragraph at lines 236--246
  [][] 
  []
 
-[10] [11] [12]
-Overfull \hbox (18.55472pt too wide) in paragraph at lines 446--447
+[7]
+Overfull \hbox (7.08163pt too wide) in paragraph at lines 291--292
+\T1/cmr/m/n/10 mean-ing the ma-jor-ity of gen-er-ated Claims are log-i-cally su
+p-ported by their Grounds
+ []
+
+
+Overfull \hbox (20.14789pt too wide) in paragraph at lines 291--292
+\T1/cmr/m/n/10 and War-rant. In con-trast, al-ter-na-tive graph-augmented meth-
+ods like B4 (GraphRAG)
+ []
+
+[8] [9]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10]
+Overfull \hbox (40.08878pt too wide) in paragraph at lines 398--410
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[11]
+Overfull \hbox (17.44308pt too wide) in paragraph at lines 425--435
+ [][] 
+ []
+
+[12]
+Overfull \hbox (18.55472pt too wide) in paragraph at lines 470--471
 []\T1/cmr/m/n/10 In con-trast, text-only base-lines (B1--B3) lack struc-tural e
 v-i-dence. Their ``Grounds''
  []
 
-[13]
-Overfull \hbox (6.12402pt too wide) in paragraph at lines 473--474
+[13] [14] [15]
+Overfull \hbox (6.12402pt too wide) in paragraph at lines 523--524
 \T1/cmr/m/n/10 repos-i-tory at [][]$\T1/cmtt/m/n/10 https : / / github . com / 
 Khoa-[]Hoa-[]Technology-[]Solution-[]Company /
  []
 
-[14] (paper.bbl) [15] (paper.aux)
+(paper.bbl [16]) [17] (paper.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -566,13 +585,13 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: B7340C86203CB159414C1F9339F5DD60;591.
  ) 
 Here is how much of TeX's memory you used:
- 10503 strings out of 467871
- 160178 string characters out of 5418377
- 591133 words of memory out of 5000000
- 39129 multiletter control sequences out of 15000+600000
+ 10510 strings out of 467871
+ 160255 string characters out of 5418377
+ 591328 words of memory out of 5000000
+ 39131 multiletter control sequences out of 15000+600000
  641248 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,10n,79p,1642b,643s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,10n,79p,1764b,643s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\leanh\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt
 1000.pk> <C:\Users\leanh\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ecbx1000.pk> <C:\Users\leanh\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
@@ -597,9 +616,9 @@ grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/leanh/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/leanh/App
 Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/
 leanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on paper.pdf (15 pages, 354539 bytes).
+Output written on paper.pdf (17 pages, 358832 bytes).
 PDF statistics:
- 852 PDF objects out of 1000 (max. 8388607)
- 118 named destinations out of 1000 (max. 500000)
+ 869 PDF objects out of 1000 (max. 8388607)
+ 123 named destinations out of 1000 (max. 500000)
  9 words of extra memory for PDF output out of 10000 (max. 10000000)
 

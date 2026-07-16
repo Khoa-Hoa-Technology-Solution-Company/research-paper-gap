@@ -65,9 +65,8 @@ def search_papers(queries: list[str], limit_per_query: int = 20) -> list[dict]:
         
         print(f"[*] Querying: '{q}'...")
         try:
-            # Semantic Scholar API rate limits are 100 requests per 5 minutes for public, 
-            # so we sleep briefly to avoid hitting rate limits.
-            time.sleep(1.0)
+            # Semantic Scholar API rate limits: sleep to avoid 429
+            time.sleep(3.0)
             
             response = requests.get(endpoint, params=params, headers=headers)
             if response.status_code == 200:
@@ -167,6 +166,14 @@ def screen_relevance(papers: list[dict], topic: str) -> list[dict]:
             screened.append(p)
             
     print(f"[+] {len(screened)} papers survived relevance screening (threshold >= {config.RELEVANCE_THRESHOLD})")
+    
+    # Sort by relevance_score descending, then citationCount descending
+    screened.sort(key=lambda x: (x.get("relevance_score", 0.0), x.get("citationCount", 0)), reverse=True)
+    
+    if len(screened) > 100:
+        print(f"[*] Truncating screened papers from {len(screened)} to 100 based on relevance and citations.")
+        screened = screened[:100]
+        
     return screened
 
 def chunk_text(text: str, max_words: int = 1000) -> list[str]:

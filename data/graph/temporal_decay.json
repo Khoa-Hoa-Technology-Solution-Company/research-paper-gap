@@ -1,43 +1,281 @@
 [
   {
-    "node": "Semantic Web technology",
-    "node_type": "CONCEPT",
+    "node": "proposed framework",
+    "node_type": "METHOD",
     "total_events": 3,
     "recent_events": 0,
     "decay_rate": 1.0
   },
   {
-    "node": "systematic review",
-    "node_type": "METHOD",
-    "total_events": 10,
-    "recent_events": 7,
-    "decay_rate": 0.30000000000000004
+    "node": "research gap",
+    "node_type": "CONCEPT",
+    "total_events": 6,
+    "recent_events": 2,
+    "decay_rate": 0.6666666666666667
   },
   {
-    "node": "Current study's analysis",
+    "node": "scoping review",
+    "node_type": "METHOD",
+    "total_events": 9,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "knowledge gaps",
+    "node_type": "CONCEPT",
+    "total_events": 6,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "machine learning-based approach",
     "node_type": "METHOD",
     "total_events": 4,
     "recent_events": 0,
     "decay_rate": 1.0
   },
   {
-    "node": "current literature",
-    "node_type": "DATASET",
-    "total_events": 6,
+    "node": "BERTopic topic modeling technique",
+    "node_type": "METHOD",
+    "total_events": 3,
     "recent_events": 0,
     "decay_rate": 1.0
   },
   {
-    "node": "sustainable entrepreneurship",
+    "node": "research gaps",
+    "node_type": "FINDING",
+    "total_events": 5,
+    "recent_events": 2,
+    "decay_rate": 0.6
+  },
+  {
+    "node": "topic modeling",
+    "node_type": "METHOD",
+    "total_events": 3,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "literature review",
+    "node_type": "METHOD",
+    "total_events": 11,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "systematic research review",
+    "node_type": "METHOD",
+    "total_events": 46,
+    "recent_events": 8,
+    "decay_rate": 0.8260869565217391
+  },
+  {
+    "node": "standardized audit process",
+    "node_type": "METHOD",
+    "total_events": 3,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "review",
+    "node_type": "METHOD",
+    "total_events": 3,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "Latent Dirichlet Allocation",
+    "node_type": "METHOD",
+    "total_events": 4,
+    "recent_events": 2,
+    "decay_rate": 0.5
+  },
+  {
+    "node": "framework",
+    "node_type": "TOOL",
+    "total_events": 4,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "text mining",
+    "node_type": "METHOD",
+    "total_events": 27,
+    "recent_events": 12,
+    "decay_rate": 0.5555555555555556
+  },
+  {
+    "node": "Technology Acceptance Model",
+    "node_type": "CONCEPT",
+    "total_events": 3,
+    "recent_events": 1,
+    "decay_rate": 0.6666666666666667
+  },
+  {
+    "node": "PRISMA guidelines",
+    "node_type": "METHOD",
+    "total_events": 6,
+    "recent_events": 2,
+    "decay_rate": 0.6666666666666667
+  },
+  {
+    "node": "thematic review",
+    "node_type": "METHOD",
+    "total_events": 26,
+    "recent_events": 5,
+    "decay_rate": 0.8076923076923077
+  },
+  {
+    "node": "systematic methods",
+    "node_type": "METHOD",
+    "total_events": 6,
+    "recent_events": 2,
+    "decay_rate": 0.6666666666666667
+  },
+  {
+    "node": "Scopus database",
+    "node_type": "DATASET",
+    "total_events": 7,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "conceptual framework",
+    "node_type": "FINDING",
+    "total_events": 3,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "evidence maps",
+    "node_type": "METHOD",
+    "total_events": 4,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "analysis",
+    "node_type": "METHOD",
+    "total_events": 3,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "intercontinental physical activity surveillance initiatives",
+    "node_type": "DATASET",
+    "total_events": 4,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "proposed methodology",
+    "node_type": "METHOD",
+    "total_events": 3,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "ChatGPT",
+    "node_type": "TOOL",
+    "total_events": 3,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "systematic and meta-analytic reviews",
+    "node_type": "DATASET",
+    "total_events": 3,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "peer-reviewed literature",
+    "node_type": "DATASET",
+    "total_events": 4,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "Baltic coastal eutrophication",
     "node_type": "CONCEPT",
     "total_events": 3,
     "recent_events": 0,
     "decay_rate": 1.0
   },
   {
-    "node": "this study",
+    "node": "rule-based, text mining method",
+    "node_type": "METHOD",
+    "total_events": 5,
+    "recent_events": 2,
+    "decay_rate": 0.6
+  },
+  {
+    "node": "PRISMA-ScR",
+    "node_type": "METHOD",
+    "total_events": 4,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "Qualtrics",
+    "node_type": "TOOL",
+    "total_events": 3,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "reviewed assessments",
+    "node_type": "METHOD",
+    "total_events": 4,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "TCCM approach",
     "node_type": "METHOD",
     "total_events": 3,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "nature-inspired algorithms",
+    "node_type": "METHOD",
+    "total_events": 3,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "drug reminder packaging",
+    "node_type": "TOOL",
+    "total_events": 3,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "bibliometric analysis",
+    "node_type": "METHOD",
+    "total_events": 10,
+    "recent_events": 1,
+    "decay_rate": 0.9
+  },
+  {
+    "node": "overview of SRs",
+    "node_type": "METHOD",
+    "total_events": 4,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "digital leadership",
+    "node_type": "CONCEPT",
+    "total_events": 5,
+    "recent_events": 0,
+    "decay_rate": 1.0
+  },
+  {
+    "node": "Logistic Regression",
+    "node_type": "METHOD",
+    "total_events": 4,
     "recent_events": 0,
     "decay_rate": 1.0
   }

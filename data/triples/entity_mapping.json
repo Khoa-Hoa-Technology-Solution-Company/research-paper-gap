@@ -1,20 +1,127 @@
 {
-  "systematic review": [
+  "research gap": [
+    "lack of methodological guidelines for identifying research gaps",
+    "identifying research gaps",
+    "gaps in research",
+    "identified research gaps",
+    "gap in existing research"
+  ],
+  "knowledge gaps": [
+    "gaps in knowledge"
+  ],
+  "COVID-19 Open Research Dataset (CORD-19)": [
+    "COVID-19 Open Research (CORD-19) data set"
+  ],
+  "research gaps": [
+    "list of research gaps",
+    "four key research gaps"
+  ],
+  "systematic research review": [
+    "Systematic Literature Review (SLR)",
+    "systematic literature review approach",
     "systematic literature review",
-    "systematic literature review process",
-    "systematic review methodology"
+    "systematic quantitative literature review",
+    "systematic review of systematic reviews",
+    "systematic literature review methodology",
+    "Systematic Literature Review",
+    "systematic and quantitative review",
+    "existing systematic literature reviews"
   ],
-  "qualitative analysis": [
-    "quantitative analysis"
+  "literature review": [
+    "Literature review"
   ],
-  "faculties of tourism and hotels": [
-    "Egyptian faculties of tourism and hotels"
+  "standardized audit process": [
+    "standardized audit methodology"
   ],
-  "h-index": [
-    "g-index",
-    "m-index"
+  "nomological network": [
+    "nomological framework"
   ],
-  "discussion about research problems": [
-    "limited discussion about research problems"
+  "70 peer-reviewed articles": [
+    "462 peer-reviewed articles"
+  ],
+  "PRISMA guidelines": [
+    "PRISMA 2020 guidelines",
+    "PRISMA 2009 guidelines"
+  ],
+  "thematic review": [
+    "systematic review"
+  ],
+  "systematic methods": [
+    "systematic review methods",
+    "systematic methodology",
+    "systematic review methodology",
+    "systematic approach"
+  ],
+  "systematic mapping methodology": [
+    "process-based methodology for systematic maps"
+  ],
+  "Scopus database": [
+    "Scopus and Web of Science databases",
+    "Scopus® database",
+    "Scopus and Web of Science"
+  ],
+  "evidence maps": [
+    "evidence mapping methodology",
+    "evidence mapping"
+  ],
+  "project management system": [
+    "megaproject management systems"
+  ],
+  "Latent Dirichlet Allocation": [
+    "latent Dirichlet allocation",
+    "Latent Dirichlet Allocation (LDA) models"
+  ],
+  "13 topics": [
+    "22 topics"
+  ],
+  "scoping review": [
+    "scoping reviews"
+  ],
+  "75 papers": [
+    "69 papers"
+  ],
+  "Technology Acceptance Model": [
+    "Technology Acceptance model"
+  ],
+  "VOSviewer": [
+    "VOSviewer software"
+  ],
+  "Baltic coastal eutrophication": [
+    "research on Baltic coastal eutrophication"
+  ],
+  "text mining": [
+    "text mining approach",
+    "text-mining approach",
+    "text-mining methods",
+    "text mining techniques",
+    "text mining approaches",
+    "text mining and topic analysis",
+    "Text mining analysis",
+    "text mining and topic analysis approach",
+    "Text mining techniques"
+  ],
+  "TCCM approach": [
+    "TCCM framework"
+  ],
+  "bibliometric analysis": [
+    "combination of clustering and bibliometric analysis",
+    "Typical bibliometric methods",
+    "bibliometric analysis methodology",
+    "bibliometric data analysis"
+  ],
+  "science mapping": [
+    "science mapping process"
+  ],
+  "scientific publications": [
+    "scientific publication data"
+  ],
+  "rule-based, text mining method": [
+    "reproducible rule-based text mining approach"
+  ],
+  "hotel CX": [
+    "hotel CX studies"
+  ],
+  "energy forecasting": [
+    "energy forecasting tasks"
   ]
 }

@@ -1,37 +1,37 @@
 [
   {
     "method": "KG-TABI",
-    "deberta_entailment_rate": 44.4,
-    "cohens_kappa": "N/A"
+    "deberta_entailment_rate": 28.3,
+    "cohens_kappa": 0.199
   },
   {
     "method": "B1 Mulla RAG",
-    "deberta_entailment_rate": 47.6,
-    "cohens_kappa": "N/A"
+    "deberta_entailment_rate": 69.0,
+    "cohens_kappa": 0.269
   },
   {
     "method": "B2 Simple LLM",
-    "deberta_entailment_rate": 41.3,
-    "cohens_kappa": "N/A"
+    "deberta_entailment_rate": 36.0,
+    "cohens_kappa": 0.384
   },
   {
     "method": "B3 GAPMAP",
-    "deberta_entailment_rate": 76.2,
-    "cohens_kappa": "N/A"
+    "deberta_entailment_rate": 62.4,
+    "cohens_kappa": 0.478
   },
   {
     "method": "B4 GraphRAG",
-    "deberta_entailment_rate": 71.4,
-    "cohens_kappa": "N/A"
+    "deberta_entailment_rate": 63.9,
+    "cohens_kappa": 0.242
   },
   {
     "method": "B5 LightRAG",
-    "deberta_entailment_rate": 66.7,
-    "cohens_kappa": "N/A"
+    "deberta_entailment_rate": 72.0,
+    "cohens_kappa": 0.268
   },
   {
     "method": "B6 HippoRAG",
-    "deberta_entailment_rate": 61.9,
-    "cohens_kappa": "N/A"
+    "deberta_entailment_rate": 59.8,
+    "cohens_kappa": 0.236
   }
 ]

@@ -1,0 +1,46 @@
+[
+  {
+    "scale": "21 papers (1x)",
+    "nodes": 608,
+    "edges": 429,
+    "er_seconds": 14.092,
+    "graph_build_seconds": 0.0019,
+    "louvain_seconds": 0.0215,
+    "decay_seconds": 0.0819,
+    "total_seconds": 14.1973,
+    "gaps_count": 39
+  },
+  {
+    "scale": "50 papers (2.4x)",
+    "nodes": 1765,
+    "edges": 1286,
+    "er_seconds": 8.4715,
+    "graph_build_seconds": 0.0031,
+    "louvain_seconds": 0.0614,
+    "decay_seconds": 0.4543,
+    "total_seconds": 8.9902,
+    "gaps_count": 121
+  },
+  {
+    "scale": "100 papers (4.8x)",
+    "nodes": 2957,
+    "edges": 2145,
+    "er_seconds": 11.2156,
+    "graph_build_seconds": 0.0044,
+    "louvain_seconds": 0.0965,
+    "decay_seconds": 1.3008,
+    "total_seconds": 12.6173,
+    "gaps_count": 206
+  },
+  {
+    "scale": "200 papers (9.5x)",
+    "nodes": 5820,
+    "edges": 4282,
+    "er_seconds": 20.8465,
+    "graph_build_seconds": 0.0096,
+    "louvain_seconds": 0.3673,
+    "decay_seconds": 5.1821,
+    "total_seconds": 26.4055,
+    "gaps_count": 416
+  }
+]

@@ -16,6 +16,9 @@ from src.evaluate import run_evaluation
 from baselines.simple_llm import run_simple_llm_baseline
 from baselines.gapmap_text import run_gapmap_baseline
 from baselines.mulla_rag import run_mulla_rag_baseline
+from baselines.graphrag import run_graphrag_baseline
+from baselines.lightrag import run_lightrag_baseline
+from baselines.hipporag import run_hipporag_baseline
 
 def run_stage_1(topic: str, limit: int, use_sample: bool = False):
     print("\n" + "="*50 + "\n[Stage 1] Literature Search & Screening\n" + "="*50)
@@ -172,15 +175,19 @@ def run_baselines_and_evaluation():
     print("\n" + "="*50 + "\n[Phase 4] Baselines Execution & Evaluation\n" + "="*50)
     screened_path = os.path.join(config.RAW_PAPERS_DIR, "screened_papers.json")
     chunks_path = os.path.join(config.RAW_PAPERS_DIR, "chunks.json")
+    resolved_path = os.path.join(config.TRIPLES_DIR, "resolved_triples.json")
     
-    if not os.path.exists(screened_path) or not os.path.exists(chunks_path):
-        raise FileNotFoundError("Literature files not found! Please run Stage 1 first.")
+    if not os.path.exists(screened_path) or not os.path.exists(chunks_path) or not os.path.exists(resolved_path):
+        raise FileNotFoundError("Literature or triples files not found! Please run Stage 1 and 2 first.")
         
     with open(screened_path, "r", encoding="utf-8") as f:
         papers = json.load(f)
         
     with open(chunks_path, "r", encoding="utf-8") as f:
         chunks = json.load(f)
+
+    with open(resolved_path, "r", encoding="utf-8") as f:
+        resolved_triples = json.load(f)
         
     # B2: Simple LLM
     gaps_b2 = run_simple_llm_baseline(papers)
@@ -199,6 +206,25 @@ def run_baselines_and_evaluation():
     b1_path = os.path.join(config.GAPS_DIR, "baseline_mulla_rag.json")
     with open(b1_path, "w", encoding="utf-8") as f:
         json.dump(gaps_b1, f, ensure_ascii=False, indent=2)
+
+    # B4: GraphRAG
+    G = build_graph(resolved_triples)
+    gaps_b4 = run_graphrag_baseline(G, papers)
+    b4_path = os.path.join(config.GAPS_DIR, "baseline_graphrag.json")
+    with open(b4_path, "w", encoding="utf-8") as f:
+        json.dump(gaps_b4, f, ensure_ascii=False, indent=2)
+
+    # B5: LightRAG
+    gaps_b5 = run_lightrag_baseline(papers, resolved_triples)
+    b5_path = os.path.join(config.GAPS_DIR, "baseline_lightrag.json")
+    with open(b5_path, "w", encoding="utf-8") as f:
+        json.dump(gaps_b5, f, ensure_ascii=False, indent=2)
+
+    # B6: HippoRAG
+    gaps_b6 = run_hipporag_baseline(papers, chunks, resolved_triples)
+    b6_path = os.path.join(config.GAPS_DIR, "baseline_hipporag.json")
+    with open(b6_path, "w", encoding="utf-8") as f:
+        json.dump(gaps_b6, f, ensure_ascii=False, indent=2)
         
     # Run evaluation metrics
     print("[*] Launching automatic evaluation...")

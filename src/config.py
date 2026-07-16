@@ -1,5 +1,14 @@
 import os
+import sys
 from dotenv import load_dotenv
+
+# Reconfigure stdout/stderr encoding on Windows to prevent UnicodeEncodeErrors
+if sys.platform.startswith("win"):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stderr.reconfigure(encoding='utf-8')
+    except AttributeError:
+        pass  # Fallback for Python < 3.7
 
 # Load environment variables from .env
 load_dotenv()
@@ -9,6 +18,7 @@ LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openai").lower()
 LLM_API_KEY = os.getenv("LLM_API_KEY", "")
 LLM_MODEL = os.getenv("LLM_MODEL", "gpt-4o-mini")
 LLM_BASE_URL = os.getenv("LLM_BASE_URL", "").strip() or None
+LLM_DELAY = float(os.getenv("LLM_DELAY", "2.0"))
 
 # Semantic Scholar Configuration
 SEMANTIC_SCHOLAR_API_KEY = os.getenv("SEMANTIC_SCHOLAR_API_KEY", "").strip() or None

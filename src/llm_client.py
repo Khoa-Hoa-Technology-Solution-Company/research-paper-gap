@@ -43,8 +43,8 @@ def call_llm(prompt: str, temperature: float = 0.1, max_retries: int = 7) -> str
     
     for attempt in range(max_retries):
         try:
-            # Proactive pause to avoid hitting rate limits on free tiers
-            time.sleep(2.0)
+            # Proactive pause to avoid hitting rate limits
+            time.sleep(config.LLM_DELAY)
             
             response = client.chat.completions.create(
                 model=model,

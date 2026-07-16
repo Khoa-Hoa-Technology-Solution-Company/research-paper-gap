@@ -1,10 +1,10 @@
 {
-  "data_loading_seconds": 0.0004,
-  "entity_resolution_seconds": 79.8168,
-  "graph_build_seconds": 0.001,
-  "louvain_clustering_seconds": 0.0125,
-  "temporal_decay_seconds": 0.0064,
-  "unique_gap_clustering_seconds": 5.6046,
-  "triples_count": 92,
-  "entities_count": 132
+  "data_loading_seconds": 0.0013,
+  "entity_resolution_seconds": 11.842,
+  "graph_build_seconds": 0.0018,
+  "louvain_clustering_seconds": 0.0208,
+  "temporal_decay_seconds": 0.0585,
+  "unique_gap_clustering_seconds": 5.9734,
+  "triples_count": 430,
+  "entities_count": 550
 }
