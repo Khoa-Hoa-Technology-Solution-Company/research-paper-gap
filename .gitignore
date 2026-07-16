@@ -1,49 +1,61 @@
-.env
-.env.*
-!.env.example
-
-.venv/
-apps/api/.venv/
-apps/web/.venv/
-.python-version
-
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-.pyre/
-.hypothesis/
-.tox/
-.nox/
-.cache/
-.coverage
-
-.streamlit/secrets.toml
-
-.idea/
-.vscode/
-.DS_Store
-Thumbs.db
-
+# Dependencies
 node_modules/
-.next/
-dist/
-build/
-coverage/
-htmlcov/
-tmp/
-temp/
-*.tmp
-*.bak
+**/node_modules/
+
+# Build outputs
+/dist
+/build
+/out
+/.expo
+/.expo-shared
+**/dist
+**/build
+**/out
+**/.expo
+**/.expo-shared
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 *.log
 
-postman/*.local.json
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+**/.env
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
+!.env.example
 
-data/research_memory/runs/
-infra/postgres/data/
-infra/qdrant/storage/
-infra/qdrant/storage_bind_backup_*/
-infra/minio/data/
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# TypeScript / cache
+*.tsbuildinfo
+.cache/
+.eslintcache
+coverage/
+
+# Expo / React Native
+.expo/
+.expo-shared/
+android/
+ios/
+*.keystore
+*.p8
+*.p12
+*.pem
+
+# Misc
+*.tmp
+*.swp
