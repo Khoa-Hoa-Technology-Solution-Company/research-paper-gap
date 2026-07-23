@@ -1,0 +1,180 @@
+\documentclass[runningheads]{llncs}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\begin{document}
+\title{Supplementary Material for KG-TABI: Design and Auditability of a Conservative Protocol}
+\titlerunning{KG-TABI Supplement}
+\author{Le Anh Hoa et al.}
+\institute{FPT University, Vietnam}
+\maketitle
+
+\section{Purpose and reading guide}
+This supplement preserves the audit trail removed from the concise main paper. It is evidence context, not additional validation. In particular, it does not supply human labels, candidate-level outcomes, a comparative baseline result, or an end-to-end effectiveness claim for the legacy diagnostic. Machine-readable counterparts are listed in the content-addressed reproducibility manifest.
+
+\paragraph{Artifact scope.} Paper-backed claims use three versioned directories beneath \path{data/runs}: historical, lexical replay, and forward run. Their exact paths and hashes are listed in the scope note and manifests. Root-level gap, evaluation, expert-review, and baseline outputs are legacy development artifacts and are not evidence for this manuscript.
+
+\section{Frozen configuration and historical boundary}
+The historical graph uses a directed NetworkX event graph and its simple undirected projection. The fixed structural configuration is Louvain seed 42, resolution 1.0, $\alpha=.05$, and $\beta=.10$. The temporal configuration is cutoff 2025, minimum five events and four covered years, decline threshold $\gamma=.30$, and Benjamini--Hochberg $q<.05$. Calendar years with no corpus events are treated as missing. Every historical topology, traceability, and masking result in this supplement uses the same configuration as the main paper. Its full SHA-256 is:
+\begin{center}\scriptsize\ttfamily
+c869fd8ac726e5465c498f12cfe676637a8bc274b60c640d3406585d3c640b8e
+\end{center}
+All counts refer to the \texttt{microservices-security-v1} graph (834 nodes, 790 directed edges), unless explicitly noted. The historical record retains neither its exact LLM model/version nor prompts, paper identifiers for all events, nor a deterministic screening rule. Accordingly, it is a diagnostic artifact rather than a replayable end-to-end experiment. The global $\alpha=.05$ size gate was frozen for this diagnostic; it was not calibrated on development data and is not proposed as a universal community-relevance threshold.
+
+The forward resolver uses normalized, case-folded typed labels; lexical token-sort threshold 85 and semantic cosine threshold .85 are proposal thresholds. Every cross-component pair must meet the active threshold before union. Semantic proposals use normalized mean embeddings of all aliases, and labels with different types never merge. The resolver writes proposal, acceptance, cohesion-rejection, component-size, descriptor, and type-conflict records. Its correctness still requires blinded merge labels.
+
+The triple vocabulary uses entity types METHOD, DATASET, METRIC, CONCEPT, FINDING, and TOOL. The relation vocabulary is:
+\begin{quote}\scriptsize
+USES, IMPROVES, ADDRESSES, EVALUATES\_ON, PRODUCES, CONTRADICTS,\\
+EXTENDS, LACKS, COMBINES, APPLIED\_TO.
+\end{quote}
+The model-reported extraction score is a filtering value, not a calibrated probability. Forward TABI output is schema-checked: Grounds, Claim, and Warrant must be non-empty strings, and Bucket must be either \texttt{near\_term\_feasible} or \texttt{long\_term\_or\_speculative}. Temporal prompts receive the normalized decline score, Sen slope, raw Mann--Kendall $p$, and Benjamini--Hochberg $q$ under their recorded profile. Structural prompts receive the same top-degree representative labels used by the compatibility gate.
+
+\section{Forward-run sensitivity and execution diagnostics}
+The forward run is a reproducibility check on an overlapping snapshot, not an independent replication: 140 of its 185 retained records overlap the historical 149. Every extraction request used configured string \texttt{ram/gemini-3.5-flash-low}; all 185 calls succeeded on the first attempt. The endpoint returned five provider model-identifier labels (Table~\ref{tab:provider-routing}). The call log stores configured and provider identifiers, prompt version/hash, generation settings, retry attempts, provider response ID, provider system fingerprint when supplied, raw-response hash, content hash, and extraction call ID. Raw responses are hash-only under the run policy. The provider model audit links these call records to triple counts, but it cannot identify underlying weights or deterministic routing.
+
+\begin{table}[h]
+\caption{Provider-returned identifiers in the forward extraction run. Triple-count differences are descriptive and confounded by different abstracts; no input was repeated across routes.}
+\label{tab:provider-routing}
+\centering\small
+\begin{tabular}{lrrr}
+\toprule
+Provider identifier & Calls & Triples & Mean triples/call\\
+\midrule
+\texttt{gemini-3-flash-medium-a} & 61 & 345 & 5.66\\
+\texttt{gemini-default} & 60 & 311 & 5.18\\
+\texttt{gemini-3-flash-medium-c} & 23 & 153 & 6.65\\
+\texttt{gemini-3-flash-medium-b} & 21 & 112 & 5.33\\
+\texttt{gemini-3-flash-medium-control} & 20 & 97 & 4.85\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Consequently, ``provider-field-recorded'' means complete to the granularity disclosed by the provider. It does not mean computational reproducibility in the strong sense of fixed weights, fixed route, or identical output. A future rerun should either use a provider that supplies a pinned model revision or treat provider identity as a stochastic execution factor and repeat matched inputs across reported routes.
+
+Table~\ref{tab:forward-diagnostics} reports diagnostics added after review. The alternatives preserve $R_{\mathrm{cut}}\le .10$ but are explicitly exploratory: no alternative was used to generate candidates, tune a gate, or make a candidate-quality claim. The paper-normalized screen counts unique supporting paper IDs per node divided by unique retained paper IDs per covered year, reusing the frozen $k$, $m$, slope, decay, and FDR settings without recalibration. It is unavailable for the historical artifact because paper IDs are incomplete.
+
+\begin{table}[h]
+\caption{Forward-run exploratory sensitivity diagnostics (1,149 nodes, 1,011 edges, 183 components, 201 Louvain communities).}
+\label{tab:forward-diagnostics}
+\centering\small
+\begin{tabular}{p{7.2cm}r}
+\toprule
+Diagnostic & Result\\
+\midrule
+Frozen global size rule ($|C|/|V|\ge .05$) plus $R_{\mathrm{cut}}\le .10$ & 0 communities\\
+Absolute $|C|\ge10$ plus unchanged bridge rule (exploratory) & 6 communities\\
+Component-relative $|C|\ge\max(10,\lceil.05|\mathrm{component}(C)|\rceil)$ plus unchanged bridge rule (exploratory) & 5 communities\\
+Forward paper-normalized screen: nodes meeting $\ge5$ unique papers / nodes tested / final signals & 12 / 6 / 0\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The largest forward community has 49 nodes (4.26\% of the full graph) and $R_{\mathrm{cut}}=.2647$; it fails both frozen gates. The fact that exploratory size rules admit communities demonstrates configuration dependence, not that those communities are scientifically meaningful. An independently labelled development/held-out study is required to choose a primary size rule, evaluate entity-resolution error propagation, or compare typed/directed topology alternatives.
+
+\section{Detailed diagnostic tables}
+\begin{table}[h]
+\caption{Annual retained relation-event coverage before the cutoff. Paper and eligible-concept counts cannot be recovered from the legacy event artifact.}
+\centering
+\begin{tabular}{rrrr}
+\toprule
+Year & Papers & Relation events & Eligible concepts\\
+\midrule
+2018 & -- & 5 & --\\
+2019 & -- & 13 & --\\
+2020 & -- & 13 & --\\
+2021 & -- & 45 & --\\
+2022 & -- & 58 & --\\
+2023 & -- & 109 & --\\
+2024 & -- & 146 & --\\
+2025 & -- & 255 & --\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\caption{Temporal-screening flow.}
+\centering
+\begin{tabular}{lr}
+\toprule
+Stage & Count\\
+\midrule
+Total nodes / non-generic nodes & 834 / 831\\
+At least 5 incident events & 44\\
+At least 4 covered years (tested) & 6\\
+Negative Sen slope / raw $p<.05$ & 2 / 1\\
+FDR $q<.05$ / final signals & 0 / 0\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\caption{Louvain robustness across 100 seeds per resolution and graph variant. Every cell has zero eligible isolated communities in 100/100 seeds. Communities and modularity are median [minimum--maximum].}
+\centering\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{c|cc|cc}
+\toprule
+& \multicolumn{2}{c|}{Unweighted} & \multicolumn{2}{c}{Source-count weighted}\\
+Resolution & Communities & Modularity & Communities & Modularity\\
+\midrule
+.50 & 152 [128--155] & .864 [.857--.884] & 152 [127--156] & .863 [.857--.882]\\
+.75 & 129 [127--132] & .886 [.882--.887] & 129 [127--131] & .885 [.880--.886]\\
+1.00 & 130 [128--132] & .886 [.885--.888] & 130 [128--131] & .886 [.884--.887]\\
+1.25 & 132 [130--134] & .886 [.882--.887] & 131 [129--132] & .885 [.883--.886]\\
+1.50 & 135 [133--137] & .884 [.882--.886] & 134 [132--136] & .883 [.881--.885]\\
+2.00 & 136 [135--138] & .883 [.880--.885] & 135 [133--137] & .882 [.880--.884]\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{table}[h]
+\caption{Targeted-boundary masking. $n$ is the number of unique target-community$\times$edge-mask instances. Intervals are 2,000-resample percentile bootstrap intervals on this graph.}
+\centering\scriptsize
+\begin{tabular}{crrrrccc}
+\toprule
+Mask & $n$ & TP & FP & FN & Precision & Recall & F1\\
+\midrule
+25\% & 83 & 0 & 0 & 83 & -- & .000 [.000,.000] & --\\
+50\% & 86 & 19 & 3 & 67 & .864 [.700,1.000] & .221 [.140,.314] & .352 [.238,.462]\\
+75\% & 75 & 73 & 6 & 2 & .924 [.869,.974] & .973 [.933,1.000] & .948 [.914,.980]\\
+100\% & 3 & 3 & 1 & 0 & .750 [.500,1.000] & 1.000 [1.000,1.000] & .857 [.667,1.000]\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The traceability-restricted graph retains 774/800 uniquely routable triples and has 820 nodes and 764 directed edges. At seed 42 and resolution 1.0 it has 136 communities and modularity .892, versus 130 and .886 in the full graph; both have zero eligible isolated communities and zero FDR temporal signals. A degree-preserving rewiring diagnostic has lower-tail fractions .092 (full) and .100 (restricted) for the global minimum cut-edge statistic. These are descriptive, not calibrated $p$-values: rewiring does not preserve semantic structure, time, relation types, or connected components.
+
+\section{Synthetic temporal check}
+The production temporal screen was run on Poisson-noised, event-aggregated synthetic graphs with eight years, 180 background events per year, and 40 reproducible seeded trials per condition (seed 20260720). Target trajectories cover stable and increasing controls plus linear, abrupt, exponential, and temporary-dip decline shapes at nominal reductions from 10\% to 75\%. Table~\ref{tab:injection} reports the most informative 75\% condition and controls; intervals are 95\% Wilson intervals over the 40 synthetic trials, not uncertainty intervals for a literature population.
+
+\begin{table}[h]
+\caption{Temporal signal injection at 75\% nominal reduction, with 95\% Wilson intervals.}
+\label{tab:injection}
+\centering
+\begin{tabular}{lcc}
+\toprule
+Condition & Detections / trials & Detection rate [95\% CI]\\
+\midrule
+Linear decline & 33 / 40 & .825 [.681, .913]\\
+Exponential decline & 32 / 40 & .800 [.652, .895]\\
+Abrupt decline & 7 / 40 & .175 [.088, .320]\\
+Temporary dip then recovery & 0 / 40 & .000 [.000, .088]\\
+Stable control & 0 / 40 & .000 [.000, .088]\\
+Increasing control & 0 / 40 & .000 [.000, .088]\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This verifies response to sustained synthetic declines under the stated design only; it does not establish power for real literature trajectories or paper-normalized activity.
+
+\section{Audit and confirmatory evaluation protocol}
+The repository provides unlabelled packets for all 314 screening decisions, a coverage-first triple sample, and entity-resolution merge/nonmerge items. It also provides the blinded-candidate evaluation guide, packet-preparation script, and the audit-trace specification in the repository's \texttt{docs} directory. Before any comparative claim, freeze retrieval dates, corpus rule, hashes, dependency/model identifiers, random seeds, prompt versions, candidate budget, closure queries, primary outcomes, and analysis plan. Retain every candidate passing frozen gates; if a predeclared cap is necessary, select with the released seed and stratification rule.
+
+At least three independent domain reviewers should receive randomized candidates without system labels and an identical retrieved-source bundle. They rate source support, novelty after backward/forward closure, importance, actionability, feasibility, whether a claim is already addressed, and hallucination risk. Preserve reviewer-level ratings and the separate unblinding key; calculate agreement before adjudication and report the complete candidate population, selection key, closures, disagreements, and adjudication outcome. Synthetic labels, LLM-generated ``expert'' judgments, or post-hoc invented ratings cannot substitute for this evaluation. The confirmatory comparison must include a direct-LLM baseline with matched source bundles, format, length, and candidate budget, plus full-Grounds, concept-only, abstract-bundle-only, and shuffled-Grounds ablations. It must be repeated on at least two independently locked domains; only then can it support a candidate-quality or comparative claim.
+
+The confirmatory study should declare one primary candidate outcome before generation (recommended: novelty after closure conditional on adequate source support), treat remaining ratings as secondary outcomes, and determine its candidate count by a simulation or power analysis for the planned paired ordinal/mixed-effects model. Report reviewer agreement before adjudication, reviewer- and candidate-level raw data, effect sizes, and uncertainty intervals. A development domain may be used to select structural thresholds, but neither its candidates nor its labels may enter the held-out comparison.
+
+\end{document}

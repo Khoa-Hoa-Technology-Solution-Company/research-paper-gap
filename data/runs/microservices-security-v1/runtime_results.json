@@ -1,0 +1,10 @@
+{
+  "data_loading_seconds": 0.0022,
+  "entity_resolution_seconds": 12.6255,
+  "graph_build_seconds": 0.0045,
+  "louvain_clustering_seconds": 0.1582,
+  "temporal_decay_seconds": 0.0019,
+  "unique_gap_clustering_seconds": 0.0,
+  "triples_count": 800,
+  "entities_count": 834
+}

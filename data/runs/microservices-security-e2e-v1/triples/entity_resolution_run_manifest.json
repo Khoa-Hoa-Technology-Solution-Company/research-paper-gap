@@ -1,0 +1,114 @@
+{
+  "schema_version": "entity-resolution-run-manifest-v2",
+  "algorithm_version": "entity-resolution-v4-complete-link-component-semantic",
+  "scope": "Forward-run entity resolution only. It does not retroactively make the historical pilot end-to-end reproducible or validate merge correctness.",
+  "decision_rule": {
+    "operator": "lexical OR semantic threshold pass, subject to same-type constraint",
+    "pass_order": [
+      "lexical",
+      "semantic"
+    ],
+    "transitive_closure": "union-find over accepted same-type pairs, with deterministic complete-link cohesion validation before every union",
+    "cohesion_guard": "every cross-component typed-label pair must pass the active lexical or semantic threshold; this blocks A--B--C chaining when A and C are not sufficiently similar",
+    "semantic_component_descriptor": "L2-normalized mean of all current typed-label embeddings; proposed descriptor matches still require complete-link member validation",
+    "canonical_selection": "shortest normalised label, then lexical label, then type",
+    "type_conflict_policy": "never merge across types; type-qualify output node labels when one normalised label occurs with multiple entity types"
+  },
+  "parameters": {
+    "fuzzy_match_threshold": 85,
+    "cosine_similarity_threshold": 0.85,
+    "semantic_model": "all-MiniLM-L6-v2"
+  },
+  "execution": {
+    "lexical_enabled": true,
+    "lexical_backend": "rapidfuzz.token_sort_ratio",
+    "semantic_enabled": true,
+    "semantic_status": "completed",
+    "semantic_error": null
+  },
+  "counts": {
+    "input_triples": 1018,
+    "unique_typed_entities_before": 1298,
+    "unique_typed_entities_after": 1149,
+    "entities_merged": 149,
+    "lexical_pairs_passing_threshold": 105,
+    "semantic_component_descriptor_pairs_passing_threshold": 273,
+    "lexical_cohesion_rejections": 16,
+    "semantic_cohesion_rejections": 190,
+    "same-label_type-conflicts": 31,
+    "self_loops_removed_after_resolution": 0,
+    "output_triples": 1018
+  },
+  "type_conflict_labels": [
+    "access control",
+    "anomaly detection",
+    "api gateway",
+    "api gateways",
+    "attack surface",
+    "blockchain",
+    "cloud-native microservices",
+    "container orchestration",
+    "devops",
+    "distributed tracing",
+    "empirical validation",
+    "intrusion detection",
+    "intrusion detection systems",
+    "jwt",
+    "machine learning models",
+    "microservice architecture",
+    "microservice architectures",
+    "microservices",
+    "microservices architecture",
+    "microservices architectures",
+    "oauth 2.0",
+    "oauth2",
+    "openid connect",
+    "scalability",
+    "security",
+    "service meshes",
+    "system responsiveness",
+    "zero trust security",
+    "zero trust security model",
+    "zero trust security principles",
+    "zero-trust architecture"
+  ],
+  "type_conflict_summary": {
+    "surface_labels_with_multiple_types": 31,
+    "endpoint_occurrences_under_type_conflict": 174,
+    "top_type_conflict_pairs": [
+      {
+        "types": [
+          "CONCEPT",
+          "METHOD"
+        ],
+        "surface_labels": 17
+      },
+      {
+        "types": [
+          "METHOD",
+          "TOOL"
+        ],
+        "surface_labels": 10
+      },
+      {
+        "types": [
+          "CONCEPT",
+          "METRIC"
+        ],
+        "surface_labels": 4
+      },
+      {
+        "types": [
+          "CONCEPT",
+          "TOOL"
+        ],
+        "surface_labels": 2
+      }
+    ]
+  },
+  "component_summary": {
+    "largest_component_typed_labels": 11,
+    "components_with_more_than_two_typed_labels": 21,
+    "cohesion_rejections": 206
+  }
+}

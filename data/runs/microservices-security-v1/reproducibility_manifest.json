@@ -1,0 +1,324 @@
+{
+  "manifest_version": "kgtabi-artifact-snapshot-v1",
+  "run_id": "microservices-security-v1",
+  "source_files": [
+    {
+      "path": "src/config.py",
+      "sha256": "f3191e3acae254f9b0bce94c3d304348c09029b306447d3078c4a878354f4bca",
+      "bytes": 7979
+    },
+    {
+      "path": "src/fetch_papers.py",
+      "sha256": "51fef639d7100ca3d68cc51f66ee8ba4c43e3eb9ad0b813478af8b4248bfe668",
+      "bytes": 27170
+    },
+    {
+      "path": "src/extract_triples.py",
+      "sha256": "37b7775a4f1aeaaf76436ed83a9caceab59f5490fdfdc9909be7b7d04d7aef18",
+      "bytes": 19326
+    },
+    {
+      "path": "src/entity_resolution.py",
+      "sha256": "202a3c4167699480f26e7ae503c5ae0aad8ddbc621f4f4ab84058445de76dbc4",
+      "bytes": 21809
+    },
+    {
+      "path": "src/entity_resolution_diagnostics.py",
+      "sha256": "e70c889b5dbae5979dbaf5d319dc0093e0afbb758fd30a9155ce38647d5ac978",
+      "bytes": 5962
+    },
+    {
+      "path": "src/graph_analysis.py",
+      "sha256": "7e964403e70f6291859aa746a80975686ed8fd4abce8679ff186fb7a67b148ca",
+      "bytes": 25886
+    },
+    {
+      "path": "src/compatibility.py",
+      "sha256": "934c41652331d8296c9ae85993e31b496685ffa6de43292439e6e405541504b3",
+      "bytes": 4569
+    },
+    {
+      "path": "src/tabi_inference.py",
+      "sha256": "7b9534ee39910151074ac08ec57603030ff2adee458292bd77079c2bbfeb653b",
+      "bytes": 14571
+    },
+    {
+      "path": "src/closure_search.py",
+      "sha256": "d3fa9612fbaaf55edbad34956feb9db0bac6d68139937e4a64336cea549fd5c9",
+      "bytes": 24366
+    },
+    {
+      "path": "src/llm_client.py",
+      "sha256": "5d593b23739b1cedd156477d47f01d2dd105da46bb55431eebac1c26971b21c0",
+      "bytes": 12483
+    },
+    {
+      "path": "src/provenance.py",
+      "sha256": "feef8848b9587ea17e7bbbadfb0e1865917799eff075491603b0a88d5ecf763e",
+      "bytes": 2204
+    },
+    {
+      "path": "src/traceability_sensitivity.py",
+      "sha256": "52baff590a7cae7dec493a3a104bc3ddedd909d3e40e9f750466878fadd5fa31",
+      "bytes": 25581
+    },
+    {
+      "path": "src/forward_sensitivity_diagnostics.py",
+      "sha256": "12bb9e13db5cccfad96a357ea641961b1102ffd1e3aa7f28b2e1d7efe9c54623",
+      "bytes": 12168
+    },
+    {
+      "path": "src/provider_model_audit.py",
+      "sha256": "70f81fb02fdaeb4848d3d9c3f7a58799118179da3a09b74c56fc3b75043611ce",
+      "bytes": 5526
+    },
+    {
+      "path": "src/temporal_benchmark.py",
+      "sha256": "6d4e3ce8becde9033bf57446e10cfe2085a9a7d901e496ebd0fe8520d97477e0",
+      "bytes": 6736
+    },
+    {
+      "path": "src/run_frozen_e2e.py",
+      "sha256": "15456da8e253a441c68f91c9bb71251e73528fda3ce1dd6505c9f08910382a38",
+      "bytes": 8589
+    },
+    {
+      "path": "src/prepare_candidate_blind_review.py",
+      "sha256": "4567e686f5a4950128511de1d0d454409dfdcb120075a10ee498f48f08ad8065",
+      "bytes": 3900
+    },
+    {
+      "path": "src/controlled_benchmark.py",
+      "sha256": "a2cf0577e5a4ea614162c97b924fd8dd6afeb0773e431ad3ecd95a677b1f9e19",
+      "bytes": 35056
+    },
+    {
+      "path": "src/benchmark_reporting.py",
+      "sha256": "0ad728aadc4c6055a04a9fd38195dff021eaa5e758510d916e7cc81995935ec2",
+      "bytes": 35021
+    },
+    {
+      "path": "paper.tex",
+      "sha256": "3d60496ac86fa291fb68a4ddb7aeb988134fa90c1b415217aa54f01392647ebd",
+      "bytes": 30286
+    },
+    {
+      "path": "paper.pdf",
+      "sha256": "6c1857c75ee02193d764361d69a50b9b7a6553b0295a60a3cf727f5e6d1172d4",
+      "bytes": 345278
+    },
+    {
+      "path": "supplementary.tex",
+      "sha256": "0ef05264bcb33a0fad734f0f16e6990405a663f4c22528e570525afbed58e794",
+      "bytes": 14321
+    },
+    {
+      "path": "supplementary.pdf",
+      "sha256": "2a1e5cd63be93d48c7d98d206b81fe312a9a01d5c2a4bcb642ec99840f5e3e95",
+      "bytes": 224433
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "b7910b365711188c7128f90693fe56e237b2a1180965554a0fed479d29bcc7f3",
+      "bytes": 984
+    },
+    {
+      "path": "references.bib",
+      "sha256": "e7927be8a85b1ba81c0935acd0eafed44f814539ec96942c6fa5c52a6775b301",
+      "bytes": 9083
+    },
+    {
+      "path": "README.md",
+      "sha256": "fa9eb69b3bf69091f35c1da03d72cca2ba0dfb94798b87c5268a1f04e2658b11",
+      "bytes": 24106
+    },
+    {
+      "path": "CITATION.cff",
+      "sha256": "36e312c89edbeeb9b148c80809224eeca486d785ae8f65393ce7e6b55d947b9d",
+      "bytes": 625
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "5d6c830103d300f2cff469186d513ba2c6c04603ef8d8d7f4b01c1c35f21bd9b",
+      "bytes": 201
+    },
+    {
+      "path": "docs/PROVENANCE.md",
+      "sha256": "beefa2611c89ceaa1f43170b6d6bb005cac258ac0c83eec09a4142a1308d9a9c",
+      "bytes": 6025
+    },
+    {
+      "path": "docs/ARTIFACT_SCOPE.md",
+      "sha256": "c6b73036aab6c787c84bb3825bd9e54d997b3bfd9757e00efe147fef3304fdd1",
+      "bytes": 1672
+    },
+    {
+      "path": "docs/AUDIT_PACKET_AND_TRACE_CHAIN.md",
+      "sha256": "d782f709764636fe225500660186abdf32394b37cf0984ff0ba1264b116a470b",
+      "bytes": 4144
+    },
+    {
+      "path": "docs/IMMUTABLE_RELEASE.md",
+      "sha256": "28fd18463f9675c912c7c94789262c793851e58c8f35cba3c00add4f4755592f",
+      "bytes": 1904
+    },
+    {
+      "path": "docs/SUBMISSION_READINESS.md",
+      "sha256": "f7e36e30b19f641fce14f9dc30705d4b6632df52bbbbf33ec82c6313e532dd36",
+      "bytes": 2041
+    },
+    {
+      "path": "docs/RELEASE_NOTES_DRAFT.md",
+      "sha256": "25f270e0bca693221a896a2429ef4e23aa7de974f5d3fb42a634292522250dba",
+      "bytes": 1326
+    },
+    {
+      "path": "docs/ANNOTATION_PROTOCOL.md",
+      "sha256": "9a974c96f52d725da7c48be1224129e0731065a48130e48fa1cc12c42eae0204",
+      "bytes": 4481
+    },
+    {
+      "path": "docs/BLINDED_CANDIDATE_EVALUATION.md",
+      "sha256": "134d4f420acee6a6b43f5d9951f8539c1dacc8ddfa6cd161b8f8ebfeea974534",
+      "bytes": 3087
+    },
+    {
+      "path": "docs/REVIEW_RESPONSE.md",
+      "sha256": "a4292f5055a136248cfcf12a4c3dd7b21738a86e807daf68aa2e1f6fc96582f3",
+      "bytes": 3620
+    }
+  ],
+  "artifact_files": [
+    {
+      "path": "raw_papers/papers_metadata.json",
+      "sha256": "5c33cf9993f1cd1e274782dd059834ce1c3627818f9d8167062a645a07447beb",
+      "bytes": 662705
+    },
+    {
+      "path": "raw_papers/screened_papers.json",
+      "sha256": "9037b5811ea94a69d3662a7972f78644905901bb22f71b48c2b1c61b18536afe",
+      "bytes": 332800
+    },
+    {
+      "path": "raw_papers/chunks.json",
+      "sha256": "972ca03a64d7957a8051e43115e6779607e0413eb8cfa871970d23d541dffca8",
+      "bytes": 246193
+    },
+    {
+      "path": "triples/raw_triples.json",
+      "sha256": "c045bccd6129c31b053a100055dfe8bb2cc2b5f669235a5d92a227192b8a56f8",
+      "bytes": 304027
+    },
+    {
+      "path": "triples/resolved_triples.json",
+      "sha256": "dd3009127e1070f448849141d8a6a079287d2058eedb7b570162263030bbceaa",
+      "bytes": 301434
+    },
+    {
+      "path": "triples/entity_mapping.json",
+      "sha256": "94ac7a4047b8be56138ddb62f22188361de7c1c7330b143e417dc920f4122f92",
+      "bytes": 7630
+    },
+    {
+      "path": "entity_resolution_legacy_diagnostic.json",
+      "sha256": "deff9a3c66369fd2f330ba46f0601458d772c610262d237ed4f43793967d0b5a",
+      "bytes": 4598
+    },
+    {
+      "path": "cut_edge_reconciliation.json",
+      "sha256": "be396d39b6e6cacec1bafb615171ec9ea7844c048c819190c2ee58e49ce990b4",
+      "bytes": 1191
+    },
+    {
+      "path": "graph/knowledge_graph.gml",
+      "sha256": "0fc638a241426435ea3303c1d7f7fc744f0164131597f4bbb883d4c2992b0c4b",
+      "bytes": 416174
+    },
+    {
+      "path": "graph/orphan_clusters.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2
+    },
+    {
+      "path": "graph/topology_run_config.json",
+      "sha256": "d65ab46489fe5b442d664cb0c5c21b1a9a7f2b5264a063a07ac2c548bfeeefd3",
+      "bytes": 1806
+    },
+    {
+      "path": "graph/temporal_screening_report.json",
+      "sha256": "a93ac4ae3cbefccf024f5a3bffc51bb5de6f732140f6936de6a21926992c1959",
+      "bytes": 10015
+    },
+    {
+      "path": "graph/temporal_decay.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2
+    },
+    {
+      "path": "gaps/kgtabi_gaps.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2
+    },
+    {
+      "path": "gaps/closure_search_audit.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2
+    },
+    {
+      "path": "louvain_robustness_results.json",
+      "sha256": "c2058bd661f68c3671684c224f79bd4ae7fbe8ab1dee37d4bcf191bad479f26d",
+      "bytes": 268894
+    },
+    {
+      "path": "sensitivity_results.json",
+      "sha256": "2a3fe6d5f577cbe9bd9ccf323983bb0a07f1e29532fe1d865b055efeee5e4e34",
+      "bytes": 2245
+    },
+    {
+      "path": "traceability_restricted_sensitivity.json",
+      "sha256": "d4f96c6d58127b5b54988724012eca1f0583c38da1d1019b7f1cfe0c9fdfaa47",
+      "bytes": 307945
+    },
+    {
+      "path": "temporal_signal_injection.json",
+      "sha256": "49845199df928c12ca800a9b0354557b4d04a4f91738f423209b3ac79e3c6ed1",
+      "bytes": 215155
+    },
+    {
+      "path": "controlled_benchmark_multicondition_results.json",
+      "sha256": "39d47dd699fd2f4ef24826ac91e027f9c2e43eaa0031f1d6861b5099ac103bc4",
+      "bytes": 61491
+    },
+    {
+      "path": "controlled_benchmark_multicondition_trials.jsonl",
+      "sha256": "312c21d6ea6f2bc4b8bcbd5266d62873897b9e54c800c9c158ba5ac86cd975b9",
+      "bytes": 1438290
+    },
+    {
+      "path": "controlled_benchmark_appendix_report.json",
+      "sha256": "03ce4814bb3654b74c4fedc756e7e1b7dde2f05b0192a4b4f5b9bbd9846241a4",
+      "bytes": 21244
+    }
+  ],
+  "git": {
+    "head_commit": "3463e4ca1a71be8e4e394a0a13a0b3d98f4584c9",
+    "working_tree_status_sha256": "38e02a0fa3c83118240c44429749664cdb3462db0d232d657923ba7f284f3a54",
+    "working_tree_clean": false,
+    "note": "A nonempty status means this is a content-addressed working-tree snapshot, not an immutable tagged Git release."
+  },
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "packages": {
+    "networkx": "3.6.1",
+    "python-louvain": "0.16",
+    "numpy": "2.5.1",
+    "rapidfuzz": "3.14.5",
+    "sentence-transformers": null,
+    "requests": "2.34.2",
+    "openai": "2.47.0"
+  },
+  "created_at_utc": "2026-07-22T18:05:02.792051Z",
+  "artifact_snapshot_sha256": "54dc51231e94ee588438becba5ab354b200ec1b26ae3121d8ba2eeea8789fb77",
+  "scope": "Content-addressed code-and-artifact inventory. It identifies this local snapshot but does not make mutable APIs, model providers, legacy screening, or legacy LLM calls end-to-end reproducible.",
+  "next_release_step": "Create a reviewed Git commit and immutable archival release containing this manifest before citing it as a versioned public artifact."
+}

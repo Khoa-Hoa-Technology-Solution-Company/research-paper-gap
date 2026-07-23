@@ -1,0 +1,1818 @@
+{
+  "benchmark": "multi-condition structural-isolation perturbation benchmark",
+  "benchmark_version": "2.0",
+  "scope": "Topology-stage structural-orphan detection only. It does not validate TABI claim generation, evidence support, novelty, or research-gap usefulness.",
+  "run": {
+    "run_id": "microservices-security-v1",
+    "data_directory": "D:\\Workspace\\research-paper-gap\\data\\runs\\microservices-security-v1",
+    "resolved_triples_path": "D:\\Workspace\\research-paper-gap\\data\\runs\\microservices-security-v1\\triples\\resolved_triples.json",
+    "resolved_triples_sha256": "dd3009127e1070f448849141d8a6a079287d2058eedb7b570162263030bbceaa",
+    "nodes": 834,
+    "directed_edges": 790,
+    "undirected_adjacencies": 790
+  },
+  "design": {
+    "baseline_partition_source": "Louvain on the unmasked graph using the configured fixed random state",
+    "louvain_random_state": 42,
+    "louvain_resolution": 1.0,
+    "orphan_rule": {
+      "minimum_size_ratio": 0.05,
+      "minimum_size_nodes_for_this_graph": 42,
+      "maximum_symmetric_bridge_ratio": 0.1,
+      "projection": "undirected"
+    },
+    "target_selection": {
+      "policy": "all baseline Louvain communities meeting the configured size rule and supporting every same-count control",
+      "eligible_baseline_communities": 3,
+      "tested_target_communities": 3,
+      "excluded_eligible_communities": [],
+      "why_not_20_to_30_targets": "The configured 5% size rule yields fewer than 20 eligible communities in this run; all eligible, control-feasible communities were used instead."
+    },
+    "masking": {
+      "levels": [
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "seed_count": 30,
+      "unit": "undirected adjacency; all reciprocal directed arcs for a sampled adjacency are removed together",
+      "rounding": "ceil(level * target boundary-adjacency count); actual fraction is recorded per trial"
+    },
+    "measurements": {
+      "metric_only": "Holds the baseline Louvain membership fixed and reapplies the size/bridge-ratio detector after masking.",
+      "end_to_end": "Reruns Louvain after masking, then matches output clusters to baseline communities."
+    },
+    "matching": {
+      "metric": "Jaccard node-set similarity",
+      "threshold": 0.8,
+      "rule": "Descending-Jaccard greedy one-to-one matching; ties break by overlap, detected size, detected ID, then baseline ID.",
+      "precision_labeling": "Only deliberately boundary-masked target communities are positives. Every other detected orphan output is a false positive, including a match to a non-target baseline community."
+    },
+    "negative_controls": [
+      "Removes the same number of target-internal adjacencies while retaining all target boundary adjacencies; no induced positives.",
+      "Removes the same number of uniformly sampled graph adjacencies without targeting a community boundary; no induced positives."
+    ],
+    "intervals": {
+      "metric_intervals": "2,000-resample percentile bootstrap over unique perturbations, not repeated identical seed trials.",
+      "rate_intervals": "Wilson 95% intervals; descriptive because target communities derive from this single graph.",
+      "bootstrap_iterations": 2000
+    }
+  },
+  "baseline": {
+    "community_count": 130,
+    "eligible_communities": [
+      {
+        "community_id": 23,
+        "size": 53,
+        "size_ratio": 0.06354916,
+        "internal_undirected_edges": 57,
+        "cross_undirected_edges": 21,
+        "bridge_ratio": 0.26923077
+      },
+      {
+        "community_id": 118,
+        "size": 49,
+        "size_ratio": 0.058753,
+        "internal_undirected_edges": 55,
+        "cross_undirected_edges": 14,
+        "bridge_ratio": 0.20289855
+      },
+      {
+        "community_id": 1,
+        "size": 48,
+        "size_ratio": 0.05755396,
+        "internal_undirected_edges": 47,
+        "cross_undirected_edges": 9,
+        "bridge_ratio": 0.16071429
+      }
+    ],
+    "baseline_orphan_count": 0,
+    "baseline_orphan_community_ids": []
+  },
+  "summary": {
+    "metric_only": [
+      {
+        "condition": "global_random_edge_control",
+        "mask_level": 0.25,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 90,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "global_random_edge_control",
+        "mask_level": 0.5,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 90,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "global_random_edge_control",
+        "mask_level": 0.75,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 90,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "global_random_edge_control",
+        "mask_level": 1.0,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 90,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "internal_edge_control",
+        "mask_level": 0.25,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 90,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "internal_edge_control",
+        "mask_level": 0.5,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 90,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "internal_edge_control",
+        "mask_level": 0.75,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 90,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "internal_edge_control",
+        "mask_level": 1.0,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 90,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "targeted_boundary",
+        "mask_level": 0.25,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 83,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 83,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04423531
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 166,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.02261791
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": 0.0,
+          "median_best_target_jaccard": 0.0,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": [
+              0.0,
+              0.0
+            ],
+            "f1": null
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 90,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 180,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.0208955
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": 0.0,
+          "median_best_target_jaccard": 0.0,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "targeted_boundary",
+        "mask_level": 0.5,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 86,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 26,
+          "false_positives": 4,
+          "false_negatives": 60,
+          "predicted_clusters": 30,
+          "precision": 0.86666667,
+          "recall": 0.30232558,
+          "f1": 0.44827586,
+          "mean_predicted_clusters_per_perturbation": 0.34883721,
+          "any_output_rate": 0.34883721,
+          "any_output_wilson_95_ci": [
+            0.25653684,
+            0.45406448
+          ],
+          "matched_baseline_negative_communities": 4,
+          "baseline_negative_community_opportunities": 172,
+          "matched_baseline_unit_false_positive_rate": 0.02325581,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.00908004,
+            0.05826164
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": 0.30232558,
+          "median_best_target_jaccard": 0.0,
+          "metric_bootstrap_95_ci": {
+            "precision": [
+              0.73076923,
+              0.96875
+            ],
+            "recall": [
+              0.20930233,
+              0.39534884
+            ],
+            "f1": [
+              0.33027523,
+              0.55555556
+            ]
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 30,
+          "false_positives": 4,
+          "false_negatives": 60,
+          "predicted_clusters": 34,
+          "precision": 0.88235294,
+          "recall": 0.33333333,
+          "f1": 0.48387097,
+          "mean_predicted_clusters_per_perturbation": 0.37777778,
+          "any_output_rate": 0.37777778,
+          "any_output_wilson_95_ci": [
+            0.28455968,
+            0.48100236
+          ],
+          "matched_baseline_negative_communities": 4,
+          "baseline_negative_community_opportunities": 180,
+          "matched_baseline_unit_false_positive_rate": 0.02222222,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.00867492,
+            0.05573633
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": 0.33333333,
+          "median_best_target_jaccard": 0.0,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "targeted_boundary",
+        "mask_level": 0.75,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 75,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 75,
+          "false_positives": 8,
+          "false_negatives": 0,
+          "predicted_clusters": 83,
+          "precision": 0.90361446,
+          "recall": 1.0,
+          "f1": 0.94936709,
+          "mean_predicted_clusters_per_perturbation": 1.10666667,
+          "any_output_rate": 1.0,
+          "any_output_wilson_95_ci": [
+            0.95127616,
+            1.0
+          ],
+          "matched_baseline_negative_communities": 8,
+          "baseline_negative_community_opportunities": 150,
+          "matched_baseline_unit_false_positive_rate": 0.05333333,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.02726954,
+            0.10170388
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": 1.0,
+          "median_best_target_jaccard": 1.0,
+          "metric_bootstrap_95_ci": {
+            "precision": [
+              0.85227273,
+              0.96153846
+            ],
+            "recall": [
+              1.0,
+              1.0
+            ],
+            "f1": [
+              0.9202454,
+              0.98039216
+            ]
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 90,
+          "false_positives": 8,
+          "false_negatives": 0,
+          "predicted_clusters": 98,
+          "precision": 0.91836735,
+          "recall": 1.0,
+          "f1": 0.95744681,
+          "mean_predicted_clusters_per_perturbation": 1.08888889,
+          "any_output_rate": 1.0,
+          "any_output_wilson_95_ci": [
+            0.95906437,
+            1.0
+          ],
+          "matched_baseline_negative_communities": 8,
+          "baseline_negative_community_opportunities": 180,
+          "matched_baseline_unit_false_positive_rate": 0.04444444,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.02269009,
+            0.08523692
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": 1.0,
+          "median_best_target_jaccard": 1.0,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "targeted_boundary",
+        "mask_level": 1.0,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 3,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 3,
+          "false_positives": 1,
+          "false_negatives": 0,
+          "predicted_clusters": 4,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.85714286,
+          "mean_predicted_clusters_per_perturbation": 1.33333333,
+          "any_output_rate": 1.0,
+          "any_output_wilson_95_ci": [
+            0.43850297,
+            1.0
+          ],
+          "matched_baseline_negative_communities": 1,
+          "baseline_negative_community_opportunities": 6,
+          "matched_baseline_unit_false_positive_rate": 0.16666667,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.03005337,
+            0.56350282
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": 1.0,
+          "median_best_target_jaccard": 1.0,
+          "metric_bootstrap_95_ci": {
+            "precision": [
+              0.5,
+              1.0
+            ],
+            "recall": [
+              1.0,
+              1.0
+            ],
+            "f1": [
+              0.66666667,
+              1.0
+            ]
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 90,
+          "false_positives": 30,
+          "false_negatives": 0,
+          "predicted_clusters": 120,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.85714286,
+          "mean_predicted_clusters_per_perturbation": 1.33333333,
+          "any_output_rate": 1.0,
+          "any_output_wilson_95_ci": [
+            0.95906437,
+            1.0
+          ],
+          "matched_baseline_negative_communities": 30,
+          "baseline_negative_community_opportunities": 180,
+          "matched_baseline_unit_false_positive_rate": 0.16666667,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.1193118,
+            0.22795187
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": 1.0,
+          "median_best_target_jaccard": 1.0,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      }
+    ],
+    "end_to_end": [
+      {
+        "condition": "global_random_edge_control",
+        "mask_level": 0.25,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 90,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "global_random_edge_control",
+        "mask_level": 0.5,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 90,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "global_random_edge_control",
+        "mask_level": 0.75,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 90,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "global_random_edge_control",
+        "mask_level": 1.0,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 90,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "internal_edge_control",
+        "mask_level": 0.25,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 90,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "internal_edge_control",
+        "mask_level": 0.5,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 90,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 0,
+          "false_positives": 1,
+          "false_negatives": 0,
+          "predicted_clusters": 1,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.01111111,
+          "any_output_rate": 0.01111111,
+          "any_output_wilson_95_ci": [
+            0.00196408,
+            0.06028408
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 1,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": [
+              0.0,
+              0.0
+            ],
+            "recall": null,
+            "f1": null
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 0,
+          "false_positives": 1,
+          "false_negatives": 0,
+          "predicted_clusters": 1,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.01111111,
+          "any_output_rate": 0.01111111,
+          "any_output_wilson_95_ci": [
+            0.00196408,
+            0.06028408
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 1,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "internal_edge_control",
+        "mask_level": 0.75,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 90,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 0,
+          "false_positives": 1,
+          "false_negatives": 0,
+          "predicted_clusters": 1,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.01111111,
+          "any_output_rate": 0.01111111,
+          "any_output_wilson_95_ci": [
+            0.00196408,
+            0.06028408
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 1,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": [
+              0.0,
+              0.0
+            ],
+            "recall": null,
+            "f1": null
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 0,
+          "false_positives": 1,
+          "false_negatives": 0,
+          "predicted_clusters": 1,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.01111111,
+          "any_output_rate": 0.01111111,
+          "any_output_wilson_95_ci": [
+            0.00196408,
+            0.06028408
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 1,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "internal_edge_control",
+        "mask_level": 1.0,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 90,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 270,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.01402804
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": null,
+          "median_best_target_jaccard": null,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "targeted_boundary",
+        "mask_level": 0.25,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 83,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 83,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04423531
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 166,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.02261791
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": 0.0,
+          "median_best_target_jaccard": 0.0,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": [
+              0.0,
+              0.0
+            ],
+            "f1": null
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 90,
+          "predicted_clusters": 0,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null,
+          "mean_predicted_clusters_per_perturbation": 0.0,
+          "any_output_rate": 0.0,
+          "any_output_wilson_95_ci": [
+            0.0,
+            0.04093563
+          ],
+          "matched_baseline_negative_communities": 0,
+          "baseline_negative_community_opportunities": 180,
+          "matched_baseline_unit_false_positive_rate": 0.0,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.0,
+            0.0208955
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": 0.0,
+          "median_best_target_jaccard": 0.0,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "targeted_boundary",
+        "mask_level": 0.5,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 86,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 19,
+          "false_positives": 3,
+          "false_negatives": 67,
+          "predicted_clusters": 22,
+          "precision": 0.86363636,
+          "recall": 0.22093023,
+          "f1": 0.35185185,
+          "mean_predicted_clusters_per_perturbation": 0.25581395,
+          "any_output_rate": 0.25581395,
+          "any_output_wilson_95_ci": [
+            0.17543075,
+            0.35707906
+          ],
+          "matched_baseline_negative_communities": 2,
+          "baseline_negative_community_opportunities": 172,
+          "matched_baseline_unit_false_positive_rate": 0.01162791,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.00319461,
+            0.04139931
+          ],
+          "unmatched_orphan_outputs": 1,
+          "mean_best_target_jaccard": 0.22093023,
+          "median_best_target_jaccard": 0.0,
+          "metric_bootstrap_95_ci": {
+            "precision": [
+              0.7,
+              1.0
+            ],
+            "recall": [
+              0.13953488,
+              0.31395349
+            ],
+            "f1": [
+              0.23762376,
+              0.46153846
+            ]
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 23,
+          "false_positives": 3,
+          "false_negatives": 67,
+          "predicted_clusters": 26,
+          "precision": 0.88461538,
+          "recall": 0.25555556,
+          "f1": 0.39655172,
+          "mean_predicted_clusters_per_perturbation": 0.28888889,
+          "any_output_rate": 0.28888889,
+          "any_output_wilson_95_ci": [
+            0.20542127,
+            0.38964044
+          ],
+          "matched_baseline_negative_communities": 2,
+          "baseline_negative_community_opportunities": 180,
+          "matched_baseline_unit_false_positive_rate": 0.01111111,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.00305237,
+            0.039601
+          ],
+          "unmatched_orphan_outputs": 1,
+          "mean_best_target_jaccard": 0.25555556,
+          "median_best_target_jaccard": 0.0,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "targeted_boundary",
+        "mask_level": 0.75,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 75,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 73,
+          "false_positives": 6,
+          "false_negatives": 2,
+          "predicted_clusters": 79,
+          "precision": 0.92405063,
+          "recall": 0.97333333,
+          "f1": 0.94805195,
+          "mean_predicted_clusters_per_perturbation": 1.05333333,
+          "any_output_rate": 0.97333333,
+          "any_output_wilson_95_ci": [
+            0.90788512,
+            0.99265631
+          ],
+          "matched_baseline_negative_communities": 3,
+          "baseline_negative_community_opportunities": 150,
+          "matched_baseline_unit_false_positive_rate": 0.02,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.00682475,
+            0.05714668
+          ],
+          "unmatched_orphan_outputs": 3,
+          "mean_best_target_jaccard": 0.96620659,
+          "median_best_target_jaccard": 1.0,
+          "metric_bootstrap_95_ci": {
+            "precision": [
+              0.86904762,
+              0.97368421
+            ],
+            "recall": [
+              0.93333333,
+              1.0
+            ],
+            "f1": [
+              0.91390728,
+              0.98013245
+            ]
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 88,
+          "false_positives": 6,
+          "false_negatives": 2,
+          "predicted_clusters": 94,
+          "precision": 0.93617021,
+          "recall": 0.97777778,
+          "f1": 0.95652174,
+          "mean_predicted_clusters_per_perturbation": 1.04444444,
+          "any_output_rate": 0.97777778,
+          "any_output_wilson_95_ci": [
+            0.92255473,
+            0.99388456
+          ],
+          "matched_baseline_negative_communities": 3,
+          "baseline_negative_community_opportunities": 180,
+          "matched_baseline_unit_false_positive_rate": 0.01666667,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.00568409,
+            0.04784823
+          ],
+          "unmatched_orphan_outputs": 3,
+          "mean_best_target_jaccard": 0.97183882,
+          "median_best_target_jaccard": 1.0,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      },
+      {
+        "condition": "targeted_boundary",
+        "mask_level": 1.0,
+        "nominal_seeded_trials": 90,
+        "unique_perturbations": 3,
+        "distinct_targets": 3,
+        "primary_unique_perturbation_metrics": {
+          "true_positives": 3,
+          "false_positives": 1,
+          "false_negatives": 0,
+          "predicted_clusters": 4,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.85714286,
+          "mean_predicted_clusters_per_perturbation": 1.33333333,
+          "any_output_rate": 1.0,
+          "any_output_wilson_95_ci": [
+            0.43850297,
+            1.0
+          ],
+          "matched_baseline_negative_communities": 1,
+          "baseline_negative_community_opportunities": 6,
+          "matched_baseline_unit_false_positive_rate": 0.16666667,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.03005337,
+            0.56350282
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": 1.0,
+          "median_best_target_jaccard": 1.0,
+          "metric_bootstrap_95_ci": {
+            "precision": [
+              0.5,
+              1.0
+            ],
+            "recall": [
+              1.0,
+              1.0
+            ],
+            "f1": [
+              0.66666667,
+              1.0
+            ]
+          }
+        },
+        "seeded_trial_diagnostic_metrics": {
+          "true_positives": 90,
+          "false_positives": 30,
+          "false_negatives": 0,
+          "predicted_clusters": 120,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.85714286,
+          "mean_predicted_clusters_per_perturbation": 1.33333333,
+          "any_output_rate": 1.0,
+          "any_output_wilson_95_ci": [
+            0.95906437,
+            1.0
+          ],
+          "matched_baseline_negative_communities": 30,
+          "baseline_negative_community_opportunities": 180,
+          "matched_baseline_unit_false_positive_rate": 0.16666667,
+          "matched_baseline_unit_fpr_wilson_95_ci": [
+            0.1193118,
+            0.22795187
+          ],
+          "unmatched_orphan_outputs": 0,
+          "mean_best_target_jaccard": 1.0,
+          "median_best_target_jaccard": 1.0,
+          "metric_bootstrap_95_ci": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "Targets originate from the baseline Louvain partition, so this is a conditional perturbation robustness test rather than an external ground-truth benchmark.",
+    "Only three communities satisfy the configured 5% size rule in this run; results cannot establish population-level generalization.",
+    "Masked edges are observed graph adjacencies, not verified missing scientific relations.",
+    "The negative controls test structural specificity under graph perturbation; they do not validate downstream TABI text generation.",
+    "Repeated seeds can yield the same finite edge mask. Primary summaries and bootstrap intervals deduplicate identical perturbations to avoid treating repetitions as independent samples."
+  ],
+  "artifacts": {
+    "summary_json": "controlled_benchmark_multicondition_results.json",
+    "trial_records_jsonl": "controlled_benchmark_multicondition_trials.jsonl",
+    "nominal_seeded_trials": 1080,
+    "primary_analysis_unit": "unique target-condition-level-selected-edge-set perturbation"
+  }
+}

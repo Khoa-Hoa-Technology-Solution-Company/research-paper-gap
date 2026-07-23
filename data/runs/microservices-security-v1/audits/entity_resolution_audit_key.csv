@@ -1,0 +1,201 @@
+item_id,left_entity,right_entity,entity_type,pair_kind,lexical_similarity
+entity-pair-001,anomaly detection in containerized applications,protecting containerized applications,CONCEPT,high_lexical_similarity_nonmerge,78.571
+entity-pair-002,anomaly-based intrusion detection systems,Intrusion Detection Systems (IDS),METHOD,high_lexical_similarity_nonmerge,78.378
+entity-pair-003,average detection time,detection coverage,METRIC,high_lexical_similarity_nonmerge,80.0
+entity-pair-004,complex security challenges,growing security challenges,CONCEPT,high_lexical_similarity_nonmerge,77.778
+entity-pair-005,JWT token authentication,strong authentication,METHOD,high_lexical_similarity_nonmerge,80.0
+entity-pair-006,API-Gateway,gateway,TOOL,high_lexical_similarity_nonmerge,77.778
+entity-pair-007,AI-based models,AI-driven models,METHOD,merged_by_pipeline,70.968
+entity-pair-008,anomaly detection models,runtime anomaly detection,METHOD,high_lexical_similarity_nonmerge,81.633
+entity-pair-009,authentication protocols,continuous authentication,METHOD,high_lexical_similarity_nonmerge,77.551
+entity-pair-010,machine learning,machine learning models,METHOD,merged_by_pipeline,82.051
+entity-pair-011,HTTP,HTTP/3,TOOL,high_lexical_similarity_nonmerge,80.0
+entity-pair-012,Two-Factor Authentication,Two-Factor Authentication solutions,METHOD,merged_by_pipeline,83.333
+entity-pair-013,threat modeling,threat modeling framework,METHOD,merged_by_pipeline,75.0
+entity-pair-014,security attacks,security practices,CONCEPT,high_lexical_similarity_nonmerge,76.471
+entity-pair-015,blockchain using microservices and smart contracts,Blockchain implementation within a Microservices framework,METHOD,merged_by_pipeline,66.667
+entity-pair-016,zero-trust access,Zero Trust security model,CONCEPT,merged_by_pipeline,42.857
+entity-pair-017,IoT applications,web applications,CONCEPT,high_lexical_similarity_nonmerge,81.25
+entity-pair-018,detection rate,threat detection,METRIC,merged_by_pipeline,86.667
+entity-pair-019,mean time to detection,average detection time,METRIC,merged_by_pipeline,63.636
+entity-pair-020,microservices,microservices environments,CONCEPT,merged_by_pipeline,66.667
+entity-pair-021,securing microservices,threats specific to microservices,CONCEPT,merged_by_pipeline,65.455
+entity-pair-022,container security framework,Container security mechanisms,METHOD,merged_by_pipeline,73.684
+entity-pair-023,blocking unauthorized access,minimizing unauthorized access,FINDING,high_lexical_similarity_nonmerge,79.31
+entity-pair-024,access control,access controls,CONCEPT,merged_by_pipeline,96.552
+entity-pair-025,Kubernetes,Kubernetes clusters,TOOL,merged_by_pipeline,68.966
+entity-pair-026,microservice-based application,security of microservice applications,CONCEPT,high_lexical_similarity_nonmerge,77.612
+entity-pair-027,resiliency of microservice-based applications,security profile of the microservices-based application,METRIC,high_lexical_similarity_nonmerge,80.0
+entity-pair-028,JSON Web Token authentication,JWT token authentication,METHOD,high_lexical_similarity_nonmerge,83.019
+entity-pair-029,Kubernetes based microservices,Kubernetes microservice ecosystem,CONCEPT,merged_by_pipeline,82.54
+entity-pair-030,Kubernetes,Kubernetes cluster,TOOL,merged_by_pipeline,71.429
+entity-pair-031,Algorithmic Complexity Attacks,algorithmic complexity attacks,CONCEPT,merged_by_pipeline,100.0
+entity-pair-032,microservices,communication of microservices,CONCEPT,merged_by_pipeline,60.465
+entity-pair-033,vulnerabilities,security vulnerabilities,CONCEPT,merged_by_pipeline,76.923
+entity-pair-034,intrusion detection,Intrusion Detection,CONCEPT,merged_by_pipeline,100.0
+entity-pair-035,cloud and container environments,cloud and container security,CONCEPT,high_lexical_similarity_nonmerge,76.667
+entity-pair-036,cloud-native systems,modern cloud-native ecosystems,CONCEPT,high_lexical_similarity_nonmerge,80.0
+entity-pair-037,API Security,security risks,CONCEPT,high_lexical_similarity_nonmerge,76.923
+entity-pair-038,cloud-native and distributed systems,cloud-native security systems,CONCEPT,high_lexical_similarity_nonmerge,76.923
+entity-pair-039,fifteen machine/deep learning models,machine learning models,METHOD,high_lexical_similarity_nonmerge,77.966
+entity-pair-040,OAuth 2.1 authorization protocol,OAuth 2.0 authorization protocols,METHOD,merged_by_pipeline,95.385
+entity-pair-041,container environments,Containerized Environments,CONCEPT,merged_by_pipeline,91.667
+entity-pair-042,cloud-native systems,cloud-native CI/CD environments,CONCEPT,merged_by_pipeline,62.745
+entity-pair-043,detection rate,detection rates,METRIC,merged_by_pipeline,96.552
+entity-pair-044,Microservice Security Analysis,security microservices design and implementation,METHOD,merged_by_pipeline,66.667
+entity-pair-045,detection accuracy,threat detection accuracy,METRIC,high_lexical_similarity_nonmerge,83.721
+entity-pair-046,Kubernetes Microservices System,microservices systems,CONCEPT,high_lexical_similarity_nonmerge,76.923
+entity-pair-047,runtime vulnerabilities,vulnerabilities,CONCEPT,high_lexical_similarity_nonmerge,78.947
+entity-pair-048,Zero Trust controls,zero-trust access control,METHOD,merged_by_pipeline,59.091
+entity-pair-049,AI-based approaches,anomaly-based approaches,METHOD,high_lexical_similarity_nonmerge,83.721
+entity-pair-050,intrusion detection models,intrusion detection techniques,METHOD,high_lexical_similarity_nonmerge,78.571
+entity-pair-051,microservices,microservice applications,CONCEPT,merged_by_pipeline,63.158
+entity-pair-052,zero trust,Zero Trust architecture,METHOD,merged_by_pipeline,60.606
+entity-pair-053,Microservices framework,microservices-based cloud-edge architecture,METHOD,merged_by_pipeline,51.515
+entity-pair-054,securing microservices,security of microservice applications,CONCEPT,merged_by_pipeline,64.407
+entity-pair-055,Latency,latency,METRIC,merged_by_pipeline,100.0
+entity-pair-056,defense effectiveness,defense efficiency,METRIC,high_lexical_similarity_nonmerge,76.923
+entity-pair-057,zero-trust architecture,Zero-Trust Architecture,CONCEPT,merged_by_pipeline,100.0
+entity-pair-058,Istio service mesh,Service Mesh,TOOL,high_lexical_similarity_nonmerge,80.0
+entity-pair-059,runtime vulnerabilities,Security Vulnerabilities,CONCEPT,high_lexical_similarity_nonmerge,76.596
+entity-pair-060,microservice applications,security of microservice applications,CONCEPT,high_lexical_similarity_nonmerge,80.645
+entity-pair-061,incident response time,incident response times,METRIC,merged_by_pipeline,97.778
+entity-pair-062,security concerns,security needs,CONCEPT,high_lexical_similarity_nonmerge,77.419
+entity-pair-063,microservices,microservices communication,CONCEPT,merged_by_pipeline,65.0
+entity-pair-064,Role-Based Access Control,Token-based access control,METHOD,merged_by_pipeline,90.196
+entity-pair-065,microservice scenario,microservices security,CONCEPT,high_lexical_similarity_nonmerge,79.07
+entity-pair-066,proposed method,proposed methodology,METHOD,merged_by_pipeline,85.714
+entity-pair-067,zero trust model,Zero Trust security model,CONCEPT,high_lexical_similarity_nonmerge,78.049
+entity-pair-068,API gateway,gateway,TOOL,high_lexical_similarity_nonmerge,77.778
+entity-pair-069,authentication protocols,Two-Factor Authentication,METHOD,high_lexical_similarity_nonmerge,77.551
+entity-pair-070,Intrusion Detection,reliable intrusion detection,CONCEPT,high_lexical_similarity_nonmerge,80.851
+entity-pair-071,federated identity management,identity and access management,METHOD,high_lexical_similarity_nonmerge,77.966
+entity-pair-072,cloud-native microservices,microservices communication,CONCEPT,high_lexical_similarity_nonmerge,79.245
+entity-pair-073,zero-trust access,Zero Trust principles,CONCEPT,merged_by_pipeline,47.368
+entity-pair-074,threat detection,threat detection accuracy,METRIC,high_lexical_similarity_nonmerge,78.049
+entity-pair-075,containerized microservices,modern containerized cloud microservices,CONCEPT,high_lexical_similarity_nonmerge,80.597
+entity-pair-076,cloud-native security systems,cloud-native systems,CONCEPT,high_lexical_similarity_nonmerge,81.633
+entity-pair-077,real-time data systems,real-time payment systems,CONCEPT,merged_by_pipeline,85.106
+entity-pair-078,microservices,microservices-based environments,CONCEPT,merged_by_pipeline,57.778
+entity-pair-079,microservices-based environments,multi-cloud microservices environments,CONCEPT,high_lexical_similarity_nonmerge,80.0
+entity-pair-080,container environments,containerized environments,CONCEPT,merged_by_pipeline,91.667
+entity-pair-081,anomaly-based intrusion detection,anomaly-based intrusion detection systems,METHOD,merged_by_pipeline,89.189
+entity-pair-082,microservice scenario,securing microservices,CONCEPT,high_lexical_similarity_nonmerge,79.07
+entity-pair-083,Kubernetes,three-node Kubernetes cluster,TOOL,merged_by_pipeline,51.282
+entity-pair-084,Microservices framework,microservices architecture,METHOD,merged_by_pipeline,69.388
+entity-pair-085,microservice security agent,Microservice Security Analysis,METHOD,high_lexical_similarity_nonmerge,84.211
+entity-pair-086,proposed architectural framework,proposed architecture,METHOD,high_lexical_similarity_nonmerge,79.245
+entity-pair-087,microservice-based applications,security of microservice applications,CONCEPT,high_lexical_similarity_nonmerge,79.412
+entity-pair-088,Role-Based Access Control,Role-based Access Control Model (RBAC),METHOD,merged_by_pipeline,79.365
+entity-pair-089,vulnerabilities,Security Vulnerabilities,CONCEPT,merged_by_pipeline,76.923
+entity-pair-090,security discussions,security intrusions,CONCEPT,high_lexical_similarity_nonmerge,82.051
+entity-pair-091,API Gateway,gateway,TOOL,high_lexical_similarity_nonmerge,77.778
+entity-pair-092,securing microservices,microservice security analysis,CONCEPT,merged_by_pipeline,73.077
+entity-pair-093,Open Banking Ecosystems,open banking ecosystems,CONCEPT,merged_by_pipeline,100.0
+entity-pair-094,API gateway,AWS API Gateway,TOOL,high_lexical_similarity_nonmerge,84.615
+entity-pair-095,microservice architecture of EHR systems,Microservices Architecture,METHOD,high_lexical_similarity_nonmerge,78.788
+entity-pair-096,securing microservices,inter-service security in microservice architectures,CONCEPT,merged_by_pipeline,51.351
+entity-pair-097,security attacks,security patterns,CONCEPT,high_lexical_similarity_nonmerge,78.788
+entity-pair-098,cloud-native security systems,IoT Systems Security,CONCEPT,high_lexical_similarity_nonmerge,77.551
+entity-pair-099,API Gateway,API-Gateway,TOOL,merged_by_pipeline,90.909
+entity-pair-100,microservices architectures,serverless architectures,CONCEPT,high_lexical_similarity_nonmerge,78.431
+entity-pair-101,access control,access control and authorization,CONCEPT,merged_by_pipeline,60.87
+entity-pair-102,securing microservices,comprehensive research on microservices security vulnerabilities,CONCEPT,merged_by_pipeline,48.837
+entity-pair-103,Microservice Security Analysis,methodology for designing and developing security microservices,METHOD,merged_by_pipeline,55.914
+entity-pair-104,cloud architecture,cloud-native architectures,CONCEPT,high_lexical_similarity_nonmerge,81.818
+entity-pair-105,detection accuracy,test accuracy,METRIC,high_lexical_similarity_nonmerge,77.419
+entity-pair-106,.NET-based microservices,federated microservices,CONCEPT,high_lexical_similarity_nonmerge,76.596
+entity-pair-107,zero trust,Zero Trust security principles,METHOD,merged_by_pipeline,50.0
+entity-pair-108,detection accuracy,detection accuracy of 96.3%,METRIC,high_lexical_similarity_nonmerge,80.0
+entity-pair-109,growing security challenges,security challenges,CONCEPT,high_lexical_similarity_nonmerge,82.609
+entity-pair-110,autoencoders,Autoencoder-based models,METHOD,merged_by_pipeline,66.667
+entity-pair-111,IoT Systems,IoT Systems Security,CONCEPT,merged_by_pipeline,70.968
+entity-pair-112,Microservices framework,microservices technology,METHOD,merged_by_pipeline,55.319
+entity-pair-113,cyber-security attacks,security attacks,CONCEPT,high_lexical_similarity_nonmerge,84.211
+entity-pair-114,Response Times,system response time,METRIC,high_lexical_similarity_nonmerge,76.471
+entity-pair-115,API Gateway,AWS API Gateway,TOOL,high_lexical_similarity_nonmerge,84.615
+entity-pair-116,securing microservices,microservices security,CONCEPT,merged_by_pipeline,90.909
+entity-pair-117,micro-service containers,microservice challenges,CONCEPT,high_lexical_similarity_nonmerge,76.596
+entity-pair-118,microservices environments,multi-cloud microservices environments,CONCEPT,high_lexical_similarity_nonmerge,81.25
+entity-pair-119,Zero Trust controls,zero trust access control,METHOD,merged_by_pipeline,81.818
+entity-pair-120,empirical validation,experimental validation,METHOD,high_lexical_similarity_nonmerge,79.07
+entity-pair-121,intrusion detection,reliable intrusion detection,CONCEPT,high_lexical_similarity_nonmerge,80.851
+entity-pair-122,microservice architecture of EHR systems,microservices-based architecture,METHOD,high_lexical_similarity_nonmerge,77.778
+entity-pair-123,security patterns,security practices,CONCEPT,high_lexical_similarity_nonmerge,80.0
+entity-pair-124,microservices,SDN-microservices environments,CONCEPT,merged_by_pipeline,60.465
+entity-pair-125,deep reinforcement learning,reinforcement learning algorithms,METHOD,high_lexical_similarity_nonmerge,76.667
+entity-pair-126,machine learning,Machine Learning,METHOD,merged_by_pipeline,100.0
+entity-pair-127,micro-service containers,containerized microservices,CONCEPT,merged_by_pipeline,86.275
+entity-pair-128,securing microservices,security of microservice systems,CONCEPT,merged_by_pipeline,70.37
+entity-pair-129,centralized entity,Decentralized Identity,CONCEPT,merged_by_pipeline,90.0
+entity-pair-130,containers,Linux containers,TOOL,high_lexical_similarity_nonmerge,76.923
+entity-pair-131,securing microservices,Security issues in microservices systems,CONCEPT,merged_by_pipeline,64.516
+entity-pair-132,layered security model,multi-layer security model,METHOD,merged_by_pipeline,58.333
+entity-pair-133,IoT applications,monolithic applications,CONCEPT,high_lexical_similarity_nonmerge,76.923
+entity-pair-134,microservice architecture of EHR systems,microservices architecture,METHOD,high_lexical_similarity_nonmerge,78.788
+entity-pair-135,securing microservices,security of decentralized microservices,CONCEPT,merged_by_pipeline,65.574
+entity-pair-136,securing microservices,security problems of the microservice architecture,CONCEPT,merged_by_pipeline,55.556
+entity-pair-137,microservices,microservices-based systems,CONCEPT,merged_by_pipeline,65.0
+entity-pair-138,zero-trust access,Zero Trust Security,CONCEPT,merged_by_pipeline,44.444
+entity-pair-139,microservices,microservices architectures,CONCEPT,merged_by_pipeline,65.0
+entity-pair-140,security challenges in cloud-native environments,security challenges in containerized environments,CONCEPT,merged_by_pipeline,86.598
+entity-pair-141,API Gateway,API gateway,TOOL,merged_by_pipeline,100.0
+entity-pair-142,cloud-native systems,cloud-native environment,CONCEPT,merged_by_pipeline,68.182
+entity-pair-143,response time,average response time,METRIC,merged_by_pipeline,76.471
+entity-pair-144,security challenges,complex security challenges,CONCEPT,merged_by_pipeline,82.609
+entity-pair-145,Accuracy,accuracy,METRIC,merged_by_pipeline,100.0
+entity-pair-146,microservice-based architecture optimization,microservices-based architecture,METHOD,high_lexical_similarity_nonmerge,81.579
+entity-pair-147,Istio service mesh,service mesh,TOOL,high_lexical_similarity_nonmerge,80.0
+entity-pair-148,defense effectiveness,detection effectiveness,METRIC,high_lexical_similarity_nonmerge,81.818
+entity-pair-149,API-Gateway,AWS API Gateway,TOOL,high_lexical_similarity_nonmerge,76.923
+entity-pair-150,hybrid machine learning model,machine learning models,METHOD,high_lexical_similarity_nonmerge,84.615
+entity-pair-151,DoS attacks,DDoS attacks,CONCEPT,merged_by_pipeline,95.652
+entity-pair-152,proposed framework,Proposed framework,METHOD,merged_by_pipeline,100.0
+entity-pair-153,AI Microservices,Microservices framework,METHOD,high_lexical_similarity_nonmerge,76.923
+entity-pair-154,threat modeling,automated threat modeling,METHOD,merged_by_pipeline,75.0
+entity-pair-155,data security,security attacks,CONCEPT,high_lexical_similarity_nonmerge,82.759
+entity-pair-156,anomaly detection,real-time anomaly detection,CONCEPT,high_lexical_similarity_nonmerge,77.273
+entity-pair-157,runtime vulnerabilities,security vulnerabilities,CONCEPT,high_lexical_similarity_nonmerge,76.596
+entity-pair-158,real-time threat detection,real-time threat detection and response,CONCEPT,merged_by_pipeline,80.0
+entity-pair-159,scalability,usability,METRIC,high_lexical_similarity_nonmerge,80.0
+entity-pair-160,Open Policy Agent (OPA),Open Policy Agent (OPA) Gatekeeper,TOOL,high_lexical_similarity_nonmerge,80.702
+entity-pair-161,cloud-native environment,container environments,CONCEPT,high_lexical_similarity_nonmerge,78.261
+entity-pair-162,refactoring,Refactoring,METHOD,merged_by_pipeline,100.0
+entity-pair-163,microservice intrusion detection,reliable intrusion detection,CONCEPT,high_lexical_similarity_nonmerge,80.0
+entity-pair-164,machine learning,machine learning techniques,METHOD,merged_by_pipeline,74.419
+entity-pair-165,anomaly detection models,unsupervised anomaly detection model,METHOD,high_lexical_similarity_nonmerge,80.0
+entity-pair-166,container security,cloud and container security,CONCEPT,merged_by_pipeline,78.261
+entity-pair-167,Throughput,throughput,METRIC,merged_by_pipeline,100.0
+entity-pair-168,microservices systems,security of microservice systems,CONCEPT,high_lexical_similarity_nonmerge,79.245
+entity-pair-169,application security,IoT applications,CONCEPT,high_lexical_similarity_nonmerge,77.778
+entity-pair-170,Kubernetes based microservices,Kubernetes Microservices System,CONCEPT,merged_by_pipeline,78.689
+entity-pair-171,securing microservices,securing microservices within enterprise settings,CONCEPT,merged_by_pipeline,61.972
+entity-pair-172,security challenges in cloud-native environments,security challenges in edge-native containerized environments,CONCEPT,merged_by_pipeline,84.404
+entity-pair-173,Two-Factor Authentication,multi-factor authentication,METHOD,merged_by_pipeline,88.462
+entity-pair-174,anomaly detection,security anomaly detection,CONCEPT,merged_by_pipeline,79.07
+entity-pair-175,modern containerized cloud microservices,container cloud and microservice architectures,CONCEPT,merged_by_pipeline,65.116
+entity-pair-176,API Security,data security,CONCEPT,high_lexical_similarity_nonmerge,80.0
+entity-pair-177,cloud-native systems,cloud-native and distributed systems,CONCEPT,merged_by_pipeline,71.429
+entity-pair-178,response time,system response time,METRIC,high_lexical_similarity_nonmerge,78.788
+entity-pair-179,multi-cloud microservices environments,SDN-microservices environments,CONCEPT,high_lexical_similarity_nonmerge,76.471
+entity-pair-180,lateral movement,lateral movement attacks,CONCEPT,high_lexical_similarity_nonmerge,80.0
+entity-pair-181,OAuth 2.1 with PKCE,OpenID with OAuth 2.0,METHOD,high_lexical_similarity_nonmerge,80.0
+entity-pair-182,securing microservices,microservice intrusion detection,CONCEPT,merged_by_pipeline,44.444
+entity-pair-183,microservices,microservice architecture,CONCEPT,merged_by_pipeline,63.158
+entity-pair-184,machine learning,Machine Learning techniques,METHOD,merged_by_pipeline,74.419
+entity-pair-185,Microservices framework,microservices-based architecture,METHOD,merged_by_pipeline,61.818
+entity-pair-186,cloud-native operational systems,cloud-native security systems,CONCEPT,high_lexical_similarity_nonmerge,78.689
+entity-pair-187,machine learning algorithms,reinforcement learning algorithms,METHOD,high_lexical_similarity_nonmerge,76.667
+entity-pair-188,threat detection,threat detection F1-score,METRIC,high_lexical_similarity_nonmerge,78.049
+entity-pair-189,DevSecOps practices,DevSecOps methodologies,METHOD,merged_by_pipeline,66.667
+entity-pair-190,authentication mechanisms for microservices,secure authentication mechanism,CONCEPT,high_lexical_similarity_nonmerge,78.378
+entity-pair-191,API gateway security,API gateway security mechanism,METHOD,merged_by_pipeline,80.0
+entity-pair-192,deep neural network,Graph Neural Networks,METHOD,high_lexical_similarity_nonmerge,80.0
+entity-pair-193,attribute-based access control,Attribute-Based Access Control,METHOD,merged_by_pipeline,100.0
+entity-pair-194,container security,security concerns,CONCEPT,high_lexical_similarity_nonmerge,80.0
+entity-pair-195,securing microservices,security risks of microservices,CONCEPT,merged_by_pipeline,75.472
+entity-pair-196,detection precision,detection rates,METRIC,high_lexical_similarity_nonmerge,76.471
+entity-pair-197,cloud-native operational systems,cloud-native systems,CONCEPT,high_lexical_similarity_nonmerge,76.923
+entity-pair-198,Extended Berkeley Packet Filter,extended Berkeley Packet Filter (eBPF),TOOL,merged_by_pipeline,89.855
+entity-pair-199,cloud and container environments,container environments,CONCEPT,high_lexical_similarity_nonmerge,81.481
+entity-pair-200,zero-trust access,zero-trust principles,CONCEPT,merged_by_pipeline,73.684

@@ -1,535 +1,194 @@
 \documentclass[runningheads]{llncs}
-%
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{url}
 \usepackage{multirow}
-\usepackage{algorithm}
-\usepackage{algorithmic}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
 
 \begin{document}
-%
-\title{KG-TABI: Automating Research Gap Detection via Dynamic Knowledge Graphs and Toulmin-Abductive Inference}
-%
-\titlerunning{KG-TABI: Research Gap Detection via KG and TABI}
-%
+
+\title{KG-TABI: Design and Auditability of a Conservative Research-Gap Hypothesis Protocol}
+\titlerunning{KG-TABI}
 \author{Le Anh Hoa\inst{1} \and
 Nguyen Duc Hoang\inst{1} \and
 Phan Ly Van Khoa\inst{1} \and
 Nguyen Dinh Thanh\inst{1} \and
 Ho Dinh Anh\inst{1} \and
-Truong Long\inst{2}}
-%
+Long Truong\inst{2}}
 \authorrunning{L. A. Hoa et al.}
-%
 \institute{Department of Information Technology, FPT University, Vietnam\\
-\email{\{leanhhoa30012004, hoangnguyenduc674, kphanvan124, tdinh7455, dinhanh200304\}@gmail.com} \and
+\email{\{hoalase181702, hoangndse181655, khoaplvse181656, thanhndse182854, anhhdse180670\}@fpt.edu.vn} \and
 Department of Software Engineering, FPT University, Vietnam\\
-\email{truonglongkt2021@gmail.com}}
-%
+\email{longt5@fpt.edu.vn}}
 \maketitle
-%
+
 \begin{abstract}
-Systematic Literature Reviews (SLRs) are foundational for identifying research gaps and guiding scientific inquiry. However, conducting SLRs manually in rapidly evolving fields is labor-intensive and susceptible to subjective bias. Moreover, the central question of \textit{what constitutes a genuine research gap} remains underexplored in automated systems---low publication count on a topic is merely a signal, not sufficient evidence of a gap. This paper introduces \textbf{KG-TABI}, a framework that addresses this challenge through two complementary mechanisms: (1)~\textbf{Dynamic Knowledge Graphs} that encode semantic relationships between scientific entities with temporal metadata, enabling topological gap detection via Louvain community clustering and temporal decay analysis; and (2)~the \textbf{Toulmin-Abductive Bucketed Inference (TABI)} framework that structures LLM reasoning into evidence-grounded, explainable gap statements aligned with Toulmin's argumentation model. We formalize a six-type research gap taxonomy and propose a multi-layer validation pipeline that distinguishes between gap \textit{candidates} and \textit{evidence-backed} gaps. In an experimental evaluation on a 100-paper corpus, KG-TABI achieves competitive logical entailment (76.1\% under LLM validation, compared to 50.0--83.0\% for six baselines including GraphRAG, LightRAG, and HippoRAG) while producing structurally grounded gap candidates that are lexically distinct from text-only methods. Furthermore, we evaluate the framework through a scalability stress-testing simulation on a synthetically scaled 200-paper graph (5,820 nodes) and a human expert evaluation showing high inter-rater agreement (Fleiss' Kappa = 0.795).
-
-\keywords{Research Gap Detection \and Knowledge Graphs \and Toulmin Argumentation \and Abductive Inference \and Systematic Literature Review.}
+Systematic literature reviews can surface research opportunities, but sparse graph structure is not itself evidence of a research gap. We present KG-TABI as an \emph{abstract-level, auditable protocol} that turns graph signals into hypotheses about potential research gaps for expert review. The protocol combines event-aggregated knowledge graphs, seeded Louvain communities, an undirected cut-edge fraction, an FDR-controlled temporal screen, and Toulmin-Abductive Bucketed Inference (TABI). On a legacy-screened 149-paper microservices-security diagnostic, no community passes the isolation gate and no temporal signal survives FDR; consequently, TABI produces no hypothesis. A provider-field-recorded rerun from the overlapping 185-record snapshot again produces no eligible signal. A separate dry run demonstrates packet generation only. Thus, the evidence supports implementation behavior, traceability, and a declared null decision---not candidate novelty, usefulness, source support, generalizability, or superiority over a baseline.
+\keywords{Auditable Research Protocol \and Potential Research-Gap Hypotheses \and Knowledge Graphs \and Toulmin Argumentation}
 \end{abstract}
-%
-%
+
 \section{Introduction}
-Systematic Literature Reviews (SLRs) serve as a cornerstone of empirical research, enabling researchers to consolidate existing knowledge, identify conflicts, and discover unresolved challenges~\cite{kitchenham2007guidelines}. Despite their utility, the manual execution of SLRs has become increasingly challenging as scientific publication volumes grow exponentially.
+Systematic literature reviews (SLRs) consolidate evidence and identify unresolved questions, but manual review is increasingly difficult at modern publication volumes~\cite{kitchenham2007guidelines}. Search, screening, and graph-based analysis can support this work, yet an absent graph edge can equally reflect incomplete retrieval, noisy extraction, or entity-resolution error. We therefore distinguish a \emph{signal for inspection} from a validated scientific gap.
 
-Prior efforts to automate literature reviews have relied on keyword matching, citation network analysis, or text classification. While these methods help filter papers, they do not model the semantic relationships between technical concepts. Consequently, they are limited in their ability to identify \textit{implicit} research gaps---unexplored connections between disconnected subdomains that, if bridged, could lead to new research directions.
+KG-TABI is a conservative, traceable protocol for moving from a graph signal to a \emph{hypothesis about a potential research gap}. It builds a temporally annotated graph from literature text, detects structurally isolated communities and declining normalized activity, and asks an LLM to express any surviving signal in a Toulmin-style form. The LLM does not certify novelty, importance, truth, or feasibility. Those properties require source closure and independent domain review.
 
-A fundamental challenge in automating gap detection is defining what constitutes a genuine research gap. As noted in prior work on gap identification methodology~\cite{muller2022identifying}, a low paper count on a topic is merely a detection signal, not confirmation of a gap. A valid research gap requires a structured argument: \textit{what is known}, \textit{what is missing or uncertain}, \textit{why it matters}, and \textit{supporting evidence}. Furthermore, gaps must survive counter-evidence search and closure checks before being considered credible.
-
-To address these challenges, we present \textbf{KG-TABI}, an end-to-end framework that combines topological analysis with structured LLM reasoning. Our approach represents the literature as a \textit{Dynamic Knowledge Graph} where nodes represent key entities and edges denote temporally-annotated relationships. By applying Louvain community detection~\cite{blondel2008fast} and Burt's structural hole theory~\cite{burt2004structural}, the framework identifies disconnected regions (``orphan clusters'') in the literature graph. We then employ the \textit{TABI} framework to guide LLMs in reasoning over these structural disconnections using Toulmin's layout of arguments~\cite{toulmin1958uses} and abductive logic~\cite{bhagavatula2020abductive}.
-
-The main contributions of this work are:
+Our contributions are:
 \begin{itemize}
-    \item A formal six-type taxonomy of research gaps (Explicit, Contradictory Evidence, Methodological, Context/Population, Coverage Intersection, and Evaluation gaps) grounded in SLR methodology.
-    \item A pipeline for constructing dynamic, time-aware scientific knowledge graphs with entity resolution and temporal metadata.
-    \item A topological gap detection algorithm that identifies orphan clusters and computes temporal concept decay.
-    \item The TABI framework, which structures LLM reasoning using Toulmin's argumentation model to produce evidence-grounded, explainable gap statements.
-    \item A multi-layer validation process and an HCAI expert review interface for gap verification.
+\item a provenance-aware abstract-to-graph pipeline with complete-link entity resolution;
+\item deterministic structural and FDR-controlled temporal signal gates;
+\item a Toulmin-structured abductive hypothesis schema that separates graph Grounds, proposed Claim, Warrant, and feasibility bucket; and
+\item a historical diagnostic, provider-field-recorded forward reproduction, sanity checks, and blinded-packet dry run.
 \end{itemize}
+Detailed configuration, sensitivity tables, audit packet specifications, and archived diagnostic context are provided in the supplementary material and repository; this is a protocol and diagnostic paper, not a completed effectiveness evaluation of hypothesis generation.
 
-\section{Related Work}
+We ask three deliberately bounded research questions: \textbf{RQ1}, does the frozen implementation return the declared structural and temporal decision on its recorded inputs? \textbf{RQ2}, how sensitive is that decision to partition seeds, traceability restrictions, synthetic perturbations, and alternative size rules? \textbf{RQ3}, does the implementation preserve an auditable chain from a frozen input record to a candidate or an explicit null? Candidate novelty, usefulness, and comparative quality are outside these diagnostic RQs and require the confirmatory study specified in Section~5.
 
-\subsection{Automated Literature Analysis}
-Early systems for literature analysis focused on metadata aggregation and citation networks. Scientific knowledge graphs such as ORKG~\cite{jaradeh2019open} shifted focus toward semantic representations. SciIE~\cite{luan2018information} extracts keyphrases and relations from scientific abstracts. However, these works build static representations and do not actively reason about missing knowledge.
+\section{Background and Scope}
+Scientific knowledge graphs represent entities and relations extracted from research text~\cite{jaradeh2019open,luan2018information}. Literature-based discovery and embedding-based science mapping can suggest useful cross-literature connections~\cite{swanson1986fish,tshitoyan2019embeddings}, but they do not establish that a proposed connection is absent, novel, or important. Graph-augmented retrieval systems improve grounding~\cite{edge2024graphrag,guo2024lightrag,gutierrez2024hipporag}; they do not remove the need for evidence appraisal.
 
-With the advent of generative LLMs, researchers have explored their use in summary generation and gap identification. Mulla et al.~\cite{mulla2023automatic} proposed using RAG pipelines that retrieve similar abstracts and prompt LLMs to identify research gaps. While LLMs generate fluent text, they suffer from hallucinations and struggle with structured, logical reasoning over large-scale knowledge structures. Graph-augmented RAG has emerged to ground LLMs, but applying them specifically to identify \textit{logical gaps} requires structured argumentation.
+Link-prediction methods, including variational graph auto-encoders, estimate likely unobserved edges from graph structure and features~\cite{kipf2016vgae}; their usual target is recovery of held-out observed links, not validation of a research gap. Recent LLM work studies open-domain hypothesis discovery, literature--data synthesis, and literature-grounded generation with provenance and human evaluation~\cite{yang2023moose,liu2025literature,vasu2025hyper}. KG-TABI is narrower: it records graph grounds and an explicit warrant for expert inspection, while leaving novelty and scientific value to source closure and blinded review. Its present evidence concerns decision traceability rather than candidate-quality gains.
 
-\subsection{Defining Research Gaps}
-A critical shortcoming of existing automated tools is the lack of a rigorous definition of what constitutes a research gap. Mapping studies in software engineering~\cite{petersen2015guidelines} classify publications by topic, contribution type, and method to identify evidence-sparse regions. M\"uller et al.~\cite{muller2022identifying} emphasize that gap identification requires distinguishing between six types: explicit author-stated gaps, contradictory evidence, methodological limitations, context/population transferability, coverage intersections, and evaluation deficiencies. Our work formalizes this taxonomy and operationalizes it within an automated detection framework.
-
-\section{The Proposed KG-TABI Framework}
-The architecture of KG-TABI consists of five sequential stages.
-
-\subsection{Research Gap Taxonomy}
-\label{sec:taxonomy}
-Before describing the pipeline, we formalize the types of research gaps that KG-TABI is designed to detect. Building on classification frameworks from systematic mapping studies~\cite{petersen2015guidelines,muller2022identifying}, we define six gap types:
-
-\begin{enumerate}
-    \item \textbf{Explicit Gap:} Gaps directly stated by authors in Introduction, Limitations, or Future Work sections (e.g., \textit{``little is known about...''}). These require a temporal closure check, as a gap stated in 2021 may have been resolved by 2026.
-    \item \textbf{Contradictory Evidence Gap:} When papers report conflicting results about the same technique or phenomenon. The gap lies in the unresolved conditions under which contradictory outcomes arise.
-    \item \textbf{Methodological Gap:} Abundant research exists on a topic but with limited methodological diversity (e.g., mostly surveys, lacking controlled experiments or longitudinal studies).
-    \item \textbf{Context/Population Gap:} A technique has been validated in certain contexts (e.g., professional developers) but its generalizability to other populations (e.g., novice developers) remains unexamined.
-    \item \textbf{Coverage Intersection Gap:} Two well-studied areas (e.g., ``LLM testing'' and ``novice programmers'') have minimal research at their intersection. KG-TABI detects these as structural holes between knowledge graph communities.
-    \item \textbf{Evaluation Gap:} Tools or frameworks lack rigorous empirical evaluation---only demos, no baselines, small datasets, or no external validation.
-\end{enumerate}
-
-KG-TABI primarily targets types 2, 5, and 6 through topological analysis (orphan clusters correspond to Coverage Intersection Gaps; temporal decay relates to Methodological and Evaluation Gaps).
-
-\subsection{Stage 1: Literature Search and Screening}
-The input is a research domain query. KG-TABI automates paper acquisition and relevance filtering:
-\begin{enumerate}
-    \item \textbf{Query Expansion:} An LLM expands the user query into diverse search terms.
-    \item \textbf{Paper Retrieval:} We query the Semantic Scholar API using expanded terms to retrieve paper metadata (titles, abstracts, publication years, citation counts).
-    \item \textbf{Relevance Screening:} Each paper's title and abstract are evaluated by a screening LLM, assigning a relevance score $S_{rel} \in [0, 1]$. Papers with $S_{rel} > 0.7$ are retained.
-    \item \textbf{Semantic Chunking:} Full texts of selected papers are partitioned into chunks of at most 1,000 words, split at sentence boundaries using the NLTK toolkit.
-\end{enumerate}
-
-\subsection{Stage 2: Dynamic Knowledge Graph Construction}
-This stage populates a scientific knowledge graph $G = (V, E, T)$, where $V$ is the set of entities, $E$ is the set of directed relationships, and $T$ is the set of temporal tags.
-
-\begin{enumerate}
-    \item \textbf{Triple Extraction:} We prompt an LLM to extract triples $\langle Subject, Relation, Object \rangle$ from each text chunk, constrained to:
-    \begin{align*}
-    V_{type} &\in \{\text{METHOD, DATASET, METRIC, CONCEPT, FINDING, TOOL}\} \\
-    E_{type} &\in \{\text{USES, IMPROVES, ADDRESSES, EVALUATES\_ON, PRODUCES,} \\
-    &\quad \text{CONTRADICTS, EXTENDS, LACKS, COMBINES, APPLIED\_TO}\}
-    \end{align*}
-    Each triple is associated with a confidence score $C \in [0, 1]$. Triples with $C < 0.3$ are discarded.
-
-    \item \textbf{Entity Resolution:} To prevent graph fragmentation from synonyms, we merge nodes using:
-    \begin{itemize}
-        \item \textit{Lexical matching:} Fuzzy string matching (Levenshtein similarity $> 85\%$).
-        \item \textit{Semantic matching:} Cosine similarity of Sentence-BERT~\cite{reimers2019sentence} embeddings ($> 0.85$).
-    \end{itemize}
-
-    \item \textbf{Temporal Tagging:} Every edge $e \in E$ is tagged with $t(e) = \text{year}$ of the source paper, yielding a dynamic graph that tracks relationship evolution.
-\end{enumerate}
-
-\subsection{Stage 3: Topological Gap Detection}
-Once $G$ is constructed, we apply two topological analyses to find structural gaps (Algorithms~\ref{alg:orphans} and \ref{alg:decay}).
-
-\begin{algorithm}[h]
-\caption{Orphan Cluster Detection}
-\label{alg:orphans}
-\begin{algorithmic}[1]
-\REQUIRE $G = (V, E)$, Modularity threshold $Q_{min}$, size threshold $\alpha$, bridge threshold $\beta$
-\ENSURE Set of Orphan Clusters $\mathcal{O}$
-\STATE $\mathcal{C} \leftarrow \text{LouvainCommunityPartition}(G)$
-\STATE $\mathcal{O} \leftarrow \emptyset$
-\FORALL{Community $C_x \in \mathcal{C}$}
-    \STATE $R_{size}(C_x) \leftarrow |C_x| / |V|$
-    \STATE $E_{internal} \leftarrow \{(u,v) \in E \mid u,v \in C_x\}$
-    \STATE $E_{outbound} \leftarrow \{(u,v) \in E \mid u \in C_x, v \notin C_x\}$
-    \STATE $R_{bridge}(C_x) \leftarrow |E_{outbound}| / (|E_{internal}| + |E_{outbound}|)$
-    \IF{$R_{size}(C_x) \geq \alpha$ \textbf{and} $R_{bridge}(C_x) < \beta$}
-        \STATE $\mathcal{O} \leftarrow \mathcal{O} \cup \{C_x\}$
-    \ENDIF
-\ENDFOR
-\RETURN $\mathcal{O}$
-\end{algorithmic}
-\end{algorithm}
-
-\begin{algorithm}[h]
-\caption{Temporal Decay Analysis}
-\label{alg:decay}
-\begin{algorithmic}[1]
-\REQUIRE Graph $G = (V, E, T)$, current year $Y$, threshold $\gamma$, min events $k$
-\ENSURE Set of Stagnant Concepts $\mathcal{S}$
-\STATE $\mathcal{S} \leftarrow \emptyset$
-\STATE $R \leftarrow [Y-1, Y]$ \COMMENT{Recent window}
-\FORALL{Node $v \in V$}
-    \STATE $E_v \leftarrow \{e \in E \mid v \text{ is incident to } e\}$
-    \IF{$|E_v| \geq k$}
-        \STATE $E_{recent} \leftarrow \{e \in E_v \mid t(e) \in R\}$
-        \STATE $Decay(v) \leftarrow 1.0 - (|E_{recent}| / |E_v|)$
-        \IF{$Decay(v) \geq \gamma$}
-            \STATE $\mathcal{S} \leftarrow \mathcal{S} \cup \{(v, Decay(v))\}$
-        \ENDIF
-    \ENDIF
-\ENDFOR
-\RETURN $\mathcal{S}$
-\end{algorithmic}
-\end{algorithm}
-
-\subsection{Stage 4: Information Synthesis via the TABI Framework}
-The orphan clusters and stagnant concepts from Stage~3 indicate \textit{where} structural gaps exist, but not \textit{why} they matter. We bridge this topological-semantic divide using the Toulmin-Abductive Bucketed Inference (TABI) framework.
-
-The TABI prompt structures LLM generation into four JSON fields corresponding to Toulmin's argumentation components~\cite{toulmin1958uses}:
-\begin{itemize}
-    \item \textbf{Grounds:} The explicit topological evidence from the graph.
-    \item \textbf{Claim:} The proposed research gap statement bridging disconnected entities.
-    \item \textbf{Warrant:} Domain-specific technical justification for why this connection matters.
-    \item \textbf{Bucket:} Feasibility classification: \texttt{more\_probable} (feasible with existing technology) or \texttt{least\_probable} (speculative).
-\end{itemize}
-
-We employ 3-shot in-context learning, providing three reference TABI outputs to guide the LLM's reasoning structure and output format.
-
-\subsection{Stage 5: Multi-Layer Validation and Expert Review}
-\label{sec:validation}
-To prevent hallucination and ensure gap validity, KG-TABI applies a multi-layer validation process inspired by gap identification methodology~\cite{muller2022identifying}:
-
-\begin{enumerate}
-    \item \textbf{Evidence Support:} Each gap must be grounded in topological evidence (orphan clusters or temporal decay metrics). Gaps without structural evidence are not output.
-    \item \textbf{NLI Entailment Check:} We evaluate logical consistency using an LLM-as-NLI-judge: given the Grounds and Warrant as premises, we check whether the Claim is logically entailed. Only gaps classified as \texttt{ENTAILMENT} pass.
-    \item \textbf{Novelty Deduplication:} Sentence-BERT cosine similarity is computed between all gap Claims. Claims with similarity $\geq 0.85$ are merged, yielding the Unique Gap count.
-    \item \textbf{Expert Review (HCAI):} An interactive Streamlit dashboard displays each gap alongside its subgraph visualization. Domain experts can \textbf{Accept}, \textbf{Modify}, or \textbf{Reject} each gap. All decisions are logged to \texttt{expert\_reviews.json} for reproducibility.
-\end{enumerate}
-
-The output of this pipeline is classified as an \textit{Evidence-backed Research Gap Candidate}---not a ``True Research Gap''---until the expert validation step confirms it.
-
-\section{Experimental Evaluation}
-
-\subsection{Dataset and Experimental Setup}
-We evaluated KG-TABI on a corpus of papers about \textit{``research gap identification''} across multiple domains, retrieved via the Semantic Scholar API. From an initial retrieval of 156 unique candidate papers, LLM-based relevance screening ($S_{rel} > 0.7$) retained \textbf{100 papers} spanning topics including systematic review methodology, Android security, disaster operations, sustainopreneurship, and bibliometric analysis (publication years: 2010--2026).
-
-The LLM backbone used for all stages (triple extraction, TABI inference, baseline generation, and NLI evaluation) was \texttt{gemini-3.5-flash-low} (accessed via custom endpoint). All thresholds follow the values specified in Section~3.
-
-\subsection{Knowledge Graph Construction and Quality Evaluation}
-Stages 1--2 produced a knowledge graph containing \textbf{550 nodes} and \textbf{425 directed edges} after entity resolution. The graph encodes six entity types and ten relation types as defined in Section~3.3.
-
-To analyze the quality of the constructed Knowledge Graph, we evaluated triple extraction statistics and entity resolution behavior on our raw outputs (Table~\ref{tab:kg_quality}). Since a formal ground-truth dataset for research gap identification does not exist, this evaluation represents an \textbf{intrinsic quality analysis} of the graph.
-
-To estimate performance, we manually annotated a random sample of 100 triples and 50 entity resolution groups to compute intrinsic precision. Triple extraction achieved an intrinsic precision of 85.0\% (85 out of 100 sampled triples accurately reflected the source text context). Entity resolution achieved an intrinsic accuracy of 94.0\% (47 out of 50 resolved groups were correct; the primary false positive was the merge of \textit{h-index} with \textit{g-index} due to similar Sentence-BERT embedding patterns).
-
-\begin{table}[h]
-\caption{Knowledge Graph Construction and Quality Metrics (Intrinsic Analysis).}
-\label{tab:kg_quality}
-\centering
-\begin{tabular}{lll}
-\toprule
-\textbf{Metric Category} & \textbf{Metric Name} & \textbf{Value} \\
-\midrule
-\multirow{4}{*}{Triple Extraction} & Raw Triples Extracted & 430 \\
- & Resolved Triples (Post-ER) & 428 \\
- & Average LLM Confidence & 0.897 \\
- & High-Confidence Triples ($\geq 0.7$) & 100\% (430/430) \\
-\midrule
-\multirow{4}{*}{Entity Resolution} & Unique Entities (Raw) & 613 \\
- & Unique Entities (Resolved) & 550 \\
- & Total Entities Merged & 63 \\
- & Merge Groups Detected & 31 (Merge Ratio: 10.3\%) \\
-\midrule
-\multirow{3}{*}{Graph Structure} & Connected Components & 133 \\
- & Largest Connected Component & 207 nodes (37.6\% of graph) \\
- & Average / Max Node Degree & 1.55 / 45 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\subsection{Topological Analysis Results}
-Louvain community detection partitioned the graph into multiple communities, of which \textbf{four} met the orphan cluster criteria (Table~\ref{tab:orphans}). All four clusters exhibited a bridge ratio below 10\%, indicating high topological isolation.
+We use a working taxonomy informed by SLR and systematic-mapping practice~\cite{kitchenham2007guidelines,petersen2015guidelines}: Explicit, Contradictory Evidence, Methodological, Context and Population, Coverage Intersection, and Evaluation gaps. It is neither expert-validated nor exhaustive. The current prototype operationalizes only a possible Coverage Intersection signal; the other categories require additional text, study-design, or contradiction analysis.
 
 \begin{table}[t]
-\caption{Detected orphan clusters from Louvain community partitioning.}
-\label{tab:orphans}
-\centering
-\begin{tabular}{clcc}
+\caption{Scope comparison with cited workflow families. ``Not a protocol target'' describes the primary scope of the cited work, not an empirical benchmark or a claim that a feature is impossible.}
+\label{tab:workflow-comparison}
+\centering\scriptsize
+\begin{tabular}{p{2.1cm}p{2.1cm}p{1.75cm}p{2.05cm}p{2.05cm}}
 \toprule
-\textbf{Cluster ID} & \textbf{Representative Nodes} & $R_{size}$ & $R_{bridge}$ \\
+Workflow family & Primary output & Signal gate & Trace contract & Review protocol\\
 \midrule
-7 & topic modeling, Latent Dirichlet Allocation, text mining & 0.065 & 5.1\% \\
-14 & systematic research review, conceptual framework, digital leadership & 0.091 & 9.1\% \\
-35 & systematic methods, SLR methodology, overview of SRs, bibliometric analysis & 0.058 & 0.0\% \\
-92 & thematic review, peer-reviewed literature, TCCM approach, gap analysis & 0.055 & 9.4\% \\
+Scientific IE / KG~\cite{luan2018information,jaradeh2019open} & scientific representation & not a target & extraction/KG record & not a target\\
+Graph retrieval~\cite{edge2024graphrag,guo2024lightrag,gutierrez2024hipporag} & grounded context & retrieval graph & retrieved context & not a target\\
+Link prediction~\cite{kipf2016vgae} & held-out links & structural prediction & predicted link & not a target\\
+LLM hypothesis discovery~\cite{yang2023moose,liu2025literature,vasu2025hyper} & hypotheses & task-specific & evidence trace & task-specific human evaluation\\
+KG-TABI & potential gap or null & frozen structural + temporal & Grounds $\rightarrow$ claim + warrant $\rightarrow$ source & closure, blind packet, audit key\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Temporal decay analysis flagged \textbf{40 stagnant concepts} (including \textit{proposed framework}, \textit{research gap}, \textit{scoping review}, and \textit{text mining}).
+\begin{figure}[t]
+\centering
+\fbox{\parbox{0.94\textwidth}{\centering\small
+Frozen records $\rightarrow$ recorded screen $\rightarrow$ abstract chunks $\rightarrow$ typed event triples $\rightarrow$ complete-link resolution\\[2pt]
+$\rightarrow$ structural/temporal gates $\rightarrow$ null record or TABI draft $\rightarrow$ source closure $\rightarrow$ blinded review}}
+\caption{Protocol control flow. Only the null branch was exercised under the frozen primary configuration; candidate closure and review remain a specified hand-off, not a validated result.}
+\label{fig:protocol-flow}
+\end{figure}
 
-Combining 6 orphan cluster pairs ($\binom{4}{2}$) and 40 stagnant concepts, Stage~4 generated \textbf{46 TABI-grounded research gap candidates}.
+\paragraph{Protocol novelty.} KG-TABI does not claim a new community algorithm, trend test, or LLM inference theory. Its contribution is the integration contract: a frozen signal gate; a field-level chain from corpus decision to evidence span, extraction call, entity-resolution decision, event, signal, and candidate; an explicit distinction between protocol compliance and scientific validity; and a non-generation outcome when the gate fails. Louvain, FDR, embedding resolution, and Toulmin fields are adaptations of established components, while the content-addressed trace and closure/blinding hand-off are the protocol and engineering contributions.
 
-\subsection{Baselines}
-We compare KG-TABI against six representative methods that do not use graph topology or use alternative graph-based retrieval mechanisms. To ensure a fair and direct comparison within our experimental pipeline, we adapted the core query and retrieval strategies of GraphRAG, LightRAG, and HippoRAG, implementing their algorithms on top of the same literature corpus and knowledge graph schema:
+\section{KG-TABI Framework}
+\subsection{Forward pipeline and provenance}
+Given a domain query, the pipeline retrieves metadata, records one inclusion decision per record, partitions available text, extracts typed triples, resolves entities, detects signals, and generates TABI only for signals that pass frozen gates. A forward run records non-secret configuration, input and output hashes, prompt and call provenance, entity-resolution decisions, and a content-addressed artifact manifest. This makes a \emph{future} execution inspectable; it does not repair incomplete provenance in the historical diagnostic. Unless stated otherwise, the historical analyses use the undirected projection, Louvain seed 42 and resolution 1.0, $\alpha=.05$, $\beta=.10$, cutoff 2025, $k=5$, $m=4$, $\gamma=.30$, and FDR $q<.05$; their shared topology-configuration identifier is \texttt{c869fd8a\ldots640b8e} (full SHA-256 in the supplement and artifact).
 
-\begin{itemize}
-    \item \textbf{B1 --- Mulla et al. RAG}~\cite{mulla2023automatic}: For each paper, the 3 most similar abstracts are retrieved using Sentence-BERT cosine similarity. These are passed as context to the LLM, which generates gap statements.
-    \item \textbf{B2 --- Simple LLM}: The LLM is prompted directly with each paper's title and abstract to generate 3 research gaps, without any retrieval or graph structure.
-    \item \textbf{B3 --- GAPMAP Text-only}: TABI-structured reasoning is applied directly to raw text chunks (without graph topology). This isolates the contribution of topological grounding by keeping the prompt structure identical.
-    \item \textbf{B4 --- GraphRAG}: Build local subgraphs around key entities from the target paper, retrieve multi-hop neighbors, and feed the subgraph context to the LLM for gap generation.
-    \item \textbf{B5 --- LightRAG}: Build a lightweight entity co-occurrence graph, retrieve connected entities as text context, and prompt the LLM for gap generation.
-    \item \textbf{B6 --- HippoRAG}: Re-rank retrieved text chunks using the KG based on entity density overlap with the query, providing the top passages as context to the LLM.
-\end{itemize}
-
-\subsection{Evaluation Metrics}
-We employ five metrics: (1)~\textbf{Total Gaps}; (2)~\textbf{Unique Gaps} after Sentence-BERT clustering (cosine similarity $\geq 0.85$); (3)~\textbf{Avg Words/Claim}; (4)~\textbf{NLI Entailment Rate} evaluated by LLM-as-judge; (5)~\textbf{Jaccard Overlap vs KG-TABI} lexical similarity.
-
-\subsection{Quantitative Results}
-Table~\ref{tab:results} presents the comparative evaluation results.
+\paragraph{Terms.} An \emph{inclusion decision} is one recorded retain/exclude outcome under the declared screen; a \emph{covered year} has at least one retained event; and \emph{generic nodes} are the predeclared, non-topic-specific labels excluded from temporal testing. A \emph{source closure} is a documented search for evidence that supports, contradicts, or already addresses a candidate. A \emph{post-cutoff event} has a publication year after the last complete analysis year and is excluded. These definitions apply to forward runs; the legacy selection rule and paper IDs are incomplete.
 
 \begin{table}[t]
-\caption{Comparison of KG-TABI against six baselines on the 100-paper corpus.}
-\label{tab:results}
-\centering
-\begin{tabular}{lccccc}
+\caption{Core audit contract in the main protocol. Every arrow is keyed by an ID or SHA-256; raw source text is retained only where the approved storage policy permits.}
+\label{tab:audit-contract}
+\centering\scriptsize
+\begin{tabular}{p{1.7cm}p{4.7cm}}
 \toprule
-\textbf{Method} & \textbf{Total} & \textbf{Unique} & \textbf{Avg Words} & \textbf{NLI Entail.} & \textbf{Jaccard} \\
+Stage & Minimum trace fields and audit question\\
 \midrule
-\textbf{KG-TABI (Ours)} & 46 & 45 & 24.4 & 76.1\% & --- \\
-B1 (Mulla RAG) & 100 & 100 & 61.3 & 50.0\% & 0.166 \\
-B2 (Simple LLM) & 300 & 296 & 22.9 & 65.7\% & 0.147 \\
-B3 (GAPMAP Text) & 101 & 100 & 26.1 & 63.4\% & 0.212 \\
-B4 (GraphRAG) & 97 & 97 & 28.0 & 72.2\% & 0.213 \\
-B5 (LightRAG) & 100 & 98 & 30.6 & 83.0\% & 0.186 \\
-B6 (HippoRAG) & 92 & 88 & 31.6 & 79.3\% & 0.204 \\
+Corpus and chunk & source ID, inclusion decision/reason, source and chunk hashes, stable chunk ID, section and offsets: ``which text entered?''\\
+Extraction and resolution & prompt version/hash, configured and provider model metadata, call/response hashes, quote span, typed-label proposal and complete-link decision: ``why this triple/node?''\\
+Signal and TABI & graph/configuration hash, event IDs, partition/temporal statistics, compatibility record, TABI call ID: ``why was this candidate or null emitted?''\\
+Closure and review & deterministic query variants, returned source IDs/ranks, blind packet ID, separate unblinding key, reviewer labels: ``is the claim scientifically supported?''\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\paragraph{Key findings.}
+The machine-readable source-trace chain links each record to its chunk, extraction call, triple, resolution decision, event, signal, TABI output, closure, and blind packet. IDs and hashes join every link. The packet fields and non-secret storage rules are specified in the supplement and repository; compliance with this chain is auditable, but does not establish candidate quality.
 
-\textit{(1) Logical coherence.} KG-TABI achieves 76.1\% NLI entailment, meaning the majority of generated Claims are logically supported by their Grounds and Warrant. In contrast, alternative graph-augmented methods like B4 (GraphRAG) and B6 (HippoRAG) achieve 72.2\% and 79.3\% entailment respectively. This shows that on larger corpora, all methods face challenges, but KG-TABI maintains competitive logical coherence while extracting more comprehensive topological insights.
+Triples use six entity types and ten relation types. The controlled vocabularies are:
+\begin{quote}\scriptsize
+Entity: METHOD, DATASET, METRIC, CONCEPT, FINDING, TOOL.\\
+Relation: USES, IMPROVES, ADDRESSES, EVALUATES\_ON, PRODUCES,\\
+CONTRADICTS, EXTENDS, LACKS, COMBINES, APPLIED\_TO.
+\end{quote}
+Repeated relations are retained as temporal event records rather than overwritten. Entity resolution first proposes within-type lexical matches and then semantic matches~\cite{reimers2019sentence}. For a component, it $L_2$-normalizes each member-label embedding, averages \emph{all} member vectors, and normalizes that mean to form the component descriptor; a short canonical label therefore cannot discard alias information. A descriptor match is only a proposal: a union is accepted only when every cross-component typed-label pair passes the active threshold (complete-link cohesion). Thus a high-similarity $A$--$B$--$C$ chain cannot merge $A$ and $C$ if they fail the threshold. The resolver is a transparent decision rule, not a demonstrated measure of merge accuracy; blinded labels remain necessary.
 
-\textit{(2) Lexical novelty.} Jaccard overlap between KG-TABI and all baselines is below 0.22, indicating that the gaps discovered through topological analysis are lexically distinct from those produced by text-only or RAG-based methods. KG-TABI identifies cross-community connections invisible to methods that process papers individually.
+\subsection{Signals and hypothesis generation}
+The topology stage projects the event graph to a simple undirected graph and applies seeded Louvain clustering~\cite{blondel2008fast}. The projection deliberately asks a narrow adjacency question (which entity labels co-occur at all), while direction, relation type, multiplicity, evidence, and time remain in the event graph and provenance. It is therefore not a typed/directed community model; whether that loss changes candidate quality requires a future ablation. A community $C$ is eligible only if its size ratio is at least $\alpha$ and its undirected cut-edge fraction is at most $\beta$:
+\[
+R_{\mathrm{cut}}(C)=\frac{|E_{\mathrm{cross}}(C)|}{|E_{\mathrm{internal}}(C)|+|E_{\mathrm{cross}}(C)|}.
+\]
+This heuristic is not conductance, a calibrated test, or evidence of a missing scientific relation. The global $\alpha=.05$ rule was frozen for the historical diagnostic, not calibrated as a universally appropriate size rule; component-relative and absolute alternatives are reported only as exploratory diagnostics in the supplement.
 
-\subsection{Human Expert Evaluation \& Inter-Rater Agreement}
-To validate gap quality, we conducted a user study where 3 domain experts independently evaluated the 9 generated gap candidates using the HCAI Streamlit review dashboard. The expert panel was composed of:
-\begin{itemize}
-    \item \textbf{Expert 1:} Senior Software Engineer with 8 years of industry experience in software architectures and emergency logistics systems.
-    \item \textbf{Expert 2:} Postdoctoral Researcher with 5 years of experience in semantic web technology and knowledge graph modeling.
-    \item \textbf{Expert 3:} Associate Professor in Computer Science with 12 years of academic research experience in systematic literature reviews and bibliometrics.
-\end{itemize}
+\paragraph{Toy structural interpretation.} Suppose a community contains \{``runtime policy'', ``service mesh''\} and another contains \{``formal verification'', ``configuration analysis''\}. If both pass the size and low-cut screens, the structural branch records only that their observed adjacency is sparse. It forwards the \emph{pair} only if their declared label-compatibility gate passes; otherwise no LLM call occurs. Even after forwarding, the resulting Claim is a hypothesis about a possible Coverage Intersection, not evidence that the intersection is unstudied. Adjacent communities, low-compatibility pairs, small communities, contradictions, and method/population gaps are intentionally outside this branch's coverage.
 
-Out of 9 gaps, 7 were accepted without change (77.8\%), 1 was marked as \textbf{Modify} (11.1\%; refining the Warrant phrasing), and 1 was marked as \textbf{Reject} (11.1\%; identified as already partially addressed in secondary literature). To measure reliability, we computed both Fleiss' Kappa across all three experts and pairwise Cohen's Kappa. The Fleiss' Kappa score was \textbf{0.795}, indicating substantial inter-rater agreement. The pairwise Cohen's Kappa values were \textbf{0.78} (Expert 1 vs 2), \textbf{0.81} (Expert 2 vs 3), and \textbf{0.79} (Expert 1 vs 3), validating the reproducibility and stability of the HCAI Streamlit review process.
+For temporal screening, let $a_{v,y}=n_{v,y}/N_y$ be the incident relation-event count of node $v$ divided by all retained relation events in covered year $y$. With $R$ the final two covered years and $H$ all earlier covered years, the annual means are defined as $\overline{a}_{v,R} = \frac{1}{|R|} \sum_{y \in R} a_{v,y}$ and $\overline{a}_{v,H} = \frac{1}{|H|} \sum_{y \in H} a_{v,y}$. The activity decline is then $d_v=\operatorname{clip}(1-\overline{a}_{v,R}/\overline{a}_{v,H},0,1)$ when $\overline{a}_{v,H}>0$, where $\operatorname{clip}(x, a, b) = \max(a, \min(x, b))$, and $d_v=0$ when $\overline{a}_{v,H}=0$. A node must meet event and multi-year minimums, have negative Sen slope, satisfy $d_v\geq\gamma$, and survive Benjamini--Hochberg FDR control~\cite{mann1945trend,kendall1975rank,sen1968slope,benjamini1995fdr}. The primary screen tests declining extracted activity, not topic disappearance; it is susceptible to changing extraction density and corpus composition.
 
-\subsection{Ablation Study}
-To evaluate the contribution of each system component, we conducted an ablation study with five variants:
-\begin{enumerate}
-    \item \textbf{-Louvain (decay only):} Removes modularity clustering; only uses temporal decay analysis.
-    \item \textbf{-Decay (clusters only):} Removes temporal decay analysis; only uses modularity clusters.
-    \item \textbf{-KG (B3 GAPMAP):} Removes the knowledge graph entirely; performs TABI reasoning directly on raw text chunks.
-    \item \textbf{-Entity Resolution (ER):} Disables fuzzy and semantic node merging during graph construction.
-    \item \textbf{-3-shot Examples:} Replaces the 3-shot TABI prompt with a zero-shot prompt.
-\end{enumerate}
+TABI converts a surviving signal into a JSON argument with \emph{Grounds}, \emph{Claim}, \emph{Warrant}, and a feasibility bucket, following Toulmin's argument layout~\cite{toulmin1958uses}. The abduction is operationalized by inferring a possible explanation (the claim) for the observed topological isolation or temporal decline (the grounds) under a conditional warrant. Grounds are graph statistics, Claim is a testable hypothesis about a potential research gap, and Warrant is an LLM-proposed rationale. The Bucket labels feasibility only: \texttt{near\_term\_feasible} means the proposed study can plausibly use currently available data, methods, and infrastructure, whereas \texttt{long\_term\_or\_speculative} indicates a material dependency on unavailable data, immature methods, or unresolved enabling technology. The label is model-proposed, must be reviewed, and is not a probability that the Claim is true. Generated JSON is rejected unless all four fields are non-empty and the Bucket is one of these two values. For illustration, its schema is:
+\begin{quote}\small\ttfamily
+\{"Grounds": signal, "Claim": hypothesis,\\
+"Warrant": rationale, "Bucket": feasibility\}
+\end{quote}
+This is a field schema, not a candidate from the historical null run. A structural candidate uses a \emph{pair} of already eligible communities. The compatibility filter compares their top-degree labels (up to 12), computes lexical overlap and optional embedding similarity, and uses structural isolation only as a ranking feature; it forwards a pair only when the declared content threshold passes. It neither proves a meaningful connection nor creates evidence for the Claim. Every candidate must then undergo source closure and blinded expert assessment; no LLM judge is used as evidence of gap quality.
 
-Table~\ref{tab:ablation} presents the ablation results under LLM-as-judge NLI.
+\section{Historical Diagnostic}
+\subsection{Design boundary}
+We analyze a microservices-security artifact created from a frozen snapshot of 314 retrieved abstract records. The snapshot preserves record identifiers and content but not a replayable account of the original live query expansion and API response; the retrieval itself is therefore not reproduced by this diagnostic. Its 149 retained papers are \emph{legacy-screened}: the stored score and reason fields do not identify a replayable inclusion rule, and the original model, prompt, and call history of its 800 triples are unrecoverable. We therefore do not claim end-to-end reproducibility, screening accuracy, triple accuracy, or entity-merge accuracy for this diagnostic.
 
-\begin{table}[h]
-\caption{Ablation study results under LLM-as-judge NLI.}
-\label{tab:ablation}
-\centering
-\begin{tabular}{lcccc}
-\toprule
-\textbf{Variant} & \textbf{Total Gaps} & \textbf{Unique Gaps} & \textbf{Avg Words} & \textbf{NLI Entail.} \\
-\midrule
-\textbf{KG-TABI (Full)} & 46 & 45 & 24.4 & \textbf{76.1\%} \\
--Louvain & 40 & 39 & 23.7 & 72.5\% \\
--Decay & 6 & 6 & 29.5 & 100.0\% \\
--KG (B3) & 101 & 100 & 26.1 & 64.4\% \\
--Entity Resolution & 37 & 35 & 23.4 & 89.2\% \\
--3-shot Examples & 46 & 46 & 26.0 & 47.8\% \\
-\bottomrule
-\end{tabular}
-\end{table}
+To provide a reproducible input for a forward run, the current lexical rule was replayed over all 314 records. It retains 185 records, with 140 overlapping the historical 149. The snapshot records retained metadata, abstract chunks, every inclusion decision, and source/rule hashes, but it is not a replacement result or an external replication: it shares the domain, most records, abstract-only representation, graph construction assumptions, and frozen gates. Detailed comparative counts are in the supplement.
 
-The ablation results indicate:
-- **Entity Resolution** is critical: disabling node merging leads to graph fragmentation, which in this run yielded an 89.2\% entailment rate but on fewer generated gaps (37 gaps vs 46 gaps for Full), indicating that the system was constrained to smaller communities.
-- **3-shot prompting** is vital: switching to zero-shot generation drops NLI entailment to 47.8\%, demonstrating that the model requires structured examples to internalize Toulmin's logical layout.
-- **The Graph Structure** itself is the primary safeguard against hallucination: removing the KG entirely (-KG) drops NLI entailment to 64.4\%.
-
-\subsection{Sensitivity Analysis}
-To evaluate the robustness of KG-TABI's topological parameters, we conducted sensitivity sweeps across three key parameters: (1)~Louvain Modularity Minimum Size Ratio ($\alpha$), (2)~Orphan Cluster Maximum Bridge Ratio ($\beta$), and (3)~Temporal Decay Threshold ($\gamma$).
-
-\begin{table}[h]
-\caption{Sensitivity analysis of modularity and decay thresholds.}
-\label{tab:sensitivity}
-\centering
-\begin{tabular}{cccc|cc}
-\toprule
-\multicolumn{4}{c|}{\textbf{Threshold Sweep}} & \multicolumn{2}{c}{\textbf{Outputs Detected}} \\
-$\alpha$ (Size) & $\beta$ (Bridge) & $\gamma$ (Decay) & Fuzzy/Cosine & Orphan Clusters & Stagnant Concepts \\
-\midrule
-0.03 & 0.10 & 0.30 & 85 / 0.85 & 6 & 40 \\
-\textbf{0.05} & \textbf{0.10} & \textbf{0.30} & \textbf{85 / 0.85} & \textbf{2} & \textbf{40} \\
-0.07 & 0.10 & 0.30 & 85 / 0.85 & 0 & 40 \\
-0.10 & 0.10 & 0.30 & 85 / 0.85 & 0 & 40 \\
-\midrule
-0.05 & 0.05 & 0.30 & 85 / 0.85 & 0 & 40 \\
-0.05 & 0.15 & 0.30 & 85 / 0.85 & 3 & 40 \\
-0.05 & 0.20 & 0.30 & 85 / 0.85 & 3 & 40 \\
-\midrule
-0.05 & 0.10 & 0.20 & 85 / 0.85 & 2 & 40 \\
-0.05 & 0.10 & 0.40 & 85 / 0.85 & 2 & 40 \\
-0.05 & 0.10 & 0.50 & 85 / 0.85 & 2 & 40 \\
-0.05 & 0.10 & 0.60 & 85 / 0.85 & 2 & 38 \\
-0.05 & 0.10 & 0.70 & 85 / 0.85 & 2 & 32 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-We also evaluated Entity Resolution merges across different fuzzy matching and semantic cosine thresholds (Table~\ref{tab:er_sensitivity}).
-
-\begin{table}[h]
-\caption{Sensitivity of Entity Resolution to thresholds.}
-\label{tab:er_sensitivity}
-\centering
-\begin{tabular}{cc|c}
-\toprule
-\textbf{Fuzzy Threshold} & \textbf{Cosine Similarity Threshold} & \textbf{Entities Merged} \\
-\midrule
-75 & 0.75 & 125 \\
-80 & 0.85 & 75 \\
-\textbf{85} & \textbf{0.85} & \textbf{63} \\
-90 & 0.85 & 61 \\
-95 & 0.95 & 15 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The analysis indicates that the system is stable within standard ranges. Louvain community size threshold $\alpha$ is the most sensitive parameter; increasing it to 0.10 filters out smaller isolated subdomains, while lowering it to 0.03 introduces smaller clusters that represent micro-niches rather than established sub-fields.
-
-\subsection{Runtime Analysis}
-We profiled the execution runtime of the offline components of our pipeline to evaluate computational efficiency (Table~\ref{tab:runtime}).
-
-\begin{table}[h]
-\caption{Runtime profiling of offline pipeline stages.}
-\label{tab:runtime}
-\centering
-\begin{tabular}{lcp{6.5cm}}
-\toprule
-\textbf{Pipeline Component} & \textbf{Runtime (seconds)} & \textbf{Throughput / Operational Detail} \\
-\midrule
-Data Loading & 0.0013 & Loaded 430 raw triples \\
-Entity Resolution & 11.8420 & Fuzzy matching + S-BERT encoding \\
-Graph Build & 0.0018 & Built NetworkX DiGraph \\
-Louvain mod. partitioning & 0.0208 & Mod. best partition + orphan detection \\
-Temporal Decay Analysis & 0.0585 & Checked 550 nodes incident history \\
-Unique Gap deduplication & 5.9734 & Cosine clustering of generated Claims \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The total execution time for the offline pipeline (excluding LLM calls) is around **17.9 seconds**, with Entity Resolution acting as the bottleneck (11.8s) due to initial cold-start Sentence-BERT model weight loading. 
-
-For the complete end-to-end pipeline (incorporating Semantic Scholar API queries, abstract screening, LLM-based triple extraction, offline graph analysis, and TABI inference), execution took approximately **37.0 minutes** for the 100-paper corpus. The LLM API calls dominate the runtime (accounting for 99\% of the total execution time), whereas the offline graph algorithms run in under 82 milliseconds.
-
-\subsection{Scalability Stress-Testing Simulation}
-To evaluate how the topological and entity resolution components of KG-TABI scale to larger literature graphs without being throttled by LLM API call constraints, we conducted a stress-testing simulation. Starting from the base corpus of 21 papers, we scaled the graph to represent 50, 100, and 200 papers by synthetically generating distinct nodes and edges based on the original triples structure.
-
-Table~\ref{tab:scalability} presents the execution profiling results across different scales on a standard CPU machine.
-
-\begin{table}[h]
-\caption{Scalability profiling across scaled paper corpuses.}
-\label{tab:scalability}
-\centering
-\begin{tabular}{lccccccc}
-\toprule
-\textbf{Corpus Scale} & \textbf{Nodes} & \textbf{Edges} & \textbf{ER Time} & \textbf{Louvain} & \textbf{Decay} & \textbf{Total Time} & \textbf{Gaps Count} \\
-\midrule
-21 papers (1x) & 608 & 429 & 14.09s & 0.02s & 0.08s & 14.20s & 39 \\
-50 papers (2.4x) & 1,765 & 1,286 & 8.47s & 0.06s & 0.45s & 8.99s & 121 \\
-100 papers (4.8x) & 2,957 & 2,145 & 11.22s & 0.10s & 1.30s & 12.62s & 206 \\
-200 papers (9.5x) & 5,820 & 4,282 & 20.85s & 0.37s & 5.18s & 26.41s & 416 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The empirical results demonstrate that the offline processing stage scales extremely well: even when the graph size increases by 9.5x to 5,820 nodes, the entire offline pipeline finishes processing in under **27 seconds**. Note that the Entity Resolution time in Table 8 represents a warm-start execution (where the Sentence-BERT weights are already loaded in memory), whereas the runtime in Table 7 includes the cold-start cost of model weight retrieval and loading (accounting for an additional ~10 seconds).
-
-\subsection{Qualitative Analysis}
-Table~\ref{tab:tabi_example} shows a representative TABI output for the orphan cluster pair (Community~1 vs.\ Community~8).
+\subsection{Null result and diagnostic checks}
+With $\alpha=.05$, $\beta=.10$, Louvain seed 42, and resolution 1.0, no community passes the isolation gate; the lowest size-eligible $R_{\mathrm{cut}}$ is .160714. The temporal screen tests six of 831 non-generic nodes and yields no FDR signal. Across 1,200 partitions and a quote-routed 774-triple restriction, the same primary null is retained. Synthetic injection detects 33/40 linear and 32/40 exponential sustained declines at 75\% nominal reduction (95\% Wilson intervals in the supplement), while stable/increasing controls are 0/40. Boundary masking conditionally recovers 73/75 induced targets at 75\% masking. These are implementation checks, not evidence of novelty, scientific usefulness, or source support.
 
 \begin{table}[t]
-\caption{Example of a generated research gap using the TABI framework (Community~1 vs.\ Community~8).}
-\label{tab:tabi_example}
-\centering
-\begin{tabular}{lp{8.5cm}}
+\caption{Direct answers to the bounded diagnostic research questions.}
+\label{tab:rq-answers}
+\centering\scriptsize
+\begin{tabular}{p{.55cm}p{6.0cm}}
 \toprule
-\textbf{TABI Element} & \textbf{Generated Output} \\
+RQ & Answer and evidential boundary\\
 \midrule
-\textbf{Grounds} & Modularity clustering isolated Community~1 (systematic review, SW in healthcare systems, taxonomy, Android security) and Community~8 (demand-side costs, uncertainty in funding/infrastructure, prepositioning of medical staff). Zero bridge relations exist between these nodes. \\
-\midrule
-\textbf{Claim} & A secure-by-design Android software framework for emergency healthcare systems that integrates resource prepositioning algorithms and demand-side cost models to maintain operational reliability under infrastructure uncertainty. \\
-\midrule
-\textbf{Warrant} & Mobile healthcare applications on Android are vital for emergency crews during disasters, yet they lack architectural patterns that handle both strict data security and extreme resource constraints. Bridging these communities enables resilient software architectures that dynamically adapt security protocols based on real-time resource availability. \\
-\midrule
-\textbf{Bucket} & \texttt{more\_probable} \\
+1 & Yes. On both recorded inputs, the frozen gates return an explicit null: no eligible structural community and no FDR temporal signal. This verifies the recorded decision, not graph fidelity or gap quality.\\
+2 & The primary null persists across 1,200 partitions and the traceability restriction. Separate synthetic controls and injections characterize implementation behavior. Alternative size rules admit 5--6 forward communities, exposing gate dependence rather than identifying validated gaps.\\
+3 & The forward run preserves the declared record--chunk--call--triple--resolution--event--signal chain through an explicit null. Candidate packet mechanics were exercised separately, but a fully closed and expert-rated candidate chain remains future work.\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-An expert evaluation using the Streamlit dashboard confirmed that while ``Android healthcare security'' and ``disaster resource prepositioning'' are individually active research areas, their integration within a unified software framework represents an unresolved research gap. The expert marked this entry as \textbf{Modify} with refinements to the Warrant phrasing, validating the gap's substance while improving its articulation.
+\section{Evaluation Path and Limitations}
 
-This example illustrates how KG-TABI detects a \textit{Coverage Intersection Gap} (Type~5): both communities contain substantial research, but their intersection is unexplored in the literature graph.
+\subsection{Provider-field-recorded forward rerun}
+The historical null result cannot validate the protocol: it may be caused by corpus selection, abstract-only coverage, extraction error, entity resolution, or conservative gates. We therefore executed a forward end-to-end run (ID \texttt{e2e-v1}) from the frozen lexical input snapshot (185 records) with every provider-exposed field in the declared trace contract recorded. The run extracted 1,018 triples, resolved entities using the complete-link resolver with \texttt{all-MiniLM-L6-v2} embeddings, and constructed a graph of 1,149 nodes and 1,011 edges. Under the frozen global gate, the largest community has 49 nodes (4.2\%), below the implied minimum of 58, so zero communities pass. The graph has 183 connected components and 201 Louvain communities; this is a reproducibility check of the declared null decision, not evidence of generalizability or an independent replication.
 
-\section{Discussion and Limitations}
+The gate diagnostic makes the dependence on this design explicit. If the same bridge rule is retained but the size rule is changed only for exploration, an absolute 10-node rule passes 6 communities and a component-relative 5\%-with-10-node-floor rule passes 5; neither profile was used to generate TABI candidates or selected as a replacement primary configuration. The forward artifact has complete paper IDs, enabling a separate paper-normalized sensitivity: 12 nodes meet the five-unique-paper minimum, 6 are tested across four covered years, and 0 survive the unchanged temporal gates. This agrees with the forward temporal null but does not validate the event-normalized historical trend, for which paper IDs are incomplete. Although the forward run records the declared provider-exposed fields, its screening, extraction, and merge outputs remain unvalidated by human labels; reproducibility therefore does not imply graph fidelity.
 
-\subsection{Why Topological Grounding Improves Gap Quality}
-The experimental results reveal a fundamental advantage of topological grounding over text-only approaches. KG-TABI's 76.1\% NLI entailment rate---while not the highest among all methods---reflects the inherent difficulty of generating novel cross-community bridging claims compared to methods that paraphrase existing abstracts. Crucially, the TABI framework's design ensures that every generated gap is structurally grounded: the Grounds field is populated with verifiable graph evidence (e.g., ``zero bridge edges between Community~A and Community~B''), the Warrant provides domain reasoning, and the Claim bridges them. This mirrors the structure of a sound logical argument, which is precisely what Toulmin's model formalizes~\cite{toulmin1958uses}.
+\subsection{Provider-identity audit}
+All 185 extraction calls requested one configured model string, succeeded on their first attempt, and retained a prompt hash/version, provider response ID, returned model identifier, response/content hashes, and extraction call ID. The endpoint nevertheless returned five identifiers, with 61, 60, 23, 21, and 20 calls respectively; their descriptive mean triple counts per call range from 4.85 to 6.65 (full labels and counts appear in the supplement). This is not a model comparison: abstracts differ across calls and no input was repeated across routes. It establishes completeness only to provider-exposed metadata, not that a rerun can reproduce underlying routing, weights, or outputs. The machine-readable audit and its input hashes are released with the run.
 
-In contrast, text-only baselines (B1--B3) lack structural evidence. Their ``Grounds'' are either absent (B2) or derived from surface-level text patterns (B1, B3). Without verifiable structural backing, the LLM is more likely to generate plausible-sounding but logically unsupported claims---precisely the hallucination failure mode that plagues LLM-based research tools.
+\subsection{Exploratory TABI and blinding dry run}
+To verify the mechanics of the blinded evaluation toolchain, we replayed the implementation on a legacy pilot corpus (\texttt{DefineGap}). The \texttt{DefineGap} corpus contains 100 papers on literature review methodologies (abstracts only, screened via a 0.7 relevance filter), resulting in a graph of 550 nodes and 425 edges. In the default configuration (size gate $\ge 28$ nodes), 2 communities passed the structural gate, but 0 temporal signals survived. For the relaxed exploratory run, we set event minimum $k=3$ (from 5), year minimum $m=3$ (from 4), decline threshold $\gamma=0.20$ (from 0.30), disabled the Sen slope requirement, and bypassed FDR control. This exploratory configuration identified 10 relaxed-gate temporal signals, generating 10 TABI candidates.
 
-The low Jaccard overlap ($< 0.22$) further demonstrates that KG-TABI and text-only methods explore fundamentally different gap spaces. Text-only methods identify gaps visible within individual papers (explicit limitations, stated future work). KG-TABI identifies gaps visible only at the \textit{inter-paper structural level}---disconnected research communities that no single paper can observe.
+To stress-test packet generation, the implementation shuffled these 10 temporal TABI items with 300 baseline-format items generated by a direct-LLM baseline. The two structural communities do not constitute a reported structural candidate result; this dry run records no evaluated structural-pair outcome. This 310-item artifact was a software dry run and is not the planned balanced evaluation sample. For an actual evaluation study, a balanced candidate budget must be used to prevent baseline dominance and reviewer fatigue. Furthermore, the \texttt{DefineGap} items were generated only after the confirmatory protocol had been specified and were used solely to test packet construction; no ratings were collected, so the paper makes no candidate-quality claim. An abbreviated illustrative pilot candidate is provided below. It is a human-readable summary rather than the full record-to-call trace; a confirmatory candidate must additionally expose its paper, chunk, event, configuration, and call identifiers through the released packet:
+\begin{quote}\scriptsize
+\textbf{Illustrative DefineGap candidate (not expert-validated):}\\
+\textbf{Signal ID:} \texttt{DefineGap-temporal-scoping-review}\\
+\textbf{Grounds:} In the 100-abstract DefineGap pilot, concept `scoping review' has $n_H = 12$ incident extracted events in the historical window and $n_R = 0$ events in the recent window. Under the exploratory configuration ($k=3, m=3, \gamma=0.20$), its normalized decline score is $d_v = 1.00$, and raw $p = 0.0012$. This signal may reflect corpus coverage or extraction noise and does not establish that research activity has disappeared in the wider literature.\\
+\textbf{Claim:} To what extent can LLM-assisted living scoping-review pipelines continuously update software-engineering evidence maps without reducing screening recall or reviewer agreement?\\
+\textbf{Warrant:} If recurring literature search and screening can be automated while retaining expert verification, living scoping reviews may reduce manual update effort. This expected benefit warrants empirical evaluation, but the present graph signal does not establish pipeline effectiveness.\\
+\textbf{Warrant Status:} \texttt{llm\_proposed\_unverified}\\
+\textbf{Closure Status:} \texttt{not run}
+\end{quote}
 
-\subsection{Connecting to the Gap Taxonomy}
-Of the 46 gaps detected by KG-TABI, 6 originate from orphan cluster analysis (Coverage Intersection Gaps, Type~5) and 40 from temporal decay analysis. Among the temporal decay gaps, several correspond to Methodological Gaps (Type~3, e.g., ``systematic review'' methods that have not been updated for the LLM era) and Evaluation Gaps (Type~6, e.g., stagnant concepts lacking recent empirical validation).
-
-This demonstrates that KG-TABI's topological mechanisms naturally map to the formal gap taxonomy. The orphan cluster detector is structurally aligned with Type~5 gaps, while the temporal decay detector captures Types~3 and~6. Types~1 (Explicit) and~4 (Context/Population) are better addressed by text-based extraction methods, which are complementary to our approach.
-
-\subsection{Diagnostic Analysis: Lexical NLI Models vs.\ Abductive Synthesis}
-To examine how strict textual entailment classifiers handle abductive gap statements, we conducted a diagnostic analysis using a localized \textbf{DeBERTa-v3-large-mnli-fever-anli} model from Hugging Face. The model classifies whether the premises (Grounds + Warrant) logically entail the generated Claim. Table~\ref{tab:deberta_nli} presents the DeBERTa NLI entailment rates for all evaluated methods. We also computed the inter-rater agreement (Cohen's Kappa) between the LLM-judge and the DeBERTa model for KG-TABI, yielding a Kappa of \textbf{0.199}, indicating slight agreement.
-
-\begin{table}[t]
-\caption{Diagnostic DeBERTa-v3-large NLI Entailment Rates across all evaluated methods.}
-\label{tab:deberta_nli}
-\centering
-\begin{tabular}{lc}
-\toprule
-\textbf{Method} & \textbf{DeBERTa NLI Entailment Rate} \\
-\midrule
-\textbf{KG-TABI (Ours)} & 28.3\% \\
-B1 (Mulla RAG) & 69.0\% \\
-B2 (Simple LLM) & 36.0\% \\
-B3 (GAPMAP Text) & 62.4\% \\
-B4 (GraphRAG) & 63.9\% \\
-B5 (LightRAG) & 72.0\% \\
-B6 (HippoRAG) & 59.8\% \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-This evaluation reveals a significant architectural insight: strict textual entailment classifiers (which are trained on lexical and surface overlap) tend to penalize methods that generate *novel abductive syntheses*. Since baseline methods (like B3 and B4) construct claims that closely copy or paraphrase literal phrases from the retrieved abstracts, DeBERTa finds high textual overlap, translating to high entailment rates.
-
-Conversely, KG-TABI generates *cross-disciplinary bridging claims* that link topologically isolated communities. Because the claim represents a novel conceptual integration (e.g., combining Android security with disaster logistics), there is no literal or word-level overlap with the topological premise (which only states that the communities are isolated). Consequently, a literal NLI model flags the relationship as neutral, whereas a generative LLM leveraging domain-specific background knowledge (to process the Warrant) verifies the claim as logically sound. This suggests that strict lexical NLI models are useful for verifying *textual extraction* but are overly conservative for evaluating *conceptual synthesis*.
+\subsection{Planned candidate evaluation}
+A future confirmatory study must freeze the corpus rule, source and configuration hashes, model identifiers, prompts, seeds, candidate budget, closure procedure, outcomes, and analysis plan before candidate generation. It must use source closure and at least three independent reviewers who are blinded to system identity and receive the same source bundle for every candidate. They should rate source support, novelty after closure, importance, actionability, feasibility, whether the claim is already addressed, and potential hallucination. The comparison must include a direct-LLM baseline with matched corpus, source bundle, schema, length, and candidate budget. A graph-ground ablation must compare full Grounds against concept-only, abstract-bundle-only, and shuffled-Grounds conditions. To protect blinding integrity, all compared systems must output using the identical Toulmin schema format (Grounds, Claim, Warrant, Bucket), with standardized length constraints and formatting. After rating, reviewers should be asked to guess the generating system's identity; blinding is considered intact if the guessing accuracy ($A_{\mathrm{guess}}$) does not exceed chance. While a budget of 10 candidates per system is suitable for a formative pilot (reporting medians, raw ratings, agreement, and uncertainty without significance claims), a confirmatory study must specify a larger balanced sample (e.g., 30--50 candidates per system) calibrated via a pre-specified power calculation and repeated in at least two independent domains.
 
 \subsection{Limitations}
-Several limitations must be acknowledged:
+The largest present limitations are clear. The diagnostic is a single small, legacy-screened, abstract-only domain; it has no human labels for screening, extraction, or resolution; its temporal analysis has six eligible nodes; and its perturbation targets are derived from the same graph. The global relative-size gate can suppress meaningful communities in a fragmented graph and is not independently calibrated. Temporal activity is event-normalized rather than paper-normalized in the historical artifact, so it can conflate topic activity with extraction density and is not a paper-normalized trend estimate. The configured extraction endpoint returned multiple provider model identifiers during the forward run, despite a single configured model string; this is recorded in the call log and further limits model-stability claims. Complete-link entity resolution, FDR control, and provenance reduce avoidable ambiguity but do not establish factual correctness or generalizability.
 
-\textbf{Dataset scale.} Our evaluation uses 100 screened papers, producing a knowledge graph of 550 nodes and 425 edges. While sufficient to demonstrate the methodology, larger corpora are needed to assess scalability and the stability of topological metrics. We note that the orphan cluster and decay thresholds (Equations~3--4) may require recalibration for different corpus sizes.
+\section{Conclusion}
+KG-TABI is an auditable protocol for making graph-derived \emph{hypotheses about potential research gaps} inspectable, not for automatically validating gaps. In the historical microservices-security diagnostic, neither topology nor temporal screening passes the frozen gates, so the correct result is no generated hypothesis. The accompanying robustness, synthetic, masking, gate, and paper-normalized sensitivity checks support limited claims about implementation behavior and configuration dependence only. The provider-field-recorded forward rerun repeats the conservative null decision on an overlapping snapshot; it is not an independent replication. This evidence does not establish that TABI produces novel, useful, source-supported, or baseline-superior hypotheses. The next evidential step is a multi-domain, candidate-level source-closure and blinded expert comparison with a direct-LLM baseline and graph-ground ablations.
 
-\textbf{LLM-as-judge bias.} The NLI entailment evaluation uses the same LLM backbone that generates the gaps. This introduces potential self-evaluation bias. Future work should employ independent NLI models (e.g., DeBERTa-based NLI) or human judges.
-
-\textbf{Entity extraction noise.} Some extracted entities (e.g., ``this study'', ``current literature'') are artifacts of generic scientific prose rather than domain-specific concepts. While the temporal decay analysis correctly flags them as stagnant, the resulting gap statements are less actionable than those derived from orphan clusters. Improved entity type filtering could mitigate this.
-
-\textbf{Gap validation depth.} The current pipeline implements evidence support and NLI checking (validation layers 1--2 from Section~\ref{sec:validation}). Full gap closure search (searching for papers that may have already resolved a candidate gap) and importance assessment require additional implementation and are left to future work.
-
-\textbf{Domain generalizability.} The current evaluation uses a cross-domain corpus on ``research gap identification.'' The framework's effectiveness on narrowly-scoped, domain-specific queries (e.g., ``microservices security'') requires separate evaluation.
-
-\section{Conclusion and Future Work}
-This paper presented KG-TABI, a framework that automates research gap detection by combining Dynamic Knowledge Graphs with Toulmin-Abductive Inference. By identifying isolated communities and stagnant concepts in the literature graph and structuring LLM reasoning through Toulmin's argumentation model, KG-TABI generates evidence-grounded gap candidates that achieve competitive logical entailment (76.1\% under LLM verification) while producing structurally novel gaps that are lexically distinct from those identified by text-only and RAG-based baselines.
-
-We formalize a six-type research gap taxonomy and demonstrate that KG-TABI's topological mechanisms naturally detect Coverage Intersection Gaps (via orphan clusters) and Methodological/Evaluation Gaps (via temporal decay). A scalability stress-testing simulation on a synthetically scaled 200-paper graph (5,820 nodes) confirms that our offline pipeline executes in under 27 seconds, and a human expert evaluation confirms high agreement (Kappa = 0.78) for gap candidate verification.
-
-To support transparency and reproducibility, the prompt structures, evaluation datasets, and complete Python source code are published in our public repository at \url{https://github.com/Khoa-Hoa-Technology-Solution-Company/research-paper-gap}.
-
-In future work, we plan to: (1)~implement the full multi-layer validation pipeline including automated gap closure search via backward and forward citation analysis; (2)~scale evaluation to larger corpora ($>$500 papers) with human expert panels for gold-standard gap annotation; (3)~replace LLM-as-NLI-judge with independent entailment models to eliminate self-evaluation bias; and (4)~extend the gap taxonomy to support automated classification of detected gaps into the six defined types.
-
-\begin{credits}
-\subsubsection{\discintname}
-The authors have no competing interests to declare that are relevant to the content of this article.
-\end{credits}
+\paragraph{Availability.} Source code, audit packets, configuration, and a content-addressed working-tree manifest are available at \href{https://github.com/Khoa-Hoa-Technology-Solution-Company/research-paper-gap}{the project repository}. Root-level legacy outputs are separated from paper-backed run artifacts by the repository scope note. At the time of writing there is no reviewed immutable tag or archival DOI; these are release requirements, not completed claims.
 
 \bibliographystyle{splncs04}
 \bibliography{references}
-
 \end{document}

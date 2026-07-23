@@ -1,0 +1,85 @@
+{
+  "schema_version": "provider-model-audit-v1",
+  "generated_at_utc": "2026-07-20T16:05:57.162614Z",
+  "scope": "Descriptive audit of provider-returned metadata and triple counts. It does not identify the underlying model weights, establish deterministic routing, or estimate a causal effect of identifier on extraction quality.",
+  "configured_model_identifiers": {
+    "ram/gemini-3.5-flash-low": 185
+  },
+  "provider_model_identifier_distribution": [
+    {
+      "provider_model_identifier": "gemini-3-flash-medium-a",
+      "calls": 61,
+      "share_of_extraction_calls": 0.32972972972972975,
+      "triples": 345,
+      "triples_per_call_mean": 5.655737704918033,
+      "triples_per_call_median": 6,
+      "triples_per_call_min": 3,
+      "triples_per_call_max": 10
+    },
+    {
+      "provider_model_identifier": "gemini-3-flash-medium-b",
+      "calls": 21,
+      "share_of_extraction_calls": 0.11351351351351352,
+      "triples": 112,
+      "triples_per_call_mean": 5.333333333333333,
+      "triples_per_call_median": 5,
+      "triples_per_call_min": 3,
+      "triples_per_call_max": 8
+    },
+    {
+      "provider_model_identifier": "gemini-3-flash-medium-c",
+      "calls": 23,
+      "share_of_extraction_calls": 0.12432432432432433,
+      "triples": 153,
+      "triples_per_call_mean": 6.6521739130434785,
+      "triples_per_call_median": 6,
+      "triples_per_call_min": 2,
+      "triples_per_call_max": 14
+    },
+    {
+      "provider_model_identifier": "gemini-3-flash-medium-control",
+      "calls": 20,
+      "share_of_extraction_calls": 0.10810810810810811,
+      "triples": 97,
+      "triples_per_call_mean": 4.85,
+      "triples_per_call_median": 5.0,
+      "triples_per_call_min": 2,
+      "triples_per_call_max": 8
+    },
+    {
+      "provider_model_identifier": "gemini-default",
+      "calls": 60,
+      "share_of_extraction_calls": 0.32432432432432434,
+      "triples": 311,
+      "triples_per_call_mean": 5.183333333333334,
+      "triples_per_call_median": 5.0,
+      "triples_per_call_min": 3,
+      "triples_per_call_max": 12
+    }
+  ],
+  "call_statuses": {
+    "succeeded": 185
+  },
+  "retry_summary": {
+    "calls_with_retry": 0,
+    "maximum_attempts_observed": 1
+  },
+  "trace_fields_retained": [
+    "configured provider/model/base URL",
+    "provider model identifier",
+    "provider response ID",
+    "provider system fingerprint when supplied",
+    "prompt hash/version",
+    "generation settings",
+    "retry attempts",
+    "raw response hash",
+    "assistant-content hash",
+    "extraction call ID"
+  ],
+  "raw_response_policy": "hash-only",
+  "interpretation": "Multiple provider identifiers mean the run is provenance-complete only to the granularity the provider exposes. Re-running cannot guarantee identical underlying routing or outputs; the observed triple-count differences are confounded by differing input abstracts.",
+  "input_hashes": {
+    "llm_calls_jsonl": "444813c36485da537e3d7b44c33302a5021f8a1bf43c0e593a1e6e2b386e2778",
+    "raw_triples_json": "abd05a5c14e141ab56d6176d71d4d9cbed8bd5acdd68703633975874cc1f8537"
+  }
+}

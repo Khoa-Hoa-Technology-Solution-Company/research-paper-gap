@@ -79,7 +79,7 @@ Output strictly as a JSON object (no markdown):
   "Grounds": "Evidence from the graph and paper that suggests a gap.",
   "Claim": "The research gap statement.",
   "Warrant": "Technical justification for why this gap matters.",
-  "Bucket": "more_probable or least_probable"
+  "Bucket": "near_term_feasible or long_term_or_speculative"
 }}"""
 
         try:

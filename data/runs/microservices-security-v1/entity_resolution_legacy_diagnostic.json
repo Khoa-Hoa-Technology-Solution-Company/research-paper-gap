@@ -1,0 +1,138 @@
+{
+  "schema_version": "legacy-entity-resolution-diagnostic-v1",
+  "scope": "Retrospective diagnostic of a stored legacy mapping. It does not replay the unknown historical resolver, validate merges, or alter historical triples.",
+  "lexical_cohesion_reference": {
+    "threshold": 85,
+    "backend": "rapidfuzz.token_sort_ratio",
+    "interpretation": "Scores are a current lexical audit reference only; the historical mapping's decision rule and semantic model are unrecoverable."
+  },
+  "legacy_mapping_components": {
+    "component_count": 68,
+    "largest_surface_label_count": 19,
+    "components_with_more_than_two_aliases": 10,
+    "components_below_current_canonical_lexical_threshold": 42,
+    "lowest_cohesion_examples": [
+      {
+        "canonical": "securing microservices",
+        "typed_labels_unavailable_in_legacy_mapping": true,
+        "surface_label_count": 19,
+        "alias_count": 18,
+        "minimum_pairwise_lexical_similarity": 32.2581,
+        "minimum_canonical_alias_lexical_similarity": 35.8209
+      },
+      {
+        "canonical": "zero trust",
+        "typed_labels_unavailable_in_legacy_mapping": true,
+        "surface_label_count": 7,
+        "alias_count": 6,
+        "minimum_pairwise_lexical_similarity": 42.5532,
+        "minimum_canonical_alias_lexical_similarity": 42.5532
+      },
+      {
+        "canonical": "zero-trust access",
+        "typed_labels_unavailable_in_legacy_mapping": true,
+        "surface_label_count": 5,
+        "alias_count": 4,
+        "minimum_pairwise_lexical_similarity": 39.1304,
+        "minimum_canonical_alias_lexical_similarity": 42.8571
+      },
+      {
+        "canonical": "Kubernetes",
+        "typed_labels_unavailable_in_legacy_mapping": true,
+        "surface_label_count": 4,
+        "alias_count": 3,
+        "minimum_pairwise_lexical_similarity": 51.2821,
+        "minimum_canonical_alias_lexical_similarity": 51.2821
+      },
+      {
+        "canonical": "Microservices framework",
+        "typed_labels_unavailable_in_legacy_mapping": true,
+        "surface_label_count": 5,
+        "alias_count": 4,
+        "minimum_pairwise_lexical_similarity": 41.791,
+        "minimum_canonical_alias_lexical_similarity": 51.5152
+      },
+      {
+        "canonical": "cloud-native systems",
+        "typed_labels_unavailable_in_legacy_mapping": true,
+        "surface_label_count": 5,
+        "alias_count": 4,
+        "minimum_pairwise_lexical_similarity": 45.1613,
+        "minimum_canonical_alias_lexical_similarity": 52.1739
+      },
+      {
+        "canonical": "microservices",
+        "typed_labels_unavailable_in_legacy_mapping": true,
+        "surface_label_count": 19,
+        "alias_count": 18,
+        "minimum_pairwise_lexical_similarity": 45.283,
+        "minimum_canonical_alias_lexical_similarity": 55.3191
+      },
+      {
+        "canonical": "Microservice Security Analysis",
+        "typed_labels_unavailable_in_legacy_mapping": true,
+        "surface_label_count": 3,
+        "alias_count": 2,
+        "minimum_pairwise_lexical_similarity": 55.914,
+        "minimum_canonical_alias_lexical_similarity": 55.914
+      },
+      {
+        "canonical": "authorization",
+        "typed_labels_unavailable_in_legacy_mapping": true,
+        "surface_label_count": 2,
+        "alias_count": 1,
+        "minimum_pairwise_lexical_similarity": 57.7778,
+        "minimum_canonical_alias_lexical_similarity": 57.7778
+      },
+      {
+        "canonical": "layered security model",
+        "typed_labels_unavailable_in_legacy_mapping": true,
+        "surface_label_count": 2,
+        "alias_count": 1,
+        "minimum_pairwise_lexical_similarity": 58.3333,
+        "minimum_canonical_alias_lexical_similarity": 58.3333
+      }
+    ]
+  },
+  "raw_type_conflicts": {
+    "surface_labels_with_multiple_types": 26,
+    "endpoint_occurrences_under_type_conflict": 119,
+    "top_type_conflict_pairs": [
+      {
+        "types": [
+          "CONCEPT",
+          "METHOD"
+        ],
+        "surface_labels": 13
+      },
+      {
+        "types": [
+          "METHOD",
+          "TOOL"
+        ],
+        "surface_labels": 10
+      },
+      {
+        "types": [
+          "CONCEPT",
+          "TOOL"
+        ],
+        "surface_labels": 3
+      },
+      {
+        "types": [
+          "CONCEPT",
+          "METRIC"
+        ],
+        "surface_labels": 3
+      },
+      {
+        "types": [
+          "METHOD",
+          "METRIC"
+        ],
+        "surface_labels": 1
+      }
+    ]
+  }
+}

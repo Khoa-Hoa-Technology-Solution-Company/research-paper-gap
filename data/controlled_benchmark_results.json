@@ -1,0 +1,16 @@
+{
+  "benchmark": "controlled cross-edge masking",
+  "seed": 42,
+  "target_sizes": [
+    50,
+    36
+  ],
+  "removed_directed_cross_edges": 8,
+  "masked_graph_nodes": 550,
+  "masked_graph_edges": 417,
+  "expected_targets": 2,
+  "recovered_exact_targets": 2,
+  "structural_recovery_recall": 1.0,
+  "recovered_orphan_clusters": 4,
+  "scope": "Tests topology recovery after artificial edge masking only; not hypothesis quality, novelty, or baseline superiority."
+}

@@ -110,7 +110,7 @@ else:
             st.markdown("### 🔗 Warrant (Technical Rationale)")
             st.warning(selected_gap.get("Warrant", "No warrant provided."))
             
-            bucket = selected_gap.get("Bucket", "more_probable")
+            bucket = selected_gap.get("Bucket", "near_term_feasible")
             st.markdown(f"**Feasibility Bucket:** <span class='metric-badge'>{bucket}</span>", unsafe_allow_html=True)
             st.markdown(f"**Source:** `{selected_gap.get('source', 'Unknown')}`")
             

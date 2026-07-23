@@ -30,7 +30,7 @@ def run_simple_llm_baseline(papers: list[dict]) -> list[dict]:
             "Grounds": "The explicit text evidence or limitations mentioned in the abstract.",
             "Claim": "The research gap statement representing what needs to be studied.",
             "Warrant": "The technical explanation/reasoning of why this gap is important to resolve.",
-            "Bucket": "Classify as 'more_probable' or 'least_probable' feasibility."
+            "Bucket": "Classify feasibility only as 'near_term_feasible' or 'long_term_or_speculative', never as probability that the claim is true."
           }}
         ]
         """

@@ -29,7 +29,7 @@ def run_gapmap_baseline(chunks: list[dict]) -> list[dict]:
           "Grounds": "The explicit text sentences/premises from the chunk that imply a missing piece of evidence.",
           "Claim": "The implied research gap statement (the inferred conclusion).",
           "Warrant": "The technical explanation reasoning why this gap is important for the Software Engineering field.",
-          "Bucket": "Classify as 'more_probable' or 'least_probable' feasibility."
+          "Bucket": "Classify feasibility only as 'near_term_feasible' or 'long_term_or_speculative', never as probability that the claim is true."
         }}
         """
         

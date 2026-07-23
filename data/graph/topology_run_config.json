@@ -1,0 +1,31 @@
+{
+  "graph_projection_for_louvain": "undirected",
+  "bridge_ratio_graph": "undirected projection (cut-edge ratio)",
+  "edge_event_aggregation": "all relation/year/confidence/evidence events retained per directed node pair",
+  "louvain_implementation": "python-louvain.best_partition",
+  "louvain_random_state": 42,
+  "louvain_resolution": 1.0,
+  "min_size_ratio": 0.05,
+  "max_bridge_ratio": 0.1,
+  "temporal_decay_threshold": 0.3,
+  "minimum_temporal_events": 5,
+  "generic_temporal_nodes_excluded": [
+    "analysis",
+    "conceptual framework",
+    "framework",
+    "knowledge gaps",
+    "literature review",
+    "proposed framework",
+    "proposed methodology",
+    "research gap",
+    "research gaps",
+    "review"
+  ],
+  "compatibility_threshold": 0.2,
+  "compatibility_min_content_overlap": 0.05,
+  "semantic_compatibility_threshold": 0.42,
+  "semantic_compatibility_model": "all-MiniLM-L6-v2",
+  "temporal_min_distinct_years": 4,
+  "temporal_significance_level": 0.05,
+  "temporal_cutoff_year": 2025
+}

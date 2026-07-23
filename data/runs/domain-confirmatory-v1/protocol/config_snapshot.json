@@ -1,0 +1,149 @@
+{
+  "schema_version": "kgtabi-confirmatory-config-v1",
+  "status": "template_not_locked",
+  "run_id": "domain-confirmatory-v1",
+  "created_from": {
+    "repository": "https://github.com/Khoa-Hoa-Technology-Solution-Company/research-paper-gap",
+    "git_commit": null,
+    "git_tag": null
+  },
+  "domain": {
+    "name": null,
+    "owner": null,
+    "retrieval_query": null,
+    "retrieval_start_utc": null,
+    "retrieval_end_utc": null,
+    "analysis_cutoff_year": null
+  },
+  "corpus": {
+    "manifest_path": null,
+    "manifest_sha256": null,
+    "retrieved_record_count": null,
+    "retained_record_count": null,
+    "inclusion_rule_version": null,
+    "representation": "abstract_only",
+    "language_policy": null
+  },
+  "models": {
+    "configured_llm_model": null,
+    "configured_llm_model_revision": null,
+    "configured_llm_model_release_date": null,
+    "semantic_compatibility_model": "all-MiniLM-L6-v2",
+    "semantic_compatibility_model_revision": null
+  },
+  "prompt_versions": {
+    "query_expansion": "query-expansion-v1-provenance",
+    "relevance_screening": "relevance-screening-v1-provenance",
+    "triple_extraction": "triple-extraction-v2-provenance",
+    "tabi_inference": "tabi-inference-v3-feasibility-labels",
+    "closure_query_variants": "closure-query-variants-v1-provenance",
+    "closure_deterministic_variants": "closure-deterministic-variants-v1"
+  },
+  "graph": {
+    "event_graph": "directed_typed_event_graph",
+    "louvain_projection": "simple_undirected",
+    "louvain_implementation": "python-louvain.best_partition",
+    "louvain_random_state": 42,
+    "louvain_resolution": 1.0,
+    "minimum_global_community_size_ratio": 0.05,
+    "maximum_undirected_cut_edge_fraction": 0.1,
+    "cut_edge_formula": "cross_edges/(internal_edges+cross_edges)",
+    "edge_event_aggregation": "all relation/year/confidence/evidence events retained per directed node pair"
+  },
+  "entity_resolution": {
+    "algorithm_version": "entity-resolution-v4-complete-link-component-semantic",
+    "type_constraint": "same_type_only",
+    "lexical_token_sort_threshold": 85,
+    "semantic_cosine_threshold": 0.85,
+    "union_rule": "complete_link_all_cross_component_pairs_must_pass"
+  },
+  "compatibility": {
+    "threshold": 0.2,
+    "top_representative_nodes": 12,
+    "minimum_content_overlap": 0.05,
+    "semantic_threshold": 0.42
+  },
+  "temporal": {
+    "cutoff_year": null,
+    "minimum_events": 5,
+    "minimum_distinct_covered_years": 4,
+    "recent_window_covered_years": 2,
+    "normalized_decline_threshold": 0.3,
+    "minimum_negative_sen_slope": 0.0,
+    "raw_significance_level": 0.05,
+    "fdr_significance_level": 0.05,
+    "multiple_testing": "Benjamini-Hochberg across all eligible nodes",
+    "normalization": "node incident relation events divided by all retained relation events in the covered year",
+    "zero_coverage_policy": "calendar years with zero relation-event coverage are missing",
+    "generic_nodes_excluded": [
+      "analysis",
+      "conceptual framework",
+      "framework",
+      "knowledge gaps",
+      "literature review",
+      "proposed framework",
+      "proposed methodology",
+      "research gap",
+      "research gaps",
+      "review",
+      "systematic review"
+    ]
+  },
+  "candidate_generation": {
+    "systems": [
+      "kgtabi",
+      "direct",
+      "full_grounds",
+      "concept_only",
+      "abstract_bundle",
+      "shuffled_grounds"
+    ],
+    "candidate_budget_per_system_per_domain": 30,
+    "selection_seed": 20260720,
+    "selection_rule": "retain all when count <= 30; otherwise sort by stable candidate hash and deterministic-sample 30",
+    "schema_required_fields": [
+      "Grounds",
+      "Claim",
+      "Warrant",
+      "Bucket"
+    ],
+    "allowed_buckets": [
+      "near_term_feasible",
+      "long_term_or_speculative"
+    ],
+    "post_generation_editing": "forbidden_except_predeclared_uniform_system-cue_redaction"
+  },
+  "closure": {
+    "deterministic_only_primary": true,
+    "paper_search_limit_per_query": 20,
+    "citation_limit_per_direction": 10,
+    "citation_candidate_limit": 5,
+    "retrieval_end_utc": null,
+    "source_bundle_schema_version": null
+  },
+  "review": {
+    "minimum_domain_experts": 3,
+    "all_reviewers_rate_all_candidates": true,
+    "packet_seed": 20260720,
+    "ordinal_scale": [1, 2, 3, 4, 5],
+    "categorical_scale": ["yes", "no", "uncertain"],
+    "rationale_required_for": ["rating_1", "rating_5", "uncertain"],
+    "unblinding_after_agreement_and_analysis_freeze": true
+  },
+  "analysis": {
+    "primary_outcome": "novelty_after_closure_1_to_5",
+    "primary_support_companion": "source_support_1_to_5",
+    "minimum_domains_for_generalization_claim": 2,
+    "agreement_ordinal": "Krippendorff_alpha_ordinal",
+    "report_domain_results_separately": true,
+    "pilot_significance_claims_allowed": false
+  },
+  "integrity": {
+    "protocol_v1_sha256": null,
+    "analysis_plan_sha256": null,
+    "config_snapshot_sha256_location": "record externally in the run manifest after this file is locked",
+    "candidate_inputs_sha256": null,
+    "blind_packet_sha256": null,
+    "private_unblinding_key_sha256": null
+  }
+}

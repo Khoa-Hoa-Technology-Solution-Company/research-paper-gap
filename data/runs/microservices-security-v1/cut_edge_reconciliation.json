@@ -1,0 +1,22 @@
+{
+  "schema_version": "cut-edge-reconciliation-v1",
+  "scope": "Reconciles a stale manuscript narrative value with the canonical production statistic on the stored historical graph; it does not validate the legacy graph or calibrate the isolation threshold.",
+  "configuration": {
+    "projection": "simple undirected projection of the directed historical graph",
+    "louvain_implementation": "python-louvain.best_partition",
+    "random_state": 42,
+    "resolution": 1.0,
+    "minimum_size_ratio": 0.05,
+    "maximum_cut_edge_fraction": 0.1,
+    "statistic": "cross_edges / (internal_edges + cross_edges)",
+    "statistic_implementation": "src.graph_analysis.community_cut_edge_metrics",
+    "topology_configuration_sha256": "c869fd8ac726e5465c498f12cfe676637a8bc274b60c640d3406585d3c640b8e"
+  },
+  "values": {
+    "superseded_manuscript_narrative_value": 0.203,
+    "canonical_main_and_null_observed_value": 0.16071429,
+    "size_eligible_community_count": 3,
+    "eligible_orphan_count_at_configured_threshold": 0
+  },
+  "decision": "The canonical value replaces 0.203 everywhere in the current manuscript. Main analysis and null diagnostics import the same statistic implementation."
+}

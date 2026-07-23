@@ -3,12 +3,22 @@ import os
 import argparse
 import time
 from src import config
+from src.provenance import file_sha256
 
 # Import pipeline steps
-from src.fetch_papers import expand_query, search_papers, screen_relevance, chunk_text
-from src.extract_triples import extract_triples_from_chunk
+from src.fetch_papers import (
+    build_chunk_records, expand_query_with_provenance, search_papers,
+    screen_relevance, screen_relevance_lexical, write_stage1_provenance_manifest,
+)
+from src.extract_triples import run_extraction
 from src.entity_resolution import resolve_entities
-from src.graph_analysis import build_graph, detect_orphan_clusters, compute_temporal_decay
+from src.graph_analysis import (
+    build_graph,
+    compute_temporal_decay,
+    detect_orphan_clusters,
+    gml_export_copy,
+    save_topology_run_config,
+)
 from src.tabi_inference import infer_gaps_from_clusters, infer_gaps_from_decay
 from src.evaluate import run_evaluation
 
@@ -20,9 +30,11 @@ from baselines.graphrag import run_graphrag_baseline
 from baselines.lightrag import run_lightrag_baseline
 from baselines.hipporag import run_hipporag_baseline
 
-def run_stage_1(topic: str, limit: int, use_sample: bool = False):
+def run_stage_1(topic: str, limit: int, max_papers: int, use_sample: bool = False,
+                reuse_raw: bool = False, screening_mode: str = "llm"):
     print("\n" + "="*50 + "\n[Stage 1] Literature Search & Screening\n" + "="*50)
     
+    raw_path = os.path.join(config.RAW_PAPERS_DIR, "papers_metadata.json")
     if use_sample:
         sample_path = os.path.join(config.RAW_PAPERS_DIR, "sample_papers.json")
         if not os.path.exists(sample_path):
@@ -31,26 +43,63 @@ def run_stage_1(topic: str, limit: int, use_sample: bool = False):
         print(f"[*] Loading sample papers from {sample_path}...")
         with open(sample_path, "r", encoding="utf-8") as f:
             papers = json.load(f)
+        raw_path = sample_path
             
         # Mock relevance screen
         for p in papers:
             p["relevance_score"] = 0.95
             p["relevance_reason"] = "Loaded from sample data (pre-screened)"
+            p["screening_method"] = "local-pre-screened-sample"
         screened = papers
+        expansion_manifest = {
+            "operation": "local_sample",
+            "status": "not_applicable",
+            "reason": "--sample bypasses retrieval and LLM query expansion",
+        }
+        retrieval_manifest = dict(expansion_manifest)
+        screening_manifest = {
+            "operation": "local_sample",
+            "status": "not_applicable",
+            "reason": "sample records are supplied pre-screened",
+        }
     else:
-        # Expand query using LLM
-        expanded = expand_query(topic)
-        
-        # Search Semantic Scholar
-        fetched = search_papers(expanded, limit_per_query=limit)
-        
-        # Save raw fetched papers
-        raw_path = os.path.join(config.RAW_PAPERS_DIR, "papers_metadata.json")
-        with open(raw_path, "w", encoding="utf-8") as f:
-            json.dump(fetched, f, ensure_ascii=False, indent=2)
+        if reuse_raw:
+            if not os.path.exists(raw_path):
+                raise FileNotFoundError(f"No raw corpus found to reuse at {raw_path}")
+            with open(raw_path, "r", encoding="utf-8") as f:
+                fetched = json.load(f)
+            print(f"[*] Reusing {len(fetched)} previously retrieved raw papers from {raw_path}")
+            expansion_manifest = {
+                "operation": "query_expansion",
+                "status": "not_replayed",
+                "reason": "--reuse-raw was selected; inspect the existing Stage 1 manifest if present.",
+            }
+            retrieval_manifest = {
+                "operation": "reused_raw_metadata",
+                "status": "reused",
+                "source_artifact": os.path.basename(raw_path),
+                "source_artifact_sha256": file_sha256(raw_path),
+            }
+        else:
+            # Expand query using LLM
+            expanded, expansion_manifest = expand_query_with_provenance(topic)
+
+            # Search Semantic Scholar
+            fetched, retrieval_manifest = search_papers(
+                expanded, limit_per_query=limit, return_manifest=True
+            )
+
+            # Save raw fetched papers
+            with open(raw_path, "w", encoding="utf-8") as f:
+                json.dump(fetched, f, ensure_ascii=False, indent=2)
             
-        # Screen papers for relevance
-        screened = screen_relevance(fetched, topic)
+        # Screen papers for relevance. The lexical mode is a transparent,
+        # auditable retrieval filter for large initial corpus construction.
+        screened, screening_manifest = (
+            screen_relevance_lexical(fetched, max_papers=max_papers, return_manifest=True)
+            if screening_mode == "lexical"
+            else screen_relevance(fetched, topic, max_papers=max_papers, return_manifest=True)
+        )
         
     screened_path = os.path.join(config.RAW_PAPERS_DIR, "screened_papers.json")
     with open(screened_path, "w", encoding="utf-8") as f:
@@ -60,20 +109,24 @@ def run_stage_1(topic: str, limit: int, use_sample: bool = False):
     # Chunk text
     all_chunks = []
     for p in screened:
-        paper_chunks = chunk_text(p["abstract"], max_words=1000)
-        for i, chunk in enumerate(paper_chunks):
-            all_chunks.append({
-                "paperId": p["paperId"],
-                "title": p["title"],
-                "year": p["year"],
-                "chunk_index": i,
-                "text": chunk
-            })
+        all_chunks.extend(build_chunk_records(p, max_words=1000, section_label="abstract"))
             
     chunks_path = os.path.join(config.RAW_PAPERS_DIR, "chunks.json")
     with open(chunks_path, "w", encoding="utf-8") as f:
         json.dump(all_chunks, f, ensure_ascii=False, indent=2)
     print(f"[+] Chunking completed: {len(all_chunks)} chunks written to {chunks_path}")
+    manifest_path = write_stage1_provenance_manifest(
+        topic=topic,
+        query_expansion=expansion_manifest,
+        retrieval=retrieval_manifest,
+        screening=screening_manifest,
+        artifact_paths={
+            "papers_metadata": raw_path,
+            "screened_papers": screened_path,
+            "chunks": chunks_path,
+        },
+    )
+    print(f"[+] Saved Stage 1 provenance manifest to {manifest_path}")
 
 def run_stage_2():
     print("\n" + "="*50 + "\n[Stage 2] Knowledge Graph Construction\n" + "="*50)
@@ -81,21 +134,9 @@ def run_stage_2():
     if not os.path.exists(chunks_path):
         raise FileNotFoundError("Chunks file chunks.json not found! Please run Stage 1 first.")
         
-    with open(chunks_path, "r", encoding="utf-8") as f:
-        chunks = json.load(f)
-        
     # 2a. Triple Extraction
-    print("[*] Extracting triples from chunks...")
-    all_triples = []
-    for i, c in enumerate(chunks):
-        print(f"[*] Chunk {i+1}/{len(chunks)} of '{c['title'][:40]}...'")
-        triples = extract_triples_from_chunk(c["text"], c["year"])
-        print(f"[+] Found {len(triples)} triples.")
-        all_triples.extend(triples)
-        
-    raw_triples_path = os.path.join(config.TRIPLES_DIR, "raw_triples.json")
-    with open(raw_triples_path, "w", encoding="utf-8") as f:
-        json.dump(all_triples, f, ensure_ascii=False, indent=2)
+    print("[*] Extracting triples from chunks with resumable provenance checkpoints...")
+    all_triples = run_extraction()
         
     # 2b. Entity Resolution (Deduplication)
     print("[*] Resolving entities...")
@@ -124,13 +165,9 @@ def run_stage_3():
     G = build_graph(resolved_triples)
     
     # Save Graph as GML
-    import networkx as nx
     gml_path = os.path.join(config.GRAPH_DIR, "knowledge_graph.gml")
-    G_export = G.copy()
-    for u, v, data in G_export.edges(data=True):
-        if "years" in data:
-            data["years"] = ",".join(map(str, data["years"]))
-    nx.write_gml(G_export, gml_path)
+    import networkx as nx
+    nx.write_gml(gml_export_copy(G), gml_path)
     print(f"[+] Saved knowledge graph to {gml_path}")
     
     # Run Louvain Orphan Cluster Detection
@@ -138,6 +175,7 @@ def run_stage_3():
     orphans_path = os.path.join(config.GRAPH_DIR, "orphan_clusters.json")
     with open(orphans_path, "w", encoding="utf-8") as f:
         json.dump(orphans, f, ensure_ascii=False, indent=2)
+    print(f"[+] Saved topology configuration to {save_topology_run_config()}")
         
     # Run Temporal Decay Analysis
     stagnant = compute_temporal_decay(G)
@@ -233,10 +271,15 @@ def run_baselines_and_evaluation():
 def main():
     parser = argparse.ArgumentParser(description="KG-TABI Pipeline Runner")
     parser.add_argument("--topic", type=str, default="Microservices security", help="The topic to search for.")
-    parser.add_argument("--limit", type=int, default=5, help="Number of papers to pull per keyword query.")
+    parser.add_argument("--limit", type=int, default=100, help="Maximum records to pull per expanded query.")
+    parser.add_argument("--max-papers", type=int, default=300, help="Maximum screened papers to retain.")
     parser.add_argument("--stage", type=int, default=0, choices=[0, 1, 2, 3, 4, 5], 
                         help="Run a specific stage (1-4, 5 for baselines/evaluation, 0 for end-to-end pipeline).")
     parser.add_argument("--sample", action="store_true", help="Use local pre-screened synthetic samples.")
+    parser.add_argument("--reuse-raw", action="store_true",
+                        help="Reuse raw_papers/papers_metadata.json for this run instead of querying again.")
+    parser.add_argument("--screening-mode", choices=["llm", "lexical"], default="llm",
+                        help="Use batched LLM screening or the auditable lexical first-pass screen.")
     args = parser.parse_args()
     
     start_time = time.time()
@@ -244,13 +287,15 @@ def main():
     try:
         if args.stage == 0:
             print("[*] Running KG-TABI end-to-end pipeline...")
-            run_stage_1(args.topic, args.limit, args.sample)
+            run_stage_1(args.topic, args.limit, args.max_papers, args.sample,
+                        args.reuse_raw, args.screening_mode)
             run_stage_2()
             run_stage_3()
             run_stage_4()
             run_baselines_and_evaluation()
         elif args.stage == 1:
-            run_stage_1(args.topic, args.limit, args.sample)
+            run_stage_1(args.topic, args.limit, args.max_papers, args.sample,
+                        args.reuse_raw, args.screening_mode)
         elif args.stage == 2:
             run_stage_2()
         elif args.stage == 3:

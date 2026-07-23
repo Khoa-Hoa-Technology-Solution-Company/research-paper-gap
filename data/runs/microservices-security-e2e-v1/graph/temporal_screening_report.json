@@ -1,0 +1,355 @@
+{
+  "method_version": "temporal-screen-v2",
+  "cutoff_year": 2025,
+  "recent_window_covered_years": 2,
+  "zero_coverage_policy": "Calendar years with zero relation-event coverage are missing and are excluded from normalized activity, trend tests, and decay means.",
+  "normalization": "Per-node incident relation events divided by all retained relation events in the same covered year.",
+  "normalized_decay_definition": "clip(1 - mean(recent normalized activity) / mean(historical normalized activity), 0, 1); a zero historical mean does not support a decline and receives a score of 0.",
+  "multiple_testing": {
+    "method": "Benjamini--Hochberg",
+    "family": "all eligible nodes in this run",
+    "fdr_significance_level": 0.05,
+    "raw_p_reporting_level": 0.05
+  },
+  "thresholds": {
+    "minimum_events": 5,
+    "minimum_distinct_years": 4,
+    "minimum_negative_sen_slope": 0.0,
+    "normalized_decay_threshold": 0.3
+  },
+  "coverage": {
+    "calendar_years": [
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "covered_years": [
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "zero_coverage_years": [],
+    "relation_events_by_year": {
+      "2018": 10,
+      "2019": 14,
+      "2020": 21,
+      "2021": 51,
+      "2022": 46,
+      "2023": 114,
+      "2024": 151,
+      "2025": 397
+    },
+    "events_excluded_after_cutoff": 214,
+    "recent_covered_years": [
+      2024,
+      2025
+    ],
+    "historical_covered_years": [
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023
+    ]
+  },
+  "pipeline_counts": {
+    "total_nodes": 1149,
+    "non_generic_nodes": 1145,
+    "nodes_with_minimum_events": 59,
+    "nodes_with_minimum_distinct_years": 6,
+    "eligible_nodes_tested": 6,
+    "nodes_with_negative_sen_slope": 3,
+    "nodes_with_raw_p_below_alpha": 0,
+    "nodes_with_negative_slope_and_raw_p_below_alpha": 0,
+    "nodes_with_fdr_q_below_alpha": 0,
+    "nodes_with_negative_slope_and_fdr_q_below_alpha": 0,
+    "nodes_meeting_normalized_decay_threshold": 3,
+    "final_signals": 0
+  },
+  "eligible_node_statistics": [
+    {
+      "node": "machine learning",
+      "node_type": "METHOD",
+      "total_events": 7,
+      "recent_events": 5,
+      "observed_event_years": [
+        2021,
+        2023,
+        2024,
+        2025
+      ],
+      "annual_events": {
+        "2018": 0,
+        "2019": 0,
+        "2020": 0,
+        "2021": 1,
+        "2022": 0,
+        "2023": 1,
+        "2024": 1,
+        "2025": 4
+      },
+      "annual_share": {
+        "2018": 0.0,
+        "2019": 0.0,
+        "2020": 0.0,
+        "2021": 0.0196078431372549,
+        "2022": 0.0,
+        "2023": 0.008771929824561403,
+        "2024": 0.006622516556291391,
+        "2025": 0.010075566750629723
+      },
+      "historical_normalized_mean": 0.004729962160302717,
+      "recent_normalized_mean": 0.008349041653460556,
+      "decay_rate": 0.0,
+      "decay_rate_definition": "normalized recent-versus-historical activity decline",
+      "mann_kendall_z": 1.4612645611411572,
+      "mann_kendall_p": 0.1439428514229322,
+      "sen_slope": 0.0013819349949598335,
+      "mann_kendall_q": 0.4318285542687966,
+      "passes_negative_slope": false,
+      "passes_raw_p": false,
+      "passes_fdr_q": false,
+      "passes_normalized_decay": false
+    },
+    {
+      "node": "microservice",
+      "node_type": "METHOD",
+      "total_events": 16,
+      "recent_events": 7,
+      "observed_event_years": [
+        2018,
+        2021,
+        2023,
+        2025
+      ],
+      "annual_events": {
+        "2018": 4,
+        "2019": 0,
+        "2020": 0,
+        "2021": 2,
+        "2022": 0,
+        "2023": 3,
+        "2024": 0,
+        "2025": 7
+      },
+      "annual_share": {
+        "2018": 0.4,
+        "2019": 0.0,
+        "2020": 0.0,
+        "2021": 0.0392156862745098,
+        "2022": 0.0,
+        "2023": 0.02631578947368421,
+        "2024": 0.0,
+        "2025": 0.017632241813602016
+      },
+      "historical_normalized_mean": 0.07758857929136567,
+      "recent_normalized_mean": 0.008816120906801008,
+      "decay_rate": 0.8863734716201705,
+      "decay_rate_definition": "normalized recent-versus-historical activity decline",
+      "mann_kendall_z": -0.3985266984930429,
+      "mann_kendall_p": 0.6902419821041983,
+      "sen_slope": 0.0,
+      "mann_kendall_q": 1.0,
+      "passes_negative_slope": false,
+      "passes_raw_p": false,
+      "passes_fdr_q": false,
+      "passes_normalized_decay": true
+    },
+    {
+      "node": "Microservice Architecture [CONCEPT]",
+      "node_type": "CONCEPT",
+      "total_events": 19,
+      "recent_events": 11,
+      "observed_event_years": [
+        2019,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "annual_events": {
+        "2018": 0,
+        "2019": 1,
+        "2020": 0,
+        "2021": 3,
+        "2022": 2,
+        "2023": 2,
+        "2024": 2,
+        "2025": 9
+      },
+      "annual_share": {
+        "2018": 0.0,
+        "2019": 0.07142857142857142,
+        "2020": 0.0,
+        "2021": 0.058823529411764705,
+        "2022": 0.043478260869565216,
+        "2023": 0.017543859649122806,
+        "2024": 0.013245033112582781,
+        "2025": 0.022670025188916875
+      },
+      "historical_normalized_mean": 0.0318790368931707,
+      "recent_normalized_mean": 0.01795752915074983,
+      "decay_rate": 0.43669787732524656,
+      "decay_rate_definition": "normalized recent-versus-historical activity decline",
+      "mann_kendall_z": 0.0,
+      "mann_kendall_p": 1.0,
+      "sen_slope": -0.0021494132682700123,
+      "mann_kendall_q": 1.0,
+      "passes_negative_slope": true,
+      "passes_raw_p": false,
+      "passes_fdr_q": false,
+      "passes_normalized_decay": true
+    },
+    {
+      "node": "microservice architecture [METHOD]",
+      "node_type": "METHOD",
+      "total_events": 22,
+      "recent_events": 18,
+      "observed_event_years": [
+        2021,
+        2022,
+        2024,
+        2025
+      ],
+      "annual_events": {
+        "2018": 0,
+        "2019": 0,
+        "2020": 0,
+        "2021": 1,
+        "2022": 3,
+        "2023": 0,
+        "2024": 4,
+        "2025": 14
+      },
+      "annual_share": {
+        "2018": 0.0,
+        "2019": 0.0,
+        "2020": 0.0,
+        "2021": 0.0196078431372549,
+        "2022": 0.06521739130434782,
+        "2023": 0.0,
+        "2024": 0.026490066225165563,
+        "2025": 0.03526448362720403
+      },
+      "historical_normalized_mean": 0.014137539073600455,
+      "recent_normalized_mean": 0.0308772749261848,
+      "decay_rate": 0.0,
+      "decay_rate_definition": "normalized recent-versus-historical activity decline",
+      "mann_kendall_z": 1.726949026803186,
+      "mann_kendall_p": 0.08417681836879952,
+      "sen_slope": 0.005167898310173987,
+      "mann_kendall_q": 0.4318285542687966,
+      "passes_negative_slope": false,
+      "passes_raw_p": false,
+      "passes_fdr_q": false,
+      "passes_normalized_decay": false
+    },
+    {
+      "node": "microservice security",
+      "node_type": "CONCEPT",
+      "total_events": 14,
+      "recent_events": 3,
+      "observed_event_years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "annual_events": {
+        "2018": 0,
+        "2019": 1,
+        "2020": 1,
+        "2021": 3,
+        "2022": 4,
+        "2023": 2,
+        "2024": 2,
+        "2025": 1
+      },
+      "annual_share": {
+        "2018": 0.0,
+        "2019": 0.07142857142857142,
+        "2020": 0.047619047619047616,
+        "2021": 0.058823529411764705,
+        "2022": 0.08695652173913043,
+        "2023": 0.017543859649122806,
+        "2024": 0.013245033112582781,
+        "2025": 0.0025188916876574307
+      },
+      "historical_normalized_mean": 0.047061921641272826,
+      "recent_normalized_mean": 0.007881962400120106,
+      "decay_rate": 0.8325193250670898,
+      "decay_rate_definition": "normalized recent-versus-historical activity decline",
+      "mann_kendall_z": -0.6185895741317419,
+      "mann_kendall_p": 0.536186771900174,
+      "sen_slope": -0.008052993803674448,
+      "mann_kendall_q": 1.0,
+      "passes_negative_slope": true,
+      "passes_raw_p": false,
+      "passes_fdr_q": false,
+      "passes_normalized_decay": true
+    },
+    {
+      "node": "Microservices [CONCEPT]",
+      "node_type": "CONCEPT",
+      "total_events": 24,
+      "recent_events": 13,
+      "observed_event_years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "annual_events": {
+        "2018": 0,
+        "2019": 1,
+        "2020": 1,
+        "2021": 1,
+        "2022": 1,
+        "2023": 7,
+        "2024": 6,
+        "2025": 7
+      },
+      "annual_share": {
+        "2018": 0.0,
+        "2019": 0.07142857142857142,
+        "2020": 0.047619047619047616,
+        "2021": 0.0196078431372549,
+        "2022": 0.021739130434782608,
+        "2023": 0.06140350877192982,
+        "2024": 0.039735099337748346,
+        "2025": 0.017632241813602016
+      },
+      "historical_normalized_mean": 0.03696635023193106,
+      "recent_normalized_mean": 0.028683670575675183,
+      "decay_rate": 0.224059978988713,
+      "decay_rate_definition": "normalized recent-versus-historical activity decline",
+      "mann_kendall_z": -0.12371791482634838,
+      "mann_kendall_p": 0.9015386266571278,
+      "sen_slope": -0.0009314316023200428,
+      "mann_kendall_q": 1.0,
+      "passes_negative_slope": true,
+      "passes_raw_p": false,
+      "passes_fdr_q": false,
+      "passes_normalized_decay": false
+    }
+  ],
+  "status": "completed"
+}

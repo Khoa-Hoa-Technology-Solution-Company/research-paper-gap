@@ -110,7 +110,7 @@ def run_mulla_rag_baseline(papers: list[dict]) -> list[dict]:
                 "Grounds": f"RAG Context (3 similar papers)",
                 "Claim": gap_data.get("RESEARCH_GAPS", ""),
                 "Warrant": f"Direction: {gap_data.get('RESEARCH_DIRECTION', '')}. Approach: {gap_data.get('SOLUTION_APPROACH', '')}",
-                "Bucket": "more_probable", # B1 doesn't have buckets, default to more_probable
+                "Bucket": "near_term_feasible", # schema placeholder; not evidence of feasibility
                 "raw_b1_data": gap_data
             })
         except Exception as e:

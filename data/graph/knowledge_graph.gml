@@ -2756,6 +2756,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2015"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2015
+      confidence 0.9
+      evidence_quote "there are no methodological guidelines for how to identify research gaps in qualitative literature reviews ensuring rigor and replicability."
+    ]
     year 2015
   ]
   edge [
@@ -2764,6 +2773,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.95
     years "2015"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2015
+      confidence 0.95
+      evidence_quote "Our study addresses this gap and proposes a framework that should help scholars in this endeavor"
+    ]
     year 2015
   ]
   edge [
@@ -2772,6 +2790,15 @@ graph [
     relation "USES"
     confidence 0.85
     years "2015"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2015
+      confidence 0.85
+      evidence_quote "To develop the framework we thoroughly analyze the state-of-the-art procedure of identifying research gaps in 40 recent literature reviews using a grounded theory approach."
+    ]
     year 2015
   ]
   edge [
@@ -2780,6 +2807,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2015"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2015
+      confidence 0.9
+      evidence_quote "thus enabling scholars to conduct literature reviews more rigorously, effectively, and efficiently in the future."
+    ]
     year 2015
   ]
   edge [
@@ -2788,6 +2824,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.8
     years "2015"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2015
+      confidence 0.8
+      evidence_quote "analyze the state-of-the-art procedure of identifying research gaps in 40 recent literature reviews using a grounded theory approach."
+    ]
     year 2015
   ]
   edge [
@@ -2796,6 +2841,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2019"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2019
+      confidence 0.95
+      evidence_quote "A scoping review using the Arksey and O'Malley methodological framework was carried out."
+    ]
     year 2019
   ]
   edge [
@@ -2804,6 +2858,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2019"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2019
+      confidence 0.9
+      evidence_quote "A scoping review using the Arksey and O'Malley methodological framework was carried out. We included all study types describing or reporting on methods to identify, prioritize, and display gaps or priorities in health research."
+    ]
     year 2019
   ]
   edge [
@@ -2812,6 +2875,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2016"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2016
+      confidence 0.9
+      evidence_quote "Scoping reviews are used to identify knowledge gaps, set research agendas, and identify implications for decision-making."
+    ]
     year 2016
   ]
   edge [
@@ -2820,6 +2892,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2016"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2016
+      confidence 0.9
+      evidence_quote "Scoping reviews are used to identify knowledge gaps, set research agendas, and identify implications for decision-making."
+    ]
     year 2016
   ]
   edge [
@@ -2828,6 +2909,15 @@ graph [
     relation "USES"
     confidence 0.85
     years "2016"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2016
+      confidence 0.85
+      evidence_quote "Using the Joanna Briggs Institute methodology guidance for scoping reviews, only 13&#160;% of the scoping reviews reported the use of a protocol"
+    ]
     year 2016
   ]
   edge [
@@ -2836,6 +2926,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2022"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2022
+      confidence 0.9
+      evidence_quote "We do this through a scoping review, identifying 832 scientific papers with a focus on Baltic coastal eutrophication."
+    ]
     year 2022
   ]
   edge [
@@ -2844,6 +2943,15 @@ graph [
     relation "USES"
     confidence 0.85
     years "2022"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2022
+      confidence 0.85
+      evidence_quote "We do this through a scoping review, identifying 832 scientific papers with a focus on Baltic coastal eutrophication."
+    ]
     year 2022
   ]
   edge [
@@ -2852,6 +2960,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2022"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2022
+      confidence 0.9
+      evidence_quote "The classification results show that considerably more studies focus on coastal eutrophication pressures (52%) or impacts (39%) than on characterizing the coastal eutrophication itself (20%)."
+    ]
     year 2022
   ]
   edge [
@@ -2860,6 +2977,15 @@ graph [
     relation "LACKS"
     confidence 0.95
     years "2018"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2018
+      confidence 0.95
+      evidence_quote "However, a reporting guideline for scoping reviews currently does not exist."
+    ]
     year 2018
   ]
   edge [
@@ -2868,6 +2994,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.85
     years "2022"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2022
+      confidence 0.85
+      evidence_quote "By identifying these gaps in knowledge and the causes behind them, new research can be centered on these gaps."
+    ]
     year 2022
   ]
   edge [
@@ -2876,6 +3011,15 @@ graph [
     relation "EXTENDS"
     confidence 0.75
     years "2022"
+    relations "_networkx_list_start"
+    relations "EXTENDS"
+    events "_networkx_list_start"
+    events [
+      relation "EXTENDS"
+      year 2022
+      confidence 0.75
+      evidence_quote "Research needs can be viewed as gaps in knowledge, which will help expand the field of study."
+    ]
     year 2022
   ]
   edge [
@@ -2884,6 +3028,15 @@ graph [
     relation "PRODUCES"
     confidence 0.8
     years "2022"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2022
+      confidence 0.8
+      evidence_quote "A research gap develops as a result of the design of the study&#8217;s constraints, the use of poor tools"
+    ]
     year 2022
   ]
   edge [
@@ -2892,6 +3045,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2024
+      confidence 0.95
+      evidence_quote "In this paper, we propose a machine learning&#8211;based approach for identifying research gaps through the analysis of scientific literature."
+    ]
     year 2024
   ]
   edge [
@@ -2900,6 +3062,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2024
+      confidence 0.95
+      evidence_quote "We conducted an analysis to identify research gaps in COVID-19 literature using the COVID-19 Open Research (CORD-19) data set"
+    ]
     year 2024
   ]
   edge [
@@ -2908,6 +3079,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2024
+      confidence 0.95
+      evidence_quote "Our approach is based on the BERTopic topic modeling technique"
+    ]
     year 2024
   ]
   edge [
@@ -2916,6 +3096,15 @@ graph [
     relation "PRODUCES"
     confidence 0.85
     years "2024"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2024
+      confidence 0.85
+      evidence_quote "The final list of research gaps identified 21 different areas, which were grouped into 6 principal topics."
+    ]
     year 2024
   ]
   edge [
@@ -2924,6 +3113,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2024
+      confidence 0.9
+      evidence_quote "the BERTopic topic modeling technique, which leverages transformers and class-based term frequency-inverse document frequency"
+    ]
     year 2024
   ]
   edge [
@@ -2932,6 +3130,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2024
+      confidence 0.9
+      evidence_quote "the BERTopic topic modeling technique, which leverages transformers and class-based term frequency-inverse document frequency"
+    ]
     year 2024
   ]
   edge [
@@ -2940,6 +3147,15 @@ graph [
     relation "COMBINES"
     confidence 0.85
     years "2024"
+    relations "_networkx_list_start"
+    relations "COMBINES"
+    events "_networkx_list_start"
+    events [
+      relation "COMBINES"
+      year 2024
+      confidence 0.85
+      evidence_quote "especially those combining topic modeling with statistical uncertainty quantification, such as conformal prediction."
+    ]
     year 2024
   ]
   edge [
@@ -2948,6 +3164,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2021
+      confidence 0.9
+      evidence_quote "analyze both data sources by topic modeling and sentiment analysis"
+    ]
     year 2021
   ]
   edge [
@@ -2956,6 +3181,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2022"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2022
+      confidence 0.9
+      evidence_quote "conducted topic modeling using a CHO bioprocess bibliome manually compiled in 2016"
+    ]
     year 2022
   ]
   edge [
@@ -2964,6 +3198,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.95
     years "2025"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2025
+      confidence 0.95
+      evidence_quote "&#34;GapFinder&#34; is an Artificial Intelligence (AI) solution developed to address an important challenge in the field of scientific/academic research, namely: the efficient mapping of research gaps"
+    ]
     year 2025
   ]
   edge [
@@ -2972,6 +3215,15 @@ graph [
     relation "USES"
     confidence 0.98
     years "2025"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2025
+      confidence 0.98
+      evidence_quote "GapFinder applies Natural Language Processing (NLP) algorithms"
+    ]
     year 2025
   ]
   edge [
@@ -2980,6 +3232,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2025"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2025
+      confidence 0.95
+      evidence_quote "using mining and extracting information techniques"
+    ]
     year 2025
   ]
   edge [
@@ -2988,6 +3249,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2025
+      confidence 0.9
+      evidence_quote "to identify potential research gaps in scientific documents using mining and extracting information techniques from unstructured texts in Portable Document Format (PDF)"
+    ]
     year 2025
   ]
   edge [
@@ -2996,6 +3266,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2022"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2022
+      confidence 0.9
+      evidence_quote "automated identification of feasible research gaps by using a double-threshold procedure"
+    ]
     year 2022
   ]
   edge [
@@ -3004,6 +3283,15 @@ graph [
     relation "USES"
     confidence 0.85
     years "2022"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2022
+      confidence 0.85
+      evidence_quote "Gaps are then found by extracting subgraphs for the less-frequent co-occurrences and correlations of key terms"
+    ]
     year 2022
   ]
   edge [
@@ -3012,6 +3300,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2022"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2022
+      confidence 0.95
+      evidence_quote "applying the methodology for electronic design automation (EDA) domain"
+    ]
     year 2022
   ]
   edge [
@@ -3020,6 +3317,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.85
     years "2023"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2023
+      confidence 0.85
+      evidence_quote "This study offers scientific knowledge on how literature reviews in different fields of study could be conducted to mitigate against biased inferences"
+    ]
     year 2023
   ]
   edge [
@@ -3028,6 +3334,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2023"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2023
+      confidence 0.9
+      evidence_quote "We hope this article serves as reference material to improve the academic rigour"
+    ]
     year 2023
   ]
   edge [
@@ -3036,6 +3351,15 @@ graph [
     relation "EXTENDS"
     confidence 0.95
     years "2021"
+    relations "_networkx_list_start"
+    relations "EXTENDS"
+    events "_networkx_list_start"
+    events [
+      relation "EXTENDS"
+      year 2021
+      confidence 0.95
+      evidence_quote "It extends earlier work from the authors (Durach et al., 2017; A New Paradigm for Systematic Literature Reviews in Supply Chain Management, Journal of Supply Chain Management)"
+    ]
     year 2021
   ]
   edge [
@@ -3044,6 +3368,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.8
     years "2023"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2023
+      confidence 0.8
+      evidence_quote "A literature review is an evaluation of existing research works on a specific academic topic, theme or subject to identify gaps"
+    ]
     year 2023
   ]
   edge [
@@ -3052,6 +3385,15 @@ graph [
     relation "USES"
     confidence 0.85
     years "2020"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2020
+      confidence 0.85
+      evidence_quote "assessed our current literature based on some of the methodological issues in Humanitarian Operations that gathered by Kovacs and Moshtari (2018)"
+    ]
     year 2020
   ]
   edge [
@@ -3060,6 +3402,15 @@ graph [
     relation "PRODUCES"
     confidence 0.95
     years "2020"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2020
+      confidence 0.95
+      evidence_quote "An extensive literature review was done and it resulted in identifying nine research gaps in GHRM."
+    ]
     year 2020
   ]
   edge [
@@ -3068,6 +3419,15 @@ graph [
     relation "USES"
     confidence 0.85
     years "2019"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2019
+      confidence 0.85
+      evidence_quote "A total of 69 papers were reviewed, following a five-step synthesis methodology."
+    ]
     year 2019
   ]
   edge [
@@ -3076,6 +3436,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.9
     years "2019"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2019
+      confidence 0.9
+      evidence_quote "A total of 69 papers were reviewed, following a five-step synthesis methodology."
+    ]
     year 2019
   ]
   edge [
@@ -3084,6 +3453,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2019"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2019
+      confidence 0.9
+      evidence_quote "identifying current trends concerning the effect of lean manufacturing on sustainable performance."
+    ]
     year 2019
   ]
   edge [
@@ -3092,6 +3470,15 @@ graph [
     relation "PRODUCES"
     confidence 0.85
     years "2019"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2019
+      confidence 0.85
+      evidence_quote "It contributes on the identification of the main current research trends"
+    ]
     year 2019
   ]
   edge [
@@ -3100,6 +3487,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.95
     years "2019"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2019
+      confidence 0.95
+      evidence_quote "The paper is an extensive literature review of a total of 164 peer-reviewed journal papers... on project success... within the context of construction engineering and management (CEM)."
+    ]
     year 2019
   ]
   edge [
@@ -3108,6 +3504,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2019"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2019
+      confidence 0.9
+      evidence_quote "The paper is an extensive literature review of a total of 164 peer-reviewed journal papers between 2007 and 2017, using a mixed bibliographic and bibliometric method"
+    ]
     year 2019
   ]
   edge [
@@ -3116,6 +3521,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.95
     years "2022"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2022
+      confidence 0.95
+      evidence_quote "The paper intends to review academic research on peer to peer (P2P) accommodation sharing, notably Airbnb, for 2010&#8211;2022"
+    ]
     year 2022
   ]
   edge [
@@ -3124,6 +3538,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2022"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2022
+      confidence 0.9
+      evidence_quote "The paper intends to review academic research on peer to peer (P2P) accommodation sharing, notably Airbnb, for 2010&#8211;2022 and to identify the knowledge gaps for future research directions."
+    ]
     year 2022
   ]
   edge [
@@ -3132,6 +3555,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2025
+      confidence 0.9
+      evidence_quote "The study employs a qualitative method using a conceptual Systematic Literature Review (SLR) by reviewing scientific articles indexed in Scopus and SINTA from 2020 to 2025."
+    ]
     year 2025
   ]
   edge [
@@ -3140,6 +3572,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2024
+      confidence 0.9
+      evidence_quote "The systematic literature review (SLR) is one of the important review methodologies which is increasingly becoming popular to synthesize literature"
+    ]
     year 2024
   ]
   edge [
@@ -3148,6 +3589,20 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2024,2025"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events [
+      relation "PRODUCES"
+      year 2024
+      confidence 0.85
+      evidence_quote "Through systematic processes, these reviews offer suggestions to synthesize literature to identify research gaps"
+    ]
+    events [
+      relation "PRODUCES"
+      year 2025
+      confidence 0.9
+      evidence_quote "Through the SLR four key research gaps, were identified: Empirical Gap, Knowledge Gap, Methodological Gap and Theoretical Gap."
+    ]
     year 2024
   ]
   edge [
@@ -3156,6 +3611,15 @@ graph [
     relation "PRODUCES"
     confidence 0.85
     years "2024"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2024
+      confidence 0.85
+      evidence_quote "Through systematic processes, these reviews offer suggestions to synthesize literature to identify research gaps and indicate research directions."
+    ]
     year 2024
   ]
   edge [
@@ -3164,6 +3628,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2018"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2018
+      confidence 0.9
+      evidence_quote "The study consists of a systematic quantitative literature review of academic articles indexed on the Scopus and Web of Science databases."
+    ]
     year 2018
   ]
   edge [
@@ -3172,6 +3645,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2018"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2018
+      confidence 0.9
+      evidence_quote "Therefore the aim of this systematic review of systematic reviews was to (1) characterize the existing literature on neurocognitive functioning in EDs"
+    ]
     year 2018
   ]
   edge [
@@ -3180,6 +3662,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.85
     years "2018"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2018
+      confidence 0.85
+      evidence_quote "Electronic databases were queried for reviews of neurocognitive domains (i.e., inhibitory control, decision making, central coherence, set-shifting, working memory, and attention bias) in EDs, which identified 28 systematic and meta-analytic reviews."
+    ]
     year 2018
   ]
   edge [
@@ -3188,6 +3679,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2022"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2022
+      confidence 0.95
+      evidence_quote "Following a systematic literature review approach, a final sample of 125 studies from Scopus and Web of Science databases was used in this study."
+    ]
     year 2022
   ]
   edge [
@@ -3196,6 +3696,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.85
     years "2022"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2022
+      confidence 0.85
+      evidence_quote "This study aims to provide a comprehensive review of the existing literature on corporate governance (CG) aspects of the Malaysian market."
+    ]
     year 2022
   ]
   edge [
@@ -3204,6 +3713,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2021
+      confidence 0.9
+      evidence_quote "This paper catalogs and synthesizes the body of literature from the year 2000&#8211;2020 using a systematic literature review methodology."
+    ]
     year 2021
   ]
   edge [
@@ -3212,6 +3730,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2021
+      confidence 0.9
+      evidence_quote "The review also advances an RHT entrepreneurship ecosystem framework to summarize the findings."
+    ]
     year 2021
   ]
   edge [
@@ -3220,6 +3747,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2021"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2021
+      confidence 0.95
+      evidence_quote "We use the excel spreadsheet"
+    ]
     year 2021
   ]
   edge [
@@ -3228,6 +3764,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2021"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2021
+      confidence 0.95
+      evidence_quote "in addition to the HistCite &#8482;"
+    ]
     year 2021
   ]
   edge [
@@ -3236,6 +3781,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2021"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2021
+      confidence 0.95
+      evidence_quote "VOSviewer"
+    ]
     year 2021
   ]
   edge [
@@ -3244,6 +3798,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2021"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2021
+      confidence 0.95
+      evidence_quote "IRATUMEQ"
+    ]
     year 2021
   ]
   edge [
@@ -3252,6 +3815,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2021"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2021
+      confidence 0.95
+      evidence_quote "and R Studio packages"
+    ]
     year 2021
   ]
   edge [
@@ -3260,6 +3832,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2021
+      confidence 0.9
+      evidence_quote "The results show that the typology of the startups evaluated, after reading 68% of the articles, organizations are characterized as a group of new companies"
+    ]
     year 2021
   ]
   edge [
@@ -3268,6 +3849,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2025
+      confidence 0.9
+      evidence_quote "To date, however, there is no empirical overview on how unstructured data is leveraged in process mining. This lack of insight also makes it difficult to identify the most promising avenues to advance process mining research. To address this issue, the study presents a systematic literature review"
+    ]
     year 2025
   ]
   edge [
@@ -3276,6 +3866,15 @@ graph [
     relation "PRODUCES"
     confidence 0.95
     years "2025"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2025
+      confidence 0.95
+      evidence_quote "To guide future process mining research, the study proposes a research agenda"
+    ]
     year 2025
   ]
   edge [
@@ -3284,6 +3883,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2025
+      confidence 0.9
+      evidence_quote "One of the main findings is that current research predominantly deals with textual data and concentrates on extracting event logs for process discovery."
+    ]
     year 2025
   ]
   edge [
@@ -3292,6 +3900,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2019"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2019
+      confidence 0.9
+      evidence_quote "we present the outcomes of a systematic literature review of the state of the art of people-centered drought vulnerability and risk conceptualization and assessments"
+    ]
     year 2019
   ]
   edge [
@@ -3300,6 +3917,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2024
+      confidence 0.9
+      evidence_quote "Our research aims to fill gaps in addressing algorithmic integration challenges, real&#8208;world implementation issues, and the efficacy of nature&#8208;inspired algorithms in IoT&#8208;based healthcare. We provide insights into the practical aspects and limitations of such applications through a systematic literature review."
+    ]
     year 2024
   ]
   edge [
@@ -3308,6 +3934,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2024
+      confidence 0.9
+      evidence_quote "Our evaluation emphasizes adaptability as the paramount parameter, accounting for 18.4% of considerations."
+    ]
     year 2024
   ]
   edge [
@@ -3316,6 +3951,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2020"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2020
+      confidence 0.9
+      evidence_quote "carry out a systematic literature review (SLR) in the field of software risk"
+    ]
     year 2020
   ]
   edge [
@@ -3324,6 +3968,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.95
     years "2026"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2026
+      confidence 0.95
+      evidence_quote "A systematic literature review was conducted on 70 peer-reviewed articles"
+    ]
     year 2026
   ]
   edge [
@@ -3332,6 +3985,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2026"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2026
+      confidence 0.9
+      evidence_quote "The study uses a structured analytical framework, text mining techniques and thematic coding"
+    ]
     year 2026
   ]
   edge [
@@ -3340,6 +4002,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2026"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2026
+      confidence 0.9
+      evidence_quote "The review reveals five key thematic clusters"
+    ]
     year 2026
   ]
   edge [
@@ -3348,6 +4019,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2024
+      confidence 0.95
+      evidence_quote "we have performed a systematic research review of 1261 journal articles published between 2010 and 2021."
+    ]
     year 2024
   ]
   edge [
@@ -3356,6 +4036,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2024
+      confidence 0.9
+      evidence_quote "To counteract these risks, we have performed a systematic research review"
+    ]
     year 2024
   ]
   edge [
@@ -3364,6 +4053,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.95
     years "2022"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2022
+      confidence 0.95
+      evidence_quote "This study presents a systematic review of the existing literature on corporate risk disclosure (RD)."
+    ]
     year 2022
   ]
   edge [
@@ -3372,6 +4070,15 @@ graph [
     relation "EXTENDS"
     confidence 0.85
     years "2020"
+    relations "_networkx_list_start"
+    relations "EXTENDS"
+    events "_networkx_list_start"
+    events [
+      relation "EXTENDS"
+      year 2020
+      confidence 0.85
+      evidence_quote "This paper extends work by systematically reviewing recent evidence related to floods, droughts, and landslides in China."
+    ]
     year 2020
   ]
   edge [
@@ -3380,6 +4087,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2020"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2020
+      confidence 0.9
+      evidence_quote "The findings revealed that goods safety, social safety, and financial losses are of significant concern to the scientific community due to extreme natural events"
+    ]
     year 2020
   ]
   edge [
@@ -3388,6 +4104,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.95
     years "2022"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2022
+      confidence 0.95
+      evidence_quote "we carried out a systematic literature review on decision-making processes regarding the implementation of education for entrepreneurship programs in schools and the introduction of this topic in the policy-making process."
+    ]
     year 2022
   ]
   edge [
@@ -3396,6 +4121,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2022"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2022
+      confidence 0.9
+      evidence_quote "The research undertaken confirmed that the understanding of decision processes associated with the implementation of EE programs is not only a &#8220;missing link&#8221; in the discussions about the way in which countries manage situations related to EE, but also a gap in academic knowledge."
+    ]
     year 2022
   ]
   edge [
@@ -3404,6 +4138,15 @@ graph [
     relation "PRODUCES"
     confidence 0.85
     years "2022"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2022
+      confidence 0.85
+      evidence_quote "The articles included in the final review suggest that: (i) entrepreneurship is fundamental to the progress and evolution of countries and their regions"
+    ]
     year 2022
   ]
   edge [
@@ -3412,6 +4155,15 @@ graph [
     relation "PRODUCES"
     confidence 0.85
     years "2022"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2022
+      confidence 0.85
+      evidence_quote "there is evidence that EE is central to a more entrepreneurial youth"
+    ]
     year 2022
   ]
   edge [
@@ -3420,6 +4172,15 @@ graph [
     relation "PRODUCES"
     confidence 0.85
     years "2022"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2022
+      confidence 0.85
+      evidence_quote "the successful implementation of recommendations from regulatory institutions is based on political commitment and implementation capacities"
+    ]
     year 2022
   ]
   edge [
@@ -3428,6 +4189,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.9
     years "2023"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2023
+      confidence 0.9
+      evidence_quote "this study entailed an in-depth review of 46 articles published in English between 2006 and 2021."
+    ]
     year 2023
   ]
   edge [
@@ -3436,6 +4206,15 @@ graph [
     relation "PRODUCES"
     confidence 0.95
     years "2023"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2023
+      confidence 0.95
+      evidence_quote "The conceptual framework derived from the SLR"
+    ]
     year 2023
   ]
   edge [
@@ -3444,6 +4223,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.85
     years "2023"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2023
+      confidence 0.85
+      evidence_quote "This study facilitates an understanding of the hotel CX."
+    ]
     year 2023
   ]
   edge [
@@ -3452,6 +4240,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2024
+      confidence 0.95
+      evidence_quote "A systematic literature review is adopted in this study using 53 academic documents published in peer-reviewed journals and conference proceedings"
+    ]
     year 2024
   ]
   edge [
@@ -3460,6 +4257,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2024
+      confidence 0.9
+      evidence_quote "This study helps to clarify the connotation of digital leadership and its research progress, status and gaps"
+    ]
     year 2024
   ]
   edge [
@@ -3468,6 +4274,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2024
+      confidence 0.9
+      evidence_quote "there is a lack of review that focuses only on mathematics education at primary school levels."
+    ]
     year 2024
   ]
   edge [
@@ -3476,6 +4291,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2024
+      confidence 0.9
+      evidence_quote "A systematic literature review methodology was used to analyze selected studies from 2019 to 2023, collected from Scopusindexed journals"
+    ]
     year 2024
   ]
   edge [
@@ -3484,6 +4308,15 @@ graph [
     relation "PRODUCES"
     confidence 0.95
     years "2025"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2025
+      confidence 0.95
+      evidence_quote "The integration of both paradigms produces the Epistemological Gap Framework (EGF), a conceptual model that combines the logic of verification and exploration in formulating research gaps in Islamic Education."
+    ]
     year 2025
   ]
   edge [
@@ -3492,6 +4325,15 @@ graph [
     relation "COMBINES"
     confidence 0.95
     years "2025"
+    relations "_networkx_list_start"
+    relations "COMBINES"
+    events "_networkx_list_start"
+    events [
+      relation "COMBINES"
+      year 2025
+      confidence 0.95
+      evidence_quote "The integration of both paradigms produces the Epistemological Gap Framework (EGF), a conceptual model that combines the logic of verification and exploration in formulating research gaps in Islamic Education."
+    ]
     year 2025
   ]
   edge [
@@ -3500,6 +4342,15 @@ graph [
     relation "IMPROVES"
     confidence 0.85
     years "2025"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2025
+      confidence 0.85
+      evidence_quote "This model is expected to strengthen methodological rigor, enhance epistemological awareness, and enrich the scholarly contribution to the development of Islamic Education as a scientific discipline."
+    ]
     year 2025
   ]
   edge [
@@ -3508,6 +4359,15 @@ graph [
     relation "COMBINES"
     confidence 0.95
     years "2020"
+    relations "_networkx_list_start"
+    relations "COMBINES"
+    events "_networkx_list_start"
+    events [
+      relation "COMBINES"
+      year 2020
+      confidence 0.95
+      evidence_quote "This methodology combines a systematic literature review approach with the analysis of bibliographic networks."
+    ]
     year 2020
   ]
   edge [
@@ -3516,6 +4376,15 @@ graph [
     relation "COMBINES"
     confidence 0.95
     years "2020"
+    relations "_networkx_list_start"
+    relations "COMBINES"
+    events "_networkx_list_start"
+    events [
+      relation "COMBINES"
+      year 2020
+      confidence 0.95
+      evidence_quote "This methodology combines a systematic literature review approach with the analysis of bibliographic networks."
+    ]
     year 2020
   ]
   edge [
@@ -3524,6 +4393,15 @@ graph [
     relation "EXTENDS"
     confidence 0.85
     years "2020"
+    relations "_networkx_list_start"
+    relations "EXTENDS"
+    events "_networkx_list_start"
+    events [
+      relation "EXTENDS"
+      year 2020
+      confidence 0.85
+      evidence_quote "The paper contributes to the Sustainable Industry 4.0 reference framework with application procedures."
+    ]
     year 2020
   ]
   edge [
@@ -3532,6 +4410,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2020"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2020
+      confidence 0.9
+      evidence_quote "many papers do not provide an insight into realization of initiatives to introduce Sustainable Industry 4.0."
+    ]
     year 2020
   ]
   edge [
@@ -3540,6 +4427,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2022"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2022
+      confidence 0.85
+      evidence_quote "The findings also indicate that limited studies focus on developing countries, private institutions, and non-profit organizations."
+    ]
     year 2022
   ]
   edge [
@@ -3548,6 +4444,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2020"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2020
+      confidence 0.9
+      evidence_quote "Prepositioning of assets and supplies prior to a disaster strike accelerates the response activities"
+    ]
     year 2020
   ]
   edge [
@@ -3556,6 +4461,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2020"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2020
+      confidence 0.9
+      evidence_quote "reduces the supply chain burden associated with humanitarian relief items"
+    ]
     year 2020
   ]
   edge [
@@ -3564,6 +4478,15 @@ graph [
     relation "LACKS"
     confidence 0.95
     years "2020"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2020
+      confidence 0.95
+      evidence_quote "lack of papers that: consider demand-side costs in their proposed model objectives"
+    ]
     year 2020
   ]
   edge [
@@ -3572,6 +4495,15 @@ graph [
     relation "LACKS"
     confidence 0.95
     years "2020"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2020
+      confidence 0.95
+      evidence_quote "lack of papers that: ... deal with uncertainty in funding, budget, asset and supply quantities, and infrastructure"
+    ]
     year 2020
   ]
   edge [
@@ -3580,6 +4512,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.85
     years "2022"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2022
+      confidence 0.85
+      evidence_quote "This paper therefore presents a standardized audit methodology to establish the representation of female athletes in subdisciplines of existing SSSM research"
+    ]
     year 2022
   ]
   edge [
@@ -3588,6 +4529,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2022"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2022
+      confidence 0.9
+      evidence_quote "This paper therefore presents a standardized audit methodology to establish the representation of female athletes in subdisciplines of existing SSSM research, including a template for reporting the results of key metrics."
+    ]
     year 2022
   ]
   edge [
@@ -3596,6 +4546,15 @@ graph [
     relation "IMPROVES"
     confidence 0.85
     years "2022"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2022
+      confidence 0.85
+      evidence_quote "This standardized audit process will enable comparisons over time and between research subdisciplines."
+    ]
     year 2022
   ]
   edge [
@@ -3604,6 +4563,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.85
     years "2022"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2022
+      confidence 0.85
+      evidence_quote "By conducting audits of the literature to highlight underdeveloped topics"
+    ]
     year 2022
   ]
   edge [
@@ -3612,6 +4580,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2022"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2022
+      confidence 0.9
+      evidence_quote "Females have historically been excluded from SSSM research"
+    ]
     year 2022
   ]
   edge [
@@ -3620,6 +4597,15 @@ graph [
     relation "IMPROVES"
     confidence 0.95
     years "2025"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2025
+      confidence 0.95
+      evidence_quote "generative AI (GenAI) tools which can enhance written communication"
+    ]
     year 2025
   ]
   edge [
@@ -3628,6 +4614,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2025
+      confidence 0.9
+      evidence_quote "generative AI (GenAI) tools which can enhance written communication and foster innovation via knowledge development"
+    ]
     year 2025
   ]
   edge [
@@ -3636,6 +4631,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.85
     years "2025"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2025
+      confidence 0.85
+      evidence_quote "examining the role of GenAI in specific knowledge development activities within literature reviews"
+    ]
     year 2025
   ]
   edge [
@@ -3644,6 +4648,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2025
+      confidence 0.9
+      evidence_quote "highlighting how GenAI can assist in synthesizing previous work"
+    ]
     year 2025
   ]
   edge [
@@ -3652,6 +4665,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2020"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2020
+      confidence 0.95
+      evidence_quote "We applied this protocol to reports within the COVID-19 Open Research Dataset (CORD-19) that were published in early 2020."
+    ]
     year 2020
   ]
   edge [
@@ -3660,6 +4682,15 @@ graph [
     relation "COMBINES"
     confidence 0.9
     years "2020"
+    relations "_networkx_list_start"
+    relations "COMBINES"
+    events "_networkx_list_start"
+    events [
+      relation "COMBINES"
+      year 2020
+      confidence 0.9
+      evidence_quote "combining semi-automated machine learning with the expertise of our review team"
+    ]
     year 2020
   ]
   edge [
@@ -3668,6 +4699,15 @@ graph [
     relation "USES"
     confidence 0.85
     years "2020"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2020
+      confidence 0.85
+      evidence_quote "SWIFT-Active Screener was used to prioritize records according to pre-defined inclusion criteria."
+    ]
     year 2020
   ]
   edge [
@@ -3676,6 +4716,15 @@ graph [
     relation "PRODUCES"
     confidence 0.85
     years "2020"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2020
+      confidence 0.85
+      evidence_quote "Using rEM analysis, we synthesized the recent body of evidence related to COVID-19 risk and protective factors. The results provide a comprehensive tool for rapidly elucidating COVID-19 susceptibility patterns"
+    ]
     year 2020
   ]
   edge [
@@ -3684,6 +4733,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2020"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2020
+      confidence 0.9
+      evidence_quote "highly instrumental in creating and enhancing natural environmental sustainability"
+    ]
     year 2020
   ]
   edge [
@@ -3692,6 +4750,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.8
     years "2020"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2020
+      confidence 0.8
+      evidence_quote "find out some research gaps in GHRM in order to carry out future empirical studies through the adoption of desk research strategy"
+    ]
     year 2020
   ]
   edge [
@@ -3700,6 +4767,15 @@ graph [
     relation "PRODUCES"
     confidence 0.85
     years "2023"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2023
+      confidence 0.85
+      evidence_quote "The main objectives of the article are to identify research gaps on green innovation and competitive advantage and develop a nomological framework. The desk research strategy used to achieve the objectives."
+    ]
     year 2023
   ]
   edge [
@@ -3708,6 +4784,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2024
+      confidence 0.9
+      evidence_quote "This review assesses and discusses the genetic factors underpinning NSHL and SHL globally"
+    ]
     year 2024
   ]
   edge [
@@ -3716,6 +4801,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.85
     years "2024"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2024
+      confidence 0.85
+      evidence_quote "It also explores the prevalence of the most observed genetic causes of NSHL and SHL in Saudi Arabia."
+    ]
     year 2024
   ]
   edge [
@@ -3724,6 +4818,15 @@ graph [
     relation "PRODUCES"
     confidence 0.8
     years "2024"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2024
+      confidence 0.8
+      evidence_quote "This review identifies several gaps in research in NSHL and SHL"
+    ]
     year 2024
   ]
   edge [
@@ -3732,6 +4835,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2023"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2023
+      confidence 0.9
+      evidence_quote "Based on the identified research gaps, a nomological network was developed for further empirical studies."
+    ]
     year 2023
   ]
   edge [
@@ -3740,6 +4852,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.8
     years "2023"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2023
+      confidence 0.8
+      evidence_quote "This study is limited to conceptual model development; however, shade a new light on green innovation"
+    ]
     year 2023
   ]
   edge [
@@ -3748,6 +4869,15 @@ graph [
     relation "LACKS"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2024
+      confidence 0.95
+      evidence_quote "The findings revealed that the field of green innovation lacks sufficient scholarly attention, despite being an emerging area."
+    ]
     year 2024
   ]
   edge [
@@ -3756,6 +4886,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2026"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2026
+      confidence 0.95
+      evidence_quote "We analysed 462 peer-reviewed articles and applied Latent Dirichlet Allocation (LDA)"
+    ]
     year 2026
   ]
   edge [
@@ -3764,6 +4903,15 @@ graph [
     relation "COMBINES"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "COMBINES"
+    events "_networkx_list_start"
+    events [
+      relation "COMBINES"
+      year 2021
+      confidence 0.9
+      evidence_quote "Here, a combination of latent Dirichlet allocation and food keyword searches were employed to analyze and filter a dataset of 6102 publications about cold denaturation."
+    ]
     year 2021
   ]
   edge [
@@ -3772,6 +4920,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.85
     years "2022"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2022
+      confidence 0.85
+      evidence_quote "compared the topics uncovered by the Latent Dirichlet Allocation (LDA) models with the human labels of the CHO bibliome"
+    ]
     year 2022
   ]
   edge [
@@ -3780,6 +4937,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2026"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2026
+      confidence 0.9
+      evidence_quote "Semantic similarity analysis showed close relationships among topics linked to contaminant pathways and human health"
+    ]
     year 2026
   ]
   edge [
@@ -3788,6 +4954,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2026"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2026
+      confidence 0.9
+      evidence_quote "The co-occurrence&#8211;based dissimilarity analysis revealed weak connections among several topic pairs"
+    ]
     year 2026
   ]
   edge [
@@ -3796,6 +4971,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2026"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2026
+      confidence 0.85
+      evidence_quote "Although the number of publications addressing mining impacts has grown, studies often lack integrative assessments."
+    ]
     year 2026
   ]
   edge [
@@ -3804,6 +4988,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2022"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2022
+      confidence 0.95
+      evidence_quote "we have developed a framework that supports the traditional approach of conducting a literature review using machine learning and text mining methods."
+    ]
     year 2022
   ]
   edge [
@@ -3812,6 +5005,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2022"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2022
+      confidence 0.95
+      evidence_quote "we have developed a framework that supports the traditional approach of conducting a literature review using machine learning and text mining methods."
+    ]
     year 2022
   ]
   edge [
@@ -3820,6 +5022,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2022"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2022
+      confidence 0.9
+      evidence_quote "we have developed a framework that supports the traditional approach of conducting a literature review using machine learning and text mining methods."
+    ]
     year 2022
   ]
   edge [
@@ -3828,6 +5039,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.85
     years "2022"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2022
+      confidence 0.85
+      evidence_quote "A concrete example in the field of smart cities makes the framework tangible."
+    ]
     year 2022
   ]
   edge [
@@ -3836,6 +5056,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2021
+      confidence 0.9
+      evidence_quote "We use text mining and analyze both data sources by topic modeling and sentiment analysis."
+    ]
     year 2021
   ]
   edge [
@@ -3844,6 +5073,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2021
+      confidence 0.9
+      evidence_quote "We use text mining and analyze both data sources by topic modeling and sentiment analysis."
+    ]
     year 2021
   ]
   edge [
@@ -3852,6 +5090,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2025
+      confidence 0.9
+      evidence_quote "Using a text mining approach, we analyze 484 papers from leading IS journals"
+    ]
     year 2025
   ]
   edge [
@@ -3860,6 +5107,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2026"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2026
+      confidence 0.95
+      evidence_quote "Through a text-mining approach utilising latent Dirichlet allocation (LDA)"
+    ]
     year 2026
   ]
   edge [
@@ -3868,6 +5124,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2026"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2026
+      confidence 0.9
+      evidence_quote "analysing 162 relevant articles from Web of Science and Scopus. Through a text-mining approach utilising latent Dirichlet allocation (LDA)"
+    ]
     year 2026
   ]
   edge [
@@ -3876,6 +5141,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2026"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2026
+      confidence 0.9
+      evidence_quote "Through a text-mining approach utilising latent Dirichlet allocation (LDA), latent topics were extracted from the literature and thoroughly analysed. The study identifies eight topics associated with family businesses and their sustainability efforts"
+    ]
     year 2026
   ]
   edge [
@@ -3884,6 +5158,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.95
     years "2026"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2026
+      confidence 0.95
+      evidence_quote "uses text-mining methods to analyse the literature on sustainability, thus filling a gap in existing research."
+    ]
     year 2026
   ]
   edge [
@@ -3892,6 +5175,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2017"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2017
+      confidence 0.9
+      evidence_quote "detect research trends in design research using text mining techniques"
+    ]
     year 2017
   ]
   edge [
@@ -3900,6 +5192,15 @@ graph [
     relation "IMPROVES"
     confidence 0.8
     years "2023"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2023
+      confidence 0.8
+      evidence_quote "incorporating text mining approaches to support the analytical literature review process"
+    ]
     year 2023
   ]
   edge [
@@ -3908,6 +5209,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2023"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2023
+      confidence 0.9
+      evidence_quote "deployment of text mining techniques to support the analysis of scientific publication data"
+    ]
     year 2023
   ]
   edge [
@@ -3915,7 +5225,21 @@ graph [
     target 386
     relation "APPLIED_TO"
     confidence 0.9
-    years "2025"
+    years "2025,2025"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events [
+      relation "APPLIED_TO"
+      year 2025
+      confidence 0.9
+      evidence_quote "Using text mining and topic analysis, this study explored the literature"
+    ]
+    events [
+      relation "APPLIED_TO"
+      year 2025
+      confidence 0.9
+      evidence_quote "Text mining techniques were employed to categorize the literature"
+    ]
     year 2025
   ]
   edge [
@@ -3924,6 +5248,15 @@ graph [
     relation "PRODUCES"
     confidence 0.85
     years "2025"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2025
+      confidence 0.85
+      evidence_quote "Using text mining and topic analysis, this study explored the literature and identified eight key themes"
+    ]
     year 2025
   ]
   edge [
@@ -3932,6 +5265,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.85
     years "2010"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2010
+      confidence 0.85
+      evidence_quote "An important set of challenges thus arises: how to track new findings? ... Recent advances in the technology of text mining promise to help."
+    ]
     year 2010
   ]
   edge [
@@ -3940,6 +5282,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2010"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2010
+      confidence 0.9
+      evidence_quote "Text mining can connect these entities, and provides us with the opportunity to assess our understanding by viewing a connected map of entities."
+    ]
     year 2010
   ]
   edge [
@@ -3948,6 +5299,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2010"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2010
+      confidence 0.95
+      evidence_quote "Text mining is the process whereby information is extracted from human-generated natural language text using informatics algorithms."
+    ]
     year 2010
   ]
   edge [
@@ -3956,6 +5316,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.8
     years "2010"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2010
+      confidence 0.8
+      evidence_quote "The automation of these tasks provides a method that scales with the double-exponential growth of Medline"
+    ]
     year 2010
   ]
   edge [
@@ -3964,6 +5333,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2024
+      confidence 0.9
+      evidence_quote "Descriptive statistics, TM, and TA were applied to a total of n. 122 documents included."
+    ]
     year 2024
   ]
   edge [
@@ -3972,6 +5350,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2025
+      confidence 0.9
+      evidence_quote "Text mining analysis revealed terms with the highest weighted frequency in the data corpus"
+    ]
     year 2025
   ]
   edge [
@@ -3980,6 +5367,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2026"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2026
+      confidence 0.95
+      evidence_quote "This study mapped methodological and thematic trends in agricultural sustainability research through text mining of 3302 bibliographic records retrieved from the Web of Science Core Collection"
+    ]
     year 2026
   ]
   edge [
@@ -3988,6 +5384,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2026"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2026
+      confidence 0.9
+      evidence_quote "This study mapped methodological and thematic trends in agricultural sustainability research through text mining of 3302 bibliographic records retrieved from the Web of Science Core Collection"
+    ]
     year 2026
   ]
   edge [
@@ -3996,6 +5401,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2026"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2026
+      confidence 0.9
+      evidence_quote "These findings show that text mining can support environmental research by identifying methodological biases and emerging priorities in agriculture&#8211;environment interactions."
+    ]
     year 2026
   ]
   edge [
@@ -4004,6 +5418,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2021
+      confidence 0.9
+      evidence_quote "This paper maps knowledge domain on recycling behaviour through bibliometric analysis and text mining"
+    ]
     year 2021
   ]
   edge [
@@ -4012,6 +5435,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2022"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2022
+      confidence 0.95
+      evidence_quote "data preparation realized with text mining"
+    ]
     year 2022
   ]
   edge [
@@ -4020,6 +5452,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2022"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2022
+      confidence 0.9
+      evidence_quote "The unstructured text data is transformed into a structured form through data preparation realized with text mining"
+    ]
     year 2022
   ]
   edge [
@@ -4028,6 +5469,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.85
     years "2025"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2025
+      confidence 0.85
+      evidence_quote "Based on the identified gaps, an integrated framework was developed for further empirical studies."
+    ]
     year 2025
   ]
   edge [
@@ -4036,6 +5486,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2025
+      confidence 0.9
+      evidence_quote "it sheds new light on the human-centered dimensions of Smart Factory Context by injecting theoretical perspectives such as the Technology Acceptance Model"
+    ]
     year 2025
   ]
   edge [
@@ -4044,6 +5503,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2025
+      confidence 0.9
+      evidence_quote "injecting theoretical perspectives such as the Technology Acceptance Model, Job Demands&#8211;Resources model"
+    ]
     year 2025
   ]
   edge [
@@ -4052,6 +5520,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.85
     years "2025"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2025
+      confidence 0.85
+      evidence_quote "it addresses previously unexplored relationships among training, workplace support and operational efficiency."
+    ]
     year 2025
   ]
   edge [
@@ -4060,6 +5537,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2022"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2022
+      confidence 0.95
+      evidence_quote "It was found that self-efficacy, subjective norms, experience, and enjoyment were the external variables most frequently used in TAM"
+    ]
     year 2022
   ]
   edge [
@@ -4068,6 +5554,15 @@ graph [
     relation "LACKS"
     confidence 0.8
     years "2022"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2022
+      confidence 0.8
+      evidence_quote "while internal motivation received minimal attention."
+    ]
     year 2022
   ]
   edge [
@@ -4076,6 +5571,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2026"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2026
+      confidence 0.95
+      evidence_quote "A systematic literature search was conducted across PubMed, Scopus, Google Scholar, Cochrane Library, BIOSIS, Global Health, and ScienceDirect"
+    ]
     year 2026
   ]
   edge [
@@ -4084,6 +5588,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2026"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2026
+      confidence 0.95
+      evidence_quote "A systematic literature search was conducted across PubMed, Scopus, Google Scholar, Cochrane Library, BIOSIS, Global Health, and ScienceDirect"
+    ]
     year 2026
   ]
   edge [
@@ -4092,6 +5605,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2026"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2026
+      confidence 0.95
+      evidence_quote "A systematic literature search was conducted across PubMed, Scopus, Google Scholar, Cochrane Library, BIOSIS, Global Health, and ScienceDirect"
+    ]
     year 2026
   ]
   edge [
@@ -4100,6 +5622,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2026"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2026
+      confidence 0.9
+      evidence_quote "Screening, data extraction, and quality assessment followed PRISMA 2020 guidelines."
+    ]
     year 2026
   ]
   edge [
@@ -4108,6 +5639,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2026"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2026
+      confidence 0.9
+      evidence_quote "To systematically review published evidence on the occurrence, distribution, sources, exposure pathways, and human health risks of neglected heavy metals in the Niger Delta region of Nigeria"
+    ]
     year 2026
   ]
   edge [
@@ -4116,6 +5656,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.9
     years "2026"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2026
+      confidence 0.9
+      evidence_quote "Overall, 38 full articles were included in the study."
+    ]
     year 2026
   ]
   edge [
@@ -4124,6 +5673,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2023"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2023
+      confidence 0.9
+      evidence_quote "This study conducted a systematic review to map and synthesise the reported knowledge gaps in the literature."
+    ]
     year 2023
   ]
   edge [
@@ -4132,6 +5690,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2020"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2020
+      confidence 0.9
+      evidence_quote "this study presents a systematic review of 188 peer reviewed SSCI journal articles"
+    ]
     year 2020
   ]
   edge [
@@ -4140,6 +5707,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.85
     years "2020"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2020
+      confidence 0.85
+      evidence_quote "With the aim of bridging this gap, this study presents a systematic review"
+    ]
     year 2020
   ]
   edge [
@@ -4148,6 +5724,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2020"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2020
+      confidence 0.9
+      evidence_quote "It presents an overview of recent SE research, classifying it in five main themes"
+    ]
     year 2020
   ]
   edge [
@@ -4156,6 +5741,15 @@ graph [
     relation "PRODUCES"
     confidence 0.8
     years "2020"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2020
+      confidence 0.8
+      evidence_quote "we provide future research directions, contexts and methodology"
+    ]
     year 2020
   ]
   edge [
@@ -4164,6 +5758,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2022"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2022
+      confidence 0.95
+      evidence_quote "A systematic review utilizing PRISMA was conducted"
+    ]
     year 2022
   ]
   edge [
@@ -4172,6 +5775,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.9
     years "2022"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2022
+      confidence 0.9
+      evidence_quote "A systematic review utilizing PRISMA was conducted on 104 sampled publications."
+    ]
     year 2022
   ]
   edge [
@@ -4180,6 +5792,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2021
+      confidence 0.9
+      evidence_quote "This study utilizes a systematic review of peer-reviewed to identify and understand relevant data about attacks on health in situations of conflict."
+    ]
     year 2021
   ]
   edge [
@@ -4188,6 +5809,15 @@ graph [
     relation "USES"
     confidence 0.85
     years "2021"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2021
+      confidence 0.85
+      evidence_quote "This study utilizes a systematic review of peer-reviewed to identify and understand relevant data about attacks on health in situations of conflict."
+    ]
     year 2021
   ]
   edge [
@@ -4196,6 +5826,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.9
     years "2015"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2015
+      confidence 0.9
+      evidence_quote "We conducted a systematic review of published research on refugee health in Canada"
+    ]
     year 2015
   ]
   edge [
@@ -4204,6 +5843,15 @@ graph [
     relation "PRODUCES"
     confidence 0.85
     years "2015"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2015
+      confidence 0.85
+      evidence_quote "First, mental health outcomes dominate the research landscape."
+    ]
     year 2015
   ]
   edge [
@@ -4212,6 +5860,15 @@ graph [
     relation "PRODUCES"
     confidence 0.85
     years "2015"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2015
+      confidence 0.85
+      evidence_quote "Second, cross-sectional studies are most commonly the study design of choice."
+    ]
     year 2015
   ]
   edge [
@@ -4220,6 +5877,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2025
+      confidence 0.9
+      evidence_quote "This thematic review examines how the empirical literature has addressed sustainable business management (SBM)"
+    ]
     year 2025
   ]
   edge [
@@ -4228,6 +5894,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2025"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2025
+      confidence 0.95
+      evidence_quote "The analysis draws on a corpus of 107 studies"
+    ]
     year 2025
   ]
   edge [
@@ -4236,6 +5911,15 @@ graph [
     relation "USES"
     confidence 0.85
     years "2021"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2021
+      confidence 0.85
+      evidence_quote "the authors identify 90 articles published in Australian Business Deans Council (ABDC) journals for investigation, using the TCCM (Theory, Context, Characteristics and Methodology) framework."
+    ]
     year 2021
   ]
   edge [
@@ -4244,6 +5928,20 @@ graph [
     relation "USES"
     confidence 0.9
     years "2021,2024"
+    relations "EVALUATES_ON"
+    relations "USES"
+    events [
+      relation "USES"
+      year 2021
+      confidence 0.9
+      evidence_quote "literature retrieved from Scopus and Web of Science databases"
+    ]
+    events [
+      relation "EVALUATES_ON"
+      year 2024
+      confidence 0.85
+      evidence_quote "Scopus&#174; database was screened to select 18 records."
+    ]
     year 2021
   ]
   edge [
@@ -4252,6 +5950,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2025"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2025
+      confidence 0.95
+      evidence_quote "The systematic review was guided by the PRISMA framework"
+    ]
     year 2025
   ]
   edge [
@@ -4260,6 +5967,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2024
+      confidence 0.95
+      evidence_quote "This study provides a systematic review regarding the use of nutraceuticals as a treatment using a text mining (TM) and topic analysis (TA) approach"
+    ]
     year 2024
   ]
   edge [
@@ -4268,6 +5984,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2024
+      confidence 0.9
+      evidence_quote "Findings revealed an increasing trend in research records since 1994."
+    ]
     year 2024
   ]
   edge [
@@ -4276,6 +6001,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2024
+      confidence 0.9
+      evidence_quote "reveals a gap in the literature that should be filled."
+    ]
     year 2024
   ]
   edge [
@@ -4284,6 +6018,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2024
+      confidence 0.9
+      evidence_quote "Using PRISMA (2020) flow diagram, this study identified 45 articles"
+    ]
     year 2024
   ]
   edge [
@@ -4292,6 +6035,15 @@ graph [
     relation "PRODUCES"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2024
+      confidence 0.95
+      evidence_quote "The results from this systematic review identified the trends in DGBL research related to elementary mathematics learning"
+    ]
     year 2024
   ]
   edge [
@@ -4300,6 +6052,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.85
     years "2026"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2026
+      confidence 0.85
+      evidence_quote "Vanadium was confirmed as a neuropathological hazard in ecological studies."
+    ]
     year 2026
   ]
   edge [
@@ -4308,6 +6069,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2016"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2016
+      confidence 0.85
+      evidence_quote "systematic mapping was developed in social sciences in response to a lack of empirical data when answering questions using systematic review methods"
+    ]
     year 2016
   ]
   edge [
@@ -4316,6 +6086,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.85
     years "2022"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2022
+      confidence 0.85
+      evidence_quote "collected through a systematic methodology and clustered into nine meaningful categories on megaproject management systems"
+    ]
     year 2022
   ]
   edge [
@@ -4324,6 +6103,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2021
+      confidence 0.9
+      evidence_quote "Documents were collected from the Web of Science (core collection) database using systematic methods."
+    ]
     year 2021
   ]
   edge [
@@ -4332,6 +6120,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2021
+      confidence 0.9
+      evidence_quote "This is the first systematic review on electronic payment adoption"
+    ]
     year 2021
   ]
   edge [
@@ -4340,6 +6137,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2025
+      confidence 0.9
+      evidence_quote "The study employed a systematic approach following the PRISMA guidelines"
+    ]
     year 2025
   ]
   edge [
@@ -4348,6 +6154,15 @@ graph [
     relation "USES"
     confidence 0.85
     years "2025"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2025
+      confidence 0.85
+      evidence_quote "The study employed a systematic approach following the PRISMA guidelines, and machine learning techniques were used."
+    ]
     year 2025
   ]
   edge [
@@ -4356,6 +6171,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2016"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2016
+      confidence 0.9
+      evidence_quote "translation of systematic mapping methodology from social sciences for use in environmental sciences"
+    ]
     year 2016
   ]
   edge [
@@ -4364,6 +6188,15 @@ graph [
     relation "PRODUCES"
     confidence 0.95
     years "2016"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2016
+      confidence 0.95
+      evidence_quote "We provide the first process-based methodology for systematic maps, describing the stages involved: ... production of a systematic map database"
+    ]
     year 2016
   ]
   edge [
@@ -4372,6 +6205,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2018"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2018
+      confidence 0.9
+      evidence_quote "Findings indicate an increase in hospitality and tourism management literature applying analytical techniques to large quantities of data."
+    ]
     year 2018
   ]
   edge [
@@ -4380,6 +6222,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2018"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2018
+      confidence 0.85
+      evidence_quote "A conceptual framework that helps to identify critical business problems and links the domains of business intelligence and big data to tourism and hospitality management and development is missing."
+    ]
     year 2018
   ]
   edge [
@@ -4388,6 +6239,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2023"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2023
+      confidence 0.9
+      evidence_quote "The proposed framework allows for the improvement of future hotel CX studies."
+    ]
     year 2023
   ]
   edge [
@@ -4396,6 +6256,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2014"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2014
+      confidence 0.9
+      evidence_quote "To investigate and quantify the nature and distribution of existing high-quality research on the prevention and treatment of eating disorders in young people using evidence mapping methodology."
+    ]
     year 2014
   ]
   edge [
@@ -4404,6 +6273,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.85
     years "2014"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2014
+      confidence 0.85
+      evidence_quote "Evidence mapping was used to reveal the effect of drug reminder packaging on medication adherence"
+    ]
     year 2014
   ]
   edge [
@@ -4412,6 +6290,15 @@ graph [
     relation "USES"
     confidence 0.8
     years "2014"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2014
+      confidence 0.8
+      evidence_quote "were included in the evidence mapping of the effect of drug reminder packaging on adherence and outcomes according to the Economic, Clinical and Humanistic Outcomes (ECHO) model."
+    ]
     year 2014
   ]
   edge [
@@ -4420,6 +6307,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.95
     years "2014"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2014
+      confidence 0.95
+      evidence_quote "Bulimia nervosa (BN) received the most attention in the treatment literature, with cognitive behavioural therapy (CBT) and antidepressants the most common interventions."
+    ]
     year 2014
   ]
   edge [
@@ -4428,6 +6324,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.95
     years "2014"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2014
+      confidence 0.95
+      evidence_quote "For anorexia nervosa (AN), family based therapy (FBT) was the most studied."
+    ]
     year 2014
   ]
   edge [
@@ -4436,6 +6341,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2014"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2014
+      confidence 0.9
+      evidence_quote "Lacking were trials exploring treatments for binge eating disorder (BED) and eating disorder not otherwise specified (EDNOS)."
+    ]
     year 2014
   ]
   edge [
@@ -4444,6 +6358,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2014"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2014
+      confidence 0.9
+      evidence_quote "Relapse prevention strategies were notably absent across the eating disorders."
+    ]
     year 2014
   ]
   edge [
@@ -4452,6 +6375,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.95
     years "2023"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2023
+      confidence 0.95
+      evidence_quote "The analysis included forty-one (41) articles published between 2017 and 2022."
+    ]
     year 2023
   ]
   edge [
@@ -4460,6 +6392,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2023"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2023
+      confidence 0.9
+      evidence_quote "One hundred fifty-five (155) knowledge gaps were identified and categorised according to seven (7) CE research dimensions"
+    ]
     year 2023
   ]
   edge [
@@ -4468,6 +6409,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2024
+      confidence 0.9
+      evidence_quote "The findings of our analysis reveal a strong emphasis on emerging digital, life cycle assessment and biomaterials technologies."
+    ]
     year 2024
   ]
   edge [
@@ -4476,6 +6426,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.85
     years "2023"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2023
+      confidence 0.85
+      evidence_quote "A new framework for CE implementation is proposed to support critical discussion and identification of future research trajectories towards a systemic transition to a circular economy in the construction sector."
+    ]
     year 2023
   ]
   edge [
@@ -4484,6 +6443,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2021
+      confidence 0.9
+      evidence_quote "analyze both data sources by topic modeling and sentiment analysis"
+    ]
     year 2021
   ]
   edge [
@@ -4492,6 +6460,15 @@ graph [
     relation "PRODUCES"
     confidence 0.95
     years "2021"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2021
+      confidence 0.95
+      evidence_quote "One of the results of this analysis showed that while the research community is drastically concerned about energy consumption, the end users were excited about color changing ability in smart lighting products."
+    ]
     year 2021
   ]
   edge [
@@ -4500,6 +6477,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2022"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2022
+      confidence 0.9
+      evidence_quote "There are no clear guidelines for achieving a complete and conclusive project management system"
+    ]
     year 2022
   ]
   edge [
@@ -4508,6 +6494,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2024
+      confidence 0.9
+      evidence_quote "The SLR methodology was employed in this study, following the preferred reporting items for systematic reviews and meta-analyses (PRISMA) guidelines."
+    ]
     year 2024
   ]
   edge [
@@ -4516,6 +6511,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.85
     years "2024"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2024
+      confidence 0.85
+      evidence_quote "A total of 381 articles published between 2015 and 2023 were extracted from Lens org. database for review."
+    ]
     year 2024
   ]
   edge [
@@ -4524,6 +6528,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2024
+      confidence 0.9
+      evidence_quote "This study adds to the existing body of knowledge on green innovation by addressing identified knowledge gaps."
+    ]
     year 2024
   ]
   edge [
@@ -4532,6 +6545,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2021"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2021
+      confidence 0.95
+      evidence_quote "Here, a combination of latent Dirichlet allocation and food keyword searches were employed to analyze and filter a dataset of 6102 publications about cold denaturation."
+    ]
     year 2021
   ]
   edge [
@@ -4540,6 +6562,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2021
+      confidence 0.9
+      evidence_quote "After using the Python toolkit generated in this work, the approach yielded 22 topics that provide background and insight on the direction of research in this field"
+    ]
     year 2021
   ]
   edge [
@@ -4548,6 +6579,15 @@ graph [
     relation "LACKS"
     confidence 0.95
     years "2016"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2016
+      confidence 0.95
+      evidence_quote "We did not identify any guidelines for reporting scoping reviews or studies that assessed the quality of scoping review reporting."
+    ]
     year 2016
   ]
   edge [
@@ -4556,6 +6596,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2016"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2016
+      confidence 0.9
+      evidence_quote "Further research on scoping review methodology is warranted, and in particular, there is need for a guideline to standardize reporting."
+    ]
     year 2016
   ]
   edge [
@@ -4564,6 +6613,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.95
     years "2020"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2020
+      confidence 0.95
+      evidence_quote "we undertake a systematic review of the business literature about the impact of service robots on customers and employees"
+    ]
     year 2020
   ]
   edge [
@@ -4572,6 +6630,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2020"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2020
+      confidence 0.9
+      evidence_quote "We analyzed the literature on service robots as they relate to customers and employees in business journals listed in the Financial Times top 50 journals plus all journals covered in the cross-disciplinary SERVSIG literature alerts."
+    ]
     year 2020
   ]
   edge [
@@ -4580,6 +6647,15 @@ graph [
     relation "PRODUCES"
     confidence 0.95
     years "2020"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2020
+      confidence 0.95
+      evidence_quote "The analysis of the identified studies yielded multiple observations about the impact of service robots on customers (e.g. overarching frameworks on acceptance and usage of service robots; characteristics of service robots and anthropomorphism; and potential for enhanced and deteriorated service experiences) and service employees"
+    ]
     year 2020
   ]
   edge [
@@ -4588,6 +6664,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2020"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2020
+      confidence 0.9
+      evidence_quote "We also conclude that current research on service robots is fragmented, is largely conceptual in nature and focused on the initial adoption stage. We feel that more research is needed to build an overarching theory."
+    ]
     year 2020
   ]
   edge [
@@ -4596,6 +6681,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2020"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2020
+      confidence 0.9
+      evidence_quote "In addition, more empirical research is needed, especially on the long(er)-term usage service robots on actual behaviors, the well-being and potential downsides and (ethical) risks for customers and service employees."
+    ]
     year 2020
   ]
   edge [
@@ -4604,6 +6698,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2019"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2019
+      confidence 0.9
+      evidence_quote "Lean manufacturing has proven its positive effects on operational and economic performance in multiple cases."
+    ]
     year 2019
   ]
   edge [
@@ -4612,6 +6715,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.85
     years "2021"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2021
+      confidence 0.85
+      evidence_quote "A tool was created to assess the quality of the included initiatives."
+    ]
     year 2021
   ]
   edge [
@@ -4620,6 +6732,15 @@ graph [
     relation "PRODUCES"
     confidence 0.95
     years "2021"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2021
+      confidence 0.95
+      evidence_quote "Three findings were consistent across all eight initiatives: insufficient level of PA of children and adolescents across the world; lower levels of PA among girls; and attenuation of PA levels with age."
+    ]
     year 2021
   ]
   edge [
@@ -4628,6 +6749,15 @@ graph [
     relation "PRODUCES"
     confidence 0.95
     years "2021"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2021
+      confidence 0.95
+      evidence_quote "Three findings were consistent across all eight initiatives: insufficient level of PA of children and adolescents across the world; lower levels of PA among girls; and attenuation of PA levels with age."
+    ]
     year 2021
   ]
   edge [
@@ -4636,6 +6766,15 @@ graph [
     relation "PRODUCES"
     confidence 0.95
     years "2021"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2021
+      confidence 0.95
+      evidence_quote "Three findings were consistent across all eight initiatives: insufficient level of PA of children and adolescents across the world; lower levels of PA among girls; and attenuation of PA levels with age."
+    ]
     year 2021
   ]
   edge [
@@ -4644,6 +6783,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2021
+      confidence 0.9
+      evidence_quote "The development of a new PA measurement instrument that would be globally accepted and harmonized is a global health priority to help improve the accuracy and reliability of global surveillance."
+    ]
     year 2021
   ]
   edge [
@@ -4652,6 +6800,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2023"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2023
+      confidence 0.95
+      evidence_quote "By utilizing ChatGPT&#8217;s natural language processing abilities, our objective is to automate and streamline the steps involved in traditional SR"
+    ]
     year 2023
   ]
   edge [
@@ -4660,6 +6817,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2023"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2023
+      confidence 0.9
+      evidence_quote "To address these limitations and drive the field forward, we harness the power of the revolutionary language model, ChatGPT"
+    ]
     year 2023
   ]
   edge [
@@ -4668,6 +6834,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2023"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2023
+      confidence 0.95
+      evidence_quote "To illustrate the practical application of our method, we have chosen the topic of IoT applications in water and wastewater management and quality monitoring"
+    ]
     year 2023
   ]
   edge [
@@ -4676,6 +6851,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2023"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2023
+      confidence 0.9
+      evidence_quote "resulting in enhanced efficiency and reliability of SR processes."
+    ]
     year 2023
   ]
   edge [
@@ -4684,6 +6868,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2023"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2023
+      confidence 0.85
+      evidence_quote "However, we identify limitations in its suitability for article extraction."
+    ]
     year 2023
   ]
   edge [
@@ -4692,6 +6885,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2018"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2018
+      confidence 0.9
+      evidence_quote "Broadly, the literature indicates deficits across these neurocognitive domains in EDs"
+    ]
     year 2018
   ]
   edge [
@@ -4700,6 +6902,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2018"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2018
+      confidence 0.9
+      evidence_quote "there remain critical limitations regarding the methodological quality of these studies (e.g., the lack of prospective designs"
+    ]
     year 2018
   ]
   edge [
@@ -4708,6 +6919,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2022"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2022
+      confidence 0.9
+      evidence_quote "with the partial least square structural equation model currently dominating statistical analysis."
+    ]
     year 2022
   ]
   edge [
@@ -4716,6 +6936,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2020"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2020
+      confidence 0.85
+      evidence_quote "From a methods perspective, researchers saw the need for longitudinal studies"
+    ]
     year 2020
   ]
   edge [
@@ -4724,6 +6953,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2020"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2020
+      confidence 0.85
+      evidence_quote "From a methods perspective, researchers saw the need for... improved outcome measures."
+    ]
     year 2020
   ]
   edge [
@@ -4732,6 +6970,15 @@ graph [
     relation "LACKS"
     confidence 0.8
     years "2021"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2021
+      confidence 0.8
+      evidence_quote "documentation of attacks on health must be enhanced to make the data more consistent, more thorough, more accessible, include diverse perspectives, and clarify taxonomy."
+    ]
     year 2021
   ]
   edge [
@@ -4740,6 +6987,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2022"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2022
+      confidence 0.9
+      evidence_quote "the review reveals that the majority of prior studies are quantitative and were carried out using archived data from non-financial firms."
+    ]
     year 2022
   ]
   edge [
@@ -4748,6 +7004,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.8
     years "2022"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2022
+      confidence 0.8
+      evidence_quote "the existing literature has primarily focused on the outcomes of CG, especially firm performance."
+    ]
     year 2022
   ]
   edge [
@@ -4756,6 +7021,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2021
+      confidence 0.9
+      evidence_quote "The authors identify shortcomings in literature reviews of logistics and supply chain management (L&#38;SCM) research and develop a framework to aid theorization from literature."
+    ]
     year 2021
   ]
   edge [
@@ -4764,6 +7038,15 @@ graph [
     relation "USES"
     confidence 0.85
     years "2021"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2021
+      confidence 0.85
+      evidence_quote "The authors propose the interpretive sensemaking review as a novel review type rooted in the interpretive paradigm."
+    ]
     year 2021
   ]
   edge [
@@ -4772,6 +7055,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2021
+      confidence 0.9
+      evidence_quote "Appropriate applications of the proposed review types will result in more comprehensive theories."
+    ]
     year 2021
   ]
   edge [
@@ -4780,6 +7072,15 @@ graph [
     relation "LACKS"
     confidence 0.95
     years "2021"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2021
+      confidence 0.95
+      evidence_quote "However, a systematic review on this topic is currently lacking."
+    ]
     year 2021
   ]
   edge [
@@ -4788,6 +7089,15 @@ graph [
     relation "PRODUCES"
     confidence 0.85
     years "2021"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2021
+      confidence 0.85
+      evidence_quote "The content analysis revealed different gaps and limitations in the understanding of entrepreneurship in RHT"
+    ]
     year 2021
   ]
   edge [
@@ -4796,6 +7106,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2022"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2022
+      confidence 0.9
+      evidence_quote "In-depth content analysis resulted in the final 101 papers for inclusion."
+    ]
     year 2022
   ]
   edge [
@@ -4804,6 +7123,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2021"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2021
+      confidence 0.95
+      evidence_quote "The bibliometric coupling and co-citation analyses were conducted using VOSviewer software"
+    ]
     year 2021
   ]
   edge [
@@ -4812,6 +7140,15 @@ graph [
     relation "LACKS"
     confidence 0.95
     years "2021"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2021
+      confidence 0.95
+      evidence_quote "Hence, the literature lacks investigations of technology&#8211;organization&#8211;environment and institutional theories"
+    ]
     year 2021
   ]
   edge [
@@ -4820,6 +7157,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2020"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2020
+      confidence 0.9
+      evidence_quote "Conservation Agriculture has emerged as a popular form of climate smart agriculture aimed at enhancing climate change resilience"
+    ]
     year 2020
   ]
   edge [
@@ -4828,6 +7174,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2020"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2020
+      confidence 0.85
+      evidence_quote "neither of these approaches can address the full scope of this question, in particular its &#8216;why&#8217; component."
+    ]
     year 2020
   ]
   edge [
@@ -4836,6 +7191,15 @@ graph [
     relation "COMBINES"
     confidence 0.8
     years "2020"
+    relations "_networkx_list_start"
+    relations "COMBINES"
+    events "_networkx_list_start"
+    events [
+      relation "COMBINES"
+      year 2020
+      confidence 0.8
+      evidence_quote "methodological approaches including farmer participation and ethnography, through on-farm trial research as a middle ground"
+    ]
     year 2020
   ]
   edge [
@@ -4844,6 +7208,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.85
     years "2019"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2019
+      confidence 0.85
+      evidence_quote "The paper is an extensive literature review of a total of 164 peer-reviewed journal papers between 2007 and 2017, using a mixed bibliographic and bibliometric method"
+    ]
     year 2019
   ]
   edge [
@@ -4852,6 +7225,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2015"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2015
+      confidence 0.9
+      evidence_quote "Fourth, there is a notable lack of information on cardiovascular diseases and its antecedents."
+    ]
     year 2015
   ]
   edge [
@@ -4860,6 +7242,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.8
     years "2015"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2015
+      confidence 0.8
+      evidence_quote "Fifth, indications show that screenings for pre-existing conditions are biased towards communicable diseases."
+    ]
     year 2015
   ]
   edge [
@@ -4868,6 +7259,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2022"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2022
+      confidence 0.85
+      evidence_quote "The paper includes the most recent studies from Asian countries like India, Singapore, China, Korea and Taiwan, not covered by earlier reviews."
+    ]
     year 2022
   ]
   edge [
@@ -4876,6 +7276,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2022"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2022
+      confidence 0.85
+      evidence_quote "very few studies use remote sensing (6%) or participatory (3%) methods."
+    ]
     year 2022
   ]
   edge [
@@ -4884,6 +7293,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2022"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2022
+      confidence 0.85
+      evidence_quote "very few studies use remote sensing (6%) or participatory (3%) methods."
+    ]
     year 2022
   ]
   edge [
@@ -4892,6 +7310,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2025
+      confidence 0.9
+      evidence_quote "integration of advanced tools such as artificial intelligence and remote sensing to improve monitoring and management."
+    ]
     year 2025
   ]
   edge [
@@ -4900,6 +7327,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2022"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2022
+      confidence 0.9
+      evidence_quote "prioritize unanswered research questions using a consensus-driven Delphi survey approach"
+    ]
     year 2022
   ]
   edge [
@@ -4908,6 +7344,15 @@ graph [
     relation "USES"
     confidence 0.85
     years "2022"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2022
+      confidence 0.85
+      evidence_quote "Four Delphi rounds were conducted to generate research questions and prioritize them using a 9-point Likert scale."
+    ]
     year 2022
   ]
   edge [
@@ -4916,6 +7361,15 @@ graph [
     relation "PRODUCES"
     confidence 0.95
     years "2022"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2022
+      confidence 0.95
+      evidence_quote "This research gap analysis identified more than 300 high-priority research questions"
+    ]
     year 2022
   ]
   edge [
@@ -4924,6 +7378,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.95
     years "2025"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2025
+      confidence 0.95
+      evidence_quote "the study proposes a research agenda that includes seven opportunities to address the identified research gaps."
+    ]
     year 2025
   ]
   edge [
@@ -4932,6 +7395,15 @@ graph [
     relation "EXTENDS"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "EXTENDS"
+    events "_networkx_list_start"
+    events [
+      relation "EXTENDS"
+      year 2025
+      confidence 0.9
+      evidence_quote "We propose a research agenda to extend the scope of health-related IS research"
+    ]
     year 2025
   ]
   edge [
@@ -4940,6 +7412,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2024
+      confidence 0.95
+      evidence_quote "A rule-based, text mining method was applied to 34,481 PubMed abstracts published from 1963 to 2023"
+    ]
     year 2024
   ]
   edge [
@@ -4948,6 +7429,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2024
+      confidence 0.95
+      evidence_quote "We evaluated our method in a random sample of 100 PubMed abstracts."
+    ]
     year 2024
   ]
   edge [
@@ -4956,6 +7446,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2024
+      confidence 0.9
+      evidence_quote "A rule-based, text mining method was applied to 34,481 PubMed abstracts published from 1963 to 2023 to identify 4 population characteristics (sex, age, offender type, and nationality)."
+    ]
     year 2024
   ]
   edge [
@@ -4964,6 +7463,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2026"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2026
+      confidence 0.9
+      evidence_quote "More broadly, this study demonstrates the utility of transparent, rule-based text mining approaches for large-scale bibliometric analyses in plant science"
+    ]
     year 2026
   ]
   edge [
@@ -4972,6 +7480,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2024
+      confidence 0.9
+      evidence_quote "justice health abstracts still do not adequately describe the investigated populations."
+    ]
     year 2024
   ]
   edge [
@@ -4980,6 +7497,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2024
+      confidence 0.95
+      evidence_quote "A literature search was performed utilizing the Scopus&#174; database"
+    ]
     year 2024
   ]
   edge [
@@ -4988,6 +7514,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2024
+      confidence 0.9
+      evidence_quote "The investigation followed a systematic approach based on the PRISMA guidelines."
+    ]
     year 2024
   ]
   edge [
@@ -4996,6 +7531,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2024
+      confidence 0.95
+      evidence_quote "TM identified the words with the highest term frequency-inverse document frequency (TF-IDF)"
+    ]
     year 2024
   ]
   edge [
@@ -5004,6 +7548,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.85
     years "2024"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2024
+      confidence 0.85
+      evidence_quote "This study aims to provide a research literature analysis on BE in dogs based on text mining (TM) and topic analysis (TA)"
+    ]
     year 2024
   ]
   edge [
@@ -5012,6 +7565,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.85
     years "2024"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2024
+      confidence 0.85
+      evidence_quote "This study aims to provide a research literature analysis on BE in dogs based on text mining (TM) and topic analysis (TA)"
+    ]
     year 2024
   ]
   edge [
@@ -5020,6 +7582,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2025
+      confidence 0.9
+      evidence_quote "we explore correlations between the ingredients and physicochemical properties of seaweed-based biofilms from a corpus of 2000 article abstracts from the scientific literature since 1958, using a supervised word co-occurrence analysis"
+    ]
     year 2025
   ]
   edge [
@@ -5028,6 +7599,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2025
+      confidence 0.9
+      evidence_quote "we explore correlations between the ingredients and physicochemical properties of seaweed-based biofilms from a corpus of 2000 article abstracts from the scientific literature since 1958, using a supervised word co-occurrence analysis and an unsupervised approach based on the language model MatBERT without fine-tuning."
+    ]
     year 2025
   ]
   edge [
@@ -5036,6 +7616,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.85
     years "2025"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2025
+      confidence 0.85
+      evidence_quote "we explore correlations between the ingredients and physicochemical properties of seaweed-based biofilms from a corpus of 2000 article abstracts from the scientific literature since 1958, using a supervised word co-occurrence analysis and an unsupervised approach based on the language model MatBERT without fine-tuning."
+    ]
     year 2025
   ]
   edge [
@@ -5044,6 +7633,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2025
+      confidence 0.9
+      evidence_quote "This automated method facilitates the mapping of relationships between ingredients and properties, guiding the development of seaweed bioplastic formulations."
+    ]
     year 2025
   ]
   edge [
@@ -5052,6 +7650,15 @@ graph [
     relation "LACKS"
     confidence 0.8
     years "2025"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2025
+      confidence 0.8
+      evidence_quote "The unstructured and heterogeneous nature of the literature on bioplastics represents a particular challenge that demands ad hoc fine-tuning strategies for state-of-the-art language models"
+    ]
     year 2025
   ]
   edge [
@@ -5060,6 +7667,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2025"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2025
+      confidence 0.95
+      evidence_quote "Using abstract&#8208;based semantic text mining with the BERTopic model"
+    ]
     year 2025
   ]
   edge [
@@ -5068,6 +7684,15 @@ graph [
     relation "COMBINES"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "COMBINES"
+    events "_networkx_list_start"
+    events [
+      relation "COMBINES"
+      year 2025
+      confidence 0.9
+      evidence_quote "Using abstract&#8208;based semantic text mining with the BERTopic model, combined with a thematic mapping approach"
+    ]
     year 2025
   ]
   edge [
@@ -5076,6 +7701,15 @@ graph [
     relation "PRODUCES"
     confidence 0.85
     years "2025"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2025
+      confidence 0.85
+      evidence_quote "Using abstract&#8208;based semantic text mining with the BERTopic model, combined with a thematic mapping approach, the analysis uncovers 13 topics"
+    ]
     year 2025
   ]
   edge [
@@ -5084,6 +7718,15 @@ graph [
     relation "IMPROVES"
     confidence 0.85
     years "2025"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2025
+      confidence 0.85
+      evidence_quote "The advancement and adoption of digital health technologies promise improved healthcare outcomes globally."
+    ]
     year 2025
   ]
   edge [
@@ -5092,6 +7735,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2026"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2026
+      confidence 0.9
+      evidence_quote "This systematic map therefore seeks to address the primary review question"
+    ]
     year 2026
   ]
   edge [
@@ -5100,6 +7752,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2026"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2026
+      confidence 0.95
+      evidence_quote "This systematic map will follow a structured evidence-synthesis approach"
+    ]
     year 2026
   ]
   edge [
@@ -5108,6 +7769,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2026"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2026
+      confidence 0.95
+      evidence_quote "nature-based approaches applied within aquaculture systems"
+    ]
     year 2026
   ]
   edge [
@@ -5116,6 +7786,15 @@ graph [
     relation "PRODUCES"
     confidence 0.85
     years "2026"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2026
+      confidence 0.85
+      evidence_quote "followed by a narrative synthesis to identify thematic clusters, geographical patterns, and gaps in the evidence base."
+    ]
     year 2026
   ]
   edge [
@@ -5124,6 +7803,15 @@ graph [
     relation "EXTENDS"
     confidence 0.9
     years "2018"
+    relations "_networkx_list_start"
+    relations "EXTENDS"
+    events "_networkx_list_start"
+    events [
+      relation "EXTENDS"
+      year 2018
+      confidence 0.9
+      evidence_quote "It was decided that a PRISMA extension for scoping reviews was needed to provide reporting guidance for this specific type of knowledge synthesis."
+    ]
     year 2018
   ]
   edge [
@@ -5132,6 +7820,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2018"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2018
+      confidence 0.95
+      evidence_quote "The PRISMA-ScR (PRISMA extension for Scoping Reviews) was developed according to published guidance by the EQUATOR (Enhancing the QUAlity and Transparency Of health Research) Network for the development of reporting guidelines (9)."
+    ]
     year 2018
   ]
   edge [
@@ -5140,6 +7837,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2018"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2018
+      confidence 0.9
+      evidence_quote "This extension is also intended to apply to evidence maps (15, 16)"
+    ]
     year 2018
   ]
   edge [
@@ -5148,6 +7854,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2018"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2018
+      confidence 0.9
+      evidence_quote "applying the PRISMA-ScR to a scoping review on a health-related topic (26)"
+    ]
     year 2018
   ]
   edge [
@@ -5156,6 +7871,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2018"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2018
+      confidence 0.95
+      evidence_quote "developing the Delphi survey via Qualtrics (an online survey platform)"
+    ]
     year 2018
   ]
   edge [
@@ -5164,6 +7888,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2018"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2018
+      confidence 0.9
+      evidence_quote "participated via an online discussion exercise using Conceptboard (25)"
+    ]
     year 2018
   ]
   edge [
@@ -5172,6 +7905,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2018"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2018
+      confidence 0.95
+      evidence_quote "The second round of scoring was done in Qualtrics"
+    ]
     year 2018
   ]
   edge [
@@ -5180,6 +7922,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2018"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2018
+      confidence 0.95
+      evidence_quote "a third round of scoring exercise was administered using Qualtrics (19)"
+    ]
     year 2018
   ]
   edge [
@@ -5188,6 +7939,15 @@ graph [
     relation "USES"
     confidence 0.85
     years "2018"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2018
+      confidence 0.85
+      evidence_quote "asked to rescore the discrepant items using sli.do (23)"
+    ]
     year 2018
   ]
   edge [
@@ -5196,6 +7956,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.85
     years "2023"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2023
+      confidence 0.85
+      evidence_quote "This paper offers an integrative review of the widely applied and most recent SLR guidelines in the management domain."
+    ]
     year 2023
   ]
   edge [
@@ -5204,6 +7973,15 @@ graph [
     relation "LACKS"
     confidence 0.8
     years "2023"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2023
+      confidence 0.8
+      evidence_quote "related guidance is scattered across a number of core references and is overly centered on the design and conduct of the SLR, while failing to guide researchers in crafting and presenting their findings in an impactful way."
+    ]
     year 2023
   ]
   edge [
@@ -5212,6 +7990,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2023"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2023
+      confidence 0.9
+      evidence_quote "The paper adopts a well-established six-step SLR process and refines it by sub-dividing the steps into 14 distinct decisions"
+    ]
     year 2023
   ]
   edge [
@@ -5220,6 +8007,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2019"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2019
+      confidence 0.95
+      evidence_quote "62% apply static, index-based approaches"
+    ]
     year 2019
   ]
   edge [
@@ -5228,6 +8024,15 @@ graph [
     relation "LACKS"
     confidence 0.95
     years "2019"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2019
+      confidence 0.95
+      evidence_quote "only 11% conduct any form of validation"
+    ]
     year 2019
   ]
   edge [
@@ -5236,6 +8041,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2019"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2019
+      confidence 0.9
+      evidence_quote "only ten percent develop future scenarios of drought risk"
+    ]
     year 2019
   ]
   edge [
@@ -5244,6 +8058,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2019"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2019
+      confidence 0.85
+      evidence_quote "only about 40% of the assessments establish a direct link to drought risk reduction or adaptation strategies"
+    ]
     year 2019
   ]
   edge [
@@ -5252,6 +8075,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2019"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2019
+      confidence 0.9
+      evidence_quote "57% of the indicator-based assessments do not specify their weighting methods"
+    ]
     year 2019
   ]
   edge [
@@ -5260,6 +8092,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2021
+      confidence 0.9
+      evidence_quote "Combining database (i.e. Scopus, Web of Science, EBSCO, ScienceDirect) and manual journal search, the authors identify 90 articles published in Australian Business Deans Council (ABDC) journals for investigation"
+    ]
     year 2021
   ]
   edge [
@@ -5268,6 +8109,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.85
     years "2021"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2021
+      confidence 0.85
+      evidence_quote "this study adopts a theory&#8211;context&#8211;characteristics&#8211;methodology (TCCM) framework to (1) systematically review literature related to the performance consequences of marketing standardization/adaptation"
+    ]
     year 2021
   ]
   edge [
@@ -5276,6 +8126,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.85
     years "2024"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2024
+      confidence 0.85
+      evidence_quote "this paper endeavors to narrow the literature divide between luxury and affordability to establish a strong conceptual boundary using SPAR&#8208;4 protocol and the TCCM approach."
+    ]
     year 2024
   ]
   edge [
@@ -5284,6 +8143,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2021
+      confidence 0.9
+      evidence_quote "AI algorithms to assist with credit scoring"
+    ]
     year 2021
   ]
   edge [
@@ -5292,6 +8160,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.85
     years "2021"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2021
+      confidence 0.85
+      evidence_quote "experimental research design focused on testing the accuracy and performance of AI algorithms"
+    ]
     year 2021
   ]
   edge [
@@ -5300,6 +8177,15 @@ graph [
     relation "LACKS"
     confidence 0.95
     years "2021"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2021
+      confidence 0.95
+      evidence_quote "The key limitation of the existing theories is their inability to consider the role of social and cultural facets"
+    ]
     year 2021
   ]
   edge [
@@ -5308,6 +8194,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2024
+      confidence 0.95
+      evidence_quote "applications of nature&#8208;inspired algorithms in IoT&#8208;based healthcare"
+    ]
     year 2024
   ]
   edge [
@@ -5316,6 +8211,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2024
+      confidence 0.9
+      evidence_quote "identifying gaps such as the lack of standardized evaluation metrics"
+    ]
     year 2024
   ]
   edge [
@@ -5324,6 +8228,15 @@ graph [
     relation "USES"
     confidence 0.85
     years "2024"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2024
+      confidence 0.85
+      evidence_quote "MATLAB emerges as the predominant programming language, constituting 37.9% of cases, showcasing a prevalent choice among researchers."
+    ]
     year 2024
   ]
   edge [
@@ -5332,6 +8245,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2014"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2014
+      confidence 0.9
+      evidence_quote "Overall, the studies showed a positive effect of drug reminder packaging on adherence and clinical outcomes."
+    ]
     year 2014
   ]
   edge [
@@ -5340,6 +8262,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2014"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2014
+      confidence 0.9
+      evidence_quote "Overall, the studies showed a positive effect of drug reminder packaging on adherence and clinical outcomes."
+    ]
     year 2014
   ]
   edge [
@@ -5348,6 +8279,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2021
+      confidence 0.9
+      evidence_quote "we suggest several methodological remedies and best practices (methodology) that can help enhance the validity of continued findings in this domain."
+    ]
     year 2021
   ]
   edge [
@@ -5356,6 +8296,15 @@ graph [
     relation "COMBINES"
     confidence 0.85
     years "2017"
+    relations "_networkx_list_start"
+    relations "COMBINES"
+    events "_networkx_list_start"
+    events [
+      relation "COMBINES"
+      year 2017
+      confidence 0.85
+      evidence_quote "A combination of clustering and bibliometric analysis"
+    ]
     year 2017
   ]
   edge [
@@ -5364,6 +8313,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2017"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2017
+      confidence 0.9
+      evidence_quote "A combination of clustering and bibliometric analysis led to shaping four academic branches"
+    ]
     year 2017
   ]
   edge [
@@ -5372,6 +8330,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2023"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2023
+      confidence 0.9
+      evidence_quote "Bibliometric analysis is a quantitative approach to analysing bibliographic data extracted from research studies"
+    ]
     year 2023
   ]
   edge [
@@ -5380,6 +8347,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2025"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2025
+      confidence 0.85
+      evidence_quote "Typical bibliometric methods, while beneficial in illustrating high-level trends, may not fully capture the nuanced characteristics and interconnections of research topics."
+    ]
     year 2025
   ]
   edge [
@@ -5388,6 +8364,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2018"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2018
+      confidence 0.95
+      evidence_quote "A bibliometric analysis methodology was used. The Scopus database was used to retrieve documents"
+    ]
     year 2018
   ]
   edge [
@@ -5396,6 +8381,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2018"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2018
+      confidence 0.9
+      evidence_quote "The aim of this study was to analyze globally published peer-reviewed literature in GMH. Methods A bibliometric analysis methodology was used."
+    ]
     year 2018
   ]
   edge [
@@ -5404,6 +8398,15 @@ graph [
     relation "PRODUCES"
     confidence 0.85
     years "2019"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2019
+      confidence 0.85
+      evidence_quote "As a result, scientific maps were created to reveal the knowledge domain of MCDM approaches in heritage buildings&#8217; reuse and preservation."
+    ]
     year 2019
   ]
   edge [
@@ -5412,6 +8415,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2021
+      confidence 0.9
+      evidence_quote "This paper maps knowledge domain on recycling behaviour through bibliometric analysis and text mining"
+    ]
     year 2021
   ]
   edge [
@@ -5420,6 +8432,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2017"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2017
+      confidence 0.9
+      evidence_quote "We perform a two-dimensional text mining approach, including bibliometric and network analysis"
+    ]
     year 2017
   ]
   edge [
@@ -5428,6 +8449,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2017"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2017
+      confidence 0.9
+      evidence_quote "We perform a two-dimensional text mining approach, including bibliometric and network analysis"
+    ]
     year 2017
   ]
   edge [
@@ -5436,6 +8466,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.85
     years "2023"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2023
+      confidence 0.85
+      evidence_quote "Science mapping is a widespread technique in bibliometric analysis"
+    ]
     year 2023
   ]
   edge [
@@ -5444,6 +8483,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2023"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2023
+      confidence 0.9
+      evidence_quote "there is still a lack of clarity and transparency in describing the science mapping process"
+    ]
     year 2023
   ]
   edge [
@@ -5452,6 +8500,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2020"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2020
+      confidence 0.85
+      evidence_quote "there is a clear lack of scientific rigour as regards the process of validation in the different studies"
+    ]
     year 2020
   ]
   edge [
@@ -5460,6 +8517,15 @@ graph [
     relation "LACKS"
     confidence 0.8
     years "2020"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2020
+      confidence 0.8
+      evidence_quote "a deficiency in the use of standards or of de facto models to define these"
+    ]
     year 2020
   ]
   edge [
@@ -5468,6 +8534,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.85
     years "2024"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2024
+      confidence 0.85
+      evidence_quote "this paper endeavors to narrow the literature divide between luxury and affordability to establish a strong conceptual boundary using SPAR&#8208;4 protocol"
+    ]
     year 2024
   ]
   edge [
@@ -5476,6 +8551,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.8
     years "2024"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2024
+      confidence 0.8
+      evidence_quote "It thoroughly examines 75 papers published between 2003 and 2023 to identify critical research gaps. Furthermore, following manual coding and inductive analysis, the review outlines..."
+    ]
     year 2024
   ]
   edge [
@@ -5484,6 +8568,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2024
+      confidence 0.9
+      evidence_quote "The article also confirms the incorporation of themes, that is, value&#8208;based and masstige&#8208;evolution dimensions, by using Corbin and Strauss open, axial, and selective coding."
+    ]
     year 2024
   ]
   edge [
@@ -5492,6 +8585,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2018"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2018
+      confidence 0.9
+      evidence_quote "We will conduct an overview of SRs based on the Cochrane Handbook for Systematic Reviews of Interventions."
+    ]
     year 2018
   ]
   edge [
@@ -5500,6 +8602,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2018"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2018
+      confidence 0.9
+      evidence_quote "This overview will be reported following PRISMA 2009 guidelines."
+    ]
     year 2018
   ]
   edge [
@@ -5508,6 +8619,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2018"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2018
+      confidence 0.9
+      evidence_quote "The methodological quality of included SRs will be assessed using the Assessment of Multiple Systematic Reviews (AMSTAR) tool."
+    ]
     year 2018
   ]
   edge [
@@ -5516,6 +8636,15 @@ graph [
     relation "PRODUCES"
     confidence 0.85
     years "2018"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2018
+      confidence 0.85
+      evidence_quote "to produce an evidence map highlighting methodological gaps in SRs regarding gray literature searching"
+    ]
     year 2018
   ]
   edge [
@@ -5524,6 +8653,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2018"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2018
+      confidence 0.95
+      evidence_quote "Two reviewers will independently conduct a multilevel screening on Rayyan software."
+    ]
     year 2018
   ]
   edge [
@@ -5532,6 +8670,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2018"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2018
+      confidence 0.95
+      evidence_quote "Extraction of relevant data will be done on Statistical Package for the Social Sciences (SPSS) software."
+    ]
     year 2018
   ]
   edge [
@@ -5540,6 +8687,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2025
+      confidence 0.9
+      evidence_quote "Using text mining and topic analysis, this study explored the literature"
+    ]
     year 2025
   ]
   edge [
@@ -5548,6 +8704,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2024
+      confidence 0.9
+      evidence_quote "Descriptive statistics, TM, and TA were applied to a total of n. 122 documents included."
+    ]
     year 2024
   ]
   edge [
@@ -5556,6 +8721,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2025"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2025
+      confidence 0.85
+      evidence_quote "the lack of standardised frameworks for evaluating ecosystem services limits the ability to compare findings globally."
+    ]
     year 2025
   ]
   edge [
@@ -5564,6 +8738,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2025
+      confidence 0.9
+      evidence_quote "integration of advanced tools such as artificial intelligence and remote sensing to improve monitoring and management."
+    ]
     year 2025
   ]
   edge [
@@ -5572,6 +8755,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2025"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2025
+      confidence 0.95
+      evidence_quote "Recent advances in generative artificial intelligence (GenAI) have made large language models (LLMs) transformative tools in the healthcare industry."
+    ]
     year 2025
   ]
   edge [
@@ -5580,6 +8772,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2025
+      confidence 0.9
+      evidence_quote "In particular, LLMs have been found to have a great impact on the analysis of medical imaging reports"
+    ]
     year 2025
   ]
   edge [
@@ -5588,6 +8789,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2025
+      confidence 0.9
+      evidence_quote "are used for early diagnosis of ophthalmologic diseases"
+    ]
     year 2025
   ]
   edge [
@@ -5596,6 +8806,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2025
+      confidence 0.9
+      evidence_quote "and are prominent in depression and suicide risk assessments in mental health."
+    ]
     year 2025
   ]
   edge [
@@ -5604,6 +8823,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2025
+      confidence 0.9
+      evidence_quote "Accordingly, the BERTopic method, an advanced topic modeling technique, is used to analyze and classify publications on LLMs applications in medicine."
+    ]
     year 2025
   ]
   edge [
@@ -5612,6 +8840,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2021
+      confidence 0.9
+      evidence_quote "In the present study, quantitative text analysis was used in order to identify various subtopic trends and gaps in the knowledge of the fisheries science field."
+    ]
     year 2021
   ]
   edge [
@@ -5620,6 +8857,15 @@ graph [
     relation "PRODUCES"
     confidence 0.95
     years "2021"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2021
+      confidence 0.95
+      evidence_quote "Cluster analysis revealed four major thematic groups of words during the period 1971&#8211;2020."
+    ]
     year 2021
   ]
   edge [
@@ -5628,6 +8874,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2021"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2021
+      confidence 0.9
+      evidence_quote "Correspondence analysis indicated relationships between two decades, from 2001 to 2010 and from 2011 to present."
+    ]
     year 2021
   ]
   edge [
@@ -5636,6 +8891,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2025"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2025
+      confidence 0.95
+      evidence_quote "Collocation analysis was then applied using natural language processing (NLP) tools"
+    ]
     year 2025
   ]
   edge [
@@ -5644,6 +8908,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2025
+      confidence 0.9
+      evidence_quote "The analysis identified fifteen key risk indicators"
+    ]
     year 2025
   ]
   edge [
@@ -5652,6 +8925,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2025"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2025
+      confidence 0.85
+      evidence_quote "highlights a lack of integrated risk management strategies that align with sustainability goals in construction procurement"
+    ]
     year 2025
   ]
   edge [
@@ -5660,6 +8942,15 @@ graph [
     relation "COMBINES"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "COMBINES"
+    events "_networkx_list_start"
+    events [
+      relation "COMBINES"
+      year 2025
+      confidence 0.9
+      evidence_quote "combining PRISMA-guided literature review with collocation-based text mining"
+    ]
     year 2025
   ]
   edge [
@@ -5668,6 +8959,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2024
+      confidence 0.95
+      evidence_quote "a literature exploration was achieved using the Scopus&#174; database"
+    ]
     year 2024
   ]
   edge [
@@ -5676,6 +8976,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2024
+      confidence 0.9
+      evidence_quote "According to PRISMA guidelines, a literature exploration was achieved using the Scopus&#174; database"
+    ]
     year 2024
   ]
   edge [
@@ -5684,6 +8993,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2024
+      confidence 0.95
+      evidence_quote "perform a research literature analysis on ostriches&#8217; welfare using the text mining (TM) and topic analysis (TA) methods."
+    ]
     year 2024
   ]
   edge [
@@ -5692,6 +9010,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2025"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2025
+      confidence 0.95
+      evidence_quote "A comprehensive search was conducted using Scopus"
+    ]
     year 2025
   ]
   edge [
@@ -5700,6 +9027,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2025
+      confidence 0.9
+      evidence_quote "Improving fish welfare can reduce AR"
+    ]
     year 2025
   ]
   edge [
@@ -5708,6 +9044,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2025
+      confidence 0.9
+      evidence_quote "Ultimately, 185 records showing a connection between these topics were included in the qualitative analysis."
+    ]
     year 2025
   ]
   edge [
@@ -5716,6 +9061,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2025
+      confidence 0.9
+      evidence_quote "integrating semantics-based literature analysis methods into the bibliometric review, enhancing the depth and breadth of insights"
+    ]
     year 2025
   ]
   edge [
@@ -5724,6 +9078,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2025"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2025
+      confidence 0.95
+      evidence_quote "vector representations, which were subsequently clustered using K-means"
+    ]
     year 2025
   ]
   edge [
@@ -5732,6 +9095,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2025
+      confidence 0.9
+      evidence_quote "The shared open-source workflow also holds the potential for analyzing the evaluation of other research fields."
+    ]
     year 2025
   ]
   edge [
@@ -5740,6 +9112,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.85
     years "2026"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2026
+      confidence 0.85
+      evidence_quote "Life Cycle Assessment (LCA) was the most frequently identified methodology, reflecting the prominence of impact-oriented environmental evaluation."
+    ]
     year 2026
   ]
   edge [
@@ -5748,6 +9129,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2026"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2026
+      confidence 0.95
+      evidence_quote "PubMed abstracts published between December 2006 and December 2025 were mined for standardized Glyma gene identifiers using regular-expression-based entity extraction."
+    ]
     year 2026
   ]
   edge [
@@ -5756,6 +9146,15 @@ graph [
     relation "USES"
     confidence 0.95
     years "2026"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2026
+      confidence 0.95
+      evidence_quote "Here, we present a chromosome-resolved bibliometric analysis of soybean gene mentions using a reproducible rule-based text mining approach."
+    ]
     year 2026
   ]
   edge [
@@ -5764,6 +9163,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2026"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2026
+      confidence 0.9
+      evidence_quote "Within this scope, the findings highlight uneven adoption of standardized gene nomenclature and chromosome-level differences in research emphasis."
+    ]
     year 2026
   ]
   edge [
@@ -5772,6 +9180,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2026"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2026
+      confidence 0.9
+      evidence_quote "Within this scope, the findings highlight uneven adoption of standardized gene nomenclature and chromosome-level differences in research emphasis."
+    ]
     year 2026
   ]
   edge [
@@ -5780,6 +9197,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2026"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2026
+      confidence 0.9
+      evidence_quote "however, systematic analyses of how these identifiers are distributed across chromosomes in the scientific literature remain limited."
+    ]
     year 2026
   ]
   edge [
@@ -5788,6 +9214,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.85
     years "2026"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2026
+      confidence 0.85
+      evidence_quote "A Chi-square goodness-of-fit test confirmed that these differences deviate significantly from a uniform distribution (&#967;2 = 123.71, p < 0.001)"
+    ]
     year 2026
   ]
   edge [
@@ -5796,6 +9231,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2026"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2026
+      confidence 0.9
+      evidence_quote "integration of big data analytics (BDA) into sustainability accounting"
+    ]
     year 2026
   ]
   edge [
@@ -5804,6 +9248,15 @@ graph [
     relation "IMPROVES"
     confidence 0.85
     years "2026"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2026
+      confidence 0.85
+      evidence_quote "transformative potential of BDA to reshape sustainability reporting"
+    ]
     year 2026
   ]
   edge [
@@ -5812,6 +9265,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2018"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2018
+      confidence 0.85
+      evidence_quote "A stronger evidence base is needed to enable authorities to make evidence-informed decisions on migration health policy and practice."
+    ]
     year 2018
   ]
   edge [
@@ -5820,6 +9282,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2018"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2018
+      confidence 0.85
+      evidence_quote "research output on migrants&#8217; health is not consistent with the global migration pattern."
+    ]
     year 2018
   ]
   edge [
@@ -5828,6 +9299,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2020"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2020
+      confidence 0.9
+      evidence_quote "The structured nature of the literature review paves the way for a solid understanding and critical analysis of the state of the art of research on non-financial reporting formats in public sector organizations."
+    ]
     year 2020
   ]
   edge [
@@ -5836,6 +9316,15 @@ graph [
     relation "PRODUCES"
     confidence 0.9
     years "2020"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2020
+      confidence 0.9
+      evidence_quote "The structured literature review enables the identification of future directions for the literature in this field."
+    ]
     year 2020
   ]
   edge [
@@ -5844,6 +9333,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2020"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2020
+      confidence 0.85
+      evidence_quote "most existing studies have focused on sustainability reporting in higher education institutions, local governments and state-owned enterprises, while remaining silent on the healthcare sector."
+    ]
     year 2020
   ]
   edge [
@@ -5852,6 +9350,15 @@ graph [
     relation "USES"
     confidence 0.9
     years "2023"
+    relations "_networkx_list_start"
+    relations "USES"
+    events "_networkx_list_start"
+    events [
+      relation "USES"
+      year 2023
+      confidence 0.9
+      evidence_quote "Using Web of Science, we identified and analyzed 31 previous review articles"
+    ]
     year 2023
   ]
   edge [
@@ -5860,6 +9367,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.85
     years "2023"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2023
+      confidence 0.85
+      evidence_quote "Using Web of Science, we identified and analyzed 31 previous review articles on the application of AI in tourism."
+    ]
     year 2023
   ]
   edge [
@@ -5868,6 +9384,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2023"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2023
+      confidence 0.95
+      evidence_quote "AI technology is rapidly transforming various sectors, including tourism"
+    ]
     year 2023
   ]
   edge [
@@ -5876,6 +9401,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2023"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2023
+      confidence 0.9
+      evidence_quote "improving operational efficiency"
+    ]
     year 2023
   ]
   edge [
@@ -5884,6 +9418,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2022"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2022
+      confidence 0.85
+      evidence_quote "The results highlight the substantial knowledge gaps and inconclusive findings of extant literature"
+    ]
     year 2022
   ]
   edge [
@@ -5892,6 +9435,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2020"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2020
+      confidence 0.9
+      evidence_quote "Records were obtained from Scopus and Web of Science and examined with a text mining instrument"
+    ]
     year 2020
   ]
   edge [
@@ -5900,6 +9452,15 @@ graph [
     relation "LACKS"
     confidence 0.8
     years "2020"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2020
+      confidence 0.8
+      evidence_quote "It is still underdeveloped to implement distant sensing and imaging methods to monitor and detect the impact of severe weather occurrences."
+    ]
     year 2020
   ]
   edge [
@@ -5908,6 +9469,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.9
     years "2020"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2020
+      confidence 0.9
+      evidence_quote "A gap analysis of the peer-reviewed literature published since 2015 was undertaken"
+    ]
     year 2020
   ]
   edge [
@@ -5916,6 +9486,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2020"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2020
+      confidence 0.9
+      evidence_quote "a public health approach to addressing the harms associated with gambling"
+    ]
     year 2020
   ]
   edge [
@@ -5924,6 +9503,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2019"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2019
+      confidence 0.9
+      evidence_quote "Since, heritage buildings&#8217; reuse and preservation are characterized by multiple criteria, a multi-criteria decision making (MCDM) methods are useful in finding rational solutions for the previously mentioned problems."
+    ]
     year 2019
   ]
   edge [
@@ -5932,6 +9520,15 @@ graph [
     relation "LACKS"
     confidence 0.95
     years "2019"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2019
+      confidence 0.95
+      evidence_quote "Moreover, there is luck of complex problem solving approach in cultural heritage buildings area."
+    ]
     year 2019
   ]
   edge [
@@ -5940,6 +9537,15 @@ graph [
     relation "PRODUCES"
     confidence 0.95
     years "2021"
+    relations "_networkx_list_start"
+    relations "PRODUCES"
+    events "_networkx_list_start"
+    events [
+      relation "PRODUCES"
+      year 2021
+      confidence 0.95
+      evidence_quote "co-word analysis individuates conceptual sub-domains in food waste, determinants of recycling behaviour, waste management system, waste electrical and electronic equipment (WEEE), higher-level education, plastic bags, and local government."
+    ]
     year 2021
   ]
   edge [
@@ -5948,6 +9554,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2024
+      confidence 0.95
+      evidence_quote "the application of digital leadership in certain contexts including school education, government governance and business management"
+    ]
     year 2024
   ]
   edge [
@@ -5956,6 +9571,15 @@ graph [
     relation "IMPROVES"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2024
+      confidence 0.95
+      evidence_quote "Digital leadership has a positive role in organizational change and innovation, team effectiveness, and employee creativity and innovation behavior."
+    ]
     year 2024
   ]
   edge [
@@ -5964,6 +9588,15 @@ graph [
     relation "IMPROVES"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2024
+      confidence 0.95
+      evidence_quote "Digital leadership has a positive role in organizational change and innovation, team effectiveness, and employee creativity and innovation behavior."
+    ]
     year 2024
   ]
   edge [
@@ -5972,6 +9605,15 @@ graph [
     relation "IMPROVES"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2024
+      confidence 0.95
+      evidence_quote "Digital leadership has a positive role in organizational change and innovation, team effectiveness, and employee creativity and innovation behavior."
+    ]
     year 2024
   ]
   edge [
@@ -5980,6 +9622,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2024
+      confidence 0.95
+      evidence_quote "The methodology is applied to more than 45,000 scientific publications"
+    ]
     year 2024
   ]
   edge [
@@ -5988,6 +9639,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2024
+      confidence 0.95
+      evidence_quote "Technologies not only address technical challenges"
+    ]
     year 2024
   ]
   edge [
@@ -5996,6 +9656,15 @@ graph [
     relation "IMPROVES"
     confidence 0.9
     years "2024"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2024
+      confidence 0.9
+      evidence_quote "they also enhance business efficiency and profitability."
+    ]
     year 2024
   ]
   edge [
@@ -6004,6 +9673,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.85
     years "2024"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2024
+      confidence 0.85
+      evidence_quote "DGBL research within the context of elementary mathematics learning."
+    ]
     year 2024
   ]
   edge [
@@ -6012,6 +9690,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.8
     years "2019"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2019
+      confidence 0.8
+      evidence_quote "the theory of social representations may be useful to characterize the actual concerns of software developers. It comprises the system of values, behaviors, and practices of communities regarding a particular social object, such as the task of smell identification."
+    ]
     year 2019
   ]
   edge [
@@ -6020,6 +9707,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.85
     years "2019"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2019
+      confidence 0.85
+      evidence_quote "Based on the answers given to a question-naire, we analyzed the associations made by the developers about smell identification"
+    ]
     year 2019
   ]
   edge [
@@ -6028,6 +9724,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2019"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2019
+      confidence 0.9
+      evidence_quote "we verified that the current state of the art on smell identification partially address the social representations of the software developers."
+    ]
     year 2019
   ]
   edge [
@@ -6036,6 +9741,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2024
+      confidence 0.95
+      evidence_quote "Demand forecasting studies mainly implement artificial neural network (ANN) and time series/ regression ML models"
+    ]
     year 2024
   ]
   edge [
@@ -6044,6 +9758,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2024
+      confidence 0.95
+      evidence_quote "Demand forecasting studies mainly implement artificial neural network (ANN) and time series/ regression ML models"
+    ]
     year 2024
   ]
   edge [
@@ -6052,6 +9775,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2024"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2024
+      confidence 0.95
+      evidence_quote "while SC risk management studies discuss the Internet of Things (IoT) and cloud computing and implement classification ML models."
+    ]
     year 2024
   ]
   edge [
@@ -6060,6 +9792,15 @@ graph [
     relation "LACKS"
     confidence 0.85
     years "2024"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2024
+      confidence 0.85
+      evidence_quote "The main gaps found in the shortlisted studies are limited data accessibility"
+    ]
     year 2024
   ]
   edge [
@@ -6068,6 +9809,15 @@ graph [
     relation "ADDRESSES"
     confidence 0.9
     years "2022"
+    relations "_networkx_list_start"
+    relations "ADDRESSES"
+    events "_networkx_list_start"
+    events [
+      relation "ADDRESSES"
+      year 2022
+      confidence 0.9
+      evidence_quote "To identify relevant CHO bioprocessing papers from new scientific literature, we have developed a supervised learning model, Logistic Regression"
+    ]
     year 2022
   ]
   edge [
@@ -6076,6 +9826,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.95
     years "2022"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2022
+      confidence 0.95
+      evidence_quote "evaluated the results using three CHO bibliome datasets, Bioprocessing set, Glycosylation set, and Phenotype set"
+    ]
     year 2022
   ]
   edge [
@@ -6084,6 +9843,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.95
     years "2022"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2022
+      confidence 0.95
+      evidence_quote "evaluated the results using three CHO bibliome datasets, Bioprocessing set, Glycosylation set, and Phenotype set"
+    ]
     year 2022
   ]
   edge [
@@ -6092,6 +9860,15 @@ graph [
     relation "EVALUATES_ON"
     confidence 0.95
     years "2022"
+    relations "_networkx_list_start"
+    relations "EVALUATES_ON"
+    events "_networkx_list_start"
+    events [
+      relation "EVALUATES_ON"
+      year 2022
+      confidence 0.95
+      evidence_quote "evaluated the results using three CHO bibliome datasets, Bioprocessing set, Glycosylation set, and Phenotype set"
+    ]
     year 2022
   ]
   edge [
@@ -6100,6 +9877,15 @@ graph [
     relation "IMPROVES"
     confidence 0.8
     years "2022"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2022
+      confidence 0.8
+      evidence_quote "The use of top terms as features supports the explainability of document classification results"
+    ]
     year 2022
   ]
   edge [
@@ -6108,6 +9894,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2025"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2025
+      confidence 0.95
+      evidence_quote "utilized R for energy forecasting tasks"
+    ]
     year 2025
   ]
   edge [
@@ -6116,6 +9911,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2025
+      confidence 0.9
+      evidence_quote "the field still lacks a systematic, cross-domain synthesis"
+    ]
     year 2025
   ]
   edge [
@@ -6124,6 +9928,15 @@ graph [
     relation "APPLIED_TO"
     confidence 0.95
     years "2025"
+    relations "_networkx_list_start"
+    relations "APPLIED_TO"
+    events "_networkx_list_start"
+    events [
+      relation "APPLIED_TO"
+      year 2025
+      confidence 0.95
+      evidence_quote "tree-based ensemble learning models&#8212;e.g., random forests, gradient boosting, and hybrid variants&#8212;are employed most frequently, particularly for solar and short-term load forecasting."
+    ]
     year 2025
   ]
   edge [
@@ -6132,6 +9945,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2025
+      confidence 0.9
+      evidence_quote "few studies incorporated automated model selection"
+    ]
     year 2025
   ]
   edge [
@@ -6140,6 +9962,15 @@ graph [
     relation "LACKS"
     confidence 0.9
     years "2025"
+    relations "_networkx_list_start"
+    relations "LACKS"
+    events "_networkx_list_start"
+    events [
+      relation "LACKS"
+      year 2025
+      confidence 0.9
+      evidence_quote "few studies incorporated automated model selection or explainable AI"
+    ]
     year 2025
   ]
   edge [
@@ -6148,6 +9979,15 @@ graph [
     relation "IMPROVES"
     confidence 0.85
     years "2025"
+    relations "_networkx_list_start"
+    relations "IMPROVES"
+    events "_networkx_list_start"
+    events [
+      relation "IMPROVES"
+      year 2025
+      confidence 0.85
+      evidence_quote "The findings of this review support the broader democratization of energy analytics"
+    ]
     year 2025
   ]
 ]

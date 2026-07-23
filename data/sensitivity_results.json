@@ -3,12 +3,12 @@
     {
       "min_size_ratio": 0.03,
       "max_bridge_ratio": 0.05,
-      "orphan_clusters": 3
+      "orphan_clusters": 1
     },
     {
       "min_size_ratio": 0.03,
       "max_bridge_ratio": 0.1,
-      "orphan_clusters": 6
+      "orphan_clusters": 3
     },
     {
       "min_size_ratio": 0.03,
@@ -48,7 +48,7 @@
     {
       "min_size_ratio": 0.07,
       "max_bridge_ratio": 0.1,
-      "orphan_clusters": 0
+      "orphan_clusters": 1
     },
     {
       "min_size_ratio": 0.07,
@@ -84,27 +84,27 @@
   "decay_sweep": [
     {
       "decay_threshold": 0.2,
-      "stagnant_concepts": 40
+      "stagnant_concepts": 0
     },
     {
       "decay_threshold": 0.3,
-      "stagnant_concepts": 40
+      "stagnant_concepts": 0
     },
     {
       "decay_threshold": 0.4,
-      "stagnant_concepts": 40
+      "stagnant_concepts": 0
     },
     {
       "decay_threshold": 0.5,
-      "stagnant_concepts": 40
+      "stagnant_concepts": 0
     },
     {
       "decay_threshold": 0.6,
-      "stagnant_concepts": 38
+      "stagnant_concepts": 0
     },
     {
       "decay_threshold": 0.7,
-      "stagnant_concepts": 32
+      "stagnant_concepts": 0
     }
   ],
   "entity_resolution_sweep": [
@@ -183,80 +183,80 @@
     {
       "fuzzy_threshold": 85,
       "cosine_threshold": 0.85,
-      "entities_after": 550,
-      "entities_merged": 63
+      "entities_after": 585,
+      "entities_merged": 28
     },
     {
       "fuzzy_threshold": 85,
       "cosine_threshold": 0.9,
-      "entities_after": 568,
-      "entities_merged": 45
+      "entities_after": 585,
+      "entities_merged": 28
     },
     {
       "fuzzy_threshold": 85,
       "cosine_threshold": 0.95,
-      "entities_after": 583,
-      "entities_merged": 30
+      "entities_after": 585,
+      "entities_merged": 28
     },
     {
       "fuzzy_threshold": 90,
       "cosine_threshold": 0.75,
-      "entities_after": 500,
-      "entities_merged": 113
+      "entities_after": 599,
+      "entities_merged": 14
     },
     {
       "fuzzy_threshold": 90,
       "cosine_threshold": 0.8,
-      "entities_after": 532,
-      "entities_merged": 81
+      "entities_after": 599,
+      "entities_merged": 14
     },
     {
       "fuzzy_threshold": 90,
       "cosine_threshold": 0.85,
-      "entities_after": 552,
-      "entities_merged": 61
+      "entities_after": 599,
+      "entities_merged": 14
     },
     {
       "fuzzy_threshold": 90,
       "cosine_threshold": 0.9,
-      "entities_after": 570,
-      "entities_merged": 43
+      "entities_after": 599,
+      "entities_merged": 14
     },
     {
       "fuzzy_threshold": 90,
       "cosine_threshold": 0.95,
-      "entities_after": 594,
-      "entities_merged": 19
+      "entities_after": 599,
+      "entities_merged": 14
     },
     {
       "fuzzy_threshold": 95,
       "cosine_threshold": 0.75,
-      "entities_after": 502,
-      "entities_merged": 111
+      "entities_after": 604,
+      "entities_merged": 9
     },
     {
       "fuzzy_threshold": 95,
       "cosine_threshold": 0.8,
-      "entities_after": 534,
-      "entities_merged": 79
+      "entities_after": 604,
+      "entities_merged": 9
     },
     {
       "fuzzy_threshold": 95,
       "cosine_threshold": 0.85,
-      "entities_after": 555,
-      "entities_merged": 58
+      "entities_after": 604,
+      "entities_merged": 9
     },
     {
       "fuzzy_threshold": 95,
       "cosine_threshold": 0.9,
-      "entities_after": 573,
-      "entities_merged": 40
+      "entities_after": 604,
+      "entities_merged": 9
     },
     {
       "fuzzy_threshold": 95,
       "cosine_threshold": 0.95,
-      "entities_after": 598,
-      "entities_merged": 15
+      "entities_after": 604,
+      "entities_merged": 9
     }
   ]
 }

@@ -1,0 +1,357 @@
+{
+  "87.49% accuracy": [
+    "98.39% accuracy"
+  ],
+  "access control [CONCEPT]": [
+    "access controls"
+  ],
+  "API Gateway [CONCEPT]": [
+    "API gateway architectures",
+    "API gateway technology"
+  ],
+  "API Gateway [METHOD]": [
+    "API gateway implementations",
+    "API gateways [METHOD]"
+  ],
+  "API Gateway [TOOL]": [
+    "API gateways [TOOL]",
+    "API-Gateway",
+    "Application Programming Interface (API) gateway"
+  ],
+  "authentication and authorization process": [
+    "user/client authentication and authorization"
+  ],
+  "authentication mechanisms for microservices": [
+    "authentication and authorization in microservices"
+  ],
+  "Autoencoder": [
+    "autoencoders"
+  ],
+  "balance between security defense and quality of service": [
+    "defense effectiveness of the system while ensuring the quality of service"
+  ],
+  "blockchain [METHOD]": [
+    "blockchain technology"
+  ],
+  "catalog of microservices security practices": [
+    "catalog of 28 microservices security practices"
+  ],
+  "CI/CD pipelines": [
+    "Continuous Integration/Continuous Delivery (CI/CD) pipelines"
+  ],
+  "cloud-native systems": [
+    "cloud-native applications"
+  ],
+  "container environments": [
+    "containerized environment",
+    "containerized environments"
+  ],
+  "container security": [
+    "cloud and container security"
+  ],
+  "container security framework": [
+    "Container security mechanisms"
+  ],
+  "Containerization": [
+    "lightweight containerization"
+  ],
+  "containerized systems": [
+    "containerized applications"
+  ],
+  "context-aware authorization frameworks": [
+    "context-aware authorization mechanisms"
+  ],
+  "Convolutional Neural Network": [
+    "Convolutional Neural Networks",
+    "Convolutional Neural Networks (CNN)"
+  ],
+  "deep learning": [
+    "deep neural network"
+  ],
+  "deep learning-based intrusion detection": [
+    "deep-learning-based intrusion detection framework"
+  ],
+  "detection accuracy": [
+    "detection accuracies"
+  ],
+  "detection rate": [
+    "detection rates"
+  ],
+  "DevSecOps practices": [
+    "DevSecOps methodologies"
+  ],
+  "distributed tracing [METHOD]": [
+    "observability patterns of distributed tracing"
+  ],
+  "distributed tracing [TOOL]": [
+    "distributed tracing technologies"
+  ],
+  "Docker": [
+    "Docker containers"
+  ],
+  "domain-driven design": [
+    "Domain-Driven Design principles"
+  ],
+  "DoS attacks": [
+    "DDoS attacks"
+  ],
+  "EdgeX Foundry": [
+    "EdgeX Foundry framework"
+  ],
+  "Extended Berkeley Packet Filter": [
+    "extended Berkeley Packet Filter (eBPF)"
+  ],
+  "F1 score": [
+    "f1-score"
+  ],
+  "federated cloud systems": [
+    "federation cloud systems"
+  ],
+  "hybrid detection framework": [
+    "lightweight hybrid detection framework"
+  ],
+  "insider threat": [
+    "Insider Threats"
+  ],
+  "intrusion detection [CONCEPT]": [
+    "intrusion detection systems [CONCEPT]"
+  ],
+  "intrusion detection [METHOD]": [
+    "intrusion detection techniques"
+  ],
+  "IoT systems": [
+    "IoT systems security"
+  ],
+  "JSON Web Token authentication": [
+    "JSON Web Token (JWT) authentication"
+  ],
+  "Kubernetes": [
+    "Kubernetes environments"
+  ],
+  "Kubernetes cluster": [
+    "Kubernetes clusters"
+  ],
+  "Kubernetes microservice ecosystem": [
+    "Kubernetes microservices workflow"
+  ],
+  "Kubernetes orchestration": [
+    "Kubernetes orchestration platforms"
+  ],
+  "layered security model": [
+    "layered security framework"
+  ],
+  "machine learning": [
+    "machine learning algorithms",
+    "machine learning models [METHOD]"
+  ],
+  "mean time to detect security incidents": [
+    "mean time to detection of security incidents"
+  ],
+  "micro-services containers": [
+    "containerized microservices"
+  ],
+  "microsegmentation": [
+    "micro-segmentation"
+  ],
+  "microservice": [
+    "Microservices [METHOD]",
+    "microservices approach",
+    "Microservices-based Approach",
+    "microservices-based approaches"
+  ],
+  "Microservice Architecture [CONCEPT]": [
+    "microservice architectures [CONCEPT]",
+    "microservice software architecture",
+    "microservice-based architectures",
+    "Microservices Architecture [CONCEPT]",
+    "Microservices architectures [CONCEPT]"
+  ],
+  "microservice architecture [METHOD]": [
+    "Microservice Architectures [METHOD]",
+    "Microservices Architecture [METHOD]",
+    "microservices architectures [METHOD]",
+    "microservices-based architecture"
+  ],
+  "microservice environment": [
+    "microservices environment",
+    "microservices environments",
+    "SDN-microservices environments"
+  ],
+  "microservice intrusion detection": [
+    "attack detection in microservice applications"
+  ],
+  "microservice scenario": [
+    "microservice scenarios"
+  ],
+  "microservice security": [
+    "issues of security in microservices",
+    "Microservices security",
+    "microservices security challenges",
+    "microservices security research",
+    "securing microservices",
+    "security issues in microservices systems",
+    "security of microservice applications",
+    "security of microservice systems",
+    "security problems in microservices"
+  ],
+  "microservice security literature": [
+    "comprehensive microservices security"
+  ],
+  "microservice-based applications": [
+    "microservices-based REST API applications"
+  ],
+  "microservice-based architecture optimization": [
+    "comprehensive approach to optimizing the performance of microservices architecture"
+  ],
+  "Microservices [CONCEPT]": [
+    "microservice applications",
+    "microservice based application",
+    "microservice systems",
+    "microservice-based systems",
+    "microservices applications",
+    "microservices framework",
+    "microservices platform",
+    "microservices system",
+    "microservices-based system",
+    "microservices-based systems"
+  ],
+  "microservices communication": [
+    "securing microservices communication"
+  ],
+  "microservices design patterns": [
+    "microservices-oriented design principles"
+  ],
+  "microservices-based cloud-edge architecture": [
+    "Microservices-based edge computing framework"
+  ],
+  "modern containerized cloud microservices": [
+    "container cloud and microservice architectures"
+  ],
+  "OAuth": [
+    "OAuth2 [METHOD]"
+  ],
+  "OAuth2 [TOOL]": [
+    "OAuth 2.0 [TOOL]",
+    "OAuth 2.1"
+  ],
+  "open banking": [
+    "open banking ecosystems"
+  ],
+  "Open Policy Agent": [
+    "Open Policy Agent (OPA)"
+  ],
+  "perimeter-based security models": [
+    "Traditional perimeter-based security models"
+  ],
+  "Proposed architecture": [
+    "Proposed ICPS Architecture"
+  ],
+  "real-time threat detection": [
+    "real-time threat detection and responses"
+  ],
+  "Reinforcement Learning": [
+    "deep reinforcement learning"
+  ],
+  "response time": [
+    "response times"
+  ],
+  "Role-Based Access Control": [
+    "token-based access control"
+  ],
+  "Security [CONCEPT]": [
+    "security protection"
+  ],
+  "security issues": [
+    "security concerns"
+  ],
+  "security microservices design and implementation": [
+    "methodology for designing and developing security microservices"
+  ],
+  "security problems in microservices-based systems": [
+    "inter-service security in microservice architectures",
+    "security problems of the microservice architecture"
+  ],
+  "security risks of microservices": [
+    "threats specific to microservices"
+  ],
+  "security scanning tools": [
+    "existing security scanning tools"
+  ],
+  "security testing": [
+    "automated security testing"
+  ],
+  "Service Mesh": [
+    "service mesh integration",
+    "Service meshes [TOOL]"
+  ],
+  "service meshes [METHOD]": [
+    "traditional service meshes"
+  ],
+  "smart contract": [
+    "smart contracts"
+  ],
+  "SPIFFE-SPIRE": [
+    "SPIFFE/SPIRE"
+  ],
+  "Spring Boot": [
+    "Java Spring Boot"
+  ],
+  "Spring Framework": [
+    "Spring Boot framework"
+  ],
+  "Spring Security": [
+    "Spring Security ecosystem"
+  ],
+  "static analysis": [
+    "static code analysis"
+  ],
+  "STIDE": [
+    "STRIDE"
+  ],
+  "systematic review": [
+    "Systematic Literature Review"
+  ],
+  "threat detection accuracy": [
+    "accuracy of threat detection"
+  ],
+  "threat modeling": [
+    "automated threat modeling",
+    "threat modeling framework"
+  ],
+  "Traditional intrusion detection systems": [
+    "conventional intrusion detection systems"
+  ],
+  "Two-Factor Authentication": [
+    "multi-factor authentication"
+  ],
+  "vulnerabilities": [
+    "security vulnerabilities"
+  ],
+  "Zero Trust": [
+    "Zero Trust principles",
+    "Zero-Trust concept"
+  ],
+  "Zero Trust controls": [
+    "zero trust access control"
+  ],
+  "Zero Trust Security [CONCEPT]": [
+    "Zero Trust Security Model [CONCEPT]",
+    "Zero Trust security principles [CONCEPT]"
+  ],
+  "Zero Trust Security [METHOD]": [
+    "Zero Trust Architecture",
+    "Zero Trust Security Model [METHOD]"
+  ],
+  "zero-trust access": [
+    "Zero-Trust enforcement"
+  ],
+  "Zero-Trust Architecture [CONCEPT]": [
+    "Zero Trust Architectures",
+    "Zero-Trust Architecture principles",
+    "Zero-Trust security architectures"
+  ],
+  "zero-trust framework": [
+    "zero-trust architecture [METHOD]",
+    "zero-trust frameworks"
+  ]
+}

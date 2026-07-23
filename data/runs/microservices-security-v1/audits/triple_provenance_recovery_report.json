@@ -1,0 +1,37 @@
+{
+  "scope": "Legacy provenance recovery and an unlabelled human-audit packet. No human correctness labels are inferred by this tool.",
+  "raw_resolved_index_alignment": true,
+  "recovery_method": "unique case/whitespace-normalized exact evidence-quote substring match",
+  "counts": {
+    "raw_triples": 800,
+    "unique_exact_quote_matches": 774,
+    "unmatched_quotes": 26,
+    "ambiguous_quotes": 0,
+    "recovered_fraction": 0.9675
+  },
+  "not_recoverable_from_legacy_files": [
+    "model name/version",
+    "prompt version",
+    "sentence offsets",
+    "source paper for unmatched quotes"
+  ],
+  "human_audit_protocol": {
+    "packet": "triple_extraction_audit_packet.csv",
+    "sample_size": 200,
+    "seed": 42,
+    "design": "coverage-first strata: relation type x model-reported score bin x publication year",
+    "available_score_bins": [
+      "high_[0.70,1.00]"
+    ],
+    "represented_strata": 63,
+    "recommended_labels": [
+      "subject_correct",
+      "object_correct",
+      "relation_correct",
+      "entity_types_correct",
+      "evidence_quote_supports_triple",
+      "source_metadata_correct",
+      "triple_specific_enough"
+    ]
+  }
+}

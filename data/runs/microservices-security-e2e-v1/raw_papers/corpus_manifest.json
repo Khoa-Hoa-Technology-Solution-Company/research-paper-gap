@@ -1,0 +1,29 @@
+{
+  "schema_version": "lexical-reproduction-corpus-v1",
+  "status": "Deterministic lexical corpus snapshot only; not a human-adjudicated corpus and not an end-to-end KG-TABI result.",
+  "source_snapshot": {
+    "path": "D:\\Workspace\\research-paper-gap\\data\\runs\\microservices-security-v1\\raw_papers\\papers_metadata.json",
+    "sha256": "5c33cf9993f1cd1e274782dd059834ce1c3627818f9d8167062a645a07447beb",
+    "retrieved_records": 314
+  },
+  "screening": {
+    "function": "src.fetch_papers.screen_relevance_lexical",
+    "function_sha256": "b9d470443890c365e0b623834bb132e1a016e03e7f813dc3490798f1263ce525",
+    "input": "lower-cased title concatenated with abstract",
+    "include_rule": "at least one architecture term AND at least one security term",
+    "retained_records": 185,
+    "decision_file": "screening_decisions.csv"
+  },
+  "text_scope": {
+    "chunks": 185,
+    "section_label": "abstract",
+    "full_text_chunks": 0
+  },
+  "not_performed": [
+    "human screening adjudication",
+    "triple extraction",
+    "entity resolution",
+    "graph construction",
+    "TABI generation"
+  ]
+}

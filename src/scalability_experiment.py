@@ -55,11 +55,14 @@ def run_scalability_experiment():
     with open(raw_path, "r", encoding="utf-8") as f:
         raw_triples = json.load(f)
 
+    # This is a synthetic triple-replication benchmark, not a paper-count
+    # experiment. It starts from raw triples and temporarily disables normal
+    # entity merging so that graph size can be controlled.
     scales = [
-        {"name": "21 papers (1x)", "factor": 1, "suffix": ""},
-        {"name": "50 papers (2.4x)", "factor": 3, "suffix": "p50"},
-        {"name": "100 papers (4.8x)", "factor": 5, "suffix": "p100"},
-        {"name": "200 papers (9.5x)", "factor": 10, "suffix": "p200"},
+        {"name": "Raw-triple seed (1x)", "factor": 1, "suffix": ""},
+        {"name": "Synthetic replication (3x)", "factor": 3, "suffix": "x3"},
+        {"name": "Synthetic replication (5x)", "factor": 5, "suffix": "x5"},
+        {"name": "Synthetic replication (10x)", "factor": 10, "suffix": "x10"},
     ]
 
     results = []

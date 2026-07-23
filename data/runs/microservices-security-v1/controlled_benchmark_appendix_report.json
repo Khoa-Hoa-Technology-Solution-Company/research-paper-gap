@@ -1,0 +1,623 @@
+{
+  "report_version": "1.0",
+  "scope": "Topology-stage structural-orphan detection only. It does not validate TABI claim generation, evidence support, novelty, or research-gap usefulness.",
+  "source": {
+    "run_id": "microservices-security-v1",
+    "summary_path": "data\\runs\\microservices-security-v1\\controlled_benchmark_multicondition_results.json",
+    "summary_sha256": "39d47dd699fd2f4ef24826ac91e027f9c2e43eaa0031f1d6861b5099ac103bc4",
+    "trials_path": "data\\runs\\microservices-security-v1\\controlled_benchmark_multicondition_trials.jsonl",
+    "trials_sha256": "312c21d6ea6f2bc4b8bcbd5266d62873897b9e54c800c9c158ba5ac86cd975b9",
+    "resolved_triples_sha256": "dd3009127e1070f448849141d8a6a079287d2058eedb7b570162263030bbceaa"
+  },
+  "primary_analysis_unit": {
+    "unit": "one target-community by unique selected-edge-mask instance",
+    "deduplication": "Repeated masking seeds that select the same edge set for the same target, condition, and mask level count once in primary summaries.",
+    "targeted_positive_definition": "The deliberately boundary-masked target community.",
+    "true_positive": "One output one-to-one Jaccard-matched to the induced target at J >= 0.80.",
+    "false_negative": "An induced target without such a matched output.",
+    "false_positive": "Any other orphan output, including a match to a non-target baseline community or an output unmatched to every baseline community.",
+    "undefined_metric_convention": "Precision and F1 are undefined when there are no outputs. All P/R/F1 metrics are undefined for no-positive controls."
+  },
+  "interval_method": {
+    "metric_intervals": "2,000-resample percentile bootstrap over unique perturbations, not repeated identical seed trials.",
+    "rate_intervals": "Wilson 95% intervals; descriptive because target communities derive from this single graph.",
+    "bootstrap_iterations": 2000
+  },
+  "primary_end_to_end": [
+    {
+      "mask_level": 0.25,
+      "unique_target_mask_instances": 83,
+      "nominal_seeded_trials": 90,
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 83,
+      "detected_orphan_outputs": 0,
+      "precision": null,
+      "precision_bootstrap_95_ci": null,
+      "recall": 0.0,
+      "recall_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "f1": null,
+      "f1_bootstrap_95_ci": null
+    },
+    {
+      "mask_level": 0.5,
+      "unique_target_mask_instances": 86,
+      "nominal_seeded_trials": 90,
+      "true_positives": 19,
+      "false_positives": 3,
+      "false_negatives": 67,
+      "detected_orphan_outputs": 22,
+      "precision": 0.86363636,
+      "precision_bootstrap_95_ci": [
+        0.7,
+        1.0
+      ],
+      "recall": 0.22093023,
+      "recall_bootstrap_95_ci": [
+        0.13953488,
+        0.31395349
+      ],
+      "f1": 0.35185185,
+      "f1_bootstrap_95_ci": [
+        0.23762376,
+        0.46153846
+      ]
+    },
+    {
+      "mask_level": 0.75,
+      "unique_target_mask_instances": 75,
+      "nominal_seeded_trials": 90,
+      "true_positives": 73,
+      "false_positives": 6,
+      "false_negatives": 2,
+      "detected_orphan_outputs": 79,
+      "precision": 0.92405063,
+      "precision_bootstrap_95_ci": [
+        0.86904762,
+        0.97368421
+      ],
+      "recall": 0.97333333,
+      "recall_bootstrap_95_ci": [
+        0.93333333,
+        1.0
+      ],
+      "f1": 0.94805195,
+      "f1_bootstrap_95_ci": [
+        0.91390728,
+        0.98013245
+      ]
+    },
+    {
+      "mask_level": 1.0,
+      "unique_target_mask_instances": 3,
+      "nominal_seeded_trials": 90,
+      "true_positives": 3,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "detected_orphan_outputs": 4,
+      "precision": 0.75,
+      "precision_bootstrap_95_ci": [
+        0.5,
+        1.0
+      ],
+      "recall": 1.0,
+      "recall_bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "f1": 0.85714286,
+      "f1_bootstrap_95_ci": [
+        0.66666667,
+        1.0
+      ]
+    }
+  ],
+  "metric_only": [
+    {
+      "mask_level": 0.25,
+      "unique_target_mask_instances": 83,
+      "nominal_seeded_trials": 90,
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 83,
+      "detected_orphan_outputs": 0,
+      "precision": null,
+      "precision_bootstrap_95_ci": null,
+      "recall": 0.0,
+      "recall_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "f1": null,
+      "f1_bootstrap_95_ci": null
+    },
+    {
+      "mask_level": 0.5,
+      "unique_target_mask_instances": 86,
+      "nominal_seeded_trials": 90,
+      "true_positives": 26,
+      "false_positives": 4,
+      "false_negatives": 60,
+      "detected_orphan_outputs": 30,
+      "precision": 0.86666667,
+      "precision_bootstrap_95_ci": [
+        0.73076923,
+        0.96875
+      ],
+      "recall": 0.30232558,
+      "recall_bootstrap_95_ci": [
+        0.20930233,
+        0.39534884
+      ],
+      "f1": 0.44827586,
+      "f1_bootstrap_95_ci": [
+        0.33027523,
+        0.55555556
+      ]
+    },
+    {
+      "mask_level": 0.75,
+      "unique_target_mask_instances": 75,
+      "nominal_seeded_trials": 90,
+      "true_positives": 75,
+      "false_positives": 8,
+      "false_negatives": 0,
+      "detected_orphan_outputs": 83,
+      "precision": 0.90361446,
+      "precision_bootstrap_95_ci": [
+        0.85227273,
+        0.96153846
+      ],
+      "recall": 1.0,
+      "recall_bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "f1": 0.94936709,
+      "f1_bootstrap_95_ci": [
+        0.9202454,
+        0.98039216
+      ]
+    },
+    {
+      "mask_level": 1.0,
+      "unique_target_mask_instances": 3,
+      "nominal_seeded_trials": 90,
+      "true_positives": 3,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "detected_orphan_outputs": 4,
+      "precision": 0.75,
+      "precision_bootstrap_95_ci": [
+        0.5,
+        1.0
+      ],
+      "recall": 1.0,
+      "recall_bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "f1": 0.85714286,
+      "f1_bootstrap_95_ci": [
+        0.66666667,
+        1.0
+      ]
+    }
+  ],
+  "negative_controls": {
+    "end_to_end": [
+      {
+        "condition": "internal_edge_control",
+        "mask_level": 0.25,
+        "unique_perturbations": 90,
+        "nominal_seeded_trials": 90,
+        "detected_orphan_outputs": 0,
+        "false_positive_outputs": 0,
+        "any_output_rate": 0.0,
+        "any_output_wilson_95_ci": [
+          0.0,
+          0.04093563
+        ]
+      },
+      {
+        "condition": "internal_edge_control",
+        "mask_level": 0.5,
+        "unique_perturbations": 90,
+        "nominal_seeded_trials": 90,
+        "detected_orphan_outputs": 1,
+        "false_positive_outputs": 1,
+        "any_output_rate": 0.01111111,
+        "any_output_wilson_95_ci": [
+          0.00196408,
+          0.06028408
+        ]
+      },
+      {
+        "condition": "internal_edge_control",
+        "mask_level": 0.75,
+        "unique_perturbations": 90,
+        "nominal_seeded_trials": 90,
+        "detected_orphan_outputs": 1,
+        "false_positive_outputs": 1,
+        "any_output_rate": 0.01111111,
+        "any_output_wilson_95_ci": [
+          0.00196408,
+          0.06028408
+        ]
+      },
+      {
+        "condition": "internal_edge_control",
+        "mask_level": 1.0,
+        "unique_perturbations": 90,
+        "nominal_seeded_trials": 90,
+        "detected_orphan_outputs": 0,
+        "false_positive_outputs": 0,
+        "any_output_rate": 0.0,
+        "any_output_wilson_95_ci": [
+          0.0,
+          0.04093563
+        ]
+      },
+      {
+        "condition": "global_random_edge_control",
+        "mask_level": 0.25,
+        "unique_perturbations": 90,
+        "nominal_seeded_trials": 90,
+        "detected_orphan_outputs": 0,
+        "false_positive_outputs": 0,
+        "any_output_rate": 0.0,
+        "any_output_wilson_95_ci": [
+          0.0,
+          0.04093563
+        ]
+      },
+      {
+        "condition": "global_random_edge_control",
+        "mask_level": 0.5,
+        "unique_perturbations": 90,
+        "nominal_seeded_trials": 90,
+        "detected_orphan_outputs": 0,
+        "false_positive_outputs": 0,
+        "any_output_rate": 0.0,
+        "any_output_wilson_95_ci": [
+          0.0,
+          0.04093563
+        ]
+      },
+      {
+        "condition": "global_random_edge_control",
+        "mask_level": 0.75,
+        "unique_perturbations": 90,
+        "nominal_seeded_trials": 90,
+        "detected_orphan_outputs": 0,
+        "false_positive_outputs": 0,
+        "any_output_rate": 0.0,
+        "any_output_wilson_95_ci": [
+          0.0,
+          0.04093563
+        ]
+      },
+      {
+        "condition": "global_random_edge_control",
+        "mask_level": 1.0,
+        "unique_perturbations": 90,
+        "nominal_seeded_trials": 90,
+        "detected_orphan_outputs": 0,
+        "false_positive_outputs": 0,
+        "any_output_rate": 0.0,
+        "any_output_wilson_95_ci": [
+          0.0,
+          0.04093563
+        ]
+      }
+    ],
+    "metric_only": [
+      {
+        "condition": "internal_edge_control",
+        "mask_level": 0.25,
+        "unique_perturbations": 90,
+        "nominal_seeded_trials": 90,
+        "detected_orphan_outputs": 0,
+        "false_positive_outputs": 0,
+        "any_output_rate": 0.0,
+        "any_output_wilson_95_ci": [
+          0.0,
+          0.04093563
+        ]
+      },
+      {
+        "condition": "internal_edge_control",
+        "mask_level": 0.5,
+        "unique_perturbations": 90,
+        "nominal_seeded_trials": 90,
+        "detected_orphan_outputs": 0,
+        "false_positive_outputs": 0,
+        "any_output_rate": 0.0,
+        "any_output_wilson_95_ci": [
+          0.0,
+          0.04093563
+        ]
+      },
+      {
+        "condition": "internal_edge_control",
+        "mask_level": 0.75,
+        "unique_perturbations": 90,
+        "nominal_seeded_trials": 90,
+        "detected_orphan_outputs": 0,
+        "false_positive_outputs": 0,
+        "any_output_rate": 0.0,
+        "any_output_wilson_95_ci": [
+          0.0,
+          0.04093563
+        ]
+      },
+      {
+        "condition": "internal_edge_control",
+        "mask_level": 1.0,
+        "unique_perturbations": 90,
+        "nominal_seeded_trials": 90,
+        "detected_orphan_outputs": 0,
+        "false_positive_outputs": 0,
+        "any_output_rate": 0.0,
+        "any_output_wilson_95_ci": [
+          0.0,
+          0.04093563
+        ]
+      },
+      {
+        "condition": "global_random_edge_control",
+        "mask_level": 0.25,
+        "unique_perturbations": 90,
+        "nominal_seeded_trials": 90,
+        "detected_orphan_outputs": 0,
+        "false_positive_outputs": 0,
+        "any_output_rate": 0.0,
+        "any_output_wilson_95_ci": [
+          0.0,
+          0.04093563
+        ]
+      },
+      {
+        "condition": "global_random_edge_control",
+        "mask_level": 0.5,
+        "unique_perturbations": 90,
+        "nominal_seeded_trials": 90,
+        "detected_orphan_outputs": 0,
+        "false_positive_outputs": 0,
+        "any_output_rate": 0.0,
+        "any_output_wilson_95_ci": [
+          0.0,
+          0.04093563
+        ]
+      },
+      {
+        "condition": "global_random_edge_control",
+        "mask_level": 0.75,
+        "unique_perturbations": 90,
+        "nominal_seeded_trials": 90,
+        "detected_orphan_outputs": 0,
+        "false_positive_outputs": 0,
+        "any_output_rate": 0.0,
+        "any_output_wilson_95_ci": [
+          0.0,
+          0.04093563
+        ]
+      },
+      {
+        "condition": "global_random_edge_control",
+        "mask_level": 1.0,
+        "unique_perturbations": 90,
+        "nominal_seeded_trials": 90,
+        "detected_orphan_outputs": 0,
+        "false_positive_outputs": 0,
+        "any_output_rate": 0.0,
+        "any_output_wilson_95_ci": [
+          0.0,
+          0.04093563
+        ]
+      }
+    ]
+  },
+  "structural_reference_comparison": {
+    "status": "implemented_as_metric_only_threshold_free_comparison",
+    "measurement_scope": "The baseline Louvain membership is fixed; each perturbation has one induced positive among the three prequalified communities. These are descriptive rank comparisons, not calibrated end-to-end detector tests.",
+    "post_hoc_status": "These supplemental reference rankings were added after reviewer feedback. They use no fitted cutoff or tuned parameter and do not alter the benchmark's primary end-to-end results.",
+    "candidate_universe": {
+      "rule": "Communities satisfying the pre-specified 5% size gate in the baseline partition.",
+      "count": 3,
+      "community_ids": [
+        1,
+        23,
+        118
+      ]
+    },
+    "score_definitions": {
+      "bridge_ratio": "Rank by negative R_bridge, where R_bridge = cut(S, not-S) / (internal(S) + cut(S, not-S)); lower is more isolated.",
+      "conductance": "Rank by negative phi(S), where phi(S) = cut(S, not-S) / min(vol(S), vol(not-S)); lower is more isolated.",
+      "normalized_cut": "Rank by negative Ncut(S, not-S), where Ncut = cut(S, not-S)/vol(S) + cut(S, not-S)/vol(not-S); lower is more isolated.",
+      "community_size": "Rank by fixed community size only; higher is treated as more likely.",
+      "external_edge_fraction": "Not an independent comparator here: the unweighted external-adjacency fraction with denominator internal + external is exactly R_bridge."
+    },
+    "observed_bridge_conductance_relation": "For every evaluated candidate score instance, vol(S) <= vol(not-S). Therefore conductance equals R_bridge / (2 - R_bridge), a monotonic transform of the bridge ratio; identical rank results are expected in this fixed candidate universe.",
+    "bridge_conductance_monotonic_transform_coverage": {
+      "candidate_score_instances": 741,
+      "instances_with_vol_s_not_exceeding_vol_complement": 741
+    },
+    "why_no_conductance_f1": "Neither a conductance nor normalized-cut cutoff was pre-specified or calibrated on an independent development set. Selecting either after inspecting these masks would create an optimistic comparison, so both are reported only as threshold-free rank scores.",
+    "random_score_reference": "The random-score reference is the exact expectation for iid continuous scores independent of the candidate and perturbation: pairwise AUC = 0.5 and top-1 = 1/K for K candidates. An arbitrary seeded random draw is intentionally omitted because it would add Monte-Carlo noise without testing a different detector.",
+    "why_no_end_to_end_baseline_claim": "After Louvain is rerun, a baseline community can split, merge, or disappear; a fair conductance detector would require a separately specified community proposal stage and a held-out calibration protocol.",
+    "rows": [
+      {
+        "mask_level": 0.25,
+        "unique_target_mask_instances": 83,
+        "candidate_communities_after_fixed_size_gate": 3,
+        "candidate_score_instances": 249,
+        "conductance_monotonic_transform_instances": 249,
+        "threshold_free_rank_scores": {
+          "bridge_ratio": {
+            "conditional_pairwise_auc": 0.6690376,
+            "tie_aware_top1_rate": 0.44578313
+          },
+          "conductance": {
+            "conditional_pairwise_auc": 0.6690376,
+            "tie_aware_top1_rate": 0.44578313
+          },
+          "normalized_cut": {
+            "conditional_pairwise_auc": 0.6690376,
+            "tie_aware_top1_rate": 0.44578313
+          },
+          "community_size": {
+            "conditional_pairwise_auc": 0.54216867,
+            "tie_aware_top1_rate": 0.36144578
+          }
+        },
+        "random_score_expectation": {
+          "conditional_pairwise_auc": 0.5,
+          "tie_aware_top1_rate": 0.3333333333333333
+        },
+        "size_only_reference": {
+          "rule": "Return every community in the fixed 5%-size-gated candidate universe.",
+          "true_positives": 83,
+          "false_positives": 166,
+          "false_negatives": 0,
+          "precision": 0.33333333,
+          "recall": 1.0,
+          "f1": 0.5
+        }
+      },
+      {
+        "mask_level": 0.5,
+        "unique_target_mask_instances": 86,
+        "candidate_communities_after_fixed_size_gate": 3,
+        "candidate_score_instances": 258,
+        "conductance_monotonic_transform_instances": 258,
+        "threshold_free_rank_scores": {
+          "bridge_ratio": {
+            "conditional_pairwise_auc": 0.88642509,
+            "tie_aware_top1_rate": 0.6744186
+          },
+          "conductance": {
+            "conditional_pairwise_auc": 0.88642509,
+            "tie_aware_top1_rate": 0.6744186
+          },
+          "normalized_cut": {
+            "conditional_pairwise_auc": 0.86817198,
+            "tie_aware_top1_rate": 0.6744186
+          },
+          "community_size": {
+            "conditional_pairwise_auc": 0.52325581,
+            "tie_aware_top1_rate": 0.34883721
+          }
+        },
+        "random_score_expectation": {
+          "conditional_pairwise_auc": 0.5,
+          "tie_aware_top1_rate": 0.3333333333333333
+        },
+        "size_only_reference": {
+          "rule": "Return every community in the fixed 5%-size-gated candidate universe.",
+          "true_positives": 86,
+          "false_positives": 172,
+          "false_negatives": 0,
+          "precision": 0.33333333,
+          "recall": 1.0,
+          "f1": 0.5
+        }
+      },
+      {
+        "mask_level": 0.75,
+        "unique_target_mask_instances": 75,
+        "candidate_communities_after_fixed_size_gate": 3,
+        "candidate_score_instances": 225,
+        "conductance_monotonic_transform_instances": 225,
+        "threshold_free_rank_scores": {
+          "bridge_ratio": {
+            "conditional_pairwise_auc": 1.0,
+            "tie_aware_top1_rate": 1.0
+          },
+          "conductance": {
+            "conditional_pairwise_auc": 1.0,
+            "tie_aware_top1_rate": 1.0
+          },
+          "normalized_cut": {
+            "conditional_pairwise_auc": 1.0,
+            "tie_aware_top1_rate": 1.0
+          },
+          "community_size": {
+            "conditional_pairwise_auc": 0.58,
+            "tie_aware_top1_rate": 0.4
+          }
+        },
+        "random_score_expectation": {
+          "conditional_pairwise_auc": 0.5,
+          "tie_aware_top1_rate": 0.3333333333333333
+        },
+        "size_only_reference": {
+          "rule": "Return every community in the fixed 5%-size-gated candidate universe.",
+          "true_positives": 75,
+          "false_positives": 150,
+          "false_negatives": 0,
+          "precision": 0.33333333,
+          "recall": 1.0,
+          "f1": 0.5
+        }
+      },
+      {
+        "mask_level": 1.0,
+        "unique_target_mask_instances": 3,
+        "candidate_communities_after_fixed_size_gate": 3,
+        "candidate_score_instances": 9,
+        "conductance_monotonic_transform_instances": 9,
+        "threshold_free_rank_scores": {
+          "bridge_ratio": {
+            "conditional_pairwise_auc": 1.0,
+            "tie_aware_top1_rate": 1.0
+          },
+          "conductance": {
+            "conditional_pairwise_auc": 1.0,
+            "tie_aware_top1_rate": 1.0
+          },
+          "normalized_cut": {
+            "conditional_pairwise_auc": 1.0,
+            "tie_aware_top1_rate": 1.0
+          },
+          "community_size": {
+            "conditional_pairwise_auc": 0.5,
+            "tie_aware_top1_rate": 0.33333333
+          }
+        },
+        "random_score_expectation": {
+          "conditional_pairwise_auc": 0.5,
+          "tie_aware_top1_rate": 0.3333333333333333
+        },
+        "size_only_reference": {
+          "rule": "Return every community in the fixed 5%-size-gated candidate universe.",
+          "true_positives": 3,
+          "false_positives": 6,
+          "false_negatives": 0,
+          "precision": 0.33333333,
+          "recall": 1.0,
+          "f1": 0.5
+        }
+      }
+    ]
+  },
+  "validation": {
+    "summary_groups_checked": 24,
+    "nominal_seeded_trials": 1080,
+    "unique_perturbations": 967,
+    "status": "passed",
+    "targeted_unique_masks_reconstructed": 247
+  },
+  "limitations": [
+    "The perturbations, targets, and candidate communities all come from one fixed legacy graph.",
+    "The comparison is a conditional structural test and cannot establish real-world gap-detection accuracy.",
+    "A calibrated conductance detector, an end-to-end community proposal baseline, and an external held-out corpus remain future work."
+  ],
+  "artifacts": {
+    "json": "data\\runs\\microservices-security-v1\\controlled_benchmark_appendix_report.json",
+    "markdown": "data\\runs\\microservices-security-v1\\controlled_benchmark_appendix_report.md"
+  }
+}

@@ -8,22 +8,20 @@ import sys
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from src import config
-from src.graph_analysis import build_graph
+from src.graph_analysis import build_graph, compute_temporal_decay, louvain_partition
 from src.entity_resolution import resolve_entities
 
 
 def sweep_louvain_thresholds(G):
     """Sweep Louvain size_ratio and bridge_ratio thresholds."""
-    import community as community_louvain
-
-    G_undirected = G.to_undirected()
-    partition = community_louvain.best_partition(G_undirected)
+    partition = louvain_partition(G)
 
     communities = {}
     for node, cid in partition.items():
         communities.setdefault(cid, []).append(node)
 
     total_nodes = G.number_of_nodes()
+    G_undirected = G.to_undirected()
     results = []
 
     size_ratios = [0.03, 0.05, 0.07, 0.10]
@@ -34,16 +32,11 @@ def sweep_louvain_thresholds(G):
             orphan_count = 0
             for cid, nodes in communities.items():
                 r_size = len(nodes) / total_nodes
-                outbound = 0
-                total_out = 0
-                for u in nodes:
-                    for v in G.successors(u):
-                        total_out += 1
-                        if v not in nodes:
-                            outbound += 1
-                r_bridge = outbound / total_out if total_out > 0 else 0.0
+                internal = sum(1 for u, v in G_undirected.edges() if u in nodes and v in nodes)
+                cross = sum(1 for u, v in G_undirected.edges() if (u in nodes) != (v in nodes))
+                r_bridge = cross / (internal + cross) if (internal + cross) else 0.0
 
-                if r_size >= sr and r_bridge < br:
+                if r_size >= sr and r_bridge <= br:
                     orphan_count += 1
 
             results.append({
@@ -56,34 +49,17 @@ def sweep_louvain_thresholds(G):
 
 
 def sweep_decay_thresholds(G):
-    """Sweep temporal decay threshold."""
-    all_years = []
-    for _, _, data in G.edges(data=True):
-        all_years.extend(data.get("years", [data.get("year")]))
-
-    if not all_years:
-        return []
-
-    max_year = max(all_years)
-    recent_period = [max_year - 1, max_year]
-
+    """Sweep the recent-activity threshold using the full trend-test logic."""
     results = []
     thresholds = [0.20, 0.30, 0.40, 0.50, 0.60, 0.70]
 
     for thresh in thresholds:
-        stagnant_count = 0
-        for v in G.nodes():
-            edge_years = []
-            for u, w, data in G.edges(data=True):
-                if u == v or w == v:
-                    edge_years.extend(data.get("years", [data.get("year")]))
-            total = len(edge_years)
-            if total < 3:
-                continue
-            recent = sum(1 for y in edge_years if y in recent_period)
-            decay = 1.0 - (recent / total)
-            if decay >= thresh:
-                stagnant_count += 1
+        original_threshold = config.TEMPORAL_DECAY_THRESHOLD
+        config.TEMPORAL_DECAY_THRESHOLD = thresh
+        try:
+            stagnant_count = len(compute_temporal_decay(G))
+        finally:
+            config.TEMPORAL_DECAY_THRESHOLD = original_threshold
         results.append({
             "decay_threshold": thresh,
             "stagnant_concepts": stagnant_count,
@@ -137,7 +113,7 @@ def sweep_entity_resolution_thresholds(raw_triples):
     return results
 
 
-def run_sensitivity_analysis():
+def run_sensitivity_analysis(skip_entity_resolution: bool = False):
     print("=" * 60)
     print("SENSITIVITY ANALYSIS")
     print("=" * 60)
@@ -167,12 +143,22 @@ def run_sensitivity_analysis():
     for r in decay_results:
         print(f"  {r['decay_threshold']:>16.2f} {r['stagnant_concepts']:>18}")
 
-    # 3. Entity Resolution threshold sweep
-    print("\n--- Entity Resolution Threshold Sweep ---")
-    er_results = sweep_entity_resolution_thresholds(raw_triples)
-    print(f"  {'Fuzzy':>6} {'Cosine':>8} {'Entities After':>15} {'Merged':>8}")
-    for r in er_results:
-        print(f"  {r['fuzzy_threshold']:>6} {r['cosine_threshold']:>8.2f} {r['entities_after']:>15} {r['entities_merged']:>8}")
+    # Entity resolution is unaffected by the Louvain random state. Reuse the
+    # previously recorded sweep when refreshing topology-only sensitivity.
+    er_results = []
+    if skip_entity_resolution:
+        existing_path = os.path.join(config.DATA_DIR, "sensitivity_results.json")
+        if os.path.exists(existing_path):
+            with open(existing_path, "r", encoding="utf-8") as f:
+                er_results = json.load(f).get("entity_resolution_sweep", [])
+        print("\n--- Entity Resolution Threshold Sweep ---")
+        print("[*] Reused prior deterministic ER sweep; not recomputed for this topology refresh.")
+    else:
+        print("\n--- Entity Resolution Threshold Sweep ---")
+        er_results = sweep_entity_resolution_thresholds(raw_triples)
+        print(f"  {'Fuzzy':>6} {'Cosine':>8} {'Entities After':>15} {'Merged':>8}")
+        for r in er_results:
+            print(f"  {r['fuzzy_threshold']:>6} {r['cosine_threshold']:>8.2f} {r['entities_after']:>15} {r['entities_merged']:>8}")
 
     # Save all results
     all_results = {
@@ -188,4 +174,13 @@ def run_sensitivity_analysis():
 
 
 if __name__ == "__main__":
-    run_sensitivity_analysis()
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Run KG-TABI sensitivity analysis.")
+    parser.add_argument(
+        "--skip-entity-resolution",
+        action="store_true",
+        help="Reuse the existing ER sweep while refreshing topology-only results.",
+    )
+    args = parser.parse_args()
+    run_sensitivity_analysis(skip_entity_resolution=args.skip_entity_resolution)

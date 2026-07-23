@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use KG-TABI, please cite the software and its immutable release once published."
+title: "KG-TABI: Design and Auditability of a Conservative Research-Gap Hypothesis Protocol"
+type: software
+authors:
+  - family-names: Hoa
+    given-names: Le Anh
+  - family-names: Hoang
+    given-names: Nguyen Duc
+  - family-names: Khoa
+    given-names: Phan Ly Van
+  - family-names: Thanh
+    given-names: Nguyen Dinh
+  - family-names: Anh
+    given-names: Ho Dinh
+  - family-names: Truong
+    given-names: Long
+repository-code: "https://github.com/Khoa-Hoa-Technology-Solution-Company/research-paper-gap"

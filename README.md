@@ -1,6 +1,8 @@
 # 🔬 KG-TABI: Knowledge Graph — Toulmin-Abductive Bucketed Inference
 
-> **Hệ thống tự động phát hiện khoảng trống nghiên cứu (Research Gap) bằng phân tích cấu trúc Đồ thị Tri thức kết hợp Suy luận Logic Toulmin.**
+> **Trạng thái nghiên cứu:** KG-TABI hiện là một protocol bảo thủ để tạo *giả thuyết về khoảng trống tiềm năng* cho chuyên gia kiểm tra. Kết quả paper-backed hiện tại là quyết định null; hệ thống chưa được chứng minh là tự động xác nhận research gap hoặc vượt baseline.
+
+> Các output thử nghiệm cũ ở thư mục `data/` gốc không phải bằng chứng cho bản thảo hiện tại. Chỉ các artifact được định danh trong `data/runs/` và reproducibility manifest mới hỗ trợ các con số trong bài. Xem [Artifact scope](docs/ARTIFACT_SCOPE.md).
 
 ---
 
@@ -21,7 +23,7 @@
 
 ## 🎯 Tổng quan
 
-**KG-TABI** là một framework end-to-end giải quyết bài toán: *"Làm thế nào để phát hiện các khoảng trống nghiên cứu ẩn (implicit research gaps) mà không bài báo đơn lẻ nào tự khai báo?"*
+**KG-TABI** là một framework nghiên cứu nhằm hỗ trợ câu hỏi: *"Làm thế nào đưa một tín hiệu cấu trúc hoặc thời gian của literature graph thành giả thuyết có thể audit, trước khi source closure và chuyên gia xác nhận?"*
 
 Thay vì chỉ đọc văn bản như các phương pháp truyền thống (RAG, LLM prompting), KG-TABI:
 
@@ -72,7 +74,7 @@ research-paper-gap/
 │   ├── llm_client.py             # Factory gọi LLM (OpenAI/Groq/Gemini) + retry logic
 │   ├── fetch_papers.py           # Stage 1: Tìm kiếm và sàng lọc bài báo
 │   ├── extract_triples.py        # Stage 2a: Trích xuất bộ ba (Subject, Relation, Object)
-│   ├── entity_resolution.py      # Stage 2b: Khử trùng lặp thực thể (Fuzzy + S-BERT)
+│   ├── entity_resolution.py      # Stage 2b: Khử trùng lặp typed entities (complete-link Fuzzy + S-BERT)
 │   ├── graph_analysis.py         # Stage 3: Phân tích cấu trúc topo đồ thị
 │   ├── tabi_inference.py         # Stage 4: Suy luận khoảng trống theo khung Toulmin
 │   ├── evaluate.py               # Stage 5: Đánh giá đối chứng (Jaccard, NLI, Uniqueness)
@@ -315,7 +317,7 @@ LLM đóng vai Nhà nghiên cứu cao cấp, nhận bằng chứng topo cụ th�
 | **Grounds** | Bằng chứng cấu trúc đồ thị (VD: "Community A và B không có liên kết nào") |
 | **Claim** | Phát biểu khoảng trống nghiên cứu (VD: "Cần tích hợp Autoencoder vào Envoy Proxy") |
 | **Warrant** | Giải thích chuyên môn tại sao kết nối này quan trọng |
-| **Bucket** | `more_probable` (khả thi ngay) hoặc `least_probable` (dài hạn/suy đoán) |
+| **Bucket** | `near_term_feasible` (khả thi gần hạn) hoặc `long_term_or_speculative` (dài hạn/suy đoán); không phải xác suất Claim đúng |
 
 Hệ thống sử dụng **3-shot prompting** với 3 ví dụ lập luận mẫu để đảm bảo chất lượng đầu ra.
 
@@ -375,7 +377,9 @@ Kết quả kiểm duyệt được lưu tự động vào `data/expert_reviews.
 
 ## 📊 Kết quả thực nghiệm
 
-Kết quả trên tập dữ liệu **100 bài báo thực tế** về **Research Gap Identification** (LLM: `gemini-3.5-flash-low`):
+> **Lưu ý legacy:** Bảng dưới đây là output phát triển cũ trên corpus DefineGap. NLI do mô hình chấm, số lượng output và một bản ghi dashboard không phải human-validated candidate-quality result và không được dùng làm bằng chứng trong bài báo hiện tại.
+
+Kết quả phát triển cũ trên tập dữ liệu **100 bài báo** về **Research Gap Identification** (LLM endpoint được cấu hình là `gemini-3.5-flash-low`):
 
 | Phương pháp | Total Gaps | Unique Gaps | Avg Words | NLI Entailment | Jaccard Overlap |
 |:---|:---:|:---:|:---:|:---:|:---:|
@@ -388,7 +392,7 @@ Kết quả trên tập dữ liệu **100 bài báo thực tế** về **Researc
 | B6 (HippoRAG) | 92 | 88 | 31.6 | 79.3% | 0.204 |
 
 **Nhận xét chính:**
-- KG-TABI đạt **76.1% NLI Entailment**, chứng minh phần lớn Claim được suy luận logic chặt chẽ từ bằng chứng topo.
+- KG-TABI có **76.1% NLI Entailment theo LLM judge** trong output legacy; con số này không chứng minh Claim đúng, mới, hữu ích hoặc được chuyên gia xác nhận.
 - **Jaccard Overlap thấp** (<0.22) cho thấy KG-TABI phát hiện các gaps **hoàn toàn mới** mà các phương pháp text-only hoặc RAG không tìm ra.
 - KG-TABI tạo ra ít gaps hơn (46) nhưng **97.8% là độc bản** (45/46), so với B2 tạo 300 gaps nhưng chất lượng NLI chỉ 65.7%.
 - Đồ thị tri thức gồm **550 nodes**, **425 edges**, phát hiện **4 cụm mồ côi** và **40 khái niệm đình trệ**.
@@ -431,7 +435,7 @@ Nếu dùng **API trả phí**, pipeline hoàn thành trong **1–2 phút**.
 
 ## 📄 Biên dịch LaTeX sang PDF
 
-Để biên dịch bài báo khoa học từ file nguồn [paper.tex](file:///d:/Workspace/research-paper-gap/paper.tex) sang định dạng PDF ([paper.pdf](file:///d:/Workspace/research-paper-gap/paper.pdf)), bạn cần cài đặt một bản phân phối LaTeX (như **MiKTeX** trên Windows hoặc **TeX Live** trên Linux/macOS).
+Để biên dịch bài báo khoa học từ file nguồn [paper.tex](paper.tex) sang định dạng PDF ([paper.pdf](paper.pdf)), bạn cần cài đặt một bản phân phối LaTeX (như **MiKTeX** trên Windows hoặc **TeX Live** trên Linux/macOS).
 
 ### 1. Sử dụng CLI (Command Line)
 Chạy lệnh sau trong thư mục gốc của dự án để biên dịch (chạy 2 lần để cập nhật đầy đủ số thứ tự bảng biểu và tài liệu tham khảo chéo):
@@ -461,6 +465,19 @@ pdflatex paper.tex
 pdflatex paper.tex
 ```
 
+### Kiểm tra trước khi đóng gói submission
+
+```powershell
+python -m unittest discover -s tests -p "test_*.py" -v
+latexmk -pdf -interaction=nonstopmode -halt-on-error paper.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error supplementary.tex
+python -m src.reproducibility_manifest --run-id microservices-security-e2e-v1
+```
+
+Manifest phải được tạo lại sau lần sửa cuối cùng đối với mã nguồn, artifact,
+`paper.tex`, `supplementary.tex`, hoặc hai PDF. Quy trình tag/DOI nằm tại
+[docs/IMMUTABLE_RELEASE.md](docs/IMMUTABLE_RELEASE.md).
+
 ---
 
 ## 📄 Trích dẫn
@@ -468,13 +485,13 @@ pdflatex paper.tex
 Nếu bạn sử dụng framework này trong nghiên cứu, vui lòng trích dẫn:
 
 ```bibtex
-@inproceedings{kgtabi2026,
-  title     = {KG-TABI: Automating Research Gap Detection via Dynamic
-               Knowledge Graphs and Toulmin-Abductive Inference},
+@misc{kgtabi2026,
+  title     = {KG-TABI: Design and Auditability of a Conservative
+               Research-Gap Hypothesis Protocol},
   author    = {Le, Anh Hoa and Nguyen, Duc Hoang and Phan, Ly Van Khoa
                and Nguyen, Dinh Thanh and Ho, Dinh Anh and Truong, Long},
-  booktitle = {Proceedings of the International Conference on Software Engineering},
-  year      = {2026}
+  year      = {2026},
+  note      = {Manuscript and research artifact; cite an immutable release once available}
 }
 ```
 

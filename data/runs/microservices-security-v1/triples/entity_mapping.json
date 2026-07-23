@@ -1,0 +1,285 @@
+{
+  "Microservices framework": [
+    "Microservices Architecture",
+    "microservices architecture",
+    "microservices-based architecture",
+    "microservices technology",
+    "microservices-based cloud-edge architecture"
+  ],
+  "monolithic applications": [
+    "Monolithic Architecture"
+  ],
+  "microservices": [
+    "Microservices architecture",
+    "microservice architectures",
+    "Microservices",
+    "microservices-based environments",
+    "microservice architecture",
+    "microservice-based applications",
+    "microservice-based application",
+    "microservice scenario",
+    "microservices architectures",
+    "microservice applications",
+    "communication of microservices",
+    "microservices environments",
+    "microservices-based systems",
+    "microservice challenges",
+    "microservices-based system",
+    "SDN-microservices environments",
+    "microservice software architecture",
+    "microservices systems",
+    "microservices communication"
+  ],
+  "securing microservices": [
+    "threats specific to microservices",
+    "security in microservices",
+    "microservices security research",
+    "security problems in microservices-based systems",
+    "Security issues in microservices systems",
+    "inter-service security in microservice architectures",
+    "security risks of microservices",
+    "security of decentralized microservices",
+    "security issues in microservices",
+    "security of microservice systems",
+    "attack detection in microservice applications",
+    "security of microservice applications",
+    "comprehensive research on microservices security vulnerabilities",
+    "microservice security analysis",
+    "microservices security",
+    "securing microservices within enterprise settings",
+    "microservice intrusion detection",
+    "security problems of the microservice architecture"
+  ],
+  "Systematic Review": [
+    "Systematic Literature Review",
+    "systematic literature review",
+    "systematic review"
+  ],
+  "anomaly-based intrusion detection": [
+    "anomaly-based intrusion detection systems"
+  ],
+  "threat modeling": [
+    "threat modeling framework",
+    "continuous threat modeling",
+    "automated threat modeling"
+  ],
+  "STIDE": [
+    "STRIDE"
+  ],
+  "detection rate": [
+    "detection rates",
+    "threat detection"
+  ],
+  "zero trust": [
+    "Zero Trust security principles",
+    "Zero Trust Security Model",
+    "zero-trust security architecture",
+    "policy-driven Zero Trust architecture",
+    "Zero Trust approach",
+    "Zero Trust architecture"
+  ],
+  "intrusion detection": [
+    "intrusion detection systems",
+    "Intrusion Detection"
+  ],
+  "machine learning": [
+    "machine learning techniques",
+    "machine learning algorithms",
+    "machine learning models",
+    "Machine Learning techniques",
+    "Machine Learning"
+  ],
+  "zero-trust access": [
+    "Zero Trust Security",
+    "zero-trust principles",
+    "Zero Trust security model",
+    "Zero Trust principles"
+  ],
+  "architectural framework": [
+    "proposed architectural framework"
+  ],
+  "security challenges": [
+    "complex security challenges"
+  ],
+  "vulnerabilities": [
+    "security vulnerabilities",
+    "Security Vulnerabilities"
+  ],
+  "modern containerized cloud microservices": [
+    "container cloud and microservice architectures"
+  ],
+  "AI-enabled observability": [
+    "AI-driven observability model"
+  ],
+  "anomaly detection": [
+    "security anomaly detection"
+  ],
+  "authorization": [
+    "authentication and authorization"
+  ],
+  "Microservice Security Analysis": [
+    "methodology for designing and developing security microservices",
+    "security microservices design and implementation"
+  ],
+  "Two-Factor Authentication": [
+    "multi-factor authentication",
+    "Two-Factor Authentication solutions"
+  ],
+  "Kubernetes based microservices": [
+    "Kubernetes microservice ecosystem",
+    "Kubernetes Microservices System"
+  ],
+  "micro-service containers": [
+    "containerized microservices"
+  ],
+  "Kubernetes": [
+    "Kubernetes cluster",
+    "Kubernetes clusters",
+    "three-node Kubernetes cluster"
+  ],
+  "IoT Systems": [
+    "IoT Systems Security",
+    "IoT systems"
+  ],
+  "DevSecOps practices": [
+    "DevSecOps methodologies"
+  ],
+  "container security framework": [
+    "Container security mechanisms"
+  ],
+  "cloud-native systems": [
+    "cloud-native environment",
+    "cloud-native architectures",
+    "cloud-native CI/CD environments",
+    "cloud-native and distributed systems"
+  ],
+  "DoS attacks": [
+    "DDoS attacks"
+  ],
+  "Role-Based Access Control": [
+    "Role-Based Access Control model",
+    "Role-based Access Control Model (RBAC)",
+    "Token-based access control"
+  ],
+  "API Gateway": [
+    "API-Gateway",
+    "API gateway"
+  ],
+  "API gateway security": [
+    "API gateway security mechanism"
+  ],
+  "encryption": [
+    "data encryption"
+  ],
+  "centralized entity": [
+    "Decentralized Identity"
+  ],
+  "Zero Trust controls": [
+    "zero trust access control",
+    "zero-trust access control"
+  ],
+  "service mesh": [
+    "Service Mesh",
+    "service mesh technologies"
+  ],
+  "attribute-based access control": [
+    "Attribute-Based Access Control"
+  ],
+  "response time": [
+    "average response time",
+    "Response Times"
+  ],
+  "refactoring": [
+    "Refactoring"
+  ],
+  "security challenges in cloud-native environments": [
+    "security challenges in containerized environments",
+    "security challenges in edge-native containerized environments"
+  ],
+  "Open Policy Agent": [
+    "Open Policy Agent (OPA)"
+  ],
+  "mean time to detection": [
+    "average detection time"
+  ],
+  "real-time threat detection": [
+    "real-time threat detection and response"
+  ],
+  "blockchain using microservices and smart contracts": [
+    "Blockchain implementation within a Microservices framework"
+  ],
+  "proposed framework": [
+    "Proposed framework"
+  ],
+  "container environments": [
+    "containerized environment",
+    "containerized environments",
+    "Containerized Environments"
+  ],
+  "Spring Boot": [
+    "Java spring boot",
+    "Java Spring Boot"
+  ],
+  "Latency": [
+    "latency"
+  ],
+  "Throughput": [
+    "throughput"
+  ],
+  "OAuth 2.1 authorization protocol": [
+    "OAuth 2.0 authorization protocols"
+  ],
+  "real-time data systems": [
+    "real-time payment systems"
+  ],
+  "SPIFFE-SPIRE": [
+    "SPIFFE/SPIRE"
+  ],
+  "access control": [
+    "access control and authorization",
+    "access controls"
+  ],
+  "Algorithmic Complexity Attacks": [
+    "algorithmic complexity attacks"
+  ],
+  "Open Banking Ecosystems": [
+    "open banking ecosystems"
+  ],
+  "layered security model": [
+    "multi-layer security model"
+  ],
+  "zero-trust architecture": [
+    "Zero-Trust Architecture"
+  ],
+  "incident response time": [
+    "incident response times"
+  ],
+  "Accuracy": [
+    "accuracy"
+  ],
+  "Extended Berkeley Packet Filter": [
+    "extended Berkeley Packet Filter (eBPF)"
+  ],
+  "Open Policy Agent (OPA) Gatekeeper": [
+    "OPA (Open Policy Agent) policy engine"
+  ],
+  "AI-based models": [
+    "AI-driven models"
+  ],
+  "F1-score": [
+    "F1 score"
+  ],
+  "false positive rate": [
+    "false positive rates"
+  ],
+  "autoencoders": [
+    "Autoencoder-based models"
+  ],
+  "proposed method": [
+    "proposed methodology"
+  ],
+  "container security": [
+    "container security frameworks",
+    "cloud and container security"
+  ]
+}

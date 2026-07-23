@@ -1,6 +1,6 @@
 [
   {
-    "scale": "21 papers (1x)",
+    "scale": "Raw-triple seed (1x)",
     "nodes": 608,
     "edges": 429,
     "er_seconds": 14.092,
@@ -11,7 +11,7 @@
     "gaps_count": 39
   },
   {
-    "scale": "50 papers (2.4x)",
+    "scale": "Synthetic replication (3x)",
     "nodes": 1765,
     "edges": 1286,
     "er_seconds": 8.4715,
@@ -22,7 +22,7 @@
     "gaps_count": 121
   },
   {
-    "scale": "100 papers (4.8x)",
+    "scale": "Synthetic replication (5x)",
     "nodes": 2957,
     "edges": 2145,
     "er_seconds": 11.2156,
@@ -33,7 +33,7 @@
     "gaps_count": 206
   },
   {
-    "scale": "200 papers (9.5x)",
+    "scale": "Synthetic replication (10x)",
     "nodes": 5820,
     "edges": 4282,
     "er_seconds": 20.8465,

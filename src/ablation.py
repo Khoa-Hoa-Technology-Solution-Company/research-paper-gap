@@ -74,7 +74,7 @@ def ablation_no_tabi_3shot():
 
             prompt = f"""Act as a Senior Researcher. The knowledge graph analysis found ZERO bridge relations between Community A (Nodes: {nodes_a}) and Community B (Nodes: {nodes_b}).
 Deduce an implicit research gap. Output strictly as JSON (no markdown):
-{{"Grounds": "...", "Claim": "...", "Warrant": "...", "Bucket": "more_probable or least_probable"}}"""
+{{"Grounds": "...", "Claim": "...", "Warrant": "...", "Bucket": "near_term_feasible or long_term_or_speculative"}}"""
 
             try:
                 content = call_llm(prompt, temperature=0.2)
@@ -92,7 +92,7 @@ Deduce an implicit research gap. Output strictly as JSON (no markdown):
     for sc in stagnant:
         prompt = f"""Act as a Senior Researcher. The concept '{sc["node"]}' has temporal decay rate {sc["decay_rate"]:.2f}.
 Deduce an implicit research gap. Output strictly as JSON (no markdown):
-{{"Grounds": "...", "Claim": "...", "Warrant": "...", "Bucket": "more_probable or least_probable"}}"""
+{{"Grounds": "...", "Claim": "...", "Warrant": "...", "Bucket": "near_term_feasible or long_term_or_speculative"}}"""
 
         try:
             content = call_llm(prompt, temperature=0.2)

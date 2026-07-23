@@ -1,0 +1,120 @@
+{
+  "scope": "Generated offline packets only; all reviewer and adjudication fields remain blank.",
+  "seed": 42,
+  "audit_directory": "D:\\Workspace\\research-paper-gap\\data\\runs\\microservices-security-v1\\audits",
+  "screening": {
+    "scope": "Reproducibility comparison only. The stored pilot decision is not a gold standard and this report does not estimate screening precision or recall.",
+    "current_lexical_rule": {
+      "version": "microservices-security-lexical-v1 (source-hash recorded)",
+      "function": "src.fetch_papers.screen_relevance_lexical",
+      "function_sha256": "b9d470443890c365e0b623834bb132e1a016e03e7f813dc3490798f1263ce525",
+      "input": "lower-cased title concatenated with abstract",
+      "include_rule": "at least one architecture term AND at least one security term",
+      "architecture_terms": [
+        "microservice",
+        "micro-service",
+        "service mesh",
+        "cloud-native"
+      ],
+      "security_terms": [
+        "security",
+        "secure",
+        "authentication",
+        "authorization",
+        "access control",
+        "zero trust",
+        "vulnerability",
+        "attack",
+        "threat",
+        "privacy",
+        "encryption",
+        "identity",
+        "policy",
+        "oauth",
+        "mTLS",
+        "mtls"
+      ],
+      "ranking_after_inclusion": "relevance score descending, then citation count descending",
+      "cap_for_this_comparison": 314
+    },
+    "counts": {
+      "retrieved_records": 314,
+      "stored_pilot_retained": 149,
+      "recomputed_current_lexical_retained": 185,
+      "both_retained": 140,
+      "stored_only": 9,
+      "lexical_only": 45,
+      "neither": 120,
+      "set_jaccard_agreement": 0.721649,
+      "raw_decision_agreement": 0.828025
+    },
+    "stored_pilot_metadata": {
+      "screening_method_field": {
+        "missing": 149
+      },
+      "relevance_reason_format": {
+        "other_or_missing_reason": 149
+      },
+      "conclusion": "Retained fields do not establish that the stored pilot selection was produced by the current lexical rule; its historical procedure is not reconstructible from these metadata alone."
+    },
+    "human_audit_protocol": {
+      "packet": "screening_audit_packet_blinded.csv",
+      "key": "screening_audit_key.csv",
+      "records": 314,
+      "recommended_labels": [
+        "include",
+        "exclude",
+        "uncertain"
+      ],
+      "recommended_process": "two independent reviewers followed by adjudication"
+    }
+  },
+  "triple_provenance": {
+    "scope": "Legacy provenance recovery and an unlabelled human-audit packet. No human correctness labels are inferred by this tool.",
+    "raw_resolved_index_alignment": true,
+    "recovery_method": "unique case/whitespace-normalized exact evidence-quote substring match",
+    "counts": {
+      "raw_triples": 800,
+      "unique_exact_quote_matches": 774,
+      "unmatched_quotes": 26,
+      "ambiguous_quotes": 0,
+      "recovered_fraction": 0.9675
+    },
+    "not_recoverable_from_legacy_files": [
+      "model name/version",
+      "prompt version",
+      "sentence offsets",
+      "source paper for unmatched quotes"
+    ],
+    "human_audit_protocol": {
+      "packet": "triple_extraction_audit_packet.csv",
+      "sample_size": 200,
+      "seed": 42,
+      "design": "coverage-first strata: relation type x model-reported score bin x publication year",
+      "available_score_bins": [
+        "high_[0.70,1.00]"
+      ],
+      "represented_strata": 63,
+      "recommended_labels": [
+        "subject_correct",
+        "object_correct",
+        "relation_correct",
+        "entity_types_correct",
+        "evidence_quote_supports_triple",
+        "source_metadata_correct",
+        "triple_specific_enough"
+      ]
+    }
+  },
+  "entity_resolution": {
+    "scope": "Unlabelled pair sampling only; no merge precision or false-negative rate is estimated yet.",
+    "packet": "entity_resolution_audit_packet_blinded.csv",
+    "key": "entity_resolution_audit_key.csv",
+    "merged_pairs_available": 147,
+    "merged_pairs_sampled": 100,
+    "nonmerged_pairs_sampled": 100,
+    "nonmerged_pair_selection": "top same-type lexical token-sort similarity candidates not merged by the current pipeline",
+    "lowest_nonmerged_similarity_in_packet": 76.471,
+    "recommended_process": "two independent reviewers followed by adjudication; calculate merge precision and false-negative controls after labels exist."
+  }
+}

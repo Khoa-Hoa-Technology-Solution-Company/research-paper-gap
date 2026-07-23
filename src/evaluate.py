@@ -153,6 +153,29 @@ def evaluate_nli_entailment_rate(gaps: list[dict], method_name: str) -> float:
     print(f"[+] NLI Entailment Rate for {method_name}: {rate:.2f} ({entailed_count}/{total_valid})")
     return rate
 
+def evaluate_kgtabi_only() -> dict:
+    """Evaluate the currently exported KG-TABI hypotheses without rerunning baselines."""
+    path = os.path.join(config.GAPS_DIR, "kgtabi_gaps.json")
+    with open(path, "r", encoding="utf-8") as f:
+        gaps = json.load(f)
+
+    claim_lengths = [len(g.get("Claim", "").split()) for g in gaps if g.get("Claim")]
+    result = {
+        "method": "KG-TABI (compatibility-gated run)",
+        "total_hypotheses": len(gaps),
+        "unique_hypotheses": count_unique_gaps(gaps),
+        "avg_words_per_claim": round(sum(claim_lengths) / len(claim_lengths), 1) if claim_lengths else 0.0,
+        "llm_nli_entailment_rate": round(evaluate_nli_entailment_rate(gaps, "KG-TABI") * 100, 1),
+        "orphan_cluster_hypotheses": sum(g.get("type") == "orphan_cluster" for g in gaps),
+        "recent_activity_hypotheses": sum(g.get("type") == "temporal_decay" for g in gaps),
+    }
+    output_path = os.path.join(config.DATA_DIR, "reproducible_run_results.json")
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(result, f, ensure_ascii=False, indent=2)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return result
+
+
 def run_evaluation():
     # Load all gap sets
     gaps_kgtabi = []
@@ -224,4 +247,16 @@ def run_evaluation():
     print(markdown)
 
 if __name__ == "__main__":
-    run_evaluation()
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Evaluate KG-TABI outputs.")
+    parser.add_argument(
+        "--kgtabi-only",
+        action="store_true",
+        help="Evaluate only the current KG-TABI hypotheses; do not rerun baseline evaluation.",
+    )
+    args = parser.parse_args()
+    if args.kgtabi_only:
+        evaluate_kgtabi_only()
+    else:
+        run_evaluation()

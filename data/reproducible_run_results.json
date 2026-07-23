@@ -1,0 +1,9 @@
+{
+  "method": "KG-TABI (compatibility-gated run)",
+  "total_hypotheses": 10,
+  "unique_hypotheses": 10,
+  "avg_words_per_claim": 22.5,
+  "llm_nli_entailment_rate": 60.0,
+  "orphan_cluster_hypotheses": 0,
+  "recent_activity_hypotheses": 10
+}

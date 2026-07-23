@@ -1,0 +1,11 @@
+{
+  "scope": "Unlabelled pair sampling only; no merge precision or false-negative rate is estimated yet.",
+  "packet": "entity_resolution_audit_packet_blinded.csv",
+  "key": "entity_resolution_audit_key.csv",
+  "merged_pairs_available": 147,
+  "merged_pairs_sampled": 100,
+  "nonmerged_pairs_sampled": 100,
+  "nonmerged_pair_selection": "top same-type lexical token-sort similarity candidates not merged by the current pipeline",
+  "lowest_nonmerged_similarity_in_packet": 76.471,
+  "recommended_process": "two independent reviewers followed by adjudication; calculate merge precision and false-negative controls after labels exist."
+}
