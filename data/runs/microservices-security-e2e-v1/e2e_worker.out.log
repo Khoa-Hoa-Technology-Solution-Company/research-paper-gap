@@ -1,0 +1,381 @@
+[*] Processing chunks [0, 185) of 185; 0 already checkpointed.
+[*] Extracting triples from chunk 1/185 of 'Security strategies for microservices-ba...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 2/185 of 'A Comprehensive Survey of Privacy-Enhanc...'
+[+] Extracted 7 valid triples from chunk.
+[*] Extracting triples from chunk 3/185 of 'Enhancing Microservices Security with To...'
+[+] Extracted 3 valid triples from chunk.
+[*] Extracting triples from chunk 4/185 of 'SFTSDH: Applying Spring Security Framewo...'
+[+] Extracted 8 valid triples from chunk.
+[*] Extracting triples from chunk 5/185 of 'Next-Gen Secure Cloud-Native Platforms F...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 6/185 of 'AIDS-Based Cyber Threat Detection Framew...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 7/185 of 'HT-RBAC: A Design of Role-based Access C...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 8/185 of 'Microservices Security Threat Modelling ...'
+[+] Extracted 7 valid triples from chunk.
+[*] Extracting triples from chunk 9/185 of 'Agentic AI for Self-Sovereign Identity: ...'
+[+] Extracted 7 valid triples from chunk.
+[*] Extracting triples from chunk 10/185 of 'A Policy-Driven Approach for Securing Mi...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 11/185 of 'Building Automated Security Pipeline for...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 12/185 of 'Implementing Zero Trust Security in Mult...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 13/185 of 'An Adaptive Dynamic Defense Strategy for...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 14/185 of 'Characterizing Vulnerabilities in Micros...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 15/185 of 'Microservices Security Vulnerability Rem...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 16/185 of 'Zero Trust Security Model Implementation...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 17/185 of 'Predictive Cyber-Resilience: AI-Powered ...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 18/185 of 'Quantum-Resilient Federated Microservice...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 19/185 of 'Securing Microservices: Challenges and S...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 20/185 of 'A Contemporary Secure Microservices Disc...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 21/185 of 'Zero Trust Security for Web Applications...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 22/185 of 'Security Evaluation of Keycloak-Based Ro...'
+[+] Extracted 7 valid triples from chunk.
+[*] Extracting triples from chunk 23/185 of 'A Multi-Layered Zero-Trust Security Fram...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 24/185 of 'Systematic Review of Identity-Centric Se...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 25/185 of 'Lightweight Service Mesh for Intrusion D...'
+[+] Extracted 7 valid triples from chunk.
+[*] Extracting triples from chunk 26/185 of 'A Few to Unveil Them All: Leveraging Mix...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 27/185 of 'Improving Microservices Security...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 28/185 of 'Security in cloud-native microservices: ...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 29/185 of 'Enhancing Healthcare Systems Security Us...'
+[+] Extracted 7 valid triples from chunk.
+[*] Extracting triples from chunk 30/185 of 'ASSESSING THE IMPACT OF ZERO TRUST ON IN...'
+[+] Extracted 7 valid triples from chunk.
+[*] Extracting triples from chunk 31/185 of 'AI-ASSISTED DISTRIBUTED RISK ASSESSMENT ...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 32/185 of 'Research on Cross-Domain Attack Defense ...'
+[+] Extracted 10 valid triples from chunk.
+[*] Extracting triples from chunk 33/185 of 'Zero Trust Security Model in Microservic...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 34/185 of 'AZTEM: A Self-Evolving Zero-Trust Model ...'
+[+] Extracted 10 valid triples from chunk.
+[*] Extracting triples from chunk 35/185 of 'Intelligent adaptive authentication for ...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 36/185 of 'Secure-by-Design Cloud Architectures: In...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 37/185 of 'Innovations in Zero-Trust Security for L...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 38/185 of 'Zero-Trust Security Architecture for Mic...'
+[+] Extracted 7 valid triples from chunk.
+[*] Extracting triples from chunk 39/185 of 'Zero-Trust Security Architecture for Mul...'
+[+] Extracted 7 valid triples from chunk.
+[*] Extracting triples from chunk 40/185 of 'Building Secure REST APIs in Spring Boot...'
+[+] Extracted 3 valid triples from chunk.
+[*] Extracting triples from chunk 41/185 of 'Secure API Gateway Strategies for Financ...'
+[+] Extracted 7 valid triples from chunk.
+[*] Extracting triples from chunk 42/185 of 'Implementing Secure API Gateways: A Case...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 43/185 of 'Designing Secure Microservices on Kubern...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 44/185 of 'Securing .Net Microservices Through Cond...'
+[+] Extracted 9 valid triples from chunk.
+[*] Extracting triples from chunk 45/185 of 'Zero-Trust Agent Gateway: Identity-Centr...'
+[+] Extracted 7 valid triples from chunk.
+[*] Extracting triples from chunk 46/185 of 'A microservices-based single application...'
+[+] Extracted 7 valid triples from chunk.
+[*] Extracting triples from chunk 47/185 of 'Layered Security Model for JWT-Based Aut...'
+[+] Extracted 9 valid triples from chunk.
+[*] Extracting triples from chunk 48/185 of 'Security Policy Orchestration in SDN–Mic...'
+[+] Extracted 8 valid triples from chunk.
+[*] Extracting triples from chunk 49/185 of 'Security-Oriented Microservices Deployme...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 50/185 of 'SOFTWARE SUPPLY CHAIN SECURITY ANALYSIS...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 51/185 of 'Zero-Trust Identity for Autonomous AI Ag...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 52/185 of 'Securing Microservice Communication acro...'
+[+] Extracted 9 valid triples from chunk.
+[*] Extracting triples from chunk 53/185 of 'Advanced Software Deployment Strategies ...'
+[+] Extracted 8 valid triples from chunk.
+[*] Extracting triples from chunk 54/185 of 'Deep learning-based intrusion detection ...'
+[+] Extracted 8 valid triples from chunk.
+[*] Extracting triples from chunk 55/185 of 'From Reactive to Predictive: Lessons Lea...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 56/185 of 'Zero-Trust Security Architecture for Con...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 57/185 of 'Microservice Security Agent Based On API...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 58/185 of 'Authentication and Authorization in Micr...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 59/185 of 'Security Mechanisms Used in Microservice...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 60/185 of 'A Systematic Literature Review of Inter-...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 61/185 of 'A Microservices and Blockchain Based One...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 62/185 of 'Detecting Security and Privacy Risks in ...'
+[+] Extracted 3 valid triples from chunk.
+[*] Extracting triples from chunk 63/185 of 'Implementing Zero Trust Security in Micr...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 64/185 of 'Trust-Based Dynamic Access Control Model...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 65/185 of 'A Security Containers Placement Algorith...'
+[+] Extracted 2 valid triples from chunk.
+[*] Extracting triples from chunk 66/185 of 'Applying OAuth2 and JWT Protocols in Sec...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 67/185 of 'A Security and Performance Comparative S...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 68/185 of 'Zero-Trust Security Frameworks for Model...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 69/185 of 'Resilient Zero-Trust Security Enforcemen...'
+[+] Extracted 7 valid triples from chunk.
+[*] Extracting triples from chunk 70/185 of 'Generative AI Integration Patterns in En...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 71/185 of 'SOFTWARE MIGRATION FROM MONOLITHIC ARCHI...'
+[+] Extracted 8 valid triples from chunk.
+[*] Extracting triples from chunk 72/185 of 'Designing Resilient and Scalable Cloud-N...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 73/185 of 'OAuth 2.0 Patterns Implementation for Cl...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 74/185 of 'Dynamic Security Automation for Containe...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 75/185 of 'Machine Learning-Driven Intrusion Detect...'
+[+] Extracted 7 valid triples from chunk.
+[*] Extracting triples from chunk 76/185 of 'Microservice-Based Architecture Optimiza...'
+[+] Extracted 11 valid triples from chunk.
+[*] Extracting triples from chunk 77/185 of 'Spatiotemporal Conditioning With Dynamic...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 78/185 of 'Enhancing Virtualization Security Throug...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 79/185 of 'Microservices in IoT Security: Current S...'
+[+] Extracted 3 valid triples from chunk.
+[*] Extracting triples from chunk 80/185 of 'Automatic Detection of Security Deficien...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 81/185 of 'A Microservices Architecture for ADS-B D...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 82/185 of 'Cloud migration and microservices optimi...'
+[+] Extracted 7 valid triples from chunk.
+[*] Extracting triples from chunk 83/185 of 'Microservices Architecture in Financial ...'
+[+] Extracted 7 valid triples from chunk.
+[*] Extracting triples from chunk 84/185 of 'Cloud-native microservices in financial ...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 85/185 of 'Authentication Challenges and Solutions ...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 86/185 of 'A New Framework for Microservices with S...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 87/185 of 'Cloud-Native Modernization Framework for...'
+[+] Extracted 10 valid triples from chunk.
+[*] Extracting triples from chunk 88/185 of 'Access Microservices with Zero-Knowledge...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 89/185 of 'Enhancing Patient-Centric Care through A...'
+[+] Extracted 7 valid triples from chunk.
+[*] Extracting triples from chunk 90/185 of 'A Novel Approach for Security Analysis i...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 91/185 of 'AI-Driven Observability for Managing Sec...'
+[+] Extracted 8 valid triples from chunk.
+[*] Extracting triples from chunk 92/185 of 'Information Security in Microservices Ar...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 93/185 of 'Microservices in finance: Why building s...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 94/185 of 'A Unified Cloud-Based System for the Tyr...'
+[+] Extracted 8 valid triples from chunk.
+[*] Extracting triples from chunk 95/185 of 'A Framework for ML-Based Intrusion Detec...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 96/185 of 'Fine-Grained Access Control with Spring ...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 97/185 of 'A Production-Ready Framework for Unified...'
+[+] Extracted 14 valid triples from chunk.
+[*] Extracting triples from chunk 98/185 of 'Contextual Retrieval-Augmented Generatio...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 99/185 of 'OmniSync: A Multi-Service Collaborative ...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 100/185 of 'AI-Enhanced Runtime Security for Kuberne...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 101/185 of 'ASSESSING THE POTENTIAL OF USING ARTIFIC...'
+[+] Extracted 10 valid triples from chunk.
+[*] Extracting triples from chunk 102/185 of 'Runtime Vulnerability Mitigation for Con...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 103/185 of 'An Ensemble Multi-View Federated Learnin...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 104/185 of 'AI-Enabled Secure Microservices in Edge ...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 105/185 of 'An Interoperable Blockchain Security Fra...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 106/185 of 'Sidecar-based Path-aware Security for Mi...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 107/185 of 'Detecting Cryptojacking Containers Using...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 108/185 of 'µDetector: Automated Intrusion Detection...'
+[+] Extracted 9 valid triples from chunk.
+[*] Extracting triples from chunk 109/185 of 'Automated Synthesis of Effect Graph Poli...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 110/185 of 'Microservices Security Challenges and Ap...'
+[+] Extracted 3 valid triples from chunk.
+[*] Extracting triples from chunk 111/185 of 'A Secure Digital Image Marketplace: Micr...'
+[+] Extracted 2 valid triples from chunk.
+[*] Extracting triples from chunk 112/185 of 'A Cybersecurity framework for fraud dete...'
+[+] Extracted 12 valid triples from chunk.
+[*] Extracting triples from chunk 113/185 of 'Techniques and Tools for Runtime Securit...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 114/185 of 'A Cloud-Edge Microservices Architecture ...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 115/185 of 'Microservices Architecture for Building ...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 116/185 of 'Sec-Llama: a Compact Fine-Tuned LLM for ...'
+[+] Extracted 3 valid triples from chunk.
+[*] Extracting triples from chunk 117/185 of 'Enhancing Security and Performance of gR...'
+[+] Extracted 8 valid triples from chunk.
+[*] Extracting triples from chunk 118/185 of 'Leaving the Business Security Burden to ...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 119/185 of 'Intrusion Detection and Tolerance for Mi...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 120/185 of 'Security Challenges and Solutions in Con...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 121/185 of 'Transformer-Based Web Attack Detection f...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 122/185 of 'Towards a Serverless Intelligent Firewal...'
+[+] Extracted 8 valid triples from chunk.
+[*] Extracting triples from chunk 123/185 of 'Review of zero-click attacks and zero-tr...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 124/185 of 'Deep Reinforcement Learning-based Micros...'
+[+] Extracted 8 valid triples from chunk.
+[*] Extracting triples from chunk 125/185 of 'Scalable Microservice Architecture for S...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 126/185 of 'An In-Depth Review Of Authentication Mec...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 127/185 of 'Neural Component Libraries for Angular: ...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 128/185 of 'A FastAPI-Based Scalable ML Prediction M...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 129/185 of 'A Microservices-based Lightweight Deep L...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 130/185 of 'A Flexible and Robust Framework for Intr...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 131/185 of 'vNIDS: Towards Elastic Security with Saf...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 132/185 of 'FedMicro-IDA: A Federated Learning and M...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 133/185 of 'Exploring the Potential of Microservices...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 134/185 of 'REPLICAWATCHER: Training-less Anomaly De...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 135/185 of 'Security, Privacy and Challenges in Micr...'
+[+] Extracted 3 valid triples from chunk.
+[*] Extracting triples from chunk 136/185 of 'Detecting Cyber Security Attacks against...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 137/185 of 'Design and Achievement of Security Mecha...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 138/185 of 'Trends and Challenges in AI-Driven Micro...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 139/185 of 'Ab‐HIDS: An anomaly‐based host intrusion...'
+[+] Extracted 7 valid triples from chunk.
+[*] Extracting triples from chunk 140/185 of 'Intrusion Detection for Scalable and Ela...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 141/185 of 'Trusted Microservices: A Security Framew...'
+[+] Extracted 3 valid triples from chunk.
+[*] Extracting triples from chunk 142/185 of 'Evaluation of Machine Learning for Intru...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 143/185 of 'Exploring Logic Scoring of Preference fo...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 144/185 of 'FINSEC: An Efficient Microservices-Based...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 145/185 of 'Enabling Security-Oriented Orchestration...'
+[+] Extracted 3 valid triples from chunk.
+[*] Extracting triples from chunk 146/185 of 'Microservices-Driven Automation in Full-...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 147/185 of 'Deployment and Automatic Registration of...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 148/185 of 'ChronosGuards: A Hierarchical Machine Le...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 149/185 of 'InDeKX: A High Efficiency Intrusion Dete...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 150/185 of 'An Active Security Defense Strategy for ...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 151/185 of 'A Benchmark for DDoS Attacks Detection i...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 152/185 of 'AI-Enhanced Microservice Security in Clo...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 153/185 of 'Doing more with less? A Study on Models ...'
+[+] Extracted 3 valid triples from chunk.
+[*] Extracting triples from chunk 154/185 of 'SoK: Microservice Architectures from a D...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 155/185 of 'Enhancing Security: Vulnerability Detect...'
+[+] Extracted 3 valid triples from chunk.
+[*] Extracting triples from chunk 156/185 of 'Mitigating Algorithmic Complexity Attack...'
+[+] Extracted 3 valid triples from chunk.
+[*] Extracting triples from chunk 157/185 of 'Hybrid Runtime Detection of Malicious Co...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 158/185 of 'Supervised Intrusion Detection with Out-...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 159/185 of 'ImmuCheck: Selective Immutability for Co...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 160/185 of 'Security in Microservices Architectures...'
+[+] Extracted 3 valid triples from chunk.
+[*] Extracting triples from chunk 161/185 of 'Smells and Refactorings for Microservice...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 162/185 of 'An Empirical Study of Security Practices...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 163/185 of 'KubeHound: Detecting Microservices' Secu...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 164/185 of 'Automated Identification of Security Dis...'
+[+] Extracted 3 valid triples from chunk.
+[*] Extracting triples from chunk 165/185 of 'Improving the Security of Microservice S...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 166/185 of 'Microservices API Security...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 167/185 of 'Towards Resolving Security Smells in Mic...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 168/185 of 'K8sidecar: A Modular Kubernetes Chain of...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 169/185 of 'Security and Performance Optimization in...'
+[+] Extracted 3 valid triples from chunk.
+[*] Extracting triples from chunk 170/185 of 'Optimization of Microservices Architectu...'
+[+] Extracted 8 valid triples from chunk.
+[*] Extracting triples from chunk 171/185 of 'Energy-Efficient Microservices Architect...'
+[+] Extracted 3 valid triples from chunk.
+[*] Extracting triples from chunk 172/185 of 'Automatic Rule Checking for Microservice...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 173/185 of 'Addressing Security Issues during Decomp...'
+[+] Extracted 3 valid triples from chunk.
+[*] Extracting triples from chunk 174/185 of 'SECURITY ISSUES OF CONTAINERIZATION OF M...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 175/185 of 'Information and Communication Security M...'
+[+] Extracted 3 valid triples from chunk.
+[*] Extracting triples from chunk 176/185 of 'API Design and Integration in a Microser...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 177/185 of 'Dynamic Scaling and Performance Optimiza...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 178/185 of 'Event-Driven Microservices Architecture ...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 179/185 of 'Architecting Scalable ICPS for the Autom...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 180/185 of 'U-SCAD: An Unsupervised Method of System...'
+[+] Extracted 5 valid triples from chunk.
+[*] Extracting triples from chunk 181/185 of 'Design and Development of Security Servi...'
+[+] Extracted 4 valid triples from chunk.
+[*] Extracting triples from chunk 182/185 of 'Improving Security in IoT System Using a...'
+[+] Extracted 6 valid triples from chunk.
+[*] Extracting triples from chunk 183/185 of 'Towards a Metric for Reuse of Microservi...'
+[+] Extracted 3 valid triples from chunk.
+[*] Extracting triples from chunk 184/185 of 'Can Graph-Based Microservice Performance...'
+[+] Extracted 7 valid triples from chunk.
+[*] Extracting triples from chunk 185/185 of 'NEXUS: A Microservice-Based Network Emul...'
+[+] Extracted 4 valid triples from chunk.
+[+] Checkpointed 1018 raw triples to D:\Workspace\research-paper-gap\data\runs\microservices-security-e2e-v1\triples\raw_triples.json
+[+] Saved extraction provenance manifest to D:\Workspace\research-paper-gap\data\runs\microservices-security-e2e-v1\triples\extraction_provenance_manifest.json
+[*] Pass 1/2: deterministic lexical entity matching...
+[*] Pass 2/2: semantic matching of post-lexical component descriptors...
+[+] Entity resolution complete. Merged 149 typed entities; removed 0 self-loops.
+[+] Saved resolved triples to D:\Workspace\research-paper-gap\data\runs\microservices-security-e2e-v1\triples\resolved_triples.json
+[+] Saved mapping rules to D:\Workspace\research-paper-gap\data\runs\microservices-security-e2e-v1\triples\entity_mapping.json
+[+] Saved resolution manifest to D:\Workspace\research-paper-gap\data\runs\microservices-security-e2e-v1\triples\entity_resolution_run_manifest.json
+[*] Building NetworkX DiGraph from resolved triples...
+[+] Graph built: 1149 nodes, 1011 edges.
