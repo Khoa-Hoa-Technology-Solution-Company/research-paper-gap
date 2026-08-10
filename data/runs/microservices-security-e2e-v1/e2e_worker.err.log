@@ -1,0 +1,37 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 9927.46it/s]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\Workspace\research-paper-gap\src\run_frozen_e2e.py", line 204, in <module>
+    main()
+    ~~~~^^
+  File "D:\Workspace\research-paper-gap\src\run_frozen_e2e.py", line 196, in main
+    report = run_frozen_e2e(
+        snapshot_root=args.snapshot_root,
+        deterministic_closure_only=not args.closure_llm_variants,
+    )
+  File "D:\Workspace\research-paper-gap\src\run_frozen_e2e.py", line 123, in run_frozen_e2e
+    run_analysis()
+    ~~~~~~~~~~~~^^
+  File "D:\Workspace\research-paper-gap\src\graph_analysis.py", line 545, in run_analysis
+    nx.write_gml(G_export, gml_path)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\leanh\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\networkx\utils\decorators.py", line 784, in func
+    return argmap._lazy_compile(__wrapper)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "<class 'networkx.utils.decorators.argmap'> compilation 9", line 5, in argmap_write_gml_5
+    import itertools
+             ^^^^^^^
+  File "C:\Users\leanh\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\networkx\readwrite\gml.py", line 878, in write_gml
+    for line in generate_gml(G, stringizer):
+                ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\leanh\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\networkx\readwrite\gml.py", line 812, in generate_gml
+    yield from stringize(attr, value, ignored_keys, "    ")
+  File "C:\Users\leanh\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\networkx\readwrite\gml.py", line 763, in stringize
+    yield from stringize(key, val, (), indent, True)
+  File "C:\Users\leanh\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\networkx\readwrite\gml.py", line 753, in stringize
+    yield from stringize(key, value, (), next_indent)
+  File "C:\Users\leanh\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\networkx\readwrite\gml.py", line 773, in stringize
+    raise NetworkXError(f"{value!r} is not a string")
+networkx.exception.NetworkXError: None is not a string
