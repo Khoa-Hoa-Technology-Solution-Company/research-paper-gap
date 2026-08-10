@@ -1,0 +1,231 @@
+{
+  "controlled_benchmark_v3": {
+    "development_seeds": 10,
+    "test_seeds": 50,
+    "test_candidates": 800,
+    "test_positives": 200,
+    "selected_configuration": {
+      "edge_and_paper_keep_probability": 0.95,
+      "bootstrap_repeats": 50,
+      "minimum_stability": 0.70
+    },
+    "binary_mapping": {
+      "ground_truth_positive": "label == 1: planted evidence-sufficient candidate",
+      "ground_truth_negative": "label == 0: planted artefact or covered/qualified candidate",
+      "prediction_positive": "validation status == automatically_eligible",
+      "prediction_negative": "validation status in {review_required, rejected}"
+    },
+    "raw_every_signal": {
+      "precision": 0.25,
+      "validator_recall": 1.0,
+      "f1": 0.4
+    },
+    "full_evidence_contract": {
+      "precision": 1.0,
+      "validator_recall": 1.0,
+      "f1": 1.0
+    },
+    "report_sha256": "9796cbcdd08b7a13e60b8a37eea8cbd5a8418feb2c845a5e852fe5e6ecb2e4fe"
+  },
+  "microservices_security_retrospective_v3": {
+    "snapshot_date": "2026-07-20",
+    "papers": 185,
+    "relation_events": 1018,
+    "nodes": 1130,
+    "weak_components": 176,
+    "raw_candidates": 256,
+    "raw_missing_links": 50,
+    "raw_orphan_clusters": 194,
+    "raw_temporal_decay": 12,
+    "automatically_eligible": 0,
+    "review_required": 40,
+    "rejected": 216,
+    "resolved_triples_sha256": "2dc2ba9adba91f1f5ba8d49c0efe3ef56e8a906289e606242b10dcf866760253",
+    "screened_papers_sha256": "413d757a467f0e67166b4a7d83a9ed296c4414406f3ccf0aa6ddc323a4bc13a2",
+    "report_sha256": "0457dd177ad56e2a809cad41f4eb3accd4430a0acee69be7338f983885217c26"
+  },
+  "expert_review_packet": {
+    "items": 70,
+    "all_non_rejected": 40,
+    "stratified_rejected_sample": 30,
+    "ratings_present": false
+  },
+  "corpus_integrity_audit": {
+    "unique_paper_ids": 185,
+    "papers_with_abstract": 185,
+    "papers_with_doi": 184,
+    "resolving_dois": 184,
+    "triples_with_source_paper": 1018,
+    "verbatim_evidence_quotes": 989,
+    "unmatched_evidence_quotes": 29,
+    "report_sha256": "dc1fc3a8713a45f21470a368e9a829578512b3a7f4b770c727bcade962a54a10"
+  },
+  "live_interface_diagnostic_20260806": {
+    "run_id": "reseach_gap_20260806_092230",
+    "purpose": "Workflow operability and configuration-leakage diagnostic; not an effectiveness evaluation.",
+    "semantic_scholar_records_collected": 150,
+    "records_screened": 150,
+    "records_retained": 4,
+    "retention_rate": 0.026667,
+    "retained_years": {
+      "2020": 1,
+      "2025": 3
+    },
+    "papers_with_nonempty_triple_output": 3,
+    "relation_events": 47,
+    "relation_distribution": {
+      "USES": 16,
+      "LACKS": 7,
+      "EXTENDS": 7,
+      "ADDRESSES": 5,
+      "APPLIED_TO": 4,
+      "IMPROVES": 3,
+      "EVALUATES_ON": 2,
+      "PRODUCES": 2,
+      "COMBINES": 1
+    },
+    "graph_nodes": 48,
+    "graph_edges": 47,
+    "weak_components": 11,
+    "raw_missing_links": 50,
+    "missing_link_backend": "common_neighbors_fallback",
+    "raw_orphan_clusters": 10,
+    "raw_temporal_decay": 0,
+    "raw_candidates": 60,
+    "ranked_candidates_written": 30,
+    "ranked_composite_score_range": [0.9593, 1.0],
+    "rag_baseline_completed": false,
+    "validity_warning": "The entered topic was broad and misspelled, while the screening template retained fixed XAI-specific inclusion criteria. The four retained papers are topically heterogeneous; candidate scores are uncalibrated and no expert labels are available.",
+    "artifact_sha256": {
+      "corpus_filtered_jsonl": "873e2a12e4719ba460605c3bf28c6177066a2eec5ac33f65b9766240e260e83a",
+      "all_triples_json": "cee9230a34e1b6b007f042d2d8821ced919d897e9cb7f3027176a178d1907a43",
+      "detected_gaps_raw_json": "f213275954de29e5b45fca098092a63f270e89c66ed014b05a207578312e2cb3",
+      "gaps_ranked_top_json": "6963ab3f38c29f5a6892174f6b99d0341ebb831644ad308c23e662938c73efe4"
+    }
+  },
+  "live_mongodb_security_run_20260806": {
+    "run_id": "security_of_mongodb_20260806_135447",
+    "topic": "security of mongodb",
+    "collection_budget": 100,
+    "records_collected_and_screened": 74,
+    "records_retained": 53,
+    "retention_rate": 0.716216,
+    "retained_years": {
+      "2020": 2,
+      "2021": 3,
+      "2022": 4,
+      "2023": 11,
+      "2024": 7,
+      "2025": 26
+    },
+    "papers_with_nonempty_triple_output": 53,
+    "relation_events_extracted": 643,
+    "graph_nodes": 578,
+    "graph_edges": 636,
+    "weak_components": 61,
+    "raw_candidates": 128,
+    "raw_missing_links": 50,
+    "raw_orphan_clusters": 71,
+    "raw_temporal_decay": 7,
+    "ranked_candidates": 30,
+    "ranked_types": {
+      "missing_link": 4,
+      "orphan_cluster": 25,
+      "temporal_decay": 1
+    },
+    "ranked_score_range": [0.9936, 1.0],
+    "deployed_validation_stage_invoked": false,
+    "offline_frozen_gate": {
+      "raw_candidates": 128,
+      "automatically_eligible": 0,
+      "review_required": 9,
+      "rejected": 119,
+      "missing_link": {"review_required": 0, "rejected": 50},
+      "orphan_cluster": {"review_required": 3, "rejected": 68},
+      "temporal_decay": {"review_required": 6, "rejected": 1},
+      "report_sha256": "06eadc23301857b636378cdd8a0e236b08df94937a688a9f91e44b3564e2f46d",
+      "plausible_edge_addition": {
+        "mode_available": 0,
+        "mode_unavailable": 128,
+        "semantics": "An empty pool is evaluable only with an explicit completed-search marker; otherwise the candidate cannot be automatically eligible."
+      }
+    },
+    "preliminary_internal_review": {
+      "reviewer": "author_internal",
+      "accept": 24,
+      "modify": 0,
+      "reject": 6,
+      "pending": 0,
+      "decided": 30,
+      "acceptance_rate": 0.8,
+      "accept_or_modify_rate": 0.8,
+      "by_signal_type": {
+        "missing_link": {"shown": 4, "accept": 0, "reject": 4},
+        "orphan_cluster": {"shown": 25, "accept": 23, "reject": 2},
+        "temporal_decay": {"shown": 1, "accept": 1, "reject": 0}
+      },
+      "gate_review_crosstab": {
+        "review_required": {"accept": 1, "modify": 0, "reject": 0, "pending": 0},
+        "rejected": {"accept": 23, "modify": 0, "reject": 6, "pending": 0},
+        "automatically_eligible": {"accept": 0, "modify": 0, "reject": 0, "pending": 0}
+      },
+      "blinded": false,
+      "independent": false,
+      "item_level_rationales_preserved": false
+    },
+    "post_gate_internal_review": {
+      "queue": "all review_required candidates",
+      "reviewer": "author_internal",
+      "accept": 8,
+      "modify": 0,
+      "reject": 1,
+      "pending": 0,
+      "decided": 9,
+      "acceptance_rate": 0.888889,
+      "complete": true,
+      "by_signal_type": {
+        "orphan_cluster": {"shown": 3, "accept": 3, "reject": 0},
+        "temporal_decay": {"shown": 6, "accept": 5, "reject": 1}
+      },
+      "rejected_candidate": "Cloud infrastructure temporal-decay signal",
+      "overlap_with_pre_gate_top_30": 1,
+      "blinded": false,
+      "independent": false,
+      "item_level_rationales_preserved": false,
+      "interpretation": "Disposition of an uncertainty-routed queue; not an estimate of precision or novelty."
+    },
+    "baselines": {
+      "b1_mulla_style_tfidf_rag": {
+        "outputs": 53,
+        "unique_outputs": 53,
+        "mean_words": 67.2,
+        "jaccard_vs_kg": 0.1239
+      },
+      "b2_per_abstract_llm": {
+        "outputs": 159,
+        "unique_outputs": 159,
+        "mean_words": 28.9,
+        "jaccard_vs_kg": 0.1113
+      },
+      "b1_vs_b2_jaccard": 0.3333,
+      "shared_expert_labels": false
+    },
+    "artifact_sha256": {
+      "corpus_filtered_jsonl": "1f47c496466ce241b72330c9a80ceaf384de683f8af49b98bc30b75e7d244853",
+      "all_triples_json": "bf17038593413d26c60b1a8d781ed1d5ad580722c8d93542be2cba4b176a0386",
+      "detected_gaps_raw_json": "3af4d23f82ab1e3c7200825743ecce9b2f418bfcdc4ff6c6591997ce4cc51d12",
+      "gaps_ranked_top_json": "9cd92844fb48d24534b484838c3b1c4946eb6bb737b7edeb48d3657c58d506e2",
+      "expert_reviews_json": "02a355a757f67f7af1aef9b08c13363d7a73c8d5f285f7d1f1252f5671cbec64",
+      "post_gate_expert_reviews_json": "390b91827507a27383a3c972b90e81425cbd44f921b2ac5cdc87e791b84e18aa",
+      "comparison_metrics_json": "ecee805edf656c6bb043be39846e50a7eb5e729ed359a03908c2a712cadfe25e"
+    }
+  },
+  "submission_archive": {
+    "path": "output/releases/esv-gap-final-20260810-r1.zip",
+    "sha256": "c6e3d3daf7959598b68b386d39fb8af4126a1d98e7d314e64b239cd07483c835",
+    "manifest_tracked_files": 43,
+    "exact_validation_command": "python reproduce_frozen_validation.py --config frozen_validation_config.yaml",
+    "offline": true
+  },
+  "scope": "Controlled implementation validity, retrospective abstract-only triage, and a corrected live candidate-generation run with two partly overlapping internal review queues and descriptive baselines; no claim of independent expert precision, comparative baseline effectiveness, novelty, usefulness, detector recall, or end-to-end recall."
+}

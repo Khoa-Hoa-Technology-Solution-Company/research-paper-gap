@@ -48,8 +48,22 @@ Thumbs.db
 # Logs
 *.log
 
+# Local UI/design metadata and generated run artefacts
+.hallmark/
+runs/
+releases/
+
 
 .env
 outputs/
 lib/
 data/
+
+# LaTeX build intermediates (keep source and final PDF)
+paper_v2/*.aux
+paper_v2/*.bbl
+paper_v2/*.blg
+paper_v2/*.log
+paper_v2/*.out
+paper_v2/*.toc
+paper_v2/compile-final.log

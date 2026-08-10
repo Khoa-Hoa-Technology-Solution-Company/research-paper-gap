@@ -34,8 +34,9 @@ def score_missing_link(gap, G):
     return {
         "prediction_confidence": norm_pred,
         "centrality": avg_centrality,
-        "cluster_isolation": 0.0,  # Not applicable for missing links
-        "temporal_decay": 0.0,     # Not applicable for missing links
+        "cluster_isolation": None,  # Not applicable for missing links
+        "temporal_decay": None,     # Not applicable for missing links
+        "validation": gap.get("validation", {}).get("ranking_score"),
     }
 
 
@@ -56,10 +57,11 @@ def score_orphan_cluster(gap, G):
     avg_centrality = sum(centralities) / max(len(centralities), 1)
     
     return {
-        "prediction_confidence": 0.0,  # Not applicable
+        "prediction_confidence": None,  # Not applicable
         "centrality": avg_centrality,
         "cluster_isolation": isolation,
-        "temporal_decay": 0.0,  # Not applicable
+        "temporal_decay": None,  # Not applicable
+        "validation": gap.get("validation", {}).get("ranking_score"),
     }
 
 
@@ -71,19 +73,30 @@ def score_temporal_decay(gap, G):
     centrality = G.nodes[concept].get("degree_centrality", 0.0) if G.has_node(concept) else 0.0
     
     return {
-        "prediction_confidence": 0.0,  # Not applicable
+        "prediction_confidence": None,  # Not applicable
         "centrality": centrality,
-        "cluster_isolation": 0.0,  # Not applicable
+        "cluster_isolation": None,  # Not applicable
         "temporal_decay": decay_rate,
+        "validation": gap.get("validation", {}).get("ranking_score"),
     }
 
 
 def compute_composite_score(metrics, weights):
-    """Compute weighted composite score."""
-    score = 0.0
-    for key, weight in weights.items():
-        score += weight * metrics.get(key, 0.0)
-    return score
+    """Compute an applicability-normalised weighted score.
+
+    The previous implementation treated non-applicable signals as zero. That
+    systematically penalised each gap type for metrics produced only by other
+    detectors. We now normalise over the weights of the available metrics.
+    """
+    available = {
+        key: value
+        for key, value in metrics.items()
+        if key in weights and value is not None
+    }
+    denominator = sum(weights[key] for key in available)
+    if denominator <= 0:
+        return 0.0
+    return sum(weights[key] * value for key, value in available.items()) / denominator
 
 def compute_ablation_table(raw_gaps, output_dir):
     """Compute which gaps come from each algorithm combination."""
@@ -125,12 +138,18 @@ def score_and_rank_gaps(config):
     with open(pkl_path, "rb") as f:
         G = pickle.load(f)
     
-    # Load raw gaps
-    gaps_path = output_dir / "detected_gaps_raw.json"
+    # Prefer candidates that passed Stage 5. Falling back keeps old runs
+    # readable, but the log makes the weaker provenance explicit.
+    evidence_clear_path = output_dir / "evidence_clear_candidates.json"
+    validated_path = evidence_clear_path if evidence_clear_path.exists() else output_dir / "validated_gaps.json"
+    gaps_path = validated_path if validated_path.exists() else output_dir / "detected_gaps_raw.json"
     if not gaps_path.exists():
-        logger.error(f"Raw gaps not found: {gaps_path}")
-        logger.error("Run 'python run_pipeline.py --stage detect' first.")
+        logger.error(f"Gap candidates not found: {gaps_path}")
+        logger.error("Run the detect and validate stages first.")
         return
+
+    if not validated_path.exists():
+        logger.warning("Scoring unvalidated detector output; run --stage validate for research use")
     
     raw_gaps = load_json(gaps_path)
     
@@ -169,6 +188,16 @@ def score_and_rank_gaps(config):
     
     # --- Rank by composite score ---
     scored_gaps.sort(key=lambda x: x["composite_score"], reverse=True)
+
+    if not scored_gaps:
+        logger.warning("No candidates passed validation; recording a reproducible null result")
+        save_json([], output_dir / "gaps_scored_all.json")
+        save_json([], output_dir / "gaps_ranked_top.json")
+        pd.DataFrame(columns=["rank", "type", "score", "description"]).to_csv(
+            output_dir / "gaps_ranked.csv", index=False
+        )
+        compute_ablation_table(raw_gaps, output_dir)
+        return []
 
     # Min-max normalise composite scores to [0, 1] for interpretability
     raw_scores = [g['composite_score'] for g in scored_gaps]

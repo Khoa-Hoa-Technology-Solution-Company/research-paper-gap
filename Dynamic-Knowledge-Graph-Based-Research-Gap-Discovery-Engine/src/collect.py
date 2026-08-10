@@ -28,6 +28,10 @@ SEARCH_URL      = "https://api.semanticscholar.org/graph/v1/paper/search"
 PAPER_URL       = "https://api.semanticscholar.org/graph/v1/paper"
 BULK_SEARCH_URL = "https://api.semanticscholar.org/graph/v1/paper/search/bulk"
 
+
+class CollectionAPIError(RuntimeError):
+    """Raised when Semantic Scholar cannot be reached after bounded retries."""
+
 # Fields to fetch for each paper
 PAPER_FIELDS = ",".join([
     "paperId",
@@ -110,7 +114,16 @@ def save_incremental_manifest(raw_dir, run_info):
 
 # ── Core collection functions ─────────────────────────────────────────
 
-def search_papers(query, year_range, api_key="", delay=3.5, max_results=500):
+def search_papers(
+    query,
+    year_range,
+    api_key="",
+    delay=3.5,
+    max_results=500,
+    max_retries=3,
+    request_timeout=15,
+    max_retry_wait=20,
+):
     """
     Search Semantic Scholar for papers matching the query.
 
@@ -133,6 +146,8 @@ def search_papers(query, year_range, api_key="", delay=3.5, max_results=500):
 
     token = None
     page  = 0
+    consecutive_failures = 0
+    max_retries = max(1, int(max_retries))
 
     while True:
         if token:
@@ -143,21 +158,46 @@ def search_papers(query, year_range, api_key="", delay=3.5, max_results=500):
                 BULK_SEARCH_URL,
                 params=params,
                 headers=headers,
-                timeout=30,
+                timeout=request_timeout,
             )
 
             if response.status_code == 429:
-                wait = int(response.headers.get("Retry-After", 60))
-                logger.warning(f"Rate limited. Waiting {wait}s...")
+                consecutive_failures += 1
+                if consecutive_failures >= max_retries:
+                    raise CollectionAPIError(
+                        "Semantic Scholar rate limit persisted after "
+                        f"{max_retries} attempts for query '{query}'."
+                    )
+                retry_after = int(response.headers.get("Retry-After", 60))
+                wait = min(retry_after, max_retry_wait)
+                logger.warning(
+                    "Rate limited by Semantic Scholar. "
+                    f"Retry {consecutive_failures}/{max_retries} in {wait}s..."
+                )
                 time.sleep(wait)
                 continue
 
             response.raise_for_status()
             data = response.json()
+            consecutive_failures = 0
 
+        except CollectionAPIError:
+            raise
         except requests.exceptions.RequestException as e:
-            logger.error(f"API error: {e}")
-            time.sleep(delay * 2)
+            consecutive_failures += 1
+            if consecutive_failures >= max_retries:
+                raise CollectionAPIError(
+                    "Cannot reach Semantic Scholar after "
+                    f"{max_retries} attempts for query '{query}'. "
+                    "Check internet/firewall access to api.semanticscholar.org. "
+                    f"Last error: {e}"
+                ) from e
+            wait = min(delay * (2 ** (consecutive_failures - 1)), max_retry_wait)
+            logger.warning(
+                f"Semantic Scholar request failed ({consecutive_failures}/"
+                f"{max_retries}); retrying in {wait:g}s: {e}"
+            )
+            time.sleep(wait)
             continue
 
         batch = data.get("data", [])
@@ -240,7 +280,7 @@ def basic_filter(papers, min_abstract_length=100):
 
 # ── Main entry point ─────────────────────────────────────────────────
 
-def collect_papers(config, incremental=False):
+def collect_papers(config, incremental=False, progress_callback=None):
     """
     Main collection function. Runs all search queries, deduplicates,
     applies basic filters, and saves results.
@@ -256,6 +296,9 @@ def collect_papers(config, incremental=False):
     year_range      = coll_config["year_range"]
     max_papers      = coll_config["max_papers"]
     delay           = coll_config["delay_between_requests"]
+    max_retries     = coll_config.get("max_retries", 3)
+    request_timeout = coll_config.get("request_timeout_seconds", 15)
+    max_retry_wait  = coll_config.get("max_retry_wait_seconds", 20)
     api_key         = config["api_keys"].get("semantic_scholar", "")
     min_abstract_len= config["filtering"]["min_abstract_length"]
 
@@ -288,11 +331,17 @@ def collect_papers(config, incremental=False):
             api_key=api_key,
             delay=delay,
             max_results=per_query_limit,
+            max_retries=max_retries,
+            request_timeout=request_timeout,
+            max_retry_wait=max_retry_wait,
         )
         logger.info(f"  Retrieved {len(papers)} papers for '{query}'")
         all_papers.extend(papers)
 
         save_jsonl(papers, raw_dir / f"query_{i+1}_raw.jsonl")
+
+        if progress_callback:
+            progress_callback(i + 1, len(queries))
 
         if i < len(queries) - 1:
             time.sleep(delay * 2)

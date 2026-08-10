@@ -9,6 +9,7 @@ Usage:
 """
 
 import json
+import re
 import time
 import os
 from dotenv import load_dotenv
@@ -23,6 +24,27 @@ from src.utils import (
 logger = get_logger("extract")
 load_dotenv()  # Load environment variables from .env file
 
+
+class ExtractionRateLimitError(RuntimeError):
+    """The provider asked the resumable extraction job to pause."""
+
+
+def _retry_after_seconds(error_text):
+    """Parse Groq durations such as ``6m12.03s`` without dropping minutes."""
+    match = re.search(
+        r"try again in\s*(?:(?P<hours>[0-9.]+)h)?"
+        r"(?:(?P<minutes>[0-9.]+)m)?(?:(?P<seconds>[0-9.]+)s)?",
+        error_text,
+        re.I,
+    )
+    if not match or not any(match.groupdict().values()):
+        return None
+    return (
+        float(match.group("hours") or 0) * 3600
+        + float(match.group("minutes") or 0) * 60
+        + float(match.group("seconds") or 0)
+    )
+
 def load_extraction_prompt(prompts_dir):
     """Load the triple extraction prompt template."""
     path = Path(prompts_dir) / "triple_extraction.txt"
@@ -30,7 +52,17 @@ def load_extraction_prompt(prompts_dir):
         return f.read()
 
 
-def extract_triples_from_text(client, model, prompt_template, domain, title, year, text, temperature=0.1):
+def extract_triples_from_text(
+    client,
+    model,
+    prompt_template,
+    domain,
+    title,
+    year,
+    text,
+    temperature=0.1,
+    max_retries=3,
+):
     """
     Extract triples from a single text chunk.
     Returns list of triple dicts.
@@ -40,58 +72,83 @@ def extract_triples_from_text(client, model, prompt_template, domain, title, yea
                         .replace("{year}", str(year))\
                         .replace("{text_chunk}", str(text))
     
-    try:
-        response = client.chat.completions.create(
-            model=model,
-            messages=[
-                {
-                    "role": "system",
-                    "content": "You are a research knowledge extraction agent. Output ONLY valid JSON with no additional text or markdown formatting."
-                },
-                {"role": "user", "content": prompt}
-            ],
-            temperature=temperature,
-            max_tokens=2000,
-            response_format={"type": "json_object"},
-        )
-        
-        content = response.choices[0].message.content
-        result = json.loads(content)
-        triples = result.get("triples", [])
-        
-        # Validate each triple
-        valid_triples = []
-        raw = result.get("triples", [])
-        triples = [t for t in raw if isinstance(t, dict)] 
-        for t in triples:
-            if (
-                isinstance(t, dict)
-                and "subject" in t
-                and "relation" in t
-                and "object" in t
-                and isinstance(t["subject"], dict)
-                and isinstance(t["object"], dict)
-                and "name" in t["subject"]
-                and "name" in t["object"]
-            ):
-                # Normalise entity names
-                t["subject"]["name"] = t["subject"]["name"].strip()
-                t["object"]["name"] = t["object"]["name"].strip()
-                
-                # Ensure confidence exists
-                if "confidence" not in t:
-                    t["confidence"] = 0.5
-                
-                valid_triples.append(t)
-        
-        return valid_triples
-    
-    except json.JSONDecodeError as e:
-        logger.warning(f"JSON parse error for '{title[:40]}...': {e}")
-        return []
-    except Exception as e:
-        logger.warning(f"Extraction failed for '{title[:40]}...': {e}")
-        return []
+    for attempt in range(max(1, int(max_retries))):
+        try:
+            response = client.chat.completions.create(
+                model=model,
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "You are a research knowledge extraction agent. Output ONLY valid JSON with no additional text or markdown formatting."
+                    },
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=temperature,
+                max_tokens=2000,
+                response_format={"type": "json_object"},
+            )
+
+            content = response.choices[0].message.content
+            result = json.loads(content)
+
+            valid_triples = []
+            raw = result.get("triples", [])
+            triples = [t for t in raw if isinstance(t, dict)]
+            for triple in triples:
+                if (
+                    "subject" in triple
+                    and "relation" in triple
+                    and "object" in triple
+                    and isinstance(triple["subject"], dict)
+                    and isinstance(triple["object"], dict)
+                    and "name" in triple["subject"]
+                    and "name" in triple["object"]
+                ):
+                    triple["subject"]["name"] = triple["subject"]["name"].strip()
+                    triple["object"]["name"] = triple["object"]["name"].strip()
+                    triple.setdefault("confidence", 0.5)
+                    valid_triples.append(triple)
+
+            return valid_triples
+
+        except json.JSONDecodeError as exc:
+            logger.warning(f"JSON parse error for '{title[:40]}...': {exc}")
+            return []
+        except Exception as exc:
+            error_text = str(exc)
+            rate_limited = "429" in error_text or "rate_limit" in error_text
+            daily_quota = "tokens per day" in error_text.lower() or "tpd" in error_text.lower()
+            suggested = _retry_after_seconds(error_text)
+
+            # Do not burn more requests or write false zero-triple results when
+            # the daily budget is exhausted or the requested pause is long.
+            if rate_limited and (daily_quota or (suggested is not None and suggested > 30)):
+                wait_note = (
+                    f" Provider suggests retrying in about {suggested:.0f} seconds."
+                    if suggested is not None else ""
+                )
+                raise ExtractionRateLimitError(
+                    "Groq extraction quota is temporarily exhausted. Progress was "
+                    f"checkpointed and can be resumed later.{wait_note}"
+                ) from exc
+
+            if rate_limited and attempt + 1 < max_retries:
+                wait = min(max((suggested or 5.0) + 1.0, 2.0), 30.0)
+                logger.warning(
+                    f"Extraction rate limited for '{title[:40]}...'; "
+                    f"retry {attempt + 1}/{max_retries} in {wait:.1f}s."
+                )
+                time.sleep(wait)
+                continue
+            if rate_limited:
+                raise ExtractionRateLimitError(
+                    "Groq remained rate-limited after bounded retries. Progress "
+                    "was checkpointed and can be resumed later."
+                ) from exc
+            logger.warning(f"Extraction failed for '{title[:40]}...': {exc}")
+            return []
+
+    return []
 
 
 def extract_paper_triples(client, model, prompt_template, domain, paper, chunk_size=1500, chunk_overlap=200):
@@ -109,7 +166,13 @@ def extract_paper_triples(client, model, prompt_template, domain, paper, chunk_s
     
     if not text:
         logger.warning(f"No text for paper: {title[:50]}")
-        return {"paperId": paper_id, "title": title, "year": year, "triples": []}
+        return {
+            "paperId": paper_id,
+            "title": title,
+            "year": year,
+            "num_triples": 0,
+            "triples": [],
+        }
     
     # For abstracts, usually no chunking needed (they're short)
     # But if we have full text later, chunking kicks in
@@ -141,7 +204,7 @@ def extract_paper_triples(client, model, prompt_template, domain, paper, chunk_s
     }
 
 
-def extract_all_triples(config):
+def extract_all_triples(config, progress_callback=None):
     """
     Main extraction function.
     Processes all papers in the filtered corpus and extracts triples.
@@ -182,7 +245,9 @@ def extract_all_triples(config):
         )
     client = OpenAI(
         api_key=groq_api_key,
-        base_url="https://api.groq.com/openai/v1"
+        base_url="https://api.groq.com/openai/v1",
+        timeout=30.0,
+        max_retries=1,
         )
     
     # --- Check for existing progress ---
@@ -200,6 +265,8 @@ def extract_all_triples(config):
         try:
             data = load_json(paper_file)
             all_results.append(data)
+            if data.get("paperId"):
+                completed_ids.add(data["paperId"])
         except:
             pass
     
@@ -207,19 +274,33 @@ def extract_all_triples(config):
     logger.info(f"Extracting triples with {model}")
     logger.info(f"Domain: {domain}")
     
-    total_triples = 0
+    # Include checkpointed papers in the displayed count. Without this,
+    # another quota pause during resume would overwrite progress with zero.
+    total_triples = sum(
+        int(result.get("num_triples", len(result.get("triples", []))) or 0)
+        for result in all_results
+    )
     
     for i, paper in enumerate(tqdm(papers, desc="Extracting triples")):
         paper_id = paper.get("paperId", "")
         
         # Skip already processed
         if paper_id in completed_ids:
+            if progress_callback:
+                progress_callback(i + 1, len(papers))
             continue
         
-        result = extract_paper_triples(
-            client, model, prompt_template, domain, paper,
-            chunk_size=chunk_size, chunk_overlap=chunk_overlap
-        )
+        try:
+            result = extract_paper_triples(
+                client, model, prompt_template, domain, paper,
+                chunk_size=chunk_size, chunk_overlap=chunk_overlap
+            )
+        except ExtractionRateLimitError:
+            save_json(
+                {"completed_ids": sorted(completed_ids), "total_triples": total_triples},
+                progress_path,
+            )
+            raise
         
         total_triples += result["num_triples"]
         all_results.append(result)
@@ -235,6 +316,9 @@ def extract_all_triples(config):
                 progress_path
             )
             logger.info(f"  Checkpoint: {len(completed_ids)}/{len(papers)} papers, {total_triples} triples")
+
+        if progress_callback:
+            progress_callback(i + 1, len(papers))
         
         # Rate limiting
         time.sleep(1.0)
@@ -280,6 +364,8 @@ def extract_all_triples(config):
     for etype, count in sorted(entity_types.items(), key=lambda x: -x[1]):
         logger.info(f"    {etype}: {count}")
     logger.info(f"\n  Saved to: {triples_dir / 'all_triples.json'}")
+
+    return all_triples
 
 
 if __name__ == "__main__":

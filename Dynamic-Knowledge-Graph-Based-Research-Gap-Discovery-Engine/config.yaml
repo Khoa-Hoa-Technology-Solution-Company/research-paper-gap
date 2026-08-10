@@ -7,7 +7,7 @@
 
 # --- Project Info ---
 project:
-  name: "KG Gap Discovery Engine"
+  name: "ESV-Gap"
   domain: "Explainable AI (XAI)"
   version: "0.1.0"
 
@@ -32,6 +32,9 @@ collection:
 
   # Rate limiting (Semantic Scholar allows 100 req/5 min without key)
   delay_between_requests: 5          # Increased from 3.5 to reduce API pressure
+  request_timeout_seconds: 15        # Fail a stalled HTTP attempt promptly
+  max_retries: 3                     # Never retry a failed query indefinitely
+  max_retry_wait_seconds: 20         # Cap Retry-After/backoff pauses in the UI
 
 # --- Filtering (Stage 1 continued) ---
 filtering:
@@ -95,6 +98,7 @@ gap_detection:
   orphan:
     min_cluster_ratio: 0.05          # Flag clusters < 5% of total nodes
     max_inter_cluster_edge_ratio: 0.1 # Flag if bridge edges < 10%
+    random_seed: 42                  # Louvain is stochastic without a fixed seed
 
   # Temporal Decay Analysis
   temporal:
@@ -102,13 +106,46 @@ gap_detection:
     decay_threshold: 0.3             # Flag if activity drops > 30% (reduced from 0.5)
     lookback_years: 2                # Compare last N years (reduced from 3)
 
-# --- Gap Scoring (Stage 5) ---
+# --- Evidence & Stability Validation (Stage 5) ---
+# Detection outputs are hypotheses. This gate removes candidates that are
+# generic, single-paper artefacts, unstable under edge dropout, already
+# present as direct links, or apparently covered by the screened corpus.
+gap_validation:
+  min_supporting_papers: 2
+  min_independent_paths: 2
+  min_surviving_paths: 1
+  max_path_length: 4
+  min_specificity: 0.55
+  # Selected on controlled development seeds; the held-out test set is untouched.
+  bootstrap_repeats: 50
+  edge_keep_probability: 0.95
+  paper_keep_probability: 0.95
+  plausible_edge_add_probability: 0.50
+  min_stability: 0.70
+  orphan_isolation_threshold: 0.90
+  temporal_decay_threshold: 0.30
+  temporal_lookback_years: 2
+  snapshot_date: "2026-07-20"
+  exclude_incomplete_final_year: true
+  closure_token_coverage: 0.60
+  random_seed: 42
+  max_closure_hits_to_record: 10
+  corpus_path: ""                   # Optional explicit screened-corpus JSON
+  weights:
+    provenance: 0.25
+    specificity: 0.15
+    path_diversity: 0.20
+    stability: 0.30
+    closure_clearance: 0.10
+
+# --- Gap Scoring (Stage 6) ---
 scoring:
   weights:
-    centrality: 0.25
+    centrality: 0.15
     cluster_isolation: 0.25
     temporal_decay: 0.25
     prediction_confidence: 0.25
+    validation: 0.35
   top_k_gaps: 30                     # Final number of gaps to present
 
 # --- Visualisation ---

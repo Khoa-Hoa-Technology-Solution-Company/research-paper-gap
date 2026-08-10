@@ -13,7 +13,6 @@ Usage:
 import pickle
 import networkx as nx
 import numpy as np
-import pandas as pd
 from pathlib import Path
 from collections import defaultdict
 import community as community_louvain
@@ -25,6 +24,50 @@ logger = get_logger("detect_gaps")
 # ============================================================
 # GAP TYPE 1: Missing Link Prediction
 # ============================================================
+
+def detect_missing_links_common_neighbors(G, top_k):
+    """Deterministic lightweight fallback when PyKEEN/Torch is unavailable."""
+    simple = nx.Graph(G)
+    candidate_pairs = set()
+
+    for middle in simple.nodes():
+        neighbors = sorted(simple.neighbors(middle), key=str)
+        for i, head in enumerate(neighbors):
+            for tail in neighbors[i + 1:]:
+                if head != tail and not simple.has_edge(head, tail):
+                    candidate_pairs.add(tuple(sorted((head, tail), key=str)))
+
+    scored = []
+    for head, tail in candidate_pairs:
+        common_count = len(list(nx.common_neighbors(simple, head, tail)))
+        degree_scale = max((simple.degree(head) * simple.degree(tail)) ** 0.5, 1.0)
+        normalized_score = common_count / degree_scale
+        scored.append({
+            "type": "missing_link",
+            "head": str(head),
+            "relation": "RELATED_TO",
+            "tail": str(tail),
+            "prediction_score": float(10.0 * normalized_score),
+            "description": (
+                f"Common-neighbour candidate: '{head}' and '{tail}' share "
+                f"{common_count} graph neighbours but have no observed edge."
+            ),
+            "detector": "common_neighbors_fallback",
+            "common_neighbors": common_count,
+        })
+
+    scored.sort(
+        key=lambda gap: (
+            gap["prediction_score"],
+            gap["common_neighbors"],
+            gap["head"],
+            gap["tail"],
+        ),
+        reverse=True,
+    )
+    result = scored[:top_k]
+    logger.info(f"  Common-neighbour fallback found {len(result)} candidates")
+    return result
 
 def detect_missing_links(G, config):
     """
@@ -41,8 +84,11 @@ def detect_missing_links(G, config):
         from pykeen.pipeline import pipeline as pykeen_pipeline
         from pykeen.triples import TriplesFactory
     except ImportError:
-        logger.error("PyKEEN not installed. Run: pip install pykeen")
-        return []
+        logger.warning(
+            "PyKEEN/Torch is not installed; using deterministic "
+            "common-neighbour missing-link generation."
+        )
+        return detect_missing_links_common_neighbors(G, top_k)
     
     # Convert NetworkX graph to PyKEEN triples
     triples_list = []
@@ -206,7 +252,10 @@ def detect_orphan_clusters(G, config):
     # Run Louvain community detection
     # python-louvain needs a simple Graph (no multi-edges)
     G_simple = nx.Graph(G_undirected)
-    partition = community_louvain.best_partition(G_simple)
+    # Louvain is stochastic. A fixed, recorded seed is required for a
+    # reproducible gap list and for stable downstream validation decisions.
+    random_seed = orphan_config.get("random_seed", 42)
+    partition = community_louvain.best_partition(G_simple, random_state=random_seed)
     
     # Group nodes by community
     communities = defaultdict(list)
@@ -273,9 +322,11 @@ def detect_orphan_clusters(G, config):
 
 def detect_temporal_decay(G, config):
     """
-    Identify concepts with declining research activity over time.
-    Concepts with peak activity 2-3 years ago but declining
-    recent edge formation are flagged.
+    Identify concepts whose publication-normalised activity declines.
+
+    Relation events are clustered by paper, not counted independently.  The
+    final calendar year is excluded when it is right-censored by the recorded
+    snapshot date.
     """
     logger.info("--- Temporal Decay Analysis ---")
     
@@ -283,39 +334,84 @@ def detect_temporal_decay(G, config):
     decay_threshold = temp_config["decay_threshold"]
     lookback = temp_config["lookback_years"]
     
-    # Get year range from edges
+    publication_counts = {
+        int(year): int(count)
+        for year, count in temp_config.get("publication_counts", {}).items()
+    }
+    papers_by_year = defaultdict(set)
     edge_years = []
     for _, _, data in G.edges(data=True):
-        year = data.get("year")
-        if year and isinstance(year, (int, float)):
-            edge_years.append(int(year))
+        try:
+            year = int(data.get("year"))
+        except (TypeError, ValueError):
+            continue
+        edge_years.append(year)
+        paper = data.get("source_paper") or data.get("source_paper_id") or data.get("paper_id")
+        if paper:
+            papers_by_year[year].add(str(paper))
     
     if not edge_years:
         logger.warning("  No temporal data on edges")
         return []
     
     min_year = min(edge_years)
-    max_year = max(edge_years)
-    logger.info(f"  Temporal range: {min_year} - {max_year}")
+    observed_max_year = max(edge_years)
+    snapshot_date = str(
+        temp_config.get("snapshot_date")
+        or config.get("gap_validation", {}).get("snapshot_date", "")
+    )
+    try:
+        snapshot_year = int(snapshot_date[:4])
+    except ValueError:
+        snapshot_year = 0
+    exclude_partial = bool(
+        temp_config.get(
+            "exclude_incomplete_final_year",
+            config.get("gap_validation", {}).get("exclude_incomplete_final_year", True),
+        )
+    )
+    max_year = observed_max_year - 1 if exclude_partial and snapshot_year == observed_max_year else observed_max_year
+    logger.info(
+        "  Temporal range: %d - %d (observed through %d; snapshot %s)",
+        min_year, max_year, observed_max_year, snapshot_date or "unspecified",
+    )
+    if not publication_counts:
+        publication_counts = {
+            year: len(papers) for year, papers in papers_by_year.items()
+        }
     
     # Build per-node temporal profiles
-    node_year_activity = defaultdict(lambda: defaultdict(int))
+    node_year_papers = defaultdict(lambda: defaultdict(set))
     
     for u, v, data in G.edges(data=True):
-        year = data.get("year")
-        if year and isinstance(year, (int, float)):
-            year = int(year)
-            node_year_activity[u][year] += 1
-            node_year_activity[v][year] += 1
+        try:
+            year = int(data.get("year"))
+        except (TypeError, ValueError):
+            continue
+        if year > max_year:
+            continue
+        paper = str(
+            data.get("source_paper")
+            or data.get("source_paper_id")
+            or data.get("paper_id")
+            or f"event-{u}-{v}-{year}"
+        )
+        node_year_papers[u][year].add(paper)
+        node_year_papers[v][year].add(paper)
     
     # Analyse decay for each node
     decay_gaps = []
     recent_years = list(range(max_year - lookback + 1, max_year + 1))
     earlier_years = list(range(max_year - 2 * lookback + 1, max_year - lookback + 1))
     
-    for node, year_counts in node_year_activity.items():
-        recent_activity = sum(year_counts.get(y, 0) for y in recent_years)
-        earlier_activity = sum(year_counts.get(y, 0) for y in earlier_years)
+    for node, year_papers in node_year_papers.items():
+        year_counts = {year: len(papers) for year, papers in year_papers.items()}
+        year_rates = {
+            year: year_counts.get(year, 0) / max(publication_counts.get(year, 0), 1)
+            for year in range(min_year, max_year + 1)
+        }
+        recent_activity = sum(year_rates.get(y, 0.0) for y in recent_years) / max(len(recent_years), 1)
+        earlier_activity = sum(year_rates.get(y, 0.0) for y in earlier_years) / max(len(earlier_years), 1)
         
         # Skip nodes with very little activity overall
         total = sum(year_counts.values())
@@ -325,18 +421,19 @@ def detect_temporal_decay(G, config):
         # Calculate decay rate
         if earlier_activity > 0:
             decay_rate = 1.0 - (recent_activity / earlier_activity)
-        elif recent_activity == 0:
-            decay_rate = 1.0
         else:
-            decay_rate = 0.0  # Growing, not decaying
+            # With no baseline activity, neither zero-to-zero nor new activity
+            # identifies a decline.  Both cases fail closed to zero decay.
+            decay_rate = 0.0
         
         # Find peak year
-        peak_year = max(year_counts, key=year_counts.get)
-        peak_count = year_counts[peak_year]
+        peak_year = max(year_rates, key=year_rates.get)
+        peak_count = year_counts.get(peak_year, 0)
         
         if decay_rate >= decay_threshold:
             # Build temporal profile for this node
             profile = {y: year_counts.get(y, 0) for y in range(min_year, max_year + 1)}
+            normalised_profile = {y: round(year_rates.get(y, 0.0), 6) for y in range(min_year, max_year + 1)}
             
             decay_gaps.append({
                 "type": "temporal_decay",
@@ -345,11 +442,16 @@ def detect_temporal_decay(G, config):
                 "decay_rate": round(decay_rate, 4),
                 "peak_year": peak_year,
                 "peak_activity": peak_count,
-                "recent_activity": recent_activity,
-                "earlier_activity": earlier_activity,
+                "recent_activity": round(recent_activity, 6),
+                "earlier_activity": round(earlier_activity, 6),
                 "total_activity": total,
                 "temporal_profile": profile,
-                "description": f"'{node}' peaked in {peak_year} with {peak_count} connections but has declined by {decay_rate:.0%} recently ({earlier_activity} -> {recent_activity} edges). This may indicate a stalled research thread worth revisiting.",
+                "normalised_temporal_profile": normalised_profile,
+                "publication_counts": publication_counts,
+                "analysis_end_year": max_year,
+                "snapshot_date": snapshot_date or None,
+                "right_censored_year_excluded": observed_max_year if max_year < observed_max_year else None,
+                "description": f"'{node}' peaked in {peak_year} and its share of screened papers declined by {decay_rate:.0%} across the two comparison windows. This is a triage signal, not evidence of a scientific gap.",
             })
     
     # Sort by decay rate (highest decay = most stalled)

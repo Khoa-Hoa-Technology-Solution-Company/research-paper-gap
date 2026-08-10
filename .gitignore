@@ -1,0 +1,8 @@
+# Local credentials and generated submission artefacts
+.env
+/output/
+/tmp/
+
+# Python caches
+__pycache__/
+*.py[cod]

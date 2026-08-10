@@ -79,7 +79,7 @@ def screen_paper(client, model, prompt_template, domain, title, abstract):
     return {"relevant": False, "confidence": 0.0, "reason": "Max retries exceeded"}
 
 
-def filter_corpus(config):
+def filter_corpus(config, progress_callback=None):
     """
     Main filtering function.
     Loads raw papers, screens with LLM, filters to target corpus size.
@@ -121,6 +121,8 @@ def filter_corpus(config):
     client = OpenAI(
         api_key=groq_api_key,
         base_url="https://api.groq.com/openai/v1",
+        timeout=30.0,
+        max_retries=0,
     )
 
     # --- Screen papers ---
@@ -135,6 +137,8 @@ def filter_corpus(config):
         abstract = paper.get("abstract", "")
 
         if not abstract:
+            if progress_callback:
+                progress_callback(i + 1, len(papers))
             continue
 
         result = screen_paper(client, model, prompt_template, domain, title, abstract)
@@ -152,6 +156,9 @@ def filter_corpus(config):
                 f"  Progress: {i + 1}/{len(papers)}, "
                 f"relevant so far: {relevant_count}"
             )
+
+        if progress_callback:
+            progress_callback(i + 1, len(papers))
 
         # Rate limiting — 3 seconds keeps us safely under 6k TPM on free tier
         time.sleep(3)

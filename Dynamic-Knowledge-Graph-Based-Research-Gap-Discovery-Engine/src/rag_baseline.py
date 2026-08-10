@@ -24,9 +24,14 @@ import numpy as np
 from pathlib import Path
 from tqdm import tqdm
 from openai import OpenAI
-from sentence_transformers import SentenceTransformer
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from src.utils import get_logger, save_json, load_jsonl, ensure_dir
+
+try:
+    from sentence_transformers import SentenceTransformer
+except ImportError:
+    SentenceTransformer = None
 
 logger = get_logger("rag_baseline")
 
@@ -114,12 +119,33 @@ def run_mulla_rag(papers, topic, client, model, output_path):
     abstracts = [p.get("abstract", "") for p in papers]
     titles    = [p.get("title", "")    for p in papers]
 
-    # Embed all abstracts
-    logger.info("Embedding abstracts with Sentence-BERT...")
-    embedder   = SentenceTransformer("all-MiniLM-L6-v2")
-    embeddings = embedder.encode(abstracts, show_progress_bar=True, batch_size=32)
+    # Embed all abstracts. TF-IDF keeps the baseline executable on CPU-only
+    # environments where Sentence-BERT/Torch is intentionally not installed.
+    retrieval_backend = "sentence_transformers"
+    if SentenceTransformer is not None:
+        try:
+            logger.info("Embedding abstracts with Sentence-BERT...")
+            embedder = SentenceTransformer("all-MiniLM-L6-v2")
+            embeddings = embedder.encode(
+                abstracts, show_progress_bar=True, batch_size=32
+            )
+        except Exception as exc:
+            logger.warning(
+                f"Sentence-BERT unavailable ({exc}); using TF-IDF retrieval."
+            )
+            retrieval_backend = "tfidf_fallback"
+            embeddings = TfidfVectorizer(
+                stop_words="english", max_features=10000
+            ).fit_transform(abstracts)
+    else:
+        logger.warning(
+            "sentence-transformers is not installed; using TF-IDF retrieval."
+        )
+        retrieval_backend = "tfidf_fallback"
+        embeddings = TfidfVectorizer(
+            stop_words="english", max_features=10000
+        ).fit_transform(abstracts)
 
-    # Compute similarity matrix
     sim_matrix = cosine_similarity(embeddings)
 
     results = []
@@ -134,7 +160,9 @@ def run_mulla_rag(papers, topic, client, model, output_path):
         # Retrieve top-3 similar papers (exclude self)
         sim_scores   = sim_matrix[i].copy()
         sim_scores[i] = -1  # exclude self
-        top3_indices  = np.argsort(sim_scores)[-3:][::-1]
+        top3_indices = [
+            idx for idx in np.argsort(sim_scores)[::-1] if idx != i
+        ][:3]
 
         context_parts = []
         for idx in top3_indices:
@@ -171,6 +199,7 @@ def run_mulla_rag(papers, topic, client, model, output_path):
                 "solution_approach": extract_field(response, "SOLUTION_APPROACH"),
                 "remaining_gaps":    extract_field(response, "REMAINING_GAPS"),
                 "retrieved_context": [titles[idx] for idx in top3_indices],
+                "retrieval_backend": retrieval_backend,
             }
             results.append(gap_result)
 
@@ -370,6 +399,8 @@ def run_rag_baseline(config):
     client = OpenAI(
         api_key=groq_api_key,
         base_url="https://api.groq.com/openai/v1",
+        timeout=30.0,
+        max_retries=0,
     )
 
     # Run Method B: Mulla et al. RAG

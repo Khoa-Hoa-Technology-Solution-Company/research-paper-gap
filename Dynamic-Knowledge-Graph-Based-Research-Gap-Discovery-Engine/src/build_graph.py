@@ -22,9 +22,14 @@ from pathlib import Path
 from collections import defaultdict
 from tqdm import tqdm
 from fuzzywuzzy import fuzz
-from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
+from src.entity_normalization import canonical_entity_key, canonical_entity_label
 from src.utils import get_logger, save_json, load_json, ensure_dir
+
+try:
+    from sentence_transformers import SentenceTransformer
+except ImportError:
+    SentenceTransformer = None
 
 import os
 os.environ["HF_HUB_DISABLE_IMPLICIT_TOKEN"] = "1"
@@ -61,6 +66,27 @@ def build_entity_index(triples):
         e["papers"] = list(e["papers"])
 
     return entities
+
+
+def canonicalize_triple_entities(triples):
+    """Strip type suffixes and merge case-only variants before deduplication."""
+    labels_by_key = {}
+    normalized = []
+    for triple in triples:
+        item = dict(triple)
+        item["subject"] = dict(triple["subject"])
+        item["object"] = dict(triple["object"])
+        for role in ("subject", "object"):
+            label = canonical_entity_label(item[role].get("name"))
+            key = canonical_entity_key(label)
+            if not key:
+                break
+            labels_by_key.setdefault(key, label)
+            item[role]["name"] = labels_by_key[key]
+        else:
+            if canonical_entity_key(item["subject"]["name"]) != canonical_entity_key(item["object"]["name"]):
+                normalized.append(item)
+    return normalized
 
 
 def deduplicate_entities(
@@ -120,59 +146,72 @@ def deduplicate_entities(
 
     canonical_names = list(set(name_map.values()))
 
-    if len(canonical_names) > 1:
+    if len(canonical_names) > 1 and SentenceTransformer is not None:
         logger.info(f"    Loading embedding model: {embedding_model_name}")
-        model = SentenceTransformer(embedding_model_name)
+        try:
+            model = SentenceTransformer(embedding_model_name)
+        except Exception as exc:
+            logger.warning(
+                "    Semantic deduplication unavailable; continuing with "
+                f"canonical and fuzzy matching only: {exc}"
+            )
+            model = None
 
-        logger.info(f"    Encoding {len(canonical_names)} entity names...")
-        embeddings = model.encode(
-            canonical_names, show_progress_bar=False, batch_size=64
-        )
+        if model is not None:
+            logger.info(f"    Encoding {len(canonical_names)} entity names...")
+            embeddings = model.encode(
+                canonical_names, show_progress_bar=False, batch_size=64
+            )
 
-        sim_matrix = cosine_similarity(embeddings)
+            sim_matrix = cosine_similarity(embeddings)
 
-        merged_semantic = 0
-        canonical_occurrences = {
-            n: entities.get(n, {}).get("occurrences", 0) for n in canonical_names
-        }
-        canonical_sorted = sorted(
-            canonical_names,
-            key=lambda n: canonical_occurrences.get(n, 0),
-            reverse=True,
-        )
-        canonical_idx = {n: i for i, n in enumerate(canonical_names)}
-        semantic_map  = {n: n for n in canonical_names}
+            merged_semantic = 0
+            canonical_occurrences = {
+                n: entities.get(n, {}).get("occurrences", 0) for n in canonical_names
+            }
+            canonical_sorted = sorted(
+                canonical_names,
+                key=lambda n: canonical_occurrences.get(n, 0),
+                reverse=True,
+            )
+            canonical_idx = {n: i for i, n in enumerate(canonical_names)}
+            semantic_map  = {n: n for n in canonical_names}
 
-        for name_a in canonical_sorted:
-            if semantic_map[name_a] != name_a:
-                continue
-
-            idx_a = canonical_idx[name_a]
-
-            for name_b in canonical_sorted:
-                if name_b == name_a or semantic_map[name_b] != name_b:
+            for name_a in canonical_sorted:
+                if semantic_map[name_a] != name_a:
                     continue
 
-                idx_b = canonical_idx[name_b]
+                idx_a = canonical_idx[name_a]
 
-                if sim_matrix[idx_a][idx_b] >= semantic_threshold:
-                    semantic_map[name_b] = name_a
-                    merge_log.append({
-                        "original":      name_b,
-                        "merged_into":   name_a,
-                        "method":        "semantic",
-                        "score":         round(float(sim_matrix[idx_a][idx_b]), 4),
-                        "original_type": entities.get(name_b, {}).get("type", "?"),
-                        "canon_type":    entities.get(name_a, {}).get("type", "?"),
-                    })
-                    merged_semantic += 1
+                for name_b in canonical_sorted:
+                    if name_b == name_a or semantic_map[name_b] != name_b:
+                        continue
 
-        # Propagate semantic merges into name_map
-        for orig_name, canon_name in name_map.items():
-            if canon_name in semantic_map:
-                name_map[orig_name] = semantic_map[canon_name]
+                    idx_b = canonical_idx[name_b]
 
-        logger.info(f"    Semantic merged: {merged_semantic} entities")
+                    if sim_matrix[idx_a][idx_b] >= semantic_threshold:
+                        semantic_map[name_b] = name_a
+                        merge_log.append({
+                            "original":      name_b,
+                            "merged_into":   name_a,
+                            "method":        "semantic",
+                            "score":         round(float(sim_matrix[idx_a][idx_b]), 4),
+                            "original_type": entities.get(name_b, {}).get("type", "?"),
+                            "canon_type":    entities.get(name_a, {}).get("type", "?"),
+                        })
+                        merged_semantic += 1
+
+            # Propagate semantic merges into name_map
+            for orig_name, canon_name in name_map.items():
+                if canon_name in semantic_map:
+                    name_map[orig_name] = semantic_map[canon_name]
+
+            logger.info(f"    Semantic merged: {merged_semantic} entities")
+    elif len(canonical_names) > 1:
+        logger.warning(
+            "    sentence-transformers is not installed; continuing with "
+            "canonical and fuzzy matching only."
+        )
 
     unique_final = len(set(name_map.values()))
     logger.info(f"  Final unique entities: {unique_final} (from {len(names)})")
@@ -198,6 +237,8 @@ def build_knowledge_graph(config):
 
     triples = load_json(triples_path)
     logger.info(f"Loaded {len(triples)} triples")
+    triples = canonicalize_triple_entities(triples)
+    logger.info(f"After deterministic entity canonicalization: {len(triples)} triples")
 
     # ── Confidence filter ──────────────────────────────────────────
     min_conf = graph_config["min_edge_confidence"]
@@ -355,7 +396,9 @@ def build_knowledge_graph(config):
     logger.info(f"  Edges: {G.number_of_edges()}")
     logger.info(f"  Density: {nx.density(G_simple):.4f}")
 
-    if nx.is_weakly_connected(G):
+    if G.number_of_nodes() == 0:
+        logger.info("  Connected: Not applicable (empty graph)")
+    elif nx.is_weakly_connected(G):
         logger.info("  Connected: Yes (single component)")
     else:
         components = list(nx.weakly_connected_components(G))
