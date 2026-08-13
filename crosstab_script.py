@@ -3,7 +3,13 @@ import hashlib
 from pathlib import Path
 from collections import Counter
 
-run_dir = Path(r"d:\Workspace\research-paper-gap\Dynamic-Knowledge-Graph-Based-Research-Gap-Discovery-Engine\runs\security_of_mongodb_20260806_135447\outputs")
+run_dir = (
+    Path(__file__).resolve().parent
+    / "ESV-Gap"
+    / "runs"
+    / "security_of_mongodb_20260806_135447"
+    / "outputs"
+)
 
 # 1. Get the hash of gap_validation_audit.json
 audit_path = run_dir / "gap_validation_audit.json"

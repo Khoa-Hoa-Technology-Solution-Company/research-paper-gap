@@ -54,7 +54,7 @@ candidate.
 
 ```text
 research-paper-gap/
-|-- Dynamic-Knowledge-Graph-Based-Research-Gap-Discovery-Engine/
+|-- ESV-Gap/
 |   |-- app.py                 # Streamlit evidence workbench
 |   |-- config.yaml            # Pipeline and validation configuration
 |   |-- run_pipeline.py        # Command-line stage runner
@@ -75,7 +75,7 @@ Python 3.9 or newer is required. A virtual environment is recommended.
 
 ```powershell
 git clone https://github.com/Khoa-Hoa-Technology-Solution-Company/research-paper-gap.git
-cd research-paper-gap\Dynamic-Knowledge-Graph-Based-Research-Gap-Discovery-Engine
+cd research-paper-gap\ESV-Gap
 
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
@@ -175,15 +175,15 @@ uncertainty-routed queue. It is **not** an estimate of precision, novelty, or
 comparative effectiveness. B1 and B2 did not receive shared expert labels.
 
 For exact hashes, protocol details, limitations, and offline commands, see the
-[reproducibility record](./Dynamic-Knowledge-Graph-Based-Research-Gap-Discovery-Engine/paper_v2/REPRODUCIBILITY.md).
+[reproducibility record](./ESV-Gap/paper_v2/REPRODUCIBILITY.md).
 
 ## Paper
 
-- [IEEE LaTeX source](./Dynamic-Knowledge-Graph-Based-Research-Gap-Discovery-Engine/paper_v2/main_ieee.tex)
-- [Compiled IEEE PDF](./Dynamic-Knowledge-Graph-Based-Research-Gap-Discovery-Engine/paper_v2/main_ieee.pdf)
-- [LNCS LaTeX source](./Dynamic-Knowledge-Graph-Based-Research-Gap-Discovery-Engine/paper_v2/main.tex)
-- [Experiment summary](./Dynamic-Knowledge-Graph-Based-Research-Gap-Discovery-Engine/paper_v2/results_summary.json)
-- [Response to reviewers](./Dynamic-Knowledge-Graph-Based-Research-Gap-Discovery-Engine/paper_v2/RESPONSE_TO_REVIEWERS.md)
+- [IEEE LaTeX source](./ESV-Gap/paper_v2/main_ieee.tex)
+- [Compiled IEEE PDF](./ESV-Gap/paper_v2/main_ieee.pdf)
+- [LNCS LaTeX source](./ESV-Gap/paper_v2/main.tex)
+- [Experiment summary](./ESV-Gap/paper_v2/results_summary.json)
+- [Response to reviewers](./ESV-Gap/paper_v2/RESPONSE_TO_REVIEWERS.md)
 
 ## Authors
 
