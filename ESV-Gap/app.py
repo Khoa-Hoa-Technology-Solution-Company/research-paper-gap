@@ -31,6 +31,11 @@ import pandas as pd
 import numpy as np
 import networkx as nx
 from pathlib import Path
+from src.gap_provenance import (
+    build_paper_index,
+    candidate_identity as provenance_candidate_identity,
+    resolve_gap_provenance,
+)
 
 logging.getLogger("transformers").setLevel(logging.ERROR)
 
@@ -118,6 +123,14 @@ def build_resume_config(run_info, groq_key):
 
 
 def generate_queries_with_llm(topic, groq_key):
+    fallback_queries = [
+        topic,
+        f"{topic} survey",
+        f"{topic} framework",
+        f"{topic} deep learning",
+        f"{topic} methods",
+    ]
+
     try:
         from openai import OpenAI
         client = OpenAI(
@@ -127,23 +140,54 @@ def generate_queries_with_llm(topic, groq_key):
             max_retries=1,
         )
         resp = client.chat.completions.create(
-            model="llama-3.1-8b-instant",
-            messages=[{"role": "user", "content":
-                f"""Generate 5 academic search queries for: "{topic}"
-Return ONLY a JSON array of 5 short search strings (2-5 words each).
-Example: ["query one", "query two", "query three", "query four", "query five"]"""}],
-            temperature=0.3,
-            max_tokens=200,
+            model="openai/gpt-oss-20b",
+            messages=[
+                {
+                    "role": "system",
+                    "content": (
+                        "You generate concise academic search queries. "
+                        "Return only a valid JSON object."
+                    ),
+                },
+                {
+                    "role": "user",
+                    "content": (
+                        f'Generate exactly 5 academic search queries for "{topic}". '
+                        "Each query must contain 2-5 words. Return them in this "
+                        'format: {"queries": ["query one", "query two", '
+                        '"query three", "query four", "query five"]}'
+                    ),
+                },
+            ],
+            temperature=0.5,
+            max_tokens=500,
+            reasoning_effort="low",
+            response_format={"type": "json_object"},
         )
-        content = resp.choices[0].message.content.strip()
-        content = content.lstrip("```json").lstrip("```").rstrip("```").strip()
-        queries = json.loads(content)
-        if isinstance(queries, list) and len(queries) >= 3:
-            return queries[:5]
-    except Exception:
-        pass
-    return [topic, f"{topic} survey", f"{topic} framework",
-            f"{topic} deep learning", f"{topic} methods"]
+        content = resp.choices[0].message.content
+        data = json.loads(content)
+        queries = data.get("queries", []) if isinstance(data, dict) else []
+        queries = [
+            query.strip()
+            for query in queries
+            if isinstance(query, str) and query.strip()
+        ]
+
+        if len(queries) == 5:
+            return queries
+
+        logging.getLogger(__name__).warning(
+            "Groq returned an invalid query list; using fallback queries. "
+            "Response: %r",
+            content,
+        )
+    except Exception as exc:
+        logging.getLogger(__name__).warning(
+            "Could not generate search queries with Groq; using fallback queries: %s",
+            exc,
+        )
+
+    return fallback_queries
 
 
 def run_pipeline_with_progress(cfg, progress_queue):
@@ -426,6 +470,19 @@ def load_results(cfg):
     filtered_corpus_path = (
         Path(cfg["paths"]["processed_data"]) / "corpus_filtered.jsonl"
     )
+    corpus_papers = []
+    if filtered_corpus_path.exists():
+        with open(filtered_corpus_path, encoding="utf-8") as corpus_file:
+            for line in corpus_file:
+                if not line.strip():
+                    continue
+                try:
+                    corpus_papers.append(json.loads(line))
+                except (ValueError, TypeError):
+                    continue
+    results["papers"] = corpus_papers
+    results["paper_index"] = build_paper_index(corpus_papers)
+
     paper_outputs = list(Path(cfg["paths"]["triples"]).glob("paper_*.json"))
     run_stats = {
         "collected": 0,
@@ -459,6 +516,71 @@ def load_results(cfg):
 
 
 # ── FIX 8: Expert review helpers ────────────────────────────
+
+def render_gap_source_evidence(provenance, key_prefix, max_papers=6):
+    """Render paper metadata and edge-level evidence for one gap candidate."""
+    papers = provenance.get("papers", [])
+    label = f"Source evidence · {len(papers)} paper{'s' if len(papers) != 1 else ''}"
+    with st.expander(label):
+        st.caption(
+            "These papers support graph relations used to infer the candidate. "
+            "They do not necessarily state that the candidate is a research gap."
+        )
+        for index, path in enumerate(provenance.get("evidence_paths", []), start=1):
+            st.caption(
+                f"Evidence path {index}: "
+                + " → ".join(map(str, path.get("nodes", [])))
+            )
+
+        if not papers:
+            st.warning("No paper-level provenance could be resolved for this candidate.")
+            return
+
+        for paper_position, paper in enumerate(papers[:max_papers]):
+            st.markdown(f"**{paper.get('title', 'Untitled paper')}**")
+            metadata = []
+            if paper.get("authors"):
+                shown_authors = paper["authors"][:4]
+                author_text = ", ".join(shown_authors)
+                if len(paper["authors"]) > len(shown_authors):
+                    author_text += " et al."
+                metadata.append(author_text)
+            if paper.get("year"):
+                metadata.append(str(paper["year"]))
+            if paper.get("venue"):
+                metadata.append(paper["venue"])
+            metadata.append(f"{paper.get('citation_count', 0)} citations")
+            st.caption(" · ".join(metadata))
+
+            link_col, id_col = st.columns([1, 3])
+            with link_col:
+                if paper.get("url"):
+                    st.link_button(
+                        "Open paper",
+                        paper["url"],
+                        key=f"{key_prefix}:paper-link:{paper_position}",
+                        width="stretch",
+                    )
+            with id_col:
+                identifier = f"DOI: {paper['doi']}" if paper.get("doi") else paper["paper_id"]
+                st.caption(identifier)
+
+            if paper.get("relevance_reason"):
+                st.caption(f"Screening rationale: {paper['relevance_reason']}")
+            for item in paper.get("evidence", [])[:3]:
+                relation = (
+                    f"{item.get('subject', '')} —[{item.get('relation', '')}]→ "
+                    f"{item.get('object', '')}"
+                )
+                st.markdown(f"`{relation}`")
+                if item.get("evidence"):
+                    st.caption(f"Evidence: {item['evidence']}")
+            if paper_position < min(len(papers), max_papers) - 1:
+                st.divider()
+
+        if len(papers) > max_papers:
+            st.caption(f"{len(papers) - max_papers} more papers are listed in the Source Papers tab.")
+
 
 def _run_activity_time(run_dir):
     """Return the newest artifact timestamp, not only the directory mtime."""
@@ -1004,8 +1126,11 @@ if "results" in st.session_state:
 
     st.divider()
 
-    tab1, tab2, tab3, tab4 = st.tabs([
+    paper_index = results.get("paper_index", {})
+
+    tab1, tab2, tab3, tab4, tab5 = st.tabs([
         "Candidates & Review",
+        "Source Papers",
         "Knowledge Graph",
         "Evidence Analytics",
         "KG vs RAG",
@@ -1077,6 +1202,15 @@ if "results" in st.session_state:
             candidate_index = None
             display_gaps = gaps
 
+        provenance_by_gap = {
+            provenance_candidate_identity(gap): resolve_gap_provenance(
+                G,
+                gap,
+                paper_index,
+            )
+            for gap in display_gaps
+        }
+
         if review_state_key not in st.session_state:
             st.session_state[review_state_key] = (
                 saved_review.get("reviews", {}) if saved_review else {}
@@ -1099,9 +1233,14 @@ if "results" in st.session_state:
   <strong>#{g['rank']} {icon} {label}</strong>
   &nbsp;<code>score: {g.get('composite_score', 0):.4f}</code>
   &nbsp;{badge_html}<br>
-  <small>{g.get('description', '')}</small><br>
+<small>{g.get('description', '')}</small><br>
   <small>{g.get('_review_evidence', '')}</small>
 </div>""", unsafe_allow_html=True)
+                provenance_key = provenance_candidate_identity(g)
+                render_gap_source_evidence(
+                    provenance_by_gap.get(provenance_key, {}),
+                    key_prefix=f"{review_state_key}:{gap_key}:sources",
+                )
 
             with col_review:
                 new_decision = st.selectbox(
@@ -1178,11 +1317,21 @@ if "results" in st.session_state:
                 reviewed_rows = []
                 for g in display_gaps:
                     k = g.get("_review_key", f"review_{g['rank']}")
+                    gap_provenance = provenance_by_gap.get(
+                        provenance_candidate_identity(g), {}
+                    )
                     reviewed_rows.append({
                         "rank":        g["rank"],
                         "type":        g["type"],
                         "score":       g.get("composite_score", 0),
                         "description": g.get("description", "")[:200],
+                        "source_paper_ids": "; ".join(
+                            gap_provenance.get("paper_ids", [])
+                        ),
+                        "source_paper_titles": "; ".join(
+                            paper.get("title", "")
+                            for paper in gap_provenance.get("papers", [])
+                        ),
                         "decision":    reviews.get(k, "Pending"),
                     })
                 df_review = pd.DataFrame(reviewed_rows)
@@ -1213,6 +1362,156 @@ if "results" in st.session_state:
 
     # ── Tab 2 — Knowledge Graph (unchanged) ─────────────────────
     with tab2:
+        st.subheader("Source papers by gap candidate")
+        st.caption(
+            "This view traces each candidate to papers supporting its graph evidence. "
+            "A source paper is not necessarily a paper that explicitly claims the gap."
+        )
+
+        paper_gap_records = {}
+        for gap in display_gaps:
+            gap_identity = provenance_candidate_identity(gap)
+            provenance = provenance_by_gap.get(gap_identity, {})
+            for paper in provenance.get("papers", []):
+                paper_id = paper["paper_id"]
+                if paper_id not in paper_gap_records:
+                    paper_gap_records[paper_id] = {**paper, "gaps": []}
+                paper_gap_records[paper_id]["gaps"].append({
+                    "rank": gap.get("rank", "?"),
+                    "type": gap.get("type", "unknown"),
+                    "description": gap.get("description", ""),
+                    "evidence": paper.get("evidence", []),
+                })
+
+        source_col1, source_col2, source_col3 = st.columns(3)
+        with source_col1:
+            st.metric("Source papers", len(paper_gap_records))
+        with source_col2:
+            st.metric(
+                "Gap–paper links",
+                sum(len(item["gaps"]) for item in paper_gap_records.values()),
+            )
+        with source_col3:
+            st.metric(
+                "Candidates with provenance",
+                sum(1 for value in provenance_by_gap.values() if value.get("papers")),
+            )
+
+        source_search = st.text_input(
+            "Search source papers",
+            placeholder="Title, author, venue, or paper ID",
+            key=f"source-paper-search:{queue_name}",
+        ).strip().lower()
+        source_types = st.multiselect(
+            "Filter source papers by gap type",
+            ["missing_link", "orphan_cluster", "temporal_decay"],
+            default=["missing_link", "orphan_cluster", "temporal_decay"],
+            key=f"source-paper-types:{queue_name}",
+        )
+
+        filtered_source_papers = []
+        for paper in paper_gap_records.values():
+            haystack = " ".join([
+                paper.get("title", ""),
+                " ".join(paper.get("authors", [])),
+                paper.get("venue", ""),
+                paper.get("paper_id", ""),
+            ]).lower()
+            paper_types = {gap["type"] for gap in paper["gaps"]}
+            if source_search and source_search not in haystack:
+                continue
+            if not paper_types.intersection(source_types):
+                continue
+            filtered_source_papers.append(paper)
+
+        filtered_source_papers.sort(key=lambda item: (
+            -len(item["gaps"]),
+            -(int(item.get("year") or 0)),
+            item.get("title", "").lower(),
+        ))
+
+        if not filtered_source_papers:
+            st.warning("No source papers match the current filters.")
+        else:
+            source_rows = []
+            for paper in filtered_source_papers:
+                gap_labels = [f"#{gap['rank']} {gap['type']}" for gap in paper["gaps"]]
+                source_rows.append({
+                    "Paper": paper["title"],
+                    "Year": paper.get("year"),
+                    "Authors": ", ".join(paper.get("authors", [])[:4]),
+                    "Venue": paper.get("venue", ""),
+                    "Citations": paper.get("citation_count", 0),
+                    "Gap count": len(paper["gaps"]),
+                    "Gap candidates": ", ".join(gap_labels),
+                    "URL": paper.get("url", ""),
+                })
+            source_df = pd.DataFrame(source_rows)
+            st.dataframe(
+                source_df,
+                hide_index=True,
+                width="stretch",
+                column_config={
+                    "URL": st.column_config.LinkColumn("Paper link", display_text="Open"),
+                    "Paper": st.column_config.TextColumn("Paper", width="large"),
+                    "Gap candidates": st.column_config.TextColumn(
+                        "Gap candidates", width="large"
+                    ),
+                },
+            )
+            st.download_button(
+                "Download gap–paper mapping CSV",
+                source_df.to_csv(index=False),
+                file_name=f"gap_source_papers_{topic.replace(' ', '_')}.csv",
+                mime="text/csv",
+            )
+
+            selected_paper_id = st.selectbox(
+                "Inspect one source paper",
+                [paper["paper_id"] for paper in filtered_source_papers],
+                format_func=lambda paper_id: paper_gap_records[paper_id]["title"],
+                key=f"source-paper-detail:{queue_name}",
+            )
+            selected_paper = paper_gap_records[selected_paper_id]
+            with st.container(border=True):
+                st.markdown(f"### {selected_paper['title']}")
+                selected_meta = []
+                if selected_paper.get("authors"):
+                    selected_meta.append(", ".join(selected_paper["authors"]))
+                if selected_paper.get("year"):
+                    selected_meta.append(str(selected_paper["year"]))
+                if selected_paper.get("venue"):
+                    selected_meta.append(selected_paper["venue"])
+                selected_meta.append(f"{selected_paper.get('citation_count', 0)} citations")
+                st.caption(" · ".join(selected_meta))
+                if selected_paper.get("url"):
+                    st.link_button(
+                        "Open paper",
+                        selected_paper["url"],
+                        key=f"source-paper-detail-link:{queue_name}:{selected_paper_id}",
+                    )
+                if selected_paper.get("abstract"):
+                    with st.expander("Abstract"):
+                        st.write(selected_paper["abstract"])
+
+                st.markdown("#### Associated gap candidates")
+                for gap_reference in selected_paper["gaps"]:
+                    with st.container(border=True):
+                        st.markdown(
+                            f"**#{gap_reference['rank']} · "
+                            f"{gap_reference['type'].replace('_', ' ').title()}**"
+                        )
+                        st.write(gap_reference["description"])
+                        for evidence_item in gap_reference.get("evidence", [])[:5]:
+                            st.markdown(
+                                f"`{evidence_item.get('subject', '')} "
+                                f"—[{evidence_item.get('relation', '')}]→ "
+                                f"{evidence_item.get('object', '')}`"
+                            )
+                            if evidence_item.get("evidence"):
+                                st.caption(f"Evidence: {evidence_item['evidence']}")
+
+    with tab3:
         st.subheader("Interactive evidence graph")
         st.caption("Nodes = concepts · Size = centrality · Red border = gap node · Dashed red = predicted missing link")
 
@@ -1235,7 +1534,7 @@ if "results" in st.session_state:
             st.table(df_nodes.astype(str))
 
     # ── Tab 3 — Analytics (unchanged) ───────────────────────────
-    with tab3:
+    with tab4:
         st.subheader("Evidence analytics")
 
         for fig_name, caption in [
@@ -1261,7 +1560,7 @@ if "results" in st.session_state:
             st.bar_chart(df_rel.set_index("Relation"))
 
     # ── Tab 4: RAG Comparison (unchanged) ───────────────────────
-    with tab4:
+    with tab5:
         st.subheader("Method comparison: KG vs RAG baselines")
 
         if not results.get("mulla_gaps"):

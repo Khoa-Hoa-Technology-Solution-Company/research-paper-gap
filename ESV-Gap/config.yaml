@@ -44,12 +44,12 @@ filtering:
   min_abstract_length: 100           # Minimum abstract word count
 
   # LLM-based relevance screening
-  relevance_model: "llama-3.1-8b-instant"   # Groq hosted Llama
+  relevance_model: "openai/gpt-oss-20b"   # Groq production text-generation model
   relevance_threshold: 0.7           # Minimum relevance score (0-1)
 
 # --- Triple Extraction (Stage 2) ---
 extraction:
-  model: "llama-3.1-8b-instant"      # Groq hosted Llama
+  model: "openai/gpt-oss-20b"      # Groq production text-generation model
   max_tokens: 2000                   # Max response tokens
   temperature: 0.1                   # Low temp for consistency
   triples_per_chunk: [5, 15]         # Min/max triples per chunk

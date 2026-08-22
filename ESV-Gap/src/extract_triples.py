@@ -85,6 +85,7 @@ def extract_triples_from_text(
                 ],
                 temperature=temperature,
                 max_tokens=2000,
+                reasoning_effort="low",
                 response_format={"type": "json_object"},
             )
 

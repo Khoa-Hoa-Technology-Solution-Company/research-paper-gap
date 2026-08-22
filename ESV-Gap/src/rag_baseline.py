@@ -93,6 +93,7 @@ def call_llm(client, model, system_msg, user_msg, max_tokens=600, max_retries=5)
                 ],
                 temperature=0.3,
                 max_tokens=max_tokens,
+                reasoning_effort="low",
             )
             return response.choices[0].message.content.strip()
         except Exception as e:

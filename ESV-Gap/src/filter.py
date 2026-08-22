@@ -51,8 +51,9 @@ def screen_paper(client, model, prompt_template, domain, title, abstract):
                     },
                     {"role": "user", "content": prompt}
                 ],
-                temperature=0.1,
-                max_tokens=150,   # reduced from 200 to save tokens
+                temperature=0.5,
+                max_tokens=300,
+                reasoning_effort="low",
                 response_format={"type": "json_object"},
             )
 
