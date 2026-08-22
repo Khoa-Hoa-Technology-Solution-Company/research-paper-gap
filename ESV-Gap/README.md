@@ -58,7 +58,7 @@ skipped and downstream stages continue after extraction finishes.
 python -m unittest discover -s tests -v
 ```
 
-The current suite contains 27 offline tests. It does not call Groq or Semantic
+The current suite contains 30 offline tests. It does not call Groq or Semantic
 Scholar.
 
 ## Research artifacts
