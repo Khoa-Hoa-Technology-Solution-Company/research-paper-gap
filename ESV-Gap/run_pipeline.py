@@ -9,7 +9,8 @@ Usage:
     python run_pipeline.py --stage build          # Stage 3: Build knowledge graph
     python run_pipeline.py --stage detect         # Stage 4: Detect gaps
     python run_pipeline.py --stage validate       # Stage 5: Validate evidence and stability
-    python run_pipeline.py --stage score          # Stage 6: Score and rank gaps
+    python run_pipeline.py --stage synthesise     # Stage 6: Combine signals into one research gap
+    python run_pipeline.py --stage score          # Stage 7: Score and rank candidates
     python run_pipeline.py --stage visualise      # Generate visualisations
     python run_pipeline.py --stage all            # Run full pipeline
 """
@@ -57,9 +58,20 @@ def run_stage(stage_name, config):
         from src.detect_gaps import detect_all_gaps
         detect_all_gaps(config)
 
+    elif stage_name == "fulltext":
+        from src.full_text import enrich_candidate_source_full_text
+        report = enrich_candidate_source_full_text(config)
+        if report.get("enriched", 0):
+            from src.detect_gaps import detect_all_gaps
+            detect_all_gaps(config)
+
     elif stage_name == "validate":
         from src.validate_gaps import validate_all_gaps
         validate_all_gaps(config)
+
+    elif stage_name == "synthesise":
+        from src.synthesise_research_gap import synthesise_research_gap
+        synthesise_research_gap(config)
     
     elif stage_name == "score":
         from src.score_gaps import score_and_rank_gaps
@@ -89,7 +101,8 @@ Stages (run in order):
   build      - Construct temporal knowledge graph
   detect     - Run gap detection algorithms
   validate   - Validate evidence, specificity, stability, and source closure
-  score      - Score and rank validated gaps
+  synthesise - Apply automatic multi-signal research-gap contract
+  score      - Score and rank validated candidates
   visualise  - Generate graph and gap visualisations
   all        - Run the complete pipeline
         """
@@ -97,7 +110,7 @@ Stages (run in order):
     parser.add_argument(
         "--stage", 
         required=True,
-        choices=["collect", "filter", "extract", "build", "detect", "validate", "score", "visualise", "all"],
+        choices=["collect", "filter", "extract", "build", "detect", "fulltext", "validate", "synthesise", "score", "visualise", "all"],
         help="Pipeline stage to run"
     )
     parser.add_argument(
@@ -122,7 +135,7 @@ Stages (run in order):
     print(f"  Config: {args.config}")
     
     if args.stage == "all":
-        stages = ["collect", "filter", "extract", "build", "detect", "validate", "score", "visualise"]
+        stages = ["collect", "filter", "extract", "build", "detect", "fulltext", "validate", "synthesise", "score", "visualise"]
         total_start = time.time()
         for stage in stages:
             run_stage(stage, config)

@@ -1,0 +1,1383 @@
+[
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_d4e8c75c9eb42a72",
+    "subject": "deep learning IoT intrusion detection",
+    "missing_capability": "interpretability",
+    "canonical_limitation_tokens": [
+      "explainability"
+    ],
+    "limitation_variants": [
+      "Explainability of models",
+      "explainability of models",
+      "inherent explainability",
+      "interpretability",
+      "limited explainability"
+    ],
+    "key_concepts": [
+      "deep learning IoT intrusion detection",
+      "interpretability"
+    ],
+    "supporting_paper_ids": [
+      "02138d7bd6545ecec422d13c91cfbed514d080f2",
+      "080d8665b41bc15fb50fba49457322ad27493954",
+      "08170570405e09fd5f0aafdbe123a91a201b2cd5",
+      "354c9c97d249b327a89fa6386c2ccc6ff1791a67"
+    ],
+    "supporting_paper_count": 4,
+    "source_evidence": [
+      {
+        "paper_id": "02138d7bd6545ecec422d13c91cfbed514d080f2",
+        "year": 2026,
+        "confidence": 0.92,
+        "evidence": "Existing deep learning-based intrusion detection systems (IDS) achieve high detection accuracy but lack inherent explainability, limiting their clinical adoption under regulatory frameworks such as GDPR and FDA guidelines.",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "Existing deep learning-based intrusion detection systems (IDS) achieve high detection accuracy but",
+        "atomic_limitation": "inherent explainability"
+      },
+      {
+        "paper_id": "354c9c97d249b327a89fa6386c2ccc6ff1791a67",
+        "year": 2026,
+        "confidence": 0.92,
+        "evidence": "The review reveals several gaps in the research, such as the lack of explainability of models, use of benchmark datasets, susceptibility to adversarial and model-poisoning attacks, blockchain scalability issues, and the absence of standardized, secure system architectures that can offer reliable, privacy-preserving, and energy-efficient protection.",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "The review reveals several gaps in the research, such as the",
+        "atomic_limitation": "explainability of models"
+      },
+      {
+        "paper_id": "080d8665b41bc15fb50fba49457322ad27493954",
+        "year": 2024,
+        "confidence": 0.92,
+        "evidence": "However, major limitations remain, including dependence on benchmark datasets, lack of real-world industrial validation, limited explainability, computational complexity, dataset imbalance, and insufficient evaluation against encrypted and zero-day attacks.",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "major limitations remain, including dependence on benchmark datasets",
+        "atomic_limitation": "limited explainability"
+      },
+      {
+        "paper_id": "08170570405e09fd5f0aafdbe123a91a201b2cd5",
+        "year": 2026,
+        "confidence": 0.8,
+        "evidence": "Traditional IDS has the challenge of false positive rate, which could cause critical operations to be disrupted... ML and DL models are state-of-the art solutions... but their deployment is still hampered severely due to the fact that they lack interpretability",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "Traditional IDS",
+        "atomic_limitation": "interpretability"
+      },
+      {
+        "paper_id": "354c9c97d249b327a89fa6386c2ccc6ff1791a67",
+        "year": 2026,
+        "confidence": 0.7,
+        "evidence": "lack of explainability of models",
+        "semantic_scope": "field",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "Artificial Intelligence",
+        "atomic_limitation": "Explainability of models"
+      }
+    ],
+    "semantic_scope": "field",
+    "domain": "deep learning IoT intrusion detection",
+    "mean_evidence_confidence": 0.852,
+    "first_reported_year": 2024,
+    "latest_reported_year": 2026,
+    "research_frame": {
+      "methods": [
+        "MedDefender-MHAN",
+        "multi-model approaches",
+        "XABiL-IDS",
+        "hybrid and multi-model architectures",
+        "existing methodologies",
+        "Convolutional Neural Network",
+        "federated learning",
+        "dual-stream architecture"
+      ],
+      "datasets": [
+        "CICIDS2017",
+        "TON-IoT"
+      ],
+      "metrics": [
+        "99.47% detection accuracy",
+        "98.92% detection accuracy",
+        "sub-3ms inference latency",
+        "435 samples per second throughput"
+      ],
+      "concepts": [
+        "Artificial Intelligence",
+        "interpretability directly into the multi-head attention mechanism",
+        "lack of inherent explainability in deep learning-based IDS",
+        "regulatory compliance for healthcare IoT security",
+        "Existing deep learning-based intrusion detection systems (IDS) achieve high detection accuracy but",
+        "inherent explainability, limiting their clinical adoption under regulatory frameworks such as GDPR and FDA guidelines",
+        "Intrusion Detection Systems",
+        "Advanced, evolving and zero-day attacks"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.7914,
+      "independent_source_count": 4,
+      "semantic_cohesion": 0.855,
+      "frame_completeness": 1.0,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": true,
+        "full_text_ready": false,
+        "research_frame_ready": true
+      }
+    },
+    "description": "Evidence cell 'interpretability' is reported by 4 independent paper(s) in deep learning IoT intrusion detection.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'interpretability' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_b919a8cd4316e97f",
+    "subject": "deep learning IoT intrusion detection",
+    "missing_capability": "zero-day attacks",
+    "canonical_limitation_tokens": [
+      "attacks",
+      "detect",
+      "zero_day"
+    ],
+    "limitation_variants": [
+      "Ability to detect zero-day attacks",
+      "zero-day attacks"
+    ],
+    "key_concepts": [
+      "deep learning IoT intrusion detection",
+      "zero-day attacks"
+    ],
+    "supporting_paper_ids": [
+      "080d8665b41bc15fb50fba49457322ad27493954",
+      "1868c61b82801408521cf0fca4396a698311b5d5"
+    ],
+    "supporting_paper_count": 2,
+    "source_evidence": [
+      {
+        "paper_id": "080d8665b41bc15fb50fba49457322ad27493954",
+        "year": 2024,
+        "confidence": 0.92,
+        "evidence": "However, major limitations remain, including dependence on benchmark datasets, lack of real-world industrial validation, limited explainability, computational complexity, dataset imbalance, and insufficient evaluation against encrypted and zero-day attacks.",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "major limitations remain, including dependence on benchmark datasets",
+        "atomic_limitation": "zero-day attacks"
+      },
+      {
+        "paper_id": "1868c61b82801408521cf0fca4396a698311b5d5",
+        "year": 2024,
+        "confidence": 0.7,
+        "evidence": "While traditional IDS methods, such as signature-based and anomaly-based detection, have their merits, they often struggle to address emerging cyber threats like zero-day attacks, polymorphic malware, and advanced persistent threats (APTs).",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "Traditional IDS methods",
+        "atomic_limitation": "Ability to detect zero-day attacks"
+      }
+    ],
+    "semantic_scope": "field",
+    "domain": "deep learning IoT intrusion detection",
+    "mean_evidence_confidence": 0.81,
+    "first_reported_year": 2024,
+    "latest_reported_year": 2024,
+    "research_frame": {
+      "methods": [
+        "multi-model approaches",
+        "Deep Neural Networks",
+        "hybrid and multi-model architectures",
+        "existing methodologies",
+        "Convolutional Neural Network",
+        "recurrent neural networks",
+        "federated learning",
+        "Support Vector Machines"
+      ],
+      "datasets": [
+        "UNSW-NB15",
+        "TON-IoT",
+        "KDD99"
+      ],
+      "metrics": [],
+      "concepts": [
+        "Intrusion Detection Systems",
+        "Intrusion Detection Systems in IoT environments",
+        "CPS water distribution",
+        "DDoS detection",
+        "IoT intrusion detection",
+        "explainability",
+        "major limitations remain, including dependence on benchmark datasets",
+        "of real-world industrial validation, limited explainability, computational complexity, dataset imbalance, and insufficient evaluation against encrypted and zero-day attacks"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.692,
+      "independent_source_count": 2,
+      "semantic_cohesion": 0.9,
+      "frame_completeness": 0.6667,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": true,
+        "full_text_ready": false,
+        "research_frame_ready": true
+      }
+    },
+    "description": "Evidence cell 'zero-day attacks' is reported by 2 independent paper(s) in deep learning IoT intrusion detection.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'zero-day attacks' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_e786b1c4a30d1d11",
+    "subject": "An Intrusion System for Internet of Things Security Breaches Using Machine Learning Techniques",
+    "missing_capability": "standardized security protocols across various IoT devices and platforms",
+    "canonical_limitation_tokens": [
+      "devices",
+      "iot",
+      "platforms",
+      "protocols",
+      "security",
+      "standardization"
+    ],
+    "limitation_variants": [
+      "standardized security protocols across various IoT devices and platforms"
+    ],
+    "key_concepts": [
+      "An Intrusion System for Internet of Things Security Breaches Using Machine Learning Techniques",
+      "standardized security protocols across various IoT devices and platforms"
+    ],
+    "supporting_paper_ids": [
+      "04b3ca64eb68860e5afff03f705b40265109fc95"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "04b3ca64eb68860e5afff03f705b40265109fc95",
+        "year": 2024,
+        "confidence": 0.92,
+        "evidence": "These include the lack of standardized security protocols across various IoT devices and platforms, which makes it challenging to develop a uniform intrusion detection system.",
+        "semantic_scope": "field",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "An Intrusion System for Internet of Things Security Breaches Using Machine Learning Techniques",
+        "atomic_limitation": "standardized security protocols across various IoT devices and platforms"
+      }
+    ],
+    "semantic_scope": "field",
+    "domain": "deep learning IoT intrusion detection",
+    "mean_evidence_confidence": 0.92,
+    "first_reported_year": 2024,
+    "latest_reported_year": 2024,
+    "research_frame": {
+      "methods": [
+        "DenseNet201",
+        "RAPNet",
+        "BPOA"
+      ],
+      "datasets": [
+        "Bot-IoT",
+        "CICIDS2017",
+        "CICIDS2019"
+      ],
+      "metrics": [
+        "99.12% accuracy",
+        "accuracy 99.01%",
+        "accuracy 99.18%"
+      ],
+      "concepts": [
+        "IoT devices",
+        "standardized security protocols",
+        "An Intrusion System for Internet of Things Security Breaches Using Machine Learning Techniques",
+        "of standardized security protocols across various IoT devices and platforms, which makes it challenging to develop a uniform intrusion detection system"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.634,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 1.0,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": true
+      }
+    },
+    "description": "Evidence cell 'standardized security protocols across various IoT devices and platforms' is reported by 1 independent paper(s) in deep learning IoT intrusion detection.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'standardized security protocols across various IoT devices and platforms' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_2d47fb15fb7d4cd9",
+    "subject": "EESNN: Hybrid Deep Learning Empowered Spatial–Temporal Features for Network Intrusion Detection System",
+    "missing_capability": "instances for training models",
+    "canonical_limitation_tokens": [
+      "instances",
+      "training"
+    ],
+    "limitation_variants": [
+      "instances for training models"
+    ],
+    "key_concepts": [
+      "EESNN: Hybrid Deep Learning Empowered Spatial–Temporal Features for Network Intrusion Detection System",
+      "instances for training models"
+    ],
+    "supporting_paper_ids": [
+      "adae3e0d933e69c9b0706f3b62d6e1faf68f60d4"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "adae3e0d933e69c9b0706f3b62d6e1faf68f60d4",
+        "year": 2024,
+        "confidence": 0.92,
+        "evidence": "This leads to a lack of instances for training models and detection outcomes with a high false detection rate.",
+        "semantic_scope": "field",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "EESNN: Hybrid Deep Learning Empowered Spatial–Temporal Features for Network Intrusion Detection System",
+        "atomic_limitation": "instances for training models"
+      }
+    ],
+    "semantic_scope": "field",
+    "domain": "deep learning IoT intrusion detection",
+    "mean_evidence_confidence": 0.92,
+    "first_reported_year": 2024,
+    "latest_reported_year": 2024,
+    "research_frame": {
+      "methods": [
+        "EESNN",
+        "DenseNet169",
+        "SAT-Net",
+        "DCGANs",
+        "DSSTE",
+        "DSSTE and DCGANs"
+      ],
+      "datasets": [
+        "Bot-IoT",
+        "TON-IoT",
+        "CICIDS2019"
+      ],
+      "metrics": [
+        "accuracy",
+        "false alarm rate",
+        "Recall",
+        "Precision"
+      ],
+      "concepts": [
+        "data imbalance issues",
+        "EESNN: Hybrid Deep Learning Empowered Spatial–Temporal Features for Network Intrusion Detection System",
+        "of instances for training models and detection outcomes with a high false detection rate"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.634,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 1.0,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": true
+      }
+    },
+    "description": "Evidence cell 'instances for training models' is reported by 1 independent paper(s) in deep learning IoT intrusion detection.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'instances for training models' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_927db1731d07229a",
+    "subject": "EESNN: Hybrid Deep Learning Empowered Spatial–Temporal Features for Network Intrusion Detection System",
+    "missing_capability": "detection outcomes with a high false detection rate",
+    "canonical_limitation_tokens": [
+      "detection",
+      "false",
+      "high",
+      "outcomes",
+      "rate"
+    ],
+    "limitation_variants": [
+      "detection outcomes with a high false detection rate"
+    ],
+    "key_concepts": [
+      "EESNN: Hybrid Deep Learning Empowered Spatial–Temporal Features for Network Intrusion Detection System",
+      "detection outcomes with a high false detection rate"
+    ],
+    "supporting_paper_ids": [
+      "adae3e0d933e69c9b0706f3b62d6e1faf68f60d4"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "adae3e0d933e69c9b0706f3b62d6e1faf68f60d4",
+        "year": 2024,
+        "confidence": 0.92,
+        "evidence": "This leads to a lack of instances for training models and detection outcomes with a high false detection rate.",
+        "semantic_scope": "field",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "EESNN: Hybrid Deep Learning Empowered Spatial–Temporal Features for Network Intrusion Detection System",
+        "atomic_limitation": "detection outcomes with a high false detection rate"
+      }
+    ],
+    "semantic_scope": "field",
+    "domain": "deep learning IoT intrusion detection",
+    "mean_evidence_confidence": 0.92,
+    "first_reported_year": 2024,
+    "latest_reported_year": 2024,
+    "research_frame": {
+      "methods": [
+        "EESNN",
+        "DenseNet169",
+        "SAT-Net",
+        "DCGANs",
+        "DSSTE",
+        "DSSTE and DCGANs"
+      ],
+      "datasets": [
+        "Bot-IoT",
+        "TON-IoT",
+        "CICIDS2019"
+      ],
+      "metrics": [
+        "accuracy",
+        "false alarm rate",
+        "Recall",
+        "Precision"
+      ],
+      "concepts": [
+        "data imbalance issues",
+        "EESNN: Hybrid Deep Learning Empowered Spatial–Temporal Features for Network Intrusion Detection System",
+        "of instances for training models and detection outcomes with a high false detection rate"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.634,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 1.0,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": true
+      }
+    },
+    "description": "Evidence cell 'detection outcomes with a high false detection rate' is reported by 1 independent paper(s) in deep learning IoT intrusion detection.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'detection outcomes with a high false detection rate' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_f9a747065e5e075a",
+    "subject": "deep learning-based intrusion detection systems",
+    "missing_capability": "attack signatures",
+    "canonical_limitation_tokens": [
+      "attack",
+      "signatures"
+    ],
+    "limitation_variants": [
+      "attack signatures"
+    ],
+    "key_concepts": [
+      "deep learning-based intrusion detection systems",
+      "attack signatures"
+    ],
+    "supporting_paper_ids": [
+      "025a4ad20c5a359998b7c41e9311419c29e1688d"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "025a4ad20c5a359998b7c41e9311419c29e1688d",
+        "year": 2023,
+        "confidence": 0.8,
+        "evidence": "Deep Learning (DL) based intrusion detection systems does not consider attack signatures and normal behavior to obtain detection rules",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "deep learning-based intrusion detection systems",
+        "atomic_limitation": "attack signatures"
+      }
+    ],
+    "semantic_scope": "subject",
+    "domain": "deep learning IoT intrusion detection",
+    "mean_evidence_confidence": 0.8,
+    "first_reported_year": 2023,
+    "latest_reported_year": 2023,
+    "research_frame": {
+      "methods": [
+        "deep learning-based intrusion detection systems",
+        "machine learning-based self-protection system",
+        "Deep Learning",
+        "autonomous security provider approaches"
+      ],
+      "datasets": [
+        "large data sets for training"
+      ],
+      "metrics": [],
+      "concepts": [
+        "IoT attack detection technique or mitigation procedure",
+        "attack signatures and normal behavior",
+        "overfitting and helpless grouping rates"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.61,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.6667,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": true
+      }
+    },
+    "description": "Evidence cell 'attack signatures' is reported by 1 independent paper(s) in deep learning IoT intrusion detection.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'attack signatures' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_b9cb29110e08b247",
+    "subject": "deep learning-based intrusion detection systems",
+    "missing_capability": "normal behavior",
+    "canonical_limitation_tokens": [
+      "behavior",
+      "normal"
+    ],
+    "limitation_variants": [
+      "normal behavior"
+    ],
+    "key_concepts": [
+      "deep learning-based intrusion detection systems",
+      "normal behavior"
+    ],
+    "supporting_paper_ids": [
+      "025a4ad20c5a359998b7c41e9311419c29e1688d"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "025a4ad20c5a359998b7c41e9311419c29e1688d",
+        "year": 2023,
+        "confidence": 0.8,
+        "evidence": "Deep Learning (DL) based intrusion detection systems does not consider attack signatures and normal behavior to obtain detection rules",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "deep learning-based intrusion detection systems",
+        "atomic_limitation": "normal behavior"
+      }
+    ],
+    "semantic_scope": "subject",
+    "domain": "deep learning IoT intrusion detection",
+    "mean_evidence_confidence": 0.8,
+    "first_reported_year": 2023,
+    "latest_reported_year": 2023,
+    "research_frame": {
+      "methods": [
+        "deep learning-based intrusion detection systems",
+        "machine learning-based self-protection system",
+        "Deep Learning",
+        "autonomous security provider approaches"
+      ],
+      "datasets": [
+        "large data sets for training"
+      ],
+      "metrics": [],
+      "concepts": [
+        "IoT attack detection technique or mitigation procedure",
+        "attack signatures and normal behavior",
+        "overfitting and helpless grouping rates"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.61,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.6667,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": true
+      }
+    },
+    "description": "Evidence cell 'normal behavior' is reported by 1 independent paper(s) in deep learning IoT intrusion detection.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'normal behavior' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_bfee931af962bdea",
+    "subject": "Traditional IDS methods",
+    "missing_capability": "polymorphic malware",
+    "canonical_limitation_tokens": [
+      "malware",
+      "polymorphic"
+    ],
+    "limitation_variants": [
+      "polymorphic malware"
+    ],
+    "key_concepts": [
+      "Traditional IDS methods",
+      "polymorphic malware"
+    ],
+    "supporting_paper_ids": [
+      "1868c61b82801408521cf0fca4396a698311b5d5"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "1868c61b82801408521cf0fca4396a698311b5d5",
+        "year": 2024,
+        "confidence": 0.7,
+        "evidence": "While traditional IDS methods, such as signature-based and anomaly-based detection, have their merits, they often struggle to address emerging cyber threats like zero-day attacks, polymorphic malware, and advanced persistent threats (APTs).",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "Traditional IDS methods",
+        "atomic_limitation": "polymorphic malware"
+      }
+    ],
+    "semantic_scope": "subject",
+    "domain": "deep learning IoT intrusion detection",
+    "mean_evidence_confidence": 0.7,
+    "first_reported_year": 2024,
+    "latest_reported_year": 2024,
+    "research_frame": {
+      "methods": [
+        "Deep Neural Networks",
+        "Convolutional Neural Network",
+        "recurrent neural networks",
+        "federated learning",
+        "Transformer",
+        "Blockchain-based IDS solutions",
+        "Traditional IDS methods"
+      ],
+      "datasets": [
+        "UNSW-NB15",
+        "TON-IoT",
+        "KDD99"
+      ],
+      "metrics": [],
+      "concepts": [
+        "Intrusion Detection Systems",
+        "Intrusion Detection Systems in IoT environments",
+        "Ability to detect zero-day attacks, polymorphic malware, and APTs"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.59,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.6667,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": true
+      }
+    },
+    "description": "Evidence cell 'polymorphic malware' is reported by 1 independent paper(s) in deep learning IoT intrusion detection.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'polymorphic malware' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_520b3dc370028e5c",
+    "subject": "The review reveals several gaps in the research, such as the",
+    "missing_capability": "susceptibility to adversarial",
+    "canonical_limitation_tokens": [
+      "adversarial",
+      "susceptibility"
+    ],
+    "limitation_variants": [
+      "susceptibility to adversarial"
+    ],
+    "key_concepts": [
+      "The review reveals several gaps in the research, such as the",
+      "susceptibility to adversarial"
+    ],
+    "supporting_paper_ids": [
+      "354c9c97d249b327a89fa6386c2ccc6ff1791a67"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "354c9c97d249b327a89fa6386c2ccc6ff1791a67",
+        "year": 2026,
+        "confidence": 0.92,
+        "evidence": "The review reveals several gaps in the research, such as the lack of explainability of models, use of benchmark datasets, susceptibility to adversarial and model-poisoning attacks, blockchain scalability issues, and the absence of standardized, secure system architectures that can offer reliable, privacy-preserving, and energy-efficient protection.",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "The review reveals several gaps in the research, such as the",
+        "atomic_limitation": "susceptibility to adversarial"
+      }
+    ],
+    "semantic_scope": "subject",
+    "domain": "deep learning IoT intrusion detection",
+    "mean_evidence_confidence": 0.92,
+    "first_reported_year": 2026,
+    "latest_reported_year": 2026,
+    "research_frame": {
+      "methods": [
+        "federated learning",
+        "Deep Learning",
+        "Reinforcement Learning",
+        "edge intelligence",
+        "Existing approaches"
+      ],
+      "datasets": [],
+      "metrics": [],
+      "concepts": [
+        "Artificial Intelligence",
+        "Intrusion Detection Systems",
+        "Advanced, evolving and zero-day attacks",
+        "Security issues in WSN-IoT",
+        "Explainable artificial intelligence (XAI)",
+        "Explainability of models",
+        "Use of benchmark datasets",
+        "Susceptibility to adversarial and model-poisoning attacks"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.584,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.3333,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": false
+      }
+    },
+    "description": "Evidence cell 'susceptibility to adversarial' is reported by 1 independent paper(s) in deep learning IoT intrusion detection.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'susceptibility to adversarial' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_634a8cd6d63e6f07",
+    "subject": "The review reveals several gaps in the research, such as the",
+    "missing_capability": "model-poisoning attacks",
+    "canonical_limitation_tokens": [
+      "attacks",
+      "poisoning"
+    ],
+    "limitation_variants": [
+      "model-poisoning attacks"
+    ],
+    "key_concepts": [
+      "The review reveals several gaps in the research, such as the",
+      "model-poisoning attacks"
+    ],
+    "supporting_paper_ids": [
+      "354c9c97d249b327a89fa6386c2ccc6ff1791a67"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "354c9c97d249b327a89fa6386c2ccc6ff1791a67",
+        "year": 2026,
+        "confidence": 0.92,
+        "evidence": "The review reveals several gaps in the research, such as the lack of explainability of models, use of benchmark datasets, susceptibility to adversarial and model-poisoning attacks, blockchain scalability issues, and the absence of standardized, secure system architectures that can offer reliable, privacy-preserving, and energy-efficient protection.",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "The review reveals several gaps in the research, such as the",
+        "atomic_limitation": "model-poisoning attacks"
+      }
+    ],
+    "semantic_scope": "subject",
+    "domain": "deep learning IoT intrusion detection",
+    "mean_evidence_confidence": 0.92,
+    "first_reported_year": 2026,
+    "latest_reported_year": 2026,
+    "research_frame": {
+      "methods": [
+        "federated learning",
+        "Deep Learning",
+        "Reinforcement Learning",
+        "edge intelligence",
+        "Existing approaches"
+      ],
+      "datasets": [],
+      "metrics": [],
+      "concepts": [
+        "Artificial Intelligence",
+        "Intrusion Detection Systems",
+        "Advanced, evolving and zero-day attacks",
+        "Security issues in WSN-IoT",
+        "Explainable artificial intelligence (XAI)",
+        "Explainability of models",
+        "Use of benchmark datasets",
+        "Susceptibility to adversarial and model-poisoning attacks"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.584,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.3333,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": false
+      }
+    },
+    "description": "Evidence cell 'model-poisoning attacks' is reported by 1 independent paper(s) in deep learning IoT intrusion detection.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'model-poisoning attacks' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_f2a2c753388e543d",
+    "subject": "The review reveals several gaps in the research, such as the",
+    "missing_capability": "blockchain scalability issues",
+    "canonical_limitation_tokens": [
+      "blockchain",
+      "issues",
+      "scalability"
+    ],
+    "limitation_variants": [
+      "blockchain scalability issues"
+    ],
+    "key_concepts": [
+      "The review reveals several gaps in the research, such as the",
+      "blockchain scalability issues"
+    ],
+    "supporting_paper_ids": [
+      "354c9c97d249b327a89fa6386c2ccc6ff1791a67"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "354c9c97d249b327a89fa6386c2ccc6ff1791a67",
+        "year": 2026,
+        "confidence": 0.92,
+        "evidence": "The review reveals several gaps in the research, such as the lack of explainability of models, use of benchmark datasets, susceptibility to adversarial and model-poisoning attacks, blockchain scalability issues, and the absence of standardized, secure system architectures that can offer reliable, privacy-preserving, and energy-efficient protection.",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "The review reveals several gaps in the research, such as the",
+        "atomic_limitation": "blockchain scalability issues"
+      }
+    ],
+    "semantic_scope": "subject",
+    "domain": "deep learning IoT intrusion detection",
+    "mean_evidence_confidence": 0.92,
+    "first_reported_year": 2026,
+    "latest_reported_year": 2026,
+    "research_frame": {
+      "methods": [
+        "federated learning",
+        "Deep Learning",
+        "Reinforcement Learning",
+        "edge intelligence",
+        "Existing approaches"
+      ],
+      "datasets": [],
+      "metrics": [],
+      "concepts": [
+        "Artificial Intelligence",
+        "Intrusion Detection Systems",
+        "Advanced, evolving and zero-day attacks",
+        "Security issues in WSN-IoT",
+        "Explainable artificial intelligence (XAI)",
+        "Explainability of models",
+        "Use of benchmark datasets",
+        "Susceptibility to adversarial and model-poisoning attacks"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.584,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.3333,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": false
+      }
+    },
+    "description": "Evidence cell 'blockchain scalability issues' is reported by 1 independent paper(s) in deep learning IoT intrusion detection.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'blockchain scalability issues' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_9c30ec9dc7e6a04e",
+    "subject": "major limitations remain, including dependence on benchmark datasets",
+    "missing_capability": "computational complexity",
+    "canonical_limitation_tokens": [
+      "compute",
+      "overhead"
+    ],
+    "limitation_variants": [
+      "computational complexity"
+    ],
+    "key_concepts": [
+      "major limitations remain, including dependence on benchmark datasets",
+      "computational complexity"
+    ],
+    "supporting_paper_ids": [
+      "080d8665b41bc15fb50fba49457322ad27493954"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "080d8665b41bc15fb50fba49457322ad27493954",
+        "year": 2024,
+        "confidence": 0.92,
+        "evidence": "However, major limitations remain, including dependence on benchmark datasets, lack of real-world industrial validation, limited explainability, computational complexity, dataset imbalance, and insufficient evaluation against encrypted and zero-day attacks.",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "major limitations remain, including dependence on benchmark datasets",
+        "atomic_limitation": "computational complexity"
+      }
+    ],
+    "semantic_scope": "subject",
+    "domain": "deep learning IoT intrusion detection",
+    "mean_evidence_confidence": 0.92,
+    "first_reported_year": 2024,
+    "latest_reported_year": 2024,
+    "research_frame": {
+      "methods": [
+        "multi-model approaches",
+        "hybrid and multi-model architectures",
+        "existing methodologies",
+        "Support Vector Machines",
+        "Random Forest",
+        "Gradient Boosting",
+        "Convolutional Neural Network",
+        "Long-Short-Term-Memory (LSTM) network"
+      ],
+      "datasets": [],
+      "metrics": [],
+      "concepts": [
+        "CPS water distribution",
+        "DDoS detection",
+        "IoT intrusion detection",
+        "explainability",
+        "major limitations remain, including dependence on benchmark datasets",
+        "of real-world industrial validation, limited explainability, computational complexity, dataset imbalance, and insufficient evaluation against encrypted and zero-day attacks"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.584,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.3333,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": false
+      }
+    },
+    "description": "Evidence cell 'computational complexity' is reported by 1 independent paper(s) in deep learning IoT intrusion detection.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'computational complexity' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_ccf7a4e520690aae",
+    "subject": "major limitations remain, including dependence on benchmark datasets",
+    "missing_capability": "dataset imbalance",
+    "canonical_limitation_tokens": [
+      "dataset",
+      "imbalance"
+    ],
+    "limitation_variants": [
+      "dataset imbalance"
+    ],
+    "key_concepts": [
+      "major limitations remain, including dependence on benchmark datasets",
+      "dataset imbalance"
+    ],
+    "supporting_paper_ids": [
+      "080d8665b41bc15fb50fba49457322ad27493954"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "080d8665b41bc15fb50fba49457322ad27493954",
+        "year": 2024,
+        "confidence": 0.92,
+        "evidence": "However, major limitations remain, including dependence on benchmark datasets, lack of real-world industrial validation, limited explainability, computational complexity, dataset imbalance, and insufficient evaluation against encrypted and zero-day attacks.",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "major limitations remain, including dependence on benchmark datasets",
+        "atomic_limitation": "dataset imbalance"
+      }
+    ],
+    "semantic_scope": "subject",
+    "domain": "deep learning IoT intrusion detection",
+    "mean_evidence_confidence": 0.92,
+    "first_reported_year": 2024,
+    "latest_reported_year": 2024,
+    "research_frame": {
+      "methods": [
+        "multi-model approaches",
+        "hybrid and multi-model architectures",
+        "existing methodologies",
+        "Support Vector Machines",
+        "Random Forest",
+        "Gradient Boosting",
+        "Convolutional Neural Network",
+        "Long-Short-Term-Memory (LSTM) network"
+      ],
+      "datasets": [],
+      "metrics": [],
+      "concepts": [
+        "CPS water distribution",
+        "DDoS detection",
+        "IoT intrusion detection",
+        "explainability",
+        "major limitations remain, including dependence on benchmark datasets",
+        "of real-world industrial validation, limited explainability, computational complexity, dataset imbalance, and insufficient evaluation against encrypted and zero-day attacks"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.584,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.3333,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": false
+      }
+    },
+    "description": "Evidence cell 'dataset imbalance' is reported by 1 independent paper(s) in deep learning IoT intrusion detection.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'dataset imbalance' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_77b708b9fd58987e",
+    "subject": "major limitations remain, including dependence on benchmark datasets",
+    "missing_capability": "insufficient evaluation against encrypted",
+    "canonical_limitation_tokens": [
+      "against",
+      "encrypted",
+      "evaluation",
+      "insufficient"
+    ],
+    "limitation_variants": [
+      "insufficient evaluation against encrypted"
+    ],
+    "key_concepts": [
+      "major limitations remain, including dependence on benchmark datasets",
+      "insufficient evaluation against encrypted"
+    ],
+    "supporting_paper_ids": [
+      "080d8665b41bc15fb50fba49457322ad27493954"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "080d8665b41bc15fb50fba49457322ad27493954",
+        "year": 2024,
+        "confidence": 0.92,
+        "evidence": "However, major limitations remain, including dependence on benchmark datasets, lack of real-world industrial validation, limited explainability, computational complexity, dataset imbalance, and insufficient evaluation against encrypted and zero-day attacks.",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "major limitations remain, including dependence on benchmark datasets",
+        "atomic_limitation": "insufficient evaluation against encrypted"
+      }
+    ],
+    "semantic_scope": "subject",
+    "domain": "deep learning IoT intrusion detection",
+    "mean_evidence_confidence": 0.92,
+    "first_reported_year": 2024,
+    "latest_reported_year": 2024,
+    "research_frame": {
+      "methods": [
+        "multi-model approaches",
+        "hybrid and multi-model architectures",
+        "existing methodologies",
+        "Support Vector Machines",
+        "Random Forest",
+        "Gradient Boosting",
+        "Convolutional Neural Network",
+        "Long-Short-Term-Memory (LSTM) network"
+      ],
+      "datasets": [],
+      "metrics": [],
+      "concepts": [
+        "CPS water distribution",
+        "DDoS detection",
+        "IoT intrusion detection",
+        "explainability",
+        "major limitations remain, including dependence on benchmark datasets",
+        "of real-world industrial validation, limited explainability, computational complexity, dataset imbalance, and insufficient evaluation against encrypted and zero-day attacks"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.584,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.3333,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": false
+      }
+    },
+    "description": "Evidence cell 'insufficient evaluation against encrypted' is reported by 1 independent paper(s) in deep learning IoT intrusion detection.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'insufficient evaluation against encrypted' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_b5888f53a4c71276",
+    "subject": "challenges related to computational burdens, adversarial attacks, concept drift and",
+    "missing_capability": "model standardization need resolution before widespread field deployment",
+    "canonical_limitation_tokens": [
+      "before",
+      "deployment",
+      "field",
+      "resolution",
+      "standardization",
+      "widespread"
+    ],
+    "limitation_variants": [
+      "model standardization need resolution before widespread field deployment"
+    ],
+    "key_concepts": [
+      "challenges related to computational burdens, adversarial attacks, concept drift and",
+      "model standardization need resolution before widespread field deployment"
+    ],
+    "supporting_paper_ids": [
+      "0d70b06ada7302e268205445e2121e9abe41b3f3"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "0d70b06ada7302e268205445e2121e9abe41b3f3",
+        "year": 2024,
+        "confidence": 0.92,
+        "evidence": "However, challenges related to computational burdens, adversarial attacks, concept drift and lack of model standardization need resolution before widespread field deployment.",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "challenges related to computational burdens, adversarial attacks, concept drift and",
+        "atomic_limitation": "model standardization need resolution before widespread field deployment"
+      }
+    ],
+    "semantic_scope": "subject",
+    "domain": "deep learning IoT intrusion detection",
+    "mean_evidence_confidence": 0.92,
+    "first_reported_year": 2024,
+    "latest_reported_year": 2024,
+    "research_frame": {
+      "methods": [
+        "machine learning-driven intrusion detection frameworks",
+        "Random Forest",
+        "Deep Neural Networks",
+        "deep learning architectures",
+        "machine learning algorithms",
+        "signature-based detection"
+      ],
+      "datasets": [],
+      "metrics": [],
+      "concepts": [
+        "IoT environments",
+        "Intrusion Detection Systems",
+        "evolving attacks",
+        "controlled settings",
+        "computational burdens",
+        "adversarial attacks resilience",
+        "concept drift handling",
+        "methodological shortcomings"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.584,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.3333,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": false
+      }
+    },
+    "description": "Evidence cell 'model standardization need resolution before widespread field deployment' is reported by 1 independent paper(s) in deep learning IoT intrusion detection.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'model standardization need resolution before widespread field deployment' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_ca15c14731764b87",
+    "subject": "deep learning IoT intrusion detection",
+    "missing_capability": "use of benchmark datasets",
+    "canonical_limitation_tokens": [
+      "benchmark",
+      "dataset"
+    ],
+    "limitation_variants": [
+      "Use of benchmark datasets",
+      "use of benchmark datasets"
+    ],
+    "key_concepts": [
+      "deep learning IoT intrusion detection",
+      "use of benchmark datasets"
+    ],
+    "supporting_paper_ids": [
+      "354c9c97d249b327a89fa6386c2ccc6ff1791a67"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "354c9c97d249b327a89fa6386c2ccc6ff1791a67",
+        "year": 2026,
+        "confidence": 0.92,
+        "evidence": "The review reveals several gaps in the research, such as the lack of explainability of models, use of benchmark datasets, susceptibility to adversarial and model-poisoning attacks, blockchain scalability issues, and the absence of standardized, secure system architectures that can offer reliable, privacy-preserving, and energy-efficient protection.",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "The review reveals several gaps in the research, such as the",
+        "atomic_limitation": "use of benchmark datasets"
+      },
+      {
+        "paper_id": "354c9c97d249b327a89fa6386c2ccc6ff1791a67",
+        "year": 2026,
+        "confidence": 0.7,
+        "evidence": "lack of use of benchmark datasets",
+        "semantic_scope": "field",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "Artificial Intelligence",
+        "atomic_limitation": "Use of benchmark datasets"
+      }
+    ],
+    "semantic_scope": "field",
+    "domain": "deep learning IoT intrusion detection",
+    "mean_evidence_confidence": 0.81,
+    "first_reported_year": 2026,
+    "latest_reported_year": 2026,
+    "research_frame": {
+      "methods": [
+        "federated learning",
+        "Deep Learning",
+        "Reinforcement Learning",
+        "edge intelligence",
+        "Existing approaches"
+      ],
+      "datasets": [],
+      "metrics": [],
+      "concepts": [
+        "Artificial Intelligence",
+        "Intrusion Detection Systems",
+        "Advanced, evolving and zero-day attacks",
+        "Security issues in WSN-IoT",
+        "Explainable artificial intelligence (XAI)",
+        "Explainability of models",
+        "Susceptibility to adversarial and model-poisoning attacks",
+        "Blockchain scalability issues"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.562,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.3333,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": false
+      }
+    },
+    "description": "Evidence cell 'use of benchmark datasets' is reported by 1 independent paper(s) in deep learning IoT intrusion detection.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'use of benchmark datasets' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_677e7ffa20ab9ec3",
+    "subject": "deep learning IoT intrusion detection",
+    "missing_capability": "real-world industrial validation",
+    "canonical_limitation_tokens": [
+      "industrial",
+      "real_world",
+      "validation"
+    ],
+    "limitation_variants": [
+      "real-world industrial validation"
+    ],
+    "key_concepts": [
+      "deep learning IoT intrusion detection",
+      "real-world industrial validation"
+    ],
+    "supporting_paper_ids": [
+      "080d8665b41bc15fb50fba49457322ad27493954"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "080d8665b41bc15fb50fba49457322ad27493954",
+        "year": 2024,
+        "confidence": 0.92,
+        "evidence": "However, major limitations remain, including dependence on benchmark datasets, lack of real-world industrial validation, limited explainability, computational complexity, dataset imbalance, and insufficient evaluation against encrypted and zero-day attacks.",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "major limitations remain, including dependence on benchmark datasets",
+        "atomic_limitation": "real-world industrial validation"
+      },
+      {
+        "paper_id": "080d8665b41bc15fb50fba49457322ad27493954",
+        "year": 2024,
+        "confidence": 0.7,
+        "evidence": "lack of real-world industrial validation",
+        "semantic_scope": "field",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "existing methodologies",
+        "atomic_limitation": "real-world industrial validation"
+      }
+    ],
+    "semantic_scope": "field",
+    "domain": "deep learning IoT intrusion detection",
+    "mean_evidence_confidence": 0.81,
+    "first_reported_year": 2024,
+    "latest_reported_year": 2024,
+    "research_frame": {
+      "methods": [
+        "multi-model approaches",
+        "hybrid and multi-model architectures",
+        "existing methodologies",
+        "Support Vector Machines",
+        "Random Forest",
+        "Gradient Boosting",
+        "Convolutional Neural Network",
+        "Long-Short-Term-Memory (LSTM) network"
+      ],
+      "datasets": [],
+      "metrics": [],
+      "concepts": [
+        "CPS water distribution",
+        "DDoS detection",
+        "IoT intrusion detection",
+        "explainability",
+        "major limitations remain, including dependence on benchmark datasets",
+        "of real-world industrial validation, limited explainability, computational complexity, dataset imbalance, and insufficient evaluation against encrypted and zero-day attacks"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.562,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.3333,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": false
+      }
+    },
+    "description": "Evidence cell 'real-world industrial validation' is reported by 1 independent paper(s) in deep learning IoT intrusion detection.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'real-world industrial validation' as an unresolved limitation."
+  }
+]

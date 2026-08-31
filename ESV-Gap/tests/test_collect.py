@@ -1,12 +1,68 @@
 import unittest
+import tempfile
+from pathlib import Path
 from unittest.mock import Mock, patch
 
 import requests
 
-from src.collect import CollectionAPIError, search_papers
+from src.collect import CollectionAPIError, collect_papers, search_papers
 
 
 class SearchPapersRetryTests(unittest.TestCase):
+    @patch("src.collect.time.sleep")
+    @patch("src.collect.search_papers")
+    def test_sparse_boolean_plan_is_adaptively_broadened(
+        self, mock_search, _mock_sleep
+    ):
+        boolean_queries = [f'"strict {index}" AND "IoT"' for index in range(5)]
+
+        def fake_search(query, **_kwargs):
+            if query in boolean_queries:
+                index = boolean_queries.index(query)
+                return [{
+                    "paperId": f"strict-{index}", "title": f"Strict {index}",
+                    "abstract": "relevant " * 120, "year": 2025,
+                    "citationCount": 1,
+                }]
+            prefix = query.replace(" ", "-")[:20]
+            return [{
+                "paperId": f"{prefix}-{index}", "title": f"Broad {index}",
+                "abstract": "relevant " * 120, "year": 2024,
+                "citationCount": 0,
+            } for index in range(10)]
+
+        mock_search.side_effect = fake_search
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            config = {
+                "project": {"domain": (
+                    "adversarial robustness of deep-learning intrusion detection "
+                    "systems for IoT networks"
+                )},
+                "api_keys": {"semantic_scholar": ""},
+                "collection": {
+                    "queries": boolean_queries,
+                    "year_range": [2019, 2026], "max_papers": 100,
+                    "delay_between_requests": 0, "max_retries": 1,
+                    "request_timeout_seconds": 1, "max_retry_wait_seconds": 0,
+                    "adaptive_query_broadening": True,
+                    "min_raw_papers_before_broadening": 30,
+                },
+                "filtering": {
+                    "min_abstract_length": 1, "target_corpus_size": 50,
+                },
+                "paths": {"raw_data": str(root / "raw")},
+            }
+            papers = collect_papers(config)
+
+        self.assertGreaterEqual(len(papers), 30)
+        searched_queries = [
+            call.kwargs.get("query", call.args[0] if call.args else "")
+            for call in mock_search.call_args_list
+        ]
+        self.assertIn("deep learning IoT intrusion detection", searched_queries)
+        self.assertGreater(len(searched_queries), len(boolean_queries))
+
     @patch("src.collect.time.sleep")
     @patch("src.collect.requests.get")
     def test_transient_network_error_recovers(self, mock_get, mock_sleep):

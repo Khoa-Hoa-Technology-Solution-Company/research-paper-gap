@@ -226,14 +226,20 @@ def search_papers(
 
 
 def deduplicate_papers(all_papers):
-    """Remove duplicate papers based on paperId."""
-    seen   = set()
+    """Remove duplicate papers while preserving query-level provenance."""
+    seen   = {}
     unique = []
     for paper in all_papers:
         pid = paper.get("paperId")
         if pid and pid not in seen:
-            seen.add(pid)
+            seen[pid] = paper
             unique.append(paper)
+        elif pid and pid in seen:
+            existing = seen[pid]
+            existing["_matched_queries"] = sorted(set(
+                existing.get("_matched_queries", [])
+                + paper.get("_matched_queries", [])
+            ))
     return unique
 
 
@@ -299,6 +305,7 @@ def collect_papers(config, incremental=False, progress_callback=None):
     max_retries     = coll_config.get("max_retries", 3)
     request_timeout = coll_config.get("request_timeout_seconds", 15)
     max_retry_wait  = coll_config.get("max_retry_wait_seconds", 20)
+    adaptive_broadening = bool(coll_config.get("adaptive_query_broadening", True))
     api_key         = config["api_keys"].get("semantic_scholar", "")
     min_abstract_len= config["filtering"]["min_abstract_length"]
 
@@ -335,6 +342,10 @@ def collect_papers(config, incremental=False, progress_callback=None):
             request_timeout=request_timeout,
             max_retry_wait=max_retry_wait,
         )
+        papers = [
+            {**paper, "_matched_queries": [query]}
+            for paper in papers
+        ]
         logger.info(f"  Retrieved {len(papers)} papers for '{query}'")
         all_papers.extend(papers)
 
@@ -345,6 +356,56 @@ def collect_papers(config, incremental=False, progress_callback=None):
 
         if i < len(queries) - 1:
             time.sleep(delay * 2)
+
+    # Boolean/exact-match queries can silently produce a tiny corpus. If the
+    # first pass is below the minimum useful raw pool, retry with short,
+    # recall-oriented keyword queries before spending Groq calls on screening.
+    target_corpus_size = int(
+        config.get("filtering", {}).get("target_corpus_size", 0)
+    )
+    minimum_raw_pool = max(
+        int(coll_config.get("min_raw_papers_before_broadening", 30)),
+        min(target_corpus_size, 100),
+    )
+    provisional_unique = deduplicate_papers(all_papers)
+    if adaptive_broadening and len(provisional_unique) < minimum_raw_pool:
+        from src.query_planning import broadening_queries
+
+        extra_queries = broadening_queries(
+            config.get("project", {}).get("domain", ""), queries
+        )
+        if extra_queries:
+            logger.warning(
+                "Initial query plan yielded only %d unique papers (< %d). "
+                "Running %d broader keyword queries.",
+                len(provisional_unique), minimum_raw_pool, len(extra_queries),
+            )
+        base_index = len(queries)
+        total_query_count = len(queries) + len(extra_queries)
+        for offset, query in enumerate(extra_queries, start=1):
+            query_index = base_index + offset
+            logger.info("\n--- Broadened query %d/%d ---", query_index, total_query_count)
+            papers = search_papers(
+                query=query,
+                year_range=year_range,
+                api_key=api_key,
+                delay=delay,
+                max_results=per_query_limit,
+                max_retries=max_retries,
+                request_timeout=request_timeout,
+                max_retry_wait=max_retry_wait,
+            )
+            papers = [
+                {**paper, "_matched_queries": [query]}
+                for paper in papers
+            ]
+            logger.info("  Retrieved %d papers for broadened '%s'", len(papers), query)
+            all_papers.extend(papers)
+            save_jsonl(papers, raw_dir / f"query_{query_index}_raw.jsonl")
+            if progress_callback:
+                progress_callback(query_index, total_query_count)
+            if offset < len(extra_queries):
+                time.sleep(delay * 2)
 
     # ── Deduplicate across queries ─────────────────────────────────
     logger.info(f"\nTotal papers before deduplication: {len(all_papers)}")
@@ -371,8 +432,20 @@ def collect_papers(config, incremental=False, progress_callback=None):
     for key, val in filter_stats.items():
         logger.info(f"  {key}: {val}")
 
-    # ── Sort by citation count ─────────────────────────────────────
-    filtered_papers.sort(key=lambda p: p.get("citationCount", 0), reverse=True)
+    # Topic coverage and independent query retrieval are stronger inclusion
+    # criteria than raw citation count. Citation-only ranking can fill a
+    # monolith-security corpus with highly cited materials-science monoliths.
+    from src.filter import domain_anchor_coverage
+    domain = config.get("project", {}).get("domain", "")
+    for paper in filtered_papers:
+        paper["_collection_domain_coverage"] = round(domain_anchor_coverage(
+            domain, paper.get("title", ""), paper.get("abstract", "")
+        ), 4)
+    filtered_papers.sort(key=lambda p: (
+        p.get("_collection_domain_coverage", 0.0),
+        len(p.get("_matched_queries", [])),
+        p.get("citationCount", 0),
+    ), reverse=True)
 
     # ── Cap to max_papers ─────────────────────────────────────────
     if len(filtered_papers) > max_papers:

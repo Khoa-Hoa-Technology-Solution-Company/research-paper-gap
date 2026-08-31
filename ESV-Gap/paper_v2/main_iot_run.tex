@@ -1,0 +1,415 @@
+\documentclass[conference,onecolumn]{IEEEtran}
+
+\usepackage[a4paper,margin=20mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{array,booktabs,tabularx}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{cite}
+\hypersetup{hidelinks,pdftitle={ESV-Gap: An Auditable AI and Knowledge-Graph Framework for Research-Gap Hypothesis Triage},pdfauthor={Hoa Anh Le et al.}}
+
+\newcommand{\method}{ESV-Gap}
+\newcommand{\runid}{\texttt{deep\_learning\_iot\_intrusion\_de\_20260830\_213021}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\title{ESV-Gap: An Auditable AI and Knowledge-Graph Framework for\\
+Research-Gap Hypothesis Triage\\
+\large Methodological Evaluation with a 150-Paper IoT Cybersecurity Case Study}
+
+\author{
+\IEEEauthorblockN{Hoa Anh Le, Hoang Duc Nguyen, Khoa Ly Van Phan, and Thanh Dinh Nguyen}
+\IEEEauthorblockA{Department of Information Technology, FPT University, Ho Chi Minh City Campus, Vietnam\\
+\{hoalase181702, hoangndse181655, khoaplvse181656, thanhndse182854\}@fpt.edu.vn}
+\vspace{0.35em}
+\IEEEauthorblockN{\textit{Faculty Supervisor:} Long Truong}
+\IEEEauthorblockA{Department of Software Engineering, FPT University, Ho Chi Minh City Campus, Vietnam\\
+longt5@fpt.edu.vn}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Research-gap discovery systems risk converting retrieval omissions, extraction errors, and graph sparsity into unsupported novelty claims. We present \method{}, an auditable AI-assisted and knowledge-graph-based evidence framework for research-gap hypothesis triage. Its methodological contribution is a fail-closed contract that treats explicit limitations, missing graph links, isolated communities, and temporal decay as signals rather than gaps; IoT cybersecurity serves as the application case. In frozen run \runid{} on deep-learning intrusion detection for Internet-of-Things networks, the system collected 600 records, screened 192, retained 150 papers, extracted 1,439 paper-linked events, and built a graph of 1,197 nodes and 1,433 edges. Detection produced 153 signals. The original contract marked two explicit-evidence candidates automatically eligible and synthesized two hypotheses. Direct source and closure-retrieval audit found counterevidence for both. We implemented source-abstract resolution scanning, compound-problem closure matching, a minimum problem-relevance gate, and run-derived timestamps; deterministic re-evaluation then synthesized zero automatically supported gap hypotheses. A frozen sensitivity analysis over relevance thresholds 0.40--0.70 also yielded zero synthesized or certificate-qualified hypotheses. Publication-year leakage-controlled backtesting at 2022, 2023, and 2024 supplied 22 positive- and 12 negative-control instances (11 and 5 distinct controls); 15 generated candidates matched no positive control, giving recall at 5, 10, and 20 of 0. Thus the evidence demonstrates an auditable AI/KG evaluation framework and conservative abstention, but not research-gap discovery effectiveness. The contribution is an executable, domain-configurable decision contract evaluated on IoT cybersecurity, not an autonomous claim of scientific novelty.
+\end{abstract}
+
+\begin{IEEEkeywords}
+knowledge graphs, research-gap hypothesis triage, evidence synthesis, trustworthy artificial intelligence, IoT intrusion detection
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+Systematic reviews make search, selection, and evidence accounting explicit~\cite{page}. Research-gap statements are often less systematic. A phrase such as ``more research is needed'' may refer to insufficient information, inconsistent findings, biased evidence, an unsuitable population, or a missing outcome. Robinson \emph{et al.} define a research gap as missing or inadequate information that prevents a conclusion for a specified question and recommend characterizing the gap with structured question elements~\cite{robinson}. EPICOT similarly requires evidence, population, intervention, comparator, outcome, and time to make future-research recommendations actionable~\cite{brown}. These definitions imply that a graph anomaly alone is not a research gap.
+
+Knowledge graphs (KGs) can expose unconnected methods and outcomes, isolated research communities, and changes in attention over time~\cite{schneider}. However, the absence of an edge can result from limited retrieval, abstract-only evidence, entity fragmentation, failed extraction, or an unobserved synonym. ``Absence of evidence'' therefore must not be interpreted as ``evidence of absence''~\cite{altman}. This asymmetry is particularly important when large language models (LLMs) extract relation events or write natural-language claims.
+
+\method{} operationalizes that asymmetry as a fail-closed evidence contract. Detectors propose signals; validation must establish source provenance, domain alignment, stability, specificity, local non-resolution, external non-closure, source-disjoint convergence, and an answerable research question. A candidate passes only if every hard gate passes. Ranking is applied after validation and cannot rescue a failed candidate.
+
+We evaluate \method{} using a single frozen case study on \emph{deep-learning IoT intrusion detection}. The paper asks:
+
+\begin{itemize}[leftmargin=1.5em]
+  \item \textbf{RQ1:} How many raw structural and explicit-evidence signals survive the fail-closed contract in a 150-paper corpus?
+  \item \textbf{RQ2:} What research-gap hypotheses does the system synthesize, and which evidence paths support them?
+  \item \textbf{RQ3:} Do the automatically supported claims remain credible under direct source and external-closure audit?
+  \item \textbf{RQ4:} Which contract changes are required to prevent known false positives from receiving automatic support?
+  \item \textbf{RQ5:} Do candidates generated before a temporal cutoff anticipate outcome-based gap controls observed only after that cutoff?
+\end{itemize}
+
+The contributions are: (1) a reproducible operational definition separating signals, candidates, and gap hypotheses; (2) a paper-linked temporal KG that supports event provenance, source-disjoint paths, and perturbation testing; (3) a frozen 150-paper case study with complete audit counts; (4) a relevance-threshold sensitivity analysis and publication-year leakage-controlled temporal backtest with explicit positive, negative, and unlabelled outcomes; and (5) a counterexample analysis showing why passing software gates is not equivalent to independent scientific validation.
+
+\section{Related Work}
+
+Literature-based discovery has long sought implicit connections across disjoint publications~\cite{swanson}. Automated hypothesis-generation systems such as MOLIERE operationalize concept bridging at literature scale~\cite{moliere}, while recent LLM research agents extend automation from ideation to experiment generation and reporting~\cite{aiscientist}. Modern review automation accelerates search, screening, extraction, and synthesis, but requires transparent uncertainty and human oversight~\cite{marshall}. Scientific claim verification likewise combines claims with evidence retrieval rather than treating generation as verification~\cite{wadden}. Unlike systems centered on generating plausible directions, \method{} evaluates whether bounded evidence is sufficient to advance a gap hypothesis and abstains when a predeclared gate fails.
+
+KG methods provide entity normalization, relation modeling, completion, and community structure~\cite{schneider}. Link prediction can prioritize plausible missing relations, while community detection can reveal separated subfields. Yet communities can be unstable under sampling noise, and link predictions may reproduce graph artefacts. Stability selection motivates perturbation-based testing of whether a result persists under resampling~\cite{meinshausen}. PROV-O motivates attaching provenance to individual relation events rather than only to aggregate nodes~\cite{provo}.
+
+In the application domain, explainable intrusion detection is already an established research area. Neupane \emph{et al.} survey explainable IDS design, stakeholder-specific explanations, and evaluation challenges~\cite{neupane}. Transfer-learning IDSs have also been evaluated for known and zero-day attacks in IoT settings~\cite{rodriguez}. This prior work is important when interpreting the two gap hypotheses produced by the case run: a system must distinguish a broad unresolved challenge from a capability already addressed under narrower assumptions.
+
+\section{Operational Definition and Evidence Contract}
+
+Let a temporal literature graph be a directed multigraph
+\begin{equation}
+G=(V,E), \qquad e=(u,r,v,p,y,c,q),
+\end{equation}
+where $u$ and $v$ are canonical entities, $r$ is a controlled relation, $p$ is the source-paper identifier, $y$ is publication year, $c$ is extraction confidence, and $q$ is the supporting evidence span. Multiple papers may support the same semantic relation; their events remain separate for provenance and dropout testing.
+
+The system uses four epistemic levels:
+
+\begin{enumerate}[leftmargin=1.6em]
+  \item A \textbf{signal} is an explicit limitation, missing link, isolated cluster, or temporal decline detected in the bounded graph.
+  \item A \textbf{candidate} is a signal or convergent signal bundle with resolved entities, paper provenance, and a scoped claim.
+  \item An \textbf{automatically supported gap hypothesis} is a candidate satisfying every predeclared hard gate and expressible as an answerable PMCOST-style question (problem, method, comparator, outcomes, setting, and timestamp).
+  \item A \textbf{certificate-qualified corpus-bounded gap hypothesis} is an automatically supported candidate that also passes the stronger executable certificate: independent limitation sources, full-text coverage of every limitation source, completed documented counterevidence searches, no source/local/external counterevidence, an answerable PMCOST frame, and a frozen corpus fingerprint. ``Certificate-qualified'' denotes satisfaction of these machine-auditable conditions, not certification by a scientific authority. The conclusion is bounded to the recorded corpus and searches and never proves global non-existence.
+\end{enumerate}
+
+For candidate $x$, let $h_i(x)\in\{0,1\}$ denote gate $i$. The decision rule is
+\begin{equation}
+\mathrm{Pass}(x)=\prod_{i=1}^{11}h_i(x).
+\end{equation}
+The eleven gates are: (1) an unresolved explicit limitation or source-disjoint empty evidence-map cell; (2) domain relevance; (3) problem alignment; (4) no source-level resolution; (5) minimum screened corpus; (6) perturbation stability; (7) entity specificity; (8) local closure clearance; (9) completed external closure search with no closure hit; (10) multi-signal convergence; and (11) an answerable question. Problem alignment is a non-compensatory coverage rule: the candidate must cover at least 0.60 of the configured domain-problem anchors. It is a policy threshold, not a learned probability or a threshold optimized against audited outputs; Section~\ref{sec:threshold} reports a frozen sensitivity analysis. The composite score orders only candidates for which $\mathrm{Pass}(x)=1$.
+
+The contract is intentionally asymmetric. A retrieved closing paper can invalidate automatic novelty, but failure to retrieve one cannot prove global absence. All claims remain bounded to the searched sources, years, queries, and snapshot date.
+
+\section{System Architecture}
+
+\method{} executes ten analytical stages.
+
+\subsection{Collection and Screening}
+
+Five query strata target the core topic, systematic reviews, limitations, empirical comparisons, and future work. Queries use short keywords rather than Boolean expressions that can over-constrain Semantic Scholar retrieval. The collector de-duplicates identifiers and adaptively broadens sparse queries. Screening combines deterministic domain-anchor coverage with LLM relevance scoring, then balances the retained corpus across retrieval query and publication year.
+
+\subsection{Relation Extraction and Provenance}
+
+Each abstract is converted into controlled relations: \texttt{USES}, \texttt{EVALUATES\_ON}, \texttt{ADDRESSES}, \texttt{PRODUCES}, \texttt{IMPROVES}, \texttt{COMBINES}, \texttt{LACKS}, \texttt{APPLIED\_TO}, \texttt{EXTENDS}, and \texttt{CONTRADICTS}. Each event stores its source paper, year, confidence, and evidence sentence. A deterministic high-precision fallback recovers explicit patterns such as ``$X$ lacks $Y$'' without bypassing downstream validation.
+
+\subsection{Graph Construction and Signal Detection}
+
+Entity canonicalization merges conservative lexical variants. The graph retains paper-level event provenance. Four detectors then generate:
+
+\begin{itemize}[leftmargin=1.5em]
+  \item \emph{explicit evidence signals} from \texttt{LACKS} or open-challenge evidence;
+  \item \emph{missing-link signals} from unobserved relations supported by graph neighborhoods;
+  \item \emph{orphan-cluster signals} from weakly connected communities;
+  \item \emph{temporal-decay signals} from publication-normalized declines across comparison windows.
+\end{itemize}
+
+In the historical detector, missing-link proposals use TransE link scoring and orphan clusters use Louvain community detection. The current evidence-map redesign replaces unconstrained TransE proposals with typed empty-cell candidates; Louvain remains the source of orphan-cluster signals. These structural outputs remain signals until they pass the evidence contract.
+
+\subsection{Validation, Synthesis, and Ranking}
+
+Candidate stability is estimated by relation-event deletion, paper dropout, and plausible-edge addition. Local closure checks existing graph relations and complete source abstracts. External closure runs candidate-specific searches through Semantic Scholar or OpenAlex and excludes duplicates by paper ID, DOI, and normalized title/year. Synthesis requires convergent, source-disjoint evidence and produces a PMCOST question. The subsequent certificate for a corpus-bounded hypothesis is intentionally stricter than abstract-level triage: it requires full text for every limitation source and completed recorded external searches. The tenth stage ranks reported candidates using provenance, specificity, stability, path diversity, closure clearance, and domain relevance; ranking cannot override a failed gate.
+
+The implementation is resumable: extraction writes one paper artifact and a progress checkpoint before downstream graph construction. Groq requests can rotate across an in-memory key pool; if all keys are unavailable, the checkpoint remains intact.
+
+\section{Case-Study Design}
+
+\subsection{Frozen Run}
+
+The evaluated artifact is \runid{}, created on 30 August 2026 with topic \emph{deep learning IoT intrusion detection}. The requested final corpus was 150 papers and the collection pool limit was 600. The configured publication interval was 2019--2026. The study reports files already saved in the run directory; no candidate was manually added or removed before computing the reported counts.
+
+\subsection{Corpus and Graph}
+
+The collector saved 600 unique records. The screener evaluated 192 records and retained 150 (target attainment 1.0; screened retention 0.7812). Table~\ref{tab:years} shows the temporal distribution.
+
+\begin{table}[ht]
+\caption{Retained corpus by publication year.}
+\label{tab:years}
+\centering
+\begin{tabular}{rrrrrrrr}
+\toprule
+2019 & 2020 & 2021 & 2022 & 2023 & 2024 & 2025 & 2026 \\
+\midrule
+5 & 10 & 10 & 15 & 19 & 30 & 30 & 31 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Extraction produced 1,439 relation events. After canonicalization and graph validation, the KG contained 1,197 nodes and 1,433 edges. Node types were METHOD (435), CONCEPT (364), METRIC (157), FINDING (113), DATASET (99), and TOOL (29). The most frequent relations were \texttt{USES} (335), \texttt{EVALUATES\_ON} (259), \texttt{ADDRESSES} (223), \texttt{PRODUCES} (197), and \texttt{IMPROVES} (160).
+
+\subsection{Publication-Year Leakage-Controlled Temporal Backtest}
+
+To test anticipatory utility without manually declaring a candidate true, we slice the already selected corpus at cutoff $t\in\{2022,2023,2024\}$. Candidate generation receives only papers and extracted events with publication year $y\leq t$. Every supporting paper ID is checked against this boundary. Papers with $y>t$ are withheld until outcome labelling. This controls publication-content leakage within the frozen corpus; it does not recreate cutoff-specific collection and screening.
+
+The backtest uses an outcome-based silver standard. A post-cutoff explicit positive control requires one future paper to contain both (i) a \texttt{LACKS} event and (ii) a solution or evaluation event whose evidence includes a solution cue and overlaps the stated missing capability. Subject overlap alone is insufficient. A structural positive control is a post-cutoff typed research relation between two entities that were each supported by at least two pre-cutoff papers but had no pre-cutoff direct relation. A negative control is a pre-cutoff limitation resolved by an action in the same source. Candidates matching neither class remain \emph{unlabelled}; open-world absence is never forced to be a negative label.
+
+For positive-control set $P_t$ and the top-$k$ pre-cutoff candidates $C_t^k$, candidate recall is
+\begin{equation}
+R_t@k=\frac{|\{p\in P_t:\exists c\in C_t^k,\;m(c,p)=1\}|}{|P_t|},
+\end{equation}
+where $m$ is deterministic. For evidence-gap controls, strings are case-folded, tokenized, and stripped of fixed stopwords; similarity is $0.7$ containment plus $0.3$ Jaccard. A match requires capability similarity at least 0.62 and either subject similarity at least 0.25 or capability similarity at least 0.82. For structural controls, $m$ requires equality of the unordered, normalized endpoint-token pair; the relation label is deliberately ignored, making this recall diagnostic permissive rather than relation-strict. Precision after closure is computed only over candidates matched to a positive or known-negative control; it is undefined when no labelled candidate remains. The false-positive rate is the fraction of known negatives selected after local closure. Label abstention is the fraction of generated candidates matching neither control class. Certificate precision is reported only if the historical slice contains the full text and completed external-search snapshots required by the same certificate contract.
+
+\begin{figure}[ht]
+\centering
+\setlength{\fboxsep}{5pt}
+\small
+\fcolorbox{black}{gray!8}{Collection} $\rightarrow$
+\fcolorbox{black}{gray!8}{Screening} $\rightarrow$
+\fcolorbox{black}{gray!8}{Extraction} $\rightarrow$
+\fcolorbox{black}{gray!8}{KG construction} $\rightarrow$
+\fcolorbox{black}{gray!8}{Signal detection}
+
+\vspace{0.6em}
+
+$\downarrow$
+
+\vspace{0.4em}
+
+\fcolorbox{black}{gray!8}{Validation} $\rightarrow$
+\fcolorbox{black}{gray!8}{Closure search} $\rightarrow$
+\fcolorbox{black}{gray!8}{Synthesis} $\rightarrow$
+\fcolorbox{black}{gray!8}{Certificate qualification} $\rightarrow$
+\fcolorbox{black}{gray!8}{Ranking}
+\caption{Ten-stage \method{} pipeline. Detection proposes signals; ranking orders reported candidates but cannot override validation, closure, synthesis, or certificate conditions.}
+\label{fig:pipeline}
+\end{figure}
+
+\section{Results}
+
+\subsection{Signal Reduction}
+
+Table~\ref{tab:signals} reports both the original frozen output and the deterministic contract revalidation. The detector output, graph, 150-paper corpus, and completed closure-search cache were held fixed. The revalidation performs no new retrieval. It replaces source-edge-only checking with complete-source-abstract resolution scanning, requires compound-problem closure matching, and imposes a minimum problem-relevance threshold of 0.60. Thus it measures the contract change rather than a new literature sample.
+
+\begin{table}[ht]
+\caption{Historical detector and contract-revalidation counts before the later evidence-map redesign.}
+\label{tab:signals}
+\centering
+\begin{tabularx}{\textwidth}{Y r r}
+\toprule
+\textbf{Measure} & \textbf{Original frozen output} & \textbf{Contract revalidation} \\
+\midrule
+Raw detector signals & 153 & 153 \\
+Automatically eligible at validation & 2 & 1 \\
+Review required at validation & 2 & 1 \\
+Rejected at validation & 149 & 151 \\
+Evidence/link claims evaluated for synthesis & 63 & 63 \\
+Automatically supported gap hypotheses & 2 & 0 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The full detector ablation reported zero final gaps from TransE-only, Louvain-only, and temporal-decay-only configurations. ``Explicit evidence only'' and the full system each produced the same two original outputs. Therefore, this case study does not demonstrate an incremental yield of topology-based detectors for final hypotheses. The demonstrated role of the KG in this study is narrower: it preserves paper-level provenance, identifies source-disjoint evidence paths, enables perturbation testing, and makes local closure evidence inspectable. A multi-domain evaluation is required before claiming that topology increases discovery yield.
+
+\subsection{Problem-Alignment Threshold Sensitivity}
+\label{sec:threshold}
+
+The 0.60 problem-alignment rule is a design constraint that prevents a limitation of a comparator (for example, traditional IDS) from being relabelled as a gap in the configured deep-learning IDS domain merely because deep learning is a possible remedy. It was not selected by fitting the two audited claims. The 153 historical signals in Table~\ref{tab:signals} predate the evidence-map redesign and include 13 explicit-evidence, 50 unconstrained missing-link, 75 orphan-cluster, and 15 temporal-decay signals. The frozen sensitivity analysis instead evaluates the redesigned candidate set: 111 items comprising 17 consolidated explicit-evidence cells, 4 typed evidence-map empty cells, 75 orphan clusters, and 15 temporal-decay signals. Of these, only the 21 evidence/link claims (17+4) enter gap synthesis; the structural families remain signals rather than automatic gap claims. We replayed validation and synthesis over thresholds 0.40, 0.50, 0.60, and 0.70 using this same current candidate set, corpus, graph, code, and saved closure inputs. No collection, LLM extraction, or new external retrieval was performed.
+
+\begin{table}[ht]
+\caption{Frozen sensitivity to the non-compensatory problem-alignment threshold.}
+\label{tab:threshold}
+\centering
+\small
+\begin{tabular}{rrrrrr}
+\toprule
+\textbf{Threshold} & \textbf{Review} & \textbf{Rejected} & \textbf{Alignment failures} & \textbf{Synthesized} & \textbf{Certificate-qualified} \\
+\midrule
+0.40 & 11 & 100 & 7 & 0 & 0 \\
+0.50 & 10 & 101 & 8 & 0 & 0 \\
+0.60 & 10 & 101 & 8 & 0 & 0 \\
+0.70 & 9 & 102 & 12 & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The threshold changes the number of candidates routed to review by at most two. It does not change the final disposition: every setting produces zero synthesized and zero certificate-qualified hypotheses. At 0.60, 18 of the 21 current evidence/link claims also fail local closure and 20 fail external closure, so the null result cannot be attributed to the alignment threshold alone.
+
+\subsection{Original Outputs and Contract Revalidation}
+
+Table~\ref{tab:gaps} lists the two original outputs for forensic comparison; neither survives the revised contract. The validation score and synthesis strength are historical values, not current evidence of novelty.
+
+\begin{table}[ht]
+\caption{Original automatically supported outputs; both are rejected by revalidation.}
+\label{tab:gaps}
+\centering
+\small
+\begin{tabularx}{\textwidth}{L{8mm} Y L{20mm} L{20mm} L{18mm}}
+\toprule
+\textbf{Rank} & \textbf{Scoped gap hypothesis} & \textbf{Source} & \textbf{Ranking score} & \textbf{Synthesis strength} \\
+\midrule
+1 & Deep-learning IDSs achieve high accuracy but lack inherent explainability, limiting regulated clinical adoption in healthcare IoT. & Alqazzaz (2026), ID 02138d7b & 0.7557 & 0.8650 \\
+2 & Traditional IDS methods inadequately detect zero-day attacks, polymorphic malware, and advanced persistent threats. & Deoskar and Sachan (2024), ID 1868c61b & 0.6880 & 0.7523 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The first candidate had provenance 1.0, specificity 0.9462, perturbation stability 0.90, path diversity 1.0, closure clearance 1.0, domain relevance 1.0, and original problem relevance 0.9474. Its external closure stage completed three queries and retrieved 30 records. The source evidence was an explicit sentence from the MedDefender-MHAN abstract~\cite{alqazzaz}.
+
+The second candidate had provenance 1.0, specificity 0.9062, stability 0.96, path diversity 1.0, closure clearance 1.0, domain relevance 1.0, and original problem relevance 0.3158. Its closure stage completed three queries and retrieved 32 records. The source was a review of cyber-threat intelligence and intrusion-detection strategies~\cite{deoskar}. Under the revised deterministic alignment calculation, its relevance is 0.4000, below the predeclared 0.60 threshold.
+
+The synthesized research questions were mechanically answerable, but their generated wording was verbose. A faithful, concise reformulation is:
+
+\begin{enumerate}[leftmargin=1.6em]
+  \item \emph{In healthcare IoT intrusion detection, can an inherently interpretable IDS improve explanation fidelity and regulatory auditability without reducing detection accuracy or violating latency constraints, compared with post-hoc XAI baselines?}
+  \item \emph{In IoT intrusion detection, can adaptive deep-learning or transfer-learning IDSs improve detection of zero-day, polymorphic, and persistent threats over traditional signature/anomaly baselines under equal data and compute budgets?}
+\end{enumerate}
+
+These are researchable questions, not proof that the corresponding evidence cells are globally empty; they are retained here as historical hypotheses rather than research-gap findings.
+
+\subsection{Adversarial Source Audit}
+
+RQ3 tests the claims against the evidence that generated them. The original audit is preserved, and the revalidation output is written to a separate child directory so the saved machine output remains reproducible.
+
+For candidate 1, the same MedDefender-MHAN abstract first states the explainability limitation, then presents an attention-based architecture intended to address it, reports explanation-alignment measures, and concludes that the method is clinically viable and regulatory compliant~\cite{alqazzaz}. The automatic \texttt{not\_already\_resolved} gate nevertheless passed. Moreover, the external search retrieved a prior X-IDS survey that documents methods and open evaluation questions~\cite{neupane}, but no closure hit was recorded.
+
+For candidate 2, the source review contrasts traditional IDS limitations with ML/DL advances in the same abstract~\cite{deoskar}. The external search also retrieved a transfer-learning framework evaluated on known and zero-day IoT attacks~\cite{rodriguez}. Again, no closure hit was recorded. The candidate's subject is ``traditional IDS methods,'' whereas the project domain is deep-learning IDS; this comparator-domain mismatch explains the relatively low problem-relevance metric despite a passing gate.
+
+\begin{table}[ht]
+\caption{Post-hoc counterevidence audit.}
+\label{tab:audit}
+\centering
+\small
+\begin{tabularx}{\textwidth}{L{9mm} Y Y L{28mm}}
+\toprule
+\textbf{Rank} & \textbf{Counterevidence in source or closure retrieval} & \textbf{Failure mode} & \textbf{Scientific disposition} \\
+\midrule
+1 & Source paper proposes and evaluates an inherently explainable attention model; external retrieval includes prior X-IDS work. & Source-resolution leakage; closure-hit under-detection. & Gap hypothesis requiring independent review, not established novelty. \\
+2 & Source states ML/DL improves IDS capability; external retrieval includes zero-day transfer-learning results. & Comparator/domain mismatch; closure-hit under-detection. & Broad challenge, not a verified empty evidence cell. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+In the revised implementation, both outputs fail at least one hard gate. Candidate 1 fails source non-resolution because its own abstract describes an explainable, regulatory-compliant solution. Candidate 2 fails problem alignment and closure clearance. Hence the revalidated automatic answer to RQ2 is ``zero supported gaps.'' This does not establish precision, recall, or global novelty; it establishes that the original false positives are now blocked by explicit, inspectable counterevidence.
+
+\subsection{Temporal Backtest Results}
+
+Table~\ref{tab:temporal} answers RQ5. All publication-year leakage checks passed: no post-cutoff paper or relation event entered candidate generation. The 2022 slice contained 40 pre-cutoff papers and 110 withheld papers; the 2023 slice contained 59 and 91; the 2024 slice contained 89 and 61. Across slices, the outcome constructor produced 22 positive- and 12 negative-control instances, representing 11 and 5 distinct control IDs, respectively. The detector generated no candidate at 2022, two at 2023, and 13 at 2024.
+
+\begin{table}[ht]
+\caption{Publication-year leakage-controlled temporal backtest on the frozen run. Control totals are cutoff-specific instances; a dash means the metric is not estimable.}
+\label{tab:temporal}
+\centering
+\scriptsize
+\begin{tabularx}{\textwidth}{L{10mm}rrrrrrY}
+\toprule
+\textbf{Cutoff} & \textbf{Pre/post} & \textbf{Cand.} & \textbf{Pos.} & \textbf{Neg.} & \textbf{$R@20$} & \textbf{Abstain} & \textbf{Cert. prec.} \\
+\midrule
+2022 & 40/110 & 0 & 8 & 3 & 0 & -- & -- \\
+2023 & 59/91 & 2 & 6 & 4 & 0 & 1.00 & -- \\
+2024 & 89/61 & 13 & 8 & 5 & 0 & 1.00 & -- \\
+\midrule
+Total & -- & 15 & 22 & 12 & 0 & 1.00 & -- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Recall at 5, 10, and 20 was zero for every cutoff: none of the 22 future positive-control instances was anticipated. None of the 12 known-negative instances passed local closure, so the observed known-negative selection rate was $0/12$. This zero must not be interpreted as high precision because the system also selected zero true positives. All 15 generated candidates were unlabelled by observable outcomes, leaving precision after local closure undefined. Certificate precision was likewise undefined and certificate abstention was 1.00 wherever candidates existed, because the historical slices did not preserve the full-text and external-search snapshots required to replay certificate qualification. The backtest therefore demonstrates executable publication-year leakage control but provides no evidence of useful candidate recall on this corpus.
+
+\section{Discussion}
+
+\subsection{What the Run Demonstrates}
+
+The run demonstrates end-to-end operability at the intended corpus scale. It retained the requested 150 papers and created a provenance-rich graph. The historical contract revalidation reduced the original 153 detector signals to two non-rejected items, neither of which survives synthesis. Under the subsequent evidence-map redesign, the current 111-item set routes 10 items to review and rejects 101 at the 0.60 threshold; none proceeds to synthesis. All intermediate artifacts, including original and revalidated audits, are preserved in the frozen run directory described in Section~\ref{sec:repro}.
+
+The run also demonstrates why an all-gates-pass rule is necessary but not sufficient. A hard gate can be incorrectly implemented or fed incomplete semantic features. In both original cases, the pipeline extracted a valid limitation sentence but did not interpret resolution text later in the same abstract. External retrieval worked, yet the closure classifier did not convert relevant retrieved papers into closure hits. The revised contract detects both failure modes. The original false positives are therefore traceable, and their prevention is regression-tested rather than asserted.
+
+The temporal result sharpens this conclusion. Fail-closed behaviour protects against unsupported claims, but usefulness for discovery also requires recall. On the available time slices, strict candidate construction was inactive at the earliest cutoff and did not recover any future positive control at later cutoffs. Thus conservative abstention and discovery effectiveness are separate properties: the former is demonstrated, while the latter is not. Future detector changes should be accepted only when they improve temporal recall without increasing selection of pre-resolved negative controls. Likewise, the current graph contribution is evidentiary infrastructure rather than demonstrated topology-driven discovery gain.
+
+\subsection{Implemented Contract Improvements}
+
+RQ4 yields four implemented changes.
+
+\begin{enumerate}[leftmargin=1.6em]
+  \item \textbf{Source-abstract resolution scan.} For every limitation, inspect the complete source abstract for a solution clause with semantic overlap to the claimed missing capability. A source that both states and addresses a limitation fails automatic non-resolution unless a residual limitation is explicit.
+  \item \textbf{Compound-problem closure classification.} Closure matching normalizes scientific aliases and evaluates individual components such as explainability, zero-day attacks, and APTs. A limitation wording such as ``struggles to address'' is excluded from resolution evidence.
+  \item \textbf{Minimum problem alignment.} Problem relevance is now a non-compensatory hard threshold of 0.60: candidate-domain anchor coverage must meet or exceed this policy threshold. A limitation of traditional IDS cannot automatically become a deep-learning IDS gap merely because deep learning is the known remedy. Frozen 0.40--0.70 sensitivity leaves the final null result unchanged (Table~\ref{tab:threshold}).
+  \item \textbf{Run-derived timestamp.} New and resumed configurations derive the claim date from immutable run metadata. The revalidation snapshot is therefore 30 August 2026, the run creation date.
+\end{enumerate}
+
+With these corrections, neither original output is automatically supported. A stronger research direction suggested---but not proven---by their intersection is the joint evaluation of \emph{inherent explanation fidelity, adversarial/zero-day robustness, cross-dataset generalization, and edge-device overhead} under a common protocol. This formulation is narrower and more testable than either raw candidate.
+
+\subsection{Human Oversight}
+
+Human review should not be used to make arbitrary gap decisions; it should audit whether evidence-contract premises are true. We provide a blinded 32-item packet containing both non-rejected candidates and a deterministic stratified sample of 30 rejected candidates. The packet omits system verdicts; a separate manifest preserves the mapping for later agreement and confusion-matrix analysis. At least three independent domain experts are required before reporting precision, recall approximation, or inter-rater agreement. Each reviewer must see the source sentence, full source abstract, graph path, retrieved closure papers, and gate rationale after the blinded decision is frozen~\cite{shneiderman}.
+
+\section{Threats to Validity}
+
+\textbf{Search coverage.} The corpus is bounded to five query strata, configured scholarly APIs, the 2019--2026 interval, and available abstracts. OpenAlex fallback retrieval does not establish exhaustive global novelty.
+
+\textbf{Extraction validity.} LLM and deterministic extraction may split clauses poorly, over-extend subjects, or assign coarse entity types. Candidate 1's subject ends with ``but,'' illustrating imperfect clause segmentation.
+
+\textbf{Graph validity.} Canonicalization may merge distinct concepts or leave synonyms separate. Missing-link and community signals depend on the resulting topology. The lack of final topology-only gaps in this run limits conclusions about those detectors.
+
+\textbf{Evaluation validity.} This is one domain and one frozen run. The temporal positive controls are deterministic silver labels derived from future extracted events, not independently adjudicated true research gaps. Counts in Table~\ref{tab:temporal} are cutoff-specific instances rather than independent unique observations. They permit an outcome-based recall diagnostic but do not establish scientific novelty. Extraction errors can create or suppress controls, and a later publication can address a problem without being globally first. The blinded 32-item expert-review packet is an instrument, not an evaluation result; no expert agreement, precision, recall, or Fleiss' $\kappa$ is claimed. Offline regression tests verify software behavior, not real-world gap validity.
+
+\textbf{Temporal validity.} Thirty-one retained records are dated 2026. Metadata availability and citation counts can change. The claim timestamp is now derived from run metadata, but it still does not make the snapshot exhaustive or longitudinal. The cutoff prevents post-cutoff papers and relation events from entering candidate generation; however, because the 150-paper corpus was originally selected from the full 2019--2026 pool, cutoff-specific corpus-selection effects are not eliminated. A stronger prospective simulation would rerun collection and screening independently at every cutoff.
+
+\section{Reproducibility}
+\label{sec:repro}
+
+The frozen run preserves \texttt{run\_metadata.json}; raw and screened JSONL corpora; paper-linked triples; the GraphML graph; JSON outputs for detection, validation, closure, synthesis, and ranking; publication figures; the interactive graph; per-cutoff temporal controls, candidates, metrics, and leakage audits; and the threshold-sensitivity summary with four frozen re-evaluation directories.
+
+The application supports opening this saved run without recomputation. API keys are not persisted in metadata. Resumable extraction skips paper IDs already present in the progress checkpoint. The executed configuration used Groq model identifier \texttt{openai/gpt-oss-20b} for screening and extraction. Screening used temperature 0.5 and a 300-token output limit; extraction used temperature 0.1 and a 2,000-token output limit. The prompt templates are \texttt{prompts/filter\_abstract.txt} and \texttt{prompts/triple\_extraction.txt}. The historical \texttt{run\_metadata.json} did not preserve immutable prompt hashes, so exact prompt-byte identity for this run cannot be independently established; this is a reproducibility limitation rather than an inferred guarantee.
+
+The temporal evaluation is reproduced offline with \texttt{python experiments/run\_temporal\_backtest.py RUN --cutoffs 2022 2023 2024}, where \texttt{RUN} is the frozen run directory.
+
+The threshold sensitivity is reproduced offline by passing \texttt{--min-problem-relevance} (0.40, 0.50, 0.60, or 0.70) to \texttt{experiments/reevaluate\_frozen\_run.py}; it writes to a new child output directory and never overwrites the archived run artifacts.
+
+\section{Conclusion}
+
+In a 150-paper deep-learning IoT intrusion-detection case study, \method{} reduced 153 raw graph and evidence signals to two original automated hypotheses. Direct source and external-closure audit found counterevidence for both. After implementing source-abstract resolution, compound-problem closure matching, a hard relevance threshold, and run-derived timestamps, deterministic revalidation of the same artifacts produces zero automatically supported gap hypotheses. The 0.40--0.70 frozen sensitivity analysis leaves this final result unchanged. A publication-year leakage-controlled temporal backtest then generated 15 candidates against 22 positive- and 12 negative-control instances (11 and 5 distinct controls) but achieved zero recall at 20; all candidates were outcome-unlabelled and certificate precision was not estimable. Because the original 150-paper selection used the full 2019--2026 pool, this backtest does not eliminate cutoff-specific corpus-selection effects. The scientifically defensible conclusion is therefore narrower than a usefulness claim: the workbench exposes candidate evidence, failure modes, and conservative abstention, while its discovery effectiveness and topology-driven incremental yield remain unproven on this corpus. This falsifiable distinction is the central value of an auditable evidence contract and supplies a concrete target for future detector improvements.
+
+\begin{thebibliography}{99}
+
+\bibitem{page} M. J. Page \emph{et al.}, ``The PRISMA 2020 statement: An updated guideline for reporting systematic reviews,'' \emph{BMJ}, vol. 372, p. n71, 2021, doi: 10.1136/bmj.n71.
+
+\bibitem{robinson} K. A. Robinson, I. J. Saldanha, and N. A. McKoy, ``Development of a framework to identify research gaps from systematic reviews,'' \emph{J. Clin. Epidemiol.}, vol. 64, no. 12, pp. 1325--1330, 2011, doi: 10.1016/j.jclinepi.2011.06.009.
+
+\bibitem{brown} P. Brown \emph{et al.}, ``How to formulate research recommendations,'' \emph{BMJ}, vol. 333, no. 7572, pp. 804--806, 2006, doi: 10.1136/bmj.38987.492014.94.
+
+\bibitem{schneider} P. Schneider, T. Schopf, J. Vladika, M. Galkin, E. Simperl, and F. Matthes, ``A decade of knowledge graphs in natural language processing: A survey,'' in \emph{Proc. AACL-IJCNLP}, 2022, pp. 601--614.
+
+\bibitem{altman} D. G. Altman and J. M. Bland, ``Absence of evidence is not evidence of absence,'' \emph{BMJ}, vol. 311, no. 7003, p. 485, 1995.
+
+\bibitem{swanson} D. R. Swanson, ``Fish oil, Raynaud's syndrome, and undiscovered public knowledge,'' \emph{Perspect. Biol. Med.}, vol. 30, no. 1, pp. 7--18, 1986.
+
+\bibitem{moliere} K. Sybrandt, M. Shtutman, and I. Safro, ``MOLIERE: Automatic biomedical hypothesis generation system,'' in \emph{Proc. 23rd ACM SIGKDD Int. Conf. Knowledge Discovery and Data Mining}, 2017, pp. 1633--1642, doi: 10.1145/3097983.3098057.
+
+\bibitem{aiscientist} C. Lu, C. Lu, R. T. Lange, J. Foerster, J. Clune, and D. Ha, ``The AI Scientist: Towards fully automated open-ended scientific discovery,'' arXiv:2408.06292, 2024.
+
+\bibitem{marshall} I. J. Marshall and B. C. Wallace, ``Toward systematic review automation: A practical guide to using machine learning tools in research synthesis,'' \emph{Syst. Rev.}, vol. 8, p. 163, 2019.
+
+\bibitem{wadden} D. Wadden \emph{et al.}, ``Fact or fiction: Verifying scientific claims,'' in \emph{Proc. EMNLP}, 2020, pp. 7534--7550.
+
+\bibitem{meinshausen} N. Meinshausen and P. B{\"u}hlmann, ``Stability selection,'' \emph{J. R. Stat. Soc. B}, vol. 72, no. 4, pp. 417--473, 2010.
+
+\bibitem{provo} T. Lebo, S. Sahoo, and D. McGuinness, ``PROV-O: The PROV ontology,'' W3C Recommendation, 2013.
+
+\bibitem{neupane} S. Neupane, J. Ables, W. Anderson, S. Mittal, S. Rahimi, I. Banicescu, and M. Seale, ``Explainable intrusion detection systems (X-IDS): A survey of current methods, challenges, and opportunities,'' \emph{IEEE Access}, vol. 10, pp. 112392--112415, 2022, doi: 10.1109/ACCESS.2022.3216617.
+
+\bibitem{rodriguez} E. Rodr{\'i}guez, P. Valls, B. Otero, J. J. Costa, J. Verd{\'u}, M. A. Pajuelo, and R. Canal, ``Transfer-learning-based intrusion detection framework in IoT networks,'' \emph{Sensors}, vol. 22, no. 15, p. 5621, 2022, doi: 10.3390/s22155621.
+
+\bibitem{alqazzaz} A. Alqazzaz, ``An explainable multi-head attention network for healthcare IoT threat detection based on the MedDefender-MHAN framework,'' \emph{PLOS ONE}, vol. 21, no. 4, p. e0346677, 2026, doi: 10.1371/journal.pone.0346677.
+
+\bibitem{deoskar} P. Deoskar and A. K. Sachan, ``Cyber threat intelligence in intrusion detection: A systematic review of detection strategies,'' \emph{Int. J. Inf. Technol. Manage.}, vol. 19, no. 1, 2024, doi: 10.29070/md9c9378.
+
+\bibitem{shneiderman} B. Shneiderman, ``Human-centered artificial intelligence: Reliable, safe and trustworthy,'' \emph{Int. J. Human--Computer Interaction}, vol. 36, no. 6, pp. 495--504, 2020.
+
+\end{thebibliography}
+
+\end{document}
