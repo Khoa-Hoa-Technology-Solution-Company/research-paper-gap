@@ -1,6 +1,6 @@
-\documentclass[conference,onecolumn]{IEEEtran}
+\documentclass[conference,11pt]{IEEEtran}
 
-\usepackage[a4paper,margin=20mm]{geometry}
+
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb}
 \usepackage{array,booktabs,tabularx}
@@ -8,13 +8,10 @@
 \usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage{microtype}
-\usepackage{url}
-\usepackage{hyperref}
 \usepackage{cite}
-\hypersetup{hidelinks,pdftitle={ESV-Gap: An Auditable AI and Knowledge-Graph Framework for Research-Gap Hypothesis Triage},pdfauthor={Hoa Anh Le et al.}}
 
 \newcommand{\method}{ESV-Gap}
-\newcommand{\runid}{\texttt{deep\_learning\_iot\_intrusion\_de\_20260830\_213021}}
+\newcommand{\runid}{\texttt{deep\_learning\_iot\_\allowbreak intrusion\_de\_\allowbreak 20260830\_213021}}
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
@@ -23,9 +20,9 @@ Research-Gap Hypothesis Triage\\
 \large Methodological Evaluation with a 150-Paper IoT Cybersecurity Case Study}
 
 \author{
-\IEEEauthorblockN{Hoa Anh Le, Hoang Duc Nguyen, Khoa Ly Van Phan, and Thanh Dinh Nguyen}
+\IEEEauthorblockN{Hoa Le Anh}
 \IEEEauthorblockA{Department of Information Technology, FPT University, Ho Chi Minh City Campus, Vietnam\\
-\{hoalase181702, hoangndse181655, khoaplvse181656, thanhndse182854\}@fpt.edu.vn}
+hoalase181702@fpt.edu.vn}
 \vspace{0.35em}
 \IEEEauthorblockN{\textit{Faculty Supervisor:} Long Truong}
 \IEEEauthorblockA{Department of Software Engineering, FPT University, Ho Chi Minh City Campus, Vietnam\\
@@ -199,16 +196,17 @@ Table~\ref{tab:signals} reports both the original frozen output and the determin
 \caption{Historical detector and contract-revalidation counts before the later evidence-map redesign.}
 \label{tab:signals}
 \centering
-\begin{tabularx}{\textwidth}{Y r r}
+\small
+\begin{tabularx}{\columnwidth}{Y r r}
 \toprule
-\textbf{Measure} & \textbf{Original frozen output} & \textbf{Contract revalidation} \\
+\textbf{Measure} & \textbf{Original} & \textbf{Revalidation} \\
 \midrule
 Raw detector signals & 153 & 153 \\
-Automatically eligible at validation & 2 & 1 \\
-Review required at validation & 2 & 1 \\
-Rejected at validation & 149 & 151 \\
-Evidence/link claims evaluated for synthesis & 63 & 63 \\
-Automatically supported gap hypotheses & 2 & 0 \\
+Automatically eligible & 2 & 1 \\
+Review required & 2 & 1 \\
+Rejected & 149 & 151 \\
+Evidence/link claims for synthesis & 63 & 63 \\
+Auto. supported gap hypotheses & 2 & 0 \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -224,10 +222,10 @@ The 0.60 problem-alignment rule is a design constraint that prevents a limitatio
 \caption{Frozen sensitivity to the non-compensatory problem-alignment threshold.}
 \label{tab:threshold}
 \centering
-\small
+\scriptsize
 \begin{tabular}{rrrrrr}
 \toprule
-\textbf{Threshold} & \textbf{Review} & \textbf{Rejected} & \textbf{Alignment failures} & \textbf{Synthesized} & \textbf{Certificate-qualified} \\
+\textbf{Thr.} & \textbf{Rev.} & \textbf{Rej.} & \textbf{Align.~fail} & \textbf{Synth.} & \textbf{Cert.-qual.} \\
 \midrule
 0.40 & 11 & 100 & 7 & 0 & 0 \\
 0.50 & 10 & 101 & 8 & 0 & 0 \\
@@ -243,7 +241,7 @@ The threshold changes the number of candidates routed to review by at most two. 
 
 Table~\ref{tab:gaps} lists the two original outputs for forensic comparison; neither survives the revised contract. The validation score and synthesis strength are historical values, not current evidence of novelty.
 
-\begin{table}[ht]
+\begin{table*}[ht]
 \caption{Original automatically supported outputs; both are rejected by revalidation.}
 \label{tab:gaps}
 \centering
@@ -256,7 +254,7 @@ Table~\ref{tab:gaps} lists the two original outputs for forensic comparison; nei
 2 & Traditional IDS methods inadequately detect zero-day attacks, polymorphic malware, and advanced persistent threats. & Deoskar and Sachan (2024), ID 1868c61b & 0.6880 & 0.7523 \\
 \bottomrule
 \end{tabularx}
-\end{table}
+\end{table*}
 
 The first candidate had provenance 1.0, specificity 0.9462, perturbation stability 0.90, path diversity 1.0, closure clearance 1.0, domain relevance 1.0, and original problem relevance 0.9474. Its external closure stage completed three queries and retrieved 30 records. The source evidence was an explicit sentence from the MedDefender-MHAN abstract~\cite{alqazzaz}.
 
@@ -279,7 +277,7 @@ For candidate 1, the same MedDefender-MHAN abstract first states the explainabil
 
 For candidate 2, the source review contrasts traditional IDS limitations with ML/DL advances in the same abstract~\cite{deoskar}. The external search also retrieved a transfer-learning framework evaluated on known and zero-day IoT attacks~\cite{rodriguez}. Again, no closure hit was recorded. The candidate's subject is ``traditional IDS methods,'' whereas the project domain is deep-learning IDS; this comparator-domain mismatch explains the relatively low problem-relevance metric despite a passing gate.
 
-\begin{table}[ht]
+\begin{table*}[ht]
 \caption{Post-hoc counterevidence audit.}
 \label{tab:audit}
 \centering
@@ -292,7 +290,7 @@ For candidate 2, the source review contrasts traditional IDS limitations with ML
 2 & Source states ML/DL improves IDS capability; external retrieval includes zero-day transfer-learning results. & Comparator/domain mismatch; closure-hit under-detection. & Broad challenge, not a verified empty evidence cell. \\
 \bottomrule
 \end{tabularx}
-\end{table}
+\end{table*}
 
 In the revised implementation, both outputs fail at least one hard gate. Candidate 1 fails source non-resolution because its own abstract describes an explainable, regulatory-compliant solution. Candidate 2 fails problem alignment and closure clearance. Hence the revalidated automatic answer to RQ2 is ``zero supported gaps.'' This does not establish precision, recall, or global novelty; it establishes that the original false positives are now blocked by explicit, inspectable counterevidence.
 
@@ -301,13 +299,13 @@ In the revised implementation, both outputs fail at least one hard gate. Candida
 Table~\ref{tab:temporal} answers RQ5. All publication-year leakage checks passed: no post-cutoff paper or relation event entered candidate generation. The 2022 slice contained 40 pre-cutoff papers and 110 withheld papers; the 2023 slice contained 59 and 91; the 2024 slice contained 89 and 61. Across slices, the outcome constructor produced 22 positive- and 12 negative-control instances, representing 11 and 5 distinct control IDs, respectively. The detector generated no candidate at 2022, two at 2023, and 13 at 2024.
 
 \begin{table}[ht]
-\caption{Publication-year leakage-controlled temporal backtest on the frozen run. Control totals are cutoff-specific instances; a dash means the metric is not estimable.}
+\caption{Publication-year leakage-controlled temporal backtest. Control totals are cutoff-specific instances; a dash means the metric is not estimable.}
 \label{tab:temporal}
 \centering
 \scriptsize
-\begin{tabularx}{\textwidth}{L{10mm}rrrrrrY}
+\begin{tabularx}{\columnwidth}{L{8mm}rrrrrrY}
 \toprule
-\textbf{Cutoff} & \textbf{Pre/post} & \textbf{Cand.} & \textbf{Pos.} & \textbf{Neg.} & \textbf{$R@20$} & \textbf{Abstain} & \textbf{Cert. prec.} \\
+\textbf{Cut.} & \textbf{Pre/post} & \textbf{Cand.} & \textbf{Pos.} & \textbf{Neg.} & \textbf{$R@20$} & \textbf{Abst.} & \textbf{C.pr.} \\
 \midrule
 2022 & 40/110 & 0 & 8 & 3 & 0 & -- & -- \\
 2023 & 59/91 & 2 & 6 & 4 & 0 & 1.00 & -- \\
