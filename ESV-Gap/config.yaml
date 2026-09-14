@@ -148,6 +148,33 @@ scoring:
     validation: 0.35
   top_k_gaps: 30                     # Final number of gaps to present
 
+# --- External Verification (Stage 7A) ---
+external_verification:
+  enabled: true
+  sources:
+    - openalex
+    - semantic_scholar
+  openalex_contact_email: ""         # OpenAlex etiquette; leave empty to skip
+  semantic_scholar_api_key: ""       # Optional; works without key (rate limited)
+  request_timeout_seconds: 25
+  max_retries: 3
+  retry_backoff_seconds: 2.0
+  max_records_per_probe: 5           # Sample size for record-level verification
+  max_queries_per_candidate: 4       # Limit phrase combinations
+  co_mention_token_coverage: 0.60    # Token overlap to confirm co-mention
+  temporal_decay_threshold: 0.30     # External decline must exceed this
+  temporal_lookback_years: 2
+  orphan_probe_pairs: 3              # How many cluster pairs to probe
+
+# --- Author-Stated Gaps (Stage 7B) ---
+author_stated_gaps:
+  enabled: true
+  co_mention_token_coverage: 0.60    # Same lexical test as closure gate
+
+# --- Synthesis & Ranking (Stage 7C) ---
+synthesis:
+  rank_by: "confidence_score"        # Options: confidence_score, impact_score, novelty_score
+
 # --- Visualisation ---
 visualisation:
   graph_layout: "force_atlas"        # pyvis layout algorithm

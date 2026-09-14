@@ -26,7 +26,12 @@ from typing import Any, Iterable
 
 import networkx as nx
 
-from src.entity_normalization import canonical_entity_key, canonical_entity_label
+from src.entity_normalization import (
+    STOPWORDS,
+    canonical_entity_key,
+    canonical_entity_label,
+    entity_tokens,
+)
 from src.utils import ensure_dir, get_logger, load_json, save_json
 
 
@@ -53,22 +58,7 @@ GENERIC_PHRASES = {
     "this work",
 }
 
-STOPWORDS = {
-    "a", "an", "and", "as", "at", "by", "for", "from", "in", "into",
-    "of", "on", "or", "the", "to", "using", "via", "with",
-}
-
-
-def _tokens(text: str) -> set[str]:
-    output: set[str] = set()
-    for token in re.findall(r"[a-z0-9]+", canonical_entity_label(text).lower()):
-        if token in STOPWORDS:
-            continue
-        output.add(token)
-        versionless = re.sub(r"\d+$", "", token)
-        if versionless and versionless != token and versionless not in STOPWORDS:
-            output.add(versionless)
-    return output
+_tokens = entity_tokens
 
 
 def _stable_seed(candidate: dict[str, Any], base_seed: int) -> int:
@@ -856,6 +846,15 @@ def validate_candidate(
             ),
         },
     }
+
+
+def load_kg(config: dict[str, Any]) -> nx.MultiDiGraph:
+    """Load the knowledge graph from the pickled file."""
+    graph_path = Path(config["paths"]["graph"]) / "knowledge_graph.pkl"
+    if not graph_path.exists():
+        raise FileNotFoundError(f"Knowledge graph not found at {graph_path}")
+    with open(graph_path, "rb") as stream:
+        return pickle.load(stream)
 
 
 def load_corpus_documents(config: dict[str, Any]) -> list[dict[str, Any]] | None:
