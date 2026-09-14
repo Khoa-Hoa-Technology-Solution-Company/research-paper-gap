@@ -1,0 +1,1102 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d6" for="edge" attr.name="relation" attr.type="string" />
+  <key id="d5" for="node" attr.name="year" attr.type="long" />
+  <key id="d4" for="node" attr.name="quality_score" attr.type="double" />
+  <key id="d3" for="node" attr.name="source_count" attr.type="long" />
+  <key id="d2" for="node" attr.name="label" attr.type="string" />
+  <key id="d1" for="node" attr.name="type" attr.type="string" />
+  <key id="d0" for="graph" attr.name="graph_kind" attr.type="string" />
+  <graph edgedefault="directed">
+    <node id="cell_d4e8c75c9eb42a72">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">interpretability</data>
+      <data key="d3">4</data>
+      <data key="d4">0.7914</data>
+    </node>
+    <node id="paper::02138d7bd6545ecec422d13c91cfbed514d080f2">
+      <data key="d1">PAPER</data>
+      <data key="d2">An explainable multi-head attention network for healthcare IoT threat detection based on the MedDefender-MHAN framework</data>
+      <data key="d5">2026</data>
+    </node>
+    <node id="paper::080d8665b41bc15fb50fba49457322ad27493954">
+      <data key="d1">PAPER</data>
+      <data key="d2">A Systematic Review of Multi-Model Machine Learning Approaches for Network Anomaly Detection and Security</data>
+      <data key="d5">2024</data>
+    </node>
+    <node id="paper::08170570405e09fd5f0aafdbe123a91a201b2cd5">
+      <data key="d1">PAPER</data>
+      <data key="d2">Explainable Deep Learning Intrusion Detection Framework for Securing IoT Environment</data>
+      <data key="d5">2026</data>
+    </node>
+    <node id="paper::354c9c97d249b327a89fa6386c2ccc6ff1791a67">
+      <data key="d1">PAPER</data>
+      <data key="d2">Security of Wireless Sensor Networks in the Era of Artificial Intelligence and IoT: A Systematic Literature Review</data>
+      <data key="d5">2026</data>
+    </node>
+    <node id="context::METHOD::MedDefender-MHAN">
+      <data key="d1">METHOD</data>
+      <data key="d2">MedDefender-MHAN</data>
+    </node>
+    <node id="context::METHOD::multi-model approaches">
+      <data key="d1">METHOD</data>
+      <data key="d2">multi-model approaches</data>
+    </node>
+    <node id="context::METHOD::XABiL-IDS">
+      <data key="d1">METHOD</data>
+      <data key="d2">XABiL-IDS</data>
+    </node>
+    <node id="context::METHOD::hybrid and multi-model architectures">
+      <data key="d1">METHOD</data>
+      <data key="d2">hybrid and multi-model architectures</data>
+    </node>
+    <node id="context::METHOD::existing methodologies">
+      <data key="d1">METHOD</data>
+      <data key="d2">existing methodologies</data>
+    </node>
+    <node id="context::DATASET::CICIDS2017">
+      <data key="d1">DATASET</data>
+      <data key="d2">CICIDS2017</data>
+    </node>
+    <node id="context::DATASET::TON-IoT">
+      <data key="d1">DATASET</data>
+      <data key="d2">TON-IoT</data>
+    </node>
+    <node id="context::METRIC::99.47% detection accuracy">
+      <data key="d1">METRIC</data>
+      <data key="d2">99.47% detection accuracy</data>
+    </node>
+    <node id="context::METRIC::98.92% detection accuracy">
+      <data key="d1">METRIC</data>
+      <data key="d2">98.92% detection accuracy</data>
+    </node>
+    <node id="context::METRIC::sub-3ms inference latency">
+      <data key="d1">METRIC</data>
+      <data key="d2">sub-3ms inference latency</data>
+    </node>
+    <node id="context::METRIC::435 samples per second throughput">
+      <data key="d1">METRIC</data>
+      <data key="d2">435 samples per second throughput</data>
+    </node>
+    <node id="context::CONCEPT::Artificial Intelligence">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">Artificial Intelligence</data>
+    </node>
+    <node id="context::CONCEPT::interpretability directly into the multi-head attention mechanism">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">interpretability directly into the multi-head attention mechanism</data>
+    </node>
+    <node id="context::CONCEPT::lack of inherent explainability in deep learning-based IDS">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">lack of inherent explainability in deep learning-based IDS</data>
+    </node>
+    <node id="context::CONCEPT::regulatory compliance for healthcare IoT security">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">regulatory compliance for healthcare IoT security</data>
+    </node>
+    <node id="context::CONCEPT::Existing deep learning-based intrusion detection systems (IDS) achieve high detection accuracy but">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">Existing deep learning-based intrusion detection systems (IDS) achieve high detection accuracy but</data>
+    </node>
+    <node id="cell_ca15c14731764b87">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">use of benchmark datasets</data>
+      <data key="d3">1</data>
+      <data key="d4">0.562</data>
+    </node>
+    <node id="context::METHOD::federated learning">
+      <data key="d1">METHOD</data>
+      <data key="d2">federated learning</data>
+    </node>
+    <node id="context::METHOD::Deep Learning">
+      <data key="d1">METHOD</data>
+      <data key="d2">Deep Learning</data>
+    </node>
+    <node id="context::METHOD::Reinforcement Learning">
+      <data key="d1">METHOD</data>
+      <data key="d2">Reinforcement Learning</data>
+    </node>
+    <node id="context::METHOD::edge intelligence">
+      <data key="d1">METHOD</data>
+      <data key="d2">edge intelligence</data>
+    </node>
+    <node id="context::METHOD::Existing approaches">
+      <data key="d1">METHOD</data>
+      <data key="d2">Existing approaches</data>
+    </node>
+    <node id="context::CONCEPT::Intrusion Detection Systems">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">Intrusion Detection Systems</data>
+    </node>
+    <node id="context::CONCEPT::Advanced, evolving and zero-day attacks">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">Advanced, evolving and zero-day attacks</data>
+    </node>
+    <node id="context::CONCEPT::Security issues in WSN-IoT">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">Security issues in WSN-IoT</data>
+    </node>
+    <node id="context::CONCEPT::Explainable artificial intelligence (XAI)">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">Explainable artificial intelligence (XAI)</data>
+    </node>
+    <node id="cell_520b3dc370028e5c">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">susceptibility to adversarial</data>
+      <data key="d3">1</data>
+      <data key="d4">0.584</data>
+    </node>
+    <node id="cell_634a8cd6d63e6f07">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">model-poisoning attacks</data>
+      <data key="d3">1</data>
+      <data key="d4">0.584</data>
+    </node>
+    <node id="cell_f2a2c753388e543d">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">blockchain scalability issues</data>
+      <data key="d3">1</data>
+      <data key="d4">0.584</data>
+    </node>
+    <node id="cell_e786b1c4a30d1d11">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">standardized security protocols across various IoT devices and platforms</data>
+      <data key="d3">1</data>
+      <data key="d4">0.634</data>
+    </node>
+    <node id="paper::04b3ca64eb68860e5afff03f705b40265109fc95">
+      <data key="d1">PAPER</data>
+      <data key="d2">An Intrusion System for Internet of Things Security Breaches Using Machine Learning Techniques</data>
+      <data key="d5">2024</data>
+    </node>
+    <node id="context::METHOD::DenseNet201">
+      <data key="d1">METHOD</data>
+      <data key="d2">DenseNet201</data>
+    </node>
+    <node id="context::METHOD::RAPNet">
+      <data key="d1">METHOD</data>
+      <data key="d2">RAPNet</data>
+    </node>
+    <node id="context::METHOD::BPOA">
+      <data key="d1">METHOD</data>
+      <data key="d2">BPOA</data>
+    </node>
+    <node id="context::DATASET::Bot-IoT">
+      <data key="d1">DATASET</data>
+      <data key="d2">Bot-IoT</data>
+    </node>
+    <node id="context::DATASET::CICIDS2019">
+      <data key="d1">DATASET</data>
+      <data key="d2">CICIDS2019</data>
+    </node>
+    <node id="context::METRIC::99.12% accuracy">
+      <data key="d1">METRIC</data>
+      <data key="d2">99.12% accuracy</data>
+    </node>
+    <node id="context::METRIC::accuracy 99.01%">
+      <data key="d1">METRIC</data>
+      <data key="d2">accuracy 99.01%</data>
+    </node>
+    <node id="context::METRIC::accuracy 99.18%">
+      <data key="d1">METRIC</data>
+      <data key="d2">accuracy 99.18%</data>
+    </node>
+    <node id="context::CONCEPT::IoT devices">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">IoT devices</data>
+    </node>
+    <node id="context::CONCEPT::standardized security protocols">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">standardized security protocols</data>
+    </node>
+    <node id="context::CONCEPT::An Intrusion System for Internet of Things Security Breaches Using Machine Learning Techniques">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">An Intrusion System for Internet of Things Security Breaches Using Machine Learning Techniques</data>
+    </node>
+    <node id="context::CONCEPT::of standardized security protocols across various IoT devices and platforms, which makes it challenging to develop a uniform intrusion detection system">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">of standardized security protocols across various IoT devices and platforms, which makes it challenging to develop a uniform intrusion detection system</data>
+    </node>
+    <node id="cell_677e7ffa20ab9ec3">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">real-world industrial validation</data>
+      <data key="d3">1</data>
+      <data key="d4">0.562</data>
+    </node>
+    <node id="context::METHOD::Support Vector Machines">
+      <data key="d1">METHOD</data>
+      <data key="d2">Support Vector Machines</data>
+    </node>
+    <node id="context::METHOD::Random Forest">
+      <data key="d1">METHOD</data>
+      <data key="d2">Random Forest</data>
+    </node>
+    <node id="context::CONCEPT::CPS water distribution">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">CPS water distribution</data>
+    </node>
+    <node id="context::CONCEPT::DDoS detection">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">DDoS detection</data>
+    </node>
+    <node id="context::CONCEPT::IoT intrusion detection">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">IoT intrusion detection</data>
+    </node>
+    <node id="context::CONCEPT::explainability">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">explainability</data>
+    </node>
+    <node id="context::CONCEPT::major limitations remain, including dependence on benchmark datasets">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">major limitations remain, including dependence on benchmark datasets</data>
+    </node>
+    <node id="cell_9c30ec9dc7e6a04e">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">computational complexity</data>
+      <data key="d3">1</data>
+      <data key="d4">0.584</data>
+    </node>
+    <node id="cell_ccf7a4e520690aae">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">dataset imbalance</data>
+      <data key="d3">1</data>
+      <data key="d4">0.584</data>
+    </node>
+    <node id="cell_77b708b9fd58987e">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">insufficient evaluation against encrypted</data>
+      <data key="d3">1</data>
+      <data key="d4">0.584</data>
+    </node>
+    <node id="cell_b919a8cd4316e97f">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">zero-day attacks</data>
+      <data key="d3">2</data>
+      <data key="d4">0.692</data>
+    </node>
+    <node id="paper::1868c61b82801408521cf0fca4396a698311b5d5">
+      <data key="d1">PAPER</data>
+      <data key="d2">Cyber Threat Intelligence in Intrusion Detection: A Systematic Review of Detection Strategies</data>
+      <data key="d5">2024</data>
+    </node>
+    <node id="context::METHOD::Deep Neural Networks">
+      <data key="d1">METHOD</data>
+      <data key="d2">Deep Neural Networks</data>
+    </node>
+    <node id="context::METHOD::Convolutional Neural Network">
+      <data key="d1">METHOD</data>
+      <data key="d2">Convolutional Neural Network</data>
+    </node>
+    <node id="context::DATASET::UNSW-NB15">
+      <data key="d1">DATASET</data>
+      <data key="d2">UNSW-NB15</data>
+    </node>
+    <node id="context::DATASET::KDD99">
+      <data key="d1">DATASET</data>
+      <data key="d2">KDD99</data>
+    </node>
+    <node id="context::CONCEPT::Intrusion Detection Systems in IoT environments">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">Intrusion Detection Systems in IoT environments</data>
+    </node>
+    <node id="cell_b5888f53a4c71276">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">model standardization need resolution before widespread field deployment</data>
+      <data key="d3">1</data>
+      <data key="d4">0.584</data>
+    </node>
+    <node id="paper::0d70b06ada7302e268205445e2121e9abe41b3f3">
+      <data key="d1">PAPER</data>
+      <data key="d2">A Review of Intrusion Detection for Internet of Things Using Machine Learning</data>
+      <data key="d5">2024</data>
+    </node>
+    <node id="context::METHOD::machine learning-driven intrusion detection frameworks">
+      <data key="d1">METHOD</data>
+      <data key="d2">machine learning-driven intrusion detection frameworks</data>
+    </node>
+    <node id="context::METHOD::deep learning architectures">
+      <data key="d1">METHOD</data>
+      <data key="d2">deep learning architectures</data>
+    </node>
+    <node id="context::METHOD::machine learning algorithms">
+      <data key="d1">METHOD</data>
+      <data key="d2">machine learning algorithms</data>
+    </node>
+    <node id="context::CONCEPT::IoT environments">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">IoT environments</data>
+    </node>
+    <node id="context::CONCEPT::evolving attacks">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">evolving attacks</data>
+    </node>
+    <node id="context::CONCEPT::controlled settings">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">controlled settings</data>
+    </node>
+    <node id="context::CONCEPT::computational burdens">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">computational burdens</data>
+    </node>
+    <node id="cell_2d47fb15fb7d4cd9">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">instances for training models</data>
+      <data key="d3">1</data>
+      <data key="d4">0.634</data>
+    </node>
+    <node id="paper::adae3e0d933e69c9b0706f3b62d6e1faf68f60d4">
+      <data key="d1">PAPER</data>
+      <data key="d2">EESNN: Hybrid Deep Learning Empowered Spatial–Temporal Features for Network Intrusion Detection System</data>
+      <data key="d5">2024</data>
+    </node>
+    <node id="context::METHOD::EESNN">
+      <data key="d1">METHOD</data>
+      <data key="d2">EESNN</data>
+    </node>
+    <node id="context::METHOD::DenseNet169">
+      <data key="d1">METHOD</data>
+      <data key="d2">DenseNet169</data>
+    </node>
+    <node id="context::METHOD::SAT-Net">
+      <data key="d1">METHOD</data>
+      <data key="d2">SAT-Net</data>
+    </node>
+    <node id="context::METHOD::DCGANs">
+      <data key="d1">METHOD</data>
+      <data key="d2">DCGANs</data>
+    </node>
+    <node id="context::METHOD::DSSTE">
+      <data key="d1">METHOD</data>
+      <data key="d2">DSSTE</data>
+    </node>
+    <node id="context::METRIC::accuracy">
+      <data key="d1">METRIC</data>
+      <data key="d2">accuracy</data>
+    </node>
+    <node id="context::METRIC::false alarm rate">
+      <data key="d1">METRIC</data>
+      <data key="d2">false alarm rate</data>
+    </node>
+    <node id="context::METRIC::Recall">
+      <data key="d1">METRIC</data>
+      <data key="d2">Recall</data>
+    </node>
+    <node id="context::METRIC::Precision">
+      <data key="d1">METRIC</data>
+      <data key="d2">Precision</data>
+    </node>
+    <node id="context::CONCEPT::data imbalance issues">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">data imbalance issues</data>
+    </node>
+    <node id="context::CONCEPT::EESNN: Hybrid Deep Learning Empowered Spatial–Temporal Features for Network Intrusion Detection System">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">EESNN: Hybrid Deep Learning Empowered Spatial–Temporal Features for Network Intrusion Detection System</data>
+    </node>
+    <node id="context::CONCEPT::of instances for training models and detection outcomes with a high false detection rate">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">of instances for training models and detection outcomes with a high false detection rate</data>
+    </node>
+    <node id="cell_927db1731d07229a">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">detection outcomes with a high false detection rate</data>
+      <data key="d3">1</data>
+      <data key="d4">0.634</data>
+    </node>
+    <node id="cell_f9a747065e5e075a">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">attack signatures</data>
+      <data key="d3">1</data>
+      <data key="d4">0.61</data>
+    </node>
+    <node id="paper::025a4ad20c5a359998b7c41e9311419c29e1688d">
+      <data key="d1">PAPER</data>
+      <data key="d2">A novel RF-SMOTE model to enhance the definite apprehensions for IoT security attacks</data>
+      <data key="d5">2023</data>
+    </node>
+    <node id="context::METHOD::deep learning-based intrusion detection systems">
+      <data key="d1">METHOD</data>
+      <data key="d2">deep learning-based intrusion detection systems</data>
+    </node>
+    <node id="context::METHOD::machine learning-based self-protection system">
+      <data key="d1">METHOD</data>
+      <data key="d2">machine learning-based self-protection system</data>
+    </node>
+    <node id="context::METHOD::autonomous security provider approaches">
+      <data key="d1">METHOD</data>
+      <data key="d2">autonomous security provider approaches</data>
+    </node>
+    <node id="context::DATASET::large data sets for training">
+      <data key="d1">DATASET</data>
+      <data key="d2">large data sets for training</data>
+    </node>
+    <node id="context::CONCEPT::IoT attack detection technique or mitigation procedure">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">IoT attack detection technique or mitigation procedure</data>
+    </node>
+    <node id="context::CONCEPT::attack signatures and normal behavior">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">attack signatures and normal behavior</data>
+    </node>
+    <node id="context::CONCEPT::overfitting and helpless grouping rates">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">overfitting and helpless grouping rates</data>
+    </node>
+    <node id="cell_b9cb29110e08b247">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">normal behavior</data>
+      <data key="d3">1</data>
+      <data key="d4">0.61</data>
+    </node>
+    <node id="cell_bfee931af962bdea">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">polymorphic malware</data>
+      <data key="d3">1</data>
+      <data key="d4">0.59</data>
+    </node>
+    <node id="context::METHOD::recurrent neural networks">
+      <data key="d1">METHOD</data>
+      <data key="d2">recurrent neural networks</data>
+    </node>
+    <node id="context::METHOD::Transformer">
+      <data key="d1">METHOD</data>
+      <data key="d2">Transformer</data>
+    </node>
+    <node id="context::CONCEPT::Ability to detect zero-day attacks, polymorphic malware, and APTs">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">Ability to detect zero-day attacks, polymorphic malware, and APTs</data>
+    </node>
+    <edge source="cell_d4e8c75c9eb42a72" target="context::METHOD::MedDefender-MHAN" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_d4e8c75c9eb42a72" target="context::METHOD::multi-model approaches" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_d4e8c75c9eb42a72" target="context::METHOD::XABiL-IDS" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_d4e8c75c9eb42a72" target="context::METHOD::hybrid and multi-model architectures" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_d4e8c75c9eb42a72" target="context::METHOD::existing methodologies" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_d4e8c75c9eb42a72" target="context::DATASET::CICIDS2017" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_d4e8c75c9eb42a72" target="context::DATASET::TON-IoT" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_d4e8c75c9eb42a72" target="context::METRIC::99.47% detection accuracy" id="0">
+      <data key="d6">HAS_METRIC_CONTEXT</data>
+    </edge>
+    <edge source="cell_d4e8c75c9eb42a72" target="context::METRIC::98.92% detection accuracy" id="0">
+      <data key="d6">HAS_METRIC_CONTEXT</data>
+    </edge>
+    <edge source="cell_d4e8c75c9eb42a72" target="context::METRIC::sub-3ms inference latency" id="0">
+      <data key="d6">HAS_METRIC_CONTEXT</data>
+    </edge>
+    <edge source="cell_d4e8c75c9eb42a72" target="context::METRIC::435 samples per second throughput" id="0">
+      <data key="d6">HAS_METRIC_CONTEXT</data>
+    </edge>
+    <edge source="cell_d4e8c75c9eb42a72" target="context::CONCEPT::Artificial Intelligence" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_d4e8c75c9eb42a72" target="context::CONCEPT::interpretability directly into the multi-head attention mechanism" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_d4e8c75c9eb42a72" target="context::CONCEPT::lack of inherent explainability in deep learning-based IDS" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_d4e8c75c9eb42a72" target="context::CONCEPT::regulatory compliance for healthcare IoT security" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_d4e8c75c9eb42a72" target="context::CONCEPT::Existing deep learning-based intrusion detection systems (IDS) achieve high detection accuracy but" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="paper::02138d7bd6545ecec422d13c91cfbed514d080f2" target="cell_d4e8c75c9eb42a72" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="paper::080d8665b41bc15fb50fba49457322ad27493954" target="cell_d4e8c75c9eb42a72" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="paper::080d8665b41bc15fb50fba49457322ad27493954" target="cell_677e7ffa20ab9ec3" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="paper::080d8665b41bc15fb50fba49457322ad27493954" target="cell_9c30ec9dc7e6a04e" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="paper::080d8665b41bc15fb50fba49457322ad27493954" target="cell_ccf7a4e520690aae" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="paper::080d8665b41bc15fb50fba49457322ad27493954" target="cell_77b708b9fd58987e" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="paper::080d8665b41bc15fb50fba49457322ad27493954" target="cell_b919a8cd4316e97f" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="paper::08170570405e09fd5f0aafdbe123a91a201b2cd5" target="cell_d4e8c75c9eb42a72" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="paper::354c9c97d249b327a89fa6386c2ccc6ff1791a67" target="cell_d4e8c75c9eb42a72" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="paper::354c9c97d249b327a89fa6386c2ccc6ff1791a67" target="cell_ca15c14731764b87" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="paper::354c9c97d249b327a89fa6386c2ccc6ff1791a67" target="cell_520b3dc370028e5c" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="paper::354c9c97d249b327a89fa6386c2ccc6ff1791a67" target="cell_634a8cd6d63e6f07" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="paper::354c9c97d249b327a89fa6386c2ccc6ff1791a67" target="cell_f2a2c753388e543d" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="cell_ca15c14731764b87" target="context::METHOD::federated learning" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_ca15c14731764b87" target="context::METHOD::Deep Learning" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_ca15c14731764b87" target="context::METHOD::Reinforcement Learning" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_ca15c14731764b87" target="context::METHOD::edge intelligence" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_ca15c14731764b87" target="context::METHOD::Existing approaches" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_ca15c14731764b87" target="context::CONCEPT::Artificial Intelligence" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_ca15c14731764b87" target="context::CONCEPT::Intrusion Detection Systems" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_ca15c14731764b87" target="context::CONCEPT::Advanced, evolving and zero-day attacks" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_ca15c14731764b87" target="context::CONCEPT::Security issues in WSN-IoT" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_ca15c14731764b87" target="context::CONCEPT::Explainable artificial intelligence (XAI)" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_520b3dc370028e5c" target="context::METHOD::federated learning" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_520b3dc370028e5c" target="context::METHOD::Deep Learning" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_520b3dc370028e5c" target="context::METHOD::Reinforcement Learning" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_520b3dc370028e5c" target="context::METHOD::edge intelligence" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_520b3dc370028e5c" target="context::METHOD::Existing approaches" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_520b3dc370028e5c" target="context::CONCEPT::Artificial Intelligence" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_520b3dc370028e5c" target="context::CONCEPT::Intrusion Detection Systems" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_520b3dc370028e5c" target="context::CONCEPT::Advanced, evolving and zero-day attacks" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_520b3dc370028e5c" target="context::CONCEPT::Security issues in WSN-IoT" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_520b3dc370028e5c" target="context::CONCEPT::Explainable artificial intelligence (XAI)" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_634a8cd6d63e6f07" target="context::METHOD::federated learning" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_634a8cd6d63e6f07" target="context::METHOD::Deep Learning" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_634a8cd6d63e6f07" target="context::METHOD::Reinforcement Learning" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_634a8cd6d63e6f07" target="context::METHOD::edge intelligence" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_634a8cd6d63e6f07" target="context::METHOD::Existing approaches" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_634a8cd6d63e6f07" target="context::CONCEPT::Artificial Intelligence" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_634a8cd6d63e6f07" target="context::CONCEPT::Intrusion Detection Systems" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_634a8cd6d63e6f07" target="context::CONCEPT::Advanced, evolving and zero-day attacks" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_634a8cd6d63e6f07" target="context::CONCEPT::Security issues in WSN-IoT" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_634a8cd6d63e6f07" target="context::CONCEPT::Explainable artificial intelligence (XAI)" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_f2a2c753388e543d" target="context::METHOD::federated learning" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_f2a2c753388e543d" target="context::METHOD::Deep Learning" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_f2a2c753388e543d" target="context::METHOD::Reinforcement Learning" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_f2a2c753388e543d" target="context::METHOD::edge intelligence" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_f2a2c753388e543d" target="context::METHOD::Existing approaches" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_f2a2c753388e543d" target="context::CONCEPT::Artificial Intelligence" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_f2a2c753388e543d" target="context::CONCEPT::Intrusion Detection Systems" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_f2a2c753388e543d" target="context::CONCEPT::Advanced, evolving and zero-day attacks" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_f2a2c753388e543d" target="context::CONCEPT::Security issues in WSN-IoT" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_f2a2c753388e543d" target="context::CONCEPT::Explainable artificial intelligence (XAI)" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_e786b1c4a30d1d11" target="context::METHOD::DenseNet201" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_e786b1c4a30d1d11" target="context::METHOD::RAPNet" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_e786b1c4a30d1d11" target="context::METHOD::BPOA" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_e786b1c4a30d1d11" target="context::DATASET::Bot-IoT" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_e786b1c4a30d1d11" target="context::DATASET::CICIDS2017" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_e786b1c4a30d1d11" target="context::DATASET::CICIDS2019" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_e786b1c4a30d1d11" target="context::METRIC::99.12% accuracy" id="0">
+      <data key="d6">HAS_METRIC_CONTEXT</data>
+    </edge>
+    <edge source="cell_e786b1c4a30d1d11" target="context::METRIC::accuracy 99.01%" id="0">
+      <data key="d6">HAS_METRIC_CONTEXT</data>
+    </edge>
+    <edge source="cell_e786b1c4a30d1d11" target="context::METRIC::accuracy 99.18%" id="0">
+      <data key="d6">HAS_METRIC_CONTEXT</data>
+    </edge>
+    <edge source="cell_e786b1c4a30d1d11" target="context::CONCEPT::IoT devices" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_e786b1c4a30d1d11" target="context::CONCEPT::standardized security protocols" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_e786b1c4a30d1d11" target="context::CONCEPT::An Intrusion System for Internet of Things Security Breaches Using Machine Learning Techniques" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_e786b1c4a30d1d11" target="context::CONCEPT::of standardized security protocols across various IoT devices and platforms, which makes it challenging to develop a uniform intrusion detection system" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="paper::04b3ca64eb68860e5afff03f705b40265109fc95" target="cell_e786b1c4a30d1d11" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="cell_677e7ffa20ab9ec3" target="context::METHOD::multi-model approaches" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_677e7ffa20ab9ec3" target="context::METHOD::hybrid and multi-model architectures" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_677e7ffa20ab9ec3" target="context::METHOD::existing methodologies" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_677e7ffa20ab9ec3" target="context::METHOD::Support Vector Machines" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_677e7ffa20ab9ec3" target="context::METHOD::Random Forest" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_677e7ffa20ab9ec3" target="context::CONCEPT::CPS water distribution" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_677e7ffa20ab9ec3" target="context::CONCEPT::DDoS detection" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_677e7ffa20ab9ec3" target="context::CONCEPT::IoT intrusion detection" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_677e7ffa20ab9ec3" target="context::CONCEPT::explainability" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_677e7ffa20ab9ec3" target="context::CONCEPT::major limitations remain, including dependence on benchmark datasets" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_9c30ec9dc7e6a04e" target="context::METHOD::multi-model approaches" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_9c30ec9dc7e6a04e" target="context::METHOD::hybrid and multi-model architectures" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_9c30ec9dc7e6a04e" target="context::METHOD::existing methodologies" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_9c30ec9dc7e6a04e" target="context::METHOD::Support Vector Machines" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_9c30ec9dc7e6a04e" target="context::METHOD::Random Forest" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_9c30ec9dc7e6a04e" target="context::CONCEPT::CPS water distribution" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_9c30ec9dc7e6a04e" target="context::CONCEPT::DDoS detection" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_9c30ec9dc7e6a04e" target="context::CONCEPT::IoT intrusion detection" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_9c30ec9dc7e6a04e" target="context::CONCEPT::explainability" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_9c30ec9dc7e6a04e" target="context::CONCEPT::major limitations remain, including dependence on benchmark datasets" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_ccf7a4e520690aae" target="context::METHOD::multi-model approaches" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_ccf7a4e520690aae" target="context::METHOD::hybrid and multi-model architectures" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_ccf7a4e520690aae" target="context::METHOD::existing methodologies" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_ccf7a4e520690aae" target="context::METHOD::Support Vector Machines" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_ccf7a4e520690aae" target="context::METHOD::Random Forest" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_ccf7a4e520690aae" target="context::CONCEPT::CPS water distribution" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_ccf7a4e520690aae" target="context::CONCEPT::DDoS detection" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_ccf7a4e520690aae" target="context::CONCEPT::IoT intrusion detection" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_ccf7a4e520690aae" target="context::CONCEPT::explainability" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_ccf7a4e520690aae" target="context::CONCEPT::major limitations remain, including dependence on benchmark datasets" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_77b708b9fd58987e" target="context::METHOD::multi-model approaches" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_77b708b9fd58987e" target="context::METHOD::hybrid and multi-model architectures" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_77b708b9fd58987e" target="context::METHOD::existing methodologies" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_77b708b9fd58987e" target="context::METHOD::Support Vector Machines" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_77b708b9fd58987e" target="context::METHOD::Random Forest" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_77b708b9fd58987e" target="context::CONCEPT::CPS water distribution" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_77b708b9fd58987e" target="context::CONCEPT::DDoS detection" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_77b708b9fd58987e" target="context::CONCEPT::IoT intrusion detection" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_77b708b9fd58987e" target="context::CONCEPT::explainability" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_77b708b9fd58987e" target="context::CONCEPT::major limitations remain, including dependence on benchmark datasets" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b919a8cd4316e97f" target="context::METHOD::multi-model approaches" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_b919a8cd4316e97f" target="context::METHOD::Deep Neural Networks" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_b919a8cd4316e97f" target="context::METHOD::hybrid and multi-model architectures" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_b919a8cd4316e97f" target="context::METHOD::existing methodologies" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_b919a8cd4316e97f" target="context::METHOD::Convolutional Neural Network" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_b919a8cd4316e97f" target="context::DATASET::UNSW-NB15" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_b919a8cd4316e97f" target="context::DATASET::TON-IoT" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_b919a8cd4316e97f" target="context::DATASET::KDD99" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_b919a8cd4316e97f" target="context::CONCEPT::Intrusion Detection Systems" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b919a8cd4316e97f" target="context::CONCEPT::Intrusion Detection Systems in IoT environments" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b919a8cd4316e97f" target="context::CONCEPT::CPS water distribution" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b919a8cd4316e97f" target="context::CONCEPT::DDoS detection" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b919a8cd4316e97f" target="context::CONCEPT::IoT intrusion detection" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="paper::1868c61b82801408521cf0fca4396a698311b5d5" target="cell_b919a8cd4316e97f" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="paper::1868c61b82801408521cf0fca4396a698311b5d5" target="cell_bfee931af962bdea" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="cell_b5888f53a4c71276" target="context::METHOD::machine learning-driven intrusion detection frameworks" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_b5888f53a4c71276" target="context::METHOD::Random Forest" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_b5888f53a4c71276" target="context::METHOD::Deep Neural Networks" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_b5888f53a4c71276" target="context::METHOD::deep learning architectures" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_b5888f53a4c71276" target="context::METHOD::machine learning algorithms" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_b5888f53a4c71276" target="context::CONCEPT::IoT environments" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b5888f53a4c71276" target="context::CONCEPT::Intrusion Detection Systems" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b5888f53a4c71276" target="context::CONCEPT::evolving attacks" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b5888f53a4c71276" target="context::CONCEPT::controlled settings" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b5888f53a4c71276" target="context::CONCEPT::computational burdens" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="paper::0d70b06ada7302e268205445e2121e9abe41b3f3" target="cell_b5888f53a4c71276" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="cell_2d47fb15fb7d4cd9" target="context::METHOD::EESNN" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_2d47fb15fb7d4cd9" target="context::METHOD::DenseNet169" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_2d47fb15fb7d4cd9" target="context::METHOD::SAT-Net" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_2d47fb15fb7d4cd9" target="context::METHOD::DCGANs" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_2d47fb15fb7d4cd9" target="context::METHOD::DSSTE" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_2d47fb15fb7d4cd9" target="context::DATASET::Bot-IoT" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_2d47fb15fb7d4cd9" target="context::DATASET::TON-IoT" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_2d47fb15fb7d4cd9" target="context::DATASET::CICIDS2019" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_2d47fb15fb7d4cd9" target="context::METRIC::accuracy" id="0">
+      <data key="d6">HAS_METRIC_CONTEXT</data>
+    </edge>
+    <edge source="cell_2d47fb15fb7d4cd9" target="context::METRIC::false alarm rate" id="0">
+      <data key="d6">HAS_METRIC_CONTEXT</data>
+    </edge>
+    <edge source="cell_2d47fb15fb7d4cd9" target="context::METRIC::Recall" id="0">
+      <data key="d6">HAS_METRIC_CONTEXT</data>
+    </edge>
+    <edge source="cell_2d47fb15fb7d4cd9" target="context::METRIC::Precision" id="0">
+      <data key="d6">HAS_METRIC_CONTEXT</data>
+    </edge>
+    <edge source="cell_2d47fb15fb7d4cd9" target="context::CONCEPT::data imbalance issues" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_2d47fb15fb7d4cd9" target="context::CONCEPT::EESNN: Hybrid Deep Learning Empowered Spatial–Temporal Features for Network Intrusion Detection System" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_2d47fb15fb7d4cd9" target="context::CONCEPT::of instances for training models and detection outcomes with a high false detection rate" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="paper::adae3e0d933e69c9b0706f3b62d6e1faf68f60d4" target="cell_2d47fb15fb7d4cd9" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="paper::adae3e0d933e69c9b0706f3b62d6e1faf68f60d4" target="cell_927db1731d07229a" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="cell_927db1731d07229a" target="context::METHOD::EESNN" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_927db1731d07229a" target="context::METHOD::DenseNet169" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_927db1731d07229a" target="context::METHOD::SAT-Net" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_927db1731d07229a" target="context::METHOD::DCGANs" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_927db1731d07229a" target="context::METHOD::DSSTE" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_927db1731d07229a" target="context::DATASET::Bot-IoT" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_927db1731d07229a" target="context::DATASET::TON-IoT" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_927db1731d07229a" target="context::DATASET::CICIDS2019" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_927db1731d07229a" target="context::METRIC::accuracy" id="0">
+      <data key="d6">HAS_METRIC_CONTEXT</data>
+    </edge>
+    <edge source="cell_927db1731d07229a" target="context::METRIC::false alarm rate" id="0">
+      <data key="d6">HAS_METRIC_CONTEXT</data>
+    </edge>
+    <edge source="cell_927db1731d07229a" target="context::METRIC::Recall" id="0">
+      <data key="d6">HAS_METRIC_CONTEXT</data>
+    </edge>
+    <edge source="cell_927db1731d07229a" target="context::METRIC::Precision" id="0">
+      <data key="d6">HAS_METRIC_CONTEXT</data>
+    </edge>
+    <edge source="cell_927db1731d07229a" target="context::CONCEPT::data imbalance issues" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_927db1731d07229a" target="context::CONCEPT::EESNN: Hybrid Deep Learning Empowered Spatial–Temporal Features for Network Intrusion Detection System" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_927db1731d07229a" target="context::CONCEPT::of instances for training models and detection outcomes with a high false detection rate" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_f9a747065e5e075a" target="context::METHOD::deep learning-based intrusion detection systems" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_f9a747065e5e075a" target="context::METHOD::machine learning-based self-protection system" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_f9a747065e5e075a" target="context::METHOD::Deep Learning" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_f9a747065e5e075a" target="context::METHOD::autonomous security provider approaches" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_f9a747065e5e075a" target="context::DATASET::large data sets for training" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_f9a747065e5e075a" target="context::CONCEPT::IoT attack detection technique or mitigation procedure" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_f9a747065e5e075a" target="context::CONCEPT::attack signatures and normal behavior" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_f9a747065e5e075a" target="context::CONCEPT::overfitting and helpless grouping rates" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="paper::025a4ad20c5a359998b7c41e9311419c29e1688d" target="cell_f9a747065e5e075a" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="paper::025a4ad20c5a359998b7c41e9311419c29e1688d" target="cell_b9cb29110e08b247" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="cell_b9cb29110e08b247" target="context::METHOD::deep learning-based intrusion detection systems" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_b9cb29110e08b247" target="context::METHOD::machine learning-based self-protection system" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_b9cb29110e08b247" target="context::METHOD::Deep Learning" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_b9cb29110e08b247" target="context::METHOD::autonomous security provider approaches" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_b9cb29110e08b247" target="context::DATASET::large data sets for training" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_b9cb29110e08b247" target="context::CONCEPT::IoT attack detection technique or mitigation procedure" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b9cb29110e08b247" target="context::CONCEPT::attack signatures and normal behavior" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b9cb29110e08b247" target="context::CONCEPT::overfitting and helpless grouping rates" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_bfee931af962bdea" target="context::METHOD::Deep Neural Networks" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_bfee931af962bdea" target="context::METHOD::Convolutional Neural Network" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_bfee931af962bdea" target="context::METHOD::recurrent neural networks" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_bfee931af962bdea" target="context::METHOD::federated learning" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_bfee931af962bdea" target="context::METHOD::Transformer" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_bfee931af962bdea" target="context::DATASET::UNSW-NB15" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_bfee931af962bdea" target="context::DATASET::TON-IoT" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_bfee931af962bdea" target="context::DATASET::KDD99" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_bfee931af962bdea" target="context::CONCEPT::Intrusion Detection Systems" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_bfee931af962bdea" target="context::CONCEPT::Intrusion Detection Systems in IoT environments" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_bfee931af962bdea" target="context::CONCEPT::Ability to detect zero-day attacks, polymorphic malware, and APTs" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <data key="d0">research_gap_evidence_map</data>
+  </graph>
+</graphml>

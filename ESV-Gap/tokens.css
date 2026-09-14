@@ -323,6 +323,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, [role="tab"]:
   color: var(--ink);
 }
 .gap-card.missing { border-top-color: var(--accent); }
+.gap-card.evidence { border-top-color: var(--success); }
 .gap-card.orphan { border-top-color: var(--orphan); }
 .gap-card.decay { border-top-color: var(--decay); }
 .gap-card.mulla { border-top-color: var(--warning); }

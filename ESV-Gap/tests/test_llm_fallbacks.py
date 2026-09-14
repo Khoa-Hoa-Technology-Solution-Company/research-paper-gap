@@ -7,14 +7,155 @@ from unittest.mock import Mock, patch
 
 from src.extract_triples import (
     ExtractionRateLimitError,
+    _decode_generated_payload,
     _retry_after_seconds,
+    deterministic_limitation_triples,
     extract_all_triples,
     extract_triples_from_text,
 )
+from src.filter import screen_paper
+from src.filter import domain_anchor_coverage, select_query_year_balanced
+from src.llm_errors import LLMAuthenticationError, is_authentication_error
 from src.rag_baseline import run_mulla_rag
+from src.collect import deduplicate_papers
 
 
 class LlmFallbackTests(unittest.TestCase):
+    def test_deterministic_extractor_recovers_explicit_lack(self):
+        sentence = (
+            "Yet their monolithic design lacks isolation across components, "
+            "which exposes sensitive data."
+        )
+        triples = deterministic_limitation_triples(
+            "security of monolith", "CubicleOS", sentence
+        )
+        self.assertEqual(len(triples), 1)
+        self.assertEqual(triples[0]["subject"]["name"], "CubicleOS")
+        self.assertEqual(triples[0]["relation"], "LACKS")
+        self.assertIn("isolation across components", triples[0]["object"]["name"])
+
+    def test_deterministic_extractor_recovers_open_challenge(self):
+        sentence = (
+            "Verifying security in monolithic software remains an open challenge "
+            "due to scalability."
+        )
+        triples = deterministic_limitation_triples(
+            "security of monolith", "Verification study", sentence
+        )
+        self.assertEqual(len(triples), 1)
+        self.assertEqual(triples[0]["subject"]["name"], "security of monolith")
+        self.assertIn("Verifying security", triples[0]["object"]["name"])
+
+    def test_deterministic_extractor_does_not_invert_absent_requirement(self):
+        triples = deterministic_limitation_triples(
+            "security of monolith", "A method",
+            "The method does not require additional hardware components.",
+        )
+        self.assertEqual(triples, [])
+
+    def test_domain_anchor_guard_disambiguates_software_monolith(self):
+        relevant = domain_anchor_coverage(
+            "security of monolith",
+            "Security testing of monolithic software architectures",
+            "We find vulnerabilities in a secure monolithic application.",
+        )
+        irrelevant = domain_anchor_coverage(
+            "security of monolith",
+            "Flexible carbon monolith materials",
+            "We improve fabrication and thermal performance.",
+        )
+        self.assertEqual(relevant, 1.0)
+        self.assertLess(irrelevant, 0.6)
+
+    def test_security_synonyms_count_as_domain_anchor(self):
+        coverage = domain_anchor_coverage(
+            "security of monolith",
+            "Vulnerability analysis of monolithic applications",
+            "We evaluate XSS attacks in a monolith architecture.",
+        )
+        self.assertEqual(coverage, 1.0)
+
+    def test_iot_ids_aliases_match_long_domain_without_literal_word_overlap(self):
+        coverage = domain_anchor_coverage(
+            (
+                "adversarial robustness of deep-learning intrusion detection "
+                "systems for IoT networks"
+            ),
+            "Evasion attacks against neural network IDS",
+            "We evaluate robust detection on Internet of Things traffic.",
+        )
+        self.assertEqual(coverage, 1.0)
+
+    def test_collection_dedup_preserves_query_provenance(self):
+        papers = deduplicate_papers([
+            {"paperId": "p1", "_matched_queries": ["query a"]},
+            {"paperId": "p1", "_matched_queries": ["query b"]},
+        ])
+        self.assertEqual(len(papers), 1)
+        self.assertEqual(papers[0]["_matched_queries"], ["query a", "query b"])
+
+    def test_corpus_cap_preserves_query_and_year_strata(self):
+        papers = [
+            {
+                "paperId": f"a-{year}", "year": year,
+                "_matched_queries": ["query a"],
+            }
+            for year in (2023, 2024, 2025)
+        ] + [
+            {
+                "paperId": f"b-{year}", "year": year,
+                "_matched_queries": ["query b"],
+            }
+            for year in (2023, 2024, 2025)
+        ]
+        selected = select_query_year_balanced(papers, 4)
+        self.assertEqual(len(selected), 4)
+        self.assertEqual(
+            {paper["_matched_queries"][0] for paper in selected},
+            {"query a", "query b"},
+        )
+        self.assertGreaterEqual(len({paper["year"] for paper in selected}), 2)
+
+    def test_provider_json_missing_array_item_brace_is_repaired(self):
+        malformed = (
+            '{"triples":[{"subject":{"name":"A","type":"METHOD"},'
+            '"relation":"USES","object":{"name":"B","type":"TOOL"}},'
+            '"subject":{"name":"C","type":"METHOD"},"relation":"USES",'
+            '"object":{"name":"D","type":"TOOL"}}]}'
+        )
+        repaired = _decode_generated_payload(malformed)
+        self.assertEqual(len(repaired["triples"]), 2)
+
+    def test_authentication_error_classifier_handles_groq_401(self):
+        error = Exception(
+            "Error code: 401 - {'error': {'message': 'Invalid API Key', "
+            "'code': 'invalid_api_key'}}"
+        )
+
+        self.assertTrue(is_authentication_error(error))
+
+    def test_screening_fails_fast_when_groq_rejects_key(self):
+        client = Mock()
+        client.chat.completions.create.side_effect = Exception(
+            "Error code: 401 - {'error': {'message': 'Invalid API Key', "
+            "'code': 'invalid_api_key'}}"
+        )
+
+        with self.assertRaisesRegex(
+            LLMAuthenticationError,
+            "relevance threshold is not the cause",
+        ):
+            screen_paper(
+                client,
+                "model",
+                "{domain} {title} {abstract}",
+                "domain",
+                "title",
+                "abstract",
+            )
+
+        self.assertEqual(client.chat.completions.create.call_count, 1)
+
     @patch("src.extract_triples.time.sleep")
     def test_extraction_retries_a_rate_limit(self, mock_sleep):
         client = Mock()

@@ -18,17 +18,18 @@ import networkx as nx
 import numpy as np
 import random
 import json
+import re
 from pathlib import Path
 from collections import defaultdict
 from tqdm import tqdm
 from fuzzywuzzy import fuzz
-from sklearn.metrics.pairwise import cosine_similarity
 from src.entity_normalization import canonical_entity_key, canonical_entity_label
+from src.vector_similarity import cosine_similarity_matrix
 from src.utils import get_logger, save_json, load_json, ensure_dir
 
 try:
     from sentence_transformers import SentenceTransformer
-except ImportError:
+except Exception:
     SentenceTransformer = None
 
 import os
@@ -36,6 +37,54 @@ os.environ["HF_HUB_DISABLE_IMPLICIT_TOKEN"] = "1"
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 logger = get_logger("build_graph")
+
+
+def _entity_tokens(label):
+    tokens = re.findall(r"[a-z0-9]+", str(label).casefold())
+    output = set(tokens)
+    for token in tokens:
+        if token.startswith("monolith"):
+            output.add("monolith")
+        if token.startswith("microservic"):
+            output.add("microservice")
+        if token.startswith("secur"):
+            output.add("secur")
+        if token.endswith("s") and len(token) > 4:
+            output.add(token[:-1])
+    return output
+
+
+def _numeric_tokens(label):
+    return set(re.findall(r"\d+(?:\.\d+)?", str(label)))
+
+
+def _label_acronym(label):
+    words = re.findall(r"[A-Za-z0-9]+", str(label))
+    if len(words) >= 2:
+        return "".join(word[0] for word in words if word).casefold()
+    compact = "".join(words)
+    if compact.isupper() and 2 <= len(compact) <= 10:
+        return compact.casefold()
+    return ""
+
+
+def _safe_lexical_merge(name_a, name_b, entities):
+    """Reject fuzzy merges that change type, version, or lexical concept."""
+    type_a = str(entities.get(name_a, {}).get("type", "UNKNOWN")).upper()
+    type_b = str(entities.get(name_b, {}).get("type", "UNKNOWN")).upper()
+    if type_a != type_b:
+        return False, "type_mismatch"
+    numbers_a, numbers_b = _numeric_tokens(name_a), _numeric_tokens(name_b)
+    if numbers_a != numbers_b and (numbers_a or numbers_b):
+        return False, "numeric_mismatch"
+    acronym_a, acronym_b = _label_acronym(name_a), _label_acronym(name_b)
+    if acronym_a and acronym_a == acronym_b:
+        return True, "acronym"
+    tokens_a, tokens_b = _entity_tokens(name_a), _entity_tokens(name_b)
+    overlap = len(tokens_a.intersection(tokens_b)) / max(
+        len(tokens_a.union(tokens_b)), 1
+    )
+    return overlap >= 0.5, "token_overlap"
 
 
 def build_entity_index(triples):
@@ -126,13 +175,18 @@ def deduplicate_entities(
             if name_map[name_b] != name_b:
                 continue
 
+            safe_merge, lexical_method = _safe_lexical_merge(
+                name_a, name_b, entities
+            )
             score = fuzz.token_sort_ratio(name_a.lower(), name_b.lower())
-            if score >= fuzzy_threshold:
+            if safe_merge and (
+                score >= fuzzy_threshold or lexical_method == "acronym"
+            ):
                 name_map[name_b] = name_a
                 merge_log.append({
                     "original":      name_b,
                     "merged_into":   name_a,
-                    "method":        "fuzzy",
+                    "method":        lexical_method,
                     "score":         score,
                     "original_type": entities.get(name_b, {}).get("type", "?"),
                     "canon_type":    entities.get(name_a, {}).get("type", "?"),
@@ -163,7 +217,7 @@ def deduplicate_entities(
                 canonical_names, show_progress_bar=False, batch_size=64
             )
 
-            sim_matrix = cosine_similarity(embeddings)
+            sim_matrix = cosine_similarity_matrix(embeddings)
 
             merged_semantic = 0
             canonical_occurrences = {
@@ -189,7 +243,16 @@ def deduplicate_entities(
 
                     idx_b = canonical_idx[name_b]
 
-                    if sim_matrix[idx_a][idx_b] >= semantic_threshold:
+                    type_a = str(entities.get(name_a, {}).get("type", "UNKNOWN")).upper()
+                    type_b = str(entities.get(name_b, {}).get("type", "UNKNOWN")).upper()
+                    numeric_compatible = (
+                        _numeric_tokens(name_a) == _numeric_tokens(name_b)
+                    )
+                    if (
+                        type_a == type_b
+                        and numeric_compatible
+                        and sim_matrix[idx_a][idx_b] >= semantic_threshold
+                    ):
                         semantic_map[name_b] = name_a
                         merge_log.append({
                             "original":      name_b,

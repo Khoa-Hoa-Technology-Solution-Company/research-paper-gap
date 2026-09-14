@@ -11,22 +11,212 @@ Usage:
 import json
 import re
 import time
-import os
 from dotenv import load_dotenv
 from pathlib import Path
 from tqdm import tqdm 
-from openai import OpenAI 
+from openai import OpenAI  # Backward-compatible extension/test patch point.
 from src.utils import (
     get_logger, save_json, load_json, save_jsonl, load_jsonl,
     ensure_dir, chunk_text, clean_text
+)
+from src.groq_key_pool import create_groq_client
+from src.llm_errors import (
+    LLMAuthenticationError,
+    authentication_error_message,
+    is_authentication_error,
 )
 
 logger = get_logger("extract")
 load_dotenv()  # Load environment variables from .env file
 
 
+_LIMITATION_PATTERNS = (
+    (
+        re.compile(
+            r"^(?:however[,;]?\s+|yet\s+|in summary[,;]?\s+)?"
+            r"(?P<subject>.{2,100}?)\s+(?:also\s+)?lacks?\s+"
+            r"(?P<object>[^.;:]{3,220})",
+            re.IGNORECASE,
+        ),
+        0.92,
+    ),
+    (
+        re.compile(
+            r"^(?:however[,;]?\s+)?(?P<subject>.{2,100}?)\s+"
+            r"(?:faces?|faced|suffers?|suffered)\s+(?:from\s+)?"
+            r"(?:significant\s+)?limitations?\s+(?:due\s+to|in|of)\s+"
+            r"(?P<object>[^.;:]{3,220})",
+            re.IGNORECASE,
+        ),
+        0.88,
+    ),
+)
+
+_OPEN_CHALLENGE_PATTERN = re.compile(
+    r"(?P<challenge>[^.;:]{5,180}?)\s+remains?\s+an?\s+open\s+challenge\b",
+    re.IGNORECASE,
+)
+
+
+def _clean_limitation_phrase(value):
+    value = re.sub(r"\s+", " ", str(value or "")).strip(" ,:;-\"")
+    value = re.sub(r"^(?:and|but|while)\s+", "", value, flags=re.IGNORECASE)
+    return value
+
+
+def deterministic_limitation_triples(domain, title, text):
+    """Recover only explicit limitation statements missed by the LLM.
+
+    These patterns intentionally exclude generic future-work prose. Downstream
+    semantic, provenance, convergence, and closure gates still decide whether
+    the extracted statement can participate in a research-gap claim.
+    """
+    triples = []
+    sentences = re.split(r"(?<=[.!?])\s+", clean_text(text))
+    for sentence in sentences:
+        sentence = sentence.strip()
+        if not sentence:
+            continue
+        matched = False
+        for pattern, confidence in _LIMITATION_PATTERNS:
+            match = pattern.search(sentence)
+            if not match:
+                continue
+            subject = _clean_limitation_phrase(match.group("subject"))
+            missing = _clean_limitation_phrase(match.group("object"))
+            if re.match(r"^(?:it|they|their|this|these|those|we|our)\b", subject, re.I):
+                subject = str(title).strip()
+            if not subject or not missing:
+                continue
+            triples.append({
+                "subject": {"name": subject, "type": "CONCEPT"},
+                "relation": "LACKS",
+                "object": {"name": missing, "type": "LIMITATION"},
+                "confidence": confidence,
+                "evidence": sentence,
+                "extraction_method": "deterministic_limitation_pattern",
+            })
+            matched = True
+            break
+        if matched:
+            continue
+        open_match = _OPEN_CHALLENGE_PATTERN.search(sentence)
+        if open_match:
+            challenge = _clean_limitation_phrase(open_match.group("challenge"))
+            challenge = re.sub(
+                r"^(?:however[,;]?\s+|yet\s+)", "", challenge,
+                flags=re.IGNORECASE,
+            )
+            if challenge:
+                triples.append({
+                    "subject": {"name": str(domain).strip(), "type": "CONCEPT"},
+                    "relation": "LACKS",
+                    "object": {"name": challenge, "type": "LIMITATION"},
+                    "confidence": 0.85,
+                    "evidence": sentence,
+                    "extraction_method": "deterministic_open_challenge_pattern",
+                })
+    return triples
+
+
+def augment_with_deterministic_limitations(result, paper, domain):
+    """Add non-duplicate deterministic limitations to one paper result."""
+    triples = list(result.get("triples", []))
+    existing_lacks_evidence = {
+        re.sub(r"\s+", " ", str(item.get("evidence", ""))).strip().casefold()
+        for item in triples
+        if str(item.get("relation", "")).upper() == "LACKS"
+    }
+    additions = deterministic_limitation_triples(
+        domain, paper.get("title", ""), paper.get("abstract", "")
+    )
+    paper_id = paper.get("paperId", "")
+    year = paper.get("year")
+    for triple in additions:
+        evidence_key = re.sub(
+            r"\s+", " ", str(triple.get("evidence", ""))
+        ).strip().casefold()
+        if evidence_key in existing_lacks_evidence:
+            continue
+        triple["source_paper_id"] = paper_id
+        triple["source_year"] = year
+        triples.append(triple)
+        existing_lacks_evidence.add(evidence_key)
+    return {
+        **result,
+        "triples": triples,
+        "num_triples": len(triples),
+        "deterministic_limitations_added": len(triples) - len(result.get("triples", [])),
+    }
+
+
 class ExtractionRateLimitError(RuntimeError):
     """The provider asked the resumable extraction job to pause."""
+
+
+def _normalise_triple_payload(result):
+    """Return only structurally valid triples from a decoded response."""
+    if not isinstance(result, dict):
+        return []
+    valid_triples = []
+    raw = result.get("triples", [])
+    triples = [triple for triple in raw if isinstance(triple, dict)]
+    for triple in triples:
+        if (
+            "subject" in triple
+            and "relation" in triple
+            and "object" in triple
+            and isinstance(triple["subject"], dict)
+            and isinstance(triple["object"], dict)
+            and "name" in triple["subject"]
+            and "name" in triple["object"]
+        ):
+            triple["subject"]["name"] = str(triple["subject"]["name"]).strip()
+            triple["object"]["name"] = str(triple["object"]["name"]).strip()
+            triple.setdefault("confidence", 0.5)
+            valid_triples.append(triple)
+    return valid_triples
+
+
+def _decode_generated_payload(content):
+    """Decode JSON, including one known Groq missing-item-brace defect.
+
+    The repair is intentionally narrow: it only inserts an opening object brace
+    between array items when a new ``subject`` key follows a closed object.
+    Anything else remains a failed extraction instead of being guessed.
+    """
+    text = str(content or "").strip()
+    if text.startswith("```json"):
+        text = text[7:]
+    elif text.startswith("```"):
+        text = text[3:]
+    if text.endswith("```"):
+        text = text[:-3]
+    text = text.strip()
+    try:
+        return json.loads(text)
+    except (json.JSONDecodeError, TypeError):
+        repaired = re.sub(
+            r"}\s*,\s*\"subject\"\s*:",
+            '},{"subject":',
+            text,
+        )
+        if repaired == text:
+            return None
+        try:
+            return json.loads(repaired)
+        except (json.JSONDecodeError, TypeError):
+            return None
+
+
+def _failed_generation(exc):
+    """Extract provider-supplied invalid JSON for conservative local repair."""
+    body = getattr(exc, "body", None)
+    if isinstance(body, dict):
+        error = body.get("error", body)
+        if isinstance(error, dict) and error.get("failed_generation"):
+            return str(error["failed_generation"])
+    return ""
 
 
 def _retry_after_seconds(error_text):
@@ -90,32 +280,44 @@ def extract_triples_from_text(
             )
 
             content = response.choices[0].message.content
-            result = json.loads(content)
-
-            valid_triples = []
-            raw = result.get("triples", [])
-            triples = [t for t in raw if isinstance(t, dict)]
-            for triple in triples:
-                if (
-                    "subject" in triple
-                    and "relation" in triple
-                    and "object" in triple
-                    and isinstance(triple["subject"], dict)
-                    and isinstance(triple["object"], dict)
-                    and "name" in triple["subject"]
-                    and "name" in triple["object"]
-                ):
-                    triple["subject"]["name"] = triple["subject"]["name"].strip()
-                    triple["object"]["name"] = triple["object"]["name"].strip()
-                    triple.setdefault("confidence", 0.5)
-                    valid_triples.append(triple)
-
-            return valid_triples
+            result = _decode_generated_payload(content)
+            if result is None:
+                raise json.JSONDecodeError("invalid generated JSON", str(content), 0)
+            return _normalise_triple_payload(result)
 
         except json.JSONDecodeError as exc:
+            if attempt + 1 < max_retries:
+                logger.warning(
+                    "JSON parse error for '%s...'; retry %d/%d",
+                    title[:40],
+                    attempt + 1,
+                    max_retries,
+                )
+                continue
             logger.warning(f"JSON parse error for '{title[:40]}...': {exc}")
             return []
         except Exception as exc:
+            if is_authentication_error(exc):
+                raise LLMAuthenticationError(authentication_error_message()) from exc
+            failed_payload = _failed_generation(exc)
+            if failed_payload:
+                repaired = _decode_generated_payload(failed_payload)
+                triples = _normalise_triple_payload(repaired)
+                if triples:
+                    logger.warning(
+                        "Recovered %d triples from provider-rejected JSON for '%s...'.",
+                        len(triples),
+                        title[:40],
+                    )
+                    return triples
+                if attempt + 1 < max_retries:
+                    logger.warning(
+                        "Provider rejected JSON for '%s...'; retry %d/%d",
+                        title[:40],
+                        attempt + 1,
+                        max_retries,
+                    )
+                    continue
             error_text = str(exc)
             rate_limited = "429" in error_text or "rate_limit" in error_text
             daily_quota = "tokens per day" in error_text.lower() or "tpd" in error_text.lower()
@@ -196,12 +398,66 @@ def extract_paper_triples(client, model, prompt_template, domain, paper, chunk_s
         
         all_triples.extend(triples)
     
-    return {
+    result = {
         "paperId": paper_id,
         "title": title,
         "year": year,
         "num_triples": len(all_triples),
         "triples": all_triples,
+    }
+    return augment_with_deterministic_limitations(result, paper, domain)
+
+
+def backfill_deterministic_limitations(config):
+    """Augment checkpointed paper files without making any API requests."""
+    proc_dir = Path(config["paths"]["processed_data"])
+    triples_dir = ensure_dir(config["paths"]["triples"])
+    corpus_path = proc_dir / "corpus_filtered.jsonl"
+    if not corpus_path.exists():
+        return {"papers_updated": 0, "limitations_added": 0}
+    papers = {
+        str(paper.get("paperId", "")): paper
+        for paper in load_jsonl(corpus_path)
+        if paper.get("paperId")
+    }
+    papers_updated = 0
+    limitations_added = 0
+    for paper_file in triples_dir.glob("paper_*.json"):
+        result = load_json(paper_file)
+        paper = papers.get(str(result.get("paperId", "")))
+        if not paper:
+            continue
+        augmented = augment_with_deterministic_limitations(
+            result, paper, config.get("project", {}).get("domain", "")
+        )
+        added = int(augmented.get("deterministic_limitations_added", 0))
+        if added:
+            save_json(augmented, paper_file)
+            papers_updated += 1
+            limitations_added += added
+
+    all_results = [
+        load_json(path) for path in triples_dir.glob("paper_*.json")
+    ]
+    all_triples = [
+        triple
+        for result in all_results
+        for triple in result.get("triples", [])
+    ]
+    if all_results:
+        save_json(all_triples, triples_dir / "all_triples.json")
+        progress_path = triples_dir / "extraction_progress.json"
+        progress = load_json(progress_path) if progress_path.exists() else {}
+        progress["total_triples"] = len(all_triples)
+        save_json(progress, progress_path)
+    logger.info(
+        "Deterministic limitation backfill: %d paper(s), %d statement(s) added",
+        papers_updated,
+        limitations_added,
+    )
+    return {
+        "papers_updated": papers_updated,
+        "limitations_added": limitations_added,
     }
 
 
@@ -235,21 +491,8 @@ def extract_all_triples(config, progress_callback=None):
     # Initialise Groq client through the OpenAI-compatible SDK.
     # Prefer the key supplied in config (used by the Streamlit app), with
     # environment variables retained for CLI runs.
-    groq_api_key = (
-        config.get("api_keys", {}).get("groq")
-        or os.getenv("GROQ_API_KEY")
-        or os.getenv("OPENAI_API_KEY")
-    )
-    if not groq_api_key:
-        raise ValueError(
-            "Missing Groq API key. Enter it in the app or set GROQ_API_KEY."
-        )
-    client = OpenAI(
-        api_key=groq_api_key,
-        base_url="https://api.groq.com/openai/v1",
-        timeout=30.0,
-        max_retries=1,
-        )
+    client = create_groq_client(config, timeout=30.0, max_retries=1)
+    logger.info("Groq key pool: %d key(s) available for extraction", client.pool_size)
     
     # --- Check for existing progress ---
     progress_path = triples_dir / "extraction_progress.json"
@@ -323,11 +566,15 @@ def extract_all_triples(config, progress_callback=None):
         
         # Rate limiting
         time.sleep(1.0)
+
+    # Old checkpoint files may predate the deterministic high-precision
+    # limitation extractor. Backfill them locally before graph construction.
+    backfill_deterministic_limitations(config)
     
     # --- Aggregate all triples ---
     all_triples = []
-    for result in all_results:
-        all_triples.extend(result.get("triples", []))
+    for paper_file in triples_dir.glob("paper_*.json"):
+        all_triples.extend(load_json(paper_file).get("triples", []))
     
     # Save aggregated triples
     save_json(all_triples, triples_dir / "all_triples.json")

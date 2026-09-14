@@ -31,8 +31,73 @@ TYPE_COLORS = {
     "CONCEPT": "#378ADD",
     "FINDING": "#D4537E",
     "TOOL": "#639922",
+    "LIMITATION": "#E24B4A",
+    "EVIDENCE_CELL": "#E24B4A",
+    "PAPER": "#94A3B8",
     "UNKNOWN": "#888780",
 }
+
+
+def create_gap_evidence_map(graph, output_path):
+    """Render paper -> evidence-cell -> research-context provenance."""
+    logger.info("Creating paper-centred gap evidence map...")
+    net = Network(
+        height="800px", width="100%", bgcolor="#ffffff", font_color="#1f2937"
+    )
+    net.force_atlas_2based(
+        gravity=-60, central_gravity=0.015, spring_length=130,
+        spring_strength=0.08,
+    )
+    cell_nodes = [
+        node for node, data in graph.nodes(data=True)
+        if data.get("type") == "EVIDENCE_CELL"
+    ]
+    selected_cells = set(sorted(
+        cell_nodes,
+        key=lambda node: float(graph.nodes[node].get("quality_score", 0.0)),
+        reverse=True,
+    )[:30])
+    selected_nodes = set(selected_cells)
+    for cell in selected_cells:
+        selected_nodes.update(graph.predecessors(cell))
+        selected_nodes.update(graph.successors(cell))
+
+    for node in selected_nodes:
+        data = graph.nodes[node]
+        node_type = str(data.get("type", "UNKNOWN"))
+        label = str(data.get("label") or node)
+        display_label = label[:52] + "..." if node_type == "PAPER" and len(label) > 55 else label
+        quality = float(data.get("quality_score", 0.0))
+        source_count = int(data.get("source_count", 0))
+        size = 28 + 20 * quality if node_type == "EVIDENCE_CELL" else (
+            13 if node_type == "PAPER" else 17
+        )
+        net.add_node(
+            node,
+            label=display_label,
+            title=(
+                f"<b>{label}</b><br>Type: {node_type}"
+                f"<br>Independent sources: {source_count}"
+                f"<br>Candidate quality: {quality:.3f}"
+            ),
+            color=TYPE_COLORS.get(node_type, TYPE_COLORS["UNKNOWN"]),
+            size=size,
+            shape="diamond" if node_type == "EVIDENCE_CELL" else (
+                "box" if node_type == "PAPER" else "dot"
+            ),
+        )
+    for left, right, data in graph.edges(data=True):
+        if left not in selected_nodes or right not in selected_nodes:
+            continue
+        relation = str(data.get("relation", ""))
+        net.add_edge(
+            left, right,
+            title=relation,
+            color="#E24B4A" if relation == "REPORTS_LIMITATION" else "#CBD5E1",
+            width=2 if relation == "REPORTS_LIMITATION" else 0.8,
+        )
+    net.save_graph(str(output_path))
+    logger.info("  Saved gap evidence map: %s", output_path)
 
 
 def create_interactive_graph(G, gaps, output_path):
@@ -48,6 +113,9 @@ def create_interactive_graph(G, gaps, output_path):
         if gap["type"] == "missing_link":
             gap_nodes.add(gap.get("head", ""))
             gap_nodes.add(gap.get("tail", ""))
+        elif gap["type"] == "evidence_gap":
+            gap_nodes.add(gap.get("subject", ""))
+            gap_nodes.add(gap.get("missing_capability", ""))
         elif gap["type"] == "orphan_cluster":
             for member in gap.get("members", [])[:10]:
                 gap_nodes.add(member)
@@ -131,7 +199,7 @@ def plot_gap_distribution(gaps, figures_dir):
     ax = axes[0]
     labels = list(type_counts.keys())
     sizes = list(type_counts.values())
-    colors = ["#7F77DD", "#1D9E75", "#D85A30"][:len(labels)]
+    colors = ["#1D9E75", "#7F77DD", "#D85A30", "#E24B4A"][:len(labels)]
     ax.pie(sizes, labels=labels, colors=colors, autopct='%1.0f%%', startangle=90)
     ax.set_title("Gap Types Distribution")
     
@@ -152,6 +220,8 @@ def plot_gap_distribution(gaps, figures_dir):
     for g in top_10:
         if g["type"] == "missing_link":
             bar_colors.append("#7F77DD")
+        elif g["type"] == "evidence_gap":
+            bar_colors.append("#1D9E75")
         elif g["type"] == "orphan_cluster":
             bar_colors.append("#1D9E75")
         else:
@@ -327,6 +397,9 @@ def generate_paper_figure(G, gaps, figures_dir):
         elif gap["type"] == "missing_link":
             gap_nodes.add(gap.get("head", ""))
             gap_nodes.add(gap.get("tail", ""))
+        elif gap["type"] == "evidence_gap":
+            gap_nodes.add(gap.get("subject", ""))
+            gap_nodes.add(gap.get("missing_capability", ""))
     gap_nodes.discard("")
 
     # ── build simple DiGraph for layout ─────────────────────────
@@ -572,6 +645,13 @@ def generate_visualisations(config):
     
     # 1. Interactive graph
     create_interactive_graph(G, gaps, output_dir / "graph_viz.html")
+    evidence_graph_path = graph_dir / "gap_evidence_graph.pkl"
+    if evidence_graph_path.exists():
+        with open(evidence_graph_path, "rb") as stream:
+            evidence_graph = pickle.load(stream)
+        create_gap_evidence_map(
+            evidence_graph, output_dir / "gap_evidence_graph.html"
+        )
     
     # 2. Graph statistics
     plot_graph_stats(G, figures_dir)
