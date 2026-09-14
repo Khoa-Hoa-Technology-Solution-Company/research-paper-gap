@@ -1,7 +1,7 @@
 """
 Stage 5: Gap Confidence Scoring and Ranking
 
-Combines metrics from all three detection methods into a composite
+Combines metrics from the detection methods into a composite
 confidence score and produces the final ranked gap list.
 
 Usage:
@@ -81,6 +81,24 @@ def score_temporal_decay(gap, G):
     }
 
 
+def score_evidence_gap(gap, G):
+    """Score a paper-reported limitation with provenance and gate evidence."""
+    subject = gap.get("subject", "")
+    capability = gap.get("missing_capability", "")
+    subject_cent = G.nodes[subject].get("degree_centrality", 0.0) if G.has_node(subject) else 0.0
+    capability_cent = (
+        G.nodes[capability].get("degree_centrality", 0.0)
+        if G.has_node(capability) else 0.0
+    )
+    return {
+        "prediction_confidence": gap.get("mean_evidence_confidence", 0.0),
+        "centrality": (subject_cent + capability_cent) / 2.0,
+        "cluster_isolation": None,
+        "temporal_decay": None,
+        "validation": gap.get("validation", {}).get("ranking_score"),
+    }
+
+
 def compute_composite_score(metrics, weights):
     """Compute an applicability-normalised weighted score.
 
@@ -103,22 +121,24 @@ def compute_ablation_table(raw_gaps, output_dir):
     ml = raw_gaps.get('missing_links', [])
     oc = raw_gaps.get('orphan_clusters', [])
     td = raw_gaps.get('temporal_decay', [])
+    eg = raw_gaps.get('evidence_gaps', [])
 
     results = {
         'TransE only':        len(ml),
         'Louvain only':       len(oc),
         'Temporal decay only':len(td),
+        'Explicit evidence only': len(eg),
         'TransE + Louvain':   len(ml) + len(oc),
         'TransE + Decay':     len(ml) + len(td),
         'Louvain + Decay':    len(oc) + len(td),
-        'All three (full)':   len(ml) + len(oc) + len(td),
+        'All methods (full)': len(eg) + len(ml) + len(oc) + len(td),
     }
 
     import pandas as pd
     df = pd.DataFrame(results.items(), columns=['Configuration','Gaps detected'])
     df.to_csv(output_dir / 'ablation_table.csv', index=False)
     logger.info(f'  Ablation table saved: {output_dir}/ablation_table.csv')
-    logger.info(f'  Full system: {results["All three (full)"]} gaps total')
+    logger.info(f'  Full system: {results["All methods (full)"]} candidates total')
     return results
 
 def score_and_rank_gaps(config):
@@ -155,6 +175,16 @@ def score_and_rank_gaps(config):
     
     # --- Score all gaps ---
     scored_gaps = []
+
+    # Explicit evidence-backed limitations
+    for gap in raw_gaps.get("evidence_gaps", []):
+        metrics = score_evidence_gap(gap, G)
+        composite = compute_composite_score(metrics, weights)
+        scored_gaps.append({
+            **gap,
+            "metrics": metrics,
+            "composite_score": round(composite, 4),
+        })
     
     # Missing links
     for gap in raw_gaps.get("missing_links", []):
@@ -199,14 +229,18 @@ def score_and_rank_gaps(config):
         compute_ablation_table(raw_gaps, output_dir)
         return []
 
-    # Min-max normalise composite scores to [0, 1] for interpretability
+    # The applicability-normalised composite is already in [0, 1].  Do not
+    # min-max it over the current candidate set: doing so makes runs
+    # incomparable and turns a single valid candidate into score 0.0.
     raw_scores = [g['composite_score'] for g in scored_gaps]
     s_min, s_max = min(raw_scores), max(raw_scores)
-    score_range = s_max - s_min if s_max > s_min else 1.0
+    score_range = s_max - s_min
     for g in scored_gaps:
-        g['raw_composite_score'] = g['composite_score']          # preserve original
-        g['composite_score'] = round((g['composite_score'] - s_min) / score_range, 4)
-        g['score_range_note'] = f'raw={g["raw_composite_score"]:.4f}, normalised over [{s_min:.4f},{s_max:.4f}]'
+        g['raw_composite_score'] = g['composite_score']
+        g['score_range_note'] = (
+            f'applicability-normalised={g["composite_score"]:.4f}; '
+            'not rescaled across candidates'
+        )
 
     logger.info(f'  Score range: {s_min:.4f} – {s_max:.4f} (spread: {score_range:.4f})')
     
@@ -229,6 +263,11 @@ def score_and_rank_gaps(config):
             "type": gap["type"],
             "score": gap["composite_score"],
             "description": gap.get("description", "")[:200],
+            "claim": gap.get("validation", {}).get("scoped_claim", ""),
+            "claim_status": gap.get("validation", {}).get("claim_status", ""),
+            "supporting_paper_ids": ";".join(
+                gap.get("validation", {}).get("supporting_paper_ids", [])
+            ),
         })
     
     df = pd.DataFrame(csv_rows)

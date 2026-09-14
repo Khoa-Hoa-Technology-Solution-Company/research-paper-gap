@@ -18,19 +18,17 @@ Usage:
 """
 
 import json
-import os
 import time
 import numpy as np
 from pathlib import Path
 from tqdm import tqdm
-from openai import OpenAI
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
 from src.utils import get_logger, save_json, load_jsonl, ensure_dir
+from src.vector_similarity import cosine_similarity_matrix, tfidf_matrix
+from src.groq_key_pool import create_groq_client
 
 try:
     from sentence_transformers import SentenceTransformer
-except ImportError:
+except Exception:
     SentenceTransformer = None
 
 logger = get_logger("rag_baseline")
@@ -135,19 +133,15 @@ def run_mulla_rag(papers, topic, client, model, output_path):
                 f"Sentence-BERT unavailable ({exc}); using TF-IDF retrieval."
             )
             retrieval_backend = "tfidf_fallback"
-            embeddings = TfidfVectorizer(
-                stop_words="english", max_features=10000
-            ).fit_transform(abstracts)
+            embeddings = tfidf_matrix(abstracts, max_features=10000)
     else:
         logger.warning(
             "sentence-transformers is not installed; using TF-IDF retrieval."
         )
         retrieval_backend = "tfidf_fallback"
-        embeddings = TfidfVectorizer(
-            stop_words="english", max_features=10000
-        ).fit_transform(abstracts)
+        embeddings = tfidf_matrix(abstracts, max_features=10000)
 
-    sim_matrix = cosine_similarity(embeddings)
+    sim_matrix = cosine_similarity_matrix(embeddings)
 
     results = []
 
@@ -307,6 +301,7 @@ def compute_comparison_metrics(kg_gaps, mulla_gaps, simple_gaps):
     kg_descriptions = [g.get("description", "") for g in kg_gaps]
     metrics["kg"] = {
         "total_gaps":         len(kg_gaps),
+        "evidence_gaps":      sum(1 for g in kg_gaps if g["type"] == "evidence_gap"),
         "missing_links":      sum(1 for g in kg_gaps if g["type"] == "missing_link"),
         "orphan_clusters":    sum(1 for g in kg_gaps if g["type"] == "orphan_cluster"),
         "temporal_decay":     sum(1 for g in kg_gaps if g["type"] == "temporal_decay"),
@@ -387,22 +382,8 @@ def run_rag_baseline(config):
 
     # Init Groq client. Recovered Streamlit runs may not contain an api_keys
     # entry, so use the current environment key as a fallback.
-    groq_api_key = (
-        config.get("api_keys", {}).get("groq")
-        or os.getenv("GROQ_API_KEY")
-        or os.getenv("OPENAI_API_KEY")
-        or ""
-    ).strip()
-    if not groq_api_key:
-        raise ValueError(
-            "Missing Groq API key. Enter it in the app before running RAG baselines."
-        )
-    client = OpenAI(
-        api_key=groq_api_key,
-        base_url="https://api.groq.com/openai/v1",
-        timeout=30.0,
-        max_retries=0,
-    )
+    client = create_groq_client(config, timeout=30.0, max_retries=0)
+    logger.info("Groq key pool: %d key(s) available for RAG baselines", client.pool_size)
 
     # Run Method B: Mulla et al. RAG
     mulla_path  = output_dir / "rag_mulla_gaps.json"

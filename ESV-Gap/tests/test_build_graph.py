@@ -1,6 +1,8 @@
 import json
 import tempfile
 import unittest
+
+from src.build_graph import deduplicate_entities
 from pathlib import Path
 
 from src.build_graph import build_knowledge_graph
@@ -34,6 +36,32 @@ class EmptyGraphTests(unittest.TestCase):
             self.assertEqual(graph.number_of_edges(), 0)
             self.assertTrue((graph_dir / "knowledge_graph.pkl").exists())
             self.assertTrue((graph_dir / "knowledge_graph.graphml").exists())
+
+
+class EntityDeduplicationTests(unittest.TestCase):
+    def test_fuzzy_merge_does_not_merge_different_versions_or_types(self):
+        entities = {
+            "ComPRePS 1.0": {"type": "TOOL", "occurrences": 2},
+            "ComPRePS 2.0": {"type": "TOOL", "occurrences": 1},
+            "cubicles": {"type": "CONCEPT", "occurrences": 1},
+            "CubicleOS": {"type": "METHOD", "occurrences": 2},
+        }
+        mapping, _ = deduplicate_entities(entities)
+        self.assertNotEqual(mapping["ComPRePS 1.0"], mapping["ComPRePS 2.0"])
+        self.assertNotEqual(mapping["cubicles"], mapping["CubicleOS"])
+
+    def test_acronym_merges_with_same_typed_expansion(self):
+        entities = {
+            "HME": {"type": "CONCEPT", "occurrences": 2},
+            "handwritten mathematical expression": {
+                "type": "CONCEPT",
+                "occurrences": 1,
+            },
+        }
+        mapping, _ = deduplicate_entities(entities)
+        self.assertEqual(
+            mapping["HME"], mapping["handwritten mathematical expression"]
+        )
 
 
 if __name__ == "__main__":

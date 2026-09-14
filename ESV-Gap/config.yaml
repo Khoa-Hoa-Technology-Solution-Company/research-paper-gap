@@ -13,8 +13,11 @@ project:
 
 # --- API Keys ---
 api_keys:
-          # Get free key at console.groq.com
+  # Get free keys at console.groq.com
+  groq_keys: []                              # Optional list; kept in memory by the app
+  groq: ""                                   # Legacy single-key CLI fallback
   semantic_scholar: ""                      # Optional - works without key (rate limited)
+  openalex: ""                              # Optional closure-search fallback key
 
 # --- Data Collection (Stage 1) ---
 collection:
@@ -25,7 +28,7 @@ collection:
     - "XAI"
     - "interpretable machine learning"
     - "model interpretability"
-  year_range: [2019, 2025]
+  year_range: [2019, 2026]
   max_papers: 1000                   # Max papers to fetch initially
   min_citation_count: 0              # Filter: minimum citations
   fields_of_study: ["Computer Science"]
@@ -35,6 +38,8 @@ collection:
   request_timeout_seconds: 15        # Fail a stalled HTTP attempt promptly
   max_retries: 3                     # Never retry a failed query indefinitely
   max_retry_wait_seconds: 20         # Cap Retry-After/backoff pauses in the UI
+  adaptive_query_broadening: true    # Retry short keyword queries if first pass is sparse
+  min_raw_papers_before_broadening: 30
 
 # --- Filtering (Stage 1 continued) ---
 filtering:
@@ -46,6 +51,9 @@ filtering:
   # LLM-based relevance screening
   relevance_model: "openai/gpt-oss-20b"   # Groq production text-generation model
   relevance_threshold: 0.7           # Minimum relevance score (0-1)
+  lexical_domain_guard: true          # Reject isolated ambiguous keyword matches
+  min_domain_anchor_coverage: 0.60    # Require substantive topic-token coverage
+  screening_candidate_multiplier: 1.25 # Screen extra relevant papers for query/year balance
 
 # --- Triple Extraction (Stage 2) ---
 extraction:
@@ -64,6 +72,7 @@ extraction:
     - CONCEPT
     - FINDING
     - TOOL
+    - LIMITATION
 
   relationship_types:
     - USES
@@ -87,6 +96,27 @@ graph:
 
 # --- Gap Detection (Stage 4) ---
 gap_detection:
+  # Explicit paper-reported limitations (strongest candidate source)
+  evidence:
+    min_confidence: 0.65
+    require_limitation_cue: true
+    consolidate_evidence_cells: true
+    # Merge paraphrases only when their normalized limitation anchors strongly
+    # agree. This raises candidate quality without relaxing certificate gates.
+    cell_similarity_threshold: 0.72
+
+  # Typed paper-evidence matrix. These candidates replace unconstrained
+  # all-entity missing-link predictions in the default pipeline.
+  evidence_map:
+    enabled: true
+    allowed_type_pairs:
+      - "METHOD-DATASET"
+      - "METHOD-CONCEPT"
+      - "CONCEPT-DATASET"
+    min_marginal_papers: 2
+    max_entities_per_type: 60
+    top_k_candidates: 40
+
   # Missing Link Prediction (TransE)
   transE:
     embedding_dim: 128
@@ -112,10 +142,16 @@ gap_detection:
 # present as direct links, or apparently covered by the screened corpus.
 gap_validation:
   min_supporting_papers: 2
+  # A directly quoted limitation can originate in one paper. The resulting
+  # claim remains scoped and still needs closure search plus human confirmation.
+  min_explicit_supporting_papers: 1
   min_independent_paths: 2
   min_surviving_paths: 1
   max_path_length: 4
   min_specificity: 0.55
+  # Require the limitation itself (not merely its source paper) to cover the
+  # intervention/problem/setting anchors of the configured research domain.
+  min_problem_relevance: 0.60
   # Selected on controlled development seeds; the held-out test set is untouched.
   bootstrap_repeats: 50
   edge_keep_probability: 0.95
@@ -125,18 +161,70 @@ gap_validation:
   orphan_isolation_threshold: 0.90
   temporal_decay_threshold: 0.30
   temporal_lookback_years: 2
-  snapshot_date: "2026-07-20"
+  # Runtime configs replace this fallback with run_metadata.created_at.
+  snapshot_date: "2026-08-31"
   exclude_incomplete_final_year: true
   closure_token_coverage: 0.60
   random_seed: 42
   max_closure_hits_to_record: 10
   corpus_path: ""                   # Optional explicit screened-corpus JSON
+  # Candidate-specific Semantic Scholar search for potentially closing work.
+  external_closure:
+    enabled: true
+    openalex_fallback: true
+    prefer_openalex_without_semantic_scholar_key: true
+    max_candidates: 15
+    queries_per_candidate: 3
+    max_results_per_query: 20
+    delay_between_queries: 1.0
+    delay_between_queries_seconds: 2.0
+    request_timeout_seconds: 15
+    max_retries: 2
+    max_retry_wait_seconds: 15
+    rate_limit_circuit_breaker: 2
+    failure_circuit_breaker: 2
   weights:
     provenance: 0.25
     specificity: 0.15
     path_diversity: 0.20
     stability: 0.30
     closure_clearance: 0.10
+
+# --- Automatic multi-signal research-gap synthesis ---
+# These are hard, predeclared decision rules. Human review is not an input to
+# the automatic gap verdict. A null result is emitted if any gate is unavailable.
+gap_synthesis:
+  min_screened_corpus_size: 30
+  # Corpus scarcity is contextual only. At least two evidentiary families are
+  # required, including one graph family supported by a source-disjoint paper.
+  min_signal_families: 2
+  min_graph_signal_families: 1
+  signal_similarity_threshold: 0.60
+  max_direct_documents: 2
+  min_external_queries: 2
+
+# --- Corpus-bounded research-gap certificate ---
+# A certificate is intentionally stricter than the synthesis contract.  It is
+# never a claim that no relevant study exists globally: it applies only to the
+# frozen screened corpus and documented counterevidence searches.
+gap_certification:
+  enabled: true
+  min_independent_limitation_sources: 2
+  min_source_text_level: "full_text"
+  min_full_text_characters: 1000
+  min_external_queries: 3
+  require_all_queries_completed: true
+
+# --- Candidate-targeted open-access full text ---
+# Runs only after initial candidate generation and only for the strongest
+# evidence cells. Downloads must resolve to an actual open-access PDF.
+full_text:
+  enabled: true
+  max_candidates: 10
+  max_source_papers: 20
+  max_pdf_bytes: 20000000
+  max_pages: 80
+  request_timeout_seconds: 20
 
 # --- Gap Scoring (Stage 6) ---
 scoring:

@@ -35,6 +35,11 @@ def candidate_identity(candidate: dict[str, Any]) -> str:
             str(candidate.get("relation", "")),
             str(candidate.get("tail", "")),
         )
+    elif gap_type == "evidence_gap":
+        details = (
+            str(candidate.get("subject", "")),
+            str(candidate.get("missing_capability", "")),
+        )
     elif gap_type == "orphan_cluster":
         details = tuple(sorted(map(str, candidate.get("members", []))))
     elif gap_type == "temporal_decay":
@@ -164,6 +169,29 @@ def _temporal_records(G: nx.Graph, candidate: dict[str, Any]) -> list[dict[str, 
     return records
 
 
+def _evidence_gap_records(G: nx.Graph, candidate: dict[str, Any]) -> list[dict[str, Any]]:
+    subject = str(candidate.get("subject", ""))
+    capability = str(candidate.get("missing_capability", ""))
+    records = [
+        record for record in _edge_records_between(G, subject, capability)
+        if record.get("relation", "").upper() == "LACKS"
+    ]
+    if records:
+        return records
+    return [
+        {
+            "subject": subject,
+            "relation": "LACKS",
+            "object": capability,
+            "paper_id": item.get("paper_id"),
+            "year": item.get("year"),
+            "evidence": str(item.get("evidence", "") or ""),
+        }
+        for item in candidate.get("source_evidence", [])
+        if item.get("paper_id")
+    ]
+
+
 def _normalise_paper(paper_id: str, paper: dict[str, Any]) -> dict[str, Any]:
     authors = []
     for author in paper.get("authors", []) or []:
@@ -202,6 +230,8 @@ def resolve_gap_provenance(
     path_details: list[dict[str, Any]] = []
     if gap_type == "missing_link":
         records, path_details = _missing_link_records(G, candidate, max_paths, cutoff)
+    elif gap_type == "evidence_gap":
+        records = _evidence_gap_records(G, candidate)
     elif gap_type == "orphan_cluster":
         records = _orphan_records(G, candidate)
     elif gap_type == "temporal_decay":

@@ -36,6 +36,12 @@ from src.gap_provenance import (
     candidate_identity as provenance_candidate_identity,
     resolve_gap_provenance,
 )
+from src.groq_key_pool import create_groq_client, normalise_groq_keys
+from src.run_history import (
+    config_for_run,
+    list_run_history,
+    run_label,
+)
 
 logging.getLogger("transformers").setLevel(logging.ERROR)
 
@@ -59,19 +65,23 @@ def load_base_config():
         return yaml.safe_load(f)
 
 
-def build_run_config(base_config, topic, num_papers, groq_key):
+def build_run_config(base_config, topic, num_papers, groq_keys):
     import copy
     cfg = copy.deepcopy(base_config)
-    groq_key = (
-        groq_key
-        or os.getenv("GROQ_API_KEY")
-        or os.getenv("OPENAI_API_KEY")
-        or ""
-    ).strip()
+    groq_keys = normalise_groq_keys(groq_keys, include_environment=True)
     cfg["project"]["domain"]               = topic
-    cfg["api_keys"]["groq"]                = groq_key
-    cfg["collection"]["max_papers"]        = num_papers
+    cfg["api_keys"]["groq_keys"]           = groq_keys
+    cfg["api_keys"]["groq"]                = groq_keys[0] if groq_keys else ""
+    # The slider is the requested screened-corpus size. Oversample the raw
+    # pool because topic screening will reject some collected records.
+    # Relevant-paper yield is often only 20-40%. A 4x pool gives the screener a
+    # realistic chance of reaching the requested retained-corpus target.
+    collection_pool_size = min(max(num_papers * 4, num_papers + 100), 600)
+    cfg["collection"]["max_papers"]        = collection_pool_size
     cfg["filtering"]["target_corpus_size"] = min(num_papers, 150)
+    cfg.setdefault("gap_validation", {})["snapshot_date"] = (
+        datetime.datetime.now().date().isoformat()
+    )
 
     slug   = topic.lower().replace(" ", "_")[:30]
     ts     = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -93,6 +103,7 @@ def build_run_config(base_config, topic, num_papers, groq_key):
             "run_id": run_id,
             "topic": topic,
             "max_papers": num_papers,
+            "collection_pool_size": collection_pool_size,
             "created_at": datetime.datetime.now().isoformat(),
         }, indent=2),
         encoding="utf-8",
@@ -100,42 +111,27 @@ def build_run_config(base_config, topic, num_papers, groq_key):
     return cfg, run_id
 
 
-def build_resume_config(run_info, groq_key):
+def build_resume_config(run_info, groq_keys):
     """Reconstruct a safe config that points to an existing checkpointed run."""
-    cfg = load_base_config()
-    run_dir = Path(run_info["run_dir"])
-    topic = run_info["topic"]
-
-    cfg["project"]["domain"] = topic
-    cfg.setdefault("api_keys", {})["groq"] = groq_key
-    cfg["collection"]["max_papers"] = run_info["total_papers"]
-    cfg["filtering"]["target_corpus_size"] = run_info["total_papers"]
-    cfg["paths"] = {
-        "raw_data": str(run_dir / "data" / "raw"),
-        "processed_data": str(run_dir / "data" / "processed"),
-        "triples": str(run_dir / "data" / "triples"),
-        "graph": str(run_dir / "data" / "graph"),
-        "outputs": str(run_dir / "outputs"),
-        "figures": str(run_dir / "outputs" / "figures"),
-        "prompts": "prompts",
-    }
-    return cfg
+    return config_for_run(load_base_config(), run_info, groq_keys)
 
 
-def generate_queries_with_llm(topic, groq_key):
-    fallback_queries = [
-        topic,
-        f"{topic} survey",
-        f"{topic} framework",
-        f"{topic} deep learning",
-        f"{topic} methods",
-    ]
+def generate_queries_with_llm(topic, groq_keys):
+    from src.query_planning import (
+        fallback_search_queries,
+        validate_generated_queries,
+    )
+    topic_lower = str(topic).casefold()
+    search_topic = str(topic).strip()
+    if "monolith" in topic_lower and any(
+        token in topic_lower for token in ("security", "secure", "vulnerability")
+    ):
+        search_topic = "security of monolithic software architectures"
+    fallback_queries = fallback_search_queries(search_topic)
 
     try:
-        from openai import OpenAI
-        client = OpenAI(
-            api_key=groq_key,
-            base_url="https://api.groq.com/openai/v1",
+        client = create_groq_client(
+            explicit_keys=groq_keys,
             timeout=20.0,
             max_retries=1,
         )
@@ -146,14 +142,23 @@ def generate_queries_with_llm(topic, groq_key):
                     "role": "system",
                     "content": (
                         "You generate concise academic search queries. "
-                        "Return only a valid JSON object."
+                        "Disambiguate overloaded scientific terms, preserve the "
+                        "essential topic anchors in every query, cover distinct "
+                        "evidence strata, and return only a valid JSON object."
                     ),
                 },
                 {
                     "role": "user",
                     "content": (
                         f'Generate exactly 5 academic search queries for "{topic}". '
-                        "Each query must contain 2-5 words. Return them in this "
+                        f'The intended search scope is "{search_topic}". '
+                        "The five queries must respectively target: (1) core topic, "
+                        "(2) systematic reviews, (3) limitations/challenges, "
+                        "(4) empirical comparisons, and (5) open problems/future "
+                        "research. Use 2-7 plain keywords per query. Do not use "
+                        "quotation marks, parentheses, AND, OR, NOT, or field syntax. "
+                        "Each query should contain only the minimum useful anchors "
+                        "and must not drift to another meaning. Return them in this "
                         'format: {"queries": ["query one", "query two", '
                         '"query three", "query four", "query five"]}'
                     ),
@@ -167,11 +172,7 @@ def generate_queries_with_llm(topic, groq_key):
         content = resp.choices[0].message.content
         data = json.loads(content)
         queries = data.get("queries", []) if isinstance(data, dict) else []
-        queries = [
-            query.strip()
-            for query in queries
-            if isinstance(query, str) and query.strip()
-        ]
+        queries = validate_generated_queries(queries, search_topic)
 
         if len(queries) == 5:
             return queries
@@ -182,6 +183,13 @@ def generate_queries_with_llm(topic, groq_key):
             content,
         )
     except Exception as exc:
+        from src.llm_errors import (
+            LLMAuthenticationError,
+            authentication_error_message,
+            is_authentication_error,
+        )
+        if is_authentication_error(exc):
+            raise LLMAuthenticationError(authentication_error_message()) from exc
         logging.getLogger(__name__).warning(
             "Could not generate search queries with Groq; using fallback queries: %s",
             exc,
@@ -221,7 +229,7 @@ def run_pipeline_with_progress(cfg, progress_queue):
         progress_queue.put(("progress", 8))
         from src.collect import CollectionAPIError, collect_papers
         try:
-            collect_papers(
+            collected_papers = collect_papers(
                 cfg,
                 progress_callback=stage_progress(8, 20, "Collecting queries"),
             )
@@ -232,15 +240,32 @@ def run_pipeline_with_progress(cfg, progress_queue):
                 "The run was terminated after bounded retries; it is safe to retry.",
             ))
             return
+        minimum_screenable = int(
+            cfg.get("gap_synthesis", {}).get("min_screened_corpus_size", 30)
+        )
+        if len(collected_papers or []) < minimum_screenable:
+            progress_queue.put((
+                "error",
+                f"Collection retained only {len(collected_papers or [])} papers "
+                f"after adaptive query broadening; at least {minimum_screenable} "
+                "raw papers are required before screening. No Groq screening "
+                "quota was consumed. Retry the topic or use a broader formulation.",
+            ))
+            return
         progress_queue.put(("progress", 20))
 
         progress_queue.put(("status", "🔎 Screening papers for relevance..."))
         progress_queue.put(("progress", 22))
         from src.filter import filter_corpus
-        filtered_papers = filter_corpus(
-            cfg,
-            progress_callback=stage_progress(22, 40, "Screening papers"),
-        )
+        from src.llm_errors import LLMAuthenticationError, LLMRateLimitError
+        try:
+            filtered_papers = filter_corpus(
+                cfg,
+                progress_callback=stage_progress(22, 40, "Screening papers"),
+            )
+        except (LLMAuthenticationError, LLMRateLimitError) as exc:
+            progress_queue.put(("error", str(exc)))
+            return
         if not filtered_papers:
             progress_queue.put((
                 "error",
@@ -294,13 +319,38 @@ def run_pipeline_with_progress(cfg, progress_queue):
         progress_queue.put(("progress", 74))
         from src.detect_gaps import detect_all_gaps
         detect_all_gaps(cfg)
-        progress_queue.put(("progress", 84))
+        progress_queue.put((
+            "status",
+            "Retrieving open-access full text for the strongest evidence cells...",
+        ))
+        from src.full_text import enrich_candidate_source_full_text
+        full_text_report = enrich_candidate_source_full_text(cfg)
+        if full_text_report.get("enriched", 0):
+            detect_all_gaps(cfg)
+        progress_queue.put(("progress", 82))
+
+        progress_queue.put((
+            "status",
+            "Auditing evidence and searching for potentially closing literature...",
+        ))
+        progress_queue.put(("progress", 83))
+        from src.validate_gaps import validate_all_gaps
+        validate_all_gaps(cfg)
+        progress_queue.put(("progress", 88))
+
+        progress_queue.put((
+            "status",
+            "Synthesising convergent signals into an answerable research gap...",
+        ))
+        from src.synthesise_research_gap import synthesise_research_gap
+        synthesise_research_gap(cfg)
+        progress_queue.put(("progress", 92))
 
         progress_queue.put(("status", "📊 Scoring and ranking gaps..."))
-        progress_queue.put(("progress", 86))
+        progress_queue.put(("progress", 91))
         from src.score_gaps import score_and_rank_gaps
         score_and_rank_gaps(cfg)
-        progress_queue.put(("progress", 92))
+        progress_queue.put(("progress", 95))
 
         progress_queue.put(("status", "🎨 Generating visualisations..."))
         from src.visualise import generate_visualisations
@@ -369,9 +419,33 @@ def resume_pipeline_with_progress(cfg, progress_queue):
         progress_queue.put(("progress", 70))
         from src.detect_gaps import detect_all_gaps
         detect_all_gaps(cfg)
+        progress_queue.put((
+            "status",
+            "Retrieving open-access full text for the strongest evidence cells...",
+        ))
+        from src.full_text import enrich_candidate_source_full_text
+        full_text_report = enrich_candidate_source_full_text(cfg)
+        if full_text_report.get("enriched", 0):
+            detect_all_gaps(cfg)
 
-        progress_queue.put(("status", "Scoring and ranking candidates..."))
+        progress_queue.put((
+            "status",
+            "Auditing evidence and searching for potentially closing literature...",
+        ))
+        progress_queue.put(("progress", 78))
+        from src.validate_gaps import validate_all_gaps
+        validate_all_gaps(cfg)
+
+        progress_queue.put((
+            "status",
+            "Synthesising convergent signals into an answerable research gap...",
+        ))
         progress_queue.put(("progress", 84))
+        from src.synthesise_research_gap import synthesise_research_gap
+        synthesise_research_gap(cfg)
+
+        progress_queue.put(("status", "Scoring evidence-cleared candidates..."))
+        progress_queue.put(("progress", 88))
         from src.score_gaps import score_and_rank_gaps
         score_and_rank_gaps(cfg)
 
@@ -416,6 +490,36 @@ def load_results(cfg):
     if gaps_path.exists():
         with open(gaps_path) as f:
             results["gaps"] = json.load(f)
+
+    claims_path = Path(out) / "research_gap_claims.json"
+    if claims_path.exists():
+        with open(claims_path, encoding="utf-8") as f:
+            results["research_gap_claims"] = json.load(f)
+
+    synthesis_path = Path(out) / "research_gap_synthesis.json"
+    if synthesis_path.exists():
+        with open(synthesis_path, encoding="utf-8") as f:
+            results["research_gap_synthesis"] = json.load(f)
+
+    primary_gap_path = Path(out) / "primary_research_gap.json"
+    if primary_gap_path.exists():
+        with open(primary_gap_path, encoding="utf-8") as f:
+            results["primary_research_gap"] = json.load(f)
+
+    confirmed_claims_path = Path(out) / "confirmed_research_gaps.json"
+    if confirmed_claims_path.exists():
+        with open(confirmed_claims_path, encoding="utf-8") as f:
+            results["confirmed_research_gaps"] = json.load(f)
+
+    validation_audit_path = Path(out) / "gap_validation_audit.json"
+    if validation_audit_path.exists():
+        with open(validation_audit_path, encoding="utf-8") as f:
+            results["validation_audit"] = json.load(f)
+
+    review_required_path = Path(out) / "review_required_gaps.json"
+    if review_required_path.exists():
+        with open(review_required_path, encoding="utf-8") as f:
+            results["review_required_gaps"] = json.load(f)
 
     raw_gaps_path = Path(out) / "detected_gaps_raw.json"
     if raw_gaps_path.exists():
@@ -465,6 +569,11 @@ def load_results(cfg):
     if post_gate_reviews_path.exists():
         with open(post_gate_reviews_path, encoding="utf-8") as f:
             results["post_gate_expert_reviews"] = json.load(f)
+
+    validation_reviews_path = Path(out) / "validation_expert_reviews.json"
+    if validation_reviews_path.exists():
+        with open(validation_reviews_path, encoding="utf-8") as f:
+            results["validation_expert_reviews"] = json.load(f)
 
     raw_corpus_path = Path(cfg["paths"]["raw_data"]) / "all_papers_raw.jsonl"
     filtered_corpus_path = (
@@ -582,131 +691,17 @@ def render_gap_source_evidence(provenance, key_prefix, max_papers=6):
             st.caption(f"{len(papers) - max_papers} more papers are listed in the Source Papers tab.")
 
 
-def _run_activity_time(run_dir):
-    """Return the newest artifact timestamp, not only the directory mtime."""
-    timestamps = [run_dir.stat().st_mtime]
-    for path in run_dir.rglob("*"):
-        if path.is_file():
-            if path.name == "run_metadata.json":
-                continue
-            try:
-                timestamps.append(path.stat().st_mtime)
-            except OSError:
-                continue
-    return max(timestamps)
-
-
-def _pipeline_activity_time(run_dir):
-    """Return real pipeline artifact activity, excluding metadata-only writes."""
-    timestamps = []
-    for path in run_dir.rglob("*"):
-        if path.is_file() and path.name != "run_metadata.json":
-            try:
-                timestamps.append(path.stat().st_mtime)
-            except OSError:
-                continue
-    return max(timestamps) if timestamps else run_dir.stat().st_mtime
-
-
-def _topic_for_run(run_dir):
-    """Read the original, untruncated topic when run metadata is available."""
-    metadata_path = run_dir / "run_metadata.json"
-    if metadata_path.exists():
-        try:
-            metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
-            if metadata.get("topic"):
-                return str(metadata["topic"])
-        except (OSError, ValueError, TypeError):
-            pass
-    return run_dir.name.rsplit("_", 2)[0].replace("_", " ")
-
-
 def inspect_latest_run(runs_root="runs"):
     """Describe the newest run, including an in-progress extraction."""
-    runs_dir = Path(runs_root)
-    if not runs_dir.exists():
-        return None
-
-    run_dirs = [path for path in runs_dir.iterdir() if path.is_dir()]
-    if not run_dirs:
-        return None
-    run_dir = max(run_dirs, key=_run_activity_time)
-    activity_time = _pipeline_activity_time(run_dir)
-    outputs_dir = run_dir / "outputs"
-    completed = (outputs_dir / "gaps_ranked_top.json").exists()
-    topic = _topic_for_run(run_dir)
-
-    corpus_path = run_dir / "data" / "processed" / "corpus_filtered.jsonl"
-    total_papers = 0
-    if corpus_path.exists():
-        with open(corpus_path, encoding="utf-8") as corpus_file:
-            total_papers = sum(1 for line in corpus_file if line.strip())
-
-    progress_path = run_dir / "data" / "triples" / "extraction_progress.json"
-    extraction_done = 0
-    triple_count = 0
-    if progress_path.exists():
-        try:
-            progress = json.loads(progress_path.read_text(encoding="utf-8"))
-            extraction_done = len(set(progress.get("completed_ids", [])))
-            triple_count = int(progress.get("total_triples", 0))
-        except (OSError, ValueError, TypeError):
-            pass
-
-    if completed:
-        stage = "completed"
-    elif total_papers:
-        stage = "extracting"
-    elif (run_dir / "data" / "raw" / "all_papers_raw.jsonl").exists():
-        stage = "screening"
-    else:
-        stage = "collecting"
-
-    return {
-        "run_dir": run_dir,
-        "run_id": run_dir.name,
-        "topic": topic,
-        "completed": completed,
-        "stage": stage,
-        "activity_time": activity_time,
-        "active": time.time() - activity_time < 120,
-        "total_papers": total_papers,
-        "extraction_done": extraction_done,
-        "triple_count": triple_count,
-    }
+    history = list_run_history(runs_root)
+    return history[0] if history else None
 
 
 def load_latest_completed_run(runs_root="runs"):
     """Recover the newest completed run after a Streamlit refresh/rerun."""
-    runs_dir = Path(runs_root)
-    if not runs_dir.exists():
-        return None, None
-
-    run_dirs = sorted(
-        (path for path in runs_dir.iterdir() if path.is_dir()),
-        key=_run_activity_time,
-        reverse=True,
-    )
-
-    for run_dir in run_dirs:
-        outputs_dir = run_dir / "outputs"
-        if not (outputs_dir / "gaps_ranked_top.json").exists():
-            continue
-
-        cfg = load_base_config()
-        cfg["paths"] = {
-            "raw_data": str(run_dir / "data" / "raw"),
-            "processed_data": str(run_dir / "data" / "processed"),
-            "triples": str(run_dir / "data" / "triples"),
-            "graph": str(run_dir / "data" / "graph"),
-            "outputs": str(outputs_dir),
-            "figures": str(outputs_dir / "figures"),
-            "prompts": "prompts",
-        }
-
-        topic = _topic_for_run(run_dir)
-        cfg["project"]["domain"] = topic
-        return cfg, topic
+    for run_info in list_run_history(runs_root):
+        if run_info["completed"]:
+            return config_for_run(load_base_config(), run_info), run_info["topic"]
 
     return None, None
 
@@ -719,6 +714,8 @@ def save_expert_reviews(
     filename="expert_reviews.json",
     queue_name="score_ranked_top30",
     candidate_index=None,
+    candidates=None,
+    review_rationales=None,
 ):
     """
     Persist expert gap reviews to disk.
@@ -738,12 +735,14 @@ def save_expert_reviews(
         round(summary["Accept"] / total_reviewed, 3) if total_reviewed > 0 else 0.0
     )
 
+    review_rationales = review_rationales or {}
     output = {
         "timestamp":       datetime.datetime.now().isoformat(),
         "reviewer":        reviewer_name,
         "queue_name":      queue_name,
         "notes":           notes,
         "reviews":         reviews,
+        "rationales":      review_rationales,
         "summary":         summary,
         "total_reviewed":  total_reviewed,
         "acceptance_rate": acceptance_rate,
@@ -770,6 +769,38 @@ def save_expert_reviews(
     with open(reviews_path, "w") as f:
         json.dump(output, f, indent=2)
 
+    if queue_name == "evidence_cleared_claims" and candidates is not None:
+        confirmed = []
+        internal_reviewer = reviewer_name.strip().lower() in {
+            "author_internal", "author", "internal"
+        }
+        for candidate in candidates:
+            review_key = candidate.get("_review_key", f"review_{candidate['rank']}")
+            if reviews.get(review_key) != "Accept":
+                continue
+            rationale = str(review_rationales.get(review_key, "")).strip()
+            if not rationale:
+                continue
+            validation = candidate.get("validation", {}) or {}
+            confirmed.append({
+                "claim_id": provenance_candidate_identity(candidate),
+                "claim": validation.get("scoped_claim", candidate.get("description", "")),
+                "claim_status": (
+                    "author_confirmed_scoped_gap"
+                    if internal_reviewer
+                    else "expert_confirmed_scoped_gap"
+                ),
+                "reviewer": reviewer_name,
+                "review_rationale": rationale,
+                "reviewed_at": output["timestamp"],
+                "supporting_paper_ids": validation.get("supporting_paper_ids", []),
+                "closure_hits": validation.get("closure_hits", []),
+                "validation": validation,
+                "candidate": candidate,
+            })
+        with open(out / "confirmed_research_gaps.json", "w", encoding="utf-8") as stream:
+            json.dump(confirmed, stream, indent=2, ensure_ascii=False)
+
     return output
 
 
@@ -785,6 +816,9 @@ def get_review_badge_html(decision):
 
 
 # ── Sidebar ─────────────────────────────────────────────────
+run_history = list_run_history()
+run_history_by_id = {item["run_id"]: item for item in run_history}
+
 with st.sidebar:
     st.markdown("""
 <div class="brand-lockup">
@@ -796,18 +830,49 @@ with st.sidebar:
     st.divider()
 
     st.markdown('<div class="rail-label">Workspace access</div>', unsafe_allow_html=True)
-    groq_key = st.text_input(
-        "Groq API Key",
-        type="password",
-        placeholder="gsk_...",
-        help="Free key at console.groq.com",
+    groq_key_count = int(st.number_input(
+        "Number of Groq keys",
+        min_value=1,
+        max_value=10,
+        value=2,
+        step=1,
+        help="Requests rotate to the next key automatically after 429/quota errors.",
+    ))
+    entered_groq_keys = [
+        st.text_input(
+            f"Groq API Key {index + 1}",
+            type="password",
+            placeholder="gsk_...",
+            help="Keys remain in memory and are not written to run metadata.",
+            key=f"groq_api_key_{index + 1}",
+        )
+        for index in range(groq_key_count)
+    ]
+    groq_keys = normalise_groq_keys(entered_groq_keys, include_environment=True)
+    if groq_keys:
+        st.caption(
+            f"{len(groq_keys)} unique key(s) ready · automatic quota failover enabled"
+        )
+    else:
+        st.caption("No Groq key configured yet.")
+
+    st.divider()
+    st.markdown('<div class="rail-label">Run history</div>', unsafe_allow_html=True)
+    history_options = [""] + [item["run_id"] for item in run_history]
+    selected_history_id = st.selectbox(
+        "Saved evidence runs",
+        history_options,
+        format_func=lambda run_id: (
+            "Select a previous run..."
+            if not run_id else run_label(run_history_by_id[run_id])
+        ),
+        help="Open completed results or select an interrupted checkpoint to resume it.",
     )
-    groq_key = (
-        groq_key
-        or os.getenv("GROQ_API_KEY")
-        or os.getenv("OPENAI_API_KEY")
-        or ""
-    ).strip()
+    open_saved_run = st.button(
+        "Open selected run",
+        disabled=not selected_history_id,
+        width="stretch",
+    )
 
     # FIX 8: Reviewer identity field
     st.divider()
@@ -824,7 +889,8 @@ with st.sidebar:
     st.markdown('<div class="rail-label">Evidence pipeline</div>', unsafe_allow_html=True)
     stages = [
         "Collect papers", "Screen corpus", "Extract triples", "Build temporal KG",
-        "Detect candidates", "Score and rank", "Audit evidence", "Compare baselines",
+        "Detect signals", "Validate evidence", "Synthesise research gap",
+        "Score candidates", "Compare baselines",
     ]
     stage_html = "".join(
         f'<div class="pipeline-step"><span>{index:02d}</span><span>{stage}</span></div>'
@@ -854,6 +920,22 @@ PROVENANCE-AWARE · EXPERT-IN-THE-LOOP
 
 
 # ── Main ────────────────────────────────────────────────────
+if open_saved_run and selected_history_id:
+    selected_run = run_history_by_id[selected_history_id]
+    st.session_state["history_focus_run_id"] = selected_history_id
+    if selected_run["completed"]:
+        selected_cfg = config_for_run(load_base_config(), selected_run, groq_keys)
+        st.session_state["results"] = load_results(selected_cfg)
+        st.session_state["run_cfg"] = selected_cfg
+        st.session_state["topic"] = selected_run["topic"]
+        st.session_state["displayed_run_id"] = selected_history_id
+        st.session_state["gap_reviews"] = {}
+    else:
+        for state_key in (
+            "results", "run_cfg", "topic", "displayed_run_id", "gap_reviews"
+        ):
+            st.session_state.pop(state_key, None)
+
 st.markdown("""
 <header class="workbench-masthead">
   <div>
@@ -878,37 +960,56 @@ with col1:
         placeholder="e.g. federated learning privacy, medical image segmentation...",
     )
 with col2:
-    num_papers = st.slider("Max papers", 20, 150, 50, 10)
+    num_papers = st.slider(
+        "Target screened papers",
+        20,
+        150,
+        50,
+        10,
+        help=(
+            "The collector automatically retrieves a larger raw pool so the "
+            "requested number can still remain after relevance screening."
+        ),
+    )
+
+minimum_gap_corpus = int(
+    load_base_config().get("gap_synthesis", {}).get("min_screened_corpus_size", 30)
+)
+if num_papers < minimum_gap_corpus:
+    st.warning(
+        f"Automatic research-gap synthesis requires at least "
+        f"{minimum_gap_corpus} screened papers. A {num_papers}-paper run remains "
+        "exploratory and will fail the corpus-size hard gate."
+    )
 
 run_button = st.button(
     "Run evidence discovery",
     type="primary",
-    disabled=not (topic and groq_key),
+    disabled=not (topic and groq_keys),
 )
 
-if not groq_key:
-    st.info("Add a Groq API key in the evidence rail to begin a new run.")
+if not groq_keys:
+    st.info("Add at least one Groq API key in the evidence rail to begin a new run.")
 
 # ── Pipeline execution ───────────────────────────────────────
-if run_button and topic and groq_key:
-    groq_key = (
-        groq_key
-        or os.getenv("GROQ_API_KEY")
-        or os.getenv("OPENAI_API_KEY")
-        or ""
-    ).strip()
-    if not groq_key:
-        st.error("Groq API key is missing. Enter a key beginning with `gsk_...`.")
+if run_button and topic and groq_keys:
+    if not groq_keys:
+        st.error("Groq API keys are missing. Enter at least one `gsk_...` key.")
         st.stop()
 
     # Keep the key available to CLI-style pipeline modules as well as config.
-    os.environ["GROQ_API_KEY"] = groq_key
+    os.environ["GROQ_API_KEY"] = groq_keys[0]
     base_cfg = load_base_config()
 
-    with st.spinner("Generating search queries..."):
-        queries = generate_queries_with_llm(topic, groq_key)
+    from src.llm_errors import LLMAuthenticationError
+    try:
+        with st.spinner("Generating search queries..."):
+            queries = generate_queries_with_llm(topic, groq_keys)
+    except LLMAuthenticationError as exc:
+        st.error(str(exc))
+        st.stop()
 
-    cfg, run_id = build_run_config(base_cfg, topic, num_papers, groq_key)
+    cfg, run_id = build_run_config(base_cfg, topic, num_papers, groq_keys)
     cfg["collection"]["queries"]      = queries
     cfg["collection"]["incremental"]  = run_incremental   # FIX 7: pass flag into config
 
@@ -955,19 +1056,14 @@ if run_button and topic and groq_key:
         st.session_state["results"]     = load_results(done_cfg)
         st.session_state["run_cfg"]     = done_cfg
         st.session_state["topic"]       = topic
+        st.session_state["displayed_run_id"] = run_id
+        st.session_state["history_focus_run_id"] = run_id
         st.session_state["gap_reviews"] = {}   # FIX 8: initialise review state
 
 
 # ── Results display ──────────────────────────────────────────
-latest_run = inspect_latest_run()
-if "results" in st.session_state and latest_run:
-    displayed_outputs = (
-        st.session_state.get("run_cfg", {}).get("paths", {}).get("outputs")
-    )
-    displayed_run_id = Path(displayed_outputs).parent.name if displayed_outputs else None
-    if displayed_run_id != latest_run["run_id"]:
-        for key in ("results", "run_cfg", "topic", "gap_reviews"):
-            st.session_state.pop(key, None)
+focused_run_id = st.session_state.get("history_focus_run_id")
+latest_run = run_history_by_id.get(focused_run_id) or inspect_latest_run()
 
 if "results" not in st.session_state:
     if latest_run and not latest_run["completed"]:
@@ -976,10 +1072,9 @@ if "results" not in st.session_state:
             total = latest_run["total_papers"]
             activity = "still running" if latest_run["active"] else "paused or interrupted"
             st.warning(
-                f"Newest run '{latest_run['topic']}' is {activity}: extraction "
+                f"Selected run '{latest_run['topic']}' is {activity}: extraction "
                 f"{done}/{total} papers, {latest_run['triple_count']} triples "
-                "checkpointed. Older results are hidden so they are not mistaken "
-                "for this run. Refresh the page to update the count."
+                "checkpointed. Resume continues in this same run directory."
             )
             if total:
                 st.progress(min(done / total, 1.0))
@@ -987,19 +1082,19 @@ if "results" not in st.session_state:
             resume_button = st.button(
                 "Resume extraction",
                 type="primary",
-                disabled=not groq_key,
+                disabled=not groq_keys,
                 key=f"resume_{latest_run['run_id']}",
                 help=(
                     "Continue in the same run directory. Completed papers are "
                     "skipped; collection and screening are not repeated."
                 ),
             )
-            if not groq_key:
-                st.caption("Add a Groq API key in the evidence rail to enable resume.")
+            if not groq_keys:
+                st.caption("Add at least one Groq API key to enable resume.")
 
             if resume_button:
-                os.environ["GROQ_API_KEY"] = groq_key
-                resume_cfg = build_resume_config(latest_run, groq_key)
+                os.environ["GROQ_API_KEY"] = groq_keys[0]
+                resume_cfg = build_resume_config(latest_run, groq_keys)
                 resume_status = st.empty()
                 resume_progress = st.progress(min(done / max(total, 1), 1.0))
                 resume_log_box = st.empty()
@@ -1041,26 +1136,32 @@ if "results" not in st.session_state:
                     st.session_state["results"] = load_results(resumed_cfg)
                     st.session_state["run_cfg"] = resumed_cfg
                     st.session_state["topic"] = latest_run["topic"]
+                    st.session_state["displayed_run_id"] = latest_run["run_id"]
+                    st.session_state["history_focus_run_id"] = latest_run["run_id"]
                     st.session_state["gap_reviews"] = {}
                     st.success("Resume complete. The evidence run is ready for review.")
                     st.rerun()
         else:
             st.warning(
-                f"Newest run '{latest_run['topic']}' is not complete "
-                f"(current stage: {latest_run['stage']}). Older results are hidden."
+                f"Selected run '{latest_run['topic']}' is not complete "
+                f"(current stage: {latest_run['stage']})."
             )
     else:
         recovered_cfg, recovered_topic = load_latest_completed_run()
         if recovered_cfg:
             recovered_results = load_results(recovered_cfg)
-            if recovered_results.get("gaps"):
+            if recovered_results.get("graph") or recovered_results.get("validation_audit"):
                 st.session_state["results"] = recovered_results
                 st.session_state["run_cfg"] = recovered_cfg
                 st.session_state["topic"] = recovered_topic
+                recovered_outputs = recovered_cfg.get("paths", {}).get("outputs", "")
+                recovered_run_id = Path(recovered_outputs).parent.name if recovered_outputs else ""
+                st.session_state["displayed_run_id"] = recovered_run_id
+                st.session_state["history_focus_run_id"] = recovered_run_id
                 st.session_state["gap_reviews"] = {}
                 st.success(
                     f"Loaded the latest completed run: {recovered_topic} "
-                    f"({len(recovered_results['gaps'])} gaps)."
+                    f"({len(recovered_results.get('gaps', []))} evidence-cleared claims)."
                 )
 
 
@@ -1068,6 +1169,7 @@ if "results" in st.session_state:
     results = st.session_state["results"]
     cfg     = st.session_state["run_cfg"]
     topic   = st.session_state.get("topic", "")
+    displayed_run_id = st.session_state.get("displayed_run_id", "")
 
     safe_topic = escape(topic)
     st.markdown(f"""
@@ -1076,7 +1178,7 @@ if "results" in st.session_state:
     <span class="section-kicker">Evidence snapshot</span>
     <h2>{safe_topic}</h2>
   </div>
-  <span class="results-status">Latest completed run</span>
+  <span class="results-status">Saved run · {escape(displayed_run_id)}</span>
 </div>
 """, unsafe_allow_html=True)
 
@@ -1107,16 +1209,121 @@ if "results" in st.session_state:
         st.caption(
             "Raw detector signals: "
             f"{sum(raw_counts.values())} total "
-            f"({raw_counts.get('missing_links', 0)} missing links, "
+            f"({raw_counts.get('evidence_gaps', 0)} explicit limitations, "
+            f"{raw_counts.get('missing_links', 0)} missing links, "
             f"{raw_counts.get('orphan_clusters', 0)} orphan clusters, "
             f"{raw_counts.get('temporal_decay', 0)} temporal decay)."
         )
 
-    col1, col2, col3, col4 = st.columns(4)
-    with col1: st.metric("Ranked candidates shown", len(gaps))
-    with col2: st.metric("Missing Links",      sum(1 for g in gaps if g["type"] == "missing_link"))
-    with col3: st.metric("Orphan Clusters",    sum(1 for g in gaps if g["type"] == "orphan_cluster"))
-    with col4: st.metric("Decaying Concepts",  sum(1 for g in gaps if g["type"] == "temporal_decay"))
+    validation_summary = results.get("validation_audit", {}).get("summary", {})
+    if validation_summary:
+        st.success(
+            f"Evidence gate: {validation_summary.get('automatically_eligible', 0)} "
+            "evidence-cleared claim(s), "
+            f"{validation_summary.get('review_required', 0)} require expert review, "
+            f"{validation_summary.get('rejected', 0)} rejected. "
+            f"Candidate-specific closure searches completed: "
+            f"{validation_summary.get('external_closure_searches_completed', 0)}."
+        )
+        closure_attempts = validation_summary.get(
+            "external_closure_searches_attempted", 0
+        )
+        closure_completed = validation_summary.get(
+            "external_closure_searches_completed", 0
+        )
+        if closure_attempts and closure_completed < closure_attempts:
+            st.error(
+                "Automatic novelty verification is incomplete: "
+                f"{closure_completed}/{closure_attempts} candidate searches "
+                "completed. A null research-gap result from this run means the "
+                "evidence contract could not finish; it does not mean that the "
+                "literature contains no gap. Retry validation when a scholarly "
+                "search provider is available."
+            )
+            if st.button(
+                "Retry novelty verification",
+                key="retry-novelty-verification",
+                help=(
+                    "Rerun only evidence validation, external closure search, "
+                    "research-gap synthesis, and scoring for this saved run."
+                ),
+            ):
+                try:
+                    with st.spinner(
+                        "Retrying scholarly closure search and gap synthesis..."
+                    ):
+                        from src.validate_gaps import validate_all_gaps
+                        from src.synthesise_research_gap import synthesise_research_gap
+                        from src.score_gaps import score_and_rank_gaps
+
+                        validate_all_gaps(cfg)
+                        synthesise_research_gap(cfg)
+                        score_and_rank_gaps(cfg)
+                    st.session_state["results"] = load_results(cfg)
+                    st.success("Novelty verification completed.")
+                    st.rerun()
+                except Exception as exc:
+                    st.error(
+                        "Novelty verification could not complete. The saved "
+                        f"evidence remains intact. Details: {exc}"
+                    )
+    if st.button(
+        "Rebuild evidence cells and verify",
+        key="rebuild-evidence-cells",
+        help=(
+            "Regenerate high-quality paper-centred candidates, retrieve bounded "
+            "open-access full text, and rerun every unchanged certification gate."
+        ),
+    ):
+        try:
+            with st.spinner(
+                "Rebuilding evidence cells, retrieving full text, and checking closure..."
+            ):
+                from src.detect_gaps import detect_all_gaps
+                from src.full_text import enrich_candidate_source_full_text
+                from src.validate_gaps import validate_all_gaps
+                from src.synthesise_research_gap import synthesise_research_gap
+                from src.score_gaps import score_and_rank_gaps
+                from src.visualise import generate_visualisations
+
+                detect_all_gaps(cfg)
+                enrichment = enrich_candidate_source_full_text(cfg)
+                if enrichment.get("enriched", 0):
+                    detect_all_gaps(cfg)
+                validate_all_gaps(cfg)
+                synthesise_research_gap(cfg)
+                score_and_rank_gaps(cfg)
+                generate_visualisations(cfg)
+            st.session_state["results"] = load_results(cfg)
+            st.success(
+                "Evidence cells rebuilt and certification rerun without changing "
+                "the certificate thresholds."
+            )
+            st.rerun()
+        except Exception as exc:
+            st.error(f"Candidate rebuild could not complete: {exc}")
+
+    if not gaps:
+        st.warning(
+            "No candidate passed the fail-closed evidence contract in this run. "
+            "This is a valid null result—not evidence that no research gaps exist. "
+            "Review the validation queue or expand the corpus."
+        )
+
+    synthesis_report = results.get("research_gap_synthesis", {}) or {}
+    primary_research_gap = synthesis_report.get("primary_gap") or {}
+    primary_certificate = primary_research_gap.get("gap_certificate", {}) or {}
+    has_certified_primary = bool(primary_certificate.get("passed"))
+    col1, col2, col3, col4, col5 = st.columns(5)
+    with col1:
+        st.metric(
+            "Certified corpus-bounded gaps",
+            synthesis_report.get("certified_gap_count", 0),
+        )
+    with col2: st.metric("Evidence-cleared claims", len(gaps))
+    with col3: st.metric("Human reviews", len(results.get("confirmed_research_gaps", [])))
+    with col4: st.metric("Explicit evidence", sum(1 for g in gaps if g["type"] == "evidence_gap"))
+    with col5: st.metric("Review required", validation_summary.get("review_required", 0))
 
     if G:
         col1, col2, col3 = st.columns(3)
@@ -1128,7 +1335,8 @@ if "results" in st.session_state:
 
     paper_index = results.get("paper_index", {})
 
-    tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs([
+        "Gap certificate",
         "Candidates & Review",
         "Source Papers",
         "Knowledge Graph",
@@ -1136,33 +1344,221 @@ if "results" in st.session_state:
         "KG vs RAG",
     ])
 
+    with tab0:
+        st.subheader("Certified corpus-bounded research gap")
+        st.caption(
+            "The certificate applies only to the frozen screened corpus and documented "
+            "counterevidence searches. It never proves that no relevant study exists globally."
+        )
+        if has_certified_primary:
+            st.success(primary_research_gap.get("claim", ""))
+            st.caption(
+                f"Certificate: `{primary_certificate.get('certificate_id', '')}` · "
+                f"Snapshot: {primary_certificate.get('scope', {}).get('snapshot_date', '')}"
+            )
+            st.markdown("**Research question**")
+            st.write(primary_research_gap.get("research_question", ""))
+
+            framework = primary_research_gap.get("PMCOST", {})
+            framework_rows = [
+                {"Element": key, "Operational value": value}
+                for key, value in framework.items()
+            ]
+            st.dataframe(pd.DataFrame(framework_rows), hide_index=True, width="stretch")
+
+            decision = primary_research_gap.get("decision", {})
+            dg1, dg2, dg3 = st.columns(3)
+            with dg1:
+                st.metric("Signal families", decision.get("signal_family_count", 0))
+            with dg2:
+                st.metric("Graph signal families", decision.get("graph_signal_family_count", 0))
+            with dg3:
+                st.metric("Automatic strength", decision.get("automatic_strength_score", 0.0))
+
+            with st.expander("Synthesis contract, certificate, and evidence chain"):
+                gate_rows = [
+                    {"Hard gate": gate, "Passed": passed}
+                    for gate, passed in decision.get("hard_gates", {}).items()
+                ]
+                st.dataframe(pd.DataFrame(gate_rows), hide_index=True, width="stretch")
+                certificate_rows = [
+                    {"Certificate gate": gate, "Passed": passed}
+                    for gate, passed in primary_certificate.get("gates", {}).items()
+                ]
+                st.markdown("**Certificate gates**")
+                st.dataframe(
+                    pd.DataFrame(certificate_rows), hide_index=True, width="stretch"
+                )
+                scope = primary_certificate.get("scope", {})
+                external = primary_certificate.get("external_search", {})
+                counterevidence = primary_certificate.get("counterevidence", {})
+                st.json({
+                    "scope": scope,
+                    "source_evidence": primary_certificate.get("source_evidence", []),
+                    "external_search": external,
+                    "counterevidence": counterevidence,
+                })
+                st.markdown("**Convergent signal families**")
+                st.json(primary_research_gap.get("convergent_signals", {}))
+                st.markdown("**Source papers**")
+                st.dataframe(
+                    pd.DataFrame(primary_research_gap.get("source_papers", [])),
+                    hide_index=True,
+                    width="stretch",
+                )
+                corroborating = primary_research_gap.get("corroborating_papers", [])
+                if corroborating:
+                    st.markdown("**Source-disjoint corroborating papers**")
+                    st.dataframe(
+                        pd.DataFrame(corroborating),
+                        hide_index=True,
+                        width="stretch",
+                    )
+
+            study = primary_research_gap.get("suggested_study", {})
+            with st.expander("Suggested empirical study"):
+                st.json(study)
+        elif synthesis_report:
+            st.warning(
+                synthesis_report.get(
+                    "null_result_note",
+                    "No certified corpus-bounded research gap was produced.",
+                )
+            )
+            if primary_research_gap:
+                st.info(
+                    "A legacy or evidence-cleared candidate exists, but it is not shown "
+                    "as a certified research gap because it has no passing certificate."
+                )
+            next_actions = synthesis_report.get("next_actions", [])
+            if next_actions:
+                st.markdown("**Recommended next actions**")
+                for action in next_actions:
+                    st.write(f"- {action}")
+            audit = synthesis_report.get("candidate_audit", [])
+            if audit:
+                quality_rows = []
+                for item in sorted(
+                    audit,
+                    key=lambda value: value.get("source_candidate", {}).get(
+                        "candidate_quality", {}
+                    ).get("score", 0.0),
+                    reverse=True,
+                )[:10]:
+                    source = item.get("source_candidate", {})
+                    quality = source.get("candidate_quality", {}) or {}
+                    readiness = quality.get("certificate_readiness", {}) or {}
+                    quality_rows.append({
+                        "Evidence cell": source.get(
+                            "missing_capability", source.get("tail", "")
+                        ),
+                        "Candidate quality": quality.get("score", 0.0),
+                        "Independent sources": quality.get(
+                            "independent_source_count",
+                            len(source.get("supporting_paper_ids", [])),
+                        ),
+                        "Frame completeness": quality.get(
+                            "frame_completeness", 0.0
+                        ),
+                        "Full-text coverage": quality.get(
+                            "full_text_coverage", 0.0
+                        ),
+                        "Independent-source ready": readiness.get(
+                            "independent_sources_ready", False
+                        ),
+                    })
+                if quality_rows:
+                    st.markdown("**Highest-quality candidates closest to certification**")
+                    st.dataframe(
+                        pd.DataFrame(quality_rows), hide_index=True, width="stretch"
+                    )
+                failed_gate_counts = {}
+                certificate_failed_gate_counts = {}
+                audit_rows = []
+                for item in audit:
+                    failed = [
+                        gate for gate, passed in item.get("decision", {}).get(
+                            "hard_gates", {}
+                        ).items() if not passed
+                    ]
+                    for gate in failed:
+                        failed_gate_counts[gate] = failed_gate_counts.get(gate, 0) + 1
+                    certificate_failed = item.get("gap_certificate", {}).get(
+                        "failed_gates", []
+                    ) or ["missing_certificate"]
+                    for gate in certificate_failed:
+                        certificate_failed_gate_counts[gate] = (
+                            certificate_failed_gate_counts.get(gate, 0) + 1
+                        )
+                    source = item.get("source_candidate", {})
+                    audit_rows.append({
+                        "Candidate": (
+                            f"{source.get('subject', '')} → "
+                            f"{source.get('missing_capability', '')}"
+                        ),
+                        "Failed hard gates": ", ".join(failed),
+                        "Failed certificate gates": ", ".join(certificate_failed),
+                    })
+                st.markdown("**Why no certified gap was emitted**")
+                certificate_counts = synthesis_report.get(
+                    "certificate_rejection_gate_counts", certificate_failed_gate_counts
+                )
+                st.dataframe(
+                    pd.DataFrame([
+                        {"Failed certificate gate": gate, "Candidates affected": count}
+                        for gate, count in sorted(
+                            certificate_counts.items(),
+                            key=lambda item: (-item[1], item[0]),
+                        )
+                    ]),
+                    hide_index=True,
+                    width="stretch",
+                )
+                st.markdown("**Candidate-level audit**")
+                st.dataframe(pd.DataFrame(audit_rows), hide_index=True, width="stretch")
+        else:
+            st.info("Run the updated pipeline to produce `research_gap_synthesis.json`.")
+
     # ── Tab 1 — Ranked Gaps + FIX 8 Expert Review ───────────────
     with tab1:
-        st.subheader("Ranked candidates and expert review")
+        st.subheader("Evidence-cleared gap claims and expert review")
 
         # FIX 8: HCAI info banner
         st.info(
             "**Stage 6 — Human Expert Review (HCAI)**  \n"
-            "Use the review controls below to Accept, Reject, or flag gaps for Modification. "
+            "Only candidates that passed the fail-closed evidence gate appear in the "
+            "evidence-cleared queue. Use the controls below to Accept, Reject, or flag "
+            "claims for Modification. "
             "Decisions are saved to `expert_reviews.json` and cited in the paper as Stage 6 "
             "human-in-the-loop validation (Shneiderman 2020). "
-            "This is what distinguishes responsible AI synthesis from fully automated generation.",
+            "These decisions provide an additional audit layer; they do not change "
+            "the automatic research-gap verdict shown in the first tab.",
         )
 
         type_filter = st.multiselect(
             "Filter by type",
-            ["missing_link", "orphan_cluster", "temporal_decay"],
-            default=["missing_link", "orphan_cluster", "temporal_decay"],
+            ["evidence_gap", "missing_link", "orphan_cluster", "temporal_decay"],
+            default=["evidence_gap", "missing_link", "orphan_cluster", "temporal_decay"],
         )
 
         TYPE_META = {
+            "evidence_gap":   ("EG", "evidence", "Evidence-backed Gap"),
             "missing_link":   ("ML", "missing", "Missing Link"),
             "orphan_cluster": ("OC", "orphan",  "Orphan Cluster"),
             "temporal_decay": ("TD", "decay",   "Temporal Decay"),
         }
 
         post_gate_report = results.get("post_gate_expert_reviews")
-        review_scope_options = ["Score-ranked top 30"]
+        review_required_data = results.get("review_required_gaps", {})
+        has_validation_queue = any(
+            review_required_data.get(category, [])
+            for category in (
+                "evidence_gaps", "missing_links", "orphan_clusters", "temporal_decay"
+            )
+        )
+        review_scope_options = ["Evidence-cleared claims"]
+        if has_validation_queue:
+            review_scope_options.append("Validation review_required")
         if post_gate_report:
             review_scope_options.insert(0, "Post-gate review_required")
         review_scope = st.radio(
@@ -1194,11 +1590,43 @@ if "results" in st.session_state:
                 f"Frozen post-gate queue: {len(display_gaps)} candidates. "
                 "Prior decisions are carried only by exact candidate-identity match."
             )
+        elif review_scope == "Validation review_required":
+            review_state_key = "validation_gap_reviews"
+            saved_review = results.get("validation_expert_reviews", {})
+            review_filename = "validation_expert_reviews.json"
+            queue_name = "validation_review_required"
+            candidate_index = None
+            display_gaps = []
+            position = 0
+            for category in (
+                "evidence_gaps", "missing_links", "orphan_clusters", "temporal_decay"
+            ):
+                for candidate in review_required_data.get(category, []):
+                    position += 1
+                    gap = dict(candidate)
+                    gap["rank"] = f"VR-{position:02d}"
+                    gap["composite_score"] = gap.get("validation", {}).get(
+                        "ranking_score", 0.0
+                    )
+                    gap["_review_key"] = f"validation_review_{position:03d}"
+                    gap["_review_evidence"] = (
+                        f"supporting papers: "
+                        f"{gap.get('validation', {}).get('supporting_paper_count', 0)}; "
+                        f"closure hits: "
+                        f"{gap.get('validation', {}).get('closure_hit_count', 0)}; "
+                        f"gate reasons: "
+                        f"{', '.join(gap.get('validation', {}).get('reasons', []))}"
+                    )
+                    display_gaps.append(gap)
+            st.caption(
+                f"Validation queue: {len(display_gaps)} candidates need a qualified "
+                "human decision and are not yet research-gap claims."
+            )
         else:
             review_state_key = "gap_reviews"
             saved_review = results.get("expert_reviews", {})
             review_filename = "expert_reviews.json"
-            queue_name = "score_ranked_top30"
+            queue_name = "evidence_cleared_claims"
             candidate_index = None
             display_gaps = gaps
 
@@ -1215,13 +1643,26 @@ if "results" in st.session_state:
             st.session_state[review_state_key] = (
                 saved_review.get("reviews", {}) if saved_review else {}
             )
+        rationale_state_key = f"{review_state_key}_rationales"
+        if rationale_state_key not in st.session_state:
+            st.session_state[rationale_state_key] = (
+                saved_review.get("rationales", {}) if saved_review else {}
+            )
 
         reviews = st.session_state[review_state_key]
+        review_rationales = st.session_state[rationale_state_key]
 
         for g in [x for x in display_gaps if x["type"] in type_filter][:30]:
             icon, css, label = TYPE_META.get(g["type"], ("—", "", g["type"]))
             gap_key          = g.get("_review_key", f"review_{g['rank']}")
             current_decision = reviews.get(gap_key, "Pending")
+            validation = g.get("validation", {}) or {}
+            claim_text = escape(str(
+                validation.get("scoped_claim") or g.get("description", "")
+            ))
+            claim_status = escape(str(
+                validation.get("claim_status", "unvalidated_candidate")
+            ))
 
             # Gap card + review controls side by side
             col_card, col_review = st.columns([3, 1])
@@ -1233,7 +1674,8 @@ if "results" in st.session_state:
   <strong>#{g['rank']} {icon} {label}</strong>
   &nbsp;<code>score: {g.get('composite_score', 0):.4f}</code>
   &nbsp;{badge_html}<br>
-<small>{g.get('description', '')}</small><br>
+  <small>{claim_text}</small><br>
+  <small>claim status: {claim_status}</small><br>
   <small>{g.get('_review_evidence', '')}</small>
 </div>""", unsafe_allow_html=True)
                 provenance_key = provenance_candidate_identity(g)
@@ -1252,19 +1694,23 @@ if "results" in st.session_state:
                 )
                 reviews[gap_key] = new_decision
 
-                # Show modification text box when reviewer selects Modify
-                if new_decision == "Modify":
-                    note_key = f"{review_state_key}:note_{g['rank']}"
-                    st.text_area(
-                        "Suggested modification",
-                        key=note_key,
-                        placeholder="Describe what should be changed...",
+                if new_decision != "Pending":
+                    rationale_key = f"{review_state_key}:rationale:{gap_key}"
+                    rationale = st.text_area(
+                        "Review rationale",
+                        value=review_rationales.get(gap_key, ""),
+                        key=rationale_key,
+                        placeholder=(
+                            "State why the evidence supports this decision; "
+                            "for Modify, include the revised scope."
+                        ),
                         height=80,
-                        label_visibility="collapsed",
                     )
+                    review_rationales[gap_key] = rationale.strip()
 
         # Update session state after all widgets render
         st.session_state[review_state_key] = reviews
+        st.session_state[rationale_state_key] = review_rationales
 
         st.divider()
 
@@ -1296,21 +1742,33 @@ if "results" in st.session_state:
         save_col, dl_col = st.columns([1, 1])
         with save_col:
             if st.button("Save expert reviews", type="primary"):
-                saved_output = save_expert_reviews(
-                    cfg,
-                    reviews,
-                    reviewer_name,
-                    notes=review_notes,
-                    filename=review_filename,
-                    queue_name=queue_name,
-                    candidate_index=candidate_index,
-                )
-                st.success(
-                    f"Reviews saved to `{cfg['paths']['outputs']}/{review_filename}`  \n"
-                    f"Acceptance rate: **{saved_output['acceptance_rate']*100:.1f}%** "
-                    f"({saved_output['summary']['Accept']} / {saved_output['total_reviewed']} reviewed)  \n"
-                    f"Cite this as Stage 6 HCAI evidence in Section 6.3 of the paper."
-                )
+                missing_rationales = [
+                    key for key, decision in reviews.items()
+                    if decision == "Accept" and not review_rationales.get(key, "").strip()
+                ]
+                if queue_name == "evidence_cleared_claims" and missing_rationales:
+                    st.error(
+                        "An accepted gap requires a written review rationale before "
+                        "it can be recorded as confirmed."
+                    )
+                else:
+                    saved_output = save_expert_reviews(
+                        cfg,
+                        reviews,
+                        reviewer_name,
+                        notes=review_notes,
+                        filename=review_filename,
+                        queue_name=queue_name,
+                        candidate_index=candidate_index,
+                        candidates=display_gaps,
+                        review_rationales=review_rationales,
+                    )
+                    st.success(
+                        f"Reviews saved to `{cfg['paths']['outputs']}/{review_filename}`  \n"
+                        f"Acceptance rate: **{saved_output['acceptance_rate']*100:.1f}%** "
+                        f"({saved_output['summary']['Accept']} / {saved_output['total_reviewed']} reviewed)  \n"
+                        f"Cite this as Stage 6 HCAI evidence in Section 6.3 of the paper."
+                    )
 
         with dl_col:
             if st.button("Prepare reviewed-gap CSV"):
@@ -1404,8 +1862,8 @@ if "results" in st.session_state:
         ).strip().lower()
         source_types = st.multiselect(
             "Filter source papers by gap type",
-            ["missing_link", "orphan_cluster", "temporal_decay"],
-            default=["missing_link", "orphan_cluster", "temporal_decay"],
+            ["evidence_gap", "missing_link", "orphan_cluster", "temporal_decay"],
+            default=["evidence_gap", "missing_link", "orphan_cluster", "temporal_decay"],
             key=f"source-paper-types:{queue_name}",
         )
 
@@ -1513,13 +1971,34 @@ if "results" in st.session_state:
 
     with tab3:
         st.subheader("Interactive evidence graph")
+        graph_view = st.radio(
+            "Graph view",
+            ["Gap evidence map", "Entity knowledge graph"],
+            horizontal=True,
+            key="graph-view-selector",
+        )
+        if graph_view == "Gap evidence map":
+            st.caption(
+                "Layout: papers → consolidated limitation cells → methods, datasets, "
+                "metrics and concepts. Larger red diamonds are higher-quality candidates."
+            )
+            evidence_map_path = (
+                Path(cfg["paths"]["outputs"]) / "gap_evidence_graph.html"
+            )
+            if evidence_map_path.exists():
+                st.iframe(evidence_map_path, height=650)
+            else:
+                st.warning(
+                    "Gap evidence map is unavailable for this legacy run. Rerun "
+                    "detection and visualisation with the updated pipeline."
+                )
         st.caption("Nodes = concepts · Size = centrality · Red border = gap node · Dashed red = predicted missing link")
 
-        if results.get("graph_html"):
+        if graph_view == "Entity knowledge graph" and results.get("graph_html"):
             graph_path = Path(cfg["paths"]["outputs"]) / "graph_viz.html"
             if graph_path.exists():
                 st.iframe(graph_path, height=650)
-        else:
+        elif graph_view == "Entity knowledge graph":
             st.warning("Graph visualisation not available.")
 
         if G:
@@ -1579,10 +2058,11 @@ if "results" in st.session_state:
             if st.button(
                 "Run RAG baselines",
                 type="primary",
-                disabled=not groq_key,
+                disabled=not groq_keys,
             ):
-                cfg.setdefault("api_keys", {})["groq"] = groq_key
-                os.environ["GROQ_API_KEY"] = groq_key
+                cfg.setdefault("api_keys", {})["groq_keys"] = groq_keys
+                cfg["api_keys"]["groq"] = groq_keys[0]
+                os.environ["GROQ_API_KEY"] = groq_keys[0]
                 rag_status   = st.empty()
                 rag_progress = st.progress(0)
                 rag_logs_box = st.empty()

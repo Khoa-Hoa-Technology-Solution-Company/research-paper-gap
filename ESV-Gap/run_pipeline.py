@@ -60,6 +60,13 @@ def run_stage(stage_name, config):
         from src.detect_gaps import detect_all_gaps
         detect_all_gaps(config)
 
+    elif stage_name == "fulltext":
+        from src.full_text import enrich_candidate_source_full_text
+        report = enrich_candidate_source_full_text(config)
+        if report.get("enriched", 0):
+            from src.detect_gaps import detect_all_gaps
+            detect_all_gaps(config)
+
     elif stage_name == "validate":
         from src.validate_gaps import validate_all_gaps
         validate_all_gaps(config)

@@ -16,6 +16,7 @@ ENTITY TYPES (for subject and object):
 - CONCEPT: research topic, domain, theory
 - FINDING: result, observation, conclusion
 - TOOL: software, library, platform
+- LIMITATION: explicit unresolved deficit, missing capability, or open problem
 
 RELATIONSHIP TYPES (controlled vocabulary - use ONLY these):
 - USES: subject employs object as part of its approach
@@ -25,7 +26,8 @@ RELATIONSHIP TYPES (controlled vocabulary - use ONLY these):
 - PRODUCES: subject generates or outputs object
 - CONTRADICTS: subject's findings oppose object
 - EXTENDS: subject builds upon object
-- LACKS: subject is missing or does not address object
+- LACKS: the named subject has an explicit unresolved limitation or missing
+  capability that remains after the reported study
 - COMBINES: subject integrates object into a hybrid approach
 - APPLIED_TO: subject is used in the context of object
 
@@ -33,9 +35,9 @@ OUTPUT FORMAT (JSON only, no markdown, no commentary):
 {
   "triples": [
     {
-      "subject": {"name": "...", "type": "METHOD|DATASET|METRIC|CONCEPT|FINDING|TOOL"},
+      "subject": {"name": "...", "type": "METHOD|DATASET|METRIC|CONCEPT|FINDING|TOOL|LIMITATION"},
       "relation": "USES|IMPROVES|ADDRESSES|EVALUATES_ON|PRODUCES|CONTRADICTS|EXTENDS|LACKS|COMBINES|APPLIED_TO",
-      "object": {"name": "...", "type": "METHOD|DATASET|METRIC|CONCEPT|FINDING|TOOL"},
+      "object": {"name": "...", "type": "METHOD|DATASET|METRIC|CONCEPT|FINDING|TOOL|LIMITATION"},
       "confidence": 0.0-1.0,
       "evidence": "Brief quote or paraphrase from text supporting this triple"
     }
@@ -50,6 +52,18 @@ RULES:
 - Include the evidence string for traceability
 - If information is ambiguous, assign confidence < 0.5
 - Do not invent relationships not supported by the text
+- Use LACKS only when the evidence directly entails that the named subject is
+  deficient. "Does not require X", "without requiring X", or "eliminates the
+  need for X" describes an advantage and MUST NOT be encoded as LACKS.
+- The object of LACKS MUST use entity type LIMITATION and should contain one
+  atomic deficit only. Split enumerated limitations into separate triples.
+- A background problem that the proposed method addresses MUST be encoded as
+  ADDRESSES, not as a LACKS relation of the proposed method.
+- A limitation of "existing", "previous", or "traditional" methods MUST NOT be
+  attributed to the proposed method named elsewhere in the abstract.
+- Prefer an exact evidence quote containing both the deficient subject and the
+  limitation predicate. If the subject is not present in the evidence span,
+  assign confidence below 0.5.
 - Do not include commentary or explanation outside the JSON
 
 NOTE:

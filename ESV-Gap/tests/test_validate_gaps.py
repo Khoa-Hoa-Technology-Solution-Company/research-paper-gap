@@ -3,6 +3,9 @@ import unittest
 import networkx as nx
 
 from src.validate_gaps import (
+    _candidate_problem_match,
+    _document_identity_keys,
+    document_resolution_matches,
     closure_hits,
     independent_evidence_paths,
     specificity_score,
@@ -15,6 +18,7 @@ def validation_config():
     return {
         "gap_validation": {
             "min_supporting_papers": 2,
+            "min_explicit_supporting_papers": 1,
             "min_independent_paths": 2,
             "min_surviving_paths": 1,
             "max_path_length": 4,
@@ -57,6 +61,151 @@ def supported_bridge_graph(include_direct_edge=False):
 
 
 class GapValidationTests(unittest.TestCase):
+    def test_full_text_resolution_clause_is_counterevidence(self):
+        candidate = {
+            "type": "evidence_gap",
+            "subject": "visual encoder",
+            "missing_capability": "handwritten expression robustness",
+        }
+        document = {
+            "paperId": "full-text-solution",
+            "title": "Visual encoder study",
+            "abstract": "We study a visual encoder.",
+            "full_text": (
+                "Our method addresses handwritten expression robustness through "
+                "an adversarially trained visual encoder."
+            ),
+        }
+        self.assertTrue(document_resolution_matches(candidate, document))
+
+    def test_security_candidate_requires_security_problem_alignment(self):
+        unrelated = {
+            "subject": "monoliths",
+            "missing_capability": "high-volume financial processing",
+            "source_evidence": [{"evidence": "Monoliths lack flexibility at high volume."}],
+        }
+        relevant = {
+            "subject": "architectural separation",
+            "missing_capability": "elimination of XSS vulnerabilities",
+            "source_evidence": [{"evidence": "XSS vulnerabilities remain unresolved."}],
+        }
+        self.assertFalse(_candidate_problem_match(unrelated, "security of monolith")[0])
+        self.assertTrue(_candidate_problem_match(relevant, "security of monolith")[0])
+
+    def test_cross_provider_identity_matches_by_title_and_year(self):
+        semantic_scholar = {
+            "paperId": "s2-1",
+            "title": "A Study of Monolithic Software Security",
+            "year": 2025,
+        }
+        openalex = {
+            "paperId": "https://openalex.org/W1",
+            "title": "A Study of Monolithic Software Security",
+            "year": 2025,
+        }
+        self.assertTrue(
+            _document_identity_keys(semantic_scholar).intersection(
+                _document_identity_keys(openalex)
+            )
+        )
+
+    def test_domain_irrelevant_monolith_material_is_not_a_closure_hit(self):
+        candidate = {
+            "type": "evidence_gap",
+            "subject": "monoliths",
+            "missing_capability": "flexibility",
+            "domain": "security of monolith",
+        }
+        documents = [{
+            "paperId": "materials-1",
+            "title": "Flexible carbon monoliths",
+            "abstract": "We improve fabrication of flexible carbon monolith materials.",
+        }]
+        self.assertEqual(closure_hits(candidate, documents), [])
+
+    def test_co_mention_without_resolution_action_is_not_closure(self):
+        candidate = {
+            "type": "missing_link",
+            "head": "runtime anomaly detection",
+            "tail": "service mesh telemetry",
+        }
+        documents = [{
+            "paperId": "mention-only",
+            "title": "Runtime anomaly detection and service mesh telemetry",
+            "abstract": "The two topics are surveyed as separate research areas.",
+        }]
+        self.assertEqual(closure_hits(candidate, documents), [])
+
+    def test_single_quoted_limitation_can_form_a_scoped_claim(self):
+        graph = nx.MultiDiGraph()
+        graph.add_edge(
+            "visual encoder",
+            "handwritten expression robustness",
+            relation="LACKS",
+            source_paper="p1",
+            year=2024,
+        )
+        candidate = {
+            "type": "evidence_gap",
+            "subject": "visual encoder",
+            "missing_capability": "handwritten expression robustness",
+            "supporting_paper_ids": ["p1"],
+            "plausible_edges": [],
+            "plausible_edge_search_performed": True,
+        }
+        result = validate_candidate(graph, candidate, validation_config(), [])
+        self.assertEqual(result["status"], "automatically_eligible")
+        self.assertEqual(result["supporting_paper_ids"], ["p1"])
+
+    def test_explicit_gap_with_independent_reports_and_completed_closure_is_eligible(self):
+        graph = nx.MultiDiGraph()
+        for paper_id in ("p1", "p2"):
+            graph.add_edge(
+                "visual encoder",
+                "handwritten expression robustness",
+                relation="LACKS",
+                source_paper=paper_id,
+                year=2024,
+            )
+        candidate = {
+            "type": "evidence_gap",
+            "subject": "visual encoder",
+            "missing_capability": "handwritten expression robustness",
+            "supporting_paper_ids": ["p1", "p2"],
+            "plausible_edges": [],
+            "plausible_edge_search_performed": True,
+        }
+        result = validate_candidate(graph, candidate, validation_config(), [])
+        self.assertEqual(result["status"], "automatically_eligible")
+        self.assertEqual(
+            result["claim_status"], "evidence_cleared_awaiting_expert_review"
+        )
+
+    def test_explicit_gap_closing_literature_requires_review(self):
+        graph = nx.MultiDiGraph()
+        for paper_id in ("p1", "p2"):
+            graph.add_edge(
+                "visual encoder",
+                "handwritten expression robustness",
+                relation="LACKS",
+                source_paper=paper_id,
+            )
+        candidate = {
+            "type": "evidence_gap",
+            "subject": "visual encoder",
+            "missing_capability": "handwritten expression robustness",
+            "plausible_edge_search_performed": True,
+            "plausible_edges": [],
+        }
+        documents = [{
+            "paperId": "closing-work",
+            "title": "Robust visual encoders for handwritten expression recognition",
+            "abstract": "We address handwritten expression robustness with a visual encoder.",
+        }]
+        result = validate_candidate(graph, candidate, validation_config(), documents)
+        self.assertEqual(result["status"], "review_required")
+        self.assertIn("possible_prior_coverage_found_in_local_corpus", result["reasons"])
+
     def test_specificity_penalises_placeholders(self):
         self.assertEqual(specificity_score(["proposed framework"]), 0.0)
         self.assertGreater(specificity_score(["service mesh telemetry"]), 0.8)
