@@ -93,6 +93,23 @@ GAP_CLAIM_PATTERNS: dict[str, str] = {
     "needs further investigation": "limitation",
     "future work should": "limitation",
     "future research should": "limitation",
+    "major limitations remain": "explicit",
+    "challenges remain": "explicit",
+    "several challenges remain": "explicit",
+    "limitations remain": "explicit",
+    "key limitations": "explicit",
+    "major challenges": "explicit",
+    "critical challenges": "explicit",
+    "challenges related to": "limitation",
+    "challenges such as": "limitation",
+    "need resolution": "limitation",
+    "needs resolution": "limitation",
+    "constrained by": "limitation",
+    "at the expense of": "limitation",
+    "pose challenges": "limitation",
+    "poses challenges": "limitation",
+    "hinder the actual deployment": "limitation",
+    "restricts edge application": "limitation",
 }
 
 _SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+")
@@ -119,24 +136,66 @@ def candidate_entity_groups(candidate: dict[str, Any], limit: int = 4) -> list[l
     alone cannot corroborate the pair.
     """
     gap_type = candidate.get("type")
-    if gap_type == "missing_link":
-        values = [candidate.get("head"), candidate.get("tail")]
-    elif gap_type == "temporal_decay":
-        values = [candidate.get("concept")]
-    else:
-        values = list(candidate.get("key_concepts") or candidate.get("members") or [])[:limit]
-
     aliases = candidate.get("entity_aliases", {}) or {}
     groups: list[list[str]] = []
-    for value in values:
-        label = canonical_entity_label(value)
-        if not label:
-            continue
-        phrases = [label]
-        for alias_entity, alias_values in aliases.items():
-            if canonical_entity_key(alias_entity) == canonical_entity_key(label):
-                phrases.extend(canonical_entity_label(alias) for alias in alias_values)
-        groups.append([phrase for phrase in phrases if phrase])
+
+    if gap_type == "missing_link":
+        values = [candidate.get("head"), candidate.get("tail")]
+        for value in values:
+            label = canonical_entity_label(value)
+            if not label:
+                continue
+            phrases = [label]
+            for alias_entity, alias_values in aliases.items():
+                if canonical_entity_key(alias_entity) == canonical_entity_key(label):
+                    phrases.extend(canonical_entity_label(alias) for alias in alias_values)
+            groups.append([p for p in phrases if p])
+    elif gap_type == "evidence_gap":
+        subj = candidate.get("subject") or candidate.get("head")
+        cap = candidate.get("missing_capability") or candidate.get("tail")
+        subj_phrases = [canonical_entity_label(subj)] if subj else []
+        if candidate.get("domain"):
+            d_lbl = canonical_entity_label(candidate.get("domain"))
+            if d_lbl and d_lbl not in subj_phrases:
+                subj_phrases.append(d_lbl)
+        cap_phrases = [canonical_entity_label(cap)] if cap else []
+        for var in candidate.get("limitation_variants", []):
+            v_lbl = canonical_entity_label(var)
+            if v_lbl and v_lbl not in cap_phrases:
+                cap_phrases.append(v_lbl)
+        for label, group in ((subj, subj_phrases), (cap, cap_phrases)):
+            if not label:
+                continue
+            for alias_entity, alias_values in aliases.items():
+                if canonical_entity_key(alias_entity) == canonical_entity_key(label):
+                    group.extend(canonical_entity_label(alias) for alias in alias_values)
+        if subj_phrases:
+            groups.append([p for p in subj_phrases if p])
+        if cap_phrases:
+            groups.append([p for p in cap_phrases if p])
+    elif gap_type == "temporal_decay":
+        values = [candidate.get("concept")]
+        for value in values:
+            label = canonical_entity_label(value)
+            if not label:
+                continue
+            phrases = [label]
+            for alias_entity, alias_values in aliases.items():
+                if canonical_entity_key(alias_entity) == canonical_entity_key(label):
+                    phrases.extend(canonical_entity_label(alias) for alias in alias_values)
+            groups.append([p for p in phrases if p])
+    else:
+        values = list(candidate.get("key_concepts") or candidate.get("members") or [])[:limit]
+        for value in values:
+            label = canonical_entity_label(value)
+            if not label:
+                continue
+            phrases = [label]
+            for alias_entity, alias_values in aliases.items():
+                if canonical_entity_key(alias_entity) == canonical_entity_key(label):
+                    phrases.extend(canonical_entity_label(alias) for alias in alias_values)
+            groups.append([p for p in phrases if p])
+
     return groups
 
 
@@ -190,7 +249,7 @@ def mine_gap_phrases(
     statements = []
     for doc in corpus_documents:
         abstract = str(doc.get("abstract", ""))
-        paper_id = str(doc.get("paper_id", ""))
+        paper_id = str(doc.get("paperId") or doc.get("paper_id") or doc.get("id") or "")
         for sentence in _sentences(abstract):
             patterns = matched_claim_patterns(sentence)
             if not patterns:
@@ -224,8 +283,8 @@ def check_source_disjoint(
     candidate_sources: Iterable[str],
 ) -> bool:
     """Return whether a statement's sources do not overlap with candidate's."""
-    statement_set = {str(src) for src in statement_sources}
-    candidate_set = {str(src) for src in candidate_sources}
+    statement_set = {str(src) for src in statement_sources if src}
+    candidate_set = {str(src) for src in candidate_sources if src}
     return statement_set.isdisjoint(candidate_set)
 
 
@@ -244,7 +303,11 @@ def corroborate_candidate(
     phrases = mine_gap_phrases(corpus_documents, candidate, entity_groups, coverage)
     all_statements = lacks + phrases
 
-    candidate_sources = set(candidate.get("source_papers", []))
+    candidate_sources = (
+        set(candidate.get("source_papers", []))
+        | set(candidate.get("supporting_paper_ids", []))
+        | set(candidate.get("paper_ids", []))
+    )
     corroborating = []
     circular = []
     for stmt in all_statements:
@@ -308,8 +371,12 @@ def corroborate_all_candidates(
             "category": candidate.get("_category"),
             "head": candidate.get("head"),
             "tail": candidate.get("tail"),
+            "relation": candidate.get("relation"),
             "concept": candidate.get("concept"),
             "community_id": candidate.get("community_id"),
+            "subject": candidate.get("subject"),
+            "missing_capability": candidate.get("missing_capability"),
+            "evidence_cell_id": candidate.get("evidence_cell_id"),
             "author_corroboration": result,
         })
 

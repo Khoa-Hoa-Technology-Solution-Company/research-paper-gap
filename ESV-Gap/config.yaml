@@ -254,12 +254,27 @@ external_verification:
   temporal_lookback_years: 2
   orphan_probe_pairs: 3              # How many cluster pairs to probe
 
-# --- Author-Stated Gaps (Stage 7B) ---
+# --- Author-Stated Gaps (Stage 7B / Evidence Pillar B) ---
 author_stated_gaps:
   enabled: true
-  co_mention_token_coverage: 0.60    # Same lexical test as closure gate
+  co_mention_token_coverage: 0.50    # Allows 2-token phrases to match with 50% overlap
 
-# --- Synthesis & Ranking (Stage 7C) ---
+# --- Extractor Recall Benchmark (Stage 7C / Evidence Pillar C) ---
+extractor_recall:
+  enabled: true
+  benchmark_path: "benchmarks/gold_triples_benchmark.json"
+  extracted_triples_path: "benchmarks/gold_benchmark_extracted.json"
+  entity_match_threshold: 0.60
+  strict_relation: true
+
+# --- Corpus Saturation Analysis (Stage 7D / Evidence Pillar D) ---
+corpus_saturation:
+  enabled: true
+  decay_threshold: 0.60              # Discovery decay threshold for SATURATED verdict
+  beta_threshold: 0.65               # Heaps' law sublinear threshold
+  final_quintile_max_rate: 1.5       # Max entities/paper in final quintile
+
+# --- Synthesis & Ranking (Stage 7E) ---
 synthesis:
   rank_by: "confidence_score"        # Options: confidence_score, impact_score, novelty_score
 

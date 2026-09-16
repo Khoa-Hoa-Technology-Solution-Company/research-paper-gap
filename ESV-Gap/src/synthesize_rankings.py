@@ -1,23 +1,34 @@
-"""Synthesize external verification and author corroboration into final rankings.
+"""Synthesize external verification, author corroboration, and self-assessments.
 
-Every candidate that survived the local validation gate is now enriched with
-two additional signals: external index verification (A) and author-stated gap
-corroboration (B).  This module applies a policy matrix to combine those
-signals, then ranks the survivors by research impact and novelty.
+Operationalizes the Four-Pillar Evidence Triage policy:
+Pillar A: External counterevidence acquisition
+Pillar B: Source-disjoint author corroboration
+Pillar C: Extractor reliability self-assessment
+Pillar D: Corpus coverage self-assessment
 
-The policy is fail-safe: a refuted candidate is excluded even when author
-statements would corroborate it, because a refutation is definitive while a
-statement might be outdated or subjective.  A failed probe blocks automatic
-approval but does not exclude — human review decides.
-
-Final rankings use the same features that drove the eligibility gate, so a
-candidate's position reflects both structural evidence and post-hoc signals.
+The policy is fail-closed:
+- A refuted candidate is excluded/refuted even if author statements exist.
+- A failed external probe blocks support and routes to review_required.
+- An uncorroborated candidate routes to review_required.
+- Corroborated candidates in an UNSATURATED corpus are categorized as
+  'evidence_supported_but_open' rather than claiming absolute global absence.
 """
 
 from __future__ import annotations
 
 from typing import Any
 
+from src.autonomous_reasoning import (
+    AutonomousAction,
+    EpistemicDisposition,
+    decide_hypothesis,
+)
+from src.external_verification import (
+    CORROBORATED as EXT_CORROBORATED,
+    FAILED as EXT_FAILED,
+    NOT_APPLICABLE as EXT_NOT_APPLICABLE,
+    REFUTED as EXT_REFUTED,
+)
 from src.utils import ensure_dir, get_logger, load_json, save_json
 
 logger = get_logger("synthesize_rankings")
@@ -42,65 +53,57 @@ def _merge_verification_data(
     return enriched
 
 
-def apply_synthesis_policy(candidate: dict[str, Any]) -> dict[str, str]:
-    """Classify a candidate into approved, review_required, or excluded.
+def apply_synthesis_policy(
+    candidate: dict[str, Any],
+    saturation_summary: dict[str, Any] | None = None,
+    extractor_summary: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Classify a candidate into refuted, evidence_supported, evidence_supported_but_open, or review_required.
 
-    Policy matrix:
-    - external=refuted → excluded
-    - external=failed → review_required
-    - external=corroborated + author≥1 → approved
-    - external=corroborated + author=0 → review_required
-    - external=not_applicable + author≥1 → approved
-    - external=not_applicable + author=0 → review_required
+    Non-compensatory policy matrix:
+    - external=refuted -> refuted (excluded)
+    - external=failed -> review_required
+    - external=corroborated + author>=1 + corpus=SATURATED -> evidence_supported
+    - external=corroborated + author>=1 + corpus!=SATURATED -> evidence_supported_but_open
+    - external=corroborated + author=0 -> review_required
+    - external=not_applicable -> review_required
     """
     external = candidate.get("external_verification", {})
     author = candidate.get("author_corroboration", {})
 
-    ext_verdict = external.get("verdict", NOT_APPLICABLE)
-    author_count = int(author.get("corroboration_count", 0))
-
-    if ext_verdict == REFUTED:
-        return {
-            "disposition": "excluded",
-            "reason": f"external index refutes absence claim: {len(external.get('refuting_papers', []))} confirming papers",
-        }
-
-    if ext_verdict == FAILED:
-        return {
-            "disposition": "review_required",
-            "reason": "external verification probes failed; human judgment required",
-        }
-
-    # corroborated or not_applicable
-    if author_count > 0:
-        return {
-            "disposition": "approved",
-            "reason": f"external verified + {author_count} author-stated corroboration(s)",
-        }
+    decision = decide_hypothesis(
+        candidate=candidate,
+        external_record=external,
+        author_record=author,
+        saturation_summary=saturation_summary,
+        extractor_summary=extractor_summary,
+    )
 
     return {
-        "disposition": "review_required",
-        "reason": "external verified but no author-stated corroboration found",
+        "disposition": decision.epistemic_disposition.value,
+        "epistemic_disposition": decision.epistemic_disposition.value,
+        "action": decision.action.value,
+        "reason": decision.decision_reason,
+        "decision_reason": decision.decision_reason,
+        "abstention_reason": decision.abstention_reason,
+        "decision_object": decision.to_dict(),
     }
 
 
 def score_candidate(candidate: dict[str, Any]) -> dict[str, float]:
     """Compute ranking scores from structural features and enrichment signals.
 
-    Higher scores indicate stronger research gaps:
-    - impact_score: corpus coverage × citation support
-    - novelty_score: recency discount × external corroboration boost
-    - confidence_score: convergence of all signals
+    Note: ranking scores are heuristic and strictly separate from epistemic gates.
+    A high score can never overturn a failed gate or refute counterevidence.
     """
-    # Structural features
     corpus_coverage = float(candidate.get("corpus_coverage_fraction", 0.0))
     citations = float(candidate.get("mean_citation_count", 0.0))
     recency = float(candidate.get("publication_recency_score", 0.0))
 
-    # Enrichment signals
     external = candidate.get("external_verification", {})
     author = candidate.get("author_corroboration", {})
-    ext_corroborated = external.get("verdict") == CORROBORATED
+    ext_verdict = external.get("verdict")
+    ext_corroborated = ext_verdict in (CORROBORATED, EXT_CORROBORATED)
     author_count = int(author.get("corroboration_count", 0))
 
     impact_score = corpus_coverage * (1.0 + min(citations / 100.0, 1.0))
@@ -133,7 +136,9 @@ def rank_candidates(
 
 
 def synthesize_final_rankings(config: dict[str, Any]) -> dict[str, Any]:
-    """Stage entry point: merge signals, apply policy, rank, and emit final outputs."""
+    """Stage entry point: merge signals, apply Four-Pillar policy, rank, and emit outputs."""
+    from src.gap_provenance import candidate_identity
+
     settings = config.get("synthesis", {}) or {}
     output_dir = ensure_dir(config["paths"]["outputs"])
 
@@ -142,9 +147,22 @@ def synthesize_final_rankings(config: dict[str, Any]) -> dict[str, Any]:
     eligible_path = output_dir / "evidence_clear_candidates.json"
     external_path = output_dir / "external_verification.json"
     author_path = output_dir / "author_stated_gaps.json"
+    recall_path = output_dir / "extractor_recall_report.json"
+    saturation_path = output_dir / "corpus_saturation_report.json"
 
     if not review_path.exists() and not eligible_path.exists():
         raise FileNotFoundError("Run the validate stage before synthesis")
+
+    # Load Pillar C & D data first so policy can consume them
+    extractor_summary: dict[str, Any] = {}
+    if recall_path.exists():
+        recall_data = load_json(recall_path) or {}
+        extractor_summary = recall_data.get("summary", {})
+
+    saturation_summary: dict[str, Any] = {}
+    if saturation_path.exists():
+        sat_data = load_json(saturation_path) or {}
+        saturation_summary = sat_data.get("summary", {})
 
     candidates_by_id: dict[str, dict[str, Any]] = {}
     for label, path in (("review_required", review_path), ("automatically_eligible", eligible_path)):
@@ -152,22 +170,22 @@ def synthesize_final_rankings(config: dict[str, Any]) -> dict[str, Any]:
             continue
         for category, candidates in (load_json(path) or {}).items():
             for cand in candidates:
-                cand_id = f"{cand.get('type')}:{cand.get('head')}:{cand.get('tail')}:{cand.get('concept')}:{cand.get('community_id')}"
+                cand_id = candidate_identity(cand)
                 candidates_by_id[cand_id] = {**cand, "_queue": label, "_category": category}
 
     external_by_id: dict[str, dict[str, Any]] = {}
     if external_path.exists():
         for rec in (load_json(external_path) or {}).get("candidates", []):
-            rec_id = f"{rec.get('type')}:{rec.get('head')}:{rec.get('tail')}:{rec.get('concept')}:{rec.get('community_id')}"
+            rec_id = candidate_identity(rec)
             external_by_id[rec_id] = rec
 
     author_by_id: dict[str, dict[str, Any]] = {}
     if author_path.exists():
         for rec in (load_json(author_path) or {}).get("candidates", []):
-            rec_id = f"{rec.get('type')}:{rec.get('head')}:{rec.get('tail')}:{rec.get('concept')}:{rec.get('community_id')}"
+            rec_id = candidate_identity(rec)
             author_by_id[rec_id] = rec
 
-    # Merge and apply policy
+    # Merge and apply calibrated policy
     enriched: list[dict[str, Any]] = []
     for cand_id, cand in candidates_by_id.items():
         merged = _merge_verification_data(
@@ -175,43 +193,85 @@ def synthesize_final_rankings(config: dict[str, Any]) -> dict[str, Any]:
             external_by_id.get(cand_id),
             author_by_id.get(cand_id),
         )
-        policy = apply_synthesis_policy(merged)
+        policy = apply_synthesis_policy(
+            merged,
+            saturation_summary=saturation_summary,
+            extractor_summary=extractor_summary,
+        )
         merged.update(policy)
         enriched.append(merged)
 
     # Split by disposition
-    approved = [c for c in enriched if c.get("disposition") == "approved"]
-    review = [c for c in enriched if c.get("disposition") == "review_required"]
-    excluded = [c for c in enriched if c.get("disposition") == "excluded"]
+    evidence_supported = [
+        c for c in enriched
+        if c.get("epistemic_disposition") == EpistemicDisposition.EVIDENCE_SUPPORTED.value
+    ]
+    evidence_supported_but_open = [
+        c for c in enriched
+        if c.get("epistemic_disposition") == EpistemicDisposition.EVIDENCE_SUPPORTED_BUT_OPEN.value
+    ]
+    review = [
+        c for c in enriched
+        if c.get("epistemic_disposition") == EpistemicDisposition.REVIEW_REQUIRED.value
+    ]
+    refuted = [
+        c for c in enriched
+        if c.get("epistemic_disposition") == EpistemicDisposition.REFUTED.value
+    ]
 
     # Rank each partition
     rank_by = str(settings.get("rank_by", "confidence_score"))
-    approved = rank_candidates(approved, rank_by)
+    evidence_supported = rank_candidates(evidence_supported, rank_by)
+    evidence_supported_but_open = rank_candidates(evidence_supported_but_open, rank_by)
     review = rank_candidates(review, rank_by)
-    excluded = rank_candidates(excluded, rank_by)
+    refuted = rank_candidates(refuted, rank_by)
 
-    # Assign final ranks
-    for rank, cand in enumerate(approved, start=1):
+    # Assign ranks
+    all_approved = evidence_supported + evidence_supported_but_open
+    for rank, cand in enumerate(all_approved, start=1):
         cand["rank"] = rank
-        cand["rank_group"] = "approved"
+        cand["rank_group"] = cand["epistemic_disposition"]
     for rank, cand in enumerate(review, start=1):
         cand["rank"] = rank
         cand["rank_group"] = "review_required"
-    for rank, cand in enumerate(excluded, start=1):
+    for rank, cand in enumerate(refuted, start=1):
         cand["rank"] = rank
-        cand["rank_group"] = "excluded"
+        cand["rank_group"] = "refuted"
+
+    pillars: dict[str, Any] = {
+        "A_external_verification": {"enabled": external_path.exists(), "probed_candidates": len(external_by_id)},
+        "B_author_stated_gaps": {"enabled": author_path.exists(), "mined_candidates": len(author_by_id)},
+        "C_extractor_recall": extractor_summary,
+        "D_corpus_saturation": saturation_summary,
+    }
 
     summary = {
         "total": len(enriched),
-        "approved": len(approved),
+        "approved": len(all_approved),
+        "evidence_supported": len(evidence_supported),
+        "evidence_supported_but_open": len(evidence_supported_but_open),
         "review_required": len(review),
-        "excluded": len(excluded),
+        "excluded": len(refuted),
+        "refuted": len(refuted),
         "rank_by": rank_by,
-        "policy": "refuted→excluded; failed→review; corroborated+author≥1→approved",
+        "policy": (
+            "refuted->excluded; failed->review_required; "
+            "corroborated+author>=1+SATURATED->evidence_supported; "
+            "corroborated+author>=1+UNSATURATED->evidence_supported_but_open"
+        ),
+        "evidence_pillars": pillars,
     }
 
     save_json(
-        {"summary": summary, "approved": approved, "review_required": review, "excluded": excluded},
+        {
+            "summary": summary,
+            "approved": all_approved,
+            "evidence_supported": evidence_supported,
+            "evidence_supported_but_open": evidence_supported_but_open,
+            "review_required": review,
+            "excluded": refuted,
+            "refuted": refuted,
+        },
         output_dir / "final_rankings.json",
     )
     logger.info("Synthesis complete: %s", summary)

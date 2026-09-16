@@ -73,7 +73,7 @@ We present \textbf{\method{}}, an auditable autonomous reasoning architecture fo
 
 \noindent\textbf{Autonomous Scientific Discovery and AMI.} Early symbolic systems such as BACON~\cite{langley1987} and the Robot Scientist Adam~\cite{king2009automation} executed closed-loop hypothesis generation and physical experimentation. In modern AMI, LeCun~\cite{lecun2022path} formalizes autonomous agents around perception, world modeling, reasoning, and objective-driven control. Recently, LLM-based systems such as The AI Scientist~\cite{aiscientist2024} demonstrated automated literature review and ideation. However, existing generative agents lack verifiable epistemic self-assessment and can accept unsupported or previously resolved gaps when external verification is absent.
 
-\noindent\textbf{Graph-Theoretic Gap Discovery.} Knowledge graphs provide structured representations for literature synthesis and hypothesis discovery~\cite{swanson1986fish,schneider2022decade,chen2019ukge}. Most closely related to our work, Dachepally and Kandasamy~\cite{rahul2026dynamic} generated gap candidates using TransE link prediction, Louvain community detection~\cite{blondel2008fast}, and temporal activity decay. While their work offers valuable techniques for initial graph candidate generation, \method{} focuses on the downstream verification problem: whether a structurally plausible candidate remains defensible after external retrieval, semantic counterevidence analysis, provenance checks, and corpus-coverage diagnostics. Distinguishing genuine gaps from unindexed literature, extraction misses, and terminology fragmentation requires active external probing and extractor reliability diagnostics.
+\noindent\textbf{Graph-Theoretic Gap Discovery.} Knowledge graphs provide structured representations for literature synthesis and hypothesis discovery~\cite{swanson1986fish,schneider2022decade,chen2019ukge}. Most closely related to our work, Dachepally and Kandasamy~\cite{rahul2026dynamic} generated gap candidates using TransE link prediction, Louvain community detection~\cite{blondel2008fast}, and temporal activity decay. While their work offers valuable techniques for initial graph candidate generation, \method{} addresses the downstream verification problem: determining whether a structurally plausible candidate remains defensible after external retrieval, semantic counterevidence analysis, provenance checks, and corpus-coverage diagnostics.
 
 \noindent\textbf{Scientific Claim Verification.} Claim verification frameworks, such as SciFact~\cite{wadden2020scifact} and SciFact-Open~\cite{wadden2022scifactopen}, evaluate natural-language assertions against corpora. However, these systems verify factual assertions (e.g., entity properties) rather than epistemic research gaps asserting that a capability has not been achieved. Verifying negative gap claims requires open-world external retrieval and semantic verification of whether retrieved papers resolve or merely discuss the challenge.
 
@@ -118,51 +118,57 @@ The \method{} architecture operationalizes the epistemic loop of Eq.~(\ref{eq:lo
 \centering
 \resizebox{\columnwidth}{!}{%
 \begin{tikzpicture}[
-  node distance=0.4cm and 0.5cm,
-  box/.style={rectangle, draw=black!70, fill=blue!5, rounded corners=2pt, minimum width=2.3cm, minimum height=0.55cm, font=\scriptsize\bfseries, align=center},
-  stagebox/.style={rectangle, draw=purple!80, fill=purple!5, rounded corners=2pt, minimum width=1.9cm, minimum height=0.5cm, font=\tiny, align=center},
-  pillar/.style={rectangle, draw=teal!80, fill=teal!5, rounded corners=2pt, minimum width=2.0cm, minimum height=0.55cm, font=\tiny\bfseries, align=center},
-  disp/.style={rectangle, draw=orange!80, fill=orange!10, rounded corners=2pt, minimum width=3.2cm, minimum height=0.55cm, font=\tiny\bfseries, align=center},
-  act/.style={rectangle, draw=red!80, fill=red!10, rounded corners=2pt, minimum width=3.2cm, minimum height=0.55cm, font=\tiny\bfseries, align=center},
-  arrow/.style={-{Stealth[scale=0.7]}, thick, color=black!70}
+  box/.style={rectangle, draw=black!70, fill=blue!6, rounded corners=2pt, minimum width=2.4cm, minimum height=0.54cm, font=\scriptsize\bfseries, align=center},
+  stagebox/.style={rectangle, draw=purple!80, fill=purple!6, rounded corners=2pt, minimum width=1.95cm, minimum height=0.50cm, font=\tiny, align=center},
+  pillar/.style={rectangle, draw=teal!80, fill=teal!6, rounded corners=2pt, minimum width=2.1cm, minimum height=0.52cm, font=\tiny\bfseries, align=center},
+  disp/.style={rectangle, draw=orange!85, fill=orange!10, rounded corners=2pt, minimum width=4.2cm, minimum height=0.58cm, font=\tiny\bfseries, align=center},
+  act/.style={rectangle, draw=red!85, fill=red!10, rounded corners=2pt, minimum width=4.2cm, minimum height=0.58cm, font=\tiny\bfseries, align=center},
+  arrow/.style={-{Stealth[scale=0.75]}, thick, color=black!75},
+  bus/.style={thick, color=black!75}
 ]
 
 % Tier 1: Operational Loop
 \node[box] (obs) {1. Observe\\ \tiny Screen \& Ingest};
-\node[box, right=of obs] (hyp) {2. Hypothesize\\ \tiny Graph Signals};
-\node[box, right=of hyp] (gates) {Local Gates\\ \tiny 10 Non-Compensatory};
-\node[box, right=of gates] (ver) {3. Verify\\ \tiny Four Pillars};
+\node[box, right=0.45cm of obs] (hyp) {2. Hypothesize\\ \tiny Graph Signals};
+\node[box, right=0.45cm of hyp] (gates) {Local Gates\\ \tiny 10 Non-Compensatory};
+\node[box, right=0.45cm of gates] (ver) {3. Verify\\ \tiny Four Pillars};
 
 \draw[arrow] (obs) -- (hyp);
 \draw[arrow] (hyp) -- (gates);
 \draw[arrow] (gates) -- (ver);
 
 % Tier 2: Verification Pillars
-\node[pillar, below=0.55cm of obs, xshift=0.3cm] (pila) {Pillar A: External\\ Two-Stage Probing};
-\node[stagebox, right=0.25cm of pila] (stg1) {Stage A1: Lexical\\ Candidate Retrieval};
-\node[stagebox, right=0.25cm of stg1] (stg2) {Stage A2: Semantic\\ Evidence Extraction};
+\node[pillar, below=0.54cm of obs, xshift=0.1cm] (pila) {Pillar A: External\\ Two-Stage Probing};
+\node[stagebox, right=0.2cm of pila] (stg1) {Stage A1: Lexical\\ Candidate Retrieval};
+\node[stagebox, right=0.2cm of stg1] (stg2) {Stage A2: Semantic\\ Evidence Extraction};
 \draw[arrow] (pila) -- (stg1);
 \draw[arrow] (stg1) -- (stg2);
 
-\node[pillar, right=0.45cm of stg2] (pilb) {Pillar B: Disjoint\\ Corroboration};
-\node[pillar, right=0.3cm of pilb] (pilcd) {Pillars C \& D: Extractor\\ \& Saturation Diagnostics};
+\node[pillar, right=0.4cm of stg2] (pilb) {Pillar B: Disjoint\\ Corroboration};
+\node[pillar, right=0.4cm of pilb] (pilcd) {Pillars C \& D: Extractor\\ \& Saturation Diagnostics};
 
-\draw[arrow] (ver.south) -- ++(0,-0.22) -| (pilcd.north);
-\draw[arrow] (ver.south) -- ++(0,-0.22) -| (pilb.north);
-\draw[arrow] (ver.south) -- ++(0,-0.22) -| (stg2.north);
+% Clean Distribution Bus from 3. Verify to Pillars
+\coordinate (splitY) at ([yshift=-0.22cm]ver.south);
+\draw[bus] (ver.south) -- (splitY);
+\draw[bus] (pila.north |- splitY) -- (pilcd.north |- splitY);
+\draw[arrow] (pila.north |- splitY) -- (pila.north);
+\draw[arrow] (pilb.north |- splitY) -- (pilb.north);
+\draw[arrow] (pilcd.north |- splitY) -- (pilcd.north);
 
-% Tier 3: Reasoning
-\node[box, below=0.6cm of stg1, xshift=0.9cm] (rsn) {4. Reason \& Decide\\ \tiny Deterministic Policy $\pi$};
-\draw[arrow] (stg2.south) |- (rsn.west);
-\draw[arrow] (pilb.south) |- (rsn.east);
-\draw[arrow] (pilcd.south) |- (rsn.east);
+% Tier 3: Reasoning Box (centered under Pillar B)
+\node[box, below=0.56cm of pilb, minimum width=3.8cm] (rsn) {4. Reason \& Decide\\ \tiny Deterministic Policy $\pi$};
 
-% Tier 4: Disposition and Action (wider separation)
-\node[disp, below=0.65cm of rsn, xshift=-3.0cm] (dspace) {Epistemic Disposition $\mathcal{D}$\\ \tiny REFUTED / SUPPORTED / REVIEW};
-\node[act, below=0.65cm of rsn, xshift=3.0cm] (aspace) {Executed Action $\mathcal{A}$\\ \tiny REJECT / RETAIN / ABSTAIN};
+% Clean Inputs into 4. Reason & Decide without line intersections
+\draw[arrow] (stg2.south) -- ++(0,-0.20) -| ([xshift=-1.1cm]rsn.north);
+\draw[arrow] (pilb.south) -- (rsn.north);
+\draw[arrow] (pilcd.south) -- ++(0,-0.20) -| ([xshift=1.1cm]rsn.north);
 
-\draw[arrow] (rsn.south) -- ++(0,-0.25) -| (dspace.north);
-\draw[arrow] (dspace.east) -- node[above, font=\tiny\bfseries] {Policy $\pi$} (aspace.west);
+% Tier 4: Disposition and Action (centered under rsn)
+\node[disp, below=0.54cm of rsn, xshift=-2.8cm] (dspace) {Epistemic Disposition $\mathcal{D}$\\ \tiny REFUTED / SUPPORTED / REVIEW};
+\node[act, right=1.2cm of dspace] (aspace) {Executed Action $\mathcal{A}$\\ \tiny REJECT / RETAIN / ABSTAIN};
+
+\draw[arrow] (rsn.south) -- ++(0,-0.18) -| (dspace.north);
+\draw[arrow] (dspace.east) -- node[above=1pt, font=\tiny\bfseries] {Policy $\pi$} (aspace.west);
 
 \end{tikzpicture}%
 }
@@ -235,7 +241,7 @@ To evaluate whether the ingested corpus $\mathcal{P}$ adequately covers the doma
 
 \noindent\textbf{Model Implementations and Hyperparameters.} Relation extraction used Llama-3.3-70b-versatile via Groq (low-variance decoding, $\text{temperature} = 0.0$, seed 42) with structured JSON schemas and exponential backoff retry (up to 3 retries). Domain relevance screening applied a confidence threshold $\tau_{\text{conf}} = 0.70$: papers whose LLM-assigned relevance score fell below this threshold were excluded from the retained corpus. Stage A2 semantic verification used the same LLM and low-variance configuration but does not apply a separate confidence cutoff; instead, Stage A2 accepts the classification label directly, records model confidence as audit metadata, and enforces automated verbatim substring matching against retrieved titles and abstracts before admitting evidence spans. Louvain community detection used resolution $\gamma = 1.0$ (seed 42). Entity canonicalization combined TF-IDF cosine similarity (threshold 0.75) with lexical normalizers. OpenAlex~\cite{openalex2022} and Semantic Scholar~\cite{semanticscholar2023} Graph APIs were probed up to $K_{\text{fetch}} = 5$ fetched records per candidate query (frozen experiment run identifier: \path{deep_learning_iot_intrusion_de_20260831_114802}).
 
-\noindent\textbf{Research Questions.} We structure our evaluation around five core questions: \textbf{RQ1} (Extractor Diagnostics): What are the empirical precision, recall, and miss rate of relation extraction, and what are their Wilson 95\% confidence intervals? \textbf{RQ2} (Corpus Saturation): Does the 150-paper corpus exhibit vocabulary saturation under Heaps' law and marginal discovery decay? \textbf{RQ3} (Autonomous Abstention): Does the framework enforce fail-closed abstention under API failures, circular citations, or incomplete evidence? \textbf{RQ4} (Semantic Verification): Does Stage A2 prevent non-counterevidence co-mentions from falsely refuting candidate gaps in case-study evaluation? \textbf{RQ5} (Pipeline Ablation): How do successive stages of the Four-Pillar architecture filter candidate hypotheses, and what is the final triage distribution?
+\noindent\textbf{Research Questions.} We structure our evaluation around five research questions: \textbf{RQ1} (Extractor Diagnostics): empirical precision, recall, and miss rate on $\mathcal{D}_{\text{gold}}$ with Wilson 95\% CIs; \textbf{RQ2} (Corpus Saturation): vocabulary growth and discovery decay under Heaps' law; \textbf{RQ3} (Autonomous Abstention): fail-closed control under API faults, circular citations, and missing evidence; \textbf{RQ4} (Semantic Verification): distinguishing counterevidence from limitation co-mentions; and \textbf{RQ5} (Pipeline Ablation): progressive candidate filtering across verification pillars.
 
 \section{Results}
 \label{sec:results}
@@ -271,7 +277,7 @@ The relation extractor identified 1,404 directed attributed relation events acro
 \end{tabular}
 \end{table}
 
-The extractor achieved an overall recall of $77.8\%$ (28/36) and precision of $87.5\%$ (28/32), yielding an $F_1$ score of $82.4\%$. For explicit limitation extraction (\texttt{LACKS}), diagnostic recall was $83.3\%$ (5/6). The observed diagnostic miss rate was $22.2\%$ with a Wilson 95\% confidence interval of $[11.7\%, 38.1\%]$. These counts establish empirically that roughly one out of every five gold relations in this diagnostic benchmark was missed by the extractor, confirming that missing graph edges cannot be assumed to represent true scientific gaps without external verification.
+On gold benchmark $\mathcal{D}_{\text{gold}}$, the extractor achieved overall recall of $77.8\%$ (28/36), precision of $87.5\%$ (28/32), and $F_1$ of $82.4\%$ (Table~\ref{tab:gold}). For limitation extraction (\texttt{LACKS}), recall was $83.3\%$ (5/6). The observed miss rate was $22.2\%$ ($95\%$ Wilson CI: $[11.7\%, 38.1\%]$), empirically demonstrating that approximately one out of five gold relations was missed. Missing graph edges therefore cannot be assumed to represent true scientific gaps without external verification.
 
 \subsection{Corpus Coverage Diagnostics (RQ2)}
 Figure~\ref{fig:saturation} depicts vocabulary accumulation and marginal discovery across the 150-paper corpus.
@@ -279,7 +285,7 @@ Figure~\ref{fig:saturation} depicts vocabulary accumulation and marginal discove
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.44\columnwidth]{figures/corpus_saturation_curve.png}
-\caption{Corpus Vocabulary Growth and Canonical Entity Discovery Dynamics across 150 IoT cybersecurity publications ($V_{\text{observed}}(150) = 1,185$ canonical entities). Heaps' law fit yields $\beta = 0.995$ ($R^2 = 0.9983$, near-linear growth) and marginal discovery decay $\Delta_{\text{decay}} = -10.3\%$, diagnosing the literature as \texttt{UNSATURATED}.}
+\caption{Corpus vocabulary growth and canonical entity discovery across 150 IoT cybersecurity publications ($V_{\text{observed}}(150) = 1{,}185$). Heaps' law fit yields $\beta = 0.995$ ($R^2 = 0.9983$) and discovery decay $\Delta_{\text{decay}} = -10.3\%$, diagnosing the literature as \texttt{UNSATURATED}.}
 \label{fig:saturation}
 \end{figure}
 
@@ -334,11 +340,10 @@ C5 & Nguyen et al.~\cite{nguyen2025adversarial} & Adversarial Attack and Defense
 \end{tabular}
 \end{table}
 
-\noindent\textbf{Analysis of Candidate Triage Outcomes.} \emph{C1 (Zero-Day Attacks):} 864 raw hits probed; 5 fetched and inspected. While all 5 showed lexical co-mentions, Stage A2 verified two counterevidence papers (e.g., Nitrat et al.~\cite{nitrat2025zeroday} achieving 82\% zero-day accuracy via CZ-ResViT). Triage: \texttt{REFUTED} $\rightarrow$ \texttt{REJECT}.
-\emph{C2 (Protocols):} 400 raw hits probed; 4 showed co-mentions. Stage A2 confirmed that all papers discussed protocol diversity as an obstacle (e.g., Shukla et al.~\cite{shukla2025effective}, \texttt{SUPPORTING\_}\allowbreak\texttt{LIMITATION}; zero counterevidence). However, Pillar B found zero independent corroboration (single citation from origin paper \texttt{04b3ca64}, circular). Triage: \texttt{REVIEW\_}\allowbreak\texttt{REQUIRED} $\rightarrow$ \texttt{ABSTAIN\_}\allowbreak\texttt{AND\_}\allowbreak\texttt{ESCALATE}.
-\emph{C3 (Testbeds):} 146 raw hits probed; Stage A2 verified two counterevidence papers (e.g., LiteRT-IDSNet~\cite{ogundokun2025litert}, achieving 99.6\% accuracy on RT-IoT 2022). Triage: \texttt{REFUTED} $\rightarrow$ \texttt{REJECT}.
-\emph{C4 (Edge Computational Overhead):} 189 raw hits probed; zero counterevidence found. Pillar B identified three independent 2026 corroborating publications~\cite{jenish2026review,alam2026reservoir,mahdi2026scf}. Under an \texttt{UNSATURATED} corpus, triage assigned \texttt{SUPPORTED\_\allowbreak OPEN} $\rightarrow$ \texttt{RETAIN\_WARN}.
-\emph{C5 (Adversarial Attacks):} 1,095 raw hits probed; Stage A2 verified counterevidence in Nguyen et al.~\cite{nguyen2025adversarial} (APELID+, 98.73\% accuracy). Triage: \texttt{REFUTED} $\rightarrow$ \texttt{REJECT}.
+\noindent\textbf{Analysis of Candidate Triage Outcomes.} As structured in Table~\ref{tab:triage} and Table~\ref{tab:evidence}, multi-pillar verification resolved the post-gate candidates into three distinct epistemic outcomes:
+(1)~\emph{Empirical Refutations (C1, C3, C5):} Despite dense lexical co-mentions, Stage~A2 confirmed recent counterevidence resolving the asserted gaps: Nitrat et al.~\cite{nitrat2025zeroday} (82\% zero-day accuracy), Ogundokun et al.~\cite{ogundokun2025litert} (99.6\% accuracy on industrial testbeds), and Nguyen et al.~\cite{nguyen2025adversarial} (98.73\% adversarial defense), yielding \texttt{REFUTED} $\rightarrow$ \texttt{REJECT}.
+(2)~\emph{Circular Provenance Escalation (C2):} External literature discussed protocol diversity solely as an obstacle (e.g., Shukla et al.~\cite{shukla2025effective}) with zero counterevidence. However, Pillar~B traced the single local citation back to the candidate's own origin paper (\texttt{04b3ca64}), triggering fail-closed abstention (\texttt{REVIEW\_REQUIRED} $\rightarrow$ \texttt{ABSTAIN\_AND\_ESCALATE}).
+(3)~\emph{Corroborated Open Gap (C4):} Zero counterevidence was retrieved, while Pillar~B verified three independent 2026 publications~\cite{jenish2026review,alam2026reservoir,mahdi2026scf}. Because the corpus is \texttt{UNSATURATED}, C4 was triaged as \texttt{SUPPORTED\_OPEN} $\rightarrow$ \texttt{RETAIN\_WARN}.
 
 \noindent\textbf{Retrieval-Depth Robustness ($K_{\text{fetch}}$ Sensitivity).} In the frozen multi-provider run (Table~\ref{tab:triage}), candidate C4 was evaluated using strict canonical phrases (\emph{``machine learning-driven intrusion detection frameworks''} and \emph{``computational burdens''}) with $\tau=0.60$ token overlap, yielding 0 lexical co-mentions among the 5 fetched Semantic Scholar records (and 0 at $K=10$, 1 at $K=20$, 2 at $K=50$). To stress-test whether relaxing lexical constraints at greater retrieval depths would uncover unindexed counterevidence, a subsequent sensitivity analysis probed an expanded semantic synonym family (\emph{``machine learning''}, \emph{``intrusion detection''} and \emph{``computational overhead''}, \emph{``resource-constrained''}, \emph{``edge''}) across $K_{\text{fetch}} \in \{5, 10, 20, 50\}$ on Semantic Scholar under default relevance ranking. In this expanded-synonym run, lexical co-mentions scaled from 4 ($K=5$) to 7 ($K=10$), 13 ($K=20$), and 33 ($K=50$). At $K = 50$, neither the strict-phrase run nor the expanded-synonym run yielded verified counterevidence. In the expanded-synonym run, all 50 records were inspected; 33 passed lexical co-mention filtering, of which 18 expressed supporting limitations while the remaining 15 co-mentions were ambiguous, acknowledging edge latency bottlenecks without demonstrating resolution. Candidate C4 remained consistently \texttt{SUPPORTED\_OPEN} across $K \in \{5, 10, 20, 50\}$ under the evaluated queries and default relevance-ranking protocol.
 
@@ -366,7 +371,7 @@ Table~\ref{tab:ablation} traces the progressive filtering of candidate hypothese
 \end{tabular}
 \end{table}
 
-Without external verification, an autonomous agent relying solely on representation sparsity would have prematurely promoted all five candidates. Within the five evaluated candidates, three ($60\%$) were verified false-positive novelty hypotheses refuted by recent literature. Overall, four ($80\%$) were prevented from promotion to evidence-supported status (three refutations and one circular-provenance abstention). Crucially, Stage A2 semantic verification prevented the premature refutation of C2, while Pillar B enforced honest abstention.
+Without external verification, relying solely on graph sparsity prematurely promotes all five candidates. Across the cohort, external evidence refuted three candidates ($60\%$) via recent literature and prevented four ($80\%$) from unjustified promotion (three refutations and one circular-provenance abstention). Stage~A2 prevented C2 from false refutation, while Pillar~B enforced fail-closed abstention.
 
 \subsection{Fail-Closed Fault-Injection Validation (RQ3)}
 We evaluated autonomous abstention under six operational failure modes (Table~\ref{tab:fault}). Across all six predefined fault-injection scenarios ($100\%$), \method{} refrained from ungrounded claims, halting downstream execution and routing the candidate to human oversight.
@@ -395,37 +400,26 @@ We evaluated autonomous abstention under six operational failure modes (Table~\r
 \end{table}
 
 \subsection{Evidence-Supported Agenda Formulation (Candidate C4)}
-For surviving candidate C4 (computational overhead and inference latency of ML models on resource-constrained IoT edge devices), \method{} formulated an actionable research agenda. To avoid generative hallucination, target performance metrics are designated as \textbf{illustrative expert-review-required targets}, grounding the agenda in qualitative challenges cited by Jenish \& Karuppasamy~\cite{jenish2026review}, Alam et al.~\cite{alam2026reservoir}, and Mahdi et al.~\cite{mahdi2026scf}: developing lightweight neural architectures that preserve detection accuracy while minimizing memory footprint and inference latency on edge microcontrollers.
+For surviving candidate C4 (computational overhead and inference latency of ML models on resource-constrained IoT edge devices), \method{} formulated an actionable research agenda. To avoid generative hallucination, performance metrics are designated as \textbf{illustrative expert-review targets}, grounding the agenda in qualitative challenges cited by Jenish \& Karuppasamy~\cite{jenish2026review}, Alam et al.~\cite{alam2026reservoir}, and Mahdi et al.~\cite{mahdi2026scf}: lightweight neural architectures that preserve detection accuracy while minimizing memory footprint and inference latency on edge microcontrollers.
 
 \section{Discussion and Sensitivity Analysis}
 \label{sec:discussion}
 
-\noindent\textbf{Heaps' Law Parameter Sensitivity.} Corpus coverage classification robustness was evaluated across parameter grid $\beta_{\text{thresh}} \in [0.65, 0.85]$ and $\Delta_{\text{decay, thresh}} \in [0.10, 0.40]$. Across all configurations, empirical values ($\beta = 0.995, \Delta_{\text{decay}} = -10.3\%$) remained strictly in the \texttt{UNSATURATED} region, confirming classification invariance.
+\noindent\textbf{Heaps' Law Parameter Sensitivity.} Corpus coverage classification was evaluated across $\beta_{\text{thresh}} \in [0.65, 0.85]$ and $\Delta_{\text{decay, thresh}} \in [0.10, 0.40]$. Across all configurations, empirical values ($\beta = 0.995, \Delta_{\text{decay}} = -10.3\%$) remained strictly in the \texttt{UNSATURATED} region, confirming classification invariance.
 
-\noindent\textbf{Summary of Research Questions.} \emph{RQ1 (Extractor Diagnostics):} On $\mathcal{D}_{\text{gold}}$, diagnostic recall is $77.8\%$ ($95\%$ CI: $[61.9\%, 88.3\%]$) and observed miss rate is $22.2\%$ ($[11.7\%, 38.1\%]$), confirming that missing graph links do not establish absence. \emph{RQ2 (Corpus Saturation):} Canonical growth ($\beta = 0.995$, decay $-10.3\%$) establishes an open-world corpus, prohibiting absolute absence claims. \emph{RQ3 (Autonomous Abstention):} Under fault injection (Table~\ref{tab:fault}) and circular provenance (C2), \method{} enforced fail-closed abstention across all six predefined failure scenarios ($100\%$). \emph{RQ4 (Semantic Verification):} In case-study evaluation, Stage A2 prevented C2 from being falsely refuted by lexical co-mention alone. \emph{RQ5 (Pipeline Ablation):} Three of five post-gate candidates were refuted by verified recent counterevidence ($60\%$), while four of five ($80\%$) were prevented from promotion to evidence-supported status (three refutations and one circular-provenance abstention).
+\noindent\textbf{Summary of Empirical Findings.} (1)~RQ1 and RQ2 confirm that link absence cannot be equated with scientific absence, given an extraction miss rate of $22.2\%$ on $\mathcal{D}_{\text{gold}}$ and an unsaturated corpus ($\beta = 0.995, \Delta_{\text{decay}} = -10.3\%$). (2)~RQ4 and RQ5 show that multi-pillar verification prevented 80\% of candidate gaps from unjustified promotion (60\% refuted, 20\% escalated for circular provenance). (3)~RQ3 confirms 100\% fail-closed abstention across all six operational failure modes (Table~\ref{tab:fault}), ensuring that faults trigger human escalation rather than generative hallucination.
 
 \section{Threats to Validity and Limitations}
 \label{sec:threats}
 
-\noindent\textbf{Diagnostics, Verification, and Canonicalization.} Gold benchmark $\mathcal{D}_{\text{gold}}$ (36 triples, 10 abstracts) provides an empirical diagnostic demonstration that extraction error is non-zero, rather than a universal bound across all disciplines. Furthermore, Stage A2 semantic verification has not yet been evaluated against a dedicated, independently human-annotated external-evidence benchmark; classification error could alter candidate labeling between \texttt{REFUTED} and supporting or ambiguous categories, and model-reported confidence values are not calibrated probabilities. In addition, boolean query generation and entity canonicalization rely on lexical normalization and TF-IDF similarity, which can be vulnerable to synonym drift, abbreviations, and terminology fragmentation across evolving subfields.
+\noindent\textbf{Diagnostics, Verification, and Canonicalization.} Gold benchmark $\mathcal{D}_{\text{gold}}$ (36 triples, 10 abstracts) demonstrates that extraction error is non-zero, rather than providing a universal bound across disciplines. Furthermore, Stage~A2 semantic verification has not yet been evaluated against an independent, human-annotated external-evidence benchmark; classification error could alter candidate labeling between \texttt{REFUTED} and supporting or ambiguous categories, and model-reported confidence values are not calibrated probabilities. In addition, boolean query generation and entity canonicalization rely on lexical normalization and TF-IDF similarity, which are vulnerable to synonym drift, abbreviations, and terminology fragmentation across subfields.
 
-\noindent\textbf{Retrieval Scope, Scale, and Temporal Bounds.} Scholarly APIs (Semantic Scholar, OpenAlex) and relevance-based top-$K$ rankings are not exhaustive, though our $K_{\text{fetch}}$ sensitivity analysis confirmed C4 stability up to $K=50$ under Semantic Scholar default ranking. Our empirical study evaluated $n=5$ post-gate hypotheses across 150 IoT cybersecurity papers; reported triage proportions ($60\%$ refuted, $80\%$ prevented from promotion) are descriptive case-study statistics, not population estimates, and cross-domain generalization remains unevaluated. In addition, external probes and extractions analyzed titles and abstracts, potentially missing evidence reported solely in full-text methods or appendices. Finally, research-gap triage reflects timestamped literature states and may evolve as new publications appear.
+\noindent\textbf{Retrieval Scope, Scale, and Temporal Bounds.} Scholarly APIs (Semantic Scholar, OpenAlex) and top-$K$ rankings are not exhaustive, though our $K_{\text{fetch}}$ sensitivity analysis confirmed C4 stability up to $K=50$ under default ranking. Our empirical evaluation examined $n=5$ post-gate hypotheses across 150 IoT cybersecurity papers; reported triage proportions ($60\%$ refuted, $80\%$ prevented from promotion) are descriptive case-study statistics rather than population estimates, and cross-domain generalization remains unevaluated. External probes analyzed titles and abstracts, potentially omitting evidence reported solely in full text or appendices. Finally, gap triage reflects timestamped literature states that evolve as new publications appear.
 
 \section{Conclusion}
 \label{sec:conclusion}
 
-We presented \textbf{\method{}}, an auditable autonomous reasoning architecture for evidence-grounded hypothesis triage. By executing an active epistemic control loop with Four-Pillar Evidence Verification, \method{} replaces graph sparsity heuristics with empirical verification rigor. In an empirical case study on deep-learning IoT intrusion detection (150 publications, 1,404 relation events), \method{} refuted three candidate gaps via verified counterevidence ($60\%$), escalated circular provenance to human review, and qualified an edge-computing gap corroborated by independent literature. Across six predefined fault-injection scenarios, the architecture enforced fail-closed abstention without ungrounded conjecture. While cross-domain generalization and larger hypothesis cohorts remain unevaluated, this study shows how explicit epistemic constraints can prevent an autonomous scientific reasoning pipeline from promoting unsupported hypotheses when evidence is incomplete, contradictory, or provenance-limited.
-
-\let\oldthebibliography\thebibliography
-\let\endoldthebibliography\endthebibliography
-\renewenvironment{thebibliography}[1]{%
-  \begin{oldthebibliography}{#1}%
-    \def\doi##1{\href{https://doi.org/##1}{\nolinkurl{doi:##1}}}%
-    \setlength{\itemsep}{-5.5pt plus 0.2pt}%
-    \setlength{\parsep}{0pt}%
-}{%
-  \end{oldthebibliography}%
-}
+We presented \textbf{\method{}}, an auditable autonomous reasoning architecture for evidence-grounded hypothesis triage. By executing an active epistemic control loop with Four-Pillar Evidence Verification, \method{} replaces graph sparsity heuristics with empirical verification. In an empirical case study on deep-learning IoT intrusion detection (150 publications, 1,404 relation events), \method{} refuted three candidate gaps via verified counterevidence ($60\%$), escalated circular provenance to human review, and qualified an edge-computing gap corroborated by independent literature. Across six predefined fault-injection scenarios, the architecture enforced fail-closed abstention without ungrounded conjecture, demonstrating how explicit epistemic constraints prevent autonomous scientific reasoning pipelines from promoting unsupported hypotheses when evidence is incomplete, contradictory, or provenance-limited.
 
 \bibliographystyle{splncs04}
 \bibliography{references}

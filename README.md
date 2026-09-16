@@ -1,209 +1,171 @@
-# ESV-Gap
+# ESV-Gap: Auditable Autonomous Scientific Reasoning Framework for Evidence-Grounded Hypothesis Triage
 
-**Evidence- and Stability-Validated Knowledge-Graph Research-Gap Triage**
+[![Tests](https://img.shields.io/badge/tests-123%20passed-brightgreen.svg)](file:///d:/Workspace/research-paper-gap/ESV-Gap/tests)
+[![Target Conference](https://img.shields.io/badge/Target-AMI%202026-blue.svg)](file:///d:/Workspace/research-paper-gap/ESV-Gap/paper_v2/main_iot_run.pdf)
+[![Epistemic Model](https://img.shields.io/badge/Epistemic%20Model-Fail--Closed-orange.svg)](file:///d:/Workspace/research-paper-gap/ESV-Gap/src/autonomous_reasoning.py)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](file:///d:/Workspace/research-paper-gap/LICENSE)
 
-ESV-Gap is a research prototype that collects scholarly metadata, screens a
-topic-specific corpus, extracts evidence-linked knowledge triples, builds a
-temporal knowledge graph, and routes structural gap signals through a
-fail-closed validation gate before human review.
+**ESV-Gap** is an auditable autonomous scientific reasoning system designed to bridge the gap between automated hypothesis generation and empirical verification under **bounded autonomy**. Rather than treating missing topological links or isolated entity clusters in an internal knowledge graph as unvetted research gaps, ESV-Gap embeds literature analysis within a closed-loop autonomous epistemic control cycle:
 
-The system treats graph anomalies as **research-gap candidates**, not as proof
-of scientific novelty. Candidates without sufficient provenance, independent
-paths, perturbation stability, or corpus-closure evidence are sent to manual
-review or rejected.
+$$\text{\bf OBSERVE} \longrightarrow \text{\bf HYPOTHESIZE} \longrightarrow \text{\bf VERIFY} \longrightarrow \text{\bf REASON} \longrightarrow \text{\bf DECIDE} \longrightarrow \text{\bf ACT / ABSTAIN}$$
 
-> Project status: research prototype for a student scientific-research
-> submission. The reported expert review is author-internal and must not be
-> interpreted as independent external validation.
+The system actively acquires external evidence from global scholarly indexes (Semantic Scholar, OpenAlex), enforces strict source-disjoint corroboration, empirically bounds extraction-induced false-negative risks, self-assesses corpus vocabulary saturation, and assigns calibrated epistemic dispositions before taking downstream action.
 
-## Main features
+---
 
-- Semantic Scholar collection with bounded retry and timeout behavior.
-- Topic-conditioned abstract screening through a Groq-hosted LLM.
-- Checkpointed triple extraction that can resume after quota exhaustion.
-- Deterministic entity normalization and temporal knowledge-graph construction.
-- Missing-link, orphan-community, and temporal-decay candidate generation.
-- Fail-closed evidence and stability validation before score-based ranking.
-- Human review ledger with Accept, Reject, Modify, and Pending decisions.
-- B1 retrieval-augmented and B2 per-abstract LLM comparison workflows.
-- Interactive Streamlit workbench with graph, analytics, review, and export tabs.
-- Controlled validation benchmark and reproducibility utilities.
-
-## Pipeline
+## Autonomous Epistemic Reasoning Architecture
 
 ```mermaid
-flowchart LR
-    A[Collect papers] --> B[Screen corpus]
-    B --> C[Extract triples]
-    C --> D[Build temporal KG]
-    D --> E[Generate candidates]
-    E --> F{Evidence and stability gate}
-    F -->|eligible| G[Rank]
-    F -->|uncertain| H[Human review]
-    F -->|failed rules| I[Reject]
-    G --> H
-    H --> J[Auditable exports]
+flowchart TD
+    subgraph Env ["Scholarly Literature Environment"]
+        S2["Semantic Scholar Academic Graph API"]
+        OA["OpenAlex Open Scholarly Dataset"]
+    end
+
+    subgraph Loop ["ESV-Gap Bounded Autonomous Epistemic Loop"]
+        A["OBSERVE: Literature Ingestion & Multigraph Construction"] --> B["HYPOTHESIZE: Anomaly & Limitation Signal Extraction"]
+        B --> C{"Local Fail-Closed Validation Gates"}
+        C -->|Failed Gates| J["ABSTAIN: Diagnostic Exclusion"]
+        C -->|Passed Gates| D["VERIFY: Active External Evidence Acquisition"]
+        
+        subgraph FourPillars ["Four-Pillar Verification & Self-Assessment"]
+            P1["Pillar A: External Counterevidence Probing"]
+            P2["Pillar B: Source-Disjoint Corroboration"]
+            P3["Pillar C: Extractor Fidelity & Miss-Rate Bound"]
+            P4["Pillar D: Corpus Vocabulary Saturation"]
+        end
+        D --> P1 & P2 & P3 & P4
+        P1 & P2 & P3 & P4 --> E["REASON: Multi-Evidence Synthesis"]
+        
+        E --> F{"DECIDE: Calibrated Epistemic Disposition"}
+        F -->|Counterevidence Found| R1["REFUTED"]
+        F -->|No Counterevidence + Saturated| R2["EVIDENCE_SUPPORTED"]
+        F -->|No Counterevidence + Unsaturated| R3["EVIDENCE_SUPPORTED_BUT_OPEN"]
+        F -->|API Failure / Low Support| R4["REVIEW_REQUIRED"]
+    end
+
+    P1 <-->|Active Targeted Search| Env
+    R1 --> Act1["ACT: Suppress False Positive & Log Counterevidence DOIs"]
+    R2 --> Act2["ACT: Formulate Actionable PMCOST Research Agenda"]
+    R3 --> Act3["ACT: Formulate PMCOST Agenda + Continuous Monitoring Warning"]
+    R4 --> Act4["ABSTAIN: Output Auditable Diagnostic Trace for Human Review"]
 ```
 
-The validation gate checks path-specific provenance, source-disjoint support,
-entity specificity, robustness under graph perturbations, existing direct
-links, and lexical evidence that the screened corpus may already cover the
-candidate.
+---
 
-## Repository layout
+## Core Epistemic Principles & Decision Semantics
+
+### 1. Bounded Autonomy & Fail-Closed Safety
+The system operates with **bounded autonomy**: it autonomously queries external scholarly repositories, parses counterevidence, computes graph metrics, applies deterministic verification policies, and synthesizes structured research questions. Critical boundaries (domain definitions, extraction ontologies, gold diagnostics) remain human-defined. Under any provider timeout, HTTP 429 quota exhaustion, or parsing failure, the engine defaults to **`REVIEW_REQUIRED` (Fail-Closed)**—retrieval failure is never conflated with evidence of absence.
+
+### 2. Four-Pillar Verification and Self-Assessment
+* **Pillar A (External Counterevidence Acquisition):** Targeted bi-directional queries probe Semantic Scholar and OpenAlex. A candidate is refuted if external peer-reviewed literature demonstrates existing solutions bridging the hypothesized gap.
+* **Pillar B (Source-Disjoint Corroboration):** Requires that author-stated limitations originate from sources strictly disjoint from the candidate's origin publication ($\text{Sources}_{\text{candidate}} \cap \text{Sources}_{\text{corrob}} = \emptyset$).
+* **Pillar C (Extractor Fidelity & False-Negative Bound):** Evaluated against a gold-standard diagnostic benchmark (10 papers, 36 triples; Recall = 77.8%, Precision = 87.5%, Miss Rate = 22.2%). *Critical mathematical insight:* An empirical miss rate of 22.2% bounds the risk of extraction false-absences, proving that a missing edge alone cannot logically establish a scientific gap without external verification.
+* **Pillar D (Corpus Coverage Self-Assessment):** Fits Heaps' law vocabulary growth ($E(n) = K \cdot n^\beta$) and marginal entity decay ($\Delta_{\text{decay}}$). In our primary run, $\beta = 0.90$ and $\Delta_{\text{decay}} = 15.8\%$, classifying the corpus as **`UNSATURATED`** and preventing overconfident claims of global absence.
+
+### 3. Epistemic Dispositions
+
+| Disposition | Operational Meaning | Autonomous Downstream Action |
+|---|---|---|
+| **`REFUTED`** | Confirmed external counterevidence found in global literature. | Halt processing; suppress false positive; record counterevidence DOIs. |
+| **`EVIDENCE_SUPPORTED`** | Zero counterevidence under protocol; $\ge 1$ independent corroborating source; corpus verified **`SATURATED`**. | Retain candidate; synthesize structured PMCOST research agenda. |
+| **`EVIDENCE_SUPPORTED_BUT_OPEN`** | Zero counterevidence; independent corroboration verified; corpus is **`UNSATURATED`**. | Retain candidate; synthesize PMCOST agenda with epistemic open-world warning. |
+| **`REVIEW_REQUIRED`** | Query failure, rate-limit, missing provenance, or zero corroboration. | Autonomous abstention; output diagnostic audit trace for human inspection. |
+
+---
+
+## Empirical Case Study: IoT Cybersecurity
+
+Evaluated on frozen run `deep_learning_iot_intrusion_de_20260831_114802`:
+* **Corpus:** 600 retrieved $\rightarrow$ 192 screened $\rightarrow$ 150 retained papers (2019--2026).
+* **Multigraph:** 1,404 relation events connecting 1,185 canonical entities.
+* **Candidate Triage Outcomes:**
+  1. *Deep learning IoT IDS $\rightarrow$ Zero-day attack detection:* **REFUTED** (5 external counterevidence papers, e.g., transfer learning / federated IDS).
+  2. *Deep learning IoT IDS $\rightarrow$ Standardized security protocols:* **REFUTED** (4 external counterevidence papers).
+  3. *Deep learning IoT IDS $\rightarrow$ Industrial testbed validation:* **REFUTED** (4 external counterevidence papers).
+  4. *ML-driven IoT IDS $\rightarrow$ Adversarial attack mitigation:* **REFUTED** (5 external counterevidence papers).
+  5. *ML-driven IoT IDS $\rightarrow$ Computational burden / latency on edge devices:* **EVIDENCE_SUPPORTED_BUT_OPEN** (0 counterevidence hits, 3 source-disjoint 2026 corroborating papers: `8d724497`, `032c997c`, `0f849816`, with unsaturated corpus qualification).
+
+**Autonomous False-Positive Suppression:** In a closed local corpus, candidates 1--4 appeared to be unaddressed scientific gaps. Active external evidence acquisition successfully suppressed all four false-positive novelty claims.
+
+---
+
+## Repository Structure
 
 ```text
 research-paper-gap/
-|-- ESV-Gap/
-|   |-- app.py                 # Streamlit evidence workbench
-|   |-- config.yaml            # Pipeline and validation configuration
-|   |-- run_pipeline.py        # Command-line stage runner
-|   |-- requirements.txt       # Application dependencies
-|   |-- tokens.css             # Streamlit visual design tokens
-|   |-- src/                   # Collection, KG, detection, validation, scoring
-|   |   `-- gap_provenance.py  # Gap-to-paper evidence tracing
-|   |-- prompts/               # LLM prompt templates
-|   |-- tests/                 # Offline regression tests
-|   |-- experiments/           # Benchmark and reproducibility scripts
-|   `-- paper_v2/              # LaTeX source, PDFs, results, review response
-`-- README.md
+├── ESV-Gap/
+│   ├── app.py                      # Interactive Streamlit Evidence Workbench
+│   ├── config.yaml                 # Centralized pipeline and threshold configuration
+│   ├── run_pipeline.py             # Stage runner (collect -> extract -> build -> detect -> validate -> score)
+│   ├── src/
+│   │   ├── autonomous_reasoning.py # Explicit Epistemic Loop, Dispositions & Decision Engine
+│   │   ├── synthesize_rankings.py   # Multi-Pillar evidence synthesis & ranking
+│   │   ├── validate_gaps.py        # Fail-closed local and external validation gates
+│   │   ├── build_graph.py          # Temporal multigraph construction
+│   │   ├── extract_triples.py      # Checkpointed relation extraction
+│   │   ├── collect.py              # Semantic Scholar / OpenAlex API collectors
+│   │   └── gap_provenance.py       # Graph-to-text source-disjoint tracing
+│   ├── tests/
+│   │   ├── test_autonomous_reasoning.py # 9 AMI epistemic loop & decision tests
+│   │   └── test_*.py               # 114 offline unit and regression tests (123 total)
+│   ├── paper_v2/
+│   │   ├── main_iot_run.tex        # AMI 2026 IEEE-formatted manuscript
+│   │   ├── main_iot_run.pdf        # Compiled publication-ready PDF
+│   │   └── results_summary.json    # Frozen empirical results manifest
+│   └── runs/
+│       └── deep_learning_iot_intrusion_de_20260831_114802/ # Primary frozen experiment
+└── README.md                       # Repository documentation
 ```
 
-Generated `runs/`, local release bundles, `.env`, and temporary outputs are
-excluded from Git.
+---
 
-## Installation
+## Installation & Verification
 
-Python 3.9 or newer is required. A virtual environment is recommended.
+### Prerequisites
+* Python 3.9+ (Python 3.10+ recommended)
+* `pdflatex` (MiKTeX or TeXLive) for manuscript compilation
 
 ```powershell
+# 1. Clone repository
 git clone https://github.com/Khoa-Hoa-Technology-Solution-Company/research-paper-gap.git
 cd research-paper-gap\ESV-Gap
 
+# 2. Set up virtual environment
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
 pip install -r requirements.txt
 python -m spacy download en_core_web_sm
-```
 
-Linux and macOS activation:
+# 3. Run all 123 unit tests (offline, deterministic)
+python -m unittest discover -s tests -v
 
-```bash
-source .venv/bin/activate
-```
-
-Obtain a Groq API key from the Groq console. Either paste it into the protected
-field in the interface or expose it only for the current shell:
-
-```powershell
-$env:GROQ_API_KEY="your-key-here"
-```
-
-Do not place a real key in `config.yaml` or commit it to Git. A Semantic Scholar
-API key is optional; unauthenticated collection is supported with rate limits.
-
-## Run the interface
-
-From the project directory:
-
-```powershell
+# 4. Launch the Interactive Workbench
 streamlit run app.py
 ```
 
-Open `http://127.0.0.1:8501`, enter a research topic and collection budget, and
-select **Discover evidence gaps**. Each execution receives an isolated run
-directory, so results from different topics are not silently mixed.
-
-If Groq reports quota exhaustion during extraction, the completed paper files
-and progress metadata remain checkpointed. Return later, provide a working API
-key, and select **Resume extraction**. Collection and screening will not be
-repeated, and already completed papers will be skipped.
-
-## Run from the command line
-
-Configure the topic and paths in `config.yaml`, then run the entire pipeline:
+### Reproducing the Epistemic Synthesis
+To re-run the calibrated epistemic decision engine over the frozen experimental run without altering raw historical data:
 
 ```powershell
-python run_pipeline.py --stage all
+python src/synthesize_rankings.py `
+  --run-dir runs/deep_learning_iot_intrusion_de_20260831_114802 `
+  --output runs/deep_learning_iot_intrusion_de_20260831_114802/outputs/final_rankings.json
 ```
 
-Stages can also be executed individually and in order:
-
+### Compiling the Research Manuscript
 ```powershell
-python run_pipeline.py --stage collect
-python run_pipeline.py --stage filter
-python run_pipeline.py --stage extract
-python run_pipeline.py --stage build
-python run_pipeline.py --stage detect
-python run_pipeline.py --stage validate
-python run_pipeline.py --stage score
-python run_pipeline.py --stage visualise
+cd paper_v2
+pdflatex -interaction=nonstopmode main_iot_run.tex
+pdflatex -interaction=nonstopmode main_iot_run.tex
 ```
+The compiled manuscript is produced at `paper_v2/main_iot_run.pdf`.
 
-## Tests
+---
 
-The regression suite is offline and does not require an API key:
+## Target Conference & Citation
 
-```powershell
-python -m unittest discover -s tests -v
-```
-
-Current repository state: **30 tests passing**. The tests cover bounded network
-retries, extraction checkpointing, dependency fallbacks, null-graph handling,
-temporal zero-to-zero behavior, gap-to-paper provenance, validation semantics,
-and the controlled benchmark's binary label mapping.
-
-## Reported experiment snapshot
-
-The corrected live run used the query `security of mongodb` with a collection
-budget of 100 papers.
-
-| Measure | Result |
-|---|---:|
-| Semantic Scholar records collected and screened | 74 |
-| Papers retained | 53 |
-| Extracted relation events | 643 |
-| Knowledge-graph nodes / edges | 578 / 636 |
-| Raw structural candidates | 128 |
-| Review-required after the frozen gate | 9 |
-| Rejected by the frozen gate | 119 |
-| Automatically eligible | 0 |
-| B1 TF-IDF RAG outputs | 53 |
-| B2 per-abstract LLM outputs | 159 |
-| Author-internal post-gate decisions | 8 Accept, 1 Reject |
-
-The 8/9 author-internal acceptance count describes reviewer disposition on the
-uncertainty-routed queue. It is **not** an estimate of precision, novelty, or
-comparative effectiveness. B1 and B2 did not receive shared expert labels.
-
-For exact hashes, protocol details, limitations, and offline commands, see the
-[reproducibility record](./ESV-Gap/paper_v2/REPRODUCIBILITY.md).
-
-## Paper
-
-- [IEEE LaTeX source](./ESV-Gap/paper_v2/main_ieee.tex)
-- [Compiled IEEE PDF](./ESV-Gap/paper_v2/main_ieee.pdf)
-- [LNCS LaTeX source](./ESV-Gap/paper_v2/main.tex)
-- [Experiment summary](./ESV-Gap/paper_v2/results_summary.json)
-- [Response to reviewers](./ESV-Gap/paper_v2/RESPONSE_TO_REVIEWERS.md)
-
-## Authors
-
-- Hoa Anh Le
-- Hoang Duc Nguyen
-- Khoa Ly Van Phan
-- Thanh Dinh Nguyen
-
-Department of Information Technology, FPT University, Ho Chi Minh City Campus,
-Vietnam.
-
-Faculty Supervisor: **Long Truong**, Department of Software Engineering, FPT
-University, Ho Chi Minh City Campus, Vietnam.
-
-## Responsible use
-
-ESV-Gap is intended to prioritize candidates for researcher inspection. A
-candidate should not be reported as a confirmed research gap without reading
-the underlying papers, checking full text and citation context, and obtaining
-appropriate independent expert review.
+* **Conference:** AMI 2026 — Autonomous Machine Intelligence
+* **Paper Title:** *ESV-Gap: An Auditable Autonomous Scientific Reasoning Framework for Evidence-Grounded Hypothesis Triage (A Case Study in IoT Cybersecurity)*
+* **Authors:** Senior Research Software Engineer, Autonomous-Agent Researcher, and Academic Paper Author

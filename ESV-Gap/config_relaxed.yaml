@@ -1,0 +1,168 @@
+# ============================================
+# KG Gap Discovery - Relaxed Configuration
+# For demonstration and testing purposes
+# ============================================
+
+# --- Project Info ---
+project:
+  name: "ESV-Gap-Demo"
+  domain: "Explainable AI (XAI)"
+  version: "0.1.0-relaxed"
+
+# --- API Keys ---
+api_keys:
+  groq: ""  # Set via environment variable GROQ_API_KEY
+  semantic_scholar: ""
+
+# --- Data Collection (Stage 1) ---
+collection:
+  queries:
+    - "explainable artificial intelligence"
+    - "XAI interpretability"
+  year_range: [2020, 2025]
+  max_papers: 200
+  min_citation_count: 5
+  fields_of_study: ["Computer Science"]
+  delay_between_requests: 3
+  request_timeout_seconds: 15
+  max_retries: 3
+  max_retry_wait_seconds: 20
+
+# --- Filtering (Stage 1 continued) ---
+filtering:
+  target_corpus_size: 50  # Reduced from 150 for faster demo
+  require_abstract: true
+  min_abstract_length: 80  # Slightly relaxed
+  relevance_model: "openai/gpt-oss-20b"
+  relevance_threshold: 0.6  # Relaxed from 0.7
+
+# --- Triple Extraction (Stage 2) ---
+extraction:
+  model: "openai/gpt-oss-20b"
+  max_tokens: 2000
+  temperature: 0.1
+  triples_per_chunk: [3, 12]  # Relaxed range
+  chunk_size: 1500
+  chunk_overlap: 200
+  entity_types:
+    - METHOD
+    - DATASET
+    - METRIC
+    - CONCEPT
+    - FINDING
+    - TOOL
+  relationship_types:
+    - USES
+    - IMPROVES
+    - ADDRESSES
+    - EVALUATES_ON
+    - PRODUCES
+    - CONTRADICTS
+    - EXTENDS
+    - LACKS
+    - COMBINES
+    - APPLIED_TO
+
+# --- Knowledge Graph Construction (Stage 3) ---
+graph:
+  fuzzy_match_threshold: 80  # Relaxed from 85
+  semantic_similarity_threshold: 0.80  # Relaxed from 0.85
+  embedding_model: "all-MiniLM-L6-v2"
+  min_edge_confidence: 0.25  # Relaxed from 0.3
+
+# --- Gap Detection (Stage 4) ---
+gap_detection:
+  transE:
+    embedding_dim: 64  # Reduced for speed
+    learning_rate: 0.01
+    num_epochs: 50  # Reduced for speed
+    top_k_predictions: 30
+  orphan:
+    min_cluster_ratio: 0.08  # Relaxed from 0.05
+    max_inter_cluster_edge_ratio: 0.15  # Relaxed from 0.1
+    random_seed: 42
+  temporal:
+    window_years: 2
+    decay_threshold: 0.25  # Relaxed from 0.3
+    lookback_years: 2
+
+# --- RELAXED Evidence & Stability Validation (Stage 5) ---
+gap_validation:
+  min_supporting_papers: 1  # RELAXED from 2
+  min_independent_paths: 1  # RELAXED from 2
+  min_surviving_paths: 1
+  max_path_length: 5  # Increased from 4
+  min_specificity: 0.45  # RELAXED from 0.55
+  bootstrap_repeats: 30  # Reduced from 50 for speed
+  edge_keep_probability: 0.90  # Relaxed from 0.95
+  paper_keep_probability: 0.90  # Relaxed from 0.95
+  plausible_edge_add_probability: 0.30  # Relaxed from 0.50
+  min_stability: 0.60  # RELAXED from 0.70
+  orphan_isolation_threshold: 0.85  # Relaxed from 0.90
+  temporal_decay_threshold: 0.25  # Relaxed from 0.30
+  temporal_lookback_years: 2
+  snapshot_date: "2026-09-14"
+  exclude_incomplete_final_year: true
+  closure_token_coverage: 0.55  # RELAXED from 0.60
+  random_seed: 42
+  max_closure_hits_to_record: 10
+  corpus_path: ""
+  weights:
+    provenance: 0.20  # Reduced from 0.25
+    specificity: 0.15
+    path_diversity: 0.15  # Reduced from 0.20
+    stability: 0.35  # Increased from 0.30
+    closure_clearance: 0.15  # Increased from 0.10
+
+# --- Gap Scoring (Stage 6) ---
+scoring:
+  weights:
+    centrality: 0.15
+    cluster_isolation: 0.20  # Reduced from 0.25
+    temporal_decay: 0.25
+    prediction_confidence: 0.25
+    validation: 0.40  # Increased from 0.35
+  top_k_gaps: 20
+
+# --- External Verification (Stage 7A) ---
+external_verification:
+  enabled: true
+  sources:
+    - openalex
+  openalex_contact_email: ""
+  semantic_scholar_api_key: ""
+  request_timeout_seconds: 20
+  max_retries: 2
+  retry_backoff_seconds: 1.5
+  max_records_per_probe: 3  # Reduced from 5
+  max_queries_per_candidate: 3  # Reduced from 4
+  co_mention_token_coverage: 0.55  # RELAXED from 0.60
+  temporal_decay_threshold: 0.25
+  temporal_lookback_years: 2
+  orphan_probe_pairs: 2  # Reduced from 3
+
+# --- Author-Stated Gaps (Stage 7B) ---
+author_stated_gaps:
+  enabled: true
+  co_mention_token_coverage: 0.55  # RELAXED from 0.60
+
+# --- Synthesis & Ranking (Stage 7C) ---
+synthesis:
+  rank_by: "confidence_score"
+
+# --- Visualisation ---
+visualisation:
+  graph_layout: "force_atlas"
+  node_size_by: "degree"
+  highlight_gaps: true
+  output_format: "html"
+
+# --- Paths ---
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  triples: "data/triples"
+  graph: "data/graph"
+  outputs: "outputs"
+  figures: "outputs/figures"
+  prompts: "prompts"

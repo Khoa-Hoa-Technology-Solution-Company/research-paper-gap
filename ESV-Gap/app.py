@@ -575,6 +575,21 @@ def load_results(cfg):
         with open(validation_reviews_path, encoding="utf-8") as f:
             results["validation_expert_reviews"] = json.load(f)
 
+    for fname, key in [
+        ("final_rankings.json", "final_rankings"),
+        ("external_verification.json", "external_verification"),
+        ("author_stated_gaps.json", "author_stated_gaps"),
+        ("extractor_recall_report.json", "extractor_recall"),
+        ("corpus_saturation_report.json", "corpus_saturation"),
+    ]:
+        fpath = Path(out) / fname
+        if fpath.exists():
+            try:
+                with open(fpath, encoding="utf-8") as stream:
+                    results[key] = json.load(stream)
+            except Exception:
+                pass
+
     raw_corpus_path = Path(cfg["paths"]["raw_data"]) / "all_papers_raw.jsonl"
     filtered_corpus_path = (
         Path(cfg["paths"]["processed_data"]) / "corpus_filtered.jsonl"
@@ -1335,13 +1350,14 @@ if "results" in st.session_state:
 
     paper_index = results.get("paper_index", {})
 
-    tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
         "Gap certificate",
         "Candidates & Review",
         "Source Papers",
         "Knowledge Graph",
         "Evidence Analytics",
         "KG vs RAG",
+        "Four Evidence Pillars (A-D)",
     ])
 
     with tab0:
@@ -2247,3 +2263,142 @@ if "results" in st.session_state:
                     file_name="comparison_metrics.json",
                     mime="application/json",
                 )
+
+    with tab6:
+        st.subheader("Four Evidence Pillars of Research Gap Verification (A + B + C + D)")
+        st.caption(
+            "Empirically ground absence claims beyond circular in-corpus observations. "
+            "A: External literature verification · B: Author-stated corroboration · "
+            "C: Extractor recall quantification · D: Corpus saturation dynamics."
+        )
+
+        p1, p2, p3, p4 = st.tabs([
+            "Pillar A: External Verification",
+            "Pillar B: Author-Stated Gaps",
+            "Pillar C: Extractor Recall",
+            "Pillar D: Corpus Saturation",
+        ])
+
+        with p1:
+            st.markdown("### Pillar A: External Literature Absence Verification (OpenAlex + Semantic Scholar)")
+            st.write(
+                "Probes external scholarly indexes using quoted AND queries on entity pairs and aliases. "
+                "Refuted = finding literature outside corpus; Corroborated = 0 confirmed hits across all probes; "
+                "Failed = probe error (fails closed)."
+            )
+            ext_data = results.get("external_verification", {})
+            if ext_data:
+                summary = ext_data.get("summary", {})
+                verdicts = summary.get("verdicts", {})
+                ac1, ac2, ac3, ac4 = st.columns(4)
+                with ac1: st.metric("Total Probed", summary.get("verified", 0))
+                with ac2: st.metric("Corroborated (Absence)", verdicts.get("absence_corroborated", 0))
+                with ac3: st.metric("Refuted (Active)", verdicts.get("refuted_by_external_literature", 0))
+                with ac4: st.metric("Failed (Review)", verdicts.get("verification_failed", 0))
+
+                records = ext_data.get("candidates", [])
+                if records:
+                    table_rows = []
+                    for r in records:
+                        v = r.get("external_verification", {})
+                        table_rows.append({
+                            "Type": r.get("type"),
+                            "Head": r.get("head") or r.get("concept") or "",
+                            "Tail": r.get("tail") or "",
+                            "Verdict": v.get("verdict", ""),
+                            "Probes": v.get("probe_count", 0),
+                            "Refuting Papers": len(v.get("refuting_papers", [])),
+                        })
+                    st.dataframe(pd.DataFrame(table_rows), hide_index=True, use_container_width=True)
+            else:
+                st.info("Run `python run_pipeline.py --stage verify` to execute external verification probes.")
+
+        with p2:
+            st.markdown("### Pillar B: Author-Stated Gap Corroboration")
+            st.write(
+                "Mines direct domain expert assertions from scientific literature: "
+                "(1) extracted LACKS relations in the graph, and (2) explicit gap-claim phrases in abstracts "
+                "('remains unexplored', 'no prior work'). Only source-disjoint statements count as positive evidence."
+            )
+            auth_data = results.get("author_stated_gaps", {})
+            if auth_data:
+                summary = auth_data.get("summary", {})
+                bc1, bc2 = st.columns(2)
+                with bc1: st.metric("Candidates Evaluated", summary.get("verified", 0))
+                with bc2: st.metric("Corroborated Gaps", summary.get("corroborated", 0))
+
+                records = auth_data.get("candidates", [])
+                if records:
+                    rows = []
+                    for r in records:
+                        ac = r.get("author_corroboration", {})
+                        rows.append({
+                            "Type": r.get("type"),
+                            "Head": r.get("head") or r.get("concept") or "",
+                            "Tail": r.get("tail") or "",
+                            "Corroborations": ac.get("corroboration_count", 0),
+                            "Circular (Ignored)": ac.get("circular_count", 0),
+                        })
+                    st.dataframe(pd.DataFrame(rows), hide_index=True, use_container_width=True)
+            else:
+                st.info("Run `python run_pipeline.py --stage author-gaps` to mine author-stated gap phrases.")
+
+        with p3:
+            st.markdown("### Pillar C: Extractor Recall Quantification")
+            st.write(
+                "Measures the probability that an absent graph relation is an extractor omission rather than a "
+                "genuine literature void. Evaluated on curated human-annotated gold standard triples."
+            )
+            rec_data = results.get("extractor_recall", {})
+            if rec_data:
+                summary = rec_data.get("summary", {})
+                cc1, cc2, cc3, cc4 = st.columns(4)
+                with cc1: st.metric("Extractor Recall", f"{summary.get('recall', 0)*100:.1f}%")
+                with cc2: st.metric("Extractor Miss Rate", f"{summary.get('miss_rate', 0)*100:.1f}%")
+                with cc3: st.metric("Precision", f"{summary.get('precision', 0)*100:.1f}%")
+                with cc4: st.metric("F1 Score", f"{summary.get('f1_score', 0)*100:.1f}%")
+
+                st.info(summary.get("interpretation", ""))
+
+                per_rel = rec_data.get("per_relation", {})
+                if per_rel:
+                    st.markdown("**Per-Relation Breakdown**")
+                    rel_rows = [
+                        {
+                            "Relation": rel,
+                            "Gold Count": data.get("gold_count", 0),
+                            "True Positives": data.get("tp", 0),
+                            "Missed (FN)": data.get("fn", 0),
+                            "Recall": f"{data.get('recall', 0)*100:.1f}%",
+                            "Miss Rate": f"{data.get('miss_rate', 0)*100:.1f}%",
+                        }
+                        for rel, data in per_rel.items()
+                    ]
+                    st.dataframe(pd.DataFrame(rel_rows), hide_index=True, use_container_width=True)
+            else:
+                st.info("Run `python run_pipeline.py --stage extractor-recall` to evaluate extractor sensitivity.")
+
+        with p4:
+            st.markdown("### Pillar D: Corpus Saturation & Discovery Dynamics")
+            st.write(
+                "Evaluates whether the screened corpus has reached conceptual saturation. "
+                "If the entity discovery rate has not plateaued, absence claims are sensitive to corpus size."
+            )
+            sat_data = results.get("corpus_saturation", {})
+            if sat_data:
+                summary = sat_data.get("summary", {})
+                heaps = summary.get("heaps_law", {})
+                dc1, dc2, dc3, dc4 = st.columns(4)
+                with dc1: st.metric("Saturation Verdict", summary.get("verdict", "UNKNOWN"))
+                with dc2: st.metric("Discovery Decay Rate", f"{summary.get('discovery_decay_rate', 0)*100:.1f}%")
+                with dc3: st.metric("Heaps' Law Exponent (β)", f"{heaps.get('beta', 1.0):.3f}")
+                with dc4: st.metric("Heaps' Fit R²", f"{heaps.get('r_squared', 0.0):.3f}")
+
+                st.info(summary.get("reason", ""))
+
+                plot_path = Path(cfg["paths"]["outputs"]) / "figures" / "corpus_saturation_curve.png"
+                if plot_path.exists():
+                    st.image(str(plot_path), caption="Empirical Entity Accumulation & Marginal Discovery Dynamics")
+            else:
+                st.info("Run `python run_pipeline.py --stage saturation` to compute corpus saturation curves.")
+

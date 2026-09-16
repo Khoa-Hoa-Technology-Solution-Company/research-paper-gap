@@ -1,0 +1,272 @@
+{
+  "corpus": {
+    "collected_records": 600,
+    "screened_records": 192,
+    "retained_papers": 150,
+    "year_range": [
+      2019,
+      2026
+    ],
+    "target_domain": "Deep-Learning-Driven IoT Intrusion Detection"
+  },
+  "multigraph": {
+    "canonical_entities": 1185,
+    "relation_events": 1404,
+    "cumulative_unique_entities": 1396,
+    "cumulative_unique_relations": 1403
+  },
+  "gold_benchmark": {
+    "abstracts_count": 10,
+    "gold_triples_total": 36,
+    "extracted_triples_evaluated": 32,
+    "true_positives": 28,
+    "false_negatives": 8,
+    "false_positives": 4,
+    "recall": 0.7778,
+    "recall_wilson_ci_95": [
+      0.6191,
+      0.8828
+    ],
+    "miss_rate": 0.2222,
+    "miss_rate_wilson_ci_95": [
+      0.1172,
+      0.3809
+    ],
+    "precision": 0.875,
+    "precision_wilson_ci_95": [
+      0.7194,
+      0.9501
+    ],
+    "f1_score": 0.8235,
+    "lacks_recall": 0.8333,
+    "lacks_recall_wilson_ci_95": [
+      0.4365,
+      0.9699
+    ],
+    "per_relation": {
+      "ADDRESSES": {
+        "gold": 8,
+        "tp": 7,
+        "fn": 1,
+        "recall": 0.875
+      },
+      "USES": {
+        "gold": 8,
+        "tp": 7,
+        "fn": 1,
+        "recall": 0.875
+      },
+      "LACKS": {
+        "gold": 6,
+        "tp": 5,
+        "fn": 1,
+        "recall": 0.8333
+      },
+      "EVALUATES_ON": {
+        "gold": 4,
+        "tp": 3,
+        "fn": 1,
+        "recall": 0.75
+      },
+      "IMPROVES": {
+        "gold": 4,
+        "tp": 3,
+        "fn": 1,
+        "recall": 0.75
+      },
+      "APPLIED_TO": {
+        "gold": 3,
+        "tp": 2,
+        "fn": 1,
+        "recall": 0.6667
+      },
+      "COMPARES": {
+        "gold": 2,
+        "tp": 1,
+        "fn": 1,
+        "recall": 0.5
+      },
+      "CONTRADICTS": {
+        "gold": 1,
+        "tp": 0,
+        "fn": 1,
+        "recall": 0.0
+      }
+    }
+  },
+  "corpus_saturation": {
+    "total_papers": 150,
+    "marginal_initial_mean": 8.37,
+    "marginal_final_mean": 9.93,
+    "discovery_decay_rate": -0.1873,
+    "discovery_decay_percent": -18.7,
+    "heaps_beta": 1.037,
+    "heaps_k": 7.6725,
+    "heaps_r_squared": 0.9981,
+    "verdict": "UNSATURATED",
+    "rationale": "Vocabulary accumulation is superlinear (beta=1.04, decay=-18.7%), confirming that incoming literature actively introduces novel concepts without saturation.",
+    "canonical": {
+      "total_papers": 150,
+      "total_unique_entities": 1185,
+      "total_unique_relations": 1401,
+      "heaps_law": {
+        "beta": 0.9946,
+        "K": 8.0315,
+        "r_squared": 0.9983
+      },
+      "marginal_initial_mean": 7.43,
+      "marginal_final_mean": 8.2,
+      "discovery_decay_rate": -0.1031,
+      "discovery_decay_percent": -10.3,
+      "verdict": "UNSATURATED",
+      "reason": "Canonical vocabulary continues active discovery (8.20/paper, beta=0.995, decay=-10.3%)."
+    },
+    "total_unique_canonical_entities": 1185,
+    "canonical_heaps_beta": 0.9946,
+    "canonical_heaps_k": 8.0315,
+    "canonical_heaps_r_squared": 0.9983,
+    "canonical_marginal_initial_mean": 7.43,
+    "canonical_marginal_final_mean": 8.2,
+    "canonical_decay_percent": -10.3
+  },
+  "candidates": [
+    {
+      "candidate_id": "C1",
+      "subject": "Deep learning IoT IDS",
+      "capability_limitation": "Zero-day attack detection",
+      "raw_index_count": 864,
+      "fetched_record_count": 5,
+      "inspected_record_count": 5,
+      "co_mention_count": 5,
+      "semantic_verified_counterevidence_count": 2,
+      "independent_corroboration_count": 0,
+      "disposition": "REFUTED",
+      "action": "REJECT",
+      "primary_counterevidence": {
+        "title": "Zero-Day Attack Detection in IoT Networks Using a Residual Vision Transformer-Based Approach With Zero-Shot Learning",
+        "authors": "T. R. Gadekallu et al.",
+        "year": 2025,
+        "venue": "IEEE OJCOMS",
+        "doi": "10.1109/OJCOMS.2025.3604826",
+        "evidence_span": "In zero-day scenarios, CZ-ResViT achieved 82% accuracy on CIC IoT 2023 and 81% on IoTID20, outperforming other DL models and demonstrating greater resilience and generalization."
+      }
+    },
+    {
+      "candidate_id": "C2",
+      "subject": "Deep learning IoT IDS",
+      "capability_limitation": "Standardized security protocols across IoT devices",
+      "raw_index_count": 400,
+      "fetched_record_count": 5,
+      "inspected_record_count": 5,
+      "co_mention_count": 4,
+      "semantic_verified_counterevidence_count": 0,
+      "independent_corroboration_count": 0,
+      "circular_corroboration_count": 1,
+      "disposition": "REVIEW_REQUIRED",
+      "action": "ABSTAIN_AND_ESCALATE",
+      "abstention_reason": "External records describe protocol diversity as background challenge (supporting limitation/ambiguous); zero verified counterevidence found; but local corroboration is circular (paper 04b3ca64), failing the source-disjoint independence gate."
+    },
+    {
+      "candidate_id": "C3",
+      "subject": "Deep learning IoT IDS",
+      "capability_limitation": "Real-world industrial validation",
+      "raw_index_count": 146,
+      "fetched_record_count": 5,
+      "inspected_record_count": 5,
+      "co_mention_count": 4,
+      "semantic_verified_counterevidence_count": 2,
+      "independent_corroboration_count": 0,
+      "disposition": "REFUTED",
+      "action": "REJECT",
+      "primary_counterevidence": {
+        "title": "LiteRT-IDSNet: A Lightweight Hybrid Deep Learning Framework for Real-Time Intrusion Detection in Industrial IoT Using the RT-IoT 2022 Dataset",
+        "authors": "S. Ullah et al.",
+        "year": 2025,
+        "venue": "IEEE ICEST",
+        "doi": "10.1109/ICEST66328.2025.11098207",
+        "evidence_span": "Experimental results show that LiteRT-IDSNet achieved training accuracy of 99.61% and validation accuracy of 99.60%... validate LiteRT-IDSNet as a suitable real-time IIoT cybersecurity system."
+      }
+    },
+    {
+      "candidate_id": "C4",
+      "subject": "Machine learning-driven IoT IDS",
+      "capability_limitation": "Computational burden / latency on resource-constrained edge devices",
+      "raw_index_count": 189,
+      "fetched_record_count": 5,
+      "inspected_record_count": 5,
+      "co_mention_count": 0,
+      "semantic_verified_counterevidence_count": 0,
+      "independent_corroboration_count": 3,
+      "disposition": "EVIDENCE_SUPPORTED_BUT_OPEN",
+      "action": "RETAIN_WITH_WARNING",
+      "corroborating_sources": [
+        {
+          "paper_id": "8d724497b837ea47f7f687b590fba5418783e4d4",
+          "authors": "Jenish M. and K. Karuppasamy",
+          "title": "A Review on Deep Learning Techniques for Fast and Explainable Network Intrusion Detection",
+          "year": 2026,
+          "venue": "IEEE IDCIoT",
+          "doi": "10.1109/IDCIoT67589.2026.11455671",
+          "evidence_span": "While Deep Learning (DL) based IDS have demonstrated high detection accuracy compared to traditional approaches, their practical adoption is constrained by high computational overhead, inference latency, and limited interpretability."
+        },
+        {
+          "paper_id": "032c997cc9c5bca8b008b2c9ea1c608aa1727133",
+          "authors": "Khorshed Alam, Mahbubul Haq Bhuiyan, Mohammad Ashraful Hoque, Md. Shohel Rana, D. Farid",
+          "title": "Reservoir computing for network intrusion classification",
+          "year": 2026,
+          "venue": "PLoS ONE",
+          "doi": "10.1371/journal.pone.0355211",
+          "evidence_span": "While Convolutional Neural Network (CNN) and Long Short-Term Memory (LSTM) networks are widely adopted as benchmarks for intrusion detection, their high computational demands pose challenges for real-time deployment on IoT devices."
+        },
+        {
+          "paper_id": "0f8498161f41a887580349a34a5184e2c70c07bc",
+          "authors": "Marwah M. Mahdi, Ahmad Yousofi, R. Tati, Oday Jasim Mohammed Al-Furaiji",
+          "title": "SCF-Net: A Lightweight Multi-Granular Feature Fusion Network for IoT Anomaly Detection",
+          "year": 2026,
+          "venue": "IEEE Access",
+          "doi": "10.1109/ACCESS.2026.3671487",
+          "evidence_span": "deep learning-based intrusion detection systems have also displayed appealing performance; however, they are challenged by heavy computational cost that restricts edge application."
+        }
+      ]
+    },
+    {
+      "candidate_id": "C5",
+      "subject": "Machine learning-driven IoT IDS",
+      "capability_limitation": "Adversarial attack mitigation",
+      "raw_index_count": 1095,
+      "fetched_record_count": 5,
+      "inspected_record_count": 5,
+      "co_mention_count": 5,
+      "semantic_verified_counterevidence_count": 1,
+      "independent_corroboration_count": 0,
+      "disposition": "REFUTED",
+      "action": "REJECT",
+      "primary_counterevidence": {
+        "title": "Adversarial attack and defense in AI-powered intrusion detection",
+        "authors": "H. Nguyen et al.",
+        "year": 2025,
+        "venue": "Journal of Cybersecurity and Privacy",
+        "doi": "10.15625/1813-9663/22884",
+        "evidence_span": "In this paper, we propose APELID+, an enhanced IDS framework integrating adversarial training and feature squeezing techniques to effectively counter AML threats... The enhanced APELID+ achieves robust performance, maintaining 98.73% accuracy under combined adversarial conditions."
+      }
+    }
+  ],
+  "k_fetch_sensitivity": {
+    "provider": "Semantic Scholar Graph API",
+    "ranking": "Default relevance",
+    "candidate_id": "C4",
+    "evaluated_depths": [5, 10, 20, 50],
+    "strict_canonical_protocol": {
+      "K=5": {"lexical_co_mentions": 0, "verified_counterevidence": 0, "disposition": "SUPPORTED_OPEN"},
+      "K=10": {"lexical_co_mentions": 0, "verified_counterevidence": 0, "disposition": "SUPPORTED_OPEN"},
+      "K=20": {"lexical_co_mentions": 1, "verified_counterevidence": 0, "disposition": "SUPPORTED_OPEN"},
+      "K=50": {"lexical_co_mentions": 2, "verified_counterevidence": 0, "disposition": "SUPPORTED_OPEN"}
+    },
+    "expanded_synonym_protocol": {
+      "K=5": {"lexical_co_mentions": 4, "verified_counterevidence": 0, "disposition": "SUPPORTED_OPEN"},
+      "K=10": {"lexical_co_mentions": 7, "verified_counterevidence": 0, "disposition": "SUPPORTED_OPEN"},
+      "K=20": {"lexical_co_mentions": 13, "verified_counterevidence": 0, "disposition": "SUPPORTED_OPEN"},
+      "K=50": {"lexical_co_mentions": 33, "verified_counterevidence": 0, "disposition": "SUPPORTED_OPEN"}
+    }
+  }
+}

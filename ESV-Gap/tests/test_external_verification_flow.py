@@ -90,6 +90,16 @@ def mock_validation_outputs(mock_config: dict) -> None:
                 "publication_recency_score": 0.70,
             }
         ],
+        "evidence_gaps": [
+            {
+                "type": "evidence_gap",
+                "subject": "SHAP",
+                "missing_capability": "fairness",
+                "corpus_coverage_fraction": 0.25,
+                "mean_citation_count": 95,
+                "publication_recency_score": 0.90,
+            }
+        ],
     }
     save_json(eligible, outputs / "evidence_clear_candidates.json")
 
@@ -117,7 +127,7 @@ def mock_validation_outputs(mock_config: dict) -> None:
 def test_external_verification_stage(mock_config: dict, mock_validation_outputs: None) -> None:
     """Stage A should produce external_verification.json."""
     result = verify_against_external_indices(mock_config)
-    assert result["verified"] == 2
+    assert result["verified"] == 3
     assert "candidates" not in result  # summary only
 
     outputs = Path(mock_config["paths"]["outputs"])
@@ -127,7 +137,7 @@ def test_external_verification_stage(mock_config: dict, mock_validation_outputs:
 def test_author_stated_gaps_stage(mock_config: dict, mock_validation_outputs: None) -> None:
     """Stage B should produce author_stated_gaps.json."""
     result = mine_author_stated_gaps(mock_config)
-    assert result["verified"] == 2
+    assert result["verified"] == 3
     assert "candidates" not in result  # summary only
 
     outputs = Path(mock_config["paths"]["outputs"])
@@ -142,7 +152,7 @@ def test_synthesis_stage(mock_config: dict, mock_validation_outputs: None) -> No
 
     # Run synthesis
     summary = synthesize_final_rankings(mock_config)
-    assert summary["total"] == 2
+    assert summary["total"] == 3
     assert "approved" in summary
     assert "review_required" in summary
     assert "excluded" in summary

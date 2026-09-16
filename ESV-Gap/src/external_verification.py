@@ -31,11 +31,13 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import time
 import urllib.parse
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable, Iterable
+from dotenv import find_dotenv, load_dotenv
 
 from src.entity_normalization import (
     canonical_entity_key,
@@ -45,6 +47,7 @@ from src.entity_normalization import (
 )
 from src.utils import ensure_dir, get_logger, load_json, save_json
 
+load_dotenv(find_dotenv())
 logger = get_logger("external_verification")
 
 OPENALEX_WORKS_URL = "https://api.openalex.org/works"
@@ -85,7 +88,15 @@ def _http_json(url: str, headers: dict[str, str], timeout: float, retries: int, 
         try:
             response = requests.get(url, headers=headers, timeout=timeout)
             if response.status_code in (429, 503):
-                raise ExternalProbeError(f"index throttled with HTTP {response.status_code}")
+                retry_after = 5.0
+                try:
+                    retry_after = float(response.headers.get("Retry-After", 5.0))
+                except (ValueError, TypeError):
+                    pass
+                wait_time = max(retry_after, backoff * (2 ** (attempt - 1)), 5.0)
+                time.sleep(min(wait_time, 20.0))
+                last_error = ExternalProbeError(f"index throttled with HTTP {response.status_code}")
+                continue
             response.raise_for_status()
             return response.json()
         except Exception as error:  # network, decode, and throttling all fail closed
@@ -183,7 +194,7 @@ def semantic_scholar_searcher(settings: dict[str, Any]) -> Callable[..., dict[st
     retries = int(settings.get("max_retries", 3))
     backoff = float(settings.get("retry_backoff_seconds", 2.0))
     per_page = int(settings.get("max_records_per_probe", 5))
-    api_key = str(settings.get("semantic_scholar_api_key", "") or "")
+    api_key = str(settings.get("semantic_scholar_api_key", "") or os.environ.get("SEMANTIC_SCHOLAR_API_KEY", "") or "")
     headers = {"x-api-key": api_key} if api_key else {}
 
     def search(query: str, mode: str = "search") -> dict[str, Any]:
@@ -467,6 +478,34 @@ def _verify_orphan_cluster(
     return {"verdict": verdict, "probes": probes, "refuting_papers": refuting}
 
 
+def _verify_evidence_gap(
+    candidate: dict[str, Any],
+    searchers: dict[str, Callable[..., dict[str, Any]]],
+    settings: dict[str, Any],
+    cache: ProbeCache,
+) -> dict[str, Any]:
+    subj = candidate.get("subject") or candidate.get("head") or ""
+    cap = candidate.get("missing_capability") or candidate.get("tail") or ""
+    subj_phrases = entity_phrases(candidate, subj)
+    cap_phrases = entity_phrases(candidate, cap)
+    if not subj_phrases or not cap_phrases:
+        return {"verdict": FAILED, "probes": [], "reason": "missing subject or missing_capability"}
+
+    coverage = float(settings.get("co_mention_token_coverage", 0.60))
+    max_queries = int(settings.get("max_queries_per_candidate", 4))
+    entity_groups = [subj_phrases, cap_phrases]
+    queries = pair_queries(subj_phrases, cap_phrases)[:max_queries]
+
+    probes = []
+    for source, search in searchers.items():
+        for query in queries:
+            probes.append(
+                run_probe(source, search, query, entity_groups, coverage, cache)
+            )
+    verdict, refuting = _verdict_from_probes(probes)
+    return {"verdict": verdict, "probes": probes, "refuting_papers": refuting}
+
+
 def verify_candidate(
     candidate: dict[str, Any],
     searchers: dict[str, Callable[..., dict[str, Any]]],
@@ -484,6 +523,7 @@ def verify_candidate(
         }
 
     handlers = {
+        "evidence_gap": _verify_evidence_gap,
         "missing_link": _verify_missing_link,
         "temporal_decay": _verify_temporal_decay,
         "orphan_cluster": _verify_orphan_cluster,
@@ -525,6 +565,16 @@ def verify_all_candidates(
     if searchers is None:
         searchers = build_searchers(settings)
     cache = ProbeCache(output_dir / "external_probe_cache.json")
+    checkpoint_path = output_dir / "external_verification_checkpoint.json"
+    checkpoint_data: dict[str, Any] = {}
+    if checkpoint_path.exists():
+        try:
+            loaded_cp = load_json(checkpoint_path)
+            if isinstance(loaded_cp, dict):
+                checkpoint_data = loaded_cp
+                logger.info("Resuming external verification from checkpoint: %d done", len(checkpoint_data))
+        except Exception:
+            pass
 
     queues: list[tuple[str, dict[str, Any]]] = []
     for label, path in (("review_required", review_path), ("automatically_eligible", eligible_path)):
@@ -534,21 +584,39 @@ def verify_all_candidates(
             for candidate in candidates:
                 queues.append((label, {**candidate, "_queue": label, "_category": category}))
 
+    from src.gap_provenance import candidate_identity
+
     records = []
     counts = {REFUTED: 0, CORROBORATED: 0, FAILED: 0, NOT_APPLICABLE: 0}
     for _, candidate in queues:
-        verification = verify_candidate(candidate, searchers, settings, cache)
-        counts[verification["verdict"]] = counts.get(verification["verdict"], 0) + 1
-        records.append({
-            "type": candidate.get("type"),
-            "queue": candidate.get("_queue"),
-            "category": candidate.get("_category"),
-            "head": candidate.get("head"),
-            "tail": candidate.get("tail"),
-            "concept": candidate.get("concept"),
-            "community_id": candidate.get("community_id"),
-            "external_verification": verification,
-        })
+        c_key = candidate_identity(candidate)
+        if c_key in checkpoint_data:
+            rec = checkpoint_data[c_key]
+            verification = rec.get("external_verification", {})
+        else:
+            verification = verify_candidate(candidate, searchers, settings, cache)
+            cache.flush()
+            rec = {
+                "type": candidate.get("type"),
+                "queue": candidate.get("_queue"),
+                "category": candidate.get("_category"),
+                "head": candidate.get("head"),
+                "tail": candidate.get("tail"),
+                "relation": candidate.get("relation"),
+                "concept": candidate.get("concept"),
+                "community_id": candidate.get("community_id"),
+                "subject": candidate.get("subject"),
+                "missing_capability": candidate.get("missing_capability"),
+                "evidence_cell_id": candidate.get("evidence_cell_id"),
+                "external_verification": verification,
+            }
+            checkpoint_data[c_key] = rec
+            save_json(checkpoint_data, checkpoint_path)
+
+        verdict = verification.get("verdict", FAILED)
+        counts[verdict] = counts.get(verdict, 0) + 1
+        records.append(rec)
+
     cache.flush()
 
     summary = {
@@ -562,6 +630,11 @@ def verify_all_candidates(
         {"summary": summary, "candidates": records},
         output_dir / "external_verification.json",
     )
+    if checkpoint_path.exists():
+        try:
+            checkpoint_path.unlink()
+        except OSError:
+            pass
     logger.info("External verification: %s", summary)
     return summary
 
