@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "constructed_inputs_only": true,
+  "real_literature_effectiveness_measured": false,
+  "enumerated_two_record_protocol_inputs": 8192,
+  "states_per_record": 64,
+  "disposition_counts": {
+    "REVIEW_REQUIRED": 6977,
+    "CLOSED_WITHIN_SCOPE": 254,
+    "OPEN_FOR_REVIEW": 576,
+    "PARTIAL_EVIDENCE": 385
+  },
+  "cross_record_union_without_single_witness_states": 180,
+  "unique_key_insertion_checks": 64,
+  "semantic_permutation_checks": 64,
+  "repeatability_checks": 64,
+  "threshold_strengthening_checks": 144,
+  "duplicate_key_nonmonotonicity_counterexample_checked": true,
+  "annotation_semantics_assumed": true,
+  "sha256": {
+    "controller": "1f574521528e25a3eb26d86ae2e7e490ebf34f6c1237b76803770c3da7ad4141",
+    "script": "1bdb63d78641d2b6d2c0b0f99e938bdc9ca12f0bf9af011df7140ac948daa6ca"
+  }
+}

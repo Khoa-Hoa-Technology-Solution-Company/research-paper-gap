@@ -1,0 +1,12 @@
+{
+  "status": "static_checks_passed_not_compilation",
+  "citation_keys_resolved": 17,
+  "reference_labels_resolved": 6,
+  "environment_nesting_check": true,
+  "context_result_rounding_checks": 18,
+  "figure_line_break_checks": 8,
+  "primary_audit_result_checks": true,
+  "property_enumeration_and_pilot_count_checks": true,
+  "native_compiler_status": "unavailable_platform_directories",
+  "source_sha256": "8f9a7b421253aac5f0399733da4bdc8cfe47ec348d82cc0a78f921ad8d0c99d1"
+}

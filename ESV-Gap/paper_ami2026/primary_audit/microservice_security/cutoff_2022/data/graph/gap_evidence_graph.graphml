@@ -1,0 +1,337 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d6" for="edge" attr.name="relation" attr.type="string" />
+  <key id="d5" for="node" attr.name="year" attr.type="long" />
+  <key id="d4" for="node" attr.name="quality_score" attr.type="double" />
+  <key id="d3" for="node" attr.name="source_count" attr.type="long" />
+  <key id="d2" for="node" attr.name="label" attr.type="string" />
+  <key id="d1" for="node" attr.name="type" attr.type="string" />
+  <key id="d0" for="graph" attr.name="graph_kind" attr.type="string" />
+  <graph edgedefault="directed">
+    <node id="cell_93fec9fe9f83cdf6">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">way to get necessary system calls for a particular container</data>
+      <data key="d3">1</data>
+      <data key="d4">0.65</data>
+    </node>
+    <node id="paper::63360f7238198e4d211f2d2f982b790eb7c6ff58">
+      <data key="d1">PAPER</data>
+      <data key="d2">RSDS: Getting System Call Whitelist for Container Through Dynamic and Static Analysis</data>
+      <data key="d5">2020</data>
+    </node>
+    <node id="context::METHOD::RSDS">
+      <data key="d1">METHOD</data>
+      <data key="d2">RSDS</data>
+    </node>
+    <node id="context::METHOD::seccomp mechanism">
+      <data key="d1">METHOD</data>
+      <data key="d2">seccomp mechanism</data>
+    </node>
+    <node id="context::METHOD::dynamic analysis">
+      <data key="d1">METHOD</data>
+      <data key="d2">dynamic analysis</data>
+    </node>
+    <node id="context::METHOD::static analysis">
+      <data key="d1">METHOD</data>
+      <data key="d2">static analysis</data>
+    </node>
+    <node id="context::METHOD::default configuration">
+      <data key="d1">METHOD</data>
+      <data key="d2">default configuration</data>
+    </node>
+    <node id="context::DATASET::x86-64 PC with Ubuntu 16.04 host OS">
+      <data key="d1">DATASET</data>
+      <data key="d2">x86-64 PC with Ubuntu 16.04 host OS</data>
+    </node>
+    <node id="context::CONCEPT::system call whitelist">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">system call whitelist</data>
+    </node>
+    <node id="context::CONCEPT::getting system call whitelist for container">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">getting system call whitelist for container</data>
+    </node>
+    <node id="context::CONCEPT::abuse of system calls">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">abuse of system calls</data>
+    </node>
+    <node id="context::CONCEPT::security of host kernel">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">security of host kernel</data>
+    </node>
+    <node id="cell_8c97cda1dd2537b0">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">trusted third party</data>
+      <data key="d3">1</data>
+      <data key="d4">0.56</data>
+    </node>
+    <node id="paper::acdc04eca48e79a05f14e730c7b3c1b912575115">
+      <data key="d1">PAPER</data>
+      <data key="d2">Security in IoT Mesh Networks Based on Trust Similarity</data>
+      <data key="d5">2022</data>
+    </node>
+    <node id="context::METHOD::Trust Similarity">
+      <data key="d1">METHOD</data>
+      <data key="d2">Trust Similarity</data>
+    </node>
+    <node id="context::METHOD::weighted D-S theory">
+      <data key="d1">METHOD</data>
+      <data key="d2">weighted D-S theory</data>
+    </node>
+    <node id="context::METHOD::novel trust mechanism framework">
+      <data key="d1">METHOD</data>
+      <data key="d2">novel trust mechanism framework</data>
+    </node>
+    <node id="context::CONCEPT::Wireless Mesh Network (WMN)">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">Wireless Mesh Network (WMN)</data>
+    </node>
+    <node id="context::CONCEPT::packet-forwarding behavior">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">packet-forwarding behavior</data>
+    </node>
+    <node id="context::CONCEPT::nodes' cooperation">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">nodes' cooperation</data>
+    </node>
+    <node id="context::CONCEPT::IoT Mesh networks">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">IoT Mesh networks</data>
+    </node>
+    <node id="context::CONCEPT::promiscuous mode">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">promiscuous mode</data>
+    </node>
+    <node id="cell_c10aa46642b629dc">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">dynamic policy enforcement</data>
+      <data key="d3">1</data>
+      <data key="d4">0.54</data>
+    </node>
+    <node id="paper::78f08ef91356d0dc0806ea165a3649f89859dde1">
+      <data key="d1">PAPER</data>
+      <data key="d2">Redefining zero trust architecture in cloud networks: A conceptual shift towards granular, dynamic access control and policy enforcement</data>
+      <data key="d5">2021</data>
+    </node>
+    <node id="context::METHOD::traditional Zero Trust models">
+      <data key="d1">METHOD</data>
+      <data key="d2">traditional Zero Trust models</data>
+    </node>
+    <node id="context::METHOD::granular and dynamic Zero Trust approach">
+      <data key="d1">METHOD</data>
+      <data key="d2">granular and dynamic Zero Trust approach</data>
+    </node>
+    <node id="context::METHOD::real-time, context-aware access control">
+      <data key="d1">METHOD</data>
+      <data key="d2">real-time, context-aware access control</data>
+    </node>
+    <node id="context::METHOD::static policies">
+      <data key="d1">METHOD</data>
+      <data key="d2">static policies</data>
+    </node>
+    <node id="context::METHOD::granular Zero Trust approach">
+      <data key="d1">METHOD</data>
+      <data key="d2">granular Zero Trust approach</data>
+    </node>
+    <node id="context::CONCEPT::Zero Trust Architecture">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">Zero Trust Architecture</data>
+    </node>
+    <node id="context::CONCEPT::dynamic nature of modern cloud networks">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">dynamic nature of modern cloud networks</data>
+    </node>
+    <node id="context::CONCEPT::microservices">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">microservices</data>
+    </node>
+    <node id="cell_88d952be91ac1e5c">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">real-time analytics</data>
+      <data key="d3">1</data>
+      <data key="d4">0.54</data>
+    </node>
+    <node id="context::METHOD::dynamic policy enforcement">
+      <data key="d1">METHOD</data>
+      <data key="d2">dynamic policy enforcement</data>
+    </node>
+    <node id="cell_b5b5a7115233010a">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">security enforcement over sensitive data</data>
+      <data key="d3">1</data>
+      <data key="d4">0.59</data>
+    </node>
+    <node id="paper::10ed1e0f55fac983edaae19114d99530cfe1c0d7">
+      <data key="d1">PAPER</data>
+      <data key="d2">Offering security diagnosis as a service for cloud SaaS applications</data>
+      <data key="d5">2019</data>
+    </node>
+    <node id="context::METHOD::Security Diagnosis as a Service (SDaaS)">
+      <data key="d1">METHOD</data>
+      <data key="d2">Security Diagnosis as a Service (SDaaS)</data>
+    </node>
+    <node id="context::DATASET::benchmark applications">
+      <data key="d1">DATASET</data>
+      <data key="d2">benchmark applications</data>
+    </node>
+    <node id="context::CONCEPT::information flow vulnerabilities">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">information flow vulnerabilities</data>
+    </node>
+    <node id="context::CONCEPT::data integrity and confidentiality violations">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">data integrity and confidentiality violations</data>
+    </node>
+    <node id="context::CONCEPT::novel as well as prevalent attack vectors">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">novel as well as prevalent attack vectors</data>
+    </node>
+    <node id="context::CONCEPT::SaaS applications">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">SaaS applications</data>
+    </node>
+    <node id="context::CONCEPT::microservices architecture">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">microservices architecture</data>
+    </node>
+    <edge source="cell_93fec9fe9f83cdf6" target="context::METHOD::RSDS" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_93fec9fe9f83cdf6" target="context::METHOD::seccomp mechanism" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_93fec9fe9f83cdf6" target="context::METHOD::dynamic analysis" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_93fec9fe9f83cdf6" target="context::METHOD::static analysis" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_93fec9fe9f83cdf6" target="context::METHOD::default configuration" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_93fec9fe9f83cdf6" target="context::DATASET::x86-64 PC with Ubuntu 16.04 host OS" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_93fec9fe9f83cdf6" target="context::CONCEPT::system call whitelist" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_93fec9fe9f83cdf6" target="context::CONCEPT::getting system call whitelist for container" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_93fec9fe9f83cdf6" target="context::CONCEPT::abuse of system calls" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_93fec9fe9f83cdf6" target="context::CONCEPT::security of host kernel" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="paper::63360f7238198e4d211f2d2f982b790eb7c6ff58" target="cell_93fec9fe9f83cdf6" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="cell_8c97cda1dd2537b0" target="context::METHOD::Trust Similarity" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_8c97cda1dd2537b0" target="context::METHOD::weighted D-S theory" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_8c97cda1dd2537b0" target="context::METHOD::novel trust mechanism framework" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_8c97cda1dd2537b0" target="context::CONCEPT::Wireless Mesh Network (WMN)" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_8c97cda1dd2537b0" target="context::CONCEPT::packet-forwarding behavior" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_8c97cda1dd2537b0" target="context::CONCEPT::nodes' cooperation" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_8c97cda1dd2537b0" target="context::CONCEPT::IoT Mesh networks" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_8c97cda1dd2537b0" target="context::CONCEPT::promiscuous mode" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="paper::acdc04eca48e79a05f14e730c7b3c1b912575115" target="cell_8c97cda1dd2537b0" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="cell_c10aa46642b629dc" target="context::METHOD::traditional Zero Trust models" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_c10aa46642b629dc" target="context::METHOD::granular and dynamic Zero Trust approach" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_c10aa46642b629dc" target="context::METHOD::real-time, context-aware access control" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_c10aa46642b629dc" target="context::METHOD::static policies" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_c10aa46642b629dc" target="context::METHOD::granular Zero Trust approach" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_c10aa46642b629dc" target="context::CONCEPT::Zero Trust Architecture" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_c10aa46642b629dc" target="context::CONCEPT::dynamic nature of modern cloud networks" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_c10aa46642b629dc" target="context::CONCEPT::microservices" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="paper::78f08ef91356d0dc0806ea165a3649f89859dde1" target="cell_c10aa46642b629dc" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="paper::78f08ef91356d0dc0806ea165a3649f89859dde1" target="cell_88d952be91ac1e5c" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="cell_88d952be91ac1e5c" target="context::METHOD::traditional Zero Trust models" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_88d952be91ac1e5c" target="context::METHOD::dynamic policy enforcement" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_88d952be91ac1e5c" target="context::METHOD::granular and dynamic Zero Trust approach" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_88d952be91ac1e5c" target="context::METHOD::real-time, context-aware access control" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_88d952be91ac1e5c" target="context::METHOD::static policies" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_88d952be91ac1e5c" target="context::CONCEPT::Zero Trust Architecture" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_88d952be91ac1e5c" target="context::CONCEPT::dynamic nature of modern cloud networks" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_88d952be91ac1e5c" target="context::CONCEPT::microservices" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b5b5a7115233010a" target="context::METHOD::Security Diagnosis as a Service (SDaaS)" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_b5b5a7115233010a" target="context::DATASET::benchmark applications" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_b5b5a7115233010a" target="context::CONCEPT::information flow vulnerabilities" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b5b5a7115233010a" target="context::CONCEPT::data integrity and confidentiality violations" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b5b5a7115233010a" target="context::CONCEPT::novel as well as prevalent attack vectors" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b5b5a7115233010a" target="context::CONCEPT::SaaS applications" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b5b5a7115233010a" target="context::CONCEPT::microservices architecture" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="paper::10ed1e0f55fac983edaae19114d99530cfe1c0d7" target="cell_b5b5a7115233010a" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <data key="d0">research_gap_evidence_map</data>
+  </graph>
+</graphml>

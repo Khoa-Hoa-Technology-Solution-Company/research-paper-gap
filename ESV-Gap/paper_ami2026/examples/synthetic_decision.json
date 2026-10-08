@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "novelty_established": false,
+  "claim_boundary": "relative_to_supplied_reviewed_annotations",
+  "search_protocol_complete": true,
+  "contract_errors": [],
+  "search_errors": [],
+  "traces": [
+    {
+      "paper_id": "synthetic-paper",
+      "experiment_id": "experiment-A",
+      "residuals": [
+        {
+          "facet": "task",
+          "state": "satisfied"
+        },
+        {
+          "facet": "domain",
+          "state": "satisfied"
+        },
+        {
+          "facet": "edge hardware",
+          "state": "satisfied"
+        },
+        {
+          "facet": "f1",
+          "state": "satisfied"
+        },
+        {
+          "facet": "latency",
+          "state": "satisfied"
+        }
+      ],
+      "status": "closes_scope"
+    }
+  ],
+  "disposition": "CLOSED_WITHIN_SCOPE",
+  "action": "SUPPRESS_CANDIDATE",
+  "input_sha256": "93dc10dd131ccd77b3f66f677365981f43948e6cc8a8c8dfdadbaf382823ee81"
+}

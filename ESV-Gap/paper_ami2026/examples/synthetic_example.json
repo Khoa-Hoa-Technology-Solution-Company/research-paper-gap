@@ -1,0 +1,86 @@
+{
+  "purpose": "SYNTHETIC DEMONSTRATION ONLY; not real literature evidence",
+  "contract": {
+    "task": "detect unknown attacks",
+    "domain": "IoT IDS",
+    "cutoff": "2024-12-31",
+    "scope_reviewed": true,
+    "conditions": [
+      "edge hardware"
+    ],
+    "requirements": [
+      {
+        "name": "f1",
+        "op": ">=",
+        "bound": 0.9,
+        "unit": "fraction"
+      },
+      {
+        "name": "latency",
+        "op": "<=",
+        "bound": 10,
+        "unit": "ms"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "paper_id": "synthetic-paper",
+      "experiment_id": "experiment-A",
+      "available_on": "2024-01-01",
+      "metadata_reviewed": true,
+      "experiment_reviewed": true,
+      "source_text": "IoT IDS detects unknown attacks on edge hardware; F1 0.92; latency 8 ms.",
+      "facets": {
+        "task": {
+          "value": "detect unknown attacks",
+          "span": "detects unknown attacks",
+          "reviewed": true
+        },
+        "domain": {
+          "value": "IoT IDS",
+          "span": "IoT IDS",
+          "reviewed": true
+        }
+      },
+      "conditions": {
+        "edge hardware": {
+          "value": true,
+          "span": "on edge hardware",
+          "reviewed": true
+        }
+      },
+      "measurements": {
+        "f1": {
+          "value": 0.92,
+          "span": "F1 0.92",
+          "reviewed": true,
+          "unit": "fraction"
+        },
+        "latency": {
+          "value": 8,
+          "span": "latency 8 ms",
+          "reviewed": true,
+          "unit": "ms"
+        }
+      }
+    }
+  ],
+  "ledger": {
+    "cutoff": "2024-12-31",
+    "required_probe_ids": [
+      "q1"
+    ],
+    "probes": [
+      {
+        "probe_id": "q1",
+        "query": "synthetic query",
+        "provider": "synthetic",
+        "snapshot_id": "fixture-1",
+        "status": "completed",
+        "pagination_complete": true,
+        "semantic_review_complete": true
+      }
+    ]
+  }
+}

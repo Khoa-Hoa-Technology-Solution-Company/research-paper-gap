@@ -1,0 +1,74 @@
+[
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_a466c2679c7ee968",
+    "subject": "NoSQL databases",
+    "missing_capability": "control over access",
+    "canonical_limitation_tokens": [
+      "access",
+      "control",
+      "over"
+    ],
+    "limitation_variants": [
+      "control over access"
+    ],
+    "key_concepts": [
+      "NoSQL databases",
+      "control over access"
+    ],
+    "supporting_paper_ids": [
+      "bbfcddc1ad6b5b17e52454d9fda049e2ef23b57a"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "bbfcddc1ad6b5b17e52454d9fda049e2ef23b57a",
+        "year": 2024,
+        "confidence": 0.9,
+        "evidence": "NoSQL databases are vulnerable to fraud, intrusions and data breaches due to their dynamic schemas, lack of control over access and the focus on availability.",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "NoSQL databases",
+        "atomic_limitation": "control over access"
+      }
+    ],
+    "semantic_scope": "subject",
+    "domain": "security of MongoDB",
+    "mean_evidence_confidence": 0.9,
+    "first_reported_year": 2024,
+    "latest_reported_year": 2024,
+    "research_frame": {
+      "methods": [
+        "Advanced Machine Learning",
+        "Random Forests",
+        "Neural Networks"
+      ],
+      "datasets": [
+        "large databases activity logs"
+      ],
+      "metrics": [
+        "high accuracy",
+        "low false-positive rates"
+      ],
+      "concepts": [
+        "NoSQL databases",
+        "fraud and intrusion detection"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.63,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 1.0,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": true
+      }
+    },
+    "description": "Evidence cell 'control over access' is reported by 1 independent paper(s) in security of MongoDB.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'control over access' as an unresolved limitation."
+  }
+]

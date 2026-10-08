@@ -1,0 +1,242 @@
+[
+  {
+    "candidate_id": "H-611373b8a403d832",
+    "domain": "handwritten_math_recognition",
+    "subject": "GPT-4V",
+    "capability": "handling multilingual scenarios",
+    "contract": {
+      "task": "",
+      "domain": "handwritten_math_recognition",
+      "cutoff": "2023-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2023-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-56ad5647ec344617",
+    "domain": "handwritten_math_recognition",
+    "subject": "GPT-4V",
+    "capability": "outperforming state-of-the-art OCR models",
+    "contract": {
+      "task": "",
+      "domain": "handwritten_math_recognition",
+      "cutoff": "2023-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2023-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-455ba603f510bc27",
+    "domain": "handwritten_math_recognition",
+    "subject": "GPT-4V",
+    "capability": "handling complex OCR tasks",
+    "contract": {
+      "task": "",
+      "domain": "handwritten_math_recognition",
+      "cutoff": "2023-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2023-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-79d2402a08d5526b",
+    "domain": "handwritten_math_recognition",
+    "subject": "GPT-4V",
+    "capability": "handling non-Latin languages",
+    "contract": {
+      "task": "",
+      "domain": "handwritten_math_recognition",
+      "cutoff": "2023-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2023-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-dd8a9deacb550890",
+    "domain": "iot_intrusion_detection",
+    "subject": "machine learning-driven intrusion detection frameworks",
+    "capability": "computational burdens",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-273c020af84d6999",
+    "domain": "iot_intrusion_detection",
+    "subject": "machine learning-driven intrusion detection frameworks",
+    "capability": "adversarial attacks",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-e75bfbdef3e62ad8",
+    "domain": "iot_intrusion_detection",
+    "subject": "major limitations remain, including dependence on benchmark datasets",
+    "capability": "limited explainability",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-9ec85c9045db134c",
+    "domain": "iot_intrusion_detection",
+    "subject": "traditional IDS methods",
+    "capability": "polymorphic malware",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-5301f16e3e96bbe2",
+    "domain": "microservice_security",
+    "subject": "security of microservices",
+    "capability": "trusted third party",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2022-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2022-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-4d866c416ea2bcb9",
+    "domain": "microservice_security",
+    "subject": "traditional Zero Trust models",
+    "capability": "real-time analytics",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2022-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2022-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-2ab1ad52cca87b46",
+    "domain": "microservice_security",
+    "subject": "Docker",
+    "capability": "way to get necessary system calls for a particular container",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2022-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2022-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-02089d04ad94afa0",
+    "domain": "microservice_security",
+    "subject": "security of microservices",
+    "capability": "approaches focusing on resolving Dockerfile smells",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2023-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2023-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  }
+]

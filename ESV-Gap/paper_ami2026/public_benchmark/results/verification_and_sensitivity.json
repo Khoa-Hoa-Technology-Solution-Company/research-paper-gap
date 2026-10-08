@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "verified_saved_predictions": 252,
+  "macro_arithmetic_check": true,
+  "source_and_budget_checks": true,
+  "bit_lcs_vs_conventional_lcs_checks": 10,
+  "posthoc_word_budget_sensitivity": {
+    "256": {
+      "bm25": {
+        "rouge1_f1": 0.2961752584861842,
+        "rouge2_f1": 0.1254116600627048,
+        "rougel_f1": 0.16845868992733473
+      },
+      "context_diverse": {
+        "rouge1_f1": 0.3299407515411768,
+        "rouge2_f1": 0.16371126712214815,
+        "rougel_f1": 0.1878237753643845
+      }
+    },
+    "768": {
+      "bm25": {
+        "rouge1_f1": 0.36772292939637313,
+        "rouge2_f1": 0.15278781837228658,
+        "rougel_f1": 0.17786762490196947
+      },
+      "context_diverse": {
+        "rouge1_f1": 0.4313587506096833,
+        "rouge2_f1": 0.21773888282666487,
+        "rougel_f1": 0.21442866815916653
+      }
+    }
+  },
+  "interpretation": "Retrieval robustness only; no new closure labels or official-test claim.",
+  "benchmark_report_sha256": "aefe62a4d12b9ade4dd8d159c25ab6562f48de7c184839a8626c073caf68abaf",
+  "script_sha256": "70674c2cd2b313b7b46ea8eea3d3f49a6752ed947a75229d518bece64e6d3c6b"
+}

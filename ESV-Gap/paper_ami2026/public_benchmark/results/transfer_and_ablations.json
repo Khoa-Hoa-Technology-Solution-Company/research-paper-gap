@@ -1,0 +1,51 @@
+{
+  "posthoc": true,
+  "weights_retuned": false,
+  "word_budget": 512,
+  "paired_paper_ablation_comparisons": {
+    "tfidf": {
+      "paper_macro_rougel_difference": 0.03995293981157289,
+      "descriptive_95_percentile_interval": [
+        0.01703717792513658,
+        0.06633247101641017
+      ]
+    },
+    "prior_only": {
+      "paper_macro_rougel_difference": 0.0019232713585865867,
+      "descriptive_95_percentile_interval": [
+        -0.02738712488580789,
+        0.03373676007125699
+      ]
+    },
+    "context": {
+      "paper_macro_rougel_difference": -0.0004633737432728574,
+      "descriptive_95_percentile_interval": [
+        -0.005960200958504299,
+        0.0043773709787226405
+      ]
+    }
+  },
+  "cross_lab_transfer": {
+    "akamatsulab": {
+      "held_claims": 28,
+      "training_claims": 14,
+      "training_papers": 6,
+      "held_papers_excluded": true,
+      "rouge1_f1": 0.37310961954724153,
+      "rouge2_f1": 0.15236926959644154,
+      "rougel_f1": 0.18733286531500082,
+      "bm25_rougel_f1": 0.1850297704728712
+    },
+    "megacoglab": {
+      "held_claims": 14,
+      "training_claims": 28,
+      "training_papers": 25,
+      "held_papers_excluded": true,
+      "rouge1_f1": 0.32596953134845413,
+      "rouge2_f1": 0.11061876741134775,
+      "rougel_f1": 0.1503868713336534,
+      "bm25_rougel_f1": 0.17141432469415868
+    }
+  },
+  "interpretation": "Small auxiliary benchmark; no independent significance or gap-closure claim."
+}

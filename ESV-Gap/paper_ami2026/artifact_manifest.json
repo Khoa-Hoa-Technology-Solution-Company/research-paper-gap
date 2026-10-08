@@ -1,0 +1,194 @@
+{
+  "status": "current_source_revised_native_compile_unavailable_not_submission_certified",
+  "pages": null,
+  "external_submission_performed": false,
+  "human_annotation_performed": false,
+  "files": [
+    {
+      "path": "ESV-Gap\\paper_ami2026\\main.tex",
+      "sha256": "8f9a7b421253aac5f0399733da4bdc8cfe47ec348d82cc0a78f921ad8d0c99d1",
+      "bytes": 43072
+    },
+    {
+      "path": "output\\pdf\\ESV-Gap_AMI2026_Scoped_Draft.pdf",
+      "sha256": "3911cfc5b2c6a3daeae1fb90dfd0c46e8edd4720f96becdd7b1f72927ba48194",
+      "bytes": 350778,
+      "stale_relative_to_current_source": true
+    },
+    {
+      "path": "ESV-Gap\\src\\scoped_verification.py",
+      "sha256": "1f574521528e25a3eb26d86ae2e7e490ebf34f6c1237b76803770c3da7ad4141",
+      "bytes": 11520
+    },
+    {
+      "path": "ESV-Gap\\tests\\test_scoped_verification.py",
+      "sha256": "0e96fa2307b5251b5bc9e5646b8df1566644a59fa675ec231e9ef1de520a2f70",
+      "bytes": 7263
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\README_VI.md",
+      "sha256": "7e91467486971a5f4bfb93551be98ae8af8145f1858669e8afc0ed7b34fb3658",
+      "bytes": 16604
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\prepare_scope_review.py",
+      "sha256": "ca4a6eb86f504963eabc130e483bd7b8075113105eb6fdbcb96d3093e0421339",
+      "bytes": 8539
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\score_scope_review.py",
+      "sha256": "dd5e5e6ccb0783e17d97c971f0ebb63c2ffb772a3d52554b19b349f7aff71e37",
+      "bytes": 3774
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\audit_evidence.py",
+      "sha256": "03d469dc405d109e1fed2ed6ec87ebd7b20a55fdafec73b5ed1e8f50ec197e9f",
+      "bytes": 3417
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\scope_preparation_report.json",
+      "sha256": "07c6aa09961c425f3d08214d0cbc7e057f8208b730ca2d2768202a1704c3e547",
+      "bytes": 4491
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\evidence_recount.json",
+      "sha256": "20feaf667cb275d5fb5eddd654e887d61ea635cf46e379fd30ab6215696d645f",
+      "bytes": 2689
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\policy_test_report.json",
+      "sha256": "2840875d89c3c86b58f78831c59136131b9e18cfe63e011462af3a79298905b0",
+      "bytes": 337
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\QA_STATUS.md",
+      "sha256": "f0d7522960bc5ad75adb18e49065b9370b506504bdc7d567ad1274577a59efa9",
+      "bytes": 4533
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\SELF_REVIEW_VI.md",
+      "sha256": "68d41da78d7b5c5cd0bb23daac61db4d734c5655def212df6a096dd0bb0ccff9",
+      "bytes": 9687
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\source_consistency_report.json",
+      "sha256": "5e58605e2b168e67ffff13068986b15b2391d702381209c30fa64eecb92c2a49",
+      "bytes": 488
+    },
+    {
+      "path": "ESV-Gap\\src\\context_retrieval.py",
+      "sha256": "f9cef0030dcd9c9fa01570d2b6392eb3ccc2a16a0057e83b75abf3065dad9756",
+      "bytes": 6806
+    },
+    {
+      "path": "ESV-Gap\\tests\\test_context_retrieval.py",
+      "sha256": "038ff58e509bf80218352cadfff705e4c0b2464beb7900d34249169699a39ee3",
+      "bytes": 2020
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\public_benchmark\\CONTEXT24_PROTOCOL.md",
+      "sha256": "030e4cc51bfec8bd55a895c39d6a56bed0f0e7c1ebba005c7deaf05c9d18b89f",
+      "bytes": 2936
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\public_benchmark\\run_context24.py",
+      "sha256": "29274fb380af4c1cab015f1fe275a445f9a5f4e1bf75f7b8c85ef8c282cd74d3",
+      "bytes": 5805
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\public_benchmark\\check_context24.py",
+      "sha256": "70674c2cd2b313b7b46ea8eea3d3f49a6752ed947a75229d518bece64e6d3c6b",
+      "bytes": 4057
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\public_benchmark\\check_transfer.py",
+      "sha256": "903dda6eb92b6ec38e57a2e53b21aeb8dce95843ca459c8eec5c7101ad3d59bb",
+      "bytes": 3018
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\public_benchmark\\context24\\DOWNLOAD_MANIFEST.json",
+      "sha256": "36afac327942f15adf1d72cd0fa6ac31fbb2f8ac20646f1dc1b85a72384031ec",
+      "bytes": 1147
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\public_benchmark\\results\\context24_report.json",
+      "sha256": "aefe62a4d12b9ade4dd8d159c25ab6562f48de7c184839a8626c073caf68abaf",
+      "bytes": 94008
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\public_benchmark\\results\\verification_and_sensitivity.json",
+      "sha256": "7337c9f90320246eeb40c32004ea1fd9e1ad1e81f635e94e13dd4ba780efaf61",
+      "bytes": 1190
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\public_benchmark\\results\\transfer_and_ablations.json",
+      "sha256": "0beb934e4c57e4234d92bb0ddce7ec257734fd53b1db08191a124a6d4ba020fb",
+      "bytes": 1512
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\replay_primary_audit.py",
+      "sha256": "ee6001fd6bbba9d5d13f71e2bc05c3bb0de22047f8ce36afab891ad456be9a54",
+      "bytes": 7435
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\primary_audit\\primary_audit_report.json",
+      "sha256": "e726830ae2c5bebeea50932b0abbedd52b7d09669a2da087cda0d5e9024d2e4e",
+      "bytes": 8960
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\verify_controller_properties.py",
+      "sha256": "1bdb63d78641d2b6d2c0b0f99e938bdc9ca12f0bf9af011df7140ac948daa6ca",
+      "bytes": 6787
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\controller_properties_report.json",
+      "sha256": "b1c001044cf3ff5ec0855e7588efaefcded3b46de43c698175b5dfa5fc0166ec",
+      "bytes": 853
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\prepare_pilot.py",
+      "sha256": "e9ded46db2af50f030ede067275a0f05f0f5d28ed4f8a4fd95758e618adc4ef1",
+      "bytes": 4379
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\pilot_review\\PILOT_PROTOCOL.json",
+      "sha256": "03d753ba66c9c161991b3c4c7bd7a99416ca35e73f67f9e0f1df7e18c657b2b2",
+      "bytes": 1190
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\pilot_review\\README_VI.md",
+      "sha256": "bbd6ccde7a5435f39e41e607d6572c29526c044070dee72ef8feedb96b7ae393",
+      "bytes": 4577
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\pilot_review\\organizer_manifest.json",
+      "sha256": "63c5fd8ac650b5236f7c066e56bbced55b28c7d6496aa35d7f31335a113ee42d",
+      "bytes": 17683
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\pilot_review\\scope_contracts_unannotated.json",
+      "sha256": "44b7df85fc5025f102e4d8b6a3d0720b791a7810521466a949a1d998a0af2426",
+      "bytes": 6356
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\pilot_review\\reviewer_A.csv",
+      "sha256": "9b09dbe65e6195c7f6035af31383ce9a886bda453a4098195f9d17b50a10c52e",
+      "bytes": 104513
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\pilot_review\\reviewer_B.csv",
+      "sha256": "dba6230516f1fac2125baa523c2441f5ee079c5b674b33a15dcddcca355d2bf5",
+      "bytes": 104513
+    },
+    {
+      "path": "ESV-Gap\\paper_ami2026\\REVIEW_RESPONSE_VI.md",
+      "sha256": "ee15260aac4c8450236602fdfe01cab530c09efdbaa4eca6b7b01c7a08aa97a8",
+      "bytes": 4901
+    }
+  ],
+  "previous_export_pages": 11,
+  "current_source_compiled": false,
+  "previous_pdf_exports_stale": true,
+  "public_expert_labels_reused": true,
+  "new_human_annotation_performed": false
+}

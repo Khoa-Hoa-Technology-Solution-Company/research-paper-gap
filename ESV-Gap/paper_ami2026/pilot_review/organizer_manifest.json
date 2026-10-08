@@ -1,0 +1,638 @@
+[
+  {
+    "item_id": "R-29821ea471f2bfae",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-9ec85c9045db134c",
+    "rank": 1,
+    "score": 6.818470542172431,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "1868c61b82801408521cf0fca4396a698311b5d5"
+    ]
+  },
+  {
+    "item_id": "R-d06a13d7463d7ee6",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-9ec85c9045db134c",
+    "rank": 2,
+    "score": 5.602793290876613,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "1868c61b82801408521cf0fca4396a698311b5d5"
+    ]
+  },
+  {
+    "item_id": "R-6045a08ee2967861",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-9ec85c9045db134c",
+    "rank": 3,
+    "score": 5.274126758641398,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "1868c61b82801408521cf0fca4396a698311b5d5"
+    ]
+  },
+  {
+    "item_id": "R-ce6380dadc822a15",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-9ec85c9045db134c",
+    "rank": 4,
+    "score": 4.512450147956401,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "1868c61b82801408521cf0fca4396a698311b5d5"
+    ]
+  },
+  {
+    "item_id": "R-cbf8c1422755cff9",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-9ec85c9045db134c",
+    "rank": 5,
+    "score": 4.235335515231011,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "1868c61b82801408521cf0fca4396a698311b5d5"
+    ]
+  },
+  {
+    "item_id": "R-7150efcf2870bb86",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-e75bfbdef3e62ad8",
+    "rank": 1,
+    "score": 6.3040788977814515,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "080d8665b41bc15fb50fba49457322ad27493954"
+    ]
+  },
+  {
+    "item_id": "R-3220e1312a265ed8",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-e75bfbdef3e62ad8",
+    "rank": 2,
+    "score": 5.6910769735081,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "080d8665b41bc15fb50fba49457322ad27493954"
+    ]
+  },
+  {
+    "item_id": "R-43d1f0f2f80b6bae",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-e75bfbdef3e62ad8",
+    "rank": 3,
+    "score": 5.506532833568758,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "080d8665b41bc15fb50fba49457322ad27493954"
+    ]
+  },
+  {
+    "item_id": "R-582acb2bb2255dc1",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-e75bfbdef3e62ad8",
+    "rank": 4,
+    "score": 5.505052659153296,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "080d8665b41bc15fb50fba49457322ad27493954"
+    ]
+  },
+  {
+    "item_id": "R-2e65ad46318c0fdc",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-e75bfbdef3e62ad8",
+    "rank": 5,
+    "score": 5.072080662279998,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "080d8665b41bc15fb50fba49457322ad27493954"
+    ]
+  },
+  {
+    "item_id": "R-3a04ab09cdd472d7",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-dd8a9deacb550890",
+    "rank": 1,
+    "score": 7.88006302734226,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "0d70b06ada7302e268205445e2121e9abe41b3f3"
+    ]
+  },
+  {
+    "item_id": "R-59de81d2799012cb",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-dd8a9deacb550890",
+    "rank": 2,
+    "score": 7.476596818582342,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "0d70b06ada7302e268205445e2121e9abe41b3f3"
+    ]
+  },
+  {
+    "item_id": "R-bb49b0abf095b446",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-dd8a9deacb550890",
+    "rank": 3,
+    "score": 6.311732015185184,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "0d70b06ada7302e268205445e2121e9abe41b3f3"
+    ]
+  },
+  {
+    "item_id": "R-55743e0e9e59f2cc",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-dd8a9deacb550890",
+    "rank": 4,
+    "score": 5.481410572758918,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "0d70b06ada7302e268205445e2121e9abe41b3f3"
+    ]
+  },
+  {
+    "item_id": "R-f03677c4fcdb2d46",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-dd8a9deacb550890",
+    "rank": 5,
+    "score": 3.8134515633277046,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "0d70b06ada7302e268205445e2121e9abe41b3f3"
+    ]
+  },
+  {
+    "item_id": "R-a61dce44e07d9de3",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-273c020af84d6999",
+    "rank": 1,
+    "score": 8.335046211461206,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "0d70b06ada7302e268205445e2121e9abe41b3f3"
+    ]
+  },
+  {
+    "item_id": "R-12b11372500d8152",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-273c020af84d6999",
+    "rank": 2,
+    "score": 6.975806299066952,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "0d70b06ada7302e268205445e2121e9abe41b3f3"
+    ]
+  },
+  {
+    "item_id": "R-60a89e196ba326e8",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-273c020af84d6999",
+    "rank": 3,
+    "score": 6.721589731728836,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "0d70b06ada7302e268205445e2121e9abe41b3f3"
+    ]
+  },
+  {
+    "item_id": "R-b94e6cb15f3eab44",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-273c020af84d6999",
+    "rank": 4,
+    "score": 6.717692977456261,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "0d70b06ada7302e268205445e2121e9abe41b3f3"
+    ]
+  },
+  {
+    "item_id": "R-93c4d3e7910e3a1a",
+    "domain": "iot_intrusion_detection",
+    "cutoff": 2024,
+    "candidate_id": "H-273c020af84d6999",
+    "rank": 5,
+    "score": 5.530032836688221,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "0d70b06ada7302e268205445e2121e9abe41b3f3"
+    ]
+  },
+  {
+    "item_id": "R-e386e113befb97d7",
+    "domain": "microservice_security",
+    "cutoff": 2022,
+    "candidate_id": "H-2ab1ad52cca87b46",
+    "rank": 1,
+    "score": 7.7873727897257075,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "63360f7238198e4d211f2d2f982b790eb7c6ff58"
+    ]
+  },
+  {
+    "item_id": "R-ed124485ced2729a",
+    "domain": "microservice_security",
+    "cutoff": 2022,
+    "candidate_id": "H-2ab1ad52cca87b46",
+    "rank": 2,
+    "score": 7.5496942086924905,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "63360f7238198e4d211f2d2f982b790eb7c6ff58"
+    ]
+  },
+  {
+    "item_id": "R-e55a639304ff31d2",
+    "domain": "microservice_security",
+    "cutoff": 2022,
+    "candidate_id": "H-2ab1ad52cca87b46",
+    "rank": 3,
+    "score": 7.438354509387468,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "63360f7238198e4d211f2d2f982b790eb7c6ff58"
+    ]
+  },
+  {
+    "item_id": "R-6e405a8aae33d825",
+    "domain": "microservice_security",
+    "cutoff": 2022,
+    "candidate_id": "H-2ab1ad52cca87b46",
+    "rank": 4,
+    "score": 7.098172244461223,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "63360f7238198e4d211f2d2f982b790eb7c6ff58"
+    ]
+  },
+  {
+    "item_id": "R-c9a3515a89f116aa",
+    "domain": "microservice_security",
+    "cutoff": 2022,
+    "candidate_id": "H-2ab1ad52cca87b46",
+    "rank": 5,
+    "score": 5.921336542069379,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "63360f7238198e4d211f2d2f982b790eb7c6ff58"
+    ]
+  },
+  {
+    "item_id": "R-7acc1eb35fe73f3d",
+    "domain": "microservice_security",
+    "cutoff": 2022,
+    "candidate_id": "H-5301f16e3e96bbe2",
+    "rank": 1,
+    "score": 4.82498768097039,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "acdc04eca48e79a05f14e730c7b3c1b912575115"
+    ]
+  },
+  {
+    "item_id": "R-aa655773388dad16",
+    "domain": "microservice_security",
+    "cutoff": 2022,
+    "candidate_id": "H-5301f16e3e96bbe2",
+    "rank": 2,
+    "score": 4.717628637466852,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "acdc04eca48e79a05f14e730c7b3c1b912575115"
+    ]
+  },
+  {
+    "item_id": "R-b9899d3c48627cd5",
+    "domain": "microservice_security",
+    "cutoff": 2022,
+    "candidate_id": "H-5301f16e3e96bbe2",
+    "rank": 3,
+    "score": 4.654436462272859,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "acdc04eca48e79a05f14e730c7b3c1b912575115"
+    ]
+  },
+  {
+    "item_id": "R-0b56d51f1115ce99",
+    "domain": "microservice_security",
+    "cutoff": 2022,
+    "candidate_id": "H-5301f16e3e96bbe2",
+    "rank": 4,
+    "score": 1.5554227273904346,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "acdc04eca48e79a05f14e730c7b3c1b912575115"
+    ]
+  },
+  {
+    "item_id": "R-1b445da577de7d43",
+    "domain": "microservice_security",
+    "cutoff": 2022,
+    "candidate_id": "H-5301f16e3e96bbe2",
+    "rank": 5,
+    "score": 1.5203619492726386,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "acdc04eca48e79a05f14e730c7b3c1b912575115"
+    ]
+  },
+  {
+    "item_id": "R-22073ff3554e6b3d",
+    "domain": "microservice_security",
+    "cutoff": 2022,
+    "candidate_id": "H-4d866c416ea2bcb9",
+    "rank": 1,
+    "score": 9.860051014915031,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "78f08ef91356d0dc0806ea165a3649f89859dde1"
+    ]
+  },
+  {
+    "item_id": "R-05023cdd71ee91ac",
+    "domain": "microservice_security",
+    "cutoff": 2022,
+    "candidate_id": "H-4d866c416ea2bcb9",
+    "rank": 2,
+    "score": 8.960073252351263,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "78f08ef91356d0dc0806ea165a3649f89859dde1"
+    ]
+  },
+  {
+    "item_id": "R-0aa17180fde4c23f",
+    "domain": "microservice_security",
+    "cutoff": 2022,
+    "candidate_id": "H-4d866c416ea2bcb9",
+    "rank": 3,
+    "score": 8.867460332942823,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "78f08ef91356d0dc0806ea165a3649f89859dde1"
+    ]
+  },
+  {
+    "item_id": "R-69f5accf893ee06e",
+    "domain": "microservice_security",
+    "cutoff": 2022,
+    "candidate_id": "H-4d866c416ea2bcb9",
+    "rank": 4,
+    "score": 7.478093766582923,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "78f08ef91356d0dc0806ea165a3649f89859dde1"
+    ]
+  },
+  {
+    "item_id": "R-0b339add60b257bf",
+    "domain": "microservice_security",
+    "cutoff": 2022,
+    "candidate_id": "H-4d866c416ea2bcb9",
+    "rank": 5,
+    "score": 5.60010265064929,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "78f08ef91356d0dc0806ea165a3649f89859dde1"
+    ]
+  },
+  {
+    "item_id": "R-cda85cb5975ade6f",
+    "domain": "microservice_security",
+    "cutoff": 2023,
+    "candidate_id": "H-02089d04ad94afa0",
+    "rank": 1,
+    "score": 4.301147165737022,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "c389b63370a6045280a28ecacf13e849dd4cb802"
+    ]
+  },
+  {
+    "item_id": "R-9ac365e746414fcd",
+    "domain": "microservice_security",
+    "cutoff": 2023,
+    "candidate_id": "H-02089d04ad94afa0",
+    "rank": 2,
+    "score": 4.116468072193651,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "c389b63370a6045280a28ecacf13e849dd4cb802"
+    ]
+  },
+  {
+    "item_id": "R-cab4c3ad6ec66747",
+    "domain": "microservice_security",
+    "cutoff": 2023,
+    "candidate_id": "H-02089d04ad94afa0",
+    "rank": 3,
+    "score": 4.11138838130919,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "c389b63370a6045280a28ecacf13e849dd4cb802"
+    ]
+  },
+  {
+    "item_id": "R-e610d42c24df91c4",
+    "domain": "microservice_security",
+    "cutoff": 2023,
+    "candidate_id": "H-02089d04ad94afa0",
+    "rank": 4,
+    "score": 4.06469224152977,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "c389b63370a6045280a28ecacf13e849dd4cb802"
+    ]
+  },
+  {
+    "item_id": "R-f0bee3aff108d7c1",
+    "domain": "microservice_security",
+    "cutoff": 2023,
+    "candidate_id": "H-02089d04ad94afa0",
+    "rank": 5,
+    "score": 3.494497797782475,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "c389b63370a6045280a28ecacf13e849dd4cb802"
+    ]
+  },
+  {
+    "item_id": "R-7bb96428194369d3",
+    "domain": "handwritten_math_recognition",
+    "cutoff": 2023,
+    "candidate_id": "H-56ad5647ec344617",
+    "rank": 1,
+    "score": 5.1131966565759015,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "43a3d51cc60c638e7523c63f203ac0c9026ce2d8"
+    ]
+  },
+  {
+    "item_id": "R-4d022453bd64115f",
+    "domain": "handwritten_math_recognition",
+    "cutoff": 2023,
+    "candidate_id": "H-56ad5647ec344617",
+    "rank": 2,
+    "score": 4.041020012290532,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "43a3d51cc60c638e7523c63f203ac0c9026ce2d8"
+    ]
+  },
+  {
+    "item_id": "R-8c1b9c45f1719a3f",
+    "domain": "handwritten_math_recognition",
+    "cutoff": 2023,
+    "candidate_id": "H-56ad5647ec344617",
+    "rank": 3,
+    "score": 3.738645971282817,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "43a3d51cc60c638e7523c63f203ac0c9026ce2d8"
+    ]
+  },
+  {
+    "item_id": "R-4209b80699ec89c4",
+    "domain": "handwritten_math_recognition",
+    "cutoff": 2023,
+    "candidate_id": "H-56ad5647ec344617",
+    "rank": 4,
+    "score": 3.407855095348046,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "43a3d51cc60c638e7523c63f203ac0c9026ce2d8"
+    ]
+  },
+  {
+    "item_id": "R-5eb95171ea044caf",
+    "domain": "handwritten_math_recognition",
+    "cutoff": 2023,
+    "candidate_id": "H-56ad5647ec344617",
+    "rank": 5,
+    "score": 3.0672694808847343,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "43a3d51cc60c638e7523c63f203ac0c9026ce2d8"
+    ]
+  },
+  {
+    "item_id": "R-4a7570dd138da9aa",
+    "domain": "handwritten_math_recognition",
+    "cutoff": 2023,
+    "candidate_id": "H-611373b8a403d832",
+    "rank": 1,
+    "score": 4.88974717929846,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "43a3d51cc60c638e7523c63f203ac0c9026ce2d8"
+    ]
+  },
+  {
+    "item_id": "R-c7acbc43cf9f8ece",
+    "domain": "handwritten_math_recognition",
+    "cutoff": 2023,
+    "candidate_id": "H-611373b8a403d832",
+    "rank": 2,
+    "score": 2.3062242458619453,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "43a3d51cc60c638e7523c63f203ac0c9026ce2d8"
+    ]
+  },
+  {
+    "item_id": "R-c99a1f7cb94580cc",
+    "domain": "handwritten_math_recognition",
+    "cutoff": 2023,
+    "candidate_id": "H-79d2402a08d5526b",
+    "rank": 1,
+    "score": 4.88974717929846,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "43a3d51cc60c638e7523c63f203ac0c9026ce2d8"
+    ]
+  },
+  {
+    "item_id": "R-1d5b86a3cd9e369d",
+    "domain": "handwritten_math_recognition",
+    "cutoff": 2023,
+    "candidate_id": "H-455ba603f510bc27",
+    "rank": 1,
+    "score": 6.9762974948436245,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "43a3d51cc60c638e7523c63f203ac0c9026ce2d8"
+    ]
+  },
+  {
+    "item_id": "R-d90ef3410363710b",
+    "domain": "handwritten_math_recognition",
+    "cutoff": 2023,
+    "candidate_id": "H-455ba603f510bc27",
+    "rank": 2,
+    "score": 3.3371178093276326,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "43a3d51cc60c638e7523c63f203ac0c9026ce2d8"
+    ]
+  },
+  {
+    "item_id": "R-e421c3fecd1871d0",
+    "domain": "handwritten_math_recognition",
+    "cutoff": 2023,
+    "candidate_id": "H-455ba603f510bc27",
+    "rank": 3,
+    "score": 2.680021724672557,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "43a3d51cc60c638e7523c63f203ac0c9026ce2d8"
+    ]
+  },
+  {
+    "item_id": "R-c0f396e765a6f95c",
+    "domain": "handwritten_math_recognition",
+    "cutoff": 2023,
+    "candidate_id": "H-455ba603f510bc27",
+    "rank": 4,
+    "score": 2.1585644343217307,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "43a3d51cc60c638e7523c63f203ac0c9026ce2d8"
+    ]
+  },
+  {
+    "item_id": "R-72d925984e7eac6f",
+    "domain": "handwritten_math_recognition",
+    "cutoff": 2023,
+    "candidate_id": "H-455ba603f510bc27",
+    "rank": 5,
+    "score": 1.8258188547062058,
+    "source": "raw_title_abstract_BM25",
+    "excluded_origin_ids": [
+      "43a3d51cc60c638e7523c63f203ac0c9026ce2d8"
+    ]
+  }
+]

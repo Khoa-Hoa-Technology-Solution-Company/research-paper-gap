@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d6" for="edge" attr.name="relation" attr.type="string" />
+  <key id="d5" for="node" attr.name="year" attr.type="long" />
+  <key id="d4" for="node" attr.name="quality_score" attr.type="double" />
+  <key id="d3" for="node" attr.name="source_count" attr.type="long" />
+  <key id="d2" for="node" attr.name="label" attr.type="string" />
+  <key id="d1" for="node" attr.name="type" attr.type="string" />
+  <key id="d0" for="graph" attr.name="graph_kind" attr.type="string" />
+  <graph edgedefault="directed">
+    <node id="cell_c7d4ad85afa981d0">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">outperforming state-of-the-art OCR models</data>
+      <data key="d3">1</data>
+      <data key="d4">0.58</data>
+    </node>
+    <node id="paper::43a3d51cc60c638e7523c63f203ac0c9026ce2d8">
+      <data key="d1">PAPER</data>
+      <data key="d2">Exploring OCR Capabilities of GPT-4V(ision) : A Quantitative and In-depth Evaluation</data>
+      <data key="d5">2023</data>
+    </node>
+    <node id="context::METHOD::GPT-4V">
+      <data key="d1">METHOD</data>
+      <data key="d2">GPT-4V</data>
+    </node>
+    <node id="context::CONCEPT::handling multilingual scenarios">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">handling multilingual scenarios</data>
+    </node>
+    <node id="context::CONCEPT::handling non-Latin languages">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">handling non-Latin languages</data>
+    </node>
+    <node id="context::CONCEPT::handling complex OCR tasks">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">handling complex OCR tasks</data>
+    </node>
+    <node id="context::CONCEPT::scene text recognition">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">scene text recognition</data>
+    </node>
+    <node id="context::CONCEPT::handwritten text recognition">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">handwritten text recognition</data>
+    </node>
+    <node id="cell_b17ea69b0b3bc46c">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">handling multilingual scenarios</data>
+      <data key="d3">1</data>
+      <data key="d4">0.57</data>
+    </node>
+    <node id="context::CONCEPT::outperforming state-of-the-art OCR models">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">outperforming state-of-the-art OCR models</data>
+    </node>
+    <node id="cell_9e7d3bfa56e07260">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">handling non-Latin languages</data>
+      <data key="d3">1</data>
+      <data key="d4">0.57</data>
+    </node>
+    <node id="cell_6badb8899f5bda89">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">handling complex OCR tasks</data>
+      <data key="d3">1</data>
+      <data key="d4">0.57</data>
+    </node>
+    <edge source="cell_c7d4ad85afa981d0" target="context::METHOD::GPT-4V" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_c7d4ad85afa981d0" target="context::CONCEPT::handling multilingual scenarios" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_c7d4ad85afa981d0" target="context::CONCEPT::handling non-Latin languages" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_c7d4ad85afa981d0" target="context::CONCEPT::handling complex OCR tasks" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_c7d4ad85afa981d0" target="context::CONCEPT::scene text recognition" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_c7d4ad85afa981d0" target="context::CONCEPT::handwritten text recognition" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="paper::43a3d51cc60c638e7523c63f203ac0c9026ce2d8" target="cell_c7d4ad85afa981d0" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="paper::43a3d51cc60c638e7523c63f203ac0c9026ce2d8" target="cell_b17ea69b0b3bc46c" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="paper::43a3d51cc60c638e7523c63f203ac0c9026ce2d8" target="cell_9e7d3bfa56e07260" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="paper::43a3d51cc60c638e7523c63f203ac0c9026ce2d8" target="cell_6badb8899f5bda89" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <edge source="cell_b17ea69b0b3bc46c" target="context::METHOD::GPT-4V" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_b17ea69b0b3bc46c" target="context::CONCEPT::handling non-Latin languages" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b17ea69b0b3bc46c" target="context::CONCEPT::handling complex OCR tasks" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b17ea69b0b3bc46c" target="context::CONCEPT::outperforming state-of-the-art OCR models" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b17ea69b0b3bc46c" target="context::CONCEPT::scene text recognition" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_b17ea69b0b3bc46c" target="context::CONCEPT::handwritten text recognition" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_9e7d3bfa56e07260" target="context::METHOD::GPT-4V" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_9e7d3bfa56e07260" target="context::CONCEPT::handling multilingual scenarios" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_9e7d3bfa56e07260" target="context::CONCEPT::handling complex OCR tasks" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_9e7d3bfa56e07260" target="context::CONCEPT::outperforming state-of-the-art OCR models" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_9e7d3bfa56e07260" target="context::CONCEPT::scene text recognition" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_9e7d3bfa56e07260" target="context::CONCEPT::handwritten text recognition" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_6badb8899f5bda89" target="context::METHOD::GPT-4V" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_6badb8899f5bda89" target="context::CONCEPT::handling multilingual scenarios" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_6badb8899f5bda89" target="context::CONCEPT::handling non-Latin languages" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_6badb8899f5bda89" target="context::CONCEPT::outperforming state-of-the-art OCR models" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_6badb8899f5bda89" target="context::CONCEPT::scene text recognition" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_6badb8899f5bda89" target="context::CONCEPT::handwritten text recognition" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <data key="d0">research_gap_evidence_map</data>
+  </graph>
+</graphml>

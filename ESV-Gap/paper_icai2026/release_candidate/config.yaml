@@ -1,0 +1,296 @@
+# ============================================
+# KG Gap Discovery - Configuration
+# ============================================
+# Copy this file and edit with your settings.
+# Do NOT commit API keys to version control.
+# ============================================
+
+# --- Project Info ---
+project:
+  name: "ESV-Gap"
+  domain: "Explainable AI (XAI)"
+  version: "0.1.0"
+
+# --- API Keys ---
+api_keys:
+  # Get free keys at console.groq.com
+  groq_keys: []                              # Optional list; kept in memory by the app
+  groq: ""                                   # Legacy single-key CLI fallback
+  semantic_scholar: ""                      # Optional - works without key (rate limited)
+  openalex: ""                              # Optional closure-search fallback key
+
+# --- Data Collection (Stage 1) ---
+collection:
+  # Semantic Scholar search queries
+  queries:
+    - "explainable artificial intelligence"
+    - "explainable AI"
+    - "XAI"
+    - "interpretable machine learning"
+    - "model interpretability"
+  year_range: [2019, 2026]
+  max_papers: 1000                   # Max papers to fetch initially
+  min_citation_count: 0              # Filter: minimum citations
+  fields_of_study: ["Computer Science"]
+
+  # Rate limiting (Semantic Scholar allows 100 req/5 min without key)
+  delay_between_requests: 5          # Increased from 3.5 to reduce API pressure
+  request_timeout_seconds: 15        # Fail a stalled HTTP attempt promptly
+  max_retries: 3                     # Never retry a failed query indefinitely
+  max_retry_wait_seconds: 20         # Cap Retry-After/backoff pauses in the UI
+  adaptive_query_broadening: true    # Retry short keyword queries if first pass is sparse
+  min_raw_papers_before_broadening: 30
+
+# --- Filtering (Stage 1 continued) ---
+filtering:
+  # After collection, filter to final corpus
+  target_corpus_size: 150            # Final number of papers to keep
+  require_abstract: true             # Must have abstract
+  min_abstract_length: 100           # Minimum abstract word count
+
+  # LLM-based relevance screening
+  relevance_model: "openai/gpt-oss-20b"   # Groq production text-generation model
+  relevance_threshold: 0.7           # Minimum relevance score (0-1)
+  lexical_domain_guard: true          # Reject isolated ambiguous keyword matches
+  min_domain_anchor_coverage: 0.60    # Require substantive topic-token coverage
+  screening_candidate_multiplier: 1.25 # Screen extra relevant papers for query/year balance
+
+# --- Triple Extraction (Stage 2) ---
+extraction:
+  model: "openai/gpt-oss-20b"      # Groq production text-generation model
+  max_tokens: 2000                   # Max response tokens
+  temperature: 0.1                   # Low temp for consistency
+  triples_per_chunk: [5, 15]         # Min/max triples per chunk
+  chunk_size: 1500                   # Words per text chunk
+  chunk_overlap: 200                 # Overlap between chunks
+
+  # Controlled vocabulary
+  entity_types:
+    - METHOD
+    - DATASET
+    - METRIC
+    - CONCEPT
+    - FINDING
+    - TOOL
+    - LIMITATION
+
+  relationship_types:
+    - USES
+    - IMPROVES
+    - ADDRESSES
+    - EVALUATES_ON
+    - PRODUCES
+    - CONTRADICTS
+    - EXTENDS
+    - LACKS
+    - COMBINES
+    - APPLIED_TO
+
+# --- Knowledge Graph Construction (Stage 3) ---
+graph:
+  # Entity deduplication thresholds
+  fuzzy_match_threshold: 85          # FuzzyWuzzy score (0-100)
+  semantic_similarity_threshold: 0.85 # Sentence-BERT cosine sim (0-1)
+  embedding_model: "all-MiniLM-L6-v2" # Sentence-BERT model
+  min_edge_confidence: 0.3           # Drop triples below this confidence
+
+# --- Gap Detection (Stage 4) ---
+gap_detection:
+  # Explicit paper-reported limitations (strongest candidate source)
+  evidence:
+    min_confidence: 0.65
+    require_limitation_cue: true
+    consolidate_evidence_cells: true
+    # Merge paraphrases only when their normalized limitation anchors strongly
+    # agree. This raises candidate quality without relaxing certificate gates.
+    cell_similarity_threshold: 0.72
+
+  # Typed paper-evidence matrix. These candidates replace unconstrained
+  # all-entity missing-link predictions in the default pipeline.
+  evidence_map:
+    enabled: true
+    allowed_type_pairs:
+      - "METHOD-DATASET"
+      - "METHOD-CONCEPT"
+      - "CONCEPT-DATASET"
+    min_marginal_papers: 2
+    max_entities_per_type: 60
+    top_k_candidates: 40
+
+  # Missing Link Prediction (TransE)
+  transE:
+    embedding_dim: 128
+    learning_rate: 0.01
+    num_epochs: 100                  # Reduced from 500 for speed on CPU
+    top_k_predictions: 50            # Top predicted missing links
+
+  # Orphan Cluster Detection
+  orphan:
+    min_cluster_ratio: 0.05          # Flag clusters < 5% of total nodes
+    max_inter_cluster_edge_ratio: 0.1 # Flag if bridge edges < 10%
+    random_seed: 42                  # Louvain is stochastic without a fixed seed
+
+  # Temporal Decay Analysis
+  temporal:
+    window_years: 2                  # Annual windows (increased from 1)
+    decay_threshold: 0.3             # Flag if activity drops > 30% (reduced from 0.5)
+    lookback_years: 2                # Compare last N years (reduced from 3)
+
+# --- Evidence & Stability Validation (Stage 5) ---
+# Detection outputs are hypotheses. This gate removes candidates that are
+# generic, single-paper artefacts, unstable under edge dropout, already
+# present as direct links, or apparently covered by the screened corpus.
+gap_validation:
+  min_supporting_papers: 2
+  # A directly quoted limitation can originate in one paper. The resulting
+  # claim remains scoped and still needs closure search plus human confirmation.
+  min_explicit_supporting_papers: 1
+  min_independent_paths: 2
+  min_surviving_paths: 1
+  max_path_length: 4
+  min_specificity: 0.55
+  # Require the limitation itself (not merely its source paper) to cover the
+  # intervention/problem/setting anchors of the configured research domain.
+  min_problem_relevance: 0.60
+  # Selected on controlled development seeds; the held-out test set is untouched.
+  bootstrap_repeats: 50
+  edge_keep_probability: 0.95
+  paper_keep_probability: 0.95
+  plausible_edge_add_probability: 0.50
+  min_stability: 0.70
+  orphan_isolation_threshold: 0.90
+  temporal_decay_threshold: 0.30
+  temporal_lookback_years: 2
+  # Runtime configs replace this fallback with run_metadata.created_at.
+  snapshot_date: "2026-08-31"
+  exclude_incomplete_final_year: true
+  closure_token_coverage: 0.60
+  random_seed: 42
+  max_closure_hits_to_record: 10
+  corpus_path: ""                   # Optional explicit screened-corpus JSON
+  # Candidate-specific Semantic Scholar search for potentially closing work.
+  external_closure:
+    enabled: true
+    openalex_fallback: true
+    prefer_openalex_without_semantic_scholar_key: true
+    max_candidates: 15
+    queries_per_candidate: 3
+    max_results_per_query: 20
+    delay_between_queries: 1.0
+    delay_between_queries_seconds: 2.0
+    request_timeout_seconds: 15
+    max_retries: 2
+    max_retry_wait_seconds: 15
+    rate_limit_circuit_breaker: 2
+    failure_circuit_breaker: 2
+  weights:
+    provenance: 0.25
+    specificity: 0.15
+    path_diversity: 0.20
+    stability: 0.30
+    closure_clearance: 0.10
+
+# --- Automatic multi-signal research-gap synthesis ---
+# These are hard, predeclared decision rules. Human review is not an input to
+# the automatic gap verdict. A null result is emitted if any gate is unavailable.
+gap_synthesis:
+  min_screened_corpus_size: 30
+  # Corpus scarcity is contextual only. At least two evidentiary families are
+  # required, including one graph family supported by a source-disjoint paper.
+  min_signal_families: 2
+  min_graph_signal_families: 1
+  signal_similarity_threshold: 0.60
+  max_direct_documents: 2
+  min_external_queries: 2
+
+# --- Corpus-bounded research-gap certificate ---
+# A certificate is intentionally stricter than the synthesis contract.  It is
+# never a claim that no relevant study exists globally: it applies only to the
+# frozen screened corpus and documented counterevidence searches.
+gap_certification:
+  enabled: true
+  min_independent_limitation_sources: 2
+  min_source_text_level: "full_text"
+  min_full_text_characters: 1000
+  min_external_queries: 3
+  require_all_queries_completed: true
+
+# --- Candidate-targeted open-access full text ---
+# Runs only after initial candidate generation and only for the strongest
+# evidence cells. Downloads must resolve to an actual open-access PDF.
+full_text:
+  enabled: true
+  max_candidates: 10
+  max_source_papers: 20
+  max_pdf_bytes: 20000000
+  max_pages: 80
+  request_timeout_seconds: 20
+
+# --- Gap Scoring (Stage 6) ---
+scoring:
+  weights:
+    centrality: 0.15
+    cluster_isolation: 0.25
+    temporal_decay: 0.25
+    prediction_confidence: 0.25
+    validation: 0.35
+  top_k_gaps: 30                     # Final number of gaps to present
+
+# --- External Verification (Stage 7A) ---
+external_verification:
+  enabled: true
+  sources:
+    - openalex
+    - semantic_scholar
+  openalex_contact_email: ""         # OpenAlex etiquette; leave empty to skip
+  semantic_scholar_api_key: ""       # Optional; works without key (rate limited)
+  request_timeout_seconds: 25
+  max_retries: 3
+  retry_backoff_seconds: 2.0
+  max_records_per_probe: 5           # Sample size for record-level verification
+  max_queries_per_candidate: 4       # Limit phrase combinations
+  co_mention_token_coverage: 0.60    # Token overlap to confirm co-mention
+  temporal_decay_threshold: 0.30     # External decline must exceed this
+  temporal_lookback_years: 2
+  orphan_probe_pairs: 3              # How many cluster pairs to probe
+
+# --- Author-Stated Gaps (Stage 7B / Evidence Pillar B) ---
+author_stated_gaps:
+  enabled: true
+  co_mention_token_coverage: 0.50    # Allows 2-token phrases to match with 50% overlap
+
+# --- Extractor Recall Benchmark (Stage 7C / Evidence Pillar C) ---
+extractor_recall:
+  enabled: true
+  benchmark_path: "benchmarks/gold_triples_benchmark.json"
+  extracted_triples_path: "benchmarks/gold_benchmark_extracted.json"
+  entity_match_threshold: 0.60
+  strict_relation: true
+
+# --- Corpus Saturation Analysis (Stage 7D / Evidence Pillar D) ---
+corpus_saturation:
+  enabled: true
+  decay_threshold: 0.60              # Discovery decay threshold for SATURATED verdict
+  beta_threshold: 0.65               # Heaps' law sublinear threshold
+  final_quintile_max_rate: 1.5       # Max entities/paper in final quintile
+
+# --- Synthesis & Ranking (Stage 7E) ---
+synthesis:
+  rank_by: "confidence_score"        # Options: confidence_score, impact_score, novelty_score
+
+# --- Visualisation ---
+visualisation:
+  graph_layout: "force_atlas"        # pyvis layout algorithm
+  node_size_by: "degree"             # Size nodes by degree centrality
+  highlight_gaps: true               # Highlight detected gaps in red
+  output_format: "html"              # Interactive HTML output
+
+# --- Paths (relative to project root) ---
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  triples: "data/triples"
+  graph: "data/graph"
+  outputs: "outputs"
+  figures: "outputs/figures"
+  prompts: "prompts"

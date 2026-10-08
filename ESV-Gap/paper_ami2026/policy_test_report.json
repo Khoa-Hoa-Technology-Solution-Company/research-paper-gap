@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "tests_run": 25,
+  "failures": 0,
+  "errors": 0,
+  "interpretation": "Constructed software checks only, not scientific efficacy",
+  "code_sha256": "1f574521528e25a3eb26d86ae2e7e490ebf34f6c1237b76803770c3da7ad4141",
+  "tests_sha256": "0e96fa2307b5251b5bc9e5646b8df1566644a59fa675ec231e9ef1de520a2f70"
+}

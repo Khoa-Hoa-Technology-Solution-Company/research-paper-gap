@@ -1,0 +1,289 @@
+[
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_c7d4ad85afa981d0",
+    "subject": "GPT-4V",
+    "missing_capability": "outperforming state-of-the-art OCR models",
+    "canonical_limitation_tokens": [
+      "art",
+      "ocr",
+      "outperforming",
+      "state"
+    ],
+    "limitation_variants": [
+      "outperforming state-of-the-art OCR models"
+    ],
+    "key_concepts": [
+      "GPT-4V",
+      "outperforming state-of-the-art OCR models"
+    ],
+    "supporting_paper_ids": [
+      "43a3d51cc60c638e7523c63f203ac0c9026ce2d8"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "43a3d51cc60c638e7523c63f203ac0c9026ce2d8",
+        "year": 2023,
+        "confidence": 0.9,
+        "evidence": "\"In general, despite its versatility in handling diverse OCR tasks, GPT-4V does not outperform existing state-of-the-art OCR models.\"",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "GPT-4V",
+        "atomic_limitation": "outperforming state-of-the-art OCR models"
+      }
+    ],
+    "semantic_scope": "subject",
+    "domain": "handwritten mathematical expression recognition",
+    "mean_evidence_confidence": 0.9,
+    "first_reported_year": 2023,
+    "latest_reported_year": 2023,
+    "research_frame": {
+      "methods": [
+        "GPT-4V"
+      ],
+      "datasets": [],
+      "metrics": [],
+      "concepts": [
+        "handling multilingual scenarios",
+        "handling non-Latin languages",
+        "handling complex OCR tasks",
+        "scene text recognition",
+        "handwritten text recognition",
+        "handwritten mathematical expression recognition",
+        "table structure recognition",
+        "information extraction from visually-rich document"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.58,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.3333,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": false
+      }
+    },
+    "description": "Evidence cell 'outperforming state-of-the-art OCR models' is reported by 1 independent paper(s) in handwritten mathematical expression recognition.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'outperforming state-of-the-art OCR models' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_b17ea69b0b3bc46c",
+    "subject": "GPT-4V",
+    "missing_capability": "handling multilingual scenarios",
+    "canonical_limitation_tokens": [
+      "handling",
+      "multilingual",
+      "scenarios"
+    ],
+    "limitation_variants": [
+      "handling multilingual scenarios"
+    ],
+    "key_concepts": [
+      "GPT-4V",
+      "handling multilingual scenarios"
+    ],
+    "supporting_paper_ids": [
+      "43a3d51cc60c638e7523c63f203ac0c9026ce2d8"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "43a3d51cc60c638e7523c63f203ac0c9026ce2d8",
+        "year": 2023,
+        "confidence": 0.85,
+        "evidence": "\"GPT-4V performs well in recognizing and understanding Latin contents, but struggles with multilingual scenarios and complex tasks.\"",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "GPT-4V",
+        "atomic_limitation": "handling multilingual scenarios"
+      }
+    ],
+    "semantic_scope": "subject",
+    "domain": "handwritten mathematical expression recognition",
+    "mean_evidence_confidence": 0.85,
+    "first_reported_year": 2023,
+    "latest_reported_year": 2023,
+    "research_frame": {
+      "methods": [
+        "GPT-4V"
+      ],
+      "datasets": [],
+      "metrics": [],
+      "concepts": [
+        "handling non-Latin languages",
+        "handling complex OCR tasks",
+        "outperforming state-of-the-art OCR models",
+        "scene text recognition",
+        "handwritten text recognition",
+        "handwritten mathematical expression recognition",
+        "table structure recognition",
+        "information extraction from visually-rich document"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.57,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.3333,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": false
+      }
+    },
+    "description": "Evidence cell 'handling multilingual scenarios' is reported by 1 independent paper(s) in handwritten mathematical expression recognition.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'handling multilingual scenarios' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_9e7d3bfa56e07260",
+    "subject": "GPT-4V",
+    "missing_capability": "handling non-Latin languages",
+    "canonical_limitation_tokens": [
+      "handling",
+      "languages",
+      "latin",
+      "non"
+    ],
+    "limitation_variants": [
+      "handling non-Latin languages"
+    ],
+    "key_concepts": [
+      "GPT-4V",
+      "handling non-Latin languages"
+    ],
+    "supporting_paper_ids": [
+      "43a3d51cc60c638e7523c63f203ac0c9026ce2d8"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "43a3d51cc60c638e7523c63f203ac0c9026ce2d8",
+        "year": 2023,
+        "confidence": 0.85,
+        "evidence": "\"Specifically, it showed limitations when dealing with non-Latin languages and complex tasks such as handwriting mathematical expression recognition, table structure recognition, and end-to-end semantic entity recognition and pair extraction from document image.\"",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem_context_supported",
+        "source_subject": "GPT-4V",
+        "atomic_limitation": "handling non-Latin languages"
+      }
+    ],
+    "semantic_scope": "subject",
+    "domain": "handwritten mathematical expression recognition",
+    "mean_evidence_confidence": 0.85,
+    "first_reported_year": 2023,
+    "latest_reported_year": 2023,
+    "research_frame": {
+      "methods": [
+        "GPT-4V"
+      ],
+      "datasets": [],
+      "metrics": [],
+      "concepts": [
+        "handling multilingual scenarios",
+        "handling complex OCR tasks",
+        "outperforming state-of-the-art OCR models",
+        "scene text recognition",
+        "handwritten text recognition",
+        "handwritten mathematical expression recognition",
+        "table structure recognition",
+        "information extraction from visually-rich document"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.57,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.3333,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": false
+      }
+    },
+    "description": "Evidence cell 'handling non-Latin languages' is reported by 1 independent paper(s) in handwritten mathematical expression recognition.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'handling non-Latin languages' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_6badb8899f5bda89",
+    "subject": "GPT-4V",
+    "missing_capability": "handling complex OCR tasks",
+    "canonical_limitation_tokens": [
+      "complex",
+      "handling",
+      "ocr",
+      "tasks"
+    ],
+    "limitation_variants": [
+      "handling complex OCR tasks"
+    ],
+    "key_concepts": [
+      "GPT-4V",
+      "handling complex OCR tasks"
+    ],
+    "supporting_paper_ids": [
+      "43a3d51cc60c638e7523c63f203ac0c9026ce2d8"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "43a3d51cc60c638e7523c63f203ac0c9026ce2d8",
+        "year": 2023,
+        "confidence": 0.85,
+        "evidence": "\"Specifically, it showed limitations when dealing with non-Latin languages and complex tasks such as handwriting mathematical expression recognition, table structure recognition, and end-to-end semantic entity recognition and pair extraction from document image.\"",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem_context_supported",
+        "source_subject": "GPT-4V",
+        "atomic_limitation": "handling complex OCR tasks"
+      }
+    ],
+    "semantic_scope": "subject",
+    "domain": "handwritten mathematical expression recognition",
+    "mean_evidence_confidence": 0.85,
+    "first_reported_year": 2023,
+    "latest_reported_year": 2023,
+    "research_frame": {
+      "methods": [
+        "GPT-4V"
+      ],
+      "datasets": [],
+      "metrics": [],
+      "concepts": [
+        "handling multilingual scenarios",
+        "handling non-Latin languages",
+        "outperforming state-of-the-art OCR models",
+        "scene text recognition",
+        "handwritten text recognition",
+        "handwritten mathematical expression recognition",
+        "table structure recognition",
+        "information extraction from visually-rich document"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.57,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.3333,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": false
+      }
+    },
+    "description": "Evidence cell 'handling complex OCR tasks' is reported by 1 independent paper(s) in handwritten mathematical expression recognition.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'handling complex OCR tasks' as an unresolved limitation."
+  }
+]

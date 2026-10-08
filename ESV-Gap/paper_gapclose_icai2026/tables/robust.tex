@@ -1,0 +1,13 @@
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{lccccc}
+\toprule
+ & \multicolumn{2}{c}{ESV-Scope} & \multicolumn{2}{c}{All scores} & Split conf. \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-6}
+Evaluation setting & in-situ & transfer & in-situ & transfer & ESV-Scope \\
+\midrule
+Resampled, random deletion & 0.099 & 0.094 & 0.101 & 0.100 & \textbf{0.302} \\
+Resampled, targeted deletion & 0.099 & 0.094 & 0.101 & 0.104 & \textbf{0.277} \\
+Train$\to$test, random deletion & \textbf{0.117} & 0.104 & \textbf{0.126} & \textbf{0.126} & \textbf{0.299} \\
+Train$\to$test, targeted deletion & \textbf{0.115} & \textbf{0.108} & \textbf{0.125} & \textbf{0.125} & \textbf{0.279} \\
+\bottomrule
+\end{tabular}

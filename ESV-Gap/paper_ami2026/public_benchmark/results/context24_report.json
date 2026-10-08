@@ -1,0 +1,2628 @@
+{
+  "status": "exploratory_leave_one_paper_out_expert_grounding_context_retrieval",
+  "interpretation": "Expert labels are Context24 method-context quotes; scores are lexical retrieval proxies, not scope closure or gap novelty.",
+  "claims": 42,
+  "papers": 31,
+  "missing_text_claims": [],
+  "domains": {
+    "akamatsulab": 28,
+    "megacoglab": 14
+  },
+  "word_budget": 512,
+  "window_size": 96,
+  "stride": 80,
+  "same_budget_and_source_span_checks_passed": true,
+  "held_paper_prior_exclusion_checks_passed": true,
+  "macro_metrics": {
+    "bm25": {
+      "rouge1_f1": 0.35729167698618636,
+      "rouge2_f1": 0.1454811249908463,
+      "rougel_f1": 0.1804912885466337,
+      "unigram_precision": 0.40464312298024846,
+      "unigram_recall": 0.36448812408947756,
+      "output_words": 512.0
+    },
+    "tfidf": {
+      "rouge1_f1": 0.3638573254706583,
+      "rouge2_f1": 0.14448476893175527,
+      "rougel_f1": 0.18573861826803795,
+      "unigram_precision": 0.4087955770128205,
+      "unigram_recall": 0.3742359116683132,
+      "output_words": 512.0
+    },
+    "prior_only": {
+      "rouge1_f1": 0.4065425388290127,
+      "rouge2_f1": 0.19758816362807938,
+      "rougel_f1": 0.2045101189199402,
+      "unigram_precision": 0.46139836251018745,
+      "unigram_recall": 0.4180487579855437,
+      "output_words": 512.0
+    },
+    "bm25_diverse": {
+      "rouge1_f1": 0.35747828986371954,
+      "rouge2_f1": 0.14361906500630311,
+      "rougel_f1": 0.18054050867916627,
+      "unigram_precision": 0.40555863926926883,
+      "unigram_recall": 0.36477158400536563,
+      "output_words": 512.0
+    },
+    "context": {
+      "rouge1_f1": 0.41254477435722636,
+      "rouge2_f1": 0.19625218540024086,
+      "rougel_f1": 0.21015111819243856,
+      "unigram_precision": 0.463648485125308,
+      "unigram_recall": 0.42477929745529497,
+      "output_words": 512.0
+    },
+    "context_diverse": {
+      "rouge1_f1": 0.4131809052857196,
+      "rouge2_f1": 0.19914195572774077,
+      "rougel_f1": 0.21220086331963575,
+      "unigram_precision": 0.463488907047021,
+      "unigram_recall": 0.4265869591244423,
+      "output_words": 512.0
+    }
+  },
+  "domain_metrics": {
+    "akamatsulab": {
+      "bm25": {
+        "rouge1_f1": 0.35372465020849714,
+        "rouge2_f1": 0.15488357427809074,
+        "rougel_f1": 0.1850297704728712,
+        "unigram_precision": 0.36203391988929134,
+        "unigram_recall": 0.38605093233926446,
+        "output_words": 512.0
+      },
+      "tfidf": {
+        "rouge1_f1": 0.3507686872051658,
+        "rouge2_f1": 0.1438222877027051,
+        "rougel_f1": 0.18271335858164597,
+        "unigram_precision": 0.3556656373135751,
+        "unigram_recall": 0.3881360025358682,
+        "output_words": 512.0
+      },
+      "prior_only": {
+        "rouge1_f1": 0.40777637367307246,
+        "rouge2_f1": 0.2181375981065194,
+        "rougel_f1": 0.22021057821356585,
+        "unigram_precision": 0.41514522852499514,
+        "unigram_recall": 0.4533612233969189,
+        "output_words": 512.0
+      },
+      "bm25_diverse": {
+        "rouge1_f1": 0.3527067001428311,
+        "rouge2_f1": 0.15092875355053414,
+        "rougel_f1": 0.1847503313707546,
+        "unigram_precision": 0.36072057356833576,
+        "unigram_recall": 0.3857077121100723,
+        "output_words": 512.0
+      },
+      "context": {
+        "rouge1_f1": 0.4134263459093817,
+        "rouge2_f1": 0.2132492585745102,
+        "rougel_f1": 0.22988263550959473,
+        "unigram_precision": 0.4185127361224475,
+        "unigram_recall": 0.4575338354710725,
+        "output_words": 512.0
+      },
+      "context_diverse": {
+        "rouge1_f1": 0.41391096400162863,
+        "rouge2_f1": 0.2151668115588053,
+        "rougel_f1": 0.22972745735766673,
+        "unigram_precision": 0.41752476668403377,
+        "unigram_recall": 0.45998868727630865,
+        "output_words": 512.0
+      }
+    },
+    "megacoglab": {
+      "bm25": {
+        "rouge1_f1": 0.36442573054156474,
+        "rouge2_f1": 0.12667622641635745,
+        "rougel_f1": 0.17141432469415868,
+        "unigram_precision": 0.4898615291621626,
+        "unigram_recall": 0.32136250758990376,
+        "output_words": 512.0
+      },
+      "tfidf": {
+        "rouge1_f1": 0.3900346020016433,
+        "rouge2_f1": 0.1458097313898556,
+        "rougel_f1": 0.19178913764082184,
+        "unigram_precision": 0.5150554564113111,
+        "unigram_recall": 0.34643572993320315,
+        "output_words": 512.0
+      },
+      "prior_only": {
+        "rouge1_f1": 0.40407486914089324,
+        "rouge2_f1": 0.15648929467119932,
+        "rougel_f1": 0.17310920033268892,
+        "unigram_precision": 0.553904630480572,
+        "unigram_recall": 0.3474238271627931,
+        "output_words": 512.0
+      },
+      "bm25_diverse": {
+        "rouge1_f1": 0.3670214693054965,
+        "rouge2_f1": 0.12899968791784105,
+        "rougel_f1": 0.17212086329598963,
+        "unigram_precision": 0.4952347706711348,
+        "unigram_recall": 0.3228993277959523,
+        "output_words": 512.0
+      },
+      "context": {
+        "rouge1_f1": 0.4107816312529155,
+        "rouge2_f1": 0.1622580390517023,
+        "rougel_f1": 0.17068808355812617,
+        "unigram_precision": 0.553919983131029,
+        "unigram_recall": 0.3592702214237398,
+        "output_words": 512.0
+      },
+      "context_diverse": {
+        "rouge1_f1": 0.4117207878539016,
+        "rouge2_f1": 0.16709224406561168,
+        "rougel_f1": 0.1771476752435737,
+        "unigram_precision": 0.5554171877729956,
+        "unigram_recall": 0.35978350282070953,
+        "output_words": 512.0
+      }
+    }
+  },
+  "paper_macro_paired_rougel_delta_vs_bm25": 0.0393160417573966,
+  "paired_paper_bootstrap_95_percentile": [
+    0.013072535586188812,
+    0.06659209657435021
+  ],
+  "bootstrap_replicates": 2000,
+  "seed": 20261001,
+  "protocol_sha256": "030e4cc51bfec8bd55a895c39d6a56bed0f0e7c1ebba005c7deaf05c9d18b89f",
+  "input_sha256": {
+    "claims": "019dcd48693d42bcbcf84e7163a2f71e821b215967abda34fd4b08c7485f3cad",
+    "texts": "17f9571ec3c3c4b9c22da4c2459d4528dbde258a8b7f64e0d62aa764e4ffdcad"
+  },
+  "code_sha256": {
+    "retriever": "f9cef0030dcd9c9fa01570d2b6392eb3ccc2a16a0057e83b75abf3065dad9756",
+    "runner": "29274fb380af4c1cab015f1fe275a445f9a5f4e1bf75f7b8c85ef8c282cd74d3"
+  },
+  "dataset_revision": "457d3b5cb4bb8ade34e37458f4900c6eae0959bb",
+  "python": "3.12.14",
+  "elapsed_seconds": 43.85899999993853,
+  "official_test_evaluation": false,
+  "new_human_annotation_performed": false,
+  "scope_controller_accuracy_measured": false,
+  "rows": [
+    {
+      "claim_id": "akamatsulab-WbWLJVWcF",
+      "citekey": "amato2019wasp",
+      "dataset": "akamatsulab",
+      "training_claims": 40,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.17549668874172186,
+          "rouge2_f1": 0.016611295681063124,
+          "rougel_f1": 0.08278145695364238,
+          "unigram_precision": 0.12412177985948478,
+          "unigram_recall": 0.2994350282485876,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.22296173044925124,
+          "rouge2_f1": 0.03005008347245409,
+          "rougel_f1": 0.09983361064891848,
+          "unigram_precision": 0.1580188679245283,
+          "unigram_recall": 0.3785310734463277,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.39087947882736157,
+          "rouge2_f1": 0.24836601307189543,
+          "rougel_f1": 0.2214983713355049,
+          "unigram_precision": 0.2745995423340961,
+          "unigram_recall": 0.6779661016949152,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.1909547738693467,
+          "rouge2_f1": 0.01680672268907563,
+          "rougel_f1": 0.09045226130653265,
+          "unigram_precision": 0.1357142857142857,
+          "unigram_recall": 0.3220338983050847,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.40924092409240925,
+          "rouge2_f1": 0.2814569536423841,
+          "rougel_f1": 0.2871287128712871,
+          "unigram_precision": 0.289044289044289,
+          "unigram_recall": 0.7005649717514124,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.42229729729729737,
+          "rouge2_f1": 0.2847457627118644,
+          "rougel_f1": 0.23648648648648646,
+          "unigram_precision": 0.30120481927710846,
+          "unigram_recall": 0.7062146892655368,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-dFhjWUgD7",
+      "citekey": "leclainche2007hip1r",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.5325077399380805,
+          "rouge2_f1": 0.34126163391933817,
+          "rougel_f1": 0.41279669762641896,
+          "unigram_precision": 0.6142857142857143,
+          "unigram_recall": 0.46994535519125685,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.4540763673890609,
+          "rouge2_f1": 0.2378490175801448,
+          "rougel_f1": 0.2951496388028895,
+          "unigram_precision": 0.5238095238095238,
+          "unigram_recall": 0.4007285974499089,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.4313725490196078,
+          "rouge2_f1": 0.18407445708376424,
+          "rougel_f1": 0.2559339525283798,
+          "unigram_precision": 0.4976190476190476,
+          "unigram_recall": 0.3806921675774135,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.5325077399380805,
+          "rouge2_f1": 0.34126163391933817,
+          "rougel_f1": 0.41279669762641896,
+          "unigram_precision": 0.6142857142857143,
+          "unigram_recall": 0.46994535519125685,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.43288241415192513,
+          "rouge2_f1": 0.19395203336809175,
+          "rougel_f1": 0.2393340270551509,
+          "unigram_precision": 0.5048543689320388,
+          "unigram_recall": 0.3788706739526412,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.43288241415192513,
+          "rouge2_f1": 0.19395203336809175,
+          "rougel_f1": 0.2393340270551509,
+          "unigram_precision": 0.5048543689320388,
+          "unigram_recall": 0.3788706739526412,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-5i2BACcCn",
+      "citekey": "mezgueldi2002kinetic",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.31568016614745587,
+          "rouge2_f1": 0.07492195629552549,
+          "rougel_f1": 0.12876427829698855,
+          "unigram_precision": 0.3848101265822785,
+          "unigram_recall": 0.2676056338028169,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.2774813233724653,
+          "rouge2_f1": 0.02566844919786096,
+          "rougel_f1": 0.11312700106723587,
+          "unigram_precision": 0.3523035230352303,
+          "unigram_recall": 0.22887323943661972,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.45738045738045735,
+          "rouge2_f1": 0.275,
+          "rougel_f1": 0.291060291060291,
+          "unigram_precision": 0.5583756345177665,
+          "unigram_recall": 0.3873239436619718,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.31568016614745587,
+          "rouge2_f1": 0.07492195629552549,
+          "rougel_f1": 0.12876427829698855,
+          "unigram_precision": 0.3848101265822785,
+          "unigram_recall": 0.2676056338028169,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.3498964803312629,
+          "rouge2_f1": 0.13485477178423239,
+          "rougel_f1": 0.19668737060041408,
+          "unigram_precision": 0.42462311557788945,
+          "unigram_recall": 0.2975352112676056,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.3498964803312629,
+          "rouge2_f1": 0.13485477178423239,
+          "rougel_f1": 0.19668737060041408,
+          "unigram_precision": 0.42462311557788945,
+          "unigram_recall": 0.2975352112676056,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-W8Zi3Y46u",
+      "citekey": "lundmark2008gtpaseactivating",
+      "dataset": "akamatsulab",
+      "training_claims": 40,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.20654044750430292,
+          "rouge2_f1": 0.0621761658031088,
+          "rougel_f1": 0.11015490533562822,
+          "unigram_precision": 0.14492753623188406,
+          "unigram_recall": 0.3592814371257485,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.20654044750430292,
+          "rouge2_f1": 0.0621761658031088,
+          "rougel_f1": 0.11015490533562822,
+          "unigram_precision": 0.14492753623188406,
+          "unigram_recall": 0.3592814371257485,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.356401384083045,
+          "rouge2_f1": 0.24652777777777776,
+          "rougel_f1": 0.2768166089965398,
+          "unigram_precision": 0.25060827250608275,
+          "unigram_recall": 0.6167664670658682,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.20654044750430292,
+          "rouge2_f1": 0.0621761658031088,
+          "rougel_f1": 0.11015490533562822,
+          "unigram_precision": 0.14492753623188406,
+          "unigram_recall": 0.3592814371257485,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.38461538461538464,
+          "rouge2_f1": 0.2631578947368421,
+          "rougel_f1": 0.27272727272727276,
+          "unigram_precision": 0.2716049382716049,
+          "unigram_recall": 0.6586826347305389,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.38461538461538464,
+          "rouge2_f1": 0.2631578947368421,
+          "rougel_f1": 0.27272727272727276,
+          "unigram_precision": 0.2716049382716049,
+          "unigram_recall": 0.6586826347305389,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-MIpYGNa-U",
+      "citekey": "suetsugu2006optimization",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.39563437926330147,
+          "rouge2_f1": 0.13132694938440492,
+          "rougel_f1": 0.1855388813096862,
+          "unigram_precision": 0.3680203045685279,
+          "unigram_recall": 0.4277286135693215,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.3891156462585034,
+          "rouge2_f1": 0.11732605729877217,
+          "rougel_f1": 0.18503401360544217,
+          "unigram_precision": 0.3611111111111111,
+          "unigram_recall": 0.4218289085545723,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.5046728971962617,
+          "rouge2_f1": 0.28915662650602414,
+          "rougel_f1": 0.32309746328437916,
+          "unigram_precision": 0.4609756097560976,
+          "unigram_recall": 0.5575221238938053,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.39563437926330147,
+          "rouge2_f1": 0.13132694938440492,
+          "rougel_f1": 0.1855388813096862,
+          "unigram_precision": 0.3680203045685279,
+          "unigram_recall": 0.4277286135693215,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.5795918367346938,
+          "rouge2_f1": 0.3628922237380628,
+          "rougel_f1": 0.3292517006802721,
+          "unigram_precision": 0.5378787878787878,
+          "unigram_recall": 0.6283185840707964,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.5795918367346938,
+          "rouge2_f1": 0.3628922237380628,
+          "rougel_f1": 0.3292517006802721,
+          "unigram_precision": 0.5378787878787878,
+          "unigram_recall": 0.6283185840707964,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-6wkebK9Rb",
+      "citekey": "baschieri2018frustrated",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.46812957157784746,
+          "rouge2_f1": 0.29109947643979056,
+          "rougel_f1": 0.22361546499477533,
+          "unigram_precision": 0.5642317380352645,
+          "unigram_recall": 0.4,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.3784355179704017,
+          "rouge2_f1": 0.15677966101694915,
+          "rougel_f1": 0.15856236786469344,
+          "unigram_precision": 0.4637305699481865,
+          "unigram_recall": 0.3196428571428571,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.49385245901639346,
+          "rouge2_f1": 0.324435318275154,
+          "rougel_f1": 0.20696721311475408,
+          "unigram_precision": 0.5793269230769231,
+          "unigram_recall": 0.4303571428571429,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.46812957157784746,
+          "rouge2_f1": 0.29109947643979056,
+          "rougel_f1": 0.22361546499477533,
+          "unigram_precision": 0.5642317380352645,
+          "unigram_recall": 0.4,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.4,
+          "rouge2_f1": 0.18048268625393493,
+          "rougel_f1": 0.15706806282722516,
+          "unigram_precision": 0.4835443037974684,
+          "unigram_recall": 0.3410714285714286,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.4,
+          "rouge2_f1": 0.18048268625393493,
+          "rougel_f1": 0.15706806282722516,
+          "unigram_precision": 0.4835443037974684,
+          "unigram_recall": 0.3410714285714286,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-NU1hryH_8",
+      "citekey": "lundmark2008gtpaseactivating",
+      "dataset": "akamatsulab",
+      "training_claims": 40,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.4326647564469914,
+          "rouge2_f1": 0.2988505747126437,
+          "rougel_f1": 0.32951289398280803,
+          "unigram_precision": 0.3647342995169082,
+          "unigram_recall": 0.5316901408450704,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.42796005706134094,
+          "rouge2_f1": 0.28898426323319026,
+          "rougel_f1": 0.3309557774607704,
+          "unigram_precision": 0.3597122302158273,
+          "unigram_recall": 0.528169014084507,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.2705035971223022,
+          "rouge2_f1": 0.043290043290043295,
+          "rougel_f1": 0.1093525179856115,
+          "unigram_precision": 0.22871046228710462,
+          "unigram_recall": 0.33098591549295775,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.4326647564469914,
+          "rouge2_f1": 0.2988505747126437,
+          "rougel_f1": 0.32951289398280803,
+          "unigram_precision": 0.3647342995169082,
+          "unigram_recall": 0.5316901408450704,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.45272206303724927,
+          "rouge2_f1": 0.30172413793103453,
+          "rougel_f1": 0.3151862464183381,
+          "unigram_precision": 0.38164251207729466,
+          "unigram_recall": 0.5563380281690141,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.4705882352941176,
+          "rouge2_f1": 0.3194244604316547,
+          "rougel_f1": 0.321377331420373,
+          "unigram_precision": 0.39709443099273606,
+          "unigram_recall": 0.5774647887323944,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-FxTUmxjh2",
+      "citekey": "nickaeen2022model",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.2715654952076677,
+          "rouge2_f1": 0.05769230769230769,
+          "rougel_f1": 0.13099041533546324,
+          "unigram_precision": 0.20935960591133004,
+          "unigram_recall": 0.38636363636363635,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.2990353697749196,
+          "rouge2_f1": 0.058064516129032254,
+          "rougel_f1": 0.11575562700964631,
+          "unigram_precision": 0.23134328358208955,
+          "unigram_recall": 0.42272727272727273,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.28081123244929795,
+          "rouge2_f1": 0.05320813771517997,
+          "rougel_f1": 0.11232449297971918,
+          "unigram_precision": 0.21377672209026127,
+          "unigram_recall": 0.4090909090909091,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.2715654952076677,
+          "rouge2_f1": 0.05769230769230769,
+          "rougel_f1": 0.13099041533546324,
+          "unigram_precision": 0.20935960591133004,
+          "unigram_recall": 0.38636363636363635,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.2752,
+          "rouge2_f1": 0.05778491171749599,
+          "rougel_f1": 0.12159999999999999,
+          "unigram_precision": 0.2123456790123457,
+          "unigram_recall": 0.39090909090909093,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.27629513343799056,
+          "rouge2_f1": 0.05669291338582676,
+          "rougel_f1": 0.12558869701726844,
+          "unigram_precision": 0.21103117505995203,
+          "unigram_recall": 0.4,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-45WDQVJkn",
+      "citekey": "zhu2023graf1",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.48552338530066813,
+          "rouge2_f1": 0.33482142857142855,
+          "rougel_f1": 0.3140311804008909,
+          "unigram_precision": 0.5409429280397022,
+          "unigram_recall": 0.4404040404040404,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.3720930232558139,
+          "rouge2_f1": 0.20643729189789123,
+          "rougel_f1": 0.2724252491694352,
+          "unigram_precision": 0.4117647058823529,
+          "unigram_recall": 0.3393939393939394,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.2385321100917431,
+          "rouge2_f1": 0.041379310344827586,
+          "rougel_f1": 0.11926605504587155,
+          "unigram_precision": 0.27586206896551724,
+          "unigram_recall": 0.2101010101010101,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.41471571906354515,
+          "rouge2_f1": 0.2100558659217877,
+          "rougel_f1": 0.2586399108138239,
+          "unigram_precision": 0.4626865671641791,
+          "unigram_recall": 0.37575757575757573,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.5755555555555556,
+          "rouge2_f1": 0.36748329621380843,
+          "rougel_f1": 0.34222222222222226,
+          "unigram_precision": 0.6395061728395062,
+          "unigram_recall": 0.5232323232323233,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.552423900789177,
+          "rouge2_f1": 0.3615819209039548,
+          "rougel_f1": 0.35174746335963925,
+          "unigram_precision": 0.625,
+          "unigram_recall": 0.494949494949495,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-JvW-piCf8",
+      "citekey": "zhu2007receptormediated",
+      "dataset": "akamatsulab",
+      "training_claims": 40,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.4317937701396348,
+          "rouge2_f1": 0.12271259418729817,
+          "rougel_f1": 0.1611170784103115,
+          "unigram_precision": 0.49385749385749383,
+          "unigram_recall": 0.383587786259542,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.5382978723404255,
+          "rouge2_f1": 0.2601279317697228,
+          "rougel_f1": 0.24680851063829787,
+          "unigram_precision": 0.6081730769230769,
+          "unigram_recall": 0.48282442748091603,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.405888538380652,
+          "rouge2_f1": 0.15384615384615385,
+          "rougel_f1": 0.1661409043112513,
+          "unigram_precision": 0.4519906323185012,
+          "unigram_recall": 0.3683206106870229,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.4317937701396348,
+          "rouge2_f1": 0.12271259418729817,
+          "rougel_f1": 0.1611170784103115,
+          "unigram_precision": 0.49385749385749383,
+          "unigram_recall": 0.383587786259542,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.41845493562231756,
+          "rouge2_f1": 0.13548387096774195,
+          "rougel_f1": 0.18240343347639487,
+          "unigram_precision": 0.47794117647058826,
+          "unigram_recall": 0.37213740458015265,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.41845493562231756,
+          "rouge2_f1": 0.13548387096774195,
+          "rougel_f1": 0.18240343347639487,
+          "unigram_precision": 0.47794117647058826,
+          "unigram_recall": 0.37213740458015265,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-UlZY0Mnwt",
+      "citekey": "narva2017strong",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.15101289134438306,
+          "rouge2_f1": 0.018484288354898338,
+          "rougel_f1": 0.06998158379373849,
+          "unigram_precision": 0.09832134292565947,
+          "unigram_recall": 0.3253968253968254,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.15101289134438306,
+          "rouge2_f1": 0.018484288354898338,
+          "rougel_f1": 0.06998158379373849,
+          "unigram_precision": 0.09832134292565947,
+          "unigram_recall": 0.3253968253968254,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.3567362428842505,
+          "rouge2_f1": 0.2780952380952381,
+          "rougel_f1": 0.22770398481973436,
+          "unigram_precision": 0.2344139650872818,
+          "unigram_recall": 0.746031746031746,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.15955473098330242,
+          "rouge2_f1": 0.018621973929236497,
+          "rougel_f1": 0.07050092764378478,
+          "unigram_precision": 0.10411622276029056,
+          "unigram_recall": 0.3412698412698413,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.20446096654275092,
+          "rouge2_f1": 0.08582089552238807,
+          "rougel_f1": 0.10780669144981411,
+          "unigram_precision": 0.13349514563106796,
+          "unigram_recall": 0.4365079365079365,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.20446096654275092,
+          "rouge2_f1": 0.08582089552238807,
+          "rougel_f1": 0.10780669144981411,
+          "unigram_precision": 0.13349514563106796,
+          "unigram_recall": 0.4365079365079365,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-iLicutBoX",
+      "citekey": "thottacherry2018mechanochemical",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.3995560488346282,
+          "rouge2_f1": 0.16017797552836485,
+          "rougel_f1": 0.1331853496115427,
+          "unigram_precision": 0.41379310344827586,
+          "unigram_recall": 0.38626609442060084,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.3995560488346282,
+          "rouge2_f1": 0.16017797552836485,
+          "rougel_f1": 0.1331853496115427,
+          "unigram_precision": 0.41379310344827586,
+          "unigram_recall": 0.38626609442060084,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.4269406392694064,
+          "rouge2_f1": 0.1945080091533181,
+          "rougel_f1": 0.18036529680365296,
+          "unigram_precision": 0.4560975609756098,
+          "unigram_recall": 0.4012875536480687,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.3995560488346282,
+          "rouge2_f1": 0.16017797552836485,
+          "rougel_f1": 0.1331853496115427,
+          "unigram_precision": 0.41379310344827586,
+          "unigram_recall": 0.38626609442060084,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.4742268041237113,
+          "rouge2_f1": 0.21584385763490238,
+          "rougel_f1": 0.20389461626575028,
+          "unigram_precision": 0.5085995085995086,
+          "unigram_recall": 0.44420600858369097,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.4742268041237113,
+          "rouge2_f1": 0.21584385763490238,
+          "rougel_f1": 0.20389461626575028,
+          "unigram_precision": 0.5085995085995086,
+          "unigram_recall": 0.44420600858369097,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-1Orp-fkjH",
+      "citekey": "cao2003cortactin",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.45278137128072443,
+          "rouge2_f1": 0.27496757457846954,
+          "rougel_f1": 0.2509702457956015,
+          "unigram_precision": 0.4581151832460733,
+          "unigram_recall": 0.4475703324808184,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.4862155388471178,
+          "rouge2_f1": 0.24623115577889446,
+          "rougel_f1": 0.29072681704260656,
+          "unigram_precision": 0.47665847665847666,
+          "unigram_recall": 0.4961636828644501,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.5400516795865633,
+          "rouge2_f1": 0.33678756476683935,
+          "rougel_f1": 0.2532299741602067,
+          "unigram_precision": 0.5456919060052219,
+          "unigram_recall": 0.5345268542199488,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.45278137128072443,
+          "rouge2_f1": 0.27496757457846954,
+          "rougel_f1": 0.2509702457956015,
+          "unigram_precision": 0.4581151832460733,
+          "unigram_recall": 0.4475703324808184,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.5461538461538462,
+          "rouge2_f1": 0.33161953727506427,
+          "rougel_f1": 0.3153846153846154,
+          "unigram_precision": 0.5475578406169666,
+          "unigram_recall": 0.5447570332480819,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.49357326478149105,
+          "rouge2_f1": 0.3041237113402061,
+          "rougel_f1": 0.2570694087403599,
+          "unigram_precision": 0.49612403100775193,
+          "unigram_recall": 0.49104859335038364,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-1B3Jax3yY",
+      "citekey": "hakanpaa2023reticular",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.27784156142365096,
+          "rouge2_f1": 0.046029919447640975,
+          "rougel_f1": 0.1079219288174512,
+          "unigram_precision": 0.3538011695906433,
+          "unigram_recall": 0.22873345935727787,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.27784156142365096,
+          "rouge2_f1": 0.046029919447640975,
+          "rougel_f1": 0.1079219288174512,
+          "unigram_precision": 0.3538011695906433,
+          "unigram_recall": 0.22873345935727787,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.36980306345733044,
+          "rouge2_f1": 0.1710526315789474,
+          "rougel_f1": 0.2100656455142232,
+          "unigram_precision": 0.43896103896103894,
+          "unigram_recall": 0.31947069943289225,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.2691415313225058,
+          "rouge2_f1": 0.044186046511627906,
+          "rougel_f1": 0.10672853828306264,
+          "unigram_precision": 0.3483483483483483,
+          "unigram_recall": 0.21928166351606806,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.43946188340807174,
+          "rouge2_f1": 0.20898876404494382,
+          "rougel_f1": 0.2130044843049327,
+          "unigram_precision": 0.5399449035812672,
+          "unigram_recall": 0.3705103969754253,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.41287458379578246,
+          "rouge2_f1": 0.1735261401557286,
+          "rougel_f1": 0.195338512763596,
+          "unigram_precision": 0.5,
+          "unigram_recall": 0.3516068052930057,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-6-XC7noR7",
+      "citekey": "morenolayseca2021cargospecific",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.35892514395393477,
+          "rouge2_f1": 0.125,
+          "rougel_f1": 0.15930902111324377,
+          "unigram_precision": 0.5532544378698225,
+          "unigram_recall": 0.265625,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.3568702290076336,
+          "rouge2_f1": 0.124282982791587,
+          "rougel_f1": 0.1583969465648855,
+          "unigram_precision": 0.5436046511627907,
+          "unigram_recall": 0.265625,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.37153419593345655,
+          "rouge2_f1": 0.16296296296296298,
+          "rougel_f1": 0.21626617375231055,
+          "unigram_precision": 0.5317460317460317,
+          "unigram_recall": 0.28551136363636365,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.36625119846596355,
+          "rouge2_f1": 0.1287223823246878,
+          "rougel_f1": 0.1591562799616491,
+          "unigram_precision": 0.5634218289085545,
+          "unigram_recall": 0.2713068181818182,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.3534971644612476,
+          "rouge2_f1": 0.08143939393939394,
+          "rougel_f1": 0.1323251417769376,
+          "unigram_precision": 0.5282485875706214,
+          "unigram_recall": 0.265625,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.3624413145539906,
+          "rouge2_f1": 0.08466603951081844,
+          "rougel_f1": 0.15774647887323945,
+          "unigram_precision": 0.5346260387811634,
+          "unigram_recall": 0.2741477272727273,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-Pu_eipQdq",
+      "citekey": "slater2018tuning",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.3711083437110835,
+          "rouge2_f1": 0.09238451935081149,
+          "rougel_f1": 0.15940224159402241,
+          "unigram_precision": 0.3401826484018265,
+          "unigram_recall": 0.40821917808219177,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.39549436795994997,
+          "rouge2_f1": 0.11041405269761606,
+          "rougel_f1": 0.16520650813516896,
+          "unigram_precision": 0.3640552995391705,
+          "unigram_recall": 0.4328767123287671,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.6036269430051814,
+          "rouge2_f1": 0.3688311688311688,
+          "rougel_f1": 0.27461139896373055,
+          "unigram_precision": 0.5724815724815725,
+          "unigram_recall": 0.6383561643835617,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.3704630788485608,
+          "rouge2_f1": 0.09284818067754078,
+          "rougel_f1": 0.16020025031289112,
+          "unigram_precision": 0.34101382488479265,
+          "unigram_recall": 0.4054794520547945,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.4243208279430789,
+          "rouge2_f1": 0.12191958495460442,
+          "rougel_f1": 0.16817593790426907,
+          "unigram_precision": 0.4019607843137255,
+          "unigram_recall": 0.44931506849315067,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.4082687338501292,
+          "rouge2_f1": 0.11139896373056996,
+          "rougel_f1": 0.16020671834625322,
+          "unigram_precision": 0.3863080684596577,
+          "unigram_recall": 0.4328767123287671,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-7ioUQ5iO3",
+      "citekey": "yang2022actin",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.24141315014720313,
+          "rouge2_f1": 0.05506391347099311,
+          "rougel_f1": 0.11972522080471051,
+          "unigram_precision": 0.31297709923664124,
+          "unigram_recall": 0.1964856230031949,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.2248520710059172,
+          "rouge2_f1": 0.04545454545454545,
+          "rougel_f1": 0.11637080867850098,
+          "unigram_precision": 0.29381443298969073,
+          "unigram_recall": 0.18210862619808307,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.44793713163064836,
+          "rouge2_f1": 0.24212598425196852,
+          "rougel_f1": 0.3005893909626719,
+          "unigram_precision": 0.5816326530612245,
+          "unigram_recall": 0.36421725239616615,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.2248520710059172,
+          "rouge2_f1": 0.04545454545454545,
+          "rougel_f1": 0.11637080867850098,
+          "unigram_precision": 0.29381443298969073,
+          "unigram_recall": 0.18210862619808307,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.2804284323271665,
+          "rouge2_f1": 0.04487804878048781,
+          "rougel_f1": 0.12658227848101267,
+          "unigram_precision": 0.35910224438902744,
+          "unigram_recall": 0.23003194888178913,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.2804284323271665,
+          "rouge2_f1": 0.04487804878048781,
+          "rougel_f1": 0.12658227848101267,
+          "unigram_precision": 0.35910224438902744,
+          "unigram_recall": 0.23003194888178913,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-F0N83vxEe",
+      "citekey": "yamada2016actin",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.35796387520525447,
+          "rouge2_f1": 0.18780889621087316,
+          "rougel_f1": 0.17733990147783252,
+          "unigram_precision": 0.2665036674816626,
+          "unigram_recall": 0.545,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.3666121112929624,
+          "rouge2_f1": 0.20689655172413793,
+          "rougel_f1": 0.176759410801964,
+          "unigram_precision": 0.2725060827250608,
+          "unigram_recall": 0.56,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.46362098138747887,
+          "rouge2_f1": 0.26825127334465193,
+          "rougel_f1": 0.20642978003384094,
+          "unigram_precision": 0.35038363171355497,
+          "unigram_recall": 0.685,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.35796387520525447,
+          "rouge2_f1": 0.18780889621087316,
+          "rougel_f1": 0.17733990147783252,
+          "unigram_precision": 0.2665036674816626,
+          "unigram_recall": 0.545,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.3979763912310287,
+          "rouge2_f1": 0.19966159052453467,
+          "rougel_f1": 0.2596964586846543,
+          "unigram_precision": 0.30025445292620867,
+          "unigram_recall": 0.59,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.3846153846153846,
+          "rouge2_f1": 0.18791946308724836,
+          "rougel_f1": 0.25083612040133785,
+          "unigram_precision": 0.2889447236180904,
+          "unigram_recall": 0.575,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-j0UGLJ3e6",
+      "citekey": "francis2015endocytic",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.2871165644171779,
+          "rouge2_f1": 0.06642066420664207,
+          "rougel_f1": 0.13006134969325153,
+          "unigram_precision": 0.29396984924623115,
+          "unigram_recall": 0.2805755395683453,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.284325637910085,
+          "rouge2_f1": 0.0682095006090134,
+          "rougel_f1": 0.12636695018226002,
+          "unigram_precision": 0.2881773399014778,
+          "unigram_recall": 0.2805755395683453,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.6157760814249363,
+          "rouge2_f1": 0.4897959183673469,
+          "rougel_f1": 0.41475826972010177,
+          "unigram_precision": 0.6558265582655827,
+          "unigram_recall": 0.580335731414868,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.2951219512195122,
+          "rouge2_f1": 0.07334963325183373,
+          "rougel_f1": 0.13414634146341467,
+          "unigram_precision": 0.3002481389578164,
+          "unigram_recall": 0.290167865707434,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.5671267252195733,
+          "rouge2_f1": 0.430188679245283,
+          "rougel_f1": 0.43161856963613554,
+          "unigram_precision": 0.5947368421052631,
+          "unigram_recall": 0.5419664268585132,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.5671267252195733,
+          "rouge2_f1": 0.430188679245283,
+          "rougel_f1": 0.43161856963613554,
+          "unigram_precision": 0.5947368421052631,
+          "unigram_recall": 0.5419664268585132,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-Ke0qFhkQL",
+      "citekey": "chen2006roles",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.44052863436123346,
+          "rouge2_f1": 0.22091310751104568,
+          "rougel_f1": 0.1762114537444934,
+          "unigram_precision": 0.36231884057971014,
+          "unigram_recall": 0.5617977528089888,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.3795620437956204,
+          "rouge2_f1": 0.15519765739385064,
+          "rougel_f1": 0.16934306569343063,
+          "unigram_precision": 0.31100478468899523,
+          "unigram_recall": 0.4868913857677903,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.5947611710323575,
+          "rouge2_f1": 0.41731066460587324,
+          "rougel_f1": 0.32973805855161786,
+          "unigram_precision": 0.5052356020942408,
+          "unigram_recall": 0.7228464419475655,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.44052863436123346,
+          "rouge2_f1": 0.22091310751104568,
+          "rougel_f1": 0.1762114537444934,
+          "unigram_precision": 0.36231884057971014,
+          "unigram_recall": 0.5617977528089888,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.5525525525525525,
+          "rouge2_f1": 0.34939759036144574,
+          "rougel_f1": 0.25225225225225223,
+          "unigram_precision": 0.46115288220551376,
+          "unigram_recall": 0.6891385767790262,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.5525525525525525,
+          "rouge2_f1": 0.34939759036144574,
+          "rougel_f1": 0.25225225225225223,
+          "unigram_precision": 0.46115288220551376,
+          "unigram_recall": 0.6891385767790262,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-OT8BRD36j",
+      "citekey": "dannhauser2015effect",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.3242574257425742,
+          "rouge2_f1": 0.08188585607940446,
+          "rougel_f1": 0.13366336633663367,
+          "unigram_precision": 0.3126491646778043,
+          "unigram_recall": 0.33676092544987146,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.3420074349442379,
+          "rouge2_f1": 0.08944099378881988,
+          "rougel_f1": 0.15861214374225524,
+          "unigram_precision": 0.33014354066985646,
+          "unigram_recall": 0.35475578406169667,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.37468982630272957,
+          "rouge2_f1": 0.09701492537313434,
+          "rougel_f1": 0.15632754342431762,
+          "unigram_precision": 0.36211031175059955,
+          "unigram_recall": 0.38817480719794345,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.3242574257425742,
+          "rouge2_f1": 0.08188585607940446,
+          "rougel_f1": 0.13366336633663367,
+          "unigram_precision": 0.3126491646778043,
+          "unigram_recall": 0.33676092544987146,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.373170731707317,
+          "rouge2_f1": 0.10024449877750612,
+          "rougel_f1": 0.13902439024390245,
+          "unigram_precision": 0.35498839907192575,
+          "unigram_recall": 0.39331619537275064,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.373170731707317,
+          "rouge2_f1": 0.10024449877750612,
+          "rougel_f1": 0.13902439024390245,
+          "unigram_precision": 0.35498839907192575,
+          "unigram_recall": 0.39331619537275064,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-_N-gQJ0eV",
+      "citekey": "amato2019wasp",
+      "dataset": "akamatsulab",
+      "training_claims": 40,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.49929873772791034,
+          "rouge2_f1": 0.32067510548523204,
+          "rougel_f1": 0.361851332398317,
+          "unigram_precision": 0.40271493212669685,
+          "unigram_recall": 0.6568265682656826,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.4985835694050992,
+          "rouge2_f1": 0.3210227272727273,
+          "rougel_f1": 0.3654390934844193,
+          "unigram_precision": 0.4045977011494253,
+          "unigram_recall": 0.6494464944649446,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.1977401129943503,
+          "rouge2_f1": 0.0254957507082153,
+          "rougel_f1": 0.09322033898305086,
+          "unigram_precision": 0.16018306636155608,
+          "unigram_recall": 0.25830258302583026,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.5162200282087447,
+          "rouge2_f1": 0.33663366336633666,
+          "rougel_f1": 0.38363892806770095,
+          "unigram_precision": 0.4178082191780822,
+          "unigram_recall": 0.6752767527675276,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.3806734992679356,
+          "rouge2_f1": 0.17327459618208518,
+          "rougel_f1": 0.20497803806734996,
+          "unigram_precision": 0.3155339805825243,
+          "unigram_recall": 0.4797047970479705,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.4843304843304844,
+          "rouge2_f1": 0.3142857142857143,
+          "rougel_f1": 0.31339031339031337,
+          "unigram_precision": 0.39443155452436196,
+          "unigram_recall": 0.6273062730627307,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-eryKP0bHY",
+      "citekey": "miki2000irsp53",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.08558951965065503,
+          "rouge2_f1": 0.008748906386701663,
+          "rougel_f1": 0.043668122270742356,
+          "unigram_precision": 0.05778301886792453,
+          "unigram_recall": 0.16498316498316498,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.08558951965065503,
+          "rouge2_f1": 0.008748906386701663,
+          "rougel_f1": 0.043668122270742356,
+          "unigram_precision": 0.05778301886792453,
+          "unigram_recall": 0.16498316498316498,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.06713286713286715,
+          "rouge2_f1": 0.0070028011204481795,
+          "rougel_f1": 0.03356643356643357,
+          "unigram_precision": 0.04236540158870256,
+          "unigram_recall": 0.16161616161616163,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.08558951965065503,
+          "rouge2_f1": 0.008748906386701663,
+          "rougel_f1": 0.043668122270742356,
+          "unigram_precision": 0.05778301886792453,
+          "unigram_recall": 0.16498316498316498,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.07836734693877552,
+          "rouge2_f1": 0.008176614881439085,
+          "rougel_f1": 0.04244897959183674,
+          "unigram_precision": 0.05172413793103448,
+          "unigram_recall": 0.16161616161616163,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.07836734693877552,
+          "rouge2_f1": 0.008176614881439085,
+          "rougel_f1": 0.04244897959183674,
+          "unigram_precision": 0.05172413793103448,
+          "unigram_recall": 0.16161616161616163,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-YsCMystnc",
+      "citekey": "howes2010clathrinindependent",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.2585034013605442,
+          "rouge2_f1": 0.09215017064846417,
+          "rougel_f1": 0.14285714285714285,
+          "unigram_precision": 0.17674418604651163,
+          "unigram_recall": 0.4810126582278481,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.34315424610051987,
+          "rouge2_f1": 0.14608695652173911,
+          "rougel_f1": 0.1559792027729636,
+          "unigram_precision": 0.23627684964200477,
+          "unigram_recall": 0.6265822784810127,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.3475177304964539,
+          "rouge2_f1": 0.16725978647686834,
+          "rougel_f1": 0.17375886524822695,
+          "unigram_precision": 0.2413793103448276,
+          "unigram_recall": 0.620253164556962,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.2585034013605442,
+          "rouge2_f1": 0.09215017064846417,
+          "rougel_f1": 0.14285714285714285,
+          "unigram_precision": 0.17674418604651163,
+          "unigram_recall": 0.4810126582278481,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.38461538461538464,
+          "rouge2_f1": 0.2210526315789474,
+          "rougel_f1": 0.26573426573426573,
+          "unigram_precision": 0.26570048309178745,
+          "unigram_recall": 0.6962025316455697,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.38461538461538464,
+          "rouge2_f1": 0.2210526315789474,
+          "rougel_f1": 0.26573426573426573,
+          "unigram_precision": 0.26570048309178745,
+          "unigram_recall": 0.6962025316455697,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-XG3wvRdRY",
+      "citekey": "zhu2007receptormediated",
+      "dataset": "akamatsulab",
+      "training_claims": 40,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.47231638418079097,
+          "rouge2_f1": 0.23556058890147227,
+          "rougel_f1": 0.24406779661016947,
+          "unigram_precision": 0.495260663507109,
+          "unigram_recall": 0.4514038876889849,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.46979865771812085,
+          "rouge2_f1": 0.25112107623318386,
+          "rougel_f1": 0.24832214765100669,
+          "unigram_precision": 0.4872389791183295,
+          "unigram_recall": 0.4535637149028078,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.4786516853932584,
+          "rouge2_f1": 0.2702702702702703,
+          "rougel_f1": 0.21123595505617979,
+          "unigram_precision": 0.49882903981264637,
+          "unigram_recall": 0.46004319654427644,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.47231638418079097,
+          "rouge2_f1": 0.23556058890147227,
+          "rougel_f1": 0.24406779661016947,
+          "unigram_precision": 0.495260663507109,
+          "unigram_recall": 0.4514038876889849,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.489337822671156,
+          "rouge2_f1": 0.3014623172103487,
+          "rougel_f1": 0.24017957351290684,
+          "unigram_precision": 0.5093457943925234,
+          "unigram_recall": 0.4708423326133909,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.489337822671156,
+          "rouge2_f1": 0.3014623172103487,
+          "rougel_f1": 0.24017957351290684,
+          "unigram_precision": 0.5093457943925234,
+          "unigram_recall": 0.4708423326133909,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-C8_EKRIsh",
+      "citekey": "egile2005mechanism",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.36698858647936783,
+          "rouge2_f1": 0.18821459982409852,
+          "rougel_f1": 0.1562774363476734,
+          "unigram_precision": 0.529113924050633,
+          "unigram_recall": 0.28091397849462363,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.34245366284201234,
+          "rouge2_f1": 0.15384615384615385,
+          "rougel_f1": 0.1676963812886143,
+          "unigram_precision": 0.4987146529562982,
+          "unigram_recall": 0.260752688172043,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.5328659070990359,
+          "rouge2_f1": 0.40210711150131695,
+          "rougel_f1": 0.4224364592462752,
+          "unigram_precision": 0.7657430730478589,
+          "unigram_recall": 0.40860215053763443,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.37894736842105264,
+          "rouge2_f1": 0.18629173989455186,
+          "rougel_f1": 0.17368421052631577,
+          "unigram_precision": 0.5454545454545454,
+          "unigram_recall": 0.2903225806451613,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.43029259896729777,
+          "rouge2_f1": 0.2413793103448276,
+          "rougel_f1": 0.2530120481927711,
+          "unigram_precision": 0.5980861244019139,
+          "unigram_recall": 0.33602150537634407,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.43373493975903615,
+          "rouge2_f1": 0.2396551724137931,
+          "rougel_f1": 0.25645438898450945,
+          "unigram_precision": 0.6028708133971292,
+          "unigram_recall": 0.3387096774193548,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-RniLbP0dj",
+      "citekey": "avinoam2015endocytic",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.41899441340782123,
+          "rouge2_f1": 0.15966386554621848,
+          "rougel_f1": 0.2374301675977654,
+          "unigram_precision": 0.379746835443038,
+          "unigram_recall": 0.4672897196261682,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.41899441340782123,
+          "rouge2_f1": 0.15966386554621848,
+          "rougel_f1": 0.2374301675977654,
+          "unigram_precision": 0.379746835443038,
+          "unigram_recall": 0.4672897196261682,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.3111739745403112,
+          "rouge2_f1": 0.05106382978723404,
+          "rougel_f1": 0.12729844413012728,
+          "unigram_precision": 0.2849740932642487,
+          "unigram_recall": 0.3426791277258567,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.41899441340782123,
+          "rouge2_f1": 0.15966386554621848,
+          "rougel_f1": 0.2374301675977654,
+          "unigram_precision": 0.379746835443038,
+          "unigram_recall": 0.4672897196261682,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.36103151862464183,
+          "rouge2_f1": 0.16379310344827586,
+          "rougel_f1": 0.23782234957020057,
+          "unigram_precision": 0.33421750663129973,
+          "unigram_recall": 0.3925233644859813,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.3728813559322034,
+          "rouge2_f1": 0.16713881019830026,
+          "rougel_f1": 0.24293785310734461,
+          "unigram_precision": 0.34108527131782945,
+          "unigram_recall": 0.411214953271028,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "akamatsulab-ctop9ejQ4",
+      "citekey": "akamatsu2020principles",
+      "dataset": "akamatsulab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.42455775234131116,
+          "rouge2_f1": 0.2711157455683003,
+          "rougel_f1": 0.2976066597294485,
+          "unigram_precision": 0.5204081632653061,
+          "unigram_recall": 0.3585237258347979,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.4326018808777429,
+          "rouge2_f1": 0.27225130890052357,
+          "rougel_f1": 0.296760710553814,
+          "unigram_precision": 0.5335051546391752,
+          "unigram_recall": 0.36379613356766255,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.4868835257082895,
+          "rouge2_f1": 0.29863301787592006,
+          "rougel_f1": 0.2518363064008394,
+          "unigram_precision": 0.6041666666666666,
+          "unigram_recall": 0.4077328646748682,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.42455775234131116,
+          "rouge2_f1": 0.2711157455683003,
+          "rougel_f1": 0.2976066597294485,
+          "unigram_precision": 0.5204081632653061,
+          "unigram_recall": 0.3585237258347979,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.5600835945663531,
+          "rouge2_f1": 0.41256544502617803,
+          "rougel_f1": 0.3991640543364682,
+          "unigram_precision": 0.6907216494845361,
+          "unigram_recall": 0.4710017574692443,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.5454545454545454,
+          "rouge2_f1": 0.39162303664921466,
+          "rougel_f1": 0.37617554858934166,
+          "unigram_precision": 0.6726804123711341,
+          "unigram_recall": 0.45869947275922673,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "megacoglab-3jTc6a_9h",
+      "citekey": "artsParadiseNoveltyLoss2018a",
+      "dataset": "megacoglab",
+      "training_claims": 36,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.31213872832369943,
+          "rouge2_f1": 0.13314037626628075,
+          "rougel_f1": 0.18641618497109827,
+          "unigram_precision": 0.5386533665835411,
+          "unigram_recall": 0.21973550356052898,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.3988724453840733,
+          "rouge2_f1": 0.18772053634438957,
+          "rougel_f1": 0.1959126145172657,
+          "unigram_precision": 0.6490825688073395,
+          "unigram_recall": 0.28789420142421157,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.34069850320741263,
+          "rouge2_f1": 0.1099214846538187,
+          "rougel_f1": 0.14112615823235924,
+          "unigram_precision": 0.569047619047619,
+          "unigram_recall": 0.24313326551373346,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.31213872832369943,
+          "rouge2_f1": 0.13314037626628075,
+          "rougel_f1": 0.18641618497109827,
+          "unigram_precision": 0.5386533665835411,
+          "unigram_recall": 0.21973550356052898,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.3546099290780142,
+          "rouge2_f1": 0.11789772727272729,
+          "rougel_f1": 0.15319148936170213,
+          "unigram_precision": 0.585480093676815,
+          "unigram_recall": 0.254323499491353,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.3323903818953324,
+          "rouge2_f1": 0.09915014164305949,
+          "rougel_f1": 0.15841584158415842,
+          "unigram_precision": 0.5452436194895591,
+          "unigram_recall": 0.23906408952187183,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "megacoglab-e5Os8ZONI",
+      "citekey": "artsParadiseNoveltyLoss2018a",
+      "dataset": "megacoglab",
+      "training_claims": 36,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.33533834586466166,
+          "rouge2_f1": 0.13253012048192772,
+          "rougel_f1": 0.15488721804511277,
+          "unigram_precision": 0.5439024390243903,
+          "unigram_recall": 0.24239130434782608,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.36630036630036633,
+          "rouge2_f1": 0.12912692589875274,
+          "rougel_f1": 0.16263736263736261,
+          "unigram_precision": 0.5617977528089888,
+          "unigram_recall": 0.2717391304347826,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.3492537313432836,
+          "rouge2_f1": 0.10911808669656203,
+          "rougel_f1": 0.14029850746268657,
+          "unigram_precision": 0.5571428571428572,
+          "unigram_recall": 0.2543478260869565,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.33533834586466166,
+          "rouge2_f1": 0.13253012048192772,
+          "rougel_f1": 0.15488721804511277,
+          "unigram_precision": 0.5439024390243903,
+          "unigram_recall": 0.24239130434782608,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.368107302533532,
+          "rouge2_f1": 0.12388059701492535,
+          "rougel_f1": 0.13859910581222057,
+          "unigram_precision": 0.5853080568720379,
+          "unigram_recall": 0.2684782608695652,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.3420074349442379,
+          "rouge2_f1": 0.1161578555472822,
+          "rougel_f1": 0.1338289962825279,
+          "unigram_precision": 0.5411764705882353,
+          "unigram_recall": 0.25,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "megacoglab-nSzMQuhLB",
+      "citekey": "althuizenSupportingCreativeProblem2014",
+      "dataset": "megacoglab",
+      "training_claims": 38,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.30359712230215824,
+          "rouge2_f1": 0.07780979827089338,
+          "rougel_f1": 0.14820143884892087,
+          "unigram_precision": 0.5084337349397591,
+          "unigram_recall": 0.2164102564102564,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.30229226361031514,
+          "rouge2_f1": 0.07604017216642754,
+          "rougel_f1": 0.14613180515759314,
+          "unigram_precision": 0.501187648456057,
+          "unigram_recall": 0.2164102564102564,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.38081395348837216,
+          "rouge2_f1": 0.1848617176128093,
+          "rougel_f1": 0.19186046511627908,
+          "unigram_precision": 0.6533665835411472,
+          "unigram_recall": 0.26871794871794874,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.30359712230215824,
+          "rouge2_f1": 0.07780979827089338,
+          "rougel_f1": 0.14820143884892087,
+          "unigram_precision": 0.5084337349397591,
+          "unigram_recall": 0.2164102564102564,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.3413566739606127,
+          "rouge2_f1": 0.10372534696859022,
+          "rougel_f1": 0.13274981765134938,
+          "unigram_precision": 0.5909090909090909,
+          "unigram_recall": 0.24,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.36815193571950333,
+          "rouge2_f1": 0.16532553035844916,
+          "rougel_f1": 0.18407596785975167,
+          "unigram_precision": 0.6395939086294417,
+          "unigram_recall": 0.25846153846153846,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "megacoglab-b8pGDFeTc",
+      "citekey": "artsParadiseNoveltyLoss2018a",
+      "dataset": "megacoglab",
+      "training_claims": 36,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.45614035087719296,
+          "rouge2_f1": 0.16647127784290738,
+          "rougel_f1": 0.18947368421052632,
+          "unigram_precision": 0.44724770642201833,
+          "unigram_recall": 0.46539379474940334,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.46907817969661614,
+          "rouge2_f1": 0.18713450292397663,
+          "rougel_f1": 0.20070011668611434,
+          "unigram_precision": 0.4589041095890411,
+          "unigram_recall": 0.4797136038186158,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.4505363528009535,
+          "rouge2_f1": 0.14097968936678612,
+          "rougel_f1": 0.17401668653158522,
+          "unigram_precision": 0.45,
+          "unigram_recall": 0.4510739856801909,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.45614035087719296,
+          "rouge2_f1": 0.16647127784290738,
+          "rougel_f1": 0.18947368421052632,
+          "unigram_precision": 0.44724770642201833,
+          "unigram_recall": 0.46539379474940334,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.5322391559202814,
+          "rouge2_f1": 0.29612220916568743,
+          "rougel_f1": 0.22977725674091443,
+          "unigram_precision": 0.5230414746543779,
+          "unigram_recall": 0.5417661097852029,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.5322391559202814,
+          "rouge2_f1": 0.29612220916568743,
+          "rougel_f1": 0.22977725674091443,
+          "unigram_precision": 0.5230414746543779,
+          "unigram_recall": 0.5417661097852029,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "megacoglab-W3sdOb60i",
+      "citekey": "artsParadiseNoveltyLoss2018a",
+      "dataset": "megacoglab",
+      "training_claims": 36,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.39555006180469715,
+          "rouge2_f1": 0.1214374225526642,
+          "rougel_f1": 0.1557478368355995,
+          "unigram_precision": 0.35320088300220753,
+          "unigram_recall": 0.449438202247191,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.46326276463262767,
+          "rouge2_f1": 0.184769038701623,
+          "rougel_f1": 0.2166874221668742,
+          "unigram_precision": 0.4161073825503356,
+          "unigram_recall": 0.5224719101123596,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.4690721649484536,
+          "rouge2_f1": 0.13695090439276483,
+          "rougel_f1": 0.16494845360824742,
+          "unigram_precision": 0.43333333333333335,
+          "unigram_recall": 0.5112359550561798,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.3925925925925926,
+          "rouge2_f1": 0.1212871287128713,
+          "rougel_f1": 0.15308641975308643,
+          "unigram_precision": 0.3502202643171806,
+          "unigram_recall": 0.44662921348314605,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.5601023017902812,
+          "rouge2_f1": 0.23076923076923075,
+          "rougel_f1": 0.19948849104859337,
+          "unigram_precision": 0.5140845070422535,
+          "unigram_recall": 0.6151685393258427,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.5370843989769821,
+          "rouge2_f1": 0.20000000000000004,
+          "rougel_f1": 0.18414322250639387,
+          "unigram_precision": 0.49295774647887325,
+          "unigram_recall": 0.5898876404494382,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "megacoglab-6e7Wu6JTF",
+      "citekey": "althuizenSupportingCreativeProblem2014",
+      "dataset": "megacoglab",
+      "training_claims": 38,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.27488151658767773,
+          "rouge2_f1": 0.07864406779661018,
+          "rougel_f1": 0.13540961408259986,
+          "unigram_precision": 0.5442359249329759,
+          "unigram_recall": 0.1838768115942029,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.2722940776038121,
+          "rouge2_f1": 0.0790729379686435,
+          "rougel_f1": 0.13206262763784887,
+          "unigram_precision": 0.547945205479452,
+          "unigram_recall": 0.18115942028985507,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.3946843853820598,
+          "rouge2_f1": 0.23952095808383236,
+          "rougel_f1": 0.22724252491694352,
+          "unigram_precision": 0.7406483790523691,
+          "unigram_recall": 0.26902173913043476,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.28434723171565274,
+          "rouge2_f1": 0.08761122518822724,
+          "rougel_f1": 0.13943950786056047,
+          "unigram_precision": 0.5793871866295265,
+          "unigram_recall": 0.18840579710144928,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.3796109993293092,
+          "rouge2_f1": 0.24177300201477503,
+          "rougel_f1": 0.20254862508383634,
+          "unigram_precision": 0.7312661498708011,
+          "unigram_recall": 0.2563405797101449,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.3796109993293092,
+          "rouge2_f1": 0.24177300201477503,
+          "rougel_f1": 0.20254862508383634,
+          "unigram_precision": 0.7312661498708011,
+          "unigram_recall": 0.2563405797101449,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "megacoglab-jJF_B28kC",
+      "citekey": "ackermanOrganizationalMemoryObjects2004",
+      "dataset": "megacoglab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.3422131147540983,
+          "rouge2_f1": 0.053388090349075976,
+          "rougel_f1": 0.1331967213114754,
+          "unigram_precision": 0.37360178970917224,
+          "unigram_recall": 0.31568998109640833,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.35270132517838937,
+          "rouge2_f1": 0.05515832482124617,
+          "rougel_f1": 0.14678899082568808,
+          "unigram_precision": 0.3827433628318584,
+          "unigram_recall": 0.3270321361058601,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.39468302658486704,
+          "rouge2_f1": 0.08606557377049182,
+          "rougel_f1": 0.16155419222903886,
+          "unigram_precision": 0.4298440979955457,
+          "unigram_recall": 0.3648393194706994,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.3422131147540983,
+          "rouge2_f1": 0.053388090349075976,
+          "rougel_f1": 0.1331967213114754,
+          "unigram_precision": 0.37360178970917224,
+          "unigram_recall": 0.31568998109640833,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.36863543788187375,
+          "rouge2_f1": 0.05510204081632653,
+          "rougel_f1": 0.13238289205702647,
+          "unigram_precision": 0.3995584988962472,
+          "unigram_recall": 0.34215500945179583,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.36863543788187375,
+          "rouge2_f1": 0.05510204081632653,
+          "rougel_f1": 0.13238289205702647,
+          "unigram_precision": 0.3995584988962472,
+          "unigram_recall": 0.34215500945179583,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "megacoglab-x62kMph4u",
+      "citekey": "andersonDataBaseMent2008",
+      "dataset": "megacoglab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.45708955223880593,
+          "rouge2_f1": 0.18317757009345798,
+          "rougel_f1": 0.1865671641791045,
+          "unigram_precision": 0.5606407322654462,
+          "unigram_recall": 0.3858267716535433,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.5156537753222836,
+          "rouge2_f1": 0.19557195571955716,
+          "rougel_f1": 0.21731123388581955,
+          "unigram_precision": 0.6208425720620843,
+          "unigram_recall": 0.4409448818897638,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.4222431668237512,
+          "rouge2_f1": 0.18696883852691218,
+          "rougel_f1": 0.20358152686145145,
+          "unigram_precision": 0.5258215962441315,
+          "unigram_recall": 0.352755905511811,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.45708955223880593,
+          "rouge2_f1": 0.18317757009345798,
+          "rougel_f1": 0.1865671641791045,
+          "unigram_precision": 0.5606407322654462,
+          "unigram_recall": 0.3858267716535433,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.4544600938967136,
+          "rouge2_f1": 0.19002822201317027,
+          "rougel_f1": 0.22910798122065726,
+          "unigram_precision": 0.5627906976744186,
+          "unigram_recall": 0.38110236220472443,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.4544600938967136,
+          "rouge2_f1": 0.19002822201317027,
+          "rougel_f1": 0.22910798122065726,
+          "unigram_precision": 0.5627906976744186,
+          "unigram_recall": 0.38110236220472443,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "megacoglab-jScHaY6Fl",
+      "citekey": "denervaudEducationShapesStructure2021",
+      "dataset": "megacoglab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.3037344398340249,
+          "rouge2_f1": 0.046550290939318374,
+          "rougel_f1": 0.1112033195020747,
+          "unigram_precision": 0.4485294117647059,
+          "unigram_recall": 0.22961104140526975,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.2996688741721854,
+          "rouge2_f1": 0.03980099502487562,
+          "rougel_f1": 0.11258278145695366,
+          "unigram_precision": 0.44038929440389296,
+          "unigram_recall": 0.22710163111668757,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.4170073589533933,
+          "rouge2_f1": 0.16543816543816545,
+          "rougel_f1": 0.15044971381847916,
+          "unigram_precision": 0.5985915492957746,
+          "unigram_recall": 0.3199498117942284,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.3037344398340249,
+          "rouge2_f1": 0.046550290939318374,
+          "rougel_f1": 0.1112033195020747,
+          "unigram_precision": 0.4485294117647059,
+          "unigram_recall": 0.22961104140526975,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.3910521955260977,
+          "rouge2_f1": 0.12448132780082989,
+          "rougel_f1": 0.1391880695940348,
+          "unigram_precision": 0.5756097560975609,
+          "unigram_recall": 0.2961104140526976,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.3910521955260977,
+          "rouge2_f1": 0.12448132780082989,
+          "rougel_f1": 0.1391880695940348,
+          "unigram_precision": 0.5756097560975609,
+          "unigram_recall": 0.2961104140526976,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "megacoglab-zGQwQiY6L",
+      "citekey": "artsParadiseNoveltyLoss2018a",
+      "dataset": "megacoglab",
+      "training_claims": 36,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.3766333589546502,
+          "rouge2_f1": 0.1739799846035412,
+          "rougel_f1": 0.196771714066103,
+          "unigram_precision": 0.5946601941747572,
+          "unigram_recall": 0.2755905511811024,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.4047976011994003,
+          "rouge2_f1": 0.1726726726726727,
+          "rougel_f1": 0.22938530734632687,
+          "unigram_precision": 0.6067415730337079,
+          "unigram_recall": 0.30371203599550056,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.35446906035141335,
+          "rouge2_f1": 0.1101759755164499,
+          "rougel_f1": 0.13903743315508021,
+          "unigram_precision": 0.5523809523809524,
+          "unigram_recall": 0.2609673790776153,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.3766333589546502,
+          "rouge2_f1": 0.1739799846035412,
+          "rougel_f1": 0.196771714066103,
+          "unigram_precision": 0.5946601941747572,
+          "unigram_recall": 0.2755905511811024,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.35488721804511275,
+          "rouge2_f1": 0.11746987951807229,
+          "rougel_f1": 0.1368421052631579,
+          "unigram_precision": 0.5351473922902494,
+          "unigram_recall": 0.265466816647919,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.36869826937547023,
+          "rouge2_f1": 0.12660135644310475,
+          "rougel_f1": 0.13544018058690746,
+          "unigram_precision": 0.5568181818181818,
+          "unigram_recall": 0.2755905511811024,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "megacoglab-IUA1p7faR",
+      "citekey": "mastrogiorgioInnovationExaptationIts2016",
+      "dataset": "megacoglab",
+      "training_claims": 41,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.42440318302387264,
+          "rouge2_f1": 0.1702127659574468,
+          "rougel_f1": 0.19363395225464192,
+          "unigram_precision": 0.36363636363636365,
+          "unigram_recall": 0.5095541401273885,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.4317880794701987,
+          "rouge2_f1": 0.17795484727755645,
+          "rougel_f1": 0.21192052980132448,
+          "unigram_precision": 0.36961451247165533,
+          "unigram_recall": 0.5191082802547771,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.4411764705882353,
+          "rouge2_f1": 0.15013404825737267,
+          "rougel_f1": 0.15775401069518719,
+          "unigram_precision": 0.38018433179723504,
+          "unigram_recall": 0.5254777070063694,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.42440318302387264,
+          "rouge2_f1": 0.1702127659574468,
+          "rougel_f1": 0.19363395225464192,
+          "unigram_precision": 0.36363636363636365,
+          "unigram_recall": 0.5095541401273885,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.4572192513368984,
+          "rouge2_f1": 0.20107238605898123,
+          "rougel_f1": 0.21657754010695188,
+          "unigram_precision": 0.39400921658986177,
+          "unigram_recall": 0.5445859872611465,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.4679144385026737,
+          "rouge2_f1": 0.20107238605898123,
+          "rougel_f1": 0.21390374331550802,
+          "unigram_precision": 0.4032258064516129,
+          "unigram_recall": 0.5573248407643312,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "megacoglab-d77x3B_Ui",
+      "citekey": "althuizenSupportingCreativeProblem2014",
+      "dataset": "megacoglab",
+      "training_claims": 38,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.2638522427440633,
+          "rouge2_f1": 0.04755614266842801,
+          "rougel_f1": 0.1094986807387863,
+          "unigram_precision": 0.5221932114882507,
+          "unigram_recall": 0.176522506619594,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.2769028871391076,
+          "rouge2_f1": 0.056504599211563734,
+          "rougel_f1": 0.1246719160104987,
+          "unigram_precision": 0.5396419437340153,
+          "unigram_recall": 0.18623124448367168,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.39634941329856577,
+          "rouge2_f1": 0.23759791122715407,
+          "rougel_f1": 0.2255541069100391,
+          "unigram_precision": 0.7581047381546134,
+          "unigram_recall": 0.26831421006178285,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.2857142857142857,
+          "rouge2_f1": 0.05878510777269758,
+          "rougel_f1": 0.12263535551206783,
+          "unigram_precision": 0.5475,
+          "unigram_recall": 0.19329214474845544,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.3484549638395792,
+          "rouge2_f1": 0.16589861751152074,
+          "rougel_f1": 0.16173570019723868,
+          "unigram_precision": 0.6829896907216495,
+          "unigram_recall": 0.23389232127096204,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.3484549638395792,
+          "rouge2_f1": 0.16589861751152074,
+          "rougel_f1": 0.16173570019723868,
+          "unigram_precision": 0.6829896907216495,
+          "unigram_recall": 0.23389232127096204,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "megacoglab-5gJjNdjMH",
+      "citekey": "artsParadiseNoveltyLoss2018a",
+      "dataset": "megacoglab",
+      "training_claims": 36,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.5376078914919853,
+          "rouge2_f1": 0.2941903584672435,
+          "rougel_f1": 0.3477188655980271,
+          "unigram_precision": 0.48123620309050774,
+          "unigram_recall": 0.6089385474860335,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.594327990135635,
+          "rouge2_f1": 0.40296662546353523,
+          "rougel_f1": 0.4438964241676942,
+          "unigram_precision": 0.5320088300220751,
+          "unigram_recall": 0.6731843575418994,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.47814910025706936,
+          "rouge2_f1": 0.15721649484536082,
+          "rougel_f1": 0.15938303341902313,
+          "unigram_precision": 0.44285714285714284,
+          "unigram_recall": 0.5195530726256983,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.5333333333333333,
+          "rouge2_f1": 0.29702970297029707,
+          "rougel_f1": 0.34320987654320984,
+          "unigram_precision": 0.4778761061946903,
+          "unigram_recall": 0.6033519553072626,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.4962406015037595,
+          "rouge2_f1": 0.17839195979899494,
+          "rougel_f1": 0.17042606516290726,
+          "unigram_precision": 0.45,
+          "unigram_recall": 0.553072625698324,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.4962406015037595,
+          "rouge2_f1": 0.17839195979899494,
+          "rougel_f1": 0.17042606516290726,
+          "unigram_precision": 0.45,
+          "unigram_recall": 0.553072625698324,
+          "output_words": 512
+        }
+      }
+    },
+    {
+      "claim_id": "megacoglab-mtKPi-Abu",
+      "citekey": "althuizenSupportingCreativeProblem2014",
+      "dataset": "megacoglab",
+      "training_claims": 38,
+      "training_papers": 30,
+      "held_paper_excluded_from_prior": true,
+      "metrics": {
+        "bm25": {
+          "rouge1_f1": 0.31878031878031876,
+          "rouge2_f1": 0.09437890353920889,
+          "rougel_f1": 0.15107415107415106,
+          "unigram_precision": 0.5778894472361809,
+          "unigram_recall": 0.22009569377990432,
+          "output_words": 512
+        },
+        "tfidf": {
+          "rouge1_f1": 0.31254379817799577,
+          "rouge2_f1": 0.0968421052631579,
+          "rougel_f1": 0.14435879467414156,
+          "unigram_precision": 0.5837696335078534,
+          "unigram_recall": 0.21339712918660286,
+          "output_words": 512
+        },
+        "prior_only": {
+          "rouge1_f1": 0.36791147994467494,
+          "rouge2_f1": 0.17590027700831026,
+          "rougel_f1": 0.18672199170124482,
+          "unigram_precision": 0.6633416458852868,
+          "unigram_recall": 0.2545454545454545,
+          "output_words": 512
+        },
+        "bm25_diverse": {
+          "rouge1_f1": 0.33102493074792244,
+          "rouge2_f1": 0.10402219140083216,
+          "rougel_f1": 0.15096952908587255,
+          "unigram_precision": 0.5989974937343359,
+          "unigram_recall": 0.22870813397129186,
+          "output_words": 512
+        },
+        "context": {
+          "rouge1_f1": 0.34396671289875175,
+          "rouge2_f1": 0.12500000000000003,
+          "rougel_f1": 0.14701803051317613,
+          "unigram_precision": 0.6246851385390428,
+          "unigram_recall": 0.23732057416267943,
+          "output_words": 512
+        },
+        "context_diverse": {
+          "rouge1_f1": 0.37715072264280797,
+          "rouge2_f1": 0.1791867677463818,
+          "rougel_f1": 0.2050929112181693,
+          "unigram_precision": 0.6715686274509803,
+          "unigram_recall": 0.26220095693779905,
+          "output_words": 512
+        }
+      }
+    }
+  ]
+}

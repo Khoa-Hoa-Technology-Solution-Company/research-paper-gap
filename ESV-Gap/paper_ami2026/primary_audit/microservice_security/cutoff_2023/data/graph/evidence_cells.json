@@ -1,0 +1,469 @@
+[
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_93fec9fe9f83cdf6",
+    "subject": "Docker",
+    "missing_capability": "way to get necessary system calls for a particular container",
+    "canonical_limitation_tokens": [
+      "calls",
+      "container",
+      "get",
+      "necessary",
+      "particular",
+      "way"
+    ],
+    "limitation_variants": [
+      "way to get necessary system calls for a particular container"
+    ],
+    "key_concepts": [
+      "Docker",
+      "way to get necessary system calls for a particular container"
+    ],
+    "supporting_paper_ids": [
+      "63360f7238198e4d211f2d2f982b790eb7c6ff58"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "63360f7238198e4d211f2d2f982b790eb7c6ff58",
+        "year": 2020,
+        "confidence": 1.0,
+        "evidence": "Unfortunately, Docker does not provide a way to get the necessary system calls for a particular container",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "Docker",
+        "atomic_limitation": "way to get necessary system calls for a particular container"
+      }
+    ],
+    "semantic_scope": "subject",
+    "domain": "security of microservices",
+    "mean_evidence_confidence": 1.0,
+    "first_reported_year": 2020,
+    "latest_reported_year": 2020,
+    "research_frame": {
+      "methods": [
+        "RSDS",
+        "seccomp mechanism",
+        "dynamic analysis",
+        "static analysis",
+        "default configuration"
+      ],
+      "datasets": [
+        "x86-64 PC with Ubuntu 16.04 host OS"
+      ],
+      "metrics": [],
+      "concepts": [
+        "system call whitelist",
+        "getting system call whitelist for container",
+        "abuse of system calls",
+        "security of host kernel"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.65,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.6667,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": true
+      }
+    },
+    "description": "Evidence cell 'way to get necessary system calls for a particular container' is reported by 1 independent paper(s) in security of microservices.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'way to get necessary system calls for a particular container' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_3664fab470bbd3c0",
+    "subject": "security of microservices",
+    "missing_capability": "approaches focusing on resolving Dockerfile smells",
+    "canonical_limitation_tokens": [
+      "dockerfile",
+      "focusing",
+      "resolving",
+      "smells"
+    ],
+    "limitation_variants": [
+      "approaches focusing on resolving Dockerfile smells"
+    ],
+    "key_concepts": [
+      "security of microservices",
+      "approaches focusing on resolving Dockerfile smells"
+    ],
+    "supporting_paper_ids": [
+      "c389b63370a6045280a28ecacf13e849dd4cb802"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "c389b63370a6045280a28ecacf13e849dd4cb802",
+        "year": 2023,
+        "confidence": 0.7,
+        "evidence": "Still, there is a lack of approaches focusing on resolving these issues.",
+        "semantic_scope": "field",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "DockerCleaner",
+        "atomic_limitation": "approaches focusing on resolving Dockerfile smells"
+      },
+      {
+        "paper_id": "c389b63370a6045280a28ecacf13e849dd4cb802",
+        "year": 2023,
+        "confidence": 0.7,
+        "evidence": "Still, there is a lack of approaches focusing on resolving these issues.",
+        "semantic_scope": "field",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "Dockerfile smells",
+        "atomic_limitation": "approaches focusing on resolving Dockerfile smells"
+      }
+    ],
+    "semantic_scope": "field",
+    "domain": "security of microservices",
+    "mean_evidence_confidence": 0.7,
+    "first_reported_year": 2023,
+    "latest_reported_year": 2023,
+    "research_frame": {
+      "methods": [
+        "Dockerfile",
+        "repair actions",
+        "fixes"
+      ],
+      "datasets": [
+        "Dockerfiles",
+        "official Docker images"
+      ],
+      "metrics": [],
+      "concepts": [
+        "Dockerfile smells",
+        "security risks",
+        "Dockerfile security smells",
+        "best security practices"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.59,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.6667,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": true
+      }
+    },
+    "description": "Evidence cell 'approaches focusing on resolving Dockerfile smells' is reported by 1 independent paper(s) in security of microservices.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'approaches focusing on resolving Dockerfile smells' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_b5b5a7115233010a",
+    "subject": "security of microservices",
+    "missing_capability": "security enforcement over sensitive data",
+    "canonical_limitation_tokens": [
+      "dataset",
+      "enforcement",
+      "over",
+      "security",
+      "sensitive"
+    ],
+    "limitation_variants": [
+      "security enforcement over sensitive data"
+    ],
+    "key_concepts": [
+      "security of microservices",
+      "security enforcement over sensitive data"
+    ],
+    "supporting_paper_ids": [
+      "10ed1e0f55fac983edaae19114d99530cfe1c0d7"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "10ed1e0f55fac983edaae19114d99530cfe1c0d7",
+        "year": 2019,
+        "confidence": 0.7,
+        "evidence": "This security risk is further magnified by the loss of control and lack of security enforcement over sensitive data manipulated by SaaS applications.",
+        "semantic_scope": "field",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "Security Diagnosis as a Service (SDaaS)",
+        "atomic_limitation": "security enforcement over sensitive data"
+      },
+      {
+        "paper_id": "10ed1e0f55fac983edaae19114d99530cfe1c0d7",
+        "year": 2019,
+        "confidence": 0.7,
+        "evidence": "This security risk is further magnified by the loss of control and lack of security enforcement over sensitive data manipulated by SaaS applications.",
+        "semantic_scope": "field",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "data integrity and confidentiality violations",
+        "atomic_limitation": "security enforcement over sensitive data"
+      }
+    ],
+    "semantic_scope": "field",
+    "domain": "security of microservices",
+    "mean_evidence_confidence": 0.7,
+    "first_reported_year": 2019,
+    "latest_reported_year": 2019,
+    "research_frame": {
+      "methods": [
+        "Security Diagnosis as a Service (SDaaS)"
+      ],
+      "datasets": [
+        "benchmark applications"
+      ],
+      "metrics": [],
+      "concepts": [
+        "information flow vulnerabilities",
+        "data integrity and confidentiality violations",
+        "novel as well as prevalent attack vectors",
+        "SaaS applications",
+        "microservices architecture",
+        "Web technologies",
+        "service-oriented architecture (SOA)"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.59,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.6667,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": true
+      }
+    },
+    "description": "Evidence cell 'security enforcement over sensitive data' is reported by 1 independent paper(s) in security of microservices.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'security enforcement over sensitive data' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_8c97cda1dd2537b0",
+    "subject": "security of microservices",
+    "missing_capability": "trusted third party",
+    "canonical_limitation_tokens": [
+      "party",
+      "third",
+      "trusted"
+    ],
+    "limitation_variants": [
+      "trusted third party"
+    ],
+    "key_concepts": [
+      "security of microservices",
+      "trusted third party"
+    ],
+    "supporting_paper_ids": [
+      "acdc04eca48e79a05f14e730c7b3c1b912575115"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "acdc04eca48e79a05f14e730c7b3c1b912575115",
+        "year": 2022,
+        "confidence": 0.8,
+        "evidence": "The crucial security issue with these networks is the lack of a trusted third party for validation.",
+        "semantic_scope": "field",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "Wireless Mesh Network (WMN)",
+        "atomic_limitation": "trusted third party"
+      },
+      {
+        "paper_id": "acdc04eca48e79a05f14e730c7b3c1b912575115",
+        "year": 2022,
+        "confidence": 0.8,
+        "evidence": "The crucial security issue with these networks is the lack of a trusted third party for validation.",
+        "semantic_scope": "field",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "IoT Mesh networks",
+        "atomic_limitation": "trusted third party"
+      }
+    ],
+    "semantic_scope": "field",
+    "domain": "security of microservices",
+    "mean_evidence_confidence": 0.8,
+    "first_reported_year": 2022,
+    "latest_reported_year": 2022,
+    "research_frame": {
+      "methods": [
+        "Trust Similarity",
+        "weighted D-S theory",
+        "novel trust mechanism framework"
+      ],
+      "datasets": [],
+      "metrics": [],
+      "concepts": [
+        "Wireless Mesh Network (WMN)",
+        "packet-forwarding behavior",
+        "nodes' cooperation",
+        "IoT Mesh networks",
+        "promiscuous mode",
+        "malicious nodes",
+        "direct trust",
+        "indirect trust"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.56,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.3333,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": false
+      }
+    },
+    "description": "Evidence cell 'trusted third party' is reported by 1 independent paper(s) in security of microservices.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'trusted third party' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_c10aa46642b629dc",
+    "subject": "traditional Zero Trust models",
+    "missing_capability": "dynamic policy enforcement",
+    "canonical_limitation_tokens": [
+      "dynamic",
+      "enforcement",
+      "policy"
+    ],
+    "limitation_variants": [
+      "dynamic policy enforcement"
+    ],
+    "key_concepts": [
+      "traditional Zero Trust models",
+      "dynamic policy enforcement"
+    ],
+    "supporting_paper_ids": [
+      "78f08ef91356d0dc0806ea165a3649f89859dde1"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "78f08ef91356d0dc0806ea165a3649f89859dde1",
+        "year": 2021,
+        "confidence": 0.7,
+        "evidence": "However, traditional Zero Trust models, characterized by static policies and rigid access control mechanisms, struggle to keep up with the dynamic nature of modern cloud networks.",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "traditional Zero Trust models",
+        "atomic_limitation": "dynamic policy enforcement"
+      }
+    ],
+    "semantic_scope": "subject",
+    "domain": "security of microservices",
+    "mean_evidence_confidence": 0.7,
+    "first_reported_year": 2021,
+    "latest_reported_year": 2021,
+    "research_frame": {
+      "methods": [
+        "traditional Zero Trust models",
+        "granular and dynamic Zero Trust approach",
+        "real-time, context-aware access control",
+        "static policies",
+        "granular Zero Trust approach"
+      ],
+      "datasets": [],
+      "metrics": [],
+      "concepts": [
+        "Zero Trust Architecture",
+        "dynamic nature of modern cloud networks",
+        "microservices"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.54,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.3333,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": false
+      }
+    },
+    "description": "Evidence cell 'dynamic policy enforcement' is reported by 1 independent paper(s) in security of microservices.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'dynamic policy enforcement' as an unresolved limitation."
+  },
+  {
+    "type": "evidence_gap",
+    "evidence_cell_id": "cell_88d952be91ac1e5c",
+    "subject": "traditional Zero Trust models",
+    "missing_capability": "real-time analytics",
+    "canonical_limitation_tokens": [
+      "analytics",
+      "real",
+      "time"
+    ],
+    "limitation_variants": [
+      "real-time analytics"
+    ],
+    "key_concepts": [
+      "traditional Zero Trust models",
+      "real-time analytics"
+    ],
+    "supporting_paper_ids": [
+      "78f08ef91356d0dc0806ea165a3649f89859dde1"
+    ],
+    "supporting_paper_count": 1,
+    "source_evidence": [
+      {
+        "paper_id": "78f08ef91356d0dc0806ea165a3649f89859dde1",
+        "year": 2021,
+        "confidence": 0.7,
+        "evidence": "However, traditional Zero Trust models, characterized by static policies and rigid access control mechanisms, struggle to keep up with the dynamic nature of modern cloud networks.",
+        "semantic_scope": "subject",
+        "semantic_validation": "explicit_unresolved_problem",
+        "source_subject": "traditional Zero Trust models",
+        "atomic_limitation": "real-time analytics"
+      }
+    ],
+    "semantic_scope": "subject",
+    "domain": "security of microservices",
+    "mean_evidence_confidence": 0.7,
+    "first_reported_year": 2021,
+    "latest_reported_year": 2021,
+    "research_frame": {
+      "methods": [
+        "traditional Zero Trust models",
+        "dynamic policy enforcement",
+        "granular and dynamic Zero Trust approach",
+        "real-time, context-aware access control",
+        "static policies",
+        "granular Zero Trust approach"
+      ],
+      "datasets": [],
+      "metrics": [],
+      "concepts": [
+        "Zero Trust Architecture",
+        "dynamic nature of modern cloud networks",
+        "microservices"
+      ]
+    },
+    "candidate_quality": {
+      "score": 0.54,
+      "independent_source_count": 1,
+      "semantic_cohesion": 1.0,
+      "frame_completeness": 0.3333,
+      "full_text_source_count": 0,
+      "full_text_coverage": 0.0,
+      "certificate_readiness": {
+        "independent_sources_ready": false,
+        "full_text_ready": false,
+        "research_frame_ready": false
+      }
+    },
+    "description": "Evidence cell 'real-time analytics' is reported by 1 independent paper(s) in security of microservices.",
+    "draft_claim": "Within the screened corpus, independent evidence reports 'real-time analytics' as an unresolved limitation."
+  }
+]

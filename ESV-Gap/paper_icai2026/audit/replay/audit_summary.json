@@ -1,0 +1,169 @@
+{
+  "source_run": "deep_learning_iot_intrusion_de_20260831_114802",
+  "input_sha256": {
+    "runs\\deep_learning_iot_intrusion_de_20260831_114802\\data\\processed\\corpus_filtered.jsonl": "852b63bf0b7f3fb641046b416c45723156d5663b56f87352b9145efb22282583",
+    "runs\\deep_learning_iot_intrusion_de_20260831_114802\\data\\triples\\all_triples.json": "a352427bffb0d6d63bce589ec13df54e0f71b615bd6f2f9470d694fee4e21a31"
+  },
+  "replay_environment": {
+    "python_version": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+    "packages": {
+      "networkx": "3.6.1",
+      "PyYAML": "6.0.3",
+      "numpy": "2.5.1",
+      "scipy": "1.18.0",
+      "python-louvain": "0.16"
+    },
+    "code_sha256": {
+      "src\\temporal_backtest.py": "79b7072315bf394340d5343c574b18c5f706a2e99d2689314cfd491da7d34fc2",
+      "src\\detect_gaps.py": "be8f6bdd4259ed324ae95b7d02a9745ba71c65305b7a0dd57140f9a567bffa6f",
+      "src\\evidence_graph.py": "7f13b2a4cac56bf7824659fc1a3d2e956865b436a7d10dad1ca6fd0937322f7e",
+      "config.yaml": "0024f3c746c62d958d96a55d07c41dbfb9b39e21097bfeef9a8da1a750619511",
+      "paper_icai2026\\audit\\replay_backtest.py": "620601a1e807e6e2d544f2d1e6c7c8121a9389d2769d10635196a6874ba411bc"
+    }
+  },
+  "aggregate": {
+    "cutoff_count": 3,
+    "cutoffs": [
+      2022,
+      2023,
+      2024
+    ],
+    "all_leakage_checks_passed": true,
+    "total_candidates": 16,
+    "total_positive_controls": 36,
+    "total_negative_controls": 6,
+    "macro_candidate_recall_at_k": {
+      "5": 0.0,
+      "10": 0.0,
+      "20": 0.0417
+    },
+    "macro_precision_after_local_closure_on_labelled_controls": 1.0,
+    "micro_precision_after_local_closure_on_labelled_controls": 1.0,
+    "labelled_true_positives_after_local_closure": 1,
+    "labelled_false_positives_after_local_closure": 0,
+    "macro_false_positive_rate_on_known_negatives": 0.0,
+    "known_negatives_selected_after_local_closure": 0,
+    "macro_label_abstention_rate": 0.6875,
+    "certificate_precision": null,
+    "certification_abstention_rate": 1.0
+  },
+  "cutoff_results": [
+    {
+      "cutoff_year": 2022,
+      "prediction_window": [
+        2023,
+        2026
+      ],
+      "pre_cutoff_papers": 46,
+      "post_cutoff_papers": 104,
+      "pre_cutoff_triples": 358,
+      "post_cutoff_triples": 1046,
+      "leakage_check_passed": true,
+      "leakage_violations": [],
+      "metrics": {
+        "candidate_count": 0,
+        "positive_control_count": 14,
+        "negative_control_count": 0,
+        "candidate_recall_at_k": {
+          "5": 0.0,
+          "10": 0.0,
+          "20": 0.0
+        },
+        "candidate_precision_at_k_on_labelled_controls": {
+          "5": null,
+          "10": null,
+          "20": null
+        },
+        "precision_after_local_closure_on_labelled_controls": null,
+        "labelled_true_positives_after_local_closure": 0,
+        "labelled_false_positives_after_local_closure": 0,
+        "false_positive_rate_on_known_negatives": null,
+        "known_negatives_selected_after_local_closure": 0,
+        "unlabelled_candidate_count": 0,
+        "label_abstention_rate": null,
+        "certified_candidate_count": 0,
+        "certificate_precision": null,
+        "certification_abstention_rate": null,
+        "certificate_metric_status": "not_estimable_without_historical_full_text_and_closure_snapshots"
+      }
+    },
+    {
+      "cutoff_year": 2023,
+      "prediction_window": [
+        2024,
+        2026
+      ],
+      "pre_cutoff_papers": 65,
+      "post_cutoff_papers": 85,
+      "pre_cutoff_triples": 515,
+      "post_cutoff_triples": 889,
+      "leakage_check_passed": true,
+      "leakage_violations": [],
+      "metrics": {
+        "candidate_count": 0,
+        "positive_control_count": 14,
+        "negative_control_count": 0,
+        "candidate_recall_at_k": {
+          "5": 0.0,
+          "10": 0.0,
+          "20": 0.0
+        },
+        "candidate_precision_at_k_on_labelled_controls": {
+          "5": null,
+          "10": null,
+          "20": null
+        },
+        "precision_after_local_closure_on_labelled_controls": null,
+        "labelled_true_positives_after_local_closure": 0,
+        "labelled_false_positives_after_local_closure": 0,
+        "false_positive_rate_on_known_negatives": null,
+        "known_negatives_selected_after_local_closure": 0,
+        "unlabelled_candidate_count": 0,
+        "label_abstention_rate": null,
+        "certified_candidate_count": 0,
+        "certificate_precision": null,
+        "certification_abstention_rate": null,
+        "certificate_metric_status": "not_estimable_without_historical_full_text_and_closure_snapshots"
+      }
+    },
+    {
+      "cutoff_year": 2024,
+      "prediction_window": [
+        2025,
+        2026
+      ],
+      "pre_cutoff_papers": 91,
+      "post_cutoff_papers": 59,
+      "pre_cutoff_triples": 788,
+      "post_cutoff_triples": 616,
+      "leakage_check_passed": true,
+      "leakage_violations": [],
+      "metrics": {
+        "candidate_count": 16,
+        "positive_control_count": 8,
+        "negative_control_count": 6,
+        "candidate_recall_at_k": {
+          "5": 0.0,
+          "10": 0.0,
+          "20": 0.125
+        },
+        "candidate_precision_at_k_on_labelled_controls": {
+          "5": null,
+          "10": 0.0,
+          "20": 0.2
+        },
+        "precision_after_local_closure_on_labelled_controls": 1.0,
+        "labelled_true_positives_after_local_closure": 1,
+        "labelled_false_positives_after_local_closure": 0,
+        "false_positive_rate_on_known_negatives": 0.0,
+        "known_negatives_selected_after_local_closure": 0,
+        "unlabelled_candidate_count": 11,
+        "label_abstention_rate": 0.6875,
+        "certified_candidate_count": 0,
+        "certificate_precision": null,
+        "certification_abstention_rate": 1.0,
+        "certificate_metric_status": "not_estimable_without_historical_full_text_and_closure_snapshots"
+      }
+    }
+  ]
+}

@@ -1,0 +1,302 @@
+{
+  "status": "offline_retrospective_silver_control_replay",
+  "interpretation": "Heuristic future controls are not expert-validated gaps. Certificate metrics are not estimated.",
+  "source_rows": 378,
+  "distinct_papers_by_doi_then_id": 378,
+  "cross_domain_duplicate_rows": 0,
+  "domain_count": 4,
+  "cutoff_protocol": [
+    2022,
+    2023,
+    2024
+  ],
+  "minimum_pre_and_future_papers": 10,
+  "completed_domain_cutoffs": 10,
+  "cutoffs_with_positive_controls": 9,
+  "macro_recall_at_20_scored_cutoffs": 0.0139,
+  "direct_lacks_baseline_macro_recall_at_20_scored_cutoffs": 0.0,
+  "mean_paired_recall_at_20_delta_vs_direct_lacks": 0.0139,
+  "total_positive_controls_across_cutoffs_not_independent": 64,
+  "total_candidate_rows_across_cutoffs_not_independent": 39,
+  "all_implemented_support_id_checks_passed": true,
+  "sources": [
+    {
+      "domain": "iot_intrusion_detection",
+      "source_run": "deep_learning_iot_intrusion_de_20260831_114802",
+      "retained_papers": 150,
+      "triples": 1404,
+      "years": {
+        "2019": 5,
+        "2020": 10,
+        "2021": 15,
+        "2022": 16,
+        "2023": 19,
+        "2024": 26,
+        "2025": 28,
+        "2026": 31
+      },
+      "cutoffs": [
+        {
+          "cutoff": 2022,
+          "status": "completed",
+          "pre": 46,
+          "future": 104,
+          "positive_controls": 14,
+          "negative_controls": 0,
+          "candidates": 0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "recall_at_20": 0.0,
+          "direct_lacks_baseline_candidates": 34,
+          "direct_lacks_baseline_recall_at_20": 0.0,
+          "unlabelled_candidates": 0,
+          "certification_metric_status": "not_estimable_without_historical_full_text_and_closure_snapshots",
+          "leakage_check_passed": true
+        },
+        {
+          "cutoff": 2023,
+          "status": "completed",
+          "pre": 65,
+          "future": 85,
+          "positive_controls": 14,
+          "negative_controls": 0,
+          "candidates": 0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "recall_at_20": 0.0,
+          "direct_lacks_baseline_candidates": 41,
+          "direct_lacks_baseline_recall_at_20": 0.0,
+          "unlabelled_candidates": 0,
+          "certification_metric_status": "not_estimable_without_historical_full_text_and_closure_snapshots",
+          "leakage_check_passed": true
+        },
+        {
+          "cutoff": 2024,
+          "status": "completed",
+          "pre": 91,
+          "future": 59,
+          "positive_controls": 8,
+          "negative_controls": 6,
+          "candidates": 16,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "recall_at_20": 0.125,
+          "direct_lacks_baseline_candidates": 71,
+          "direct_lacks_baseline_recall_at_20": 0.0,
+          "unlabelled_candidates": 11,
+          "certification_metric_status": "not_estimable_without_historical_full_text_and_closure_snapshots",
+          "leakage_check_passed": true
+        }
+      ]
+    },
+    {
+      "domain": "microservice_security",
+      "source_run": "security_of_microservices_20260806_114632",
+      "retained_papers": 143,
+      "triples": 898,
+      "years": {
+        "2019": 11,
+        "2020": 8,
+        "2021": 15,
+        "2022": 13,
+        "2023": 32,
+        "2024": 30,
+        "2025": 34
+      },
+      "cutoffs": [
+        {
+          "cutoff": 2022,
+          "status": "completed",
+          "pre": 47,
+          "future": 96,
+          "positive_controls": 14,
+          "negative_controls": 14,
+          "candidates": 5,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "recall_at_20": 0.0,
+          "direct_lacks_baseline_candidates": 50,
+          "direct_lacks_baseline_recall_at_20": 0.0,
+          "unlabelled_candidates": 1,
+          "certification_metric_status": "not_estimable_without_historical_full_text_and_closure_snapshots",
+          "leakage_check_passed": true
+        },
+        {
+          "cutoff": 2023,
+          "status": "completed",
+          "pre": 79,
+          "future": 64,
+          "positive_controls": 8,
+          "negative_controls": 20,
+          "candidates": 6,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "recall_at_20": 0.0,
+          "direct_lacks_baseline_candidates": 84,
+          "direct_lacks_baseline_recall_at_20": 0.0,
+          "unlabelled_candidates": 1,
+          "certification_metric_status": "not_estimable_without_historical_full_text_and_closure_snapshots",
+          "leakage_check_passed": true
+        },
+        {
+          "cutoff": 2024,
+          "status": "completed",
+          "pre": 109,
+          "future": 34,
+          "positive_controls": 2,
+          "negative_controls": 26,
+          "candidates": 7,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "recall_at_20": 0.0,
+          "direct_lacks_baseline_candidates": 108,
+          "direct_lacks_baseline_recall_at_20": 0.0,
+          "unlabelled_candidates": 2,
+          "certification_metric_status": "not_estimable_without_historical_full_text_and_closure_snapshots",
+          "leakage_check_passed": true
+        }
+      ]
+    },
+    {
+      "domain": "mongodb_security",
+      "source_run": "security_of_mongodb_20260806_135447",
+      "retained_papers": 53,
+      "triples": 643,
+      "years": {
+        "2020": 2,
+        "2021": 3,
+        "2022": 4,
+        "2023": 11,
+        "2024": 7,
+        "2025": 26
+      },
+      "cutoffs": [
+        {
+          "cutoff": 2022,
+          "status": "insufficient_pre_or_future",
+          "pre": 9,
+          "future": 44
+        },
+        {
+          "cutoff": 2023,
+          "status": "completed",
+          "pre": 20,
+          "future": 33,
+          "positive_controls": 2,
+          "negative_controls": 10,
+          "candidates": 0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "recall_at_20": 0.0,
+          "direct_lacks_baseline_candidates": 34,
+          "direct_lacks_baseline_recall_at_20": 0.0,
+          "unlabelled_candidates": 0,
+          "certification_metric_status": "not_estimable_without_historical_full_text_and_closure_snapshots",
+          "leakage_check_passed": true
+        },
+        {
+          "cutoff": 2024,
+          "status": "completed",
+          "pre": 27,
+          "future": 26,
+          "positive_controls": 1,
+          "negative_controls": 11,
+          "candidates": 1,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "recall_at_20": 0.0,
+          "direct_lacks_baseline_candidates": 44,
+          "direct_lacks_baseline_recall_at_20": 0.0,
+          "unlabelled_candidates": 1,
+          "certification_metric_status": "not_estimable_without_historical_full_text_and_closure_snapshots",
+          "leakage_check_passed": true
+        }
+      ]
+    },
+    {
+      "domain": "handwritten_math_recognition",
+      "source_run": "handwritten_mathematical_expre_20260823_215228",
+      "retained_papers": 32,
+      "triples": 243,
+      "years": {
+        "2019": 3,
+        "2020": 2,
+        "2021": 6,
+        "2022": 2,
+        "2023": 5,
+        "2024": 6,
+        "2025": 7,
+        "2026": 1
+      },
+      "cutoffs": [
+        {
+          "cutoff": 2022,
+          "status": "completed",
+          "pre": 13,
+          "future": 19,
+          "positive_controls": 1,
+          "negative_controls": 0,
+          "candidates": 0,
+          "recall_at_5": 0.0,
+          "recall_at_10": 0.0,
+          "recall_at_20": 0.0,
+          "direct_lacks_baseline_candidates": 1,
+          "direct_lacks_baseline_recall_at_20": 0.0,
+          "unlabelled_candidates": 0,
+          "certification_metric_status": "not_estimable_without_historical_full_text_and_closure_snapshots",
+          "leakage_check_passed": true
+        },
+        {
+          "cutoff": 2023,
+          "status": "completed",
+          "pre": 18,
+          "future": 14,
+          "positive_controls": 0,
+          "negative_controls": 1,
+          "candidates": 4,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "recall_at_20": null,
+          "direct_lacks_baseline_candidates": 7,
+          "direct_lacks_baseline_recall_at_20": null,
+          "unlabelled_candidates": 3,
+          "certification_metric_status": "not_estimable_without_historical_full_text_and_closure_snapshots",
+          "leakage_check_passed": true
+        },
+        {
+          "cutoff": 2024,
+          "status": "insufficient_pre_or_future",
+          "pre": 24,
+          "future": 8
+        }
+      ]
+    }
+  ],
+  "fingerprints": {
+    "inputs": {
+      "iot_intrusion_detection": {
+        "corpus": "852b63bf0b7f3fb641046b416c45723156d5663b56f87352b9145efb22282583",
+        "triples": "a352427bffb0d6d63bce589ec13df54e0f71b615bd6f2f9470d694fee4e21a31"
+      },
+      "microservice_security": {
+        "corpus": "11415c3b8b0a3ae1196a0bfedd362ce4d37e54ea33664fae1b0d6e509da8d42f",
+        "triples": "7f354e30ed76efc9c2fe56253e12c9090434a6b80ee5a89f653b06eac68505a9"
+      },
+      "mongodb_security": {
+        "corpus": "1f47c496466ce241b72330c9a80ceaf384de683f8af49b98bc30b75e7d244853",
+        "triples": "bf17038593413d26c60b1a8d781ed1d5ad580722c8d93542be2cba4b176a0386"
+      },
+      "handwritten_math_recognition": {
+        "corpus": "559e59716ea93e35b4244b92e776e666026a0cdf5a0fea7d0204e704ba9ca044",
+        "triples": "bf90feac5501fabbe78e4ffc9c021e275ba4f0c5043cceb4bacded339e23e55c"
+      }
+    },
+    "config": "0024f3c746c62d958d96a55d07c41dbfb9b39e21097bfeef9a8da1a750619511",
+    "temporal_code": "79b7072315bf394340d5343c574b18c5f706a2e99d2689314cfd491da7d34fc2",
+    "detector_code": "be8f6bdd4259ed324ae95b7d02a9745ba71c65305b7a0dd57140f9a567bffa6f",
+    "runner": "b76ad865a013daaa963374fd6a90d50a295f434664dd65147a1fcd9626c69398",
+    "python": "3.14.6",
+    "networkx": "3.6.1",
+    "pyyaml": "6.0.3"
+  }
+}

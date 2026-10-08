@@ -1,0 +1,37 @@
+{
+  "repository": "joelchan/contextualizing-scientific-claims",
+  "revision": "457d3b5cb4bb8ade34e37458f4900c6eae0959bb",
+  "license": "cc-by-4.0",
+  "files": [
+    {
+      "path": "full_texts-2024-04-25-update.json",
+      "bytes": 25495750,
+      "sha256": "17f9571ec3c3c4b9c22da4c2459d4528dbde258a8b7f64e0d62aa764e4ffdcad"
+    },
+    {
+      "path": "full_texts-test.json",
+      "bytes": 7123253,
+      "sha256": "5f888a602a06904eef7d08ddbdfddd5ea342324c1da5e1d012f952dedfb0c647"
+    },
+    {
+      "path": "task2-test.json",
+      "bytes": 37704,
+      "sha256": "9851f8bb7e96d02a39df46d99416e22f1fdfdccdf3ae85a7df6db3149dd871ed"
+    },
+    {
+      "path": "task2-train-dev.json",
+      "bytes": 152076,
+      "sha256": "019dcd48693d42bcbcf84e7163a2f71e821b215967abda34fd4b08c7485f3cad"
+    },
+    {
+      "path": "eval/task1_eval.py",
+      "bytes": 4453,
+      "sha256": "d11e3d6716d1e735a90ddbd34bb7ebb18dbe8ea4e92131cc297d38d1fe54242d"
+    },
+    {
+      "path": "eval/task2_eval.py",
+      "bytes": 4075,
+      "sha256": "b19871a1880f7fe208d54dda08897b575c7263b54ec25cf6c46d9f1cd81e6629"
+    }
+  ]
+}

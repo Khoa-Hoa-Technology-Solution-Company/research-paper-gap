@@ -1,0 +1,213 @@
+\documentclass[conference,a4paper]{IEEEtran}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{url}
+\usepackage{cite}
+\brokenpenalty=10000
+
+\title{Auditing AI-Assisted Research-Gap Retrieval: A Four-Corpus Time-Split Evaluation}
+\author{\IEEEauthorblockN{L\^e Anh H\`oa}
+\IEEEauthorblockA{FPT University, Vietnam\\
+leanhhoa3002004@gmail.com}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+AI-assisted systems can propose plausible research gaps, but correspondence with later papers does not by itself establish a valid scientific opportunity. We introduce a time-split audit separating candidate availability, heuristic future correspondence, and within-scope resolution. It replays preserved extracted evidence from 378 keyed records in four corpora at 2022--2024 cutoffs, yielding ten domain--cutoff evaluations and 64 non-independent heuristic control rows. At a common top-20 budget, ESV-Gap generates 39 explicit-limitation candidates and attains macro proxy Recall@20 of 0.0139; its typed evidence-map branch generates none. Confidence ranking of extracted limitations attains 0, whereas BM25 reranking of the \emph{same extracted pool} attains 0.0933 and matches five controls. Abstract-level examination does not validate this larger proxy score as discovery: four retained abstracts do not report a same-scope resolution experiment, one empirical record pairs with an underspecified candidate, and one record's publication provenance remains unverified. We report per-cutoff counts, input/code fingerprints, and a five-case audit. The contribution is a fingerprinted, reproducibility-oriented evaluation protocol and failure analysis; independent scope labels, historical full-text snapshots, and end-to-end certification remain to be established.
+\end{abstract}
+
+\begin{IEEEkeywords}
+research-gap retrieval, scholarly text mining, BM25, retrospective evaluation, evidence scope
+\end{IEEEkeywords}
+
+\section{Introduction}
+Literature-based discovery has long sought useful links across publications~\cite{swanson1986}. Recent AI assistants can propose research questions from scholarly corpora and academic graphs~\cite{baek2025}. Yet a missing relation is ambiguous: an experiment may be absent, a paper may omit it from the abstract, an extractor may miss it, or the graph may split synonymous terms. A research-gap claim requires a specified task, conditions and outcome, plus a defensible account of evidence in that scope. A future paper that shares vocabulary with a candidate may still be a review, a proposal without evaluation, or an experiment on a different question.
+
+ESV-Gap extracts paper-linked relations, generates graph and explicit-limitation signals, and can route candidates through an evidence gate. An earlier audit of one preserved IoT run found 133 raw signals, five review-routed signals, and zero automatically eligible signals. That motivated this study; those 133 signals are \emph{not} a denominator for the new experiment. We isolate the pre-certification candidate retriever and ask three narrower questions: \textbf{RQ1:} Does it emit candidates across domains and cutoffs? \textbf{RQ2:} Does it retrieve heuristic future controls relative to simple limitation rankings? \textbf{RQ3:} Do matched controls show the same experiment and outcome that a defensible closure claim would require?
+
+Our contribution is an \emph{audit protocol and diagnosis}, not a new validated discovery algorithm: (1) a four-corpus, ten-evaluation replay with code/data fingerprints and separate candidate, control, and closure states; (2) a common-budget comparison with confidence- and BM25-ranked limitation candidates; and (3) a generator-source decomposition and abstract-level examination of all five BM25 matches. The lexical baseline is extraction-dependent, so the experiment does not isolate graph topology from a genuinely independent text-only pipeline. Figure~\ref{fig:protocol} shows the information boundary.
+
+\section{Related Work and Claim Boundary}
+M\"uller-Bloch and Kranz characterize six research-gap types: contradictory evidence, knowledge void, action--knowledge conflict, methodological conflict, evaluation void, and theory application void~\cite{mullerbloch2015}. Their framework already includes localization, characterization, verification, and presentation, with further searches to check whether a gap has been closed. This motivates distinguishing a candidate's type from its evidential status. Our replay examines extracted limitations and heuristic future correspondence; it does not assign these six types or evaluate their coverage. The proposed validation study in Section~VI would extend the audit with type-specific evidence requirements.
+
+Large scholarly corpora such as S2ORC enable cross-disciplinary text mining~\cite{lo2020}. SPECTER and SciRepEval study scientific-document representations across retrieval tasks~\cite{cohan2020,singh2023}; their ranking objectives differ from establishing that a precise research question remains open. BM25 is a well-characterized lexical retrieval model~\cite{robertson2009}. ResearchAgent uses language models, an academic graph and iterative review to generate ideas~\cite{baek2025}; our question is instead how to audit candidate claims against time-separated evidence.
+
+Systematic-review reporting requires search and selection accounting~\cite{page2021}, but a preserved title-and-abstract collection is not automatically a systematic review. SciFact verifies claims against evidence abstracts~\cite{wadden2020}, and SciFact-Open studies open-domain retrieval where support may apply only to a special case~\cite{wadden2022}. Context24 further distinguishes a claim being stated from its grounding in empirical figures, tables and methods~\cite{chan2024}. A putative research gap poses an additional absence question: failure to retrieve a counterexample cannot prove that none exists.
+
+Graph completion, including TransE, ranks missing relations~\cite{bordes2013}; Louvain community detection can reveal separated clusters~\cite{blondel2008}. Neither establishes whether one experiment tested a specified task, condition and outcome. Selective prediction motivates abstention under insufficient evidence~\cite{geifman2017}, but our replay provides no calibrated probability or risk guarantee. We treat graph output as a candidate-generation aid, not a verified research finding.
+
+\begin{figure}[t]
+\centering\footnotesize
+\fbox{\begin{minipage}{0.94\columnwidth}\centering
+\begin{tabular}{>{\centering\arraybackslash}p{0.43\columnwidth}>{\centering\arraybackslash}p{0.43\columnwidth}}
+Pre-cutoff records and extracted triples & Post-cutoff records and triples \\
+$\downarrow$ & $\downarrow$ \\
+Candidate generation and ranking & Heuristic future controls \\
+\scriptsize ESV-Gap / Confidence-LACKS / BM25-LACKS & \\
+\multicolumn{2}{c}{$\searrow\qquad\swarrow$} \\
+\multicolumn{2}{c}{Common top-$k$ matching $\rightarrow$ abstract-level scope audit}
+\end{tabular}
+\end{minipage}}
+\caption{Retrospective audit. Only the left branch is available for candidate ranking; later records generate proxy controls, not verified gap labels.}
+\label{fig:protocol}
+\end{figure}
+
+\section{Study Design}
+\subsection{Preserved Sources and Temporal Folds}
+Four previously collected ESV-Gap run directories supply retained bibliographic records and extracted triples. Table~\ref{tab:sources} reports their sizes. The runner keys each record by a lowercased DOI (stripping a DOI-URL prefix), otherwise source ID, otherwise lowercased whitespace-normalized title. It found 378 distinct keys among 378 rows and no exact cross-domain duplicates under that rule; DOI/ID variants and preprint--publication pairs may remain. The 3,188 extracted triple events are not independent papers. These sources differ in domain and size, but their prior search and screening processes were not harmonized into one prospective protocol.
+
+\begin{table}[t]
+\caption{Preserved source snapshots used by the offline replay. ``Triples'' denotes extracted relation events.}
+\label{tab:sources}
+\centering
+\begin{tabular}{lrr}
+\toprule
+Domain & Papers & Triples \\
+\midrule
+IoT intrusion detection & 150 & 1,404 \\
+Microservice security & 143 & 898 \\
+MongoDB security & 53 & 643 \\
+Handwritten math recognition & 32 & 243 \\
+\midrule
+Total & 378 & 3,188 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For each domain we examine publication-year cutoffs $t\in\{2022,2023,2024\}$. Records with recorded year $\leq t$ form the candidate side; later records form the future-control side. An evaluation runs only if both sides contain at least ten papers. This excludes MongoDB 2022 (nine earlier papers) and handwritten math 2024 (eight later papers), leaving ten completed domain--cutoff evaluations. The threshold is a basic executability rule, not a sample-size justification. The same paper can contribute to several cutoffs, so neither the 64 positive-control rows nor the 39 candidate rows constitute independent observations.
+
+\subsection{Candidate and Control Construction}
+Within an evaluation, the current implementation builds a directed multigraph from pre-cutoff triples, preserving paper ID, relation, year, confidence, and extracted evidence text. It ranks the union of \texttt{detect\_evidence\_gaps} and \texttt{detect\_evidence\_map\_empty\_cells}. The first uses explicit limitation relations; the second proposes unfilled evidence-map cells. This is \emph{not} a rerun of the missing-link, Louvain, and temporal-decay detectors from the prior end-to-end IoT audit. Ranking uses the saved candidate-quality score when available and otherwise an extraction or prediction score.
+
+The future proxy has two forms. A putative limitation--resolution control requires a \texttt{LACKS} triple and an action relation in a later paper, a solution cue, and lexical overlap with the limitation capability. Action relations include \texttt{ADDRESSES}, \texttt{IMPROVES}, \texttt{PRODUCES}, \texttt{EXTENDS}, \texttt{APPLIED\_TO}, \texttt{EVALUATES\_ON}, and \texttt{PROPOSES}. Structural controls are later typed relations between endpoints already represented in the earlier graph but without an earlier connecting edge. An analogous pre-cutoff procedure generates heuristic negative controls. These are algorithmic controls, not blinded expert judgments. A later action relation can be topical, rather than an actual experimental solution.
+
+The direct-limitation pool uses the same pre-cutoff triples without graph evidence-cell construction. It retains one \texttt{LACKS} candidate per token-normalized subject/capability pair, selecting the highest extractor confidence. Two rankings use this identical pool. The first orders by extractor confidence with deterministic lexical ties. The second applies BM25 ($k_1=1.2$, $b=0.75$) to the subject--capability strings using the fixed query ``\emph{domain label} limitation unresolved challenge''; BM25-score ties use confidence and then lexical order. The generic suffix was chosen to emphasize stated limitations rather than named future papers; it is a post-hoc choice, not an optimized or preregistered query. No future-control text enters either ranking. This comparator tests ranking of extracted limitations, \emph{not} independent raw-abstract retrieval. All three systems use the same controls, matching rule, and top-$k$ budget.
+
+For candidate $c$ and heuristic future control $h$, the matching function either compares normalized endpoint pairs for a typed relation or requires capability token similarity at least 0.62 plus subject similarity at least 0.25, with an alternative capability threshold of 0.82. The token similarity combines containment and Jaccard overlap. Such matching can miss paraphrases and admit broad topical matches. We define, for an evaluation with nonempty positive set $H^+$,
+\begin{equation}
+\mathrm{Recall@}k=\frac{|\{h\in H^+:\exists c\in C_{1:k},\ c\sim h\}|}{|H^+|}.
+\label{eq:recall}
+\end{equation}
+Here $C_{1:k}$ contains the first $\min(k,|C|)$ candidates; the numerator counts distinct matched control IDs. Recall is undefined if $H^+$ is empty. This is recall relative to generated controls, not recall of true research gaps. We report $k\in\{5,10,20\}$ and both unweighted macro recall over the nine scored evaluations and descriptive control-row micro recall. Because cutoffs share papers, neither is a population estimate and we compute no independence-based interval.
+
+\subsection{Leakage Checks and Reproduction}
+The runner checks that every candidate's declared supporting paper ID belongs to the pre-cutoff set; all implemented checks passed. This is a provenance check, not proof that every embedding, prompt, citation, or index was historically available at the cutoff. The split uses recorded publication \emph{year}, which may lag first online availability and cannot reconstruct historical search-index contents. The run uses preserved corpora and triples; it does not recollect papers, re-extract text, fetch full text, query external search, or execute the later certification gate.
+
+From the \texttt{ESV-Gap} directory, the replay is invoked with \texttt{python -B} \path{paper_icai2026/expanded_run/run_multidomain_backtest.py}; three scripts in that directory, \path{analyze_candidate_sources.py}, \path{run_bm25_lacks_baseline.py}, and \path{run_bm25_query_sensitivity.py}, analyze its saved results. The machine-readable reports include per-cutoff values and SHA-256 digests of the eight corpus/triple inputs and relevant code/configuration. The replay runner and config digests begin \texttt{b76ad865a013daaa} and \texttt{0024f3c746c62d95}; the recorded runtime is CPython 3.14.6, NetworkX 3.6.1, and PyYAML 6.0.3. These fingerprints distinguish this replay from an earlier archived IoT backtest whose heuristic-control counts differ under an unreconciled code/configuration history. The scripts and aggregate reports are retained locally; no independent public reproduction or redistribution of the source abstracts is claimed.
+
+\begin{table}[t]
+\caption{Four-corpus replay. $P_-/P_+$: pre/future records; $H^+$: heuristic controls. ESV cand. and LACKS pool are candidate counts; ESV R20 and BM25 R20 are proxy recall. Confidence-\texttt{LACKS} recall is zero on every scored evaluation. Each ranking inspects $\min(20,C)$ rows; a dash means $H^+=0$.}
+\label{tab:folds}
+\centering\scriptsize\setlength{\tabcolsep}{2.2pt}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Domain/$t$ & $P_-$ & $P_+$ & $H^+$ & \shortstack{ESV\\cand.} & \shortstack{LACKS\\pool} & \shortstack{ESV\\R20} & \shortstack{BM25\\R20} \\
+\midrule
+IoT/22 & 46 & 104 & 14 & 0 & 34 & 0 & 0 \\
+IoT/23 & 65 & 85 & 14 & 0 & 41 & 0 & 0 \\
+IoT/24 & 91 & 59 & 8 & 16 & 71 & .125 & .125 \\
+Microservice/22 & 47 & 96 & 14 & 5 & 50 & 0 & .214 \\
+Microservice/23 & 79 & 64 & 8 & 6 & 84 & 0 & 0 \\
+Microservice/24 & 109 & 34 & 2 & 7 & 108 & 0 & 0 \\
+MongoDB/23 & 20 & 33 & 2 & 0 & 34 & 0 & .500 \\
+MongoDB/24 & 27 & 26 & 1 & 1 & 44 & 0 & 0 \\
+Handwritten math/22 & 13 & 19 & 1 & 0 & 1 & 0 & 0 \\
+Handwritten math/23 & 18 & 14 & 0 & 4 & 7 & -- & -- \\
+\midrule
+Row sums & -- & -- & 64 & 39 & 474 & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Results}
+\subsection{Candidate Availability and Proxy Recall}
+Table~\ref{tab:folds} gives per-cutoff counts. Four evaluations produce no ESV-Gap candidate. The 39 candidate rows over all cutoffs are all explicit-limitation candidates; the typed evidence-map branch contributes zero under this configuration. The direct-\texttt{LACKS} pool supplies 474 non-independent candidate rows across cutoffs. Nine evaluations have positive controls; handwritten math 2023 has none and is omitted from recall averages. ESV-Gap matches only one of eight IoT 2024 controls (Recall@20 $=0.125$), while its other eight scored evaluations match none. Its macro Recall@20 is $(0.125+8\cdot0)/9=0.0139$.
+
+\begin{table}[t]
+\caption{Matched-budget retrieval of heuristic controls. Macro recall averages nine scored evaluations; $H_{20}$ counts matched control rows among 64 non-independent rows. The lexical comparator reranks the same extracted \texttt{LACKS} pool.}
+\label{tab:macro}
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrr}
+\toprule
+Ranking & R@5 & R@10 & R@20 & $H_{20}$ \\
+\midrule
+ESV-Gap & 0 & 0 & 0.0139 & 1/64 \\
+Confidence-\texttt{LACKS} & 0 & 0 & 0 & 0/64 \\
+BM25-\texttt{LACKS} & 0.0556 & 0.0694 & 0.0933 & 5/64 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\caption{Abstract-level audit of all five BM25 matches. References identify retained records by title/DOI; MongoDB publication provenance remains unverified. Descriptions identify scope concerns, not verified false-positive labels.}
+\label{tab:errors}
+\centering\scriptsize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{1.18in}p{2.08in}}
+\toprule
+Candidate / later record & Abstract-level concern \\
+\midrule
+IoT: adversarial attacks / synthesis~\cite{jayawardena2026} & Attacks remain a challenge; no matched test reported. \\
+Microservice: retrofitting security / mapping study~\cite{rahaman2023} & Surveys prior solutions; no new resolution experiment. \\
+Microservice: retrofitting security / empirical IoT IDS~\cite{olaya2024} & DoS metrics reported, but candidate task and condition unspecified. \\
+Microservice: API service-mesh security / Kubernetes overview~\cite{kampa2024} & No same-scope framework evaluation reported. \\
+MongoDB: platform security / security analysis~\cite{singhmongo2024} & Retained text discusses measures; publication provenance unverified. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:macro} shows that BM25 reranking yields five heuristic matches at top 20, including the ESV-Gap IoT match, versus none for confidence ranking. Its descriptive control-row micro recall is $5/64=0.0781$, versus $1/64=0.0156$ for ESV-Gap. Three of nine scored BM25 evaluations have any match: IoT 2024 ($1/8$), microservice 2022 ($3/14$), and MongoDB 2023 ($1/2$). These small, shared-paper denominators do not support a significance or generalization claim. BM25 is a post-hoc ranking comparator on extracted triples, not a dense/hybrid or extraction-free baseline. Its larger proxy score therefore cannot be interpreted as a measured gain in valid gap discovery or a causal estimate of graph value.
+
+As a post-hoc query-sensitivity check on the same extracted pool, we replaced the generic suffix with ``research gap limitation problem'' (Q2) and ``limitation future work challenge'' (Q3), retaining each domain label. Q1, Q2 and Q3 all yield macro proxy Recall@5/10 of 0.0556/0.0694; at 20 they yield 0.0933, 0.0853 and 0.0853, matching five, four and four non-independent control rows, respectively. The top-20 variation means the reported BM25 value depends on query wording; these alternatives were not preregistered or selected on a held-out set.
+
+\subsection{What the Five Lexical Matches Actually Show}
+The five retained abstracts assigned to the future side were inspected alongside their candidate subjects and capabilities (Table~\ref{tab:errors}). Four do not report a same-scope resolution experiment; the fifth reports measured DoS-detection results, but its matched pre-cutoff candidate is merely ``Retrofitting--Security,'' which does not specify that task or experimental condition. The IoT 2024 match likewise pairs adversarial-attack language with a later synthesis that still lists adversarial AI attacks as a challenge. The MongoDB record's source identity and stored 2024 publication metadata remain unverified; it is retained for frozen replay accounting, not as independently established future evidence. These observations are an AI-assisted abstract-level audit, \emph{not} blinded human annotation or full-text refutation. None of the five is independently confirmed as a within-scope closure witness.
+
+\section{Interpretation and Threats to Validity}
+The clearest result is a divergence between \emph{proxy retrieval} and \emph{claim validity}. Under Q1, BM25 yields higher macro heuristic-control recall than both alternative rankings at all three reported retrieval depths ($k=5,10,20$), yet the five matched abstracts do not independently establish a same-scope closure. This is not proof that those later full texts lack relevant experiments: it shows that the available candidate wording and abstract evidence are insufficient to substantiate the stronger conclusion. The microservice IDS case illustrates the distinction particularly sharply: a later paper reports quantitative results, but ``Retrofitting--Security'' cannot identify which task, conditions, or outcome were supposedly resolved. A lexical match is therefore an audit trigger, not a discovery certificate.
+
+The zero-output evaluations are a separate failure mode. They cap any attainable top-$k$ recall at zero regardless of reranking. In the remaining evaluations the typed evidence-map branch still supplies no candidate; all 39 ESV-Gap rows come from explicit limitations. Thus the present experiment provides no positive evidence for graph-specific value. It also cannot isolate a cause: extraction coverage, graph sparsity, detector thresholds, candidate phrasing, the ranking function, and noise in the future controls all may matter. A detector/threshold ablation and an extraction-independent BM25 or dense baseline would be needed for a causal comparison.
+
+The four domains broaden the stress test but are all preserved project corpora, not a representative field sample. MongoDB and handwritten math are small; two domain--cutoff pairs fail the minimum-size rule. Key-based deduplication may leave preprint--publication duplicates. The unverified MongoDB match also introduces temporal-assignment uncertainty: correcting its source identity or year could change the control set and proxy scores. No corrected-metadata replay is claimed. Repeated cutoffs reuse papers, so fold scores and control rows are correlated. The lexical query and three $k$ values were assessed after the corpus was available, not preregistered. BM25 and confidence ranking share extracted \texttt{LACKS} triples and the same heuristic labels with ESV-Gap; neither is an independent raw-document retrieval baseline. In particular, the BM25 gain is not a controlled estimate of graph versus text retrieval.
+
+Our provenance check verifies declared supporting paper IDs but cannot reconstruct all historical embeddings, prompts, citations, indexes, or first-online dates; publication year is only a coarse availability proxy. Control generation uses broad action relations and token overlap, which can reward topical rather than experimental correspondence. The five-case audit is AI-assisted and abstract-only, with neither full-text review nor blinded annotators. No historical closure-search snapshots exist, and the end-to-end certification gate was not run; serialized zero certificate values are placeholders, not measured precision or recall. Earlier single-IoT reports used different heuristic-control denominators and must not be pooled with this fingerprinted replay. These limits preclude population-level or certified-gap conclusions.
+
+\section{Implications for a Validation Study}
+The error audit suggests specifying each candidate as a question with task, domain, required conditions, metric or outcome, and cutoff. For a candidate alleging an untested empirical task, a later paper should count as a closure witness only when inspectable evidence supports all required facets in the \emph{same experiment}; unknown or inaccessible facets should remain unresolved, not be silently treated as matches. An empty bounded search can justify review, not global novelty. This scope contract is a proposed evaluation rule, not a validated component of the present experiment.
+
+An extension could annotate gap type using the six-category framework~\cite{mullerbloch2015}, allowing multiple labels or insufficient evidence. Verification would depend on type: contradictory evidence requires comparing study conditions and findings; evaluation void requires assessment of the specified proposition; action--knowledge conflict requires evidence of practice. Methodological conflict and theory application void require explicit reasons for changing methods or applying a theory. A concept matrix should retain source spans for methods, context, results, and limitations. Searches should log databases, queries, synonyms, citation trails, and dates. Status labels should distinguish within-scope closure, partial evidence, insufficient evidence, and a provisionally open gap within the searched scope. These proposed annotation rules require independent validation.
+
+A next study should pool graph, extraction-independent BM25, dense, and hybrid candidates at equal budgets, then have independent annotators label candidate specificity, same-scope closure, partial evidence, topical-only correspondence, and insufficient evidence using source spans. Reporting agreement, adjudication, retrieval recall, closure precision, and abstention separately would test whether stronger retrieval translates into better scientific claims. The existing policy prototype uses manually supplied facet judgments and synthetic tests; it is excluded from our empirical contributions because it has not been evaluated on these four corpora.
+
+\section{Conclusion}
+Across four preserved corpora and ten executable time-split evaluations, ESV-Gap generated 39 explicit-limitation candidate rows and no typed evidence-map candidates. At top 20 it matched one of 64 non-independent heuristic control rows; confidence-ranked limitations matched none, and BM25 reranking of the same extracted limitation pool matched five. The resulting macro proxy Recall@20 values were 0.0139, 0, and 0.0933, respectively, over nine scored evaluations; two post-hoc BM25 query variants reach 0.0853. Abstract-level inspection found that none of the five Q1 matches independently substantiates a within-scope closure. The study contributes a fingerprinted temporal audit and concrete failure-mode analysis, not evidence that any ranking discovers valid research gaps. Grounded scope labels and independent full-text evaluation are the next requirements.
+
+\section*{AI Assistance Disclosure}
+Generative AI tools assisted manuscript drafting and development of audit scripts and a policy prototype. Their output is not treated as independent scientific evidence or expert annotation.
+
+\IEEEtriggeratref{6}
+\begin{thebibliography}{00}
+\bibitem{swanson1986} D. R. Swanson, ``Fish oil, Raynaud's syndrome, and undiscovered public knowledge,'' \emph{Perspectives in Biology and Medicine}, vol. 30, no. 1, pp. 7--18, 1986.
+\bibitem{baek2025} J. Baek \emph{et al.}, ``ResearchAgent: Iterative research idea generation over scientific literature with large language models,'' in \emph{Proc. NAACL}, 2025, pp. 6709--6738, doi: 10.18653/v1/2025.naacl-long.342.
+\bibitem{mullerbloch2015} C. M\"uller-Bloch and J. Kranz, ``A framework for rigorously identifying research gaps in qualitative literature reviews,'' in \emph{Proc. 36th Int. Conf. Inf. Syst. (ICIS)}, 2015, Research Methods track, paper 2. [Online]. Available: \url{https://aisel.aisnet.org/icis2015/proceedings/ResearchMethods/2/}
+\bibitem{lo2020} K. Lo \emph{et al.}, ``S2ORC: The semantic scholar open research corpus,'' in \emph{Proc. ACL}, 2020, pp. 4969--4983, doi: 10.18653/v1/2020.acl-main.447.
+\bibitem{cohan2020} A. Cohan \emph{et al.}, ``SPECTER: Document-level representation learning using citation-informed transformers,'' in \emph{Proc. ACL}, 2020, pp. 2270--2282, doi: 10.18653/v1/2020.acl-main.207.
+\bibitem{singh2023} A. Singh \emph{et al.}, ``SciRepEval: A multi-format benchmark for scientific document representations,'' in \emph{Proc. EMNLP}, 2023, pp. 5548--5566, doi: 10.18653/v1/2023.emnlp-main.338.
+\bibitem{robertson2009} S. Robertson and H. Zaragoza, ``The probabilistic relevance framework: BM25 and beyond,'' \emph{Foundations and Trends in Information Retrieval}, vol. 3, no. 4, pp. 333--389, 2009, doi: 10.1561/1500000019.
+\bibitem{page2021} M. J. Page \emph{et al.}, ``The PRISMA 2020 statement: an updated guideline for reporting systematic reviews,'' \emph{BMJ}, vol. 372, art. n71, 2021, doi: 10.1136/bmj.n71.
+\bibitem{wadden2020} D. Wadden \emph{et al.}, ``Fact or fiction: Verifying scientific claims,'' in \emph{Proc. EMNLP}, 2020, pp. 7534--7550, doi: 10.18653/v1/2020.emnlp-main.609.
+\bibitem{wadden2022} D. Wadden \emph{et al.}, ``SciFact-Open: Towards open-domain scientific claim verification,'' in \emph{Findings of EMNLP}, 2022, pp. 4719--4734, doi: 10.18653/v1/2022.findings-emnlp.347.
+\bibitem{chan2024} C. S. J. Chan \emph{et al.}, ``Overview of the Context24 shared task on contextualizing scientific claims,'' in \emph{Proc. 4th Workshop on Scholarly Document Processing}, 2024, pp. 12--21.
+\bibitem{bordes2013} A. Bordes, N. Usunier, A. Garcia-Dur\'an, J. Weston, and O. Yakhnenko, ``Translating embeddings for modeling multi-relational data,'' in \emph{Advances in Neural Information Processing Systems}, vol. 26, 2013.
+\bibitem{blondel2008} V. D. Blondel, J.-L. Guillaume, R. Lambiotte, and E. Lefebvre, ``Fast unfolding of communities in large networks,'' \emph{J. Stat. Mech.}, vol. 2008, no. 10, art. P10008, 2008, doi: 10.1088/1742-5468/2008/10/P10008.
+\bibitem{geifman2017} Y. Geifman and R. El-Yaniv, ``Selective classification for deep neural networks,'' in \emph{Advances in Neural Information Processing Systems}, vol. 30, 2017.
+\bibitem{jayawardena2026} D. Jayawardena and K. Perera, ``AI-driven cybersecurity frameworks for real-time intrusion detection and threat intelligence,'' \emph{Int. J. Comput. Sci. Inf. Syst.}, vol. 11, no. 7, pp. 60--77, 2026, doi: 10.55640/ijcsis/Volume11Issue07-02.
+\bibitem{rahaman2023} M. S. Rahaman, A. Islam, T. Cerny, and S. Hutton, ``Static-analysis-based solutions to security challenges in cloud-native systems: Systematic mapping study,'' \emph{Sensors}, vol. 23, no. 4, art. 1755, 2023, doi: 10.3390/s23041755.
+\bibitem{olaya2024} M. K. Plazas Olaya, J. A. Vergara Tejada, and J. E. Aedo Cobo, ``Securing microservices-based IoT networks: Real-time anomaly detection using machine learning,'' \emph{J. Comput. Networks Commun.}, vol. 2024, art. 9281529, 2024, doi: 10.1155/2024/9281529.
+\bibitem{kampa2024} S. Kampa, ``Navigating the landscape of Kubernetes security threats and challenges,'' \emph{J. Knowledge Learning Sci. Technol.}, vol. 3, no. 4, pp. 274--281, 2024, doi: 10.60087/jklst.v3.n4.p274.
+\bibitem{singhmongo2024} P. K. Singh \emph{et al.}, ``An analysis and overview of MongoDB security,'' \emph{SSRN Electronic Journal}, 2024, doi: 10.2139/ssrn.4759892. Metadata as retained in the corpus; source identity and publication year unverified.
+\end{thebibliography}
+\end{document}
