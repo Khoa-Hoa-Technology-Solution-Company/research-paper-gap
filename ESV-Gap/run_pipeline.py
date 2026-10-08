@@ -9,8 +9,10 @@ Usage:
     python run_pipeline.py --stage build          # Stage 3: Build knowledge graph
     python run_pipeline.py --stage detect         # Stage 4: Detect gaps
     python run_pipeline.py --stage validate       # Stage 5: Validate evidence and stability
-    python run_pipeline.py --stage synthesise     # Stage 6: Combine signals into one research gap
-    python run_pipeline.py --stage score          # Stage 7: Score and rank candidates
+    python run_pipeline.py --stage verify         # Stage 6A: External verification
+    python run_pipeline.py --stage author-gaps    # Stage 6B: Author-stated gaps
+    python run_pipeline.py --stage synthesize     # Stage 6C: Synthesize rankings
+    python run_pipeline.py --stage score          # Stage 7: Score and rank gaps
     python run_pipeline.py --stage visualise      # Generate visualisations
     python run_pipeline.py --stage all            # Run full pipeline
 """
@@ -69,10 +71,26 @@ def run_stage(stage_name, config):
         from src.validate_gaps import validate_all_gaps
         validate_all_gaps(config)
 
-    elif stage_name == "synthesise":
-        from src.synthesise_research_gap import synthesise_research_gap
-        synthesise_research_gap(config)
-    
+    elif stage_name == "verify":
+        from src.external_verification import verify_against_external_indices
+        verify_against_external_indices(config)
+
+    elif stage_name == "author-gaps":
+        from src.author_stated_gaps import mine_author_stated_gaps
+        mine_author_stated_gaps(config)
+
+    elif stage_name == "extractor-recall":
+        from src.extractor_recall import evaluate_extractor_recall
+        evaluate_extractor_recall(config)
+
+    elif stage_name == "saturation":
+        from src.corpus_saturation import analyze_corpus_saturation
+        analyze_corpus_saturation(config)
+
+    elif stage_name == "synthesize":
+        from src.synthesize_rankings import synthesize_final_rankings
+        synthesize_final_rankings(config)
+
     elif stage_name == "score":
         from src.score_gaps import score_and_rank_gaps
         score_and_rank_gaps(config)
@@ -95,22 +113,31 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Stages (run in order):
-  collect    - Fetch papers from Semantic Scholar API
-  filter     - Filter and clean the corpus
-  extract    - Extract knowledge triples using LLM
-  build      - Construct temporal knowledge graph
-  detect     - Run gap detection algorithms
-  validate   - Validate evidence, specificity, stability, and source closure
-  synthesise - Apply automatic multi-signal research-gap contract
-  score      - Score and rank validated candidates
-  visualise  - Generate graph and gap visualisations
-  all        - Run the complete pipeline
+  collect          - Fetch papers from Semantic Scholar API
+  filter           - Filter and clean the corpus
+  extract          - Extract knowledge triples using LLM
+  build            - Construct temporal knowledge graph
+  detect           - Run gap detection algorithms
+  fulltext         - Open-access full-text enrichment
+  validate         - Validate evidence, specificity, stability, and source closure
+  verify           - External absence verification against OpenAlex/Semantic Scholar (A)
+  author-gaps      - Mine author-stated gap phrases from corpus (B)
+  extractor-recall - Quantify relation extractor recall on gold benchmark (C)
+  saturation       - Analyze corpus saturation and new-entity discovery dynamics (D)
+  synthesize       - Synthesize final rankings from all 4 evidence signals
+  score            - Score and rank validated gaps
+  visualise        - Generate graph and gap visualisations
+  all              - Run the complete pipeline
         """
     )
     parser.add_argument(
-        "--stage", 
+        "--stage",
         required=True,
-        choices=["collect", "filter", "extract", "build", "detect", "fulltext", "validate", "synthesise", "score", "visualise", "all"],
+        choices=[
+            "collect", "filter", "extract", "build", "detect", "fulltext",
+            "validate", "verify", "author-gaps", "extractor-recall",
+            "saturation", "synthesize", "score", "visualise", "all"
+        ],
         help="Pipeline stage to run"
     )
     parser.add_argument(
@@ -135,7 +162,11 @@ Stages (run in order):
     print(f"  Config: {args.config}")
     
     if args.stage == "all":
-        stages = ["collect", "filter", "extract", "build", "detect", "fulltext", "validate", "synthesise", "score", "visualise"]
+        stages = [
+            "collect", "filter", "extract", "build", "detect", "validate",
+            "verify", "author-gaps", "extractor-recall", "saturation",
+            "synthesize", "score", "visualise"
+        ]
         total_start = time.time()
         for stage in stages:
             run_stage(stage, config)

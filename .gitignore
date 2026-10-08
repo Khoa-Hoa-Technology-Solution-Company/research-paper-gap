@@ -1,8 +1,80 @@
-# Local credentials and generated submission artefacts
-.env
-/output/
-/tmp/
-
-# Python caches
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Virtual environments
+.env
+.env.*
+!.env.example
+venv/
+env/
+.venv/
+.venv-run/
+
+# Testing & caches
+.pytest_cache/
+**/.pytest_cache/
+.coverage
+.coverage.*
+.hypothesis/
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# IDEs & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.codegraph/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Logs
+*.log
+*.log.*
+
+# Scratchpad / Temporary work
+scratch/
+**/scratch/
+tmp/
+/tmp/
+
+# Data outputs & runs
+output/
+outputs/
+lib/
+.hallmark/
+runs/
+releases/
+
+# LaTeX build intermediates (keep source .tex, .bib, .cls, .bst, and final .pdf)
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.out
+*.nav
+*.snm
+*.vrb
+*.bcf
+*.run.xml
+*.dvi
+*.ps
+compile-final.log

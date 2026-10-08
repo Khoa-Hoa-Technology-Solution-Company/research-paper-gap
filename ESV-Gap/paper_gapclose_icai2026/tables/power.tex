@@ -1,0 +1,20 @@
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lccccc}
+\toprule
+ & \multicolumn{4}{c}{Transfer, estimated $\hat p$} & Worst case \\
+\cmidrule(lr){2-5}
+Score & $p=0$ & $p=0.3$ & $p=0.5$ & $p=1$ & any $p$ \\
+\midrule
+CoMention & 0.300 & 0.184 & 0.143 & 0.114 & 0.114 \\
+Dense & 0.282 & 0.201 & 0.181 & \textbf{0.162} & \textbf{0.162} \\
+BGE-large dense & 0.397 & 0.229 & 0.174 & 0.102 & 0.102 \\
+BGE reranker & \textbf{0.443} & 0.235 & 0.173 & 0.097 & 0.097 \\
+NLI-verify & 0.249 & 0.149 & 0.122 & 0.081 & 0.081 \\
+ESV-Scope & 0.280 & 0.180 & 0.141 & 0.057 & 0.052 \\
+\midrule
+CoMention +OA & 0.288 & 0.210 & 0.161 & 0.115 & 0.115 \\
+Dense +OA & 0.299 & 0.209 & 0.171 & 0.143 & 0.144 \\
+BGE reranker +OA & 0.440 & \textbf{0.266} & \textbf{0.214} & 0.145 & 0.146 \\
+ESV-Scope +OA & 0.305 & 0.235 & 0.204 & 0.151 & 0.150 \\
+\bottomrule
+\end{tabular}

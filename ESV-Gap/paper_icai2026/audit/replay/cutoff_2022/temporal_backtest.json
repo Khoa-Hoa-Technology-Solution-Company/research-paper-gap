@@ -1,0 +1,210 @@
+{
+  "cutoff_year": 2022,
+  "prediction_window": [
+    2023,
+    2026
+  ],
+  "pre_cutoff_papers": 46,
+  "post_cutoff_papers": 104,
+  "pre_cutoff_triples": 358,
+  "post_cutoff_triples": 1046,
+  "leakage_check_passed": true,
+  "leakage_violations": [],
+  "metrics": {
+    "candidate_count": 0,
+    "positive_control_count": 14,
+    "negative_control_count": 0,
+    "candidate_recall_at_k": {
+      "5": 0.0,
+      "10": 0.0,
+      "20": 0.0
+    },
+    "candidate_precision_at_k_on_labelled_controls": {
+      "5": null,
+      "10": null,
+      "20": null
+    },
+    "precision_after_local_closure_on_labelled_controls": null,
+    "labelled_true_positives_after_local_closure": 0,
+    "labelled_false_positives_after_local_closure": 0,
+    "false_positive_rate_on_known_negatives": null,
+    "known_negatives_selected_after_local_closure": 0,
+    "unlabelled_candidate_count": 0,
+    "label_abstention_rate": null,
+    "certified_candidate_count": 0,
+    "certificate_precision": null,
+    "certification_abstention_rate": null,
+    "certificate_metric_status": "not_estimable_without_historical_full_text_and_closure_snapshots"
+  },
+  "positive_controls": [
+    {
+      "control_id": "tc_1385f375f45e9549",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "Explainable Deep Learning-based IDS",
+      "missing_capability": "computational efficiency",
+      "paper_id": "01815a569c428442d3398ba492f97078e5b55a67",
+      "year": 2026,
+      "limitation_evidence": "high detection accuracy is often achieved at the expense of computational efficiency",
+      "resolution_relation": "EXTENDS",
+      "resolution_evidence": "the Unified Explainable IDS Evaluation Framework (UXIEF), which models the fundamental trilemma between detection performance, resource efficiency, and explanation quality in IoT IDSs"
+    },
+    {
+      "control_id": "tc_d9b05be55c0d774e",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "LSTM",
+      "missing_capability": "performance on heterogeneous traffic",
+      "paper_id": "0187d653ff8e1de3b4b5d771200fc45719b6f3e8",
+      "year": 2026,
+      "limitation_evidence": "fails on heterogeneous traffic with F1=43.29%",
+      "resolution_relation": "PRODUCES",
+      "resolution_evidence": "The results provide a principled model selection criterion that prefers the classical ML methods for heterogeneous traffic and LSTM for temporally structured IoT traffic."
+    },
+    {
+      "control_id": "tc_5d8e0f630ab14b8d",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "Vision Transformers",
+      "missing_capability": "Limited validation accuracy",
+      "paper_id": "066fd07bfb54385dc77925eeffafe80be5352f39",
+      "year": 2024,
+      "limitation_evidence": "validation accuracy of 78.70%",
+      "resolution_relation": "IMPROVES",
+      "resolution_evidence": "While the initial deep learning LSTM model yielded an accuracy of 99.97%, the proposed ViT architecture significantly boosted performance with 100% of all metrics"
+    },
+    {
+      "control_id": "tc_35a9468942e4f56e",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "conventional task offloading mechanisms",
+      "missing_capability": "low communication overhead",
+      "paper_id": "0abd790280d1a67fc41afc7d9ec1f12540f41c93",
+      "year": 2026,
+      "limitation_evidence": "suffer significant communication overhead",
+      "resolution_relation": "IMPROVES",
+      "resolution_evidence": "nearly 30% reduction in federated learning communication overhead"
+    },
+    {
+      "control_id": "tc_063458a1b4ff2fd0",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "Transformer",
+      "missing_capability": "lower binary classification accuracy compared to DNN and CNN + LSTM",
+      "paper_id": "0d694f6a2f2c75b0f4665648dbc45a22bbdd7a8e",
+      "year": 2024,
+      "limitation_evidence": "Although the accuracy of the Transformer model used in the binary classification is lower than that of DNN and CNN + LSTM hybrid models",
+      "resolution_relation": "IMPROVES",
+      "resolution_evidence": "The accuracy of binary classification of our model is 0.74% higher than that of papers that also use Transformer on TON-IOT."
+    },
+    {
+      "control_id": "tc_b6c110057a8dd9cc",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "AI-driven cybersecurity architectures",
+      "missing_capability": "adversarial AI attacks resilience",
+      "paper_id": "0ee60e2b32d7dbefd6bf1df7381f5e186f510402",
+      "year": 2026,
+      "limitation_evidence": "challenges related to adversarial AI attacks",
+      "resolution_relation": "IMPROVES",
+      "resolution_evidence": "improve resilience against evolving cyber threats"
+    },
+    {
+      "control_id": "tc_2d713979da346e88",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "IoT devices",
+      "missing_capability": "security challenges",
+      "paper_id": "134dce22c3b278df5f6b3a30ee8ee74463696502",
+      "year": 2024,
+      "limitation_evidence": "\"security and privacy challenges arise with the rapid growth of IoT devices and applications.\"",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "\"machine learning (ML) and deep learning (DL) methods have significantly progressed and are robust solutions to address these security issues in IoT devices.\""
+    },
+    {
+      "control_id": "tc_e36c19a075c19e1a",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "Federated Learning",
+      "missing_capability": "Robustness to label skew",
+      "paper_id": "178d47406a00fc7665ced8dea09245fabfdec6ee",
+      "year": 2025,
+      "limitation_evidence": "FL is vulnerable, especially with label skew, leading to poor convergence, lower accuracy, and more client disparity.",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "This study addresses these gaps through a comprehensive evaluation of CL and FL for IDS in IoT-enabled CPS under both IID and non-IID conditions, with an emphasis on data and label skew scenarios."
+    },
+    {
+      "control_id": "tc_0f5a0aaa5b4eeb43",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "Centralized Learning",
+      "missing_capability": "Performance under non-IID data",
+      "paper_id": "178d47406a00fc7665ced8dea09245fabfdec6ee",
+      "year": 2025,
+      "limitation_evidence": "CL faces significant challenges due to the non-IID nature of IoT data, which adversely affect model convergence and detection performance.",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "This study addresses these gaps through a comprehensive evaluation of CL and FL for IDS in IoT-enabled CPS under both IID and non-IID conditions, with an emphasis on data and label skew scenarios."
+    },
+    {
+      "control_id": "tc_4a94f63844075420",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "Feature selection approach",
+      "missing_capability": "explicit real-time deployment evaluation",
+      "paper_id": "2091aa7858f994dba2df72f7c575035f601b096e",
+      "year": 2024,
+      "limitation_evidence": "The proposed IDS framework is an accurate framework that can be integrated with real-time applications and provides a robust solution to IoT security threats.",
+      "resolution_relation": "EVALUATES_ON",
+      "resolution_evidence": "This study uses the RT-IoT2022 dataset, sourced from the UCI Machine Learning Repository, which was specifically developed for real-time IoT intrusion detection tasks."
+    },
+    {
+      "control_id": "tc_254b965be65cb7fd",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "Intrusion Detection Systems",
+      "missing_capability": "difficulty in IoT platform",
+      "paper_id": "267de6e503c5730988b111743848c274edf192de",
+      "year": 2024,
+      "limitation_evidence": "classical IDS solutions might face difficulties in the IoT platform.",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "classical IDS solutions might face difficulties in the IoT platform. Therefore, this study presents an Artificial Orca Algorithm with Ensemble Learning cyberattack detection and classification (AOAEL-CDC) methodology in an environment of IoT."
+    },
+    {
+      "control_id": "tc_b874bf73aa7539c3",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "Hybrid security framework",
+      "missing_capability": "Implementation complexity in edge devices",
+      "paper_id": "586d1994b32e65827f5e0295cfbb2f6be0edc4ed",
+      "year": 2025,
+      "limitation_evidence": "considering the resource-constrained IoT situations where PQC implementation would be difficult",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "lightweight and suitable for deployment in edge computing nodes and Internet of Things devices, considering the resource-constrained IoT situations where PQC implementation would be difficult"
+    },
+    {
+      "control_id": "tc_e559023023050f35",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "Advancing cybersecurity and privacy with artificial intelligence: current trends and future research directions",
+      "missing_capability": "of a comprehensive synthesis of AI's use in cybersecurity and privacy across the vast literature, aiming to identify existing gaps and guide further progress",
+      "paper_id": "93c43eda249692c0b506fe22e18a99c941ea75f4",
+      "year": 2024,
+      "limitation_evidence": "However, this work addresses the significant lack of a comprehensive synthesis of AI's use in cybersecurity and privacy across the vast literature, aiming to identify existing gaps and guide further progress.",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "this work addresses the significant lack of a comprehensive synthesis of AI's use in cybersecurity and privacy across the vast literature"
+    },
+    {
+      "control_id": "tc_a12bb17e7290f278",
+      "control_type": "future_typed_relation",
+      "label": "positive",
+      "head": "Intrusion Detection Systems",
+      "tail": "deep learning",
+      "relation": "USES",
+      "paper_id": "6937bb6951cbc6bdabd36993dc54f6e2c8e26c41",
+      "year": 2025,
+      "resolution_evidence": "applying machine learning (ML) and deep learning (DL) technologies to enhance IDS capabilities"
+    }
+  ],
+  "negative_controls": [],
+  "ranked_candidates": []
+}

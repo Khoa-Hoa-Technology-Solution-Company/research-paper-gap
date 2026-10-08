@@ -1324,6 +1324,15 @@ def validate_candidate(
     }
 
 
+def load_kg(config: dict[str, Any]) -> nx.MultiDiGraph:
+    """Load the knowledge graph from the pickled file."""
+    graph_path = Path(config["paths"]["graph"]) / "knowledge_graph.pkl"
+    if not graph_path.exists():
+        raise FileNotFoundError(f"Knowledge graph not found at {graph_path}")
+    with open(graph_path, "rb") as stream:
+        return pickle.load(stream)
+
+
 def load_corpus_documents(config: dict[str, Any]) -> list[dict[str, Any]] | None:
     """Load a screened corpus from the common filenames used by this project."""
     configured = config.get("gap_validation", {}).get("corpus_path")

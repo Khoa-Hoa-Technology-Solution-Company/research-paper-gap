@@ -1,0 +1,62 @@
+{
+  "status": "verified_recount_and_posthoc_domain_omission",
+  "records": 378,
+  "triples": 3188,
+  "input_hashes_match_preserved_replay": true,
+  "all_domains": {
+    "scored_evaluations": 9,
+    "control_rows_not_independent": 64,
+    "esv_macro_proxy_recall_at_20": 0.013888888888888888,
+    "bm25_macro_proxy_recall_at_20": 0.09325555555555555
+  },
+  "without_mongodb_domain": {
+    "scored_evaluations": 7,
+    "control_rows_not_independent": 61,
+    "esv_macro_proxy_recall_at_20": 0.017857142857142856,
+    "bm25_macro_proxy_recall_at_20": 0.04847142857142857
+  },
+  "interpretation": "Entire-domain omission checks aggregate dependence on the uncertain MongoDB record; it does not repair labels, resolve metadata or rerun candidate generation.",
+  "primary_iot_screening": {
+    "raw_paper_count": 486,
+    "screened_paper_count": 191,
+    "retained_paper_count": 150
+  },
+  "primary_iot_validation_summary": {
+    "raw_candidates": 133,
+    "automatically_eligible": 0,
+    "review_required": 5,
+    "rejected": 128,
+    "external_closure_searches_completed": 8,
+    "external_closure_search_budget": 15,
+    "external_closure_searches_attempted": 8,
+    "external_closure_candidates_skipped_preflight": 12,
+    "external_closure_candidates_skipped_domain_preflight": 11,
+    "external_closure_pause_reason": null,
+    "screened_corpus_size": 150,
+    "synthesis_minimum_corpus_size": 30,
+    "decision_rule": "hard evidence contract; ranking_score has no decision threshold"
+  },
+  "verified_input_sha256": {
+    "iot_intrusion_detection": {
+      "corpus": "852b63bf0b7f3fb641046b416c45723156d5663b56f87352b9145efb22282583",
+      "triples": "a352427bffb0d6d63bce589ec13df54e0f71b615bd6f2f9470d694fee4e21a31"
+    },
+    "microservice_security": {
+      "corpus": "11415c3b8b0a3ae1196a0bfedd362ce4d37e54ea33664fae1b0d6e509da8d42f",
+      "triples": "7f354e30ed76efc9c2fe56253e12c9090434a6b80ee5a89f653b06eac68505a9"
+    },
+    "mongodb_security": {
+      "corpus": "1f47c496466ce241b72330c9a80ceaf384de683f8af49b98bc30b75e7d244853",
+      "triples": "bf17038593413d26c60b1a8d781ed1d5ad580722c8d93542be2cba4b176a0386"
+    },
+    "handwritten_math_recognition": {
+      "corpus": "559e59716ea93e35b4244b92e776e666026a0cdf5a0fea7d0204e704ba9ca044",
+      "triples": "bf90feac5501fabbe78e4ffc9c021e275ba4f0c5043cceb4bacded339e23e55c"
+    }
+  },
+  "report_sha256": {
+    "replay": "3687a64cba6c5dc3c612b56b175d3f4f36827876ca8b5871cda762cbeb09c8c7",
+    "bm25": "743f97c1432779add0809f0ed0cd6fb89054028f4301dfb8c0858bd85143782e"
+  },
+  "script_sha256": "03d469dc405d109e1fed2ed6ec87ebd7b20a55fdafec73b5ed1e8f50ec197e9f"
+}

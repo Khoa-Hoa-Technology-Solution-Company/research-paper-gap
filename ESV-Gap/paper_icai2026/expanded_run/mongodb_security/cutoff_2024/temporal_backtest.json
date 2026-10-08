@@ -1,0 +1,261 @@
+{
+  "cutoff_year": 2024,
+  "prediction_window": [
+    2025,
+    2025
+  ],
+  "pre_cutoff_papers": 27,
+  "post_cutoff_papers": 26,
+  "pre_cutoff_triples": 310,
+  "post_cutoff_triples": 333,
+  "leakage_check_passed": true,
+  "leakage_violations": [],
+  "metrics": {
+    "candidate_count": 1,
+    "positive_control_count": 1,
+    "negative_control_count": 11,
+    "candidate_recall_at_k": {
+      "5": 0.0,
+      "10": 0.0,
+      "20": 0.0
+    },
+    "candidate_precision_at_k_on_labelled_controls": {
+      "5": null,
+      "10": null,
+      "20": null
+    },
+    "precision_after_local_closure_on_labelled_controls": null,
+    "labelled_true_positives_after_local_closure": 0,
+    "labelled_false_positives_after_local_closure": 0,
+    "false_positive_rate_on_known_negatives": 0.0,
+    "known_negatives_selected_after_local_closure": 0,
+    "unlabelled_candidate_count": 1,
+    "label_abstention_rate": 1.0,
+    "certified_candidate_count": 0,
+    "certificate_precision": null,
+    "certification_abstention_rate": 1.0,
+    "certificate_metric_status": "not_estimable_without_historical_full_text_and_closure_snapshots"
+  },
+  "positive_controls": [
+    {
+      "control_id": "tc_d1a36a53095e19cd",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "Traditional rule-based systems and existing anomaly detection methods",
+      "missing_capability": "Improved performance",
+      "paper_id": "1d1c4681451eb6f9690234ba924bf1ab059ec1fb",
+      "year": 2025,
+      "limitation_evidence": "The framework demonstrates promising performance compared to traditional rule-based systems and existing anomaly detection methods.",
+      "resolution_relation": "PRODUCES",
+      "resolution_evidence": "The framework demonstrates promising performance compared to traditional rule-based systems and existing anomaly detection methods."
+    }
+  ],
+  "negative_controls": [
+    {
+      "control_id": "tc_00fe6c514526a66f",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "Software implementing the prefix search method",
+      "missing_capability": "Data decryption",
+      "paper_id": "3c3967b6575a2128661ce17a1188e9d4f406f9e0",
+      "year": 2023,
+      "limitation_evidence": "The prefix search method allows searching for prefixes among encrypted data without the need for decryption.",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "Such an approach resolves the issue of maintaining data confidentiality stored on remote or cloud servers."
+    },
+    {
+      "control_id": "tc_9d065063d3c00a50",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "MongoDB",
+      "missing_capability": "security measures",
+      "paper_id": "6586d6d1d5712eede341e67f8eb1337cd3e54a14",
+      "year": 2024,
+      "limitation_evidence": "Unfortunately, this need for scalability and speed has resulted in security being an afterthought, with many NoSQL technologies susceptible to hacking.",
+      "resolution_relation": "EXTENDS",
+      "resolution_evidence": "Additionally, this paper will detail pitfalls of MongoDB security and future security measures that could be added to the current open-source framework."
+    },
+    {
+      "control_id": "tc_971cd6a6e12ec843",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "Blockchain-based patient-centric healthcare architecture",
+      "missing_capability": "centralized servers",
+      "paper_id": "6b375318496d364eb41d8b219a90418878bf247c",
+      "year": 2023,
+      "limitation_evidence": "In this paper, a blockchain-based patient-centric healthcare architecture is proposed to address the concerns of privacy, interoperability, data fragmentation, data ownership by centralized servers, data integrity, data access and data sharing.",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "In this paper, a blockchain-based patient-centric healthcare architecture is proposed to address the concerns of privacy, interoperability, data fragmentation, data ownership by centralized servers, data integrity, data access and data sharing."
+    },
+    {
+      "control_id": "tc_6e8ddb46714139ad",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "Blockchain-based patient-centric healthcare architecture",
+      "missing_capability": "data ownership by centralized servers",
+      "paper_id": "6b375318496d364eb41d8b219a90418878bf247c",
+      "year": 2023,
+      "limitation_evidence": "In this paper, a blockchain-based patient-centric healthcare architecture is proposed to address the concerns of privacy, interoperability, data fragmentation, data ownership by centralized servers, data integrity, data access and data sharing.",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "In this paper, a blockchain-based patient-centric healthcare architecture is proposed to address the concerns of privacy, interoperability, data fragmentation, data ownership by centralized servers, data integrity, data access and data sharing."
+    },
+    {
+      "control_id": "tc_323ad49030ef14ce",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "Blockchain-based patient-centric healthcare architecture",
+      "missing_capability": "data integrity",
+      "paper_id": "6b375318496d364eb41d8b219a90418878bf247c",
+      "year": 2023,
+      "limitation_evidence": "In this paper, a blockchain-based patient-centric healthcare architecture is proposed to address the concerns of privacy, interoperability, data fragmentation, data ownership by centralized servers, data integrity, data access and data sharing.",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "In this paper, a blockchain-based patient-centric healthcare architecture is proposed to address the concerns of privacy, interoperability, data fragmentation, data ownership by centralized servers, data integrity, data access and data sharing."
+    },
+    {
+      "control_id": "tc_b087ef84de896d90",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "Blockchain-based patient-centric healthcare architecture",
+      "missing_capability": "data access",
+      "paper_id": "6b375318496d364eb41d8b219a90418878bf247c",
+      "year": 2023,
+      "limitation_evidence": "In this paper, a blockchain-based patient-centric healthcare architecture is proposed to address the concerns of privacy, interoperability, data fragmentation, data ownership by centralized servers, data integrity, data access and data sharing.",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "In this paper, a blockchain-based patient-centric healthcare architecture is proposed to address the concerns of privacy, interoperability, data fragmentation, data ownership by centralized servers, data integrity, data access and data sharing."
+    },
+    {
+      "control_id": "tc_5287705cf34169eb",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "Blockchain-based patient-centric healthcare architecture",
+      "missing_capability": "data sharing",
+      "paper_id": "6b375318496d364eb41d8b219a90418878bf247c",
+      "year": 2023,
+      "limitation_evidence": "In this paper, a blockchain-based patient-centric healthcare architecture is proposed to address the concerns of privacy, interoperability, data fragmentation, data ownership by centralized servers, data integrity, data access and data sharing.",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "In this paper, a blockchain-based patient-centric healthcare architecture is proposed to address the concerns of privacy, interoperability, data fragmentation, data ownership by centralized servers, data integrity, data access and data sharing."
+    },
+    {
+      "control_id": "tc_03ce485a7e9610e6",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "Two-factor authentication",
+      "missing_capability": "Single-factor authentication",
+      "paper_id": "84b94af8c3e35ec75f4eb96a11b6c80fdd490372",
+      "year": 2023,
+      "limitation_evidence": "The article describes methods of user identification using authentication based on the second factor.",
+      "resolution_relation": "PRODUCES",
+      "resolution_evidence": "For an automated control system, a two-factor authentication model and a sequential algorithm for generating a temporary password using functions have been developed."
+    },
+    {
+      "control_id": "tc_b522172394fdd0bc",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "Blockchain-based Electronic Healthcare Record (EHR) exchange system",
+      "missing_capability": "system administrators' access to data",
+      "paper_id": "ba91be999ab5b80563109dd4b8131336807dc9df",
+      "year": 2023,
+      "limitation_evidence": "The proposed model is patient-centric, and control of data is in the patient's hand to enhance security and privacy, even system administrators can't access data without user permission.",
+      "resolution_relation": "APPLIED_TO",
+      "resolution_evidence": "The proposed model is patient-centric, and control of data is in the patient's hand to enhance security and privacy, even system administrators can't access data without user permission."
+    },
+    {
+      "control_id": "tc_7fcf322f6b6ffc11",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "Data encryption service",
+      "missing_capability": "NoSQL data stores",
+      "paper_id": "cd9debd487a946f7b0fa02f06a33c588cc8d35fb",
+      "year": 2022,
+      "limitation_evidence": "The NoSQL data stores, also known as highly compressed data on non-relational database management systems, which provide support for data management of internet user programs, do not now offer this service.",
+      "resolution_relation": "APPLIED_TO",
+      "resolution_evidence": "It includes enhancing MongoDB's level-based access protected model and adding privacy keys for security and monitoring purposes respectively."
+    },
+    {
+      "control_id": "tc_a61f95db275b8280",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "Release-Aware In-Out Encryption Adjustment",
+      "missing_capability": "systematic study on outward encryption adjustment",
+      "paper_id": "dd39aab2d554e2563603141dfd7b8283611fe620",
+      "year": 2021,
+      "limitation_evidence": "no prior studies have addressed it systematically.",
+      "resolution_relation": "EVALUATES_ON",
+      "resolution_evidence": "The evaluation utilizing datasets of different sizes shows that the proposed method is efficient, scalable, and provides better data protection."
+    }
+  ],
+  "ranked_candidates": [
+    {
+      "type": "evidence_gap",
+      "evidence_cell_id": "cell_a466c2679c7ee968",
+      "subject": "NoSQL databases",
+      "missing_capability": "control over access",
+      "canonical_limitation_tokens": [
+        "access",
+        "control",
+        "over"
+      ],
+      "limitation_variants": [
+        "control over access"
+      ],
+      "key_concepts": [
+        "NoSQL databases",
+        "control over access"
+      ],
+      "supporting_paper_ids": [
+        "bbfcddc1ad6b5b17e52454d9fda049e2ef23b57a"
+      ],
+      "supporting_paper_count": 1,
+      "source_evidence": [
+        {
+          "paper_id": "bbfcddc1ad6b5b17e52454d9fda049e2ef23b57a",
+          "year": 2024,
+          "confidence": 0.9,
+          "evidence": "NoSQL databases are vulnerable to fraud, intrusions and data breaches due to their dynamic schemas, lack of control over access and the focus on availability.",
+          "semantic_scope": "subject",
+          "semantic_validation": "explicit_unresolved_problem",
+          "source_subject": "NoSQL databases",
+          "atomic_limitation": "control over access"
+        }
+      ],
+      "semantic_scope": "subject",
+      "domain": "security of MongoDB",
+      "mean_evidence_confidence": 0.9,
+      "first_reported_year": 2024,
+      "latest_reported_year": 2024,
+      "research_frame": {
+        "methods": [
+          "Advanced Machine Learning",
+          "Random Forests",
+          "Neural Networks"
+        ],
+        "datasets": [
+          "large databases activity logs"
+        ],
+        "metrics": [
+          "high accuracy",
+          "low false-positive rates"
+        ],
+        "concepts": [
+          "NoSQL databases",
+          "fraud and intrusion detection"
+        ]
+      },
+      "candidate_quality": {
+        "score": 0.63,
+        "independent_source_count": 1,
+        "semantic_cohesion": 1.0,
+        "frame_completeness": 1.0,
+        "full_text_source_count": 0,
+        "full_text_coverage": 0.0,
+        "certificate_readiness": {
+          "independent_sources_ready": false,
+          "full_text_ready": false,
+          "research_frame_ready": true
+        }
+      },
+      "description": "Evidence cell 'control over access' is reported by 1 independent paper(s) in security of MongoDB.",
+      "draft_claim": "Within the screened corpus, independent evidence reports 'control over access' as an unresolved limitation."
+    }
+  ]
+}

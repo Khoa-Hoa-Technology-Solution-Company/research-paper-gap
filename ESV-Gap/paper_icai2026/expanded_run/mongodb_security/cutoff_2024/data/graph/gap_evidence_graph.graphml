@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d6" for="edge" attr.name="relation" attr.type="string" />
+  <key id="d5" for="node" attr.name="year" attr.type="long" />
+  <key id="d4" for="node" attr.name="quality_score" attr.type="double" />
+  <key id="d3" for="node" attr.name="source_count" attr.type="long" />
+  <key id="d2" for="node" attr.name="label" attr.type="string" />
+  <key id="d1" for="node" attr.name="type" attr.type="string" />
+  <key id="d0" for="graph" attr.name="graph_kind" attr.type="string" />
+  <graph edgedefault="directed">
+    <node id="cell_a466c2679c7ee968">
+      <data key="d1">EVIDENCE_CELL</data>
+      <data key="d2">control over access</data>
+      <data key="d3">1</data>
+      <data key="d4">0.63</data>
+    </node>
+    <node id="paper::bbfcddc1ad6b5b17e52454d9fda049e2ef23b57a">
+      <data key="d1">PAPER</data>
+      <data key="d2">Fraud Detection in NoSQL Database Systems using Advanced Machine Learning</data>
+      <data key="d5">2024</data>
+    </node>
+    <node id="context::METHOD::Advanced Machine Learning">
+      <data key="d1">METHOD</data>
+      <data key="d2">Advanced Machine Learning</data>
+    </node>
+    <node id="context::METHOD::Random Forests">
+      <data key="d1">METHOD</data>
+      <data key="d2">Random Forests</data>
+    </node>
+    <node id="context::METHOD::Neural Networks">
+      <data key="d1">METHOD</data>
+      <data key="d2">Neural Networks</data>
+    </node>
+    <node id="context::DATASET::large databases activity logs">
+      <data key="d1">DATASET</data>
+      <data key="d2">large databases activity logs</data>
+    </node>
+    <node id="context::METRIC::high accuracy">
+      <data key="d1">METRIC</data>
+      <data key="d2">high accuracy</data>
+    </node>
+    <node id="context::METRIC::low false-positive rates">
+      <data key="d1">METRIC</data>
+      <data key="d2">low false-positive rates</data>
+    </node>
+    <node id="context::CONCEPT::NoSQL databases">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">NoSQL databases</data>
+    </node>
+    <node id="context::CONCEPT::fraud and intrusion detection">
+      <data key="d1">CONCEPT</data>
+      <data key="d2">fraud and intrusion detection</data>
+    </node>
+    <edge source="cell_a466c2679c7ee968" target="context::METHOD::Advanced Machine Learning" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_a466c2679c7ee968" target="context::METHOD::Random Forests" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_a466c2679c7ee968" target="context::METHOD::Neural Networks" id="0">
+      <data key="d6">HAS_METHOD_CONTEXT</data>
+    </edge>
+    <edge source="cell_a466c2679c7ee968" target="context::DATASET::large databases activity logs" id="0">
+      <data key="d6">HAS_DATASET_CONTEXT</data>
+    </edge>
+    <edge source="cell_a466c2679c7ee968" target="context::METRIC::high accuracy" id="0">
+      <data key="d6">HAS_METRIC_CONTEXT</data>
+    </edge>
+    <edge source="cell_a466c2679c7ee968" target="context::METRIC::low false-positive rates" id="0">
+      <data key="d6">HAS_METRIC_CONTEXT</data>
+    </edge>
+    <edge source="cell_a466c2679c7ee968" target="context::CONCEPT::NoSQL databases" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="cell_a466c2679c7ee968" target="context::CONCEPT::fraud and intrusion detection" id="0">
+      <data key="d6">HAS_CONCEPT_CONTEXT</data>
+    </edge>
+    <edge source="paper::bbfcddc1ad6b5b17e52454d9fda049e2ef23b57a" target="cell_a466c2679c7ee968" id="0">
+      <data key="d6">REPORTS_LIMITATION</data>
+    </edge>
+    <data key="d0">research_gap_evidence_map</data>
+  </graph>
+</graphml>

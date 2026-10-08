@@ -1,0 +1,194 @@
+[
+  {
+    "source_paper_id": "gold_xai_002",
+    "subject": "LIME",
+    "relation": "EVALUATES_ON",
+    "object": "text classification benchmarks"
+  },
+  {
+    "source_paper_id": "gold_xai_002",
+    "subject": "LIME",
+    "relation": "IMPROVES",
+    "object": "user trust"
+  },
+  {
+    "source_paper_id": "gold_xai_002",
+    "subject": "LIME",
+    "relation": "LACKS",
+    "object": "theoretical convergence guarantees"
+  },
+  {
+    "source_paper_id": "gold_xai_002",
+    "subject": "LIME",
+    "relation": "USES",
+    "object": "sparse linear models"
+  },
+  {
+    "source_paper_id": "gold_xai_003",
+    "subject": "Grad-CAM",
+    "relation": "USES",
+    "object": "gradient localization"
+  },
+  {
+    "source_paper_id": "gold_xai_003",
+    "subject": "Grad-CAM",
+    "relation": "ADDRESSES",
+    "object": "spatial saliency"
+  },
+  {
+    "source_paper_id": "gold_xai_003",
+    "subject": "Grad-CAM",
+    "relation": "LACKS",
+    "object": "pixel-level fine-grained resolution"
+  },
+  {
+    "source_paper_id": "gold_xai_004",
+    "subject": "Integrated Gradients",
+    "relation": "ADDRESSES",
+    "object": "baseline selection sensitivity"
+  },
+  {
+    "source_paper_id": "gold_xai_004",
+    "subject": "Integrated Gradients",
+    "relation": "USES",
+    "object": "path integrals"
+  },
+  {
+    "source_paper_id": "gold_xai_004",
+    "subject": "Integrated Gradients",
+    "relation": "LACKS",
+    "object": "computational speed"
+  },
+  {
+    "source_paper_id": "gold_xai_005",
+    "subject": "Counterfactual explanations",
+    "relation": "IMPROVES",
+    "object": "algorithmic recourse"
+  },
+  {
+    "source_paper_id": "gold_xai_005",
+    "subject": "Counterfactual explanations",
+    "relation": "ADDRESSES",
+    "object": "actionable user feedback"
+  },
+  {
+    "source_paper_id": "gold_xai_005",
+    "subject": "Counterfactual explanations",
+    "relation": "LACKS",
+    "object": "robustness under model retraining"
+  },
+  {
+    "source_paper_id": "gold_xai_006",
+    "subject": "Saliency maps",
+    "relation": "EVALUATES_ON",
+    "object": "deep vision architectures"
+  },
+  {
+    "source_paper_id": "gold_xai_006",
+    "subject": "Gradient saliency",
+    "relation": "COMPARES",
+    "object": "edge detector baselines"
+  },
+  {
+    "source_paper_id": "gold_xai_007",
+    "subject": "TCAV",
+    "relation": "USES",
+    "object": "directional derivatives"
+  },
+  {
+    "source_paper_id": "gold_xai_007",
+    "subject": "TCAV",
+    "relation": "IMPROVES",
+    "object": "domain expert interpretability"
+  },
+  {
+    "source_paper_id": "gold_xai_007",
+    "subject": "TCAV",
+    "relation": "ADDRESSES",
+    "object": "semantic alignment"
+  },
+  {
+    "source_paper_id": "gold_xai_007",
+    "subject": "TCAV",
+    "relation": "APPLIED_TO",
+    "object": "medical diagnostic images"
+  },
+  {
+    "source_paper_id": "gold_xai_008",
+    "subject": "TreeSHAP",
+    "relation": "USES",
+    "object": "tree structure recursion"
+  },
+  {
+    "source_paper_id": "gold_xai_008",
+    "subject": "TreeSHAP",
+    "relation": "ADDRESSES",
+    "object": "combinatorial explosion"
+  },
+  {
+    "source_paper_id": "gold_xai_008",
+    "subject": "TreeSHAP",
+    "relation": "APPLIED_TO",
+    "object": "XGBoost"
+  },
+  {
+    "source_paper_id": "gold_xai_009",
+    "subject": "Fairness framework",
+    "relation": "USES",
+    "object": "constrained optimization"
+  },
+  {
+    "source_paper_id": "gold_xai_009",
+    "subject": "Fairness framework",
+    "relation": "ADDRESSES",
+    "object": "systemic bias in predictions"
+  },
+  {
+    "source_paper_id": "gold_xai_009",
+    "subject": "Fairness framework",
+    "relation": "LACKS",
+    "object": "empirical validation"
+  },
+  {
+    "source_paper_id": "gold_xai_010",
+    "subject": "Explanation manipulation",
+    "relation": "EVALUATES_ON",
+    "object": "ImageNet"
+  },
+  {
+    "source_paper_id": "gold_xai_010",
+    "subject": "Gradient explainers",
+    "relation": "USES",
+    "object": "vulnerable sensitivity points"
+  },
+  {
+    "source_paper_id": "gold_xai_010",
+    "subject": "Adversarial perturbations",
+    "relation": "ADDRESSES",
+    "object": "attribution vulnerability"
+  },
+  {
+    "source_paper_id": "gold_xai_002",
+    "subject": "LIME",
+    "relation": "USES",
+    "object": "unverified heuristic weights"
+  },
+  {
+    "source_paper_id": "gold_xai_004",
+    "subject": "Integrated Gradients",
+    "relation": "ADDRESSES",
+    "object": "gradient saturation"
+  },
+  {
+    "source_paper_id": "gold_xai_007",
+    "subject": "TCAV",
+    "relation": "USES",
+    "object": "linear classifiers"
+  },
+  {
+    "source_paper_id": "gold_xai_009",
+    "subject": "Fairness framework",
+    "relation": "EVALUATES_ON",
+    "object": "synthetic demographics"
+  }
+]

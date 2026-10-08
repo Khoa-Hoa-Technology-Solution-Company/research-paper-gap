@@ -1,0 +1,24 @@
+{
+  "status": "frozen_unlabelled_pilot_not_evaluation",
+  "seed": 20261002,
+  "selection": "Earliest cutoff per exact normalized subject/capability within domain, then seeded sample up to four per non-MongoDB domain. Retain all prepared evidence pairs.",
+  "candidate_counts": {
+    "handwritten_math_recognition": 4,
+    "iot_intrusion_detection": 4,
+    "microservice_security": 4
+  },
+  "candidate_rows": 12,
+  "pairs": 53,
+  "unique_evidence_papers": 40,
+  "all_fields_unlabelled": true,
+  "future_controls_consulted": false,
+  "statistical_power_justified": false,
+  "independent_annotation_performed": false,
+  "source_sha256": {
+    "review_packet\\organizer_manifest.json": "6c166a19d25095b3dcaac924426d4c477e3a0836882f96107d0a10afe0c6b4e3",
+    "review_packet\\scope_contracts_unannotated.json": "73998e2848b18356b08a4b2177fcd4aefa3d2d40e95a85d18e47051a5714e1ec",
+    "review_packet\\reviewer_A.csv": "a91962252f4b5d1685f955e10a9f4ac47ff508938a930d627c2c5f45878e8c26"
+  },
+  "frozen_manifest_sha256": "63c5fd8ac650b5236f7c066e56bbced55b28c7d6496aa35d7f31335a113ee42d",
+  "script_sha256": "e9ded46db2af50f030ede067275a0f05f0f5d28ed4f8a4fd95758e618adc4ef1"
+}

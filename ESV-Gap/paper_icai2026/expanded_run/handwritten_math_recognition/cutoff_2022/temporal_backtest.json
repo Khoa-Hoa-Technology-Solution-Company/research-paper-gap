@@ -1,0 +1,55 @@
+{
+  "cutoff_year": 2022,
+  "prediction_window": [
+    2023,
+    2026
+  ],
+  "pre_cutoff_papers": 13,
+  "post_cutoff_papers": 19,
+  "pre_cutoff_triples": 90,
+  "post_cutoff_triples": 153,
+  "leakage_check_passed": true,
+  "leakage_violations": [],
+  "metrics": {
+    "candidate_count": 0,
+    "positive_control_count": 1,
+    "negative_control_count": 0,
+    "candidate_recall_at_k": {
+      "5": 0.0,
+      "10": 0.0,
+      "20": 0.0
+    },
+    "candidate_precision_at_k_on_labelled_controls": {
+      "5": null,
+      "10": null,
+      "20": null
+    },
+    "precision_after_local_closure_on_labelled_controls": null,
+    "labelled_true_positives_after_local_closure": 0,
+    "labelled_false_positives_after_local_closure": 0,
+    "false_positive_rate_on_known_negatives": null,
+    "known_negatives_selected_after_local_closure": 0,
+    "unlabelled_candidate_count": 0,
+    "label_abstention_rate": null,
+    "certified_candidate_count": 0,
+    "certificate_precision": null,
+    "certification_abstention_rate": null,
+    "certificate_metric_status": "not_estimable_without_historical_full_text_and_closure_snapshots"
+  },
+  "positive_controls": [
+    {
+      "control_id": "tc_2d0d0cf383bd272a",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "GPT-4V",
+      "missing_capability": "handling complex OCR tasks",
+      "paper_id": "43a3d51cc60c638e7523c63f203ac0c9026ce2d8",
+      "year": 2023,
+      "limitation_evidence": "\"Specifically, it showed limitations when dealing with non-Latin languages and complex tasks such as handwriting mathematical expression recognition, table structure recognition, and end-to-end semantic entity recognition and pair extraction from document image.\"",
+      "resolution_relation": "EVALUATES_ON",
+      "resolution_evidence": "\"We assess the model's performance across a range of OCR tasks, including scene text recognition, handwritten text recognition, handwritten mathematical expression recognition, table structure recognition, and information extraction from visually-rich document.\""
+    }
+  ],
+  "negative_controls": [],
+  "ranked_candidates": []
+}

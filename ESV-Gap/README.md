@@ -190,13 +190,16 @@ corpus is balanced across retrieval query and publication year. Explicit
 have a deterministic, quote-preserving extraction fallback; this improves
 recall without bypassing the downstream evidence contract.
 
-## Research artifacts
+## Autonomous Reasoning Engine & Research Artifacts
 
-- `paper_v2/main_ieee.tex`: primary IEEE manuscript source.
-- `paper_v2/main_ieee.pdf`: compiled IEEE manuscript.
-- `paper_v2/results_summary.json`: frozen reported values.
-- `paper_v2/REPRODUCIBILITY.md`: commands, hashes, and interpretation limits.
-- `experiments/`: benchmark, audit, temporal-backtest, review-packet, and manifest utilities.
+- `src/autonomous_reasoning.py`: Core epistemic control loop, fail-closed decision rules, and typed dispositions.
+- `src/synthesize_rankings.py`: Multi-pillar synthesis incorporating external counterevidence and corpus saturation.
+- `paper_v2/main_iot_run.tex`: AMI 2026 IEEE-formatted manuscript.
+- `paper_v2/main_iot_run.pdf`: Compiled publication PDF.
+- `paper_v2/results_summary.json`: Frozen reported values for run `deep_learning_iot_intrusion_de_20260831_114802`.
+- `paper_v2/REPRODUCIBILITY.md`: Commands, hashes, and interpretation limits.
+- `tests/test_autonomous_reasoning.py`: 9 epistemic decision and fail-closed tests.
+- `experiments/`: Benchmark, audit, temporal-backtest, review-packet, and manifest utilities.
 
 Generated run data are intentionally excluded from Git. Do not commit `.env`,
 API keys, or reviewer data that have not been cleared for release.

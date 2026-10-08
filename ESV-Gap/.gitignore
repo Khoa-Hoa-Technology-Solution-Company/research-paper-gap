@@ -11,6 +11,16 @@ venv/
 env/
 .venv/
 .venv-run/
+.env
+.env.*
+!.env.example
+
+# Testing & caches
+.pytest_cache/
+**/.pytest_cache/
+.coverage
+.coverage.*
+.hypothesis/
 
 # IDE
 .vscode/
@@ -18,52 +28,55 @@ env/
 *.swp
 *.swo
 *~
+.codegraph/
 
 # Jupyter
 .ipynb_checkpoints/
+*/.ipynb_checkpoints/*
 
-# Data (large files - don't commit)
-data/raw/*.json
-data/raw/*.jsonl
-data/processed/*.json
-data/processed/*.jsonl
-data/triples/*.json
-data/graph/*.graphml
-data/graph/*.pkl
+# Data (large raw/processed files - keep benchmarks)
+data/raw/
+data/processed/
+data/triples/
+data/graph/
 
 # Outputs
-outputs/*.html
-outputs/*.csv
-outputs/figures/*.png
-outputs/figures/*.pdf
-
-# Config with secrets
-# Keep config.yaml in git but NEVER commit real API keys
-# Use environment variables or a .env file instead
+output/
+outputs/
+lib/
 
 # OS
 .DS_Store
 Thumbs.db
+ehthumbs.db
 
 # Logs
 *.log
+*.log.*
 
-# Local UI/design metadata and generated run artefacts
+# Scratchpad / Temporary files
+scratch/
+**/scratch/
+tmp/
+/tmp/
+
+# Run metadata
 .hallmark/
 runs/
 releases/
 
-
-.env
-outputs/
-lib/
-data/
-
-# LaTeX build intermediates (keep source and final PDF)
-paper_v2/*.aux
-paper_v2/*.bbl
-paper_v2/*.blg
-paper_v2/*.log
-paper_v2/*.out
-paper_v2/*.toc
-paper_v2/compile-final.log
+# LaTeX build intermediates (keep source .tex, .bib, .cls, .bst, and final .pdf)
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.out
+*.nav
+*.snm
+*.vrb
+*.bcf
+*.run.xml
+compile-final.log

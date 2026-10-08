@@ -2,499 +2,430 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb}
-\usepackage{array}
 \usepackage{booktabs}
+\usepackage{array}
 \usepackage{graphicx}
 \usepackage{xcolor}
+\usepackage{lmodern}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,backgrounds}
 \usepackage{hyperref}
-\hypersetup{hidelinks}
+\hypersetup{hidelinks,colorlinks=true,allcolors=blue!60!black}
+
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.80}
+\setlength{\textfloatsep}{6pt plus 1pt minus 1pt}
+\setlength{\floatsep}{6pt plus 1pt minus 1pt}
+\setlength{\intextsep}{6pt plus 1pt minus 1pt}
 
 \newcommand{\method}{ESV-Gap}
-\newcommand{\statuseligible}{\texttt{automatically\_eligible}}
-\newcommand{\hashbreak}[2]{\texttt{#1}\allowbreak\texttt{#2}}
+\newcommand{\runid}{\texttt{deep\_learning\_\allowbreak iot\_intrusion\_\allowbreak de\_20260831\_\allowbreak 114802}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
-
-\title{From Graph Signals to Evidence-Clear Research-Gap Candidates:\
-Source-Disjoint Provenance and Multi-Mode Perturbation Testing}
-\titlerunning{Evidence-Clear Research-Gap Candidates}
-
-\author{Hoa Anh Le\inst{1} \and
-Hoang Duc Nguyen\inst{1} \and
-Khoa Ly Van Phan\inst{1} \and
-Thanh Dinh Nguyen\inst{1}}
-\authorrunning{H. A. Le et al.}
-
-\institute{Department of Information Technology, FPT University, Ho Chi Minh City Campus, Vietnam\\
-\email{\{hoalase181702, hoangndse181655, khoaplvse181656, thanhndse182854\}@fpt.edu.vn}\\[0.5em]
-\textit{Faculty Supervisor:} Long Truong\\
-Department of Software Engineering, FPT University, Ho Chi Minh City Campus, Vietnam\\
-\email{longt5@fpt.edu.vn}}
+\providecommand{\doi}[1]{}
+\renewcommand{\doi}[1]{\href{https://doi.org/#1}{\texttt{\scriptsize doi:#1}}}
 
 \begin{document}
-\setlength{\emergencystretch}{1em}
+
+\title{ESV-Gap: An Auditable Autonomous Reasoning Architecture for Evidence-Grounded Scientific Hypothesis Triage}
+\titlerunning{Auditable Hypothesis Triage with ESV-Gap}
+
+\author{Anonymous Author(s)}
+\authorrunning{Anonymous Author(s)}
+\institute{Anonymous Institution / Laboratory\\
+\email{anonymous@conference-review.net}}
+
 \maketitle
 
 \begin{abstract}
-Graph anomalies can generate research-gap candidates, but they do not establish novelty, importance, or absence from the literature. We present \method{}, a fail-closed triage stage that canonicalizes entity identity, requires source-disjoint provenance, tests relation-event deletion, paper dropout, and plausible edge addition, normalizes temporal activity, and routes coverage hits to review. Thresholds were selected on ten development seeds and frozen before a disjoint 50-seed test containing 800 candidates. The controlled test achieved precision, validator recall, and F1 of 1.000, compared with 0.250, 1.000, and 0.400 when every detector signal was retained; this verifies fixture behavior, not real-world gap quality. On an inherited 185-paper microservices-security snapshot, 256 signals were reduced to 40 review-required items, with none automatically eligible. A corrected live run for \emph{security of MongoDB}, configured with a 100-paper budget, collected 74 unique records, retained 53, extracted 643 relation events, and built a 578-node, 636-edge graph. The frozen gate reduced 128 signals to nine review-required items. One internal reviewer accepted eight of all nine post-gate items (88.9\%); separately, the same reviewer accepted 24 of 30 pre-gate ranked items (80.0\%). On the same corpus, a retrieval baseline produced 53 outputs and a per-abstract LLM baseline produced 159; lexical overlap with the graph candidates was 0.1239 and 0.1113. Because baseline outputs lack shared expert labels and the reviews are neither blinded nor independent, these live results establish workflow operability and preliminary reviewer disposition, not comparative effectiveness.
+Autonomous machine intelligence (AMI) agents increasingly formulate scientific hypotheses by detecting associative patterns in literature, but can conflate representation sparsity with scientific novelty. We present \method{}, an auditable autonomous reasoning architecture executing a fail-closed epistemic control loop: \textbf{Observe} $\rightarrow$ \textbf{Hypothesize} $\rightarrow$ \textbf{Verify} $\rightarrow$ \textbf{Reason} $\rightarrow$ \textbf{Decide} $\rightarrow$ \textbf{Act/Abstain}. \method{} replaces naive graph sparsity heuristics with a Four-Pillar Evidence Verification engine: (A) two-stage external counterevidence verification decoupling lexical retrieval from semantic relation extraction; (B) source-disjoint author corroboration; (C) empirical extractor diagnostics reporting precision, recall, and miss rate with Wilson 95\% confidence intervals; and (D) corpus coverage diagnostics via Heaps' law and marginal discovery decay. In an empirical case study on deep-learning IoT intrusion detection (150 retained publications, 1,404 relation events, 1,185 canonical entities), \method{} triaged five post-gate candidate hypotheses: three were semantically refuted by verified recent counterevidence ($60\%$), one was escalated to human review due to circular provenance, and one was qualified as an evidence-supported open hypothesis corroborated by three independent 2026 publications, preventing $80\%$ ($4/5$) from premature promotion. Diagnostic extractor evaluation revealed an empirical miss rate of $22.2\%$ ($95\%$ Wilson CI: $[11.7\%, 38.1\%]$), while canonical vocabulary growth ($\beta = 0.995$, discovery decay $-10.3\%$) established an unsaturated corpus. Across six deterministic fault-injection scenarios, \method{} enforced $100\%$ fail-closed abstention.
 
-\keywords{Research-gap discovery \and Knowledge graphs \and Provenance \and Perturbation testing \and Evidence retrieval \and Systematic reviews.}
+\keywords{Autonomous Machine Intelligence \and Evidence-Grounded Reasoning \and Scientific Discovery Agents \and Knowledge Graphs \and Hypothesis Triage \and Fail-Closed Systems.}
 \end{abstract}
 
 \section{Introduction}
+\label{sec:intro}
 
-Systematic reviews require transparent search, selection, and evidence accounting~\cite{page2021prisma}. Machine learning can accelerate screening and extraction, but automation should expose uncertainty and preserve human oversight~\cite{marshall2019automation,shneiderman2020hcai}. Research-gap discovery is especially sensitive: an omitted relation may reflect a genuinely under-studied question, an abstract-only corpus, an extraction false negative, an unresolved synonym, or a fragmented graph.
+Autonomous Machine Intelligence (AMI) aims to realize artificial agents capable of acquiring knowledge, reasoning over open-world dynamics, formulating hypotheses, and executing goal-directed plans with bounded human intervention~\cite{langley1987,king2009automation,lecun2022path}. While foundation models and agentic workflows enable automated discovery systems to scan literature and propose hypotheses at scale~\cite{aiscientist2024}, generative capacity has outpaced epistemic self-verification. Generating plausible conjectures is computationally cheap; determining whether a proposition represents a genuine open question, an already solved problem, an artifact of incomplete retrieval, or an extractor error is the central epistemic bottleneck~\cite{wadden2020scifact,schneider2022decade}.
 
-A recent preprint generated gap candidates from TransE link prediction, Louvain communities, and temporal decay~\cite{rahul2026dynamic}. Its eight-paper pilot reported 34 graph signals and a 90\% author accept-or-modify rate, while also reporting zero TransE outputs, 21 orphan communities, entity artefacts, and no independent baseline review. The useful insight is structural, but the epistemic interpretation must be narrower:
+When an autonomous agent constructs a scientific knowledge graph (KG), an absent edge between a method and an application can trigger a candidate research-gap hypothesis. Yet edge absence stems from multiple failure modes: unindexed external literature, relation extraction errors, terminology fragmentation, or abstract-level truncation. As Altman and Bland formulated, \emph{``Absence of evidence is not evidence of absence''}~\cite{altman1995absence}. Equating representation sparsity with scientific novelty can yield false-positive gap claims, duplicate research, and misallocated experimental effort.
 
-\begin{quote}
-A graph anomaly is a candidate-generating signal; it is not a validated research gap.
-\end{quote}
+This paper addresses a critical challenge in Autonomous Machine Intelligence: \textbf{How can an autonomous agent rigorously determine whether an internally generated scientific hypothesis is sufficiently supported by external evidence to justify downstream formulation, or whether it must autonomously abstain?}
 
-Our first ESV-Gap implementation enforced provenance, specificity, edge-dropout stability, direct-edge checks, and local lexical retrieval. Reviewer analysis exposed two important design defects. First, its weighted validation threshold was mathematically redundant: every candidate passing the hard rules already exceeded it. Second, a single two-edge path survived independent edge retention with expected probability $0.9^2=0.81$, above the 0.70 stability threshold. The revised method removes the score from the decision rule, requires source-disjoint path diversity, samples papers as evidence clusters, and tests plausible missing edges as well as deletions.
+We present \textbf{\method{}}, an auditable autonomous reasoning architecture for evidence-grounded hypothesis triage. Rather than treating hypothesis generation as an unconstrained generative task or defaulting to link prediction on a static graph, \method{} frames hypothesis triage as an active epistemic control loop:
+\begin{equation}
+\label{eq:loop}
+\text{Observe} \longrightarrow \text{Hypothesize} \longrightarrow \text{Verify} \longrightarrow \text{Reason} \longrightarrow \text{Decide} \longrightarrow \text{Act/Abstain}
+\end{equation}
 
-This paper makes four bounded contributions:
-
-\begin{enumerate}
-  \item an auditable evidence contract distinguishing \statuseligible{}, \texttt{review\_required}, and \texttt{rejected} without calling any automated output a confirmed gap;
-  \item path-specific provenance and multi-mode perturbation testing that models false-positive extraction, correlated paper evidence, and plausible false-negative extraction;
-  \item publication-normalized temporal detection with explicit right-censoring and a lexical candidate-coverage screen with acronym/synonym alternatives; and
-  \item a disjoint-development, multi-signal benchmark with ablations and ranking metrics, a retrospective real-corpus diagnostic, and a corrected live MongoDB-security run with preliminary internal review and descriptive B1/B2 comparisons.
+\noindent\textbf{Key Contributions.} This work makes five primary contributions:
+\begin{enumerate}\setlength{\itemsep}{0pt}\setlength{\topsep}{2pt}\setlength{\parsep}{0pt}\setlength{\partopsep}{0pt}
+  \item \textbf{Two-Stage External Verification (Pillar A):} We decompose Pillar A into lexical candidate retrieval (Stage A1) and semantic relation extraction (Stage A2), preventing mere co-mentions of limitations from falsely refuting candidate gaps.
+  \item \textbf{Strict Source-Disjoint Corroboration (Pillar B):} We formalize graph provenance verification requiring independent, author-disjoint literature in the local corpus ($\mathcal{P}_{\text{cand}} \cap \mathcal{P}_{\text{corrob}} = \emptyset$), excluding circular citations from corroboration and routing candidates without independent support to review.
+  \item \textbf{Diagnostic Reliability Characterization (Pillars C \& D):} We replace unjustified global bounds with empirical extractor diagnostics ($n=36$, Wilson 95\% CIs) and track canonical vocabulary growth via Heaps' law and marginal discovery decay.
+  \item \textbf{Decoupled Epistemic Control Policy:} We separate disposition space $\mathcal{D}$ from action space $\mathcal{A}$ via a deterministic policy $\pi: \mathcal{D} \rightarrow \mathcal{A}$, providing an auditable, fail-closed abstention mechanism.
+  \item \textbf{Empirical Auditability and Fault-Injection Validation:} We evaluate \method{} on 150 IoT cybersecurity publications, retaining complete record-level verification traces for all inspected external documents in the reproducibility artifact (\runid{}) and demonstrating 100\% fail-closed abstention across six predefined failure modes.
 \end{enumerate}
 
-The controlled results verify that the implementation rejects the planted artefacts. They do not establish detector recall, scientific novelty, usefulness, or real-world precision. Those claims require source-complete independent expert evaluation.
+\section{Related Work}
+\label{sec:related}
 
-\section{Background and Related Work}
+\noindent\textbf{Autonomous Scientific Discovery and AMI.} Early symbolic systems such as BACON~\cite{langley1987} and the Robot Scientist Adam~\cite{king2009automation} executed closed-loop hypothesis generation and physical experimentation. In modern AMI, LeCun~\cite{lecun2022path} formalizes autonomous agents around perception, world modeling, reasoning, and objective-driven control. Recently, LLM-based systems such as The AI Scientist~\cite{aiscientist2024} demonstrated automated literature review and ideation. However, existing generative agents lack verifiable epistemic self-assessment and can accept unsupported or previously resolved gaps when external verification is absent.
 
-\subsection{Literature-based discovery and review automation}
+\noindent\textbf{Graph-Theoretic Gap Discovery.} Knowledge graphs provide structured representations for literature synthesis and hypothesis discovery~\cite{swanson1986fish,schneider2022decade,chen2019ukge}. Most closely related to our work, Dachepally and Kandasamy~\cite{rahul2026dynamic} generated gap candidates using TransE link prediction, Louvain community detection~\cite{blondel2008fast}, and temporal activity decay. While their work offers valuable techniques for initial graph candidate generation, \method{} focuses on the downstream verification problem: whether a structurally plausible candidate remains defensible after external retrieval, semantic counterevidence analysis, provenance checks, and corpus-coverage diagnostics. Distinguishing genuine gaps from unindexed literature, extraction misses, and terminology fragmentation requires active external probing and extractor reliability diagnostics.
 
-Literature-based discovery predates modern language models. Swanson showed that separately published findings could be connected to form testable hypotheses~\cite{swanson1986fish}. Contemporary systematic-review automation addresses search, screening, extraction, and synthesis, but practical guidance emphasizes that readiness and risk differ by task~\cite{marshall2019automation}. ESV-Gap is closer to evidence triage than autonomous discovery: it reduces a candidate queue while preserving the sources and reasons needed by reviewers.
+\noindent\textbf{Scientific Claim Verification.} Claim verification frameworks, such as SciFact~\cite{wadden2020scifact} and SciFact-Open~\cite{wadden2022scifactopen}, evaluate natural-language assertions against corpora. However, these systems verify factual assertions (e.g., entity properties) rather than epistemic research gaps asserting that a capability has not been achieved. Verifying negative gap claims requires open-world external retrieval and semantic verification of whether retrieved papers resolve or merely discuss the challenge.
 
-Scientific claim verification provides a relevant evaluation model. SciFact couples claims with evidence abstracts and rationales~\cite{wadden2020scifact}; SciFact-Open shows that systems evaluated on a small closed corpus can degrade substantially in open-domain retrieval~\cite{wadden2022scifactopen}. This motivates our asymmetric rule: a retrieval hit triggers review, while no hit is not proof of absence~\cite{altman1995absence}.
+\noindent\textbf{Selective Classification and Fail-Closed Systems.} In high-stakes decision systems, rejecting predictions under insufficient evidence is essential~\cite{saltzer1975protection,shneiderman2020hcai}. Selective classification and learning with rejection~\cite{cortes2016learning,geifman2017selective} formalize coverage-error trade-offs through an explicit abstention action. \method{} operationalizes this fail-safe principle: when external index probes fail, data is malformed, or corroboration is circular, the agent autonomously abstains and escalates to human review.
 
-\subsection{Knowledge-graph uncertainty and provenance}
+\section{Problem Formulation and Control Loop}
+\label{sec:problem}
 
-Knowledge graphs support extraction, completion, reasoning, and question answering~\cite{schneider2022decade}. TransE treats relations as translations in an embedding space~\cite{bordes2013transe}; uncertain KG embeddings instead retain graded fact confidence~\cite{chen2019ukge}. Generative extraction can introduce factual inconsistencies that propagate downstream~\cite{kim2026graphrefine}. Provenance therefore belongs to relation events, not only nodes. Our audit schema follows the spirit of PROV-O's entity, activity, and agent distinctions~\cite{lebo2013provo}: each event retains a paper, year, extraction identifier, confidence, and evidence span when available.
+\subsection{Knowledge Graph and Attributed Relation Events}
+Let $\mathcal{P} = \{p_1, \dots, p_N\}$ be a bounded corpus of ingested publications. We construct a multigraph $\mathcal{G} = (\mathcal{E}, \mathcal{R}, \mathcal{E}_{\text{events}})$ where $\mathcal{E}$ denotes canonical entities and $\mathcal{R}$ denotes directed relations (\texttt{ADDRESSES}, \texttt{USES}, \texttt{EVALUATES\_ON}, \texttt{IMPROVES}, \texttt{LACKS}, \texttt{APPLIED\_\allowbreak TO}). Each extracted instance is a \textbf{directed attributed relation event} $e = \langle u, r, v, p, y, c, q \rangle$, where $u, v \in \mathcal{E}$, $r \in \mathcal{R}$, $p \in \mathcal{P}$ is the source paper, $y \in \mathbb{N}$ is publication year, $c \in [0, 1]$ is confidence, and $q$ is the verbatim evidence span.
 
-\subsection{Graph robustness and stability}
-
-Louvain optimizes modularity and can expose communities~\cite{blondel2008fast}, but community structure may be unstable under sampling noise~\cite{karrer2008robustness,abbe2018community}. Stability selection similarly evaluates whether a result persists under resampling~\cite{meinshausen2010stability}. Our aim is narrower than either theory: candidate-level perturbation tests reveal dependence on particular edges, papers, or plausible missing bridges. A high survival rate is a robustness diagnostic, not a calibrated probability that the scientific claim is true.
-
-\section{Problem Formulation}
-
-Let a temporal literature graph be a directed multigraph
+\subsection{Operational Hypothesis vs. Global Scientific Absence}
+In naive graph discovery, an unobserved link between method $u$ and capability $v$ is asserted as an absolute gap: $\Phi_{\text{absent}}(u, v) \equiv \neg \exists e \in \mathcal{E}_{\text{events}} : \text{subj}(e) = u \wedge \text{rel}(e) = \texttt{ADDRESSES} \wedge \text{obj}(e) = v$. Such global absence claims cannot be established from a bounded corpus alone. We reformulate gap triage as an \textbf{operational verification claim}:
+\begin{definition}[Operational Hypothesis Claim]
+Given candidate gap $h = \langle u, \texttt{LACKS}, v \rangle$, external index family $\mathcal{S}$, query family $\mathcal{Q}(h)$, semantic verifier $\mathcal{V}$, and timestamp $t$, the machine-testable proposition is:
 \begin{equation}
-G=(V,E), \qquad e=(u,r,v,y,p,q,s),
+\label{eq:operational_claim}
+\Phi_{\text{op}}(h) \equiv \text{Complete}(h) \wedge \left( \mathcal{C}_{\text{verified}}(h) = \emptyset \right) \wedge \left( |\mathcal{P}_{\text{disjoint}}(h)| \ge 1 \right)
 \end{equation}
-where $u,v\in V$ are typed entities, $r$ is a relation, $y$ a publication year, $p$ a paper identifier, $q$ an extraction confidence, and $s$ an evidence span. A detector $D_k$ maps $G$ to candidates $C_k$ of type missing link, orphan community, or temporal decline.
+where $\mathcal{C}_{\text{verified}}$ is verified external counterevidence, $\mathcal{P}_{\text{disjoint}}$ is source-disjoint corroboration, and $\text{Complete}(h) \in \{0, 1\}$ indicates verification completion. Here, $\text{Complete}(h) = 1$ iff all configured index queries $\mathcal{S}$ and semantic checks $\mathcal{V}$ execute successfully without timeouts, HTTP 429 throttling, malformed JSON, or missing evidence spans. If any mandatory verification step fails, $\text{Complete}(h) = 0$, ensuring external failure cannot be conflated with evidence of absence.
+\end{definition}
 
-The validator does not estimate $\Pr(c\text{ is a real research gap})$. It computes an auditable decision
+\subsection{Evidence, Dispositions, and Control Action Space}
+Let $\mathbf{e}(h) = \langle \text{Complete}(h), |\mathcal{C}_{\text{verified}}(h)|, |\mathcal{P}_{\text{disjoint}}(h)|, \text{CorpusVerdict}(\mathcal{P}), R_{\text{ext}} \rangle$ denote the Four-Pillar evidence vector. Hypothesis triage is formalized via decision rule $\delta: \mathbf{e}(h) \rightarrow \mathcal{D}$ and action policy $a(h) = \pi(\delta(h))$ under fail-closed precedence:
 \begin{equation}
-\delta(c)\in\{\texttt{automatically\_eligible},\texttt{review\_required},\texttt{rejected}\}.
+\label{eq:disposition}
+\delta(h) = \begin{cases}
+\text{\scriptsize REFUTED}, & \text{if } |\mathcal{C}_{\text{verified}}(h)| \ge 1 \\
+\text{\scriptsize REVIEW\_REQUIRED}, & \text{if } \text{Complete}(h) = 0 \;\vee\; |\mathcal{P}_{\text{disjoint}}(h)| < 1 \\
+\text{\scriptsize EVIDENCE\_SUPPORTED}, & \text{if } \Phi_{\text{op}}(h) \wedge \text{CorpusVerdict}(\mathcal{P}) = \text{\scriptsize SATURATED} \\
+\text{\scriptsize SUPPORTED\_OPEN}, & \text{if } \Phi_{\text{op}}(h) \wedge \text{CorpusVerdict}(\mathcal{P}) \ne \text{\scriptsize SATURATED}
+\end{cases}
 \end{equation}
-The first label means only that the automated evidence contract passed. Novelty, value, feasibility, and absence from source-complete literature remain human judgments. Detector recall concerns whether $D_k$ generated a relevant candidate; validator recall concerns whether $\delta$ retained a positive candidate already present in $C_k$; end-to-end recall combines both. Our controlled experiment estimates validator recall only.
+The policy $\pi: \mathcal{D} \rightarrow \mathcal{A}$ executes: $\text{\scriptsize REFUTED} \mapsto \text{\scriptsize REJECT}$, $\text{\scriptsize REVIEW\_REQUIRED} \mapsto \text{\scriptsize ABSTAIN\_AND\_ESCALATE}$, $\text{\scriptsize EVIDENCE\_SUPPORTED} \mapsto \text{\scriptsize RETAIN\_AND\_FORMULATE}$, and $\text{\scriptsize SUPPORTED\_OPEN} \mapsto \text{\scriptsize RETAIN\_WITH\_WARNING}$. This establishes the closed loop $\mathbf{e}(h) \mapsto \delta(h) \mapsto a(h) = \pi(\delta(h))$. Because \texttt{REFUTED} has highest precedence, a single verified counterevidence record suffices for rejection regardless of completion status. If mandatory external verification remains incomplete and no verified counterevidence has already refuted the hypothesis, the decision rule returns \texttt{REVIEW\_REQUIRED} and triggers fail-closed abstention.
 
-\section{Method}
+\section{\method{} Architecture}
+\label{sec:arch}
 
-\subsection{Revised workflow}
+The \method{} architecture operationalizes the epistemic loop of Eq.~(\ref{eq:loop}). As illustrated in Fig.~\ref{fig:arch}, the pipeline processes raw literature through structured observation, candidate generation, multi-stage verification, and policy execution.
 
 \begin{figure}[t]
 \centering
-\resizebox{\textwidth}{!}{%
+\resizebox{\columnwidth}{!}{%
 \begin{tikzpicture}[
-  node distance=2.2mm,
-  box/.style={draw,rounded corners,align=center,minimum height=8mm,minimum width=19mm,font=\scriptsize},
-  gate/.style={box,draw=orange!80!black,fill=orange!10},
-  arrow/.style={-{Latex[length=2mm]},thin}
+  node distance=0.4cm and 0.5cm,
+  box/.style={rectangle, draw=black!70, fill=blue!5, rounded corners=2pt, minimum width=2.3cm, minimum height=0.55cm, font=\scriptsize\bfseries, align=center},
+  stagebox/.style={rectangle, draw=purple!80, fill=purple!5, rounded corners=2pt, minimum width=1.9cm, minimum height=0.5cm, font=\tiny, align=center},
+  pillar/.style={rectangle, draw=teal!80, fill=teal!5, rounded corners=2pt, minimum width=2.0cm, minimum height=0.55cm, font=\tiny\bfseries, align=center},
+  disp/.style={rectangle, draw=orange!80, fill=orange!10, rounded corners=2pt, minimum width=3.2cm, minimum height=0.55cm, font=\tiny\bfseries, align=center},
+  act/.style={rectangle, draw=red!80, fill=red!10, rounded corners=2pt, minimum width=3.2cm, minimum height=0.55cm, font=\tiny\bfseries, align=center},
+  arrow/.style={-{Stealth[scale=0.7]}, thick, color=black!70}
 ]
-\node[box] (collect) {1. collect\\and screen};
-\node[box,right=of collect] (extract) {2. extract\\events};
-\node[box,right=of extract] (resolve) {3. resolve\\entities};
-\node[box,right=of resolve] (detect) {4. generate\\signals};
-\node[gate,right=of detect] (validate) {5. evidence contract\\+ perturbations};
-\node[box,right=of validate] (rank) {6. rank eligible\\and review items};
-\node[box,right=of rank] (retrieve) {7. source-complete\\expert review};
-\node[box,right=of retrieve] (report) {8. auditable\\report};
-\foreach \a/\b in {collect/extract,extract/resolve,resolve/detect,detect/validate,validate/rank,rank/retrieve,retrieve/report}
-  \draw[arrow] (\a) -- (\b);
-\node[below=3mm of validate,font=\scriptsize,text=red!70!black,align=center] {hard failure $\rightarrow$ reject\\coverage or qualified relation $\rightarrow$ review};
-\end{tikzpicture}}
-\caption{Revised pipeline. Stage 5 separates candidate generation from claims about research gaps.}
-\label{fig:pipeline}
+
+% Tier 1: Operational Loop
+\node[box] (obs) {1. Observe\\ \tiny Screen \& Ingest};
+\node[box, right=of obs] (hyp) {2. Hypothesize\\ \tiny Graph Signals};
+\node[box, right=of hyp] (gates) {Local Gates\\ \tiny 10 Non-Compensatory};
+\node[box, right=of gates] (ver) {3. Verify\\ \tiny Four Pillars};
+
+\draw[arrow] (obs) -- (hyp);
+\draw[arrow] (hyp) -- (gates);
+\draw[arrow] (gates) -- (ver);
+
+% Tier 2: Verification Pillars
+\node[pillar, below=0.55cm of obs, xshift=0.3cm] (pila) {Pillar A: External\\ Two-Stage Probing};
+\node[stagebox, right=0.25cm of pila] (stg1) {Stage A1: Lexical\\ Candidate Retrieval};
+\node[stagebox, right=0.25cm of stg1] (stg2) {Stage A2: Semantic\\ Evidence Extraction};
+\draw[arrow] (pila) -- (stg1);
+\draw[arrow] (stg1) -- (stg2);
+
+\node[pillar, right=0.45cm of stg2] (pilb) {Pillar B: Disjoint\\ Corroboration};
+\node[pillar, right=0.3cm of pilb] (pilcd) {Pillars C \& D: Extractor\\ \& Saturation Diagnostics};
+
+\draw[arrow] (ver.south) -- ++(0,-0.22) -| (pilcd.north);
+\draw[arrow] (ver.south) -- ++(0,-0.22) -| (pilb.north);
+\draw[arrow] (ver.south) -- ++(0,-0.22) -| (stg2.north);
+
+% Tier 3: Reasoning
+\node[box, below=0.6cm of stg1, xshift=0.9cm] (rsn) {4. Reason \& Decide\\ \tiny Deterministic Policy $\pi$};
+\draw[arrow] (stg2.south) |- (rsn.west);
+\draw[arrow] (pilb.south) |- (rsn.east);
+\draw[arrow] (pilcd.south) |- (rsn.east);
+
+% Tier 4: Disposition and Action (wider separation)
+\node[disp, below=0.65cm of rsn, xshift=-3.0cm] (dspace) {Epistemic Disposition $\mathcal{D}$\\ \tiny REFUTED / SUPPORTED / REVIEW};
+\node[act, below=0.65cm of rsn, xshift=3.0cm] (aspace) {Executed Action $\mathcal{A}$\\ \tiny REJECT / RETAIN / ABSTAIN};
+
+\draw[arrow] (rsn.south) -- ++(0,-0.25) -| (dspace.north);
+\draw[arrow] (dspace.east) -- node[above, font=\tiny\bfseries] {Policy $\pi$} (aspace.west);
+
+\end{tikzpicture}%
+}
+\caption{\method{} Epistemic Control Loop, detailing the Two-Stage Pillar A verification engine and decoupling Epistemic Dispositions $\mathcal{D}$ from Executed Control Actions $\mathcal{A}$.}
+\label{fig:arch}
 \end{figure}
 
-Figure~\ref{fig:pipeline} inserts the evidence contract before ranking. The implementation keeps parallel relation events instead of collapsing them into one adjacency, so paper-level sampling and temporal normalization remain possible. Every decision serializes metrics, thresholds, seeds, source-paper IDs, evidence paths, coverage hits, and all failed rules.
+\subsection{Local Pre-Screening: Ten Non-Compensatory Validation Gates}
+Candidate gap signals generated from the multigraph (via link-absence heuristics and community boundaries) must satisfy ten non-compensatory local gates (Table~\ref{tab:gates}). Specifically, Gate~5 (Local Semantic Closure) inspects sliding sentence windows for action patterns (\texttt{CLOSURE\_ACTION\_PATTERN}, e.g., \emph{address}, \emph{mitigate}, \emph{solve}, \emph{secure}) while filtering out discussed limitations via negation cues (\texttt{NEGATED\_}\allowbreak\texttt{RESOLUTION\_}\allowbreak\texttt{PATTERN}, e.g., \emph{struggle to address}, \emph{limitation to overcome}). Unnegated action matches escalate candidates to \texttt{REVIEW\_\allowbreak REQUIRED} rather than silently pruning them, ensuring suspected local closure receives expert inspection. Following gating, candidates are ranked using normalized publication recency as a secondary heuristic rather than an eligibility filter.
 
-\subsection{Entity identity before graph topology}
+\begin{table}[htbp]
+\centering
+\caption{The Ten Non-Compensatory Local Validation Gates in \method{}.}
+\label{tab:gates}
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{0.78}
+\begin{tabular}{lp{3.4cm}p{1.8cm}p{2.2cm}p{1.7cm}}
+\toprule
+\textbf{Gate} & \textbf{Validation Purpose} & \textbf{Input Data} & \textbf{Pass Condition} & \textbf{Failure Action} \\
+\midrule
+1. Provenance & Verifies anchor entity origin & Text spans & Anchor count $\ge 1$ & Reject (orphan) \\
+2. Specificity & Eliminates generic non-informative nodes & Canonical tokens & Length $\ge 2$, non-stop & Reject (generic) \\
+3. Direct Edge & Prevents claiming solved links as gaps & Adjacency & Direct count $= 0$ & Reject (closed) \\
+4. Subsumptive & Checks semantic \& taxonomy aliases & Alias mapping & No subsumed link & Reject (redundant) \\
+5. Local Semantic & Probes local corpus with action patterns & Corpus text & No unnegated action & Escalate (review) \\
+6. Path Diversity & Requires multi-hop evidence support & Multigraph paths & Disjoint paths $\ge 2$ & Reject (unstable) \\
+7. Edge Stability & Assesses deletion perturbation resilience & Edge dropout & Survival $\ge 0.70$ & Reject (fragile) \\
+8. Paper Dropout & Tests cluster document dependence & Paper bootstrap & Survival $\ge 0.65$ & Reject (single-doc) \\
+9. Plausible Edge & Tests survival under link additions & Plausible pool & Survival $\ge 0.60$ & Reject (plausible) \\
+10. Domain Align & Enforces cybersecurity problem scope & Domain taxonomy & Similarity $\ge 0.75$ & Reject (out-of-scope) \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-Extractor type annotations are metadata rather than lexical identity. Before graph construction, Unicode is normalized, terminal suffixes such as \texttt{[METHOD]}, \texttt{[CONCEPT]}, and \texttt{[METRIC]} are removed, whitespace is collapsed, and labels that differ only by case share an identity key
+\subsection{Pillar A: Two-Stage External Counterevidence Verification}
+\label{sec:pillar_a}
+
+A key failure mode in automated gap discovery is the false assumption that \textbf{lexical co-mention implies counterevidence}. For example, a query matching ``deep learning IDS'' and ``zero-day attacks'' may retrieve an abstract stating that zero-day attacks remain an unresolved challenge for deep-learning intrusion detection architectures. Such a statement supports the limitation rather than refuting it. Treating such a retrieval as refuting the candidate is a critical scientific error.
+
+To resolve this, we decompose Pillar A into two distinct stages:
+
+\noindent\textbf{Stage A1: Lexical Candidate Retrieval.} The agent constructs boolean probe queries $Q_{\text{probe}}(u, v) = \texttt{"}u\texttt{" AND "}v\texttt{"}$ targeting external indexing services $\mathcal{S}$ (Semantic Scholar~\cite{semanticscholar2023} and OpenAlex~\cite{openalex2022}). The provider returns raw hit totals ($N_{\text{raw}}$). The agent paginates and fetches up to $K_{\text{fetch}} = 5$ recent records, extracting the title, abstract, authors, year, and persistent identifier (DOI, OpenAlex ID, Semantic Scholar ID). These records constitute the \textbf{Potential Counterevidence Pool}. Co-mention filtering at Stage A1 \emph{never} directly assigns a \texttt{REFUTED} disposition.
+
+\noindent\textbf{Stage A2: Semantic Counterevidence Verification.} For each record in the Potential Counterevidence Pool, the agent extracts candidate evidence spans and assesses the semantic relation between method $u$ and capability $v$ using Llama-3.3-70b-versatile via Groq configured for low-variance decoding ($\text{temperature} = 0.0$, seed 42). The model outputs a structured JSON schema: \texttt{classification}, \texttt{evidence\_}\allowbreak\texttt{span}, \texttt{confidence} $\in [0, 1]$, and \texttt{relation\_}\allowbreak\texttt{rationale}. Model-reported confidence is retained as audit metadata and does not directly enter the disposition policy; Stage A2 decisions are based on the categorical relation label together with verbatim evidence-span validation. We classify records into four mutually exclusive labels: (1)~\texttt{VERIFIED\_}\allowbreak\texttt{COUNTEREVIDENCE}, where the paper demonstrates, implements, or evaluates capability $v$ for method $u$ (relations \texttt{ADDRESSES}, \texttt{IMPROVES}, \texttt{EVALUATES\_}\allowbreak\texttt{ON}); (2)~\texttt{SUPPORTING\_}\allowbreak\texttt{LIMITATION}, where the paper identifies $v$ as an unresolved limitation (relation \texttt{LACKS}); (3)~\texttt{AMBIGUOUS}, discussing $u$ and $v$ without definitive resolution; or (4)~\texttt{IRRELEVANT}, reflecting superficial lexical co-occurrence. To prevent generative hallucinations, an automated verbatim substring check is enforced: an extracted \texttt{evidence\_}\allowbreak\texttt{span} is mandatory for positive relation claims (\texttt{VERIFIED\_}\allowbreak\texttt{COUNTEREVIDENCE} and \texttt{SUPPORTING\_}\allowbreak\texttt{LIMITATION}) and must be an exact substring of the title or abstract; otherwise, the span is discarded as ungrounded. For \texttt{AMBIGUOUS} and \texttt{IRRELEVANT} records, the absence of a relation-supporting span reflects semantic lack of evidence rather than system failure and does not invalidate verification. If JSON decoding fails, exponential backoff is applied (up to 3 retries). Failure modes are handled distinctly: (a)~a valid response with unclear semantic relation yields \texttt{AMBIGUOUS}; (b)~persistent schema failure (missing required JSON fields after retries) or network failure sets $\text{Complete}(h) = 0$, routing the candidate to \texttt{REVIEW\_REQUIRED} unless already \texttt{REFUTED} by verified counterevidence. Infrastructure failure is thus decoupled from semantic ambiguity. Only records confirmed as \texttt{VERIFIED\_}\allowbreak\texttt{COUNTEREVIDENCE} with verified verbatim spans can contribute to a \texttt{REFUTED} disposition. For auditability, every verification record persists the exact quoted span, relation label, model confidence, DOI, and retrieval timestamp.
+
+\subsection{Pillar B: Source-Disjoint Author Corroboration}
+To ensure that a surviving candidate is not an idiosyncratic claim from a single research group or an artifact of self-citation, Pillar B searches the retained local corpus ($\mathcal{P}$) for independent supporting publications asserting explicit research gaps (via extracted \texttt{LACKS} relation triples or curated gap phrase patterns). Let $\mathcal{P}_{\text{cand}}$ be the set of papers that originated the candidate gap. The candidate must be corroborated by a disjoint publication set: $\mathcal{P}_{\text{corrob}} \subseteq \mathcal{P}$ with $\mathcal{P}_{\text{corrob}} \cap \mathcal{P}_{\text{cand}} = \emptyset$ and $\text{Authors}(\mathcal{P}_{\text{corrob}}) \cap \text{Authors}(\mathcal{P}_{\text{cand}}) = \emptyset$. If all local supporting citations trace back to the candidate's origin publication, the corroboration is flagged as circular, failing the independence gate and forcing an immediate \texttt{REVIEW\_REQUIRED} disposition. External Stage A2 records are tracked independently and do not increment local corpus $N_{\text{corrob}}$.
+
+\subsection{Pillar C: Extractor Diagnostic Reliability Characterization}
+\label{sec:pillar_c}
+
+An absent graph edge may simply reflect an extraction failure by the NLP pipeline. To quantify this risk, Pillar C conducts an empirical diagnostic evaluation against an expert-annotated gold standard $\mathcal{D}_{\text{gold}}$ consisting of 36 ground-truth relation events across 10 representative abstracts.
+
+Let $TP$, $FP$, and $FN$ denote true positive, false positive, and false negative counts on the diagnostic benchmark. The empirical metrics are $\text{Precision} = \frac{TP}{TP + FP}$, $\text{Recall} = \frac{TP}{TP + FN}$, and $F_1 = \frac{2 \cdot \text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}$. The empirical extractor miss rate is $\text{MissRate} = 1 - \text{Recall} = \frac{FN}{TP + FN}$. For a binomial proportion $k/n$, we report two-sided 95\% confidence intervals using the Wilson score interval~\cite{wilson1927} with metric-specific denominators:
 \begin{equation}
-\kappa(e)=\operatorname{casefold}(\operatorname{stripType}(\operatorname{NFKC}(e))).
+w(k, n) = \frac{\frac{k}{n} + \frac{z^2}{2n} \pm z \sqrt{\frac{(k/n)(1-k/n)}{n} + \frac{z^2}{4n^2}}}{1 + \frac{z^2}{n}}
 \end{equation}
-The first observed clean label is retained for display while type remains a node attribute. A missing-link pair with $\kappa(h)=\kappa(t)$ is discarded during graph construction and hard-rejected if encountered in legacy detector output. This prevents type or capitalization variants from creating artificial topology. For coverage retrieval, a terminal numeric protocol version also emits a versionless token, for example \texttt{OAuth2}$\mapsto\{\texttt{oauth2},\texttt{oauth}\}$.
+where $z = 1.96$, $n_{\text{recall}} = TP + FN = 36$, and $n_{\text{precision}} = TP + FP = 32$.
 
-\subsection{Specificity and path-specific provenance}
+\noindent\textbf{Empirical Interpretation.} Rather than asserting unverified Bayesian inequalities across unobserved document distributions, the benchmark provides an empirical diagnostic estimate: $\hat{P}(\text{miss} \mid \text{present}) = 8/36 \approx 22.2\%$ ($95\%$ Wilson CI: $[11.7\%, 38.1\%]$). Pillar C does not convert extractor recall into an ad-hoc candidate-level posterior probability or arbitrary heuristic multiplier in $\delta(h)$. Instead, it serves as a diagnostic epistemic qualifier: characterizing a known source of representational uncertainty and empirically motivating why external verification (Pillar A) and source-disjoint corroboration (Pillar B) are mandatory before accepting any gap.
 
-Let $T(e)$ be the non-stopword alphanumeric tokens in entity label $e$, and let $g(e)$ be the number that belong to a declared generic vocabulary. The explicit entity score is
-\begin{equation}
-q_s(e)=0.75\left(1-\frac{g(e)}{\max(|T(e)|,1)}\right)
-+0.25\min\left(\frac{|T(e)|}{3},1\right),
-\end{equation}
-with score zero for an exact generic phrase. Candidate specificity $Q_s(c)$ is the mean over defining entities. The hard threshold is 0.55. This retains short specific labels such as TLS, JWT, and mTLS while rejecting phrases such as ``proposed framework.'' The vocabulary is configuration-visible and extensible.
+\subsection{Pillar D: Corpus Vocabulary Saturation Diagnostics}
+To evaluate whether the ingested corpus $\mathcal{P}$ adequately covers the domain's conceptual space, Pillar D tracks canonical vocabulary expansion using Heaps' law~\cite{heaps1978}: $\mathcal{V}(n) = K \cdot n^\beta$, where $n$ is cumulative ingested papers, $\mathcal{V}(n)$ is unique canonical entities, and $\beta$ is the growth exponent estimated via log-log ordinary least squares. We measure marginal discovery decay between the initial and final quintiles ($q = 30$ papers): $\Delta_{\text{decay}} = 1 - M_{\text{final}} / M_{\text{initial}} = (M_{\text{initial}} - M_{\text{final}}) / M_{\text{initial}}$, where $M$ denotes mean new canonical entities discovered per paper. Positive $\Delta_{\text{decay}}$ indicates decelerating discovery (decay), whereas negative values reflect expanding discovery. We categorize corpus coverage using predefined operational heuristic thresholds: (1)~\textbf{SATURATED:} $\beta < 0.65$ and $\Delta_{\text{decay}} \ge 0.60$ (sublinear flattening; local corpus absence is less likely to be attributable to ongoing vocabulary expansion); (2)~\textbf{MATURING:} $\beta < 0.80$ and $\Delta_{\text{decay}} \ge 0.30$ (moderate conceptual growth); and (3)~\textbf{UNSATURATED:} $\beta \ge 0.80$ or $\Delta_{\text{decay}} < 0.30$ (incoming literature actively introduces novel concepts; open-world corpus). When a corpus is diagnosed as \texttt{UNSATURATED}, the agent is prohibited from issuing an absolute gap claim, qualifying surviving candidates as \texttt{SUPPORTED\_OPEN}.
 
-For a missing-link candidate $(h,t)$, the validator enumerates simple paths of at most four edges and greedily selects paths that share neither an edge nor a source paper. Let $\Pi(c)$ be that selected set and $P(\pi)$ the papers on path $\pi$. Eligibility requires
-\begin{equation}
-|\Pi(c)|\geq 2,\qquad P(\pi_i)\cap P(\pi_j)=\varnothing\quad(i\neq j).
-\end{equation}
-Thus unrelated papers incident to $h$ or $t$ do not inflate support. For an orphan community, provenance counts only papers on internal edges. For a temporal candidate, it counts papers that mention the concept. A minimum of two paper IDs is mandatory. Research-group or shared-dataset independence cannot be inferred from the inherited metadata and remains a limitation.
+\section{Experimental Setup}
+\label{sec:setup}
 
-\subsection{Isolation and normalized temporal activity}
+\noindent\textbf{Target Domain and Ingestion Corpus.} We evaluate \method{} on deep-learning Internet-of-Things (IoT) intrusion detection systems (IDS), spanning publications from 2019 to 2026. The initial ingestion harvested 600 candidate records from scholarly index APIs. Domain-specific automated screening (IoT edge architectures, machine learning classifiers, and threat detection) yielded 192 candidate papers. Following full-text accessibility verification and duplicate removal, $N = 150$ retained scholarly publications formed the primary study corpus.
 
-For community members $M$, let $E_{\mathrm{in}}(M)$ be internal simple edges and $E_{\mathrm{cut}}(M)$ edges crossing to $V\setminus M$. Isolation is
-\begin{equation}
-I(M)=1-\frac{|E_{\mathrm{cut}}(M)|}{\max(|E_{\mathrm{in}}(M)|+|E_{\mathrm{cut}}(M)|,1)}.
-\end{equation}
-The detector and perturbation test use $I(M)\geq0.90$.
+\noindent\textbf{Model Implementations and Hyperparameters.} Relation extraction used Llama-3.3-70b-versatile via Groq (low-variance decoding, $\text{temperature} = 0.0$, seed 42) with structured JSON schemas and exponential backoff retry (up to 3 retries). Domain relevance screening applied a confidence threshold $\tau_{\text{conf}} = 0.70$: papers whose LLM-assigned relevance score fell below this threshold were excluded from the retained corpus. Stage A2 semantic verification used the same LLM and low-variance configuration but does not apply a separate confidence cutoff; instead, Stage A2 accepts the classification label directly, records model confidence as audit metadata, and enforces automated verbatim substring matching against retrieved titles and abstracts before admitting evidence spans. Louvain community detection used resolution $\gamma = 1.0$ (seed 42). Entity canonicalization combined TF-IDF cosine similarity (threshold 0.75) with lexical normalizers. OpenAlex~\cite{openalex2022} and Semantic Scholar~\cite{semanticscholar2023} Graph APIs were probed up to $K_{\text{fetch}} = 5$ fetched records per candidate query (frozen experiment run identifier: \path{deep_learning_iot_intrusion_de_20260831_114802}).
 
-Raw relation-event counts confound topic activity with corpus growth. Let $n_{v,y}$ be the number of distinct screened papers mentioning concept $v$ in year $y$, and $N_y$ the total screened papers in that year. We use
-\begin{equation}
-a_{v,y}=\frac{n_{v,y}}{\max(N_y,1)},\qquad
-d_v=1-\frac{\frac{1}{L}\sum_{y\in R}a_{v,y}}
-{\frac{1}{L}\sum_{y\in H}a_{v,y}},
-\end{equation}
-where $H$ and $R$ are adjacent historical and recent windows of $L=2$ complete years. A signal requires $d_v\geq0.30$. The snapshot date is July 20, 2026, so 2026 is right-censored and excluded; the comparison ends in 2025.
-The ratio is evaluated only when the historical mean is positive. When the historical mean is zero, both the detector and validation recomputation assign $d_v=0$: neither a zero-to-zero window nor new activity establishes decline.
-
-\subsection{Candidate-coverage retrieval}
-
-The local screen tokenizes titles and abstracts into lowercase alphanumeric tokens after applying the same type-suffix normalization. For every defining entity, the paper must cover at least
-\begin{equation}
-\max(1,\lceil0.60|T(e)|\rceil)
-\end{equation}
-tokens from either the canonical label or a declared acronym/synonym alternative. Relational candidates require two matched entity groups; temporal candidates require a post-peak match. The module is deliberately named candidate-coverage retrieval, not evidence closure: it does not resolve negation, direction, polarity, population, or study quality. A hit routes to review and never hard-rejects a candidate.
-
-\subsection{Multi-mode perturbation stability}
-
-For $B$ deterministic replicates, the defining signal is tested under three modes:
-
-\begin{enumerate}
-  \item \emph{relation-event deletion}: retain each event with probability $\rho$;
-  \item \emph{paper dropout}: retain each paper with probability $\rho$ and jointly remove all its events; and
-  \item \emph{plausible edge addition}: sample low-confidence, lexical-retrieval, or link-prediction edges supplied with the candidate.
-\end{enumerate}
-
-Let $I_{b,m}(c)$ indicate survival in replicate $b$ under mode $m$. We use the fail-closed score
-\begin{equation}
-Q_b(c)=\min_{m\in\mathcal{M}_{\mathrm{eval}}(c)}\frac{1}{B}\sum_{b=1}^{B}I_{b,m}(c).
-\end{equation}
-A missing-link signal survives when a short source-traceable path remains and no plausible direct edge is sampled. The two-path requirement is checked on the unperturbed graph, so a fragile single path cannot pass merely because $\rho^2$ exceeds the stability threshold. An orphan survives when $I(M)\geq0.90$; a temporal candidate survives when normalized decay remains at least 0.30. The development-selected configuration is $\rho=0.95$, $B=50$, and $Q_b\geq0.70$.
-
-Here $\rho$ is a retention probability, so $\rho=0.95$ corresponds to 5\% expected deletion/dropout. Each candidate-relevant edge in the supplied \texttt{plausible\_edges} pool is sampled independently with probability 0.50 per replicate. Dictionary-form entries preserve endpoints, relation label, paper ID, year, and confidence; missing-link and orphan survival use endpoint topology without relation-direction matching. An empty or irrelevant pool is counted as an evaluated no-hit search only when \texttt{plausible\_edge\_search\_performed=true}; otherwise its mode value is JSON \texttt{null}, and fail-closed triage prevents automatic eligibility.
-
-\subsection{Decision and ranking}
-
-Insufficient path-specific provenance, specificity, path diversity, or stability, and any canonical self-link, is a hard rejection. A retrieved coverage hit, unavailable coverage corpus, unavailable plausible-edge stress test, or observed direct relation produces \texttt{review\_required}. An observed edge is not interpreted as proof that a broader research question is closed: reviewers must inspect relation type, polarity, context, outcome, date, and evidence strength. If no hard or review condition fires, the label is \statuseligible{}.
-
-The previous acceptance threshold on a weighted validation score has been removed. For ordering only, available evidence metrics are combined as
-\begin{equation}
-R(c)=\frac{\sum_{j\in A(c)}w_jq_j(c)}{\sum_{j\in A(c)}w_j},
-\end{equation}
-where $A(c)$ contains applicable metrics. The default weights for provenance, specificity, path diversity, stability, and coverage clearance are, respectively,
-\begin{equation}
-(w_p,w_s,w_d,w_b,w_c)=(0.25,0.15,0.20,0.30,0.10).
-\end{equation}
-Changing $R(c)$ cannot change $\delta(c)$.
-
-\section{Experimental Design}
-
-\subsection{Research questions}
-
-\textbf{RQ1:} Does the revised contract reject controlled artefacts across all three signal families? \textbf{RQ2:} Which validation components account for the improvement? \textbf{RQ3:} How sensitive are results to $\rho$, $B$, the stability threshold, and ranking weights? \textbf{RQ4:} How does the frozen gate change workload on the inherited real corpus? \textbf{RQ5:} How do graph candidates differ descriptively from retrieval and per-abstract LLM baselines on a corrected live corpus? \textbf{RQ6:} What does preliminary internal review show, and what evidence is still missing for a real-world effectiveness claim?
-
-\subsection{Disjoint controlled benchmark}
-
-The generator creates 16 candidates per seed: four positives and twelve negatives. Missing-link positives include two source-disjoint paths and short valid entity labels. Negatives include a qualified existing relation, generic labels, a single path, two topological paths sharing one source, a plausible omitted direct edge, synonym-only prior coverage, coverage hidden by a type suffix and protocol version, and a canonical self-link. Orphan cases include a stable multi-paper community, a one-study community, and a community vulnerable to plausible bridge addition. Temporal cases include normalized decline, raw-count decline with stable rate, and a false decline caused only by a partial final year.
-
-Ten development seeds are reserved for a 48-cell sensitivity grid:
-\begin{equation}
-\begin{split}
-\rho &\in \{0.70,0.80,0.90,0.95\},\qquad B\in\{50,100,200\},\\
-\tau &\in \{0.70,0.80,0.90,0.95\}.
-\end{split}
-\end{equation}
-Parameters are frozen before evaluation on 50 disjoint test seeds: 800 candidates, of which 200 are positive. Labels test planted artefact rejection, not scientific novelty.
-
-For classification, $y=1$ denotes a planted evidence-sufficient candidate and $y=0$ a planted artefact or covered/qualified candidate. We set $\hat y=1$ only when the three-way gate returns \statuseligible{}; \texttt{review\_required} and \texttt{rejected} both map to $\hat y=0$. TP, FP, TN, and FN are therefore $(y,\hat y)=(1,1),(0,1),(0,0),(1,0)$. This evaluates automatic eligibility rather than possible later reviewer acceptance.
-
-We compare retaining every signal with single-component gates, the hard contract without perturbation, the full contract without coverage retrieval, and the full contract. Ranking is evaluated with Precision@$k$, Recall@$k$, nDCG@$k$, and average precision for $k=200$. Detector score and evidence score receive the same candidate budget.
-
-\subsection{Retrospective corpus diagnostic}
-
-The inherited snapshot contains 185 microservices-security papers and 1,018 provenance-rich relation events spanning 2018--2026. Annual paper counts are 2, 3, 4, 13, 10, 23, 30, 68, and 32; the last value is partial and excluded from trend comparison. Events record the model identifier \path{ram/gemini-3.5-flash-low}, prompt version \path{triple-extraction-v2-provenance}, a prompt SHA-256, request timestamps, evidence spans, and paper IDs. Canonicalization reduces the graph from 1,149 raw labels to 1,130 entity nodes; the resulting multigraph contains 1,018 events and 176 weak components.
-
-A reproducible integrity audit found 185 unique paper IDs, abstracts for every record, 184 DOI-bearing records, and a Semantic Scholar CorpusId for all 185. All 184 DOI strings returned a resolver redirect on August 5, 2026. Every relation event maps to a corpus paper and has an evidence quote; 989 of 1,018 quotes (97.15\%) are exact case-insensitive substrings of the recorded source abstract. The remaining 29 unmatched quotes are retained as auditable extraction risks rather than silently discarded.
-
-The preserved snapshot does not contain its original database query, retrieval ledger, deduplication counts, or independent screening agreement. It records a lexical-first-pass screening reason for each retained paper. Consequently, this experiment is a retrospective diagnostic, not a reproducible PRISMA corpus construction and not an independent replication. We run deterministic common-neighbour missing-link generation (top 50), fixed-seed Louvain, and normalized temporal decay. The lightweight missing-link generator exercises the signal family on CPU but is not presented as a tuned TransE replacement.
-
-\subsection{Corrected live MongoDB-security execution}
-
-On August 6, 2026, we reran the deployed Streamlit path with the topic \emph{security of MongoDB} and a maximum collection budget of 100 papers. The immutable directory \path{runs/security_of_mongodb_20260806_135447} preserves 74 unique Semantic Scholar records returned across five queries, 53 abstracts retained by the topic-conditioned screener, all per-paper extraction files, the graph, detector and ranking outputs, an internal review record, and both baseline outputs. The 100-paper value is a ceiling rather than an achieved sample size. All retained records were published from 2020 through 2025; the annual counts were 2, 3, 4, 11, 7, and 26.
-
-The Groq-hosted \path{llama-3.1-8b-instant} model was used for screening, extraction, and generation. Missing-link generation used the deterministic common-neighbour fallback because PyKEEN was unavailable. We define B1 as the Mulla-style retrieval baseline: for each paper, the three most similar abstracts are retrieved and the model generates one structured \texttt{REMAINING\_GAPS} field. Because \path{sentence_transformers} was unavailable, all 53 B1 cases used TF--IDF cosine retrieval. B2 is a no-retrieval per-abstract prompt that requests three gaps. Both baselines use the same 53-paper corpus and model. We compare output count, uniqueness, mean length, and corpus-level token-set Jaccard overlap. These are descriptive measures, not accuracy metrics.
-
-One reviewer identified in the artifact as \path{author_internal} assessed two separate queues using Accept, Reject, Modify, or Pending: the 30 graph candidates ranked before gate application and all nine post-gate \texttt{review\_required} candidates. The queues overlap by one item. Neither review was blinded, neither included B1/B2 outputs, and neither contains a second reviewer, adjudication, or item-level rationale. They are therefore author-internal disposition records and do not replace the independent expert protocol.
-
-The deployed path represented by this run executes collection, screening, extraction, graph construction, detection, scoring, and visualization, but it does not invoke the separate \path{validate_all_gaps} stage used in the frozen evidence-contract experiments. Accordingly, the top 30 are detector-ranked candidates with \texttt{validation=null}, not \statuseligible{} decisions. The UI review labels record reviewer disposition toward those candidates; they do not certify that the frozen gate was passed.
+\noindent\textbf{Research Questions.} We structure our evaluation around five core questions: \textbf{RQ1} (Extractor Diagnostics): What are the empirical precision, recall, and miss rate of relation extraction, and what are their Wilson 95\% confidence intervals? \textbf{RQ2} (Corpus Saturation): Does the 150-paper corpus exhibit vocabulary saturation under Heaps' law and marginal discovery decay? \textbf{RQ3} (Autonomous Abstention): Does the framework enforce fail-closed abstention under API failures, circular citations, or incomplete evidence? \textbf{RQ4} (Semantic Verification): Does Stage A2 prevent non-counterevidence co-mentions from falsely refuting candidate gaps in case-study evaluation? \textbf{RQ5} (Pipeline Ablation): How do successive stages of the Four-Pillar architecture filter candidate hypotheses, and what is the final triage distribution?
 
 \section{Results}
+\label{sec:results}
 
-\subsection{Controlled classification and ablation}
+\subsection{Extractor Diagnostic Evaluation (RQ1)}
+The relation extractor identified 1,404 directed attributed relation events across 1,185 canonical entities in the 150-paper corpus. Table~\ref{tab:gold} reports performance on the 36-triple expert gold benchmark $\mathcal{D}_{\text{gold}}$.
 
-\begin{table}[t]
-\caption{Held-out controlled test (800 candidates; 200 positives). Recall is validator recall conditional on candidate generation.}
-\label{tab:controlled}
+\begin{table}[htbp]
 \centering
-\begin{tabular}{lrrrrrrr}
+\caption{Extractor Diagnostic Evaluation on Gold Benchmark $\mathcal{D}_{\text{gold}}$ ($n = 36$).}
+\label{tab:gold}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.92}
+\begin{tabular}{lcccccc}
 \toprule
-Method & TP & FP & TN & FN & Prec. & Rec. & F1\\
+\textbf{Relation Category} & \textbf{Gold} & \textbf{TP} & \textbf{FN} & \textbf{FP} & \textbf{Recall} & \textbf{Precision} \\
 \midrule
-Retain every signal & 200 & 600 & 0 & 0 & .250 & 1.000 & .400\\
-Full evidence contract & 200 & 0 & 600 & 0 & 1.000 & 1.000 & 1.000\\
+\texttt{ADDRESSES} & 8 & 7 & 1 & 1 & 87.5\% & 87.5\% \\
+\texttt{USES} & 8 & 7 & 1 & 1 & 87.5\% & 87.5\% \\
+\texttt{LACKS} (Limitations) & 6 & 5 & 1 & 0 & 83.3\% & 100.0\% \\
+\texttt{EVALUATES\_ON} & 4 & 3 & 1 & 1 & 75.0\% & 75.0\% \\
+\texttt{IMPROVES} & 4 & 3 & 1 & 0 & 75.0\% & 100.0\% \\
+\texttt{APPLIED\_TO} & 3 & 2 & 1 & 0 & 66.7\% & 100.0\% \\
+\texttt{COMPARES} & 2 & 1 & 1 & 1 & 50.0\% & 50.0\% \\
+\texttt{CONTRADICTS} & 1 & 0 & 1 & 0 & 0.0\% & -- \\
+\midrule
+\textbf{Diagnostic Total} & \textbf{36} & \textbf{28} & \textbf{8} & \textbf{4} & \textbf{77.8\%} & \textbf{87.5\%} \\
+\midrule
+\multicolumn{7}{l}{\textbf{Overall $F_1$:} 82.4\%; \textbf{Precision 95\% CI:} $[71.9\%, 95.0\%]$; \textbf{Recall 95\% CI:} $[61.9\%, 88.3\%]$} \\
+\multicolumn{7}{l}{\textbf{Observed Miss Rate:} 22.2\% ($[11.7\%, 38.1\%]$); \textbf{\texttt{LACKS} Recall 95\% CI:} $[43.7\%, 97.0\%]$} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:controlled} shows that the full contract removed all 600 planted negatives without losing a planted positive. The false positives therefore fell from 600 to zero in this controlled test. Results were also perfect within missing-link (100 positives, 400 negatives), orphan (50, 100), and temporal (50, 100) strata. The zero-width 95\% interval across deterministic seed-level F1 values is $[1.000,1.000]$; this reflects identical fixture difficulty across seeds, not population uncertainty.
+The extractor achieved an overall recall of $77.8\%$ (28/36) and precision of $87.5\%$ (28/32), yielding an $F_1$ score of $82.4\%$. For explicit limitation extraction (\texttt{LACKS}), diagnostic recall was $83.3\%$ (5/6). The observed diagnostic miss rate was $22.2\%$ with a Wilson 95\% confidence interval of $[11.7\%, 38.1\%]$. These counts establish empirically that roughly one out of every five gold relations in this diagnostic benchmark was missed by the extractor, confirming that missing graph edges cannot be assumed to represent true scientific gaps without external verification.
 
-\begin{table}[t]
-\caption{Ablation on the held-out test.}
+\subsection{Corpus Coverage Diagnostics (RQ2)}
+Figure~\ref{fig:saturation} depicts vocabulary accumulation and marginal discovery across the 150-paper corpus.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.44\columnwidth]{figures/corpus_saturation_curve.png}
+\caption{Corpus Vocabulary Growth and Canonical Entity Discovery Dynamics across 150 IoT cybersecurity publications ($V_{\text{observed}}(150) = 1,185$ canonical entities). Heaps' law fit yields $\beta = 0.995$ ($R^2 = 0.9983$, near-linear growth) and marginal discovery decay $\Delta_{\text{decay}} = -10.3\%$, diagnosing the literature as \texttt{UNSATURATED}.}
+\label{fig:saturation}
+\end{figure}
+
+Evaluating vocabulary accumulation on the canonical entity nodes of $\mathcal{G}_t$ yields $V_{\text{observed}}(150) = 1,185$ unique canonical entities. Across quintiles ($q = 30$), the initial quintile introduced $M_{\text{initial}} = 7.43$ new canonical entities per paper, while the final quintile introduced $M_{\text{final}} = 8.20$ new entities per paper. Using the marginal discovery decay metric, this yields $\Delta_{\text{decay}} = -10.3\%$. Rather than decelerating toward saturation, canonical entity discovery increased. Log-log regression yielded a Heaps' law scaling parameter of $K = 8.0315$ and growth exponent $\beta = 0.9946 \approx 0.995$ ($R^2 = 0.9983$). (Evaluating pre-canonicalization raw mentions similarly demonstrated open growth: $V = 1,396, \beta = 1.037, \Delta_{\text{decay}} = -18.6\%$). Because $\beta \ge 0.80$ and $\Delta_{\text{decay}} < 0.30$, Pillar D assigned the operational verdict \texttt{UNSATURATED}. This diagnostic prohibits claiming global scientific absence, qualifying surviving hypotheses as open-world propositions.
+
+\subsection{Two-Stage Semantic Verification and Candidate Triage (RQ4)}
+The ten local validation gates filtered initial graph signals down to five post-gate candidate hypotheses (C1--C5). Table~\ref{tab:triage} tracks these candidates across the two-stage external verification pipeline, distinguishing raw index counts from fetched and inspected records. Table~\ref{tab:evidence} presents the auditable bibliographic evidence for each candidate.
+
+\begin{table}[htbp]
+\centering
+\caption{Two-Stage External Verification and Candidate Triage on Post-Gate Candidates.}
+\label{tab:triage}
+\scriptsize
+\setlength{\tabcolsep}{2.0pt}
+\begin{tabular}{p{0.5cm}p{2.6cm}ccccccp{1.7cm}p{1.3cm}}
+\toprule
+\textbf{ID} & \textbf{Candidate Hypothesis} & \textbf{Raw} & \textbf{Fetch} & \textbf{Insp} & \textbf{Co-M} & \textbf{Count.} & \textbf{Corrob} & \textbf{Disposition $\mathcal{D}$} & \textbf{Action $\mathcal{A}$} \\
+\midrule
+C1 & Deep learning IoT IDS $\rightarrow$ Zero-day attacks & 864 & 5 & 5 & 5 & 2 & 0 & \texttt{REFUTED} & \texttt{REJECT} \\
+C2 & Deep learning IoT IDS $\rightarrow$ Standardized protocols & 400 & 5 & 5 & 4 & 0 & 0$^*$ & \texttt{REVIEW\_REQ} & \texttt{ABSTAIN} \\
+C3 & Deep learning IoT IDS $\rightarrow$ Industrial testbeds & 146 & 5 & 5 & 4 & 2 & 0 & \texttt{REFUTED} & \texttt{REJECT} \\
+C4 & ML IoT IDS $\rightarrow$ Edge computational overhead & 189 & 5 & 5 & 0 & 0 & 3 & \texttt{SUPPORTED\_}\allowbreak\texttt{OPEN} & \texttt{RETAIN\_}\allowbreak\texttt{WARN} \\
+C5 & ML IoT IDS $\rightarrow$ Adversarial attack defenses & 1095 & 5 & 5 & 5 & 1 & 0 & \texttt{REFUTED} & \texttt{REJECT} \\
+\bottomrule
+\multicolumn{10}{p{11.5cm}}{\tiny $^*$C2 has one local corroborating citation, but it originated from the candidate's own source paper (circular provenance).}
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Auditable Bibliographic Evidence Table for Central External and Corroborating Publications.}
+\label{tab:evidence}
+\tiny
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{0.82}
+\begin{tabular}{L{0.4cm}L{1.4cm}L{2.4cm}L{2.1cm}L{4.9cm}}
+\toprule
+\textbf{ID} & \textbf{Citation} & \textbf{Publication Title} & \textbf{Identifier / Venue} & \textbf{Verbatim Evidence Span} \\
+\midrule
+C1 & Nitrat et al.~\cite{nitrat2025zeroday} & Zero-Day Attack Detection in IoT Networks\dots & DOI: 10.1109/\allowbreak OJCOMS.2025.\allowbreak 3604826 & \emph{``In zero-day scenarios, CZ-ResViT achieved 82\% accuracy on CIC IoT 2023 and 81\% on IoTID20, outperforming other DL models\dots''} \\
+\midrule
+C2 & Shukla et al.~\cite{shukla2025effective} & An effective hybrid deep learning metaheuristic\dots & DOI: 10.1007/\allowbreak s10791-025-\allowbreak 09708-w & \emph{``The high diversity of IoT devices, their protocols and standards, and their limited computational resources have led to the appearance of novel security challenges.''} (Supporting limitation; zero counterevidence). \\
+\midrule
+C3 & Ogundokun et al.~\cite{ogundokun2025litert} & LiteRT-IDSNet: A Lightweight Hybrid DL Framework\dots & DOI: 10.1109/\allowbreak ICEST66328.\allowbreak 2025.11098207 & \emph{``Experimental results show that LiteRT-IDSNet achieved training accuracy of 99.61\% and validation accuracy of 99.60\% \dots suitable real-time IIoT cybersecurity system\dots''} \\
+\midrule
+C4 & Jenish \& Karuppasamy~\cite{jenish2026review} & A Review on Deep Learning Techniques for Fast\dots & DOI: 10.1109/\allowbreak IDCIoT67589.\allowbreak 2026.11455671 & \emph{``\dots practical adoption is constrained by high computational overhead, inference latency, and limited interpretability.''} (Corroborating Source 1). \\
+C4 & Alam et al.~\cite{alam2026reservoir} & Reservoir Computing for Network Intrusion\dots & DOI: 10.1371/\allowbreak journal.pone.\allowbreak 0355211 & \emph{``\dots high computational demands pose challenges for real-time deployment on IoT devices.''} (Corroborating Source 2). \\
+C4 & Mahdi et al.~\cite{mahdi2026scf} & SCF-Net: A Lightweight Multi-Granular Feature\dots & DOI: 10.1109/\allowbreak ACCESS.2026.\allowbreak 3671487 & \emph{``\dots heavy computational cost that restricts edge application.''} (Corroborating Source 3). \\
+\midrule
+C5 & Nguyen et al.~\cite{nguyen2025adversarial} & Adversarial Attack and Defense in AI-Powered IDS & DOI: 10.15625/\allowbreak 1813-9663/\allowbreak 22884 & \emph{``The enhanced APELID+ achieves robust performance, maintaining 98.73\% accuracy under combined adversarial conditions\dots''} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent\textbf{Analysis of Candidate Triage Outcomes.} \emph{C1 (Zero-Day Attacks):} 864 raw hits probed; 5 fetched and inspected. While all 5 showed lexical co-mentions, Stage A2 verified two counterevidence papers (e.g., Nitrat et al.~\cite{nitrat2025zeroday} achieving 82\% zero-day accuracy via CZ-ResViT). Triage: \texttt{REFUTED} $\rightarrow$ \texttt{REJECT}.
+\emph{C2 (Protocols):} 400 raw hits probed; 4 showed co-mentions. Stage A2 confirmed that all papers discussed protocol diversity as an obstacle (e.g., Shukla et al.~\cite{shukla2025effective}, \texttt{SUPPORTING\_}\allowbreak\texttt{LIMITATION}; zero counterevidence). However, Pillar B found zero independent corroboration (single citation from origin paper \texttt{04b3ca64}, circular). Triage: \texttt{REVIEW\_}\allowbreak\texttt{REQUIRED} $\rightarrow$ \texttt{ABSTAIN\_}\allowbreak\texttt{AND\_}\allowbreak\texttt{ESCALATE}.
+\emph{C3 (Testbeds):} 146 raw hits probed; Stage A2 verified two counterevidence papers (e.g., LiteRT-IDSNet~\cite{ogundokun2025litert}, achieving 99.6\% accuracy on RT-IoT 2022). Triage: \texttt{REFUTED} $\rightarrow$ \texttt{REJECT}.
+\emph{C4 (Edge Computational Overhead):} 189 raw hits probed; zero counterevidence found. Pillar B identified three independent 2026 corroborating publications~\cite{jenish2026review,alam2026reservoir,mahdi2026scf}. Under an \texttt{UNSATURATED} corpus, triage assigned \texttt{SUPPORTED\_\allowbreak OPEN} $\rightarrow$ \texttt{RETAIN\_WARN}.
+\emph{C5 (Adversarial Attacks):} 1,095 raw hits probed; Stage A2 verified counterevidence in Nguyen et al.~\cite{nguyen2025adversarial} (APELID+, 98.73\% accuracy). Triage: \texttt{REFUTED} $\rightarrow$ \texttt{REJECT}.
+
+\noindent\textbf{Retrieval-Depth Robustness ($K_{\text{fetch}}$ Sensitivity).} In the frozen multi-provider run (Table~\ref{tab:triage}), candidate C4 was evaluated using strict canonical phrases (\emph{``machine learning-driven intrusion detection frameworks''} and \emph{``computational burdens''}) with $\tau=0.60$ token overlap, yielding 0 lexical co-mentions among the 5 fetched Semantic Scholar records (and 0 at $K=10$, 1 at $K=20$, 2 at $K=50$). To stress-test whether relaxing lexical constraints at greater retrieval depths would uncover unindexed counterevidence, a subsequent sensitivity analysis probed an expanded semantic synonym family (\emph{``machine learning''}, \emph{``intrusion detection''} and \emph{``computational overhead''}, \emph{``resource-constrained''}, \emph{``edge''}) across $K_{\text{fetch}} \in \{5, 10, 20, 50\}$ on Semantic Scholar under default relevance ranking. In this expanded-synonym run, lexical co-mentions scaled from 4 ($K=5$) to 7 ($K=10$), 13 ($K=20$), and 33 ($K=50$). At $K = 50$, neither the strict-phrase run nor the expanded-synonym run yielded verified counterevidence. In the expanded-synonym run, all 50 records were inspected; 33 passed lexical co-mention filtering, of which 18 expressed supporting limitations while the remaining 15 co-mentions were ambiguous, acknowledging edge latency bottlenecks without demonstrating resolution. Candidate C4 remained consistently \texttt{SUPPORTED\_OPEN} across $K \in \{5, 10, 20, 50\}$ under the evaluated queries and default relevance-ranking protocol.
+
+\subsection{Pipeline Ablation Analysis (RQ5)}
+Table~\ref{tab:ablation} traces the progressive filtering of candidate hypotheses across each stage of the \method{} pipeline.
+
+\begin{table}[htbp]
+\centering
+\caption{Component-Level Pipeline Ablation across Post-Gate Candidates ($n = 5$).}
 \label{tab:ablation}
-\centering
-\begin{tabular}{lrrrr}
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{0.78}
+\begin{tabular}{lccccL{3.1cm}}
 \toprule
-Configuration & FP & Precision & Recall & F1\\
+\textbf{Pipeline Stage} & \textbf{Eligible} & \textbf{Refuted} & \textbf{Review} & \textbf{Retained} & \textbf{Epistemic Triage Interpretation} \\
 \midrule
-Provenance only & 550 & .267 & 1.000 & .421\\
-Specificity only & 550 & .267 & 1.000 & .421\\
-Path diversity only & 500 & .286 & 1.000 & .444\\
-Perturbation only & 350 & .364 & 1.000 & .533\\
-Hard contract, no perturbation & 300 & .400 & 1.000 & .571\\
-Full, no coverage retrieval & 100 & .667 & 1.000 & .800\\
-Full evidence contract & 0 & 1.000 & 1.000 & 1.000\\
+1. Local Gates Only & 5 & 0 & 0 & 5 & Naive agent relying solely on graph sparsity promotes all 5 candidates. \\
+2. Naive Co-Mention Baseline$^\dagger$ & 1 & 4 & 0 & 1 & Counterfactual baseline: lexical co-mention falsely refutes C2. \\
+3. + Pillar A (Stage A1+A2) & 2 & 3 & 0 & 2 & Semantic verification preserves C2 as supporting limitation. \\
+4. + Pillar B (Disjoint Corrob.) & 1 & 3 & 1 & 1 & Detects C2 circular citation, forcing fail-closed abstention. \\
+5. + Pillars C \& D (Diagnostics) & 1 & 3 & 1 & 1$^*$ & Qualifies C4 as open-world under unsaturated corpus ($\beta=0.995$). \\
+\bottomrule
+\multicolumn{6}{p{\linewidth}}{\tiny $^\dagger$Counterfactual naive lexical matching rule (not \method{} policy). $^*$Retained as \texttt{SUPPORTED\_OPEN}.}
+\end{tabular}
+\end{table}
+
+Without external verification, an autonomous agent relying solely on representation sparsity would have prematurely promoted all five candidates. Within the five evaluated candidates, three ($60\%$) were verified false-positive novelty hypotheses refuted by recent literature. Overall, four ($80\%$) were prevented from promotion to evidence-supported status (three refutations and one circular-provenance abstention). Crucially, Stage A2 semantic verification prevented the premature refutation of C2, while Pillar B enforced honest abstention.
+
+\subsection{Fail-Closed Fault-Injection Validation (RQ3)}
+We evaluated autonomous abstention under six operational failure modes (Table~\ref{tab:fault}). Across all six predefined fault-injection scenarios ($100\%$), \method{} refrained from ungrounded claims, halting downstream execution and routing the candidate to human oversight.
+
+\begin{table}[htbp]
+\centering
+\caption{Deterministic Fault-Injection Validation of the Fail-Closed Control Loop.}
+\label{tab:fault}
+\tiny
+\setlength{\tabcolsep}{1.6pt}
+\renewcommand{\arraystretch}{0.70}
+\begin{tabular}{L{1.6cm}L{3.3cm}L{2.2cm}L{2.7cm}c}
+\toprule
+\textbf{Failure Scenario} & \textbf{Injected Condition} & \textbf{Disposition $\mathcal{D}$} & \textbf{Action $\mathcal{A}$} & \textbf{Passed} \\
+\midrule
+1. Index Timeout & S2/OpenAlex timeout after retries & \texttt{REVIEW\_REQUIRED} & \texttt{ABSTAIN\_AND\_ESCALATE} & \checkmark \\
+2. HTTP 429 Throttle & Scholarly rate limits exhausted & \texttt{REVIEW\_REQUIRED} & \texttt{ABSTAIN\_AND\_ESCALATE} & \checkmark \\
+3. Incomplete Pagination & API stream terminates prematurely & \texttt{REVIEW\_REQUIRED} & \texttt{ABSTAIN\_AND\_ESCALATE} & \checkmark \\
+4. Malformed Response & Corrupted JSON or missing keys & \texttt{REVIEW\_REQUIRED} & \texttt{ABSTAIN\_AND\_ESCALATE} & \checkmark \\
+5. Circular Corroboration & Only self-citations in provenance & \texttt{REVIEW\_REQUIRED} & \texttt{ABSTAIN\_AND\_ESCALATE} & \checkmark \\
+6. Missing Evidence Text & Extraction lacks verbatim span & \texttt{REVIEW\_REQUIRED} & \texttt{ABSTAIN\_AND\_ESCALATE} & \checkmark \\
+\midrule
+\multicolumn{5}{p{\linewidth}}{\textbf{Observed Result:} 6/6 predefined fault-injection scenarios ($100\%$) produced \texttt{REVIEW\_REQUIRED} and \texttt{ABSTAIN\_AND\_ESCALATE}.} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:ablation} shows that no single rule explains the result. Coverage retrieval removes the remaining synonym-coverage negative, while source-disjoint paths and multi-mode perturbations address different dependence failures.
+\subsection{Evidence-Supported Agenda Formulation (Candidate C4)}
+For surviving candidate C4 (computational overhead and inference latency of ML models on resource-constrained IoT edge devices), \method{} formulated an actionable research agenda. To avoid generative hallucination, target performance metrics are designated as \textbf{illustrative expert-review-required targets}, grounding the agenda in qualitative challenges cited by Jenish \& Karuppasamy~\cite{jenish2026review}, Alam et al.~\cite{alam2026reservoir}, and Mahdi et al.~\cite{mahdi2026scf}: developing lightweight neural architectures that preserve detection accuracy while minimizing memory footprint and inference latency on edge microcontrollers.
 
-\subsection{Sensitivity and ranking}
+\section{Discussion and Sensitivity Analysis}
+\label{sec:discussion}
 
-Across the 48 development configurations, F1 ranged from 0.462 to 1.000; seven cells were perfect. Mean F1 rose from 0.549 at $\rho=0.70$ to 0.940 at $\rho=0.95$. Increasing $B$ from 50 to 200 changed mean F1 from 0.722 to 0.752, while increasing the threshold from 0.70 to 0.95 reduced mean F1 from 0.873 to 0.625. We selected the lowest-cost perfect development configuration, $(\rho,B,\tau)=(0.95,50,0.70)$, before opening the test results.
+\noindent\textbf{Heaps' Law Parameter Sensitivity.} Corpus coverage classification robustness was evaluated across parameter grid $\beta_{\text{thresh}} \in [0.65, 0.85]$ and $\Delta_{\text{decay, thresh}} \in [0.10, 0.40]$. Across all configurations, empirical values ($\beta = 0.995, \Delta_{\text{decay}} = -10.3\%$) remained strictly in the \texttt{UNSATURATED} region, confirming classification invariance.
 
-At the matched budget $k=200$, detector-score ranking placed no positive in the first 200 positions and achieved average precision 0.153. Evidence-score ranking achieved Precision@200 and Recall@200 of 0.770, nDCG@200 of 0.816, and average precision of 0.906. Equal, provenance-heavy, and path-heavy schemes shared nDCG@200 of 0.816; stability-heavy obtained 0.815 and specificity-heavy 0.704. Hard decision reasons such as canonical self-link are intentionally not encoded as another weighted acceptance threshold, so ranking is useful but imperfect.
+\noindent\textbf{Summary of Research Questions.} \emph{RQ1 (Extractor Diagnostics):} On $\mathcal{D}_{\text{gold}}$, diagnostic recall is $77.8\%$ ($95\%$ CI: $[61.9\%, 88.3\%]$) and observed miss rate is $22.2\%$ ($[11.7\%, 38.1\%]$), confirming that missing graph links do not establish absence. \emph{RQ2 (Corpus Saturation):} Canonical growth ($\beta = 0.995$, decay $-10.3\%$) establishes an open-world corpus, prohibiting absolute absence claims. \emph{RQ3 (Autonomous Abstention):} Under fault injection (Table~\ref{tab:fault}) and circular provenance (C2), \method{} enforced fail-closed abstention across all six predefined failure scenarios ($100\%$). \emph{RQ4 (Semantic Verification):} In case-study evaluation, Stage A2 prevented C2 from being falsely refuted by lexical co-mention alone. \emph{RQ5 (Pipeline Ablation):} Three of five post-gate candidates were refuted by verified recent counterevidence ($60\%$), while four of five ($80\%$) were prevented from promotion to evidence-supported status (three refutations and one circular-provenance abstention).
 
-\subsection{Real-corpus triage}
+\section{Threats to Validity and Limitations}
+\label{sec:threats}
 
-\begin{table}[t]
-\caption{Frozen-gate outcome on the 185-paper snapshot.}
-\label{tab:real}
-\centering
-\begin{tabular}{lrrrr}
-\toprule
-Signal & Raw & Eligible & Review & Reject\\
-\midrule
-Missing link & 50 & 0 & 14 & 36\\
-Orphan community & 194 & 0 & 17 & 177\\
-Temporal decay & 12 & 0 & 9 & 3\\
-\midrule
-Total & 256 & 0 & 40 & 216\\
-\bottomrule
-\end{tabular}
-\end{table}
+\noindent\textbf{Diagnostics, Verification, and Canonicalization.} Gold benchmark $\mathcal{D}_{\text{gold}}$ (36 triples, 10 abstracts) provides an empirical diagnostic demonstration that extraction error is non-zero, rather than a universal bound across all disciplines. Furthermore, Stage A2 semantic verification has not yet been evaluated against a dedicated, independently human-annotated external-evidence benchmark; classification error could alter candidate labeling between \texttt{REFUTED} and supporting or ambiguous categories, and model-reported confidence values are not calibrated probabilities. In addition, boolean query generation and entity canonicalization rely on lexical normalization and TF-IDF similarity, which can be vulnerable to synonym drift, abbreviations, and terminology fragmentation across evolving subfields.
 
-Table~\ref{tab:real} shows a reduction from 256 detector signals to 40 review-required items, an 84.4\% workload reduction before source-complete review. Candidate-coverage retrieval fired for 245 signals; 177 lacked two paper IDs, 36 missing-link candidates lacked two source-disjoint paths, 18 were unstable, and four were underspecified. Reasons overlap because every failure is retained.
-
-No real-corpus item is \statuseligible{}. The five items previously assigned that label were artifacts of entity identity or coverage tokenization. After canonicalization, Scalability \texttt{[CONCEPT]}--scalability \texttt{[METRIC]} collapses to a self-link and is not generated; JWT--OAuth, API Gateway--Microservices, Latency--Microservices, and Microservices--throughput have 9, 25, 21, and 5 local co-mention hits and therefore require review. This correction is fail-closed: it does not assert that co-mention closes a scientific question.
-
-\subsection{Observed live-run outputs}
-
-\begin{table}[t]
-\caption{Observed outputs of the corrected MongoDB-security run (collection budget 100).}
-\label{tab:live}
-\centering
-\begin{tabular}{L{6.0cm}r}
-\toprule
-Artifact or stage & Observed value\\
-\midrule
-Unique records collected and screened & 74\\
-Abstracts retained & 53 (71.6\%)\\
-Non-empty extraction outputs & 53 of 53\\
-Extracted relation events & 643\\
-Knowledge graph & 578 nodes; 636 edges; 61 components\\
-Raw signals & 128 (50 missing; 71 orphan; 7 temporal)\\
-Ranked top-30 & 4 missing; 25 orphan; 1 temporal\\
-Normalized score range & 0.9936--1.0000\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Table~\ref{tab:live} reports artifact counts rather than projected values. Extraction produced 643 events; graph-construction filtering retained 636 edges after controlled-relation and self-loop checks. The graph contained 61 weak components, which is consistent with the dominance of orphan-community signals. The ranker's narrow normalized score range is a within-run min--max effect and is neither a calibrated novelty probability nor evidence that the candidates are nearly equivalent in scientific value.
-
-\begin{table}[t]
-\caption{Descriptive comparison on the same 53-paper corpus. B1 uses top-3 TF--IDF retrieval; B2 uses no retrieval.}
-\label{tab:baselines}
-\centering
-\begin{tabular}{L{3.0cm}rrrr}
-\toprule
-Method & Outputs & Unique & Mean words & Jaccard vs KG\\
-\midrule
-KG candidate ranker & 30 & 30 & 27.6 & 1.0000\\
-B1: retrieval + LLM & 53 & 53 & 67.2 & 0.1239\\
-B2: per-abstract LLM & 159 & 159 & 28.9 & 0.1113\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-B1 generated one structured remaining-gap output for every retained paper, whereas B2 generated three outputs per paper. B1 and B2 had a token-set Jaccard overlap of 0.3333. The lower overlap between either baseline and the graph candidates indicates different vocabulary and granularity, not superiority. No shared expert labels, precision, recall, or ranking judgment are available for B1/B2, and the graph scores are not comparable to language-model likelihoods.
-
-\begin{table}[t]
-\caption{Preliminary author-internal review of the ranked graph candidates.}
-\label{tab:mongodb-review}
-\centering
-\begin{tabular}{lrrrrr}
-\toprule
-Signal & Shown & Accept & Modify & Reject & Pending\\
-\midrule
-Missing link & 4 & 0 & 0 & 4 & 0\\
-Orphan community & 25 & 23 & 0 & 2 & 0\\
-Temporal decay & 1 & 1 & 0 & 0 & 0\\
-\midrule
-Total & 30 & 24 & 0 & 6 & 0\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-All 30 items in Table~\ref{tab:mongodb-review} received a decision: 24 were accepted (80.0\%) and six rejected. No item remained Modify or Pending. All four missing-link candidates were rejected; 23 of 25 orphan-community candidates and the single temporal candidate were accepted. These figures measure one internal reviewer's disposition toward the displayed queue. They do not estimate population precision or inter-rater reliability.
-
-\begin{table}[t]
-\caption{Complete author-internal review of the post-gate queue.}
-\label{tab:postgate-review}
-\centering
-\begin{tabular}{lrrr}
-\toprule
-Signal & Shown & Accept & Reject\\
-\midrule
-Orphan community & 3 & 3 & 0\\
-Temporal decay & 6 & 5 & 1\\
-\midrule
-Total & 9 & 8 & 1\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-All nine post-gate items received a decision: eight were accepted (88.9\%) and one was rejected, with no Modify or Pending label. The rejected item was the \emph{Cloud infrastructure} temporal signal. Here ``Accept'' means retain an uncertainty-routed candidate for follow-up; it does not establish novelty or a source-complete literature gap.
-
-\subsection{Three audit case studies}
-
-\begin{table}[h]
-\caption{Representative audit outcomes.}
-\label{tab:cases}
-\centering
-\begin{tabular}{L{2.3cm}L{4.0cm}L{5.0cm}}
-\toprule
-Outcome & Candidate & Auditable reason\\
-\midrule
-Rejected & AWS API Gateway--Security & Only one source-disjoint path; 28 local co-mentions cannot repair insufficient provenance.\\
-Review required & Docker--Kubernetes & Hard evidence checks pass, but five screened abstracts co-mention the concepts.\\
-Removed self-link & Scalability variants & Type suffixes and case are metadata; both labels canonicalize to the same entity.\\
-Review required & JWT--OAuth & Two source-disjoint paths pass, but nine local abstracts co-mention the normalized labels.\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\section{Preliminary Review and Expert Evaluation Protocol}
-
-The MongoDB-security run includes complete author-internal decisions for the nine post-gate candidates and for the 30 pre-gate ranked candidates. These records supply disposition counts and verify that the review interface persists decisions, but they lack blinding, independent reviewers, source-complete searches, written rationales, and baseline judgments. The cohorts overlap by one item and are not independent samples. We therefore report them separately from the planned effectiveness study and do not use either acceptance rate to estimate expert precision.
-
-To make an independent study executable, the artifact also creates a 70-item blinded packet for the inherited microservices snapshot: all 40 non-rejected items plus a deterministic stratified sample of 30 rejected items. At least three domain experts should independently rate source support, novelty after source-complete retrieval, importance, actionability, feasibility, already-addressed status, extraction error, and review time. Reviewers should be blinded to system status and receive identical full-text and citation-neighbourhood bundles. Budget-matched B1, B2, and detector-score candidates should be mixed into the packet. The analysis should report expert precision, an estimated false-negative rate from rejected items, usefulness, time per candidate, and Krippendorff's alpha or Fleiss' kappa. Until that study is completed, the real-corpus evidence supports operability, auditability, and preliminary reviewer disposition only.
-
-\section{Discussion}
-
-The first conceptual correction is that entity identity precedes topology. Treating \texttt{[METHOD]} or \texttt{[METRIC]} as lexical content created artificial nodes and caused the coverage screen to require words that never belonged to the scientific concept. The second is the unit of evidence. A node may have many incident papers while the candidate relation depends on one source. Source-disjoint paths expose that dependence. Paper dropout then respects correlation among events extracted from the same document. Plausible edge addition tests the opposite failure mode from deletion: an apparent missing relation or orphan community may result from extraction false negatives.
-
-The revised temporal rule also changes interpretation. The inherited corpus grew sharply in 2025 and contains only a partial 2026. Normalizing by $N_y$ and excluding 2026 prevents corpus growth and right-censoring from being mistaken for topic decline. The remaining 12 signals all require expert interpretation.
-
-The corrected live run separates software operability from scientific validity. It verifies collection, screening, extraction, graph construction, fallback detection, frozen-gate evaluation, ranking, review persistence, and both baseline paths on a topic-conditioned 53-paper corpus. The post-gate 88.9\% and pre-gate 80.0\% acceptance rates are reviewer-disposition summaries, not precision estimates: both reflect the same unblinded internal reviewer and do not replace independent expert evaluation. The low Jaccard overlap against B1 and B2 shows that the aggregate token sets differ; it motivates, but does not substitute for, shared-label accuracy comparisons.
-
-Perfect controlled performance should invite caution. The revised generator is more varied than direct rule-copy negatives, covers all signal families, and is separated from development seeds, but it remains authored with knowledge of the intended evidence contract. It tests implementation behavior and known failure modes, not generalization to naturally occurring research gaps. Likewise, the evidence score's perfect controlled ranking is not a real-world ranking result.
-
-\section{Limitations and Threats to Validity}
-
-The inherited real corpus is abstract-only, single-domain, retrospectively collected, and missing its original search and screening ledger. Twenty-nine evidence quotes are not verbatim substrings of their recorded abstracts and require source inspection. The corrected live run retained 53 of 74 collected papers and supplied a topic-focused corpus for an operational comparison, but it used a single Groq-hosted 8B model for all LLM stages, TF--IDF fallback for B1 retrieval, and a common-neighbour fallback for link prediction. The displayed top 30 were ranked before the separate frozen gate and cannot be interpreted as having passed it. The same unblinded author reviewed those 30 and all nine post-gate candidates, with one overlapping item, no second reviewer or adjudication, and no item-level rationales; B1/B2 outputs were not included in either packet. Candidate-coverage retrieval remains lexical even with aliases and version normalization; it does not verify relation direction, polarity, population, method, or outcome. Plausible additions are available only when an upstream retriever supplies them. Entity merge/split perturbation, relation-label corruption, extraction-model reruns, full-text retrieval, and citation chasing remain future work.
-
-Distinct papers are not necessarily independent studies: author groups, datasets, and paper extensions are not modeled. The greedy path selector is deterministic but not guaranteed to find the maximum source-disjoint set. Louvain remains resolution-sensitive. Perturbation thresholds are development choices, not calibrated probabilities. The real missing-link generator is a deterministic common-neighbour baseline rather than TransE. Although both internal review queues are complete, there are no independent source-verified labels and no labels for B1/B2. Real precision, recall, usefulness, time savings, detector recall, and workflow recall therefore remain unknown. The controlled benchmark's perfect result must not be read as evidence that the system discovers true gaps perfectly.
-
-\section{Reproducibility and Artifact Availability}
-
-The code emits \path{evidence_clear_candidates.json}, \path{review_required_gaps.json}, and \path{gap_validation_audit.json}. The controlled and real reports preserve every decision and perturbation-mode survival rate. The separate \path{corpus_integrity_audit.json} records identifier, DOI-resolution, provenance, and verbatim-evidence checks. The blinded expert packet contains blank rating fields; no synthetic judgments are inserted. The live run separately preserves \path{expert_reviews.json}, \path{post_gate_expert_reviews.json}, \path{comparison_metrics.json}, and both baseline output files.
-
-\begin{table}[t]
-\caption{Artifact contract at the time of this revision.}
-\label{tab:artifact}
-\centering
-\begin{tabular}{L{3.2cm}L{8.0cm}}
-\toprule
-Field & Value\\
-\midrule
-Repository & \href{https://github.com/Khoa-Hoa-Technology-Solution-Company/research-paper-gap}{GitHub: Khoa-Hoa-Technology-Solution-Company/research-paper-gap}\\
-Source snapshot & Curated in \path{esv-gap-final-20260810-r1.zip}; 43 files are covered by \path{MANIFEST.sha256}.\\
-Archive SHA-256 & \hashbreak{c6e3d3daf7959598b68b386d39fb8af4}{126a1d98e7d314e64b239cd07483c835}.\\
-Runtime & CPython 3.14.6; \path{requirements-experiments.lock}.\\
-Triple snapshot SHA-256 & \hashbreak{2dc2ba9adba91f1f5ba8d49c0efe3ef}{56e8a906289e606242b10dcf866760253}.\\
-Corpus snapshot SHA-256 & \hashbreak{413d757a467f0e67166b4a7d83a9ed296}{c4414406f3ccf0aa6ddc323a4bc13a2}.\\
-Live run & \path{security_of_mongodb_20260806_135447}; 74 collected, 53 retained, 643 relation events, 128 raw detector signals, and 30 ranked.\\
-Commands & Exact test, benchmark, corpus, review-packet, hash, and LaTeX commands are in \path{paper_v2/REPRODUCIBILITY.md}.\\
-License & No license is declared in the inherited repository; no reuse rights are asserted here.\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The benchmark report SHA-256 is
-\hashbreak{9796cbcdd08b7a13e60b8a37eea8cbd5}{a8418feb2c845a5e852fe5e6ecb2e4fe}; the real diagnostic report SHA-256 is
-\hashbreak{0457dd177ad56e2a809cad41f4eb3acc}{d4430a0acee69be7338f983885217c26}; the corpus-integrity audit SHA-256 is
-\hashbreak{dc1fc3a8713a45f21470a368e9a82957}{8512b3a7f4b770c727bcade962a54a10}. The live-run SHA-256 values are:
-\begin{itemize}
-  \item filtered corpus: \texttt{1f47c496466ce241b72330c9a80ceaf3}\linebreak
-    \texttt{84de683f8af49b98bc30b75e7d244853};
-  \item extracted triples: \texttt{bf17038593413d26c60b1a8d781ed1d5}\linebreak
-    \texttt{ad580722c8d93542be2cba4b176a0386};
-  \item raw detector output: \texttt{3af4d23f82ab1e3c7200825743ecce9b}\linebreak
-    \texttt{2f418bfcdc4ff6c6591997ce4cc51d12}; and
-  \item ranked top-30 output: \texttt{9cd92844fb48d24534b484838c3b1c49}\linebreak
-    \texttt{46eb6bb737b7edeb48d3657c58d506e2};
-  \item pre-gate internal review: \texttt{02a355a757f67f7af1aef9b08c13363d}\linebreak
-    \texttt{7a73c8d5f285f7d1f1252f5671cbec64};
-  \item post-gate internal review: \texttt{390b91827507a27383a3c972b90e81425}\linebreak
-    \texttt{cbd44f921b2ac5cdc87e791b84e18aa}; and
-  \item comparison metrics: \texttt{ecee805edf656c6bb043be39846e50a7}\linebreak
-    \texttt{eb5e729ed359a03908c2a712cadfe25e}.
-  \item frozen live gate report: \texttt{06eadc23301857b636378cdd8a0e236b}\linebreak
-    \texttt{08df94937a688a9f91e44b3564e2f46d}.
-\end{itemize}
-The archived command is \path{python reproduce_frozen_validation.py --config frozen_validation_config.yaml}; it reproduces the 0/9/119 eligible/review/reject summary without network access. These hashes will change if the reports are regenerated under modified code or configuration.
+\noindent\textbf{Retrieval Scope, Scale, and Temporal Bounds.} Scholarly APIs (Semantic Scholar, OpenAlex) and relevance-based top-$K$ rankings are not exhaustive, though our $K_{\text{fetch}}$ sensitivity analysis confirmed C4 stability up to $K=50$ under Semantic Scholar default ranking. Our empirical study evaluated $n=5$ post-gate hypotheses across 150 IoT cybersecurity papers; reported triage proportions ($60\%$ refuted, $80\%$ prevented from promotion) are descriptive case-study statistics, not population estimates, and cross-domain generalization remains unevaluated. In addition, external probes and extractions analyzed titles and abstracts, potentially missing evidence reported solely in full-text methods or appendices. Finally, research-gap triage reflects timestamped literature states and may evolve as new publications appear.
 
 \section{Conclusion}
+\label{sec:conclusion}
 
-\method{} treats graph anomalies as hypotheses and makes the evidence contract explicit. The revision canonicalizes identity before topology, rejects canonical self-links, requires source-disjoint evidence paths, samples whole papers, tests plausible edge additions, normalizes temporal activity, and excludes a partial final year. On an 800-candidate controlled test it rejected every planted artefact, but that result establishes only controlled implementation validity. On a 185-paper retrospective snapshot it reduced 256 signals to 40 review-required candidates and automatically accepted none. A corrected live run on \emph{security of MongoDB} collected 74 records, retained 53, extracted 643 relation events, and built a 578-node graph. The frozen gate reduced 128 signals to nine review-required items; one internal reviewer accepted eight of those nine (88.9\%) and, separately, 24 of 30 pre-gate ranked items (80.0\%). On the same corpus, retrieval and per-abstract LLM baselines produced 53 and 159 outputs with Jaccard overlaps of 0.1239 and 0.1113 against the graph candidates. Because no shared expert labels exist for the baselines and the reviews were neither blinded nor independent, the live results support workflow operability and preliminary disposition, not comparative effectiveness. A preregistered, source-complete, multi-domain expert study evaluating both retained and rejected candidates is required before making effectiveness claims.
+We presented \textbf{\method{}}, an auditable autonomous reasoning architecture for evidence-grounded hypothesis triage. By executing an active epistemic control loop with Four-Pillar Evidence Verification, \method{} replaces graph sparsity heuristics with empirical verification rigor. In an empirical case study on deep-learning IoT intrusion detection (150 publications, 1,404 relation events), \method{} refuted three candidate gaps via verified counterevidence ($60\%$), escalated circular provenance to human review, and qualified an edge-computing gap corroborated by independent literature. Across six predefined fault-injection scenarios, the architecture enforced fail-closed abstention without ungrounded conjecture. While cross-domain generalization and larger hypothesis cohorts remain unevaluated, this study shows how explicit epistemic constraints can prevent an autonomous scientific reasoning pipeline from promoting unsupported hypotheses when evidence is incomplete, contradictory, or provenance-limited.
 
-\begin{credits}
-\subsubsection{Acknowledgements}
-The authors thank FPT University for supporting this research.
-
-\subsubsection{Disclosure of Interests}
-The authors have no competing interests to declare that are relevant to the content of this article.
-\end{credits}
+\let\oldthebibliography\thebibliography
+\let\endoldthebibliography\endthebibliography
+\renewenvironment{thebibliography}[1]{%
+  \begin{oldthebibliography}{#1}%
+    \def\doi##1{\href{https://doi.org/##1}{\nolinkurl{doi:##1}}}%
+    \setlength{\itemsep}{-5.5pt plus 0.2pt}%
+    \setlength{\parsep}{0pt}%
+}{%
+  \end{oldthebibliography}%
+}
 
 \bibliographystyle{splncs04}
 \bibliography{references}

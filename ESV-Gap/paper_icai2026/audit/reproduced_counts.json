@@ -1,0 +1,99 @@
+{
+  "scope": "Read-only recount of frozen artifacts; saved temporal report is not recomputed by this script.",
+  "source_run": "deep_learning_iot_intrusion_de_20260831_114802",
+  "corpus": {
+    "requested_collection_pool": 600,
+    "raw_records_observed": 486,
+    "screened_records": 191,
+    "retained_papers": 150,
+    "relation_events": 1404
+  },
+  "raw_signals": {
+    "evidence_gaps": 16,
+    "missing_links": 8,
+    "orphan_clusters": 91,
+    "temporal_decay": 18
+  },
+  "raw_signal_total": 133,
+  "validation_dispositions": {
+    "automatically_eligible": 0,
+    "review_required": 5,
+    "rejected": 128
+  },
+  "full_text_enrichment": {
+    "target_paper_count": 20,
+    "attempted_download_count": 14,
+    "enriched": 0
+  },
+  "saved_temporal_snapshot": {
+    "aggregate": {
+      "cutoff_count": 3,
+      "cutoffs": [
+        2022,
+        2023,
+        2024
+      ],
+      "all_leakage_checks_passed": true,
+      "total_candidates": 16,
+      "total_positive_controls": 108,
+      "total_negative_controls": 54,
+      "macro_candidate_recall_at_k": {
+        "5": 0.0119,
+        "10": 0.0119,
+        "20": 0.0238
+      },
+      "macro_precision_after_local_closure_on_labelled_controls": 1.0,
+      "macro_false_positive_rate_on_known_negatives": 0.0,
+      "macro_label_abstention_rate": 0.625,
+      "certificate_precision": null,
+      "certification_abstention_rate": 1.0
+    },
+    "cutoffs": [
+      {
+        "cutoff": 2022,
+        "pre_papers": 46,
+        "future_papers": 104,
+        "positive_controls": 41,
+        "negative_controls": 13,
+        "candidates": 0,
+        "recall_at_20": 0.0,
+        "unlabelled_candidates": 0,
+        "certified_candidates": 0
+      },
+      {
+        "cutoff": 2023,
+        "pre_papers": 65,
+        "future_papers": 85,
+        "positive_controls": 39,
+        "negative_controls": 15,
+        "candidates": 0,
+        "recall_at_20": 0.0,
+        "unlabelled_candidates": 0,
+        "certified_candidates": 0
+      },
+      {
+        "cutoff": 2024,
+        "pre_papers": 91,
+        "future_papers": 59,
+        "positive_controls": 28,
+        "negative_controls": 26,
+        "candidates": 16,
+        "recall_at_20": 0.0714,
+        "unlabelled_candidates": 10,
+        "certified_candidates": 0
+      }
+    ]
+  },
+  "pdf_identity": {
+    "root_pdf_sha256": "4770fb65597dfa28b0d7c368ac053ad9ed1eb7efa5145e6e287c4e392a9f862e",
+    "springer_ami_pdf_sha256": "4770fb65597dfa28b0d7c368ac053ad9ed1eb7efa5145e6e287c4e392a9f862e",
+    "identical": true
+  },
+  "input_sha256": {
+    "runs\\deep_learning_iot_intrusion_de_20260831_114802\\data\\processed\\corpus_filtered.jsonl": "852b63bf0b7f3fb641046b416c45723156d5663b56f87352b9145efb22282583",
+    "runs\\deep_learning_iot_intrusion_de_20260831_114802\\data\\triples\\all_triples.json": "a352427bffb0d6d63bce589ec13df54e0f71b615bd6f2f9470d694fee4e21a31",
+    "runs\\deep_learning_iot_intrusion_de_20260831_114802\\outputs\\detected_gaps_raw.json": "92faced7193e3b6a479dce52a84eff8b047ce741facc1b3f5b87e649db9eb6ff",
+    "runs\\deep_learning_iot_intrusion_de_20260831_114802\\outputs\\gap_validation_audit.json": "773b8aab1a378ab28e9d79621016b3e7915dc0f40e4125ffbdb191ea4ff52aca",
+    "runs\\deep_learning_iot_intrusion_de_20260831_114802\\outputs\\temporal_backtest\\temporal_backtest_summary.json": "9806549a3bbc8e88803c5ab7b1eb496910498a2e02ae088bde02c0b772ec765a"
+  }
+}

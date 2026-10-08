@@ -1,0 +1,272 @@
+{
+  "metadata": {
+    "domain": "Explainable AI (XAI) & ML Security",
+    "description": "Expert-annotated gold standard triples from peer-reviewed scientific abstracts for extractor recall quantification",
+    "created_at": "2026-09-15T00:00:00Z",
+    "version": "2.0",
+    "num_papers": 10,
+    "num_triples": 36
+  },
+  "papers": [
+    {
+      "paper_id": "gold_xai_001",
+      "title": "A Unified Approach to Interpreting Model Predictions",
+      "year": 2017,
+      "text": "Understanding why a model makes a certain prediction is crucial. SHAP assigns each feature an importance value for a particular prediction. While SHAP addresses local explanation fidelity, it suffers from high computational overhead on deep neural networks.",
+      "gold_triples": [
+        {
+          "subject": "SHAP",
+          "relation": "ADDRESSES",
+          "object": "local explanation fidelity"
+        },
+        {
+          "subject": "SHAP",
+          "relation": "LACKS",
+          "object": "computational efficiency"
+        },
+        {
+          "subject": "SHAP",
+          "relation": "APPLIED_TO",
+          "object": "deep neural networks"
+        },
+        {
+          "subject": "SHAP",
+          "relation": "USES",
+          "object": "Shapley values"
+        }
+      ]
+    },
+    {
+      "paper_id": "gold_xai_002",
+      "title": "Why Should I Trust You?: Explaining the Predictions of Any Classifier",
+      "year": 2016,
+      "text": "LIME explains the predictions of any classifier by learning an interpretable model locally around the prediction. LIME evaluates on text classification benchmarks and improves user trust in machine learning models, but lacks theoretical convergence guarantees.",
+      "gold_triples": [
+        {
+          "subject": "LIME",
+          "relation": "EVALUATES_ON",
+          "object": "text classification benchmarks"
+        },
+        {
+          "subject": "LIME",
+          "relation": "IMPROVES",
+          "object": "user trust"
+        },
+        {
+          "subject": "LIME",
+          "relation": "LACKS",
+          "object": "theoretical convergence guarantees"
+        },
+        {
+          "subject": "LIME",
+          "relation": "USES",
+          "object": "sparse linear models"
+        }
+      ]
+    },
+    {
+      "paper_id": "gold_xai_003",
+      "title": "Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization",
+      "year": 2017,
+      "text": "Grad-CAM uses gradient localization to produce visual explanations for convolutional networks. It addresses spatial saliency and compares with guided backpropagation baselines, though it lacks pixel-level fine-grained resolution.",
+      "gold_triples": [
+        {
+          "subject": "Grad-CAM",
+          "relation": "USES",
+          "object": "gradient localization"
+        },
+        {
+          "subject": "Grad-CAM",
+          "relation": "ADDRESSES",
+          "object": "spatial saliency"
+        },
+        {
+          "subject": "Grad-CAM",
+          "relation": "COMPARES",
+          "object": "guided backpropagation"
+        },
+        {
+          "subject": "Grad-CAM",
+          "relation": "LACKS",
+          "object": "pixel-level fine-grained resolution"
+        }
+      ]
+    },
+    {
+      "paper_id": "gold_xai_004",
+      "title": "Axiomatic Attribution for Deep Networks",
+      "year": 2017,
+      "text": "Integrated Gradients improves attribution accuracy by satisfying completeness and implementation invariance. It addresses baseline selection sensitivity and uses path integrals, yet lacks computational speed during integration.",
+      "gold_triples": [
+        {
+          "subject": "Integrated Gradients",
+          "relation": "IMPROVES",
+          "object": "attribution accuracy"
+        },
+        {
+          "subject": "Integrated Gradients",
+          "relation": "ADDRESSES",
+          "object": "baseline selection sensitivity"
+        },
+        {
+          "subject": "Integrated Gradients",
+          "relation": "USES",
+          "object": "path integrals"
+        },
+        {
+          "subject": "Integrated Gradients",
+          "relation": "LACKS",
+          "object": "computational speed"
+        }
+      ]
+    },
+    {
+      "paper_id": "gold_xai_005",
+      "title": "Counterfactual Explanations without Opening the Black Box",
+      "year": 2018,
+      "text": "Counterfactual explanations improve algorithmic recourse by describing minimal input perturbations. They evaluate on tabular financial datasets and address user actionable feedback, but lack robustness under model retraining.",
+      "gold_triples": [
+        {
+          "subject": "Counterfactual explanations",
+          "relation": "IMPROVES",
+          "object": "algorithmic recourse"
+        },
+        {
+          "subject": "Counterfactual explanations",
+          "relation": "EVALUATES_ON",
+          "object": "tabular financial datasets"
+        },
+        {
+          "subject": "Counterfactual explanations",
+          "relation": "ADDRESSES",
+          "object": "actionable user feedback"
+        },
+        {
+          "subject": "Counterfactual explanations",
+          "relation": "LACKS",
+          "object": "robustness under model retraining"
+        }
+      ]
+    },
+    {
+      "paper_id": "gold_xai_006",
+      "title": "Sanity Checks for Saliency Maps",
+      "year": 2018,
+      "text": "We show that widely used saliency maps contradict randomized weight baselines. The study evaluates on deep vision architectures and compares gradient saliency against edge detectors.",
+      "gold_triples": [
+        {
+          "subject": "Saliency maps",
+          "relation": "CONTRADICTS",
+          "object": "randomized weight baselines"
+        },
+        {
+          "subject": "Saliency maps",
+          "relation": "EVALUATES_ON",
+          "object": "deep vision architectures"
+        },
+        {
+          "subject": "Gradient saliency",
+          "relation": "COMPARES",
+          "object": "edge detector baselines"
+        }
+      ]
+    },
+    {
+      "paper_id": "gold_xai_007",
+      "title": "Concept Activation Vectors for Interpretability",
+      "year": 2018,
+      "text": "TCAV uses directional derivatives to quantify concept importance. It improves domain expert interpretability, addresses semantic alignment, and applies to medical diagnostic images.",
+      "gold_triples": [
+        {
+          "subject": "TCAV",
+          "relation": "USES",
+          "object": "directional derivatives"
+        },
+        {
+          "subject": "TCAV",
+          "relation": "IMPROVES",
+          "object": "domain expert interpretability"
+        },
+        {
+          "subject": "TCAV",
+          "relation": "ADDRESSES",
+          "object": "semantic alignment"
+        },
+        {
+          "subject": "TCAV",
+          "relation": "APPLIED_TO",
+          "object": "medical diagnostic images"
+        }
+      ]
+    },
+    {
+      "paper_id": "gold_xai_008",
+      "title": "TreeSHAP: Fast Explanations for Tree Ensembles",
+      "year": 2020,
+      "text": "TreeSHAP uses tree structure recursion to compute exact Shapley values in polynomial time. It addresses combinatorial explosion in decision trees and applies to XGBoost models.",
+      "gold_triples": [
+        {
+          "subject": "TreeSHAP",
+          "relation": "USES",
+          "object": "tree structure recursion"
+        },
+        {
+          "subject": "TreeSHAP",
+          "relation": "ADDRESSES",
+          "object": "combinatorial explosion"
+        },
+        {
+          "subject": "TreeSHAP",
+          "relation": "APPLIED_TO",
+          "object": "XGBoost"
+        }
+      ]
+    },
+    {
+      "paper_id": "gold_xai_009",
+      "title": "Fairness and Interpretability in Machine Learning",
+      "year": 2021,
+      "text": "We study fairness in attribution methods. The framework uses constrained optimization, addresses systemic bias in predictions, and lacks empirical validation across large-scale datasets.",
+      "gold_triples": [
+        {
+          "subject": "Fairness framework",
+          "relation": "USES",
+          "object": "constrained optimization"
+        },
+        {
+          "subject": "Fairness framework",
+          "relation": "ADDRESSES",
+          "object": "systemic bias in predictions"
+        },
+        {
+          "subject": "Fairness framework",
+          "relation": "LACKS",
+          "object": "empirical validation"
+        }
+      ]
+    },
+    {
+      "paper_id": "gold_xai_010",
+      "title": "Adversarial Attacks on Explanation Methods",
+      "year": 2020,
+      "text": "Explanation manipulation methods deceive attribution frameworks without altering model predictions. We evaluate on ImageNet and demonstrate that gradient-based explainers use vulnerable sensitivity points.",
+      "gold_triples": [
+        {
+          "subject": "Explanation manipulation",
+          "relation": "EVALUATES_ON",
+          "object": "ImageNet"
+        },
+        {
+          "subject": "Gradient explainers",
+          "relation": "USES",
+          "object": "vulnerable sensitivity points"
+        },
+        {
+          "subject": "Adversarial perturbations",
+          "relation": "ADDRESSES",
+          "object": "attribution vulnerability"
+        }
+      ]
+    }
+  ]
+}

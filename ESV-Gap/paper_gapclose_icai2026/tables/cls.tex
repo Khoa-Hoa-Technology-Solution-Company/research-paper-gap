@@ -1,0 +1,14 @@
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lcccccc}
+\toprule
+Method & F1 & 95\% CI & FN & FC & Wit. & AURC \\
+\midrule
+CoMention & 0.669 & [0.61, 0.72] & 0.197 & 0.473 & 0.291 & 0.190 \\
+BM25 & 0.660 & [0.60, 0.72] & 0.197 & 0.491 & n/a & 0.217 \\
+Dense (MiniLM) & 0.631 & [0.58, 0.68] & 0.319 & 0.411 & n/a & 0.246 \\
+BGE-large dense & 0.699 & [0.64, 0.75] & 0.213 & 0.393 & n/a & 0.185 \\
+BGE reranker & \textbf{0.713} & [0.66, 0.77] & 0.245 & 0.321 & n/a & \textbf{0.124} \\
+NLI-verify & 0.663 & [0.60, 0.71] & 0.239 & 0.438 & 0.503 & 0.225 \\
+ESV-Learned & 0.687 & [0.63, 0.74] & 0.234 & 0.393 & 0.576 & 0.156 \\
+\bottomrule
+\end{tabular}

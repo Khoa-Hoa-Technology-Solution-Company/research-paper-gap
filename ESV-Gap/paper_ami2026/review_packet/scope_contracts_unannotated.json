@@ -1,0 +1,782 @@
+[
+  {
+    "candidate_id": "H-105594bdd936bba4",
+    "domain": "iot_intrusion_detection",
+    "subject": "deep learning IoT intrusion detection",
+    "capability": "zero-day attacks",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-9ec85c9045db134c",
+    "domain": "iot_intrusion_detection",
+    "subject": "traditional IDS methods",
+    "capability": "polymorphic malware",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-918398aba1257afa",
+    "domain": "iot_intrusion_detection",
+    "subject": "traditional IDS methods",
+    "capability": "advanced persistent threats",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-96c9fe8eec5f7c79",
+    "domain": "iot_intrusion_detection",
+    "subject": "deep learning IoT intrusion detection",
+    "capability": "Standardized security protocols across IoT devices",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-e75bfbdef3e62ad8",
+    "domain": "iot_intrusion_detection",
+    "subject": "major limitations remain, including dependence on benchmark datasets",
+    "capability": "limited explainability",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-d5bb1fcaff88df0f",
+    "domain": "iot_intrusion_detection",
+    "subject": "major limitations remain, including dependence on benchmark datasets",
+    "capability": "computational complexity",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-572763a172048272",
+    "domain": "iot_intrusion_detection",
+    "subject": "major limitations remain, including dependence on benchmark datasets",
+    "capability": "dataset imbalance",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-fd8549192e62a05d",
+    "domain": "iot_intrusion_detection",
+    "subject": "major limitations remain, including dependence on benchmark datasets",
+    "capability": "insufficient evaluation against encrypted",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-99cbdbc2f410809d",
+    "domain": "iot_intrusion_detection",
+    "subject": "challenges related to computational burdens, adversarial attacks, concept drift and",
+    "capability": "model standardization need resolution before widespread field deployment",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-f121647aacc1c383",
+    "domain": "iot_intrusion_detection",
+    "subject": "Advancing cybersecurity and privacy with artificial intelligence: current trends and future research directions",
+    "capability": "a comprehensive synthesis of AI's use in cybersecurity",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-0ff072d38f0ca149",
+    "domain": "iot_intrusion_detection",
+    "subject": "Advancing cybersecurity and privacy with artificial intelligence: current trends and future research directions",
+    "capability": "privacy across the vast literature",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-63db15c3b0bfe64a",
+    "domain": "iot_intrusion_detection",
+    "subject": "Advancing cybersecurity and privacy with artificial intelligence: current trends and future research directions",
+    "capability": "aiming to identify existing gaps",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-93430c1cd5383bea",
+    "domain": "iot_intrusion_detection",
+    "subject": "Advancing cybersecurity and privacy with artificial intelligence: current trends and future research directions",
+    "capability": "guide further progress",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-6850f446c3949313",
+    "domain": "iot_intrusion_detection",
+    "subject": "deep learning IoT intrusion detection",
+    "capability": "real-world industrial validation",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-dd8a9deacb550890",
+    "domain": "iot_intrusion_detection",
+    "subject": "machine learning-driven intrusion detection frameworks",
+    "capability": "computational burdens",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-273c020af84d6999",
+    "domain": "iot_intrusion_detection",
+    "subject": "machine learning-driven intrusion detection frameworks",
+    "capability": "adversarial attacks",
+    "contract": {
+      "task": "",
+      "domain": "iot_intrusion_detection",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-2ab1ad52cca87b46",
+    "domain": "microservice_security",
+    "subject": "Docker",
+    "capability": "way to get necessary system calls for a particular container",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2022-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2022-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-ce328691b05cf103",
+    "domain": "microservice_security",
+    "subject": "security of microservices",
+    "capability": "security enforcement over sensitive data",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2022-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2022-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-5301f16e3e96bbe2",
+    "domain": "microservice_security",
+    "subject": "security of microservices",
+    "capability": "trusted third party",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2022-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2022-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-35b0cc07d7682fb5",
+    "domain": "microservice_security",
+    "subject": "traditional Zero Trust models",
+    "capability": "dynamic policy enforcement",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2022-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2022-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-4d866c416ea2bcb9",
+    "domain": "microservice_security",
+    "subject": "traditional Zero Trust models",
+    "capability": "real-time analytics",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2022-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2022-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-61fb54bc4902ff4a",
+    "domain": "microservice_security",
+    "subject": "Docker",
+    "capability": "way to get necessary system calls for a particular container",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2023-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2023-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-02089d04ad94afa0",
+    "domain": "microservice_security",
+    "subject": "security of microservices",
+    "capability": "approaches focusing on resolving Dockerfile smells",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2023-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2023-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-3c95ee2d95792117",
+    "domain": "microservice_security",
+    "subject": "security of microservices",
+    "capability": "security enforcement over sensitive data",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2023-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2023-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-9f7a4c0fbe8e8663",
+    "domain": "microservice_security",
+    "subject": "security of microservices",
+    "capability": "trusted third party",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2023-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2023-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-83380f802af57fad",
+    "domain": "microservice_security",
+    "subject": "traditional Zero Trust models",
+    "capability": "dynamic policy enforcement",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2023-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2023-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-5ab3b617bb1fcdb2",
+    "domain": "microservice_security",
+    "subject": "traditional Zero Trust models",
+    "capability": "real-time analytics",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2023-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2023-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-8ff4e516b91d4f29",
+    "domain": "microservice_security",
+    "subject": "Docker",
+    "capability": "way to get necessary system calls for a particular container",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-a526077d3b7ee3fc",
+    "domain": "microservice_security",
+    "subject": "Microservices Architecture",
+    "capability": "Comprehensive analysis",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-d74d74c13676f308",
+    "domain": "microservice_security",
+    "subject": "security of microservices",
+    "capability": "approaches focusing on resolving Dockerfile smells",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-0e5ec66ce716b9b8",
+    "domain": "microservice_security",
+    "subject": "security of microservices",
+    "capability": "security enforcement over sensitive data",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-d8a40e415437dc97",
+    "domain": "microservice_security",
+    "subject": "security of microservices",
+    "capability": "trusted third party",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-aa0aa1a6d4a166a6",
+    "domain": "microservice_security",
+    "subject": "traditional Zero Trust models",
+    "capability": "dynamic policy enforcement",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-b1049298eb44aa9a",
+    "domain": "microservice_security",
+    "subject": "traditional Zero Trust models",
+    "capability": "real-time analytics",
+    "contract": {
+      "task": "",
+      "domain": "microservice_security",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-f24984844ae0317d",
+    "domain": "mongodb_security",
+    "subject": "NoSQL databases",
+    "capability": "control over access",
+    "contract": {
+      "task": "",
+      "domain": "mongodb_security",
+      "cutoff": "2024-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2024-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-56ad5647ec344617",
+    "domain": "handwritten_math_recognition",
+    "subject": "GPT-4V",
+    "capability": "outperforming state-of-the-art OCR models",
+    "contract": {
+      "task": "",
+      "domain": "handwritten_math_recognition",
+      "cutoff": "2023-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2023-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-611373b8a403d832",
+    "domain": "handwritten_math_recognition",
+    "subject": "GPT-4V",
+    "capability": "handling multilingual scenarios",
+    "contract": {
+      "task": "",
+      "domain": "handwritten_math_recognition",
+      "cutoff": "2023-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2023-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-79d2402a08d5526b",
+    "domain": "handwritten_math_recognition",
+    "subject": "GPT-4V",
+    "capability": "handling non-Latin languages",
+    "contract": {
+      "task": "",
+      "domain": "handwritten_math_recognition",
+      "cutoff": "2023-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2023-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  },
+  {
+    "candidate_id": "H-455ba603f510bc27",
+    "domain": "handwritten_math_recognition",
+    "subject": "GPT-4V",
+    "capability": "handling complex OCR tasks",
+    "contract": {
+      "task": "",
+      "domain": "handwritten_math_recognition",
+      "cutoff": "2023-12-31",
+      "conditions": [],
+      "requirements": [],
+      "scope_reviewed": false
+    },
+    "evidence": [],
+    "ledger": {
+      "cutoff": "2023-12-31",
+      "required_probe_ids": [],
+      "probes": []
+    }
+  }
+]

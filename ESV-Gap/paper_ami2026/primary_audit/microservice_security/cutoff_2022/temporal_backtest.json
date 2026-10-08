@@ -1,0 +1,765 @@
+{
+  "cutoff_year": 2022,
+  "prediction_window": [
+    2023,
+    2025
+  ],
+  "pre_cutoff_papers": 47,
+  "post_cutoff_papers": 96,
+  "pre_cutoff_triples": 382,
+  "post_cutoff_triples": 516,
+  "leakage_check_passed": true,
+  "leakage_violations": [],
+  "metrics": {
+    "candidate_count": 5,
+    "positive_control_count": 14,
+    "negative_control_count": 14,
+    "candidate_recall_at_k": {
+      "5": 0.0,
+      "10": 0.0,
+      "20": 0.0
+    },
+    "candidate_precision_at_k_on_labelled_controls": {
+      "5": 0.0,
+      "10": 0.0,
+      "20": 0.0
+    },
+    "precision_after_local_closure_on_labelled_controls": null,
+    "labelled_true_positives_after_local_closure": 0,
+    "labelled_false_positives_after_local_closure": 0,
+    "false_positive_rate_on_known_negatives": 0.0,
+    "known_negatives_selected_after_local_closure": 0,
+    "unlabelled_candidate_count": 1,
+    "label_abstention_rate": 0.2,
+    "certified_candidate_count": 0,
+    "certificate_precision": null,
+    "certification_abstention_rate": 1.0,
+    "certificate_metric_status": "not_estimable_without_historical_full_text_and_closure_snapshots"
+  },
+  "positive_controls": [
+    {
+      "control_id": "tc_915f9efd4a0d72bf",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "Adversarial Textured 3D Meshes",
+      "missing_capability": "satisfactory transferability",
+      "paper_id": "e588795c847b4134de3b0a3be282294337bd5078",
+      "year": 2023,
+      "limitation_evidence": "can be trapped into local optima with unsatisfactory transferability",
+      "resolution_relation": "IMPROVES",
+      "resolution_evidence": "significantly improves black-box transferability"
+    },
+    {
+      "control_id": "tc_a929a29f2560a3e2",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "MCP",
+      "missing_capability": "formal methods for dynamic systems",
+      "paper_id": "360fb790e0110c48dce1052a759a5dd1bb6e417b",
+      "year": 2025,
+      "limitation_evidence": "we close by outlining open research questions around formal methods for these dynamic systems",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "The Model Context Protocol (MCP) replaces static, developer-controlled API integrations with more dynamic, user-driven agent systems, which also introduces new security risks."
+    },
+    {
+      "control_id": "tc_c9dc60b4c61e16c9",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "Security Analysis of Microservices",
+      "missing_capability": "Dynamic Analysis",
+      "paper_id": "096e9e395b14a23ad60d30e21a118ffd1183475a",
+      "year": 2023,
+      "limitation_evidence": "We present a systematic literature review that extracts current approaches for the security analysis of microservices and the violation of security principles.",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "We present a systematic literature review that extracts current approaches for the security analysis of microservices and the violation of security principles."
+    },
+    {
+      "control_id": "tc_2ebafd792c8973ab",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "Security Analysis of Microservices",
+      "missing_capability": "Security Principles",
+      "paper_id": "096e9e395b14a23ad60d30e21a118ffd1183475a",
+      "year": 2023,
+      "limitation_evidence": "We present a systematic literature review that extracts current approaches for the security analysis of microservices and the violation of security principles.",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "We present a systematic literature review that extracts current approaches for the security analysis of microservices and the violation of security principles."
+    },
+    {
+      "control_id": "tc_23e1a300bda3ca06",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "security scanning tools",
+      "missing_capability": "sufficiency to cover all security problems in microservices",
+      "paper_id": "3d0652271dcd2d7dae893a65624387d471f17d15",
+      "year": 2023,
+      "limitation_evidence": "none individually is sufficient to cover all security problems in microservices",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "help developers address security issues in microservices"
+    },
+    {
+      "control_id": "tc_e982ffef714a19e2",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "aggregator platforms",
+      "missing_capability": "data integration and interoperability",
+      "paper_id": "252fbabfb0eab0c049c8e251aa7f0e842d84cd4e",
+      "year": 2024,
+      "limitation_evidence": "The paper also addresses the challenges of data integration and interoperability in aggregator platforms.",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "The paper also addresses the challenges of data integration and interoperability in aggregator platforms."
+    },
+    {
+      "control_id": "tc_11bf28f3d14976e6",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "nested virtualization in the x86 architecture",
+      "missing_capability": "hardware virtualization support",
+      "paper_id": "05b002004a65f4ad98024d3159ff9ada4f8120f6",
+      "year": 2023,
+      "limitation_evidence": "State-of-the-art nested virtualization in the x86 architecture relies heavily on the host hypervisor to expose hardware virtualization support to the guest hypervisor",
+      "resolution_relation": "APPLIED_TO",
+      "resolution_evidence": "This paper presents the design and implementation of PVM, a high-performance guest hypervisor for KVM that is transparent to the host hypervisor and assumes no hardware virtualization support"
+    },
+    {
+      "control_id": "tc_f22f66824f54178f",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "Kubernetes",
+      "missing_capability": "comprehensive security framework",
+      "paper_id": "ad4a3919ed21d2e362ecb72088f4b94f69a9e824",
+      "year": 2024,
+      "limitation_evidence": "While Kubernetes offers numerous benefits, it also introduces a unique set of security concerns that must be carefully navigated.",
+      "resolution_relation": "EXTENDS",
+      "resolution_evidence": "This paper aims to provide a comprehensive overview of the security threats and challenges faced in Kubernetes environments, as well as the current approaches and tools used to address these critical issues."
+    },
+    {
+      "control_id": "tc_b6060828eb5f1484",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "phased approach to cloud migration",
+      "missing_capability": "evaluation of performance monitoring",
+      "paper_id": "cde7cb26a4b7e9b08e064e0fb017eafbb8be919e",
+      "year": 2024,
+      "limitation_evidence": "Performance monitoring, real-time logging, and proactive maintenance are emphasized for sustained efficiency and cost control in cloud environments.",
+      "resolution_relation": "PRODUCES",
+      "resolution_evidence": "Performance monitoring, real-time logging, and proactive maintenance are emphasized for sustained efficiency and cost control in cloud environments."
+    },
+    {
+      "control_id": "tc_d4be8a42ce3fb395",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "Microservices",
+      "missing_capability": "unique security and adaptability requirements of industrial edge computing",
+      "paper_id": "5992d725f0e9623ba28e7d86c47c140c5048b597",
+      "year": 2025,
+      "limitation_evidence": "existing microservice orchestration platforms are designed for stable cloud environments",
+      "resolution_relation": "IMPROVES",
+      "resolution_evidence": "we propose a novel vulnerability-aware microservice orchestration framework for secure edge computing in ICPS"
+    },
+    {
+      "control_id": "tc_96be63de98b41f2f",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "Microservices-Based Platforms",
+      "missing_capability": "Security Techniques",
+      "paper_id": "83f183cfc75b5bfb1555a1769dd30f5d3fa714d3",
+      "year": 2024,
+      "limitation_evidence": "the distributed nature of these architectures heightens susceptibility to malicious network infrastructure use.",
+      "resolution_relation": "IMPROVES",
+      "resolution_evidence": "Proposed strategies to mitigate these risks include developing intrusion detection systems and utilizing machine learning to differentiate between normal and anomalous network traffic, indicating potential attacks."
+    },
+    {
+      "control_id": "tc_f53726590bbaeb94",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "Peak Availability",
+      "missing_capability": "Data Security Bottleneck",
+      "paper_id": "13d87ea299cb7496c55a6a56936aaea73ac3cb8c",
+      "year": 2024,
+      "limitation_evidence": "Thus, maintaining peak availability and responsiveness of the software system at all times becomes a complex task with data security",
+      "resolution_relation": "EXTENDS",
+      "resolution_evidence": "In this paper, we study the impact of encryption and data security on the availability and cost-to-serve of a cloud-native enterprise application and discuss a novel approach"
+    },
+    {
+      "control_id": "tc_d1c9124d3276b5a4",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "Data Security",
+      "missing_capability": "Peak Availability",
+      "paper_id": "13d87ea299cb7496c55a6a56936aaea73ac3cb8c",
+      "year": 2024,
+      "limitation_evidence": "Thus, maintaining peak availability and responsiveness of the software system at all times becomes a complex task with data security",
+      "resolution_relation": "EXTENDS",
+      "resolution_evidence": "In this paper, we study the impact of encryption and data security on the availability and cost-to-serve of a cloud-native enterprise application and discuss a novel approach"
+    },
+    {
+      "control_id": "tc_6e662e62da89d7c6",
+      "control_type": "limitation_resolution",
+      "label": "positive",
+      "subject": "DockerCleaner",
+      "missing_capability": "approaches focusing on resolving Dockerfile smells",
+      "paper_id": "c389b63370a6045280a28ecacf13e849dd4cb802",
+      "year": 2023,
+      "limitation_evidence": "Still, there is a lack of approaches focusing on resolving these issues.",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "Therefore, we present DockerCleaner, an automated repair tool that suggests fixes for eleven Dockerfile security smell types."
+    }
+  ],
+  "negative_controls": [
+    {
+      "control_id": "tc_210df0e7b1486205",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "Container Security",
+      "missing_capability": "container security requirements",
+      "paper_id": "1421f8f8acf962bb6785fd41d27e1886fc07c7a3",
+      "year": 2019,
+      "limitation_evidence": "We have derived four generalized use cases that should cover security requirements within the host-container threat landscape.",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "Although they are considered the standardized method for microservices deployment, playing an important role in cloud computing emerging fields such as service meshes, market surveys show that container security is the main concern and adoption barrier for many companies."
+    },
+    {
+      "control_id": "tc_dab53e4c1bb40d82",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "Container Security",
+      "missing_capability": "container security vulnerabilities",
+      "paper_id": "1421f8f8acf962bb6785fd41d27e1886fc07c7a3",
+      "year": 2019,
+      "limitation_evidence": "We found that the first three use cases utilize a software-based solutions that mainly rely on Linux kernel features (e.g., namespaces, CGroups, capabilities, and seccomp) and Linux security modules (e.g., AppArmor).",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "Although they are considered the standardized method for microservices deployment, playing an important role in cloud computing emerging fields such as service meshes, market surveys show that container security is the main concern and adoption barrier for many companies."
+    },
+    {
+      "control_id": "tc_612cd6e4c08472cd",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "Container Security",
+      "missing_capability": "container security attacks",
+      "paper_id": "1421f8f8acf962bb6785fd41d27e1886fc07c7a3",
+      "year": 2019,
+      "limitation_evidence": "We found that the first three use cases utilize a software-based solutions that mainly rely on Linux kernel features (e.g., namespaces, CGroups, capabilities, and seccomp) and Linux security modules (e.g., AppArmor).",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "Although they are considered the standardized method for microservices deployment, playing an important role in cloud computing emerging fields such as service meshes, market surveys show that container security is the main concern and adoption barrier for many companies."
+    },
+    {
+      "control_id": "tc_d8eaf0b836832e4c",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "traditional Zero Trust models",
+      "missing_capability": "dynamic policy enforcement",
+      "paper_id": "78f08ef91356d0dc0806ea165a3649f89859dde1",
+      "year": 2021,
+      "limitation_evidence": "However, traditional Zero Trust models, characterized by static policies and rigid access control mechanisms, struggle to keep up with the dynamic nature of modern cloud networks.",
+      "resolution_relation": "EXTENDS",
+      "resolution_evidence": "This review proposes a conceptual shift towards a more granular and dynamic approach to Zero Trust in cloud environments, focusing on the integration of real-time, context-aware access control and adaptive policy enforcement."
+    },
+    {
+      "control_id": "tc_5af4c12707e7ea67",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "traditional Zero Trust models",
+      "missing_capability": "real-time analytics",
+      "paper_id": "78f08ef91356d0dc0806ea165a3649f89859dde1",
+      "year": 2021,
+      "limitation_evidence": "However, traditional Zero Trust models, characterized by static policies and rigid access control mechanisms, struggle to keep up with the dynamic nature of modern cloud networks.",
+      "resolution_relation": "EXTENDS",
+      "resolution_evidence": "This review proposes a conceptual shift towards a more granular and dynamic approach to Zero Trust in cloud environments, focusing on the integration of real-time, context-aware access control and adaptive policy enforcement."
+    },
+    {
+      "control_id": "tc_ad46a9ff0a954e62",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "Security Diagnosis as a Service (SDaaS)",
+      "missing_capability": "security enforcement over sensitive data",
+      "paper_id": "10ed1e0f55fac983edaae19114d99530cfe1c0d7",
+      "year": 2019,
+      "limitation_evidence": "This security risk is further magnified by the loss of control and lack of security enforcement over sensitive data manipulated by SaaS applications.",
+      "resolution_relation": "IMPROVES",
+      "resolution_evidence": "The experiments show that the framework is a viable solution to protect against data integrity and confidentiality violations."
+    },
+    {
+      "control_id": "tc_4738f3e19cf593a4",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "API service mesh",
+      "missing_capability": "automatic association of new APIs to already existing categories of service mesh",
+      "paper_id": "fb5f97bac92f592b0c7905f22c800ab1350a40d6",
+      "year": 2019,
+      "limitation_evidence": "To the best of our knowledge, this smart association model is the first of its kind.",
+      "resolution_relation": "PRODUCES",
+      "resolution_evidence": "Afterwards, we propose an smart association model for automatic association of new APIs to already existing categories of service mesh."
+    },
+    {
+      "control_id": "tc_9c281ec892a5dfff",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "API service mesh",
+      "missing_capability": "security framework",
+      "paper_id": "fb5f97bac92f592b0c7905f22c800ab1350a40d6",
+      "year": 2019,
+      "limitation_evidence": "To the best of our knowledge, this smart association model is the first of its kind.",
+      "resolution_relation": "APPLIED_TO",
+      "resolution_evidence": "In this paper, we propose and implement a security framework for the creation of a secure API service mesh using Istio and Kubernetes."
+    },
+    {
+      "control_id": "tc_33c8bced09824997",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "Bluetooth Mesh",
+      "missing_capability": "robust security model",
+      "paper_id": "22bdf00a0c028494348d7416927a574161966e95",
+      "year": 2019,
+      "limitation_evidence": "the security model underlying the friendship concept introduces a number of simplifying assumptions that can be harnessed against the Bluetooth Mesh network.",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "In this paper, we show that the security model underlying the friendship concept introduces a number of simplifying assumptions that can be harnessed against the Bluetooth Mesh network."
+    },
+    {
+      "control_id": "tc_1e72f04b4bc12dbd",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "dtPRD framework",
+      "missing_capability": "comprehensive evaluation of existing approaches",
+      "paper_id": "03dc082c3412b9d92c27120d6d62e18623b0a898",
+      "year": 2020,
+      "limitation_evidence": "Throughout the paper, we present experimental and validation results of our proposed approach...",
+      "resolution_relation": "IMPROVES",
+      "resolution_evidence": "Throughout the paper, we present experimental and validation results of our proposed approach..."
+    },
+    {
+      "control_id": "tc_1230d6025bea8527",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "existing works",
+      "missing_capability": "solution for unknown attacks",
+      "paper_id": "012892623ff03d72de8b740ffc22f599e6b8bfee",
+      "year": 2022,
+      "limitation_evidence": "Existing works attempted to reduce this risk with vulnerability-scanning tools.",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "In this paper, we propose a novel system to strengthen container security from unknown attack using the mimic defense framework."
+    },
+    {
+      "control_id": "tc_0b1d1fde8ee9eff9",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "Docker container images",
+      "missing_capability": "Security audit tool",
+      "paper_id": "490db7d467fdcc55f08eed4914c543af4c2f304b",
+      "year": 2021,
+      "limitation_evidence": "The use cases can serve as a security auditing tool during the development, deployment, and maintenance of cloud microservices applications.",
+      "resolution_relation": "EXTENDS",
+      "resolution_evidence": "A set of use cases compliant with the NIST SP 800-190 Application Container Security Guide is developed for audit compliance of Docker container images with the OWASP Container Security Verification Standards (CSVS)."
+    },
+    {
+      "control_id": "tc_d86436e81cc802e2",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "Docker",
+      "missing_capability": "way to get necessary system calls for a particular container",
+      "paper_id": "63360f7238198e4d211f2d2f982b790eb7c6ff58",
+      "year": 2020,
+      "limitation_evidence": "Unfortunately, Docker does not provide a way to get the necessary system calls for a particular container",
+      "resolution_relation": "ADDRESSES",
+      "resolution_evidence": "In this paper, we propose RSDS, a method combining dynamic analysis and static analysis to get the necessary system calls for a particular container."
+    },
+    {
+      "control_id": "tc_53c68bf6083b3f00",
+      "control_type": "limitation_resolution",
+      "label": "negative",
+      "subject": "HT-RBAC",
+      "missing_capability": "maintaining the security of access control",
+      "paper_id": "1f8acfefbdaca20fc15c65d88186e5a5880c8407",
+      "year": 2021,
+      "limitation_evidence": "However, increasing the number of services results in a challenge to maintain the security of access control.",
+      "resolution_relation": "EXTENDS",
+      "resolution_evidence": "The extended Role-Based Access Control model (Hierarchical Trust RBAC: HT-RBAC) for microservice security managers is proposed for leveraging threats of unauthorized access to sensitive information and identity verification across all environments in application container solutions."
+    }
+  ],
+  "ranked_candidates": [
+    {
+      "type": "evidence_gap",
+      "evidence_cell_id": "cell_93fec9fe9f83cdf6",
+      "subject": "Docker",
+      "missing_capability": "way to get necessary system calls for a particular container",
+      "canonical_limitation_tokens": [
+        "calls",
+        "container",
+        "get",
+        "necessary",
+        "particular",
+        "way"
+      ],
+      "limitation_variants": [
+        "way to get necessary system calls for a particular container"
+      ],
+      "key_concepts": [
+        "Docker",
+        "way to get necessary system calls for a particular container"
+      ],
+      "supporting_paper_ids": [
+        "63360f7238198e4d211f2d2f982b790eb7c6ff58"
+      ],
+      "supporting_paper_count": 1,
+      "source_evidence": [
+        {
+          "paper_id": "63360f7238198e4d211f2d2f982b790eb7c6ff58",
+          "year": 2020,
+          "confidence": 1.0,
+          "evidence": "Unfortunately, Docker does not provide a way to get the necessary system calls for a particular container",
+          "semantic_scope": "subject",
+          "semantic_validation": "explicit_unresolved_problem",
+          "source_subject": "Docker",
+          "atomic_limitation": "way to get necessary system calls for a particular container"
+        }
+      ],
+      "semantic_scope": "subject",
+      "domain": "security of microservices",
+      "mean_evidence_confidence": 1.0,
+      "first_reported_year": 2020,
+      "latest_reported_year": 2020,
+      "research_frame": {
+        "methods": [
+          "RSDS",
+          "seccomp mechanism",
+          "dynamic analysis",
+          "static analysis",
+          "default configuration"
+        ],
+        "datasets": [
+          "x86-64 PC with Ubuntu 16.04 host OS"
+        ],
+        "metrics": [],
+        "concepts": [
+          "system call whitelist",
+          "getting system call whitelist for container",
+          "abuse of system calls",
+          "security of host kernel"
+        ]
+      },
+      "candidate_quality": {
+        "score": 0.65,
+        "independent_source_count": 1,
+        "semantic_cohesion": 1.0,
+        "frame_completeness": 0.6667,
+        "full_text_source_count": 0,
+        "full_text_coverage": 0.0,
+        "certificate_readiness": {
+          "independent_sources_ready": false,
+          "full_text_ready": false,
+          "research_frame_ready": true
+        }
+      },
+      "description": "Evidence cell 'way to get necessary system calls for a particular container' is reported by 1 independent paper(s) in security of microservices.",
+      "draft_claim": "Within the screened corpus, independent evidence reports 'way to get necessary system calls for a particular container' as an unresolved limitation."
+    },
+    {
+      "type": "evidence_gap",
+      "evidence_cell_id": "cell_b5b5a7115233010a",
+      "subject": "security of microservices",
+      "missing_capability": "security enforcement over sensitive data",
+      "canonical_limitation_tokens": [
+        "dataset",
+        "enforcement",
+        "over",
+        "security",
+        "sensitive"
+      ],
+      "limitation_variants": [
+        "security enforcement over sensitive data"
+      ],
+      "key_concepts": [
+        "security of microservices",
+        "security enforcement over sensitive data"
+      ],
+      "supporting_paper_ids": [
+        "10ed1e0f55fac983edaae19114d99530cfe1c0d7"
+      ],
+      "supporting_paper_count": 1,
+      "source_evidence": [
+        {
+          "paper_id": "10ed1e0f55fac983edaae19114d99530cfe1c0d7",
+          "year": 2019,
+          "confidence": 0.7,
+          "evidence": "This security risk is further magnified by the loss of control and lack of security enforcement over sensitive data manipulated by SaaS applications.",
+          "semantic_scope": "field",
+          "semantic_validation": "explicit_unresolved_problem",
+          "source_subject": "Security Diagnosis as a Service (SDaaS)",
+          "atomic_limitation": "security enforcement over sensitive data"
+        },
+        {
+          "paper_id": "10ed1e0f55fac983edaae19114d99530cfe1c0d7",
+          "year": 2019,
+          "confidence": 0.7,
+          "evidence": "This security risk is further magnified by the loss of control and lack of security enforcement over sensitive data manipulated by SaaS applications.",
+          "semantic_scope": "field",
+          "semantic_validation": "explicit_unresolved_problem",
+          "source_subject": "data integrity and confidentiality violations",
+          "atomic_limitation": "security enforcement over sensitive data"
+        }
+      ],
+      "semantic_scope": "field",
+      "domain": "security of microservices",
+      "mean_evidence_confidence": 0.7,
+      "first_reported_year": 2019,
+      "latest_reported_year": 2019,
+      "research_frame": {
+        "methods": [
+          "Security Diagnosis as a Service (SDaaS)"
+        ],
+        "datasets": [
+          "benchmark applications"
+        ],
+        "metrics": [],
+        "concepts": [
+          "information flow vulnerabilities",
+          "data integrity and confidentiality violations",
+          "novel as well as prevalent attack vectors",
+          "SaaS applications",
+          "microservices architecture",
+          "Web technologies",
+          "service-oriented architecture (SOA)"
+        ]
+      },
+      "candidate_quality": {
+        "score": 0.59,
+        "independent_source_count": 1,
+        "semantic_cohesion": 1.0,
+        "frame_completeness": 0.6667,
+        "full_text_source_count": 0,
+        "full_text_coverage": 0.0,
+        "certificate_readiness": {
+          "independent_sources_ready": false,
+          "full_text_ready": false,
+          "research_frame_ready": true
+        }
+      },
+      "description": "Evidence cell 'security enforcement over sensitive data' is reported by 1 independent paper(s) in security of microservices.",
+      "draft_claim": "Within the screened corpus, independent evidence reports 'security enforcement over sensitive data' as an unresolved limitation."
+    },
+    {
+      "type": "evidence_gap",
+      "evidence_cell_id": "cell_8c97cda1dd2537b0",
+      "subject": "security of microservices",
+      "missing_capability": "trusted third party",
+      "canonical_limitation_tokens": [
+        "party",
+        "third",
+        "trusted"
+      ],
+      "limitation_variants": [
+        "trusted third party"
+      ],
+      "key_concepts": [
+        "security of microservices",
+        "trusted third party"
+      ],
+      "supporting_paper_ids": [
+        "acdc04eca48e79a05f14e730c7b3c1b912575115"
+      ],
+      "supporting_paper_count": 1,
+      "source_evidence": [
+        {
+          "paper_id": "acdc04eca48e79a05f14e730c7b3c1b912575115",
+          "year": 2022,
+          "confidence": 0.8,
+          "evidence": "The crucial security issue with these networks is the lack of a trusted third party for validation.",
+          "semantic_scope": "field",
+          "semantic_validation": "explicit_unresolved_problem",
+          "source_subject": "Wireless Mesh Network (WMN)",
+          "atomic_limitation": "trusted third party"
+        },
+        {
+          "paper_id": "acdc04eca48e79a05f14e730c7b3c1b912575115",
+          "year": 2022,
+          "confidence": 0.8,
+          "evidence": "The crucial security issue with these networks is the lack of a trusted third party for validation.",
+          "semantic_scope": "field",
+          "semantic_validation": "explicit_unresolved_problem",
+          "source_subject": "IoT Mesh networks",
+          "atomic_limitation": "trusted third party"
+        }
+      ],
+      "semantic_scope": "field",
+      "domain": "security of microservices",
+      "mean_evidence_confidence": 0.8,
+      "first_reported_year": 2022,
+      "latest_reported_year": 2022,
+      "research_frame": {
+        "methods": [
+          "Trust Similarity",
+          "weighted D-S theory",
+          "novel trust mechanism framework"
+        ],
+        "datasets": [],
+        "metrics": [],
+        "concepts": [
+          "Wireless Mesh Network (WMN)",
+          "packet-forwarding behavior",
+          "nodes' cooperation",
+          "IoT Mesh networks",
+          "promiscuous mode",
+          "malicious nodes",
+          "direct trust",
+          "indirect trust"
+        ]
+      },
+      "candidate_quality": {
+        "score": 0.56,
+        "independent_source_count": 1,
+        "semantic_cohesion": 1.0,
+        "frame_completeness": 0.3333,
+        "full_text_source_count": 0,
+        "full_text_coverage": 0.0,
+        "certificate_readiness": {
+          "independent_sources_ready": false,
+          "full_text_ready": false,
+          "research_frame_ready": false
+        }
+      },
+      "description": "Evidence cell 'trusted third party' is reported by 1 independent paper(s) in security of microservices.",
+      "draft_claim": "Within the screened corpus, independent evidence reports 'trusted third party' as an unresolved limitation."
+    },
+    {
+      "type": "evidence_gap",
+      "evidence_cell_id": "cell_c10aa46642b629dc",
+      "subject": "traditional Zero Trust models",
+      "missing_capability": "dynamic policy enforcement",
+      "canonical_limitation_tokens": [
+        "dynamic",
+        "enforcement",
+        "policy"
+      ],
+      "limitation_variants": [
+        "dynamic policy enforcement"
+      ],
+      "key_concepts": [
+        "traditional Zero Trust models",
+        "dynamic policy enforcement"
+      ],
+      "supporting_paper_ids": [
+        "78f08ef91356d0dc0806ea165a3649f89859dde1"
+      ],
+      "supporting_paper_count": 1,
+      "source_evidence": [
+        {
+          "paper_id": "78f08ef91356d0dc0806ea165a3649f89859dde1",
+          "year": 2021,
+          "confidence": 0.7,
+          "evidence": "However, traditional Zero Trust models, characterized by static policies and rigid access control mechanisms, struggle to keep up with the dynamic nature of modern cloud networks.",
+          "semantic_scope": "subject",
+          "semantic_validation": "explicit_unresolved_problem",
+          "source_subject": "traditional Zero Trust models",
+          "atomic_limitation": "dynamic policy enforcement"
+        }
+      ],
+      "semantic_scope": "subject",
+      "domain": "security of microservices",
+      "mean_evidence_confidence": 0.7,
+      "first_reported_year": 2021,
+      "latest_reported_year": 2021,
+      "research_frame": {
+        "methods": [
+          "traditional Zero Trust models",
+          "granular and dynamic Zero Trust approach",
+          "real-time, context-aware access control",
+          "static policies",
+          "granular Zero Trust approach"
+        ],
+        "datasets": [],
+        "metrics": [],
+        "concepts": [
+          "Zero Trust Architecture",
+          "dynamic nature of modern cloud networks",
+          "microservices"
+        ]
+      },
+      "candidate_quality": {
+        "score": 0.54,
+        "independent_source_count": 1,
+        "semantic_cohesion": 1.0,
+        "frame_completeness": 0.3333,
+        "full_text_source_count": 0,
+        "full_text_coverage": 0.0,
+        "certificate_readiness": {
+          "independent_sources_ready": false,
+          "full_text_ready": false,
+          "research_frame_ready": false
+        }
+      },
+      "description": "Evidence cell 'dynamic policy enforcement' is reported by 1 independent paper(s) in security of microservices.",
+      "draft_claim": "Within the screened corpus, independent evidence reports 'dynamic policy enforcement' as an unresolved limitation."
+    },
+    {
+      "type": "evidence_gap",
+      "evidence_cell_id": "cell_88d952be91ac1e5c",
+      "subject": "traditional Zero Trust models",
+      "missing_capability": "real-time analytics",
+      "canonical_limitation_tokens": [
+        "analytics",
+        "real",
+        "time"
+      ],
+      "limitation_variants": [
+        "real-time analytics"
+      ],
+      "key_concepts": [
+        "traditional Zero Trust models",
+        "real-time analytics"
+      ],
+      "supporting_paper_ids": [
+        "78f08ef91356d0dc0806ea165a3649f89859dde1"
+      ],
+      "supporting_paper_count": 1,
+      "source_evidence": [
+        {
+          "paper_id": "78f08ef91356d0dc0806ea165a3649f89859dde1",
+          "year": 2021,
+          "confidence": 0.7,
+          "evidence": "However, traditional Zero Trust models, characterized by static policies and rigid access control mechanisms, struggle to keep up with the dynamic nature of modern cloud networks.",
+          "semantic_scope": "subject",
+          "semantic_validation": "explicit_unresolved_problem",
+          "source_subject": "traditional Zero Trust models",
+          "atomic_limitation": "real-time analytics"
+        }
+      ],
+      "semantic_scope": "subject",
+      "domain": "security of microservices",
+      "mean_evidence_confidence": 0.7,
+      "first_reported_year": 2021,
+      "latest_reported_year": 2021,
+      "research_frame": {
+        "methods": [
+          "traditional Zero Trust models",
+          "dynamic policy enforcement",
+          "granular and dynamic Zero Trust approach",
+          "real-time, context-aware access control",
+          "static policies",
+          "granular Zero Trust approach"
+        ],
+        "datasets": [],
+        "metrics": [],
+        "concepts": [
+          "Zero Trust Architecture",
+          "dynamic nature of modern cloud networks",
+          "microservices"
+        ]
+      },
+      "candidate_quality": {
+        "score": 0.54,
+        "independent_source_count": 1,
+        "semantic_cohesion": 1.0,
+        "frame_completeness": 0.3333,
+        "full_text_source_count": 0,
+        "full_text_coverage": 0.0,
+        "certificate_readiness": {
+          "independent_sources_ready": false,
+          "full_text_ready": false,
+          "research_frame_ready": false
+        }
+      },
+      "description": "Evidence cell 'real-time analytics' is reported by 1 independent paper(s) in security of microservices.",
+      "draft_claim": "Within the screened corpus, independent evidence reports 'real-time analytics' as an unresolved limitation."
+    }
+  ]
+}

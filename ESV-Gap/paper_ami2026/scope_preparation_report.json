@@ -1,0 +1,97 @@
+{
+  "status": "awaiting_independent_scope_annotations",
+  "candidate_rows": 39,
+  "review_pairs": 188,
+  "unique_evidence_papers": 97,
+  "future_control_rows": 64,
+  "distinct_future_control_ids_within_domain": 31,
+  "k": 5,
+  "bm25": {
+    "k1": 1.2,
+    "b": 0.75
+  },
+  "interpretation": "Preparation/workload only; no scientific efficacy measured. Candidate generation is extraction-dependent; evidence ranking uses raw titles/abstracts only.",
+  "origin_id_exclusion_and_recorded_year_checks_passed": true,
+  "historical_index_availability_verified": false,
+  "query": "pre-cutoff candidate subject + capability; no future controls",
+  "human_labels_generated": 0,
+  "workload": [
+    {
+      "domain": "iot_intrusion_detection",
+      "cutoff": 2022,
+      "candidate_rows": 0,
+      "review_pairs": 0
+    },
+    {
+      "domain": "iot_intrusion_detection",
+      "cutoff": 2023,
+      "candidate_rows": 0,
+      "review_pairs": 0
+    },
+    {
+      "domain": "iot_intrusion_detection",
+      "cutoff": 2024,
+      "candidate_rows": 16,
+      "review_pairs": 80
+    },
+    {
+      "domain": "microservice_security",
+      "cutoff": 2022,
+      "candidate_rows": 5,
+      "review_pairs": 25
+    },
+    {
+      "domain": "microservice_security",
+      "cutoff": 2023,
+      "candidate_rows": 6,
+      "review_pairs": 30
+    },
+    {
+      "domain": "microservice_security",
+      "cutoff": 2024,
+      "candidate_rows": 7,
+      "review_pairs": 35
+    },
+    {
+      "domain": "mongodb_security",
+      "cutoff": 2023,
+      "candidate_rows": 0,
+      "review_pairs": 0
+    },
+    {
+      "domain": "mongodb_security",
+      "cutoff": 2024,
+      "candidate_rows": 1,
+      "review_pairs": 5
+    },
+    {
+      "domain": "handwritten_math_recognition",
+      "cutoff": 2022,
+      "candidate_rows": 0,
+      "review_pairs": 0
+    },
+    {
+      "domain": "handwritten_math_recognition",
+      "cutoff": 2023,
+      "candidate_rows": 4,
+      "review_pairs": 13
+    }
+  ],
+  "input_sha256": {
+    "runs\\deep_learning_iot_intrusion_de_20260831_114802\\data\\processed\\corpus_filtered.jsonl": "852b63bf0b7f3fb641046b416c45723156d5663b56f87352b9145efb22282583",
+    "paper_icai2026\\expanded_run\\iot_intrusion_detection\\cutoff_2022\\temporal_backtest.json": "c39099399308f3ace4df2f9fece19d33e5d61b28b8ce870321f25bd6b202dce3",
+    "paper_icai2026\\expanded_run\\iot_intrusion_detection\\cutoff_2023\\temporal_backtest.json": "d1f6b4cbfa5e1f747ad91f19bb9c4ae05708362585ce74f2f4286b8a82916cd9",
+    "paper_icai2026\\expanded_run\\iot_intrusion_detection\\cutoff_2024\\temporal_backtest.json": "b67a588f05bab461740a32d2787fafede33b8afa31dbcf092b7b371effb6e216",
+    "runs\\security_of_microservices_20260806_114632\\data\\processed\\corpus_filtered.jsonl": "11415c3b8b0a3ae1196a0bfedd362ce4d37e54ea33664fae1b0d6e509da8d42f",
+    "paper_icai2026\\expanded_run\\microservice_security\\cutoff_2022\\temporal_backtest.json": "ed67f92f46ecbf47f6ea1360864926770cc30ab4462ab4bf88526c09c3785798",
+    "paper_icai2026\\expanded_run\\microservice_security\\cutoff_2023\\temporal_backtest.json": "75e3f883d843ebb2518d7037cdb549ab4a72a75ca2dee835c221897400881970",
+    "paper_icai2026\\expanded_run\\microservice_security\\cutoff_2024\\temporal_backtest.json": "f393a7f4467711e0170afd091eac8d1b4667c2787d67d532ecafa6d89d14260e",
+    "runs\\security_of_mongodb_20260806_135447\\data\\processed\\corpus_filtered.jsonl": "1f47c496466ce241b72330c9a80ceaf384de683f8af49b98bc30b75e7d244853",
+    "paper_icai2026\\expanded_run\\mongodb_security\\cutoff_2023\\temporal_backtest.json": "ed1819b4abe16ab3b3a3a7321cc301bb2f96f7d2d2ab8c6afbd5dc417146f87b",
+    "paper_icai2026\\expanded_run\\mongodb_security\\cutoff_2024\\temporal_backtest.json": "1793365615f490db4573d70f1265e9d64722bc13fb30d63d91e89659a82e97f9",
+    "runs\\handwritten_mathematical_expre_20260823_215228\\data\\processed\\corpus_filtered.jsonl": "559e59716ea93e35b4244b92e776e666026a0cdf5a0fea7d0204e704ba9ca044",
+    "paper_icai2026\\expanded_run\\handwritten_math_recognition\\cutoff_2022\\temporal_backtest.json": "ead052af689c4f91c3216396010f641fe6c1b48a5bc72f0180239aaf11d1b666",
+    "paper_icai2026\\expanded_run\\handwritten_math_recognition\\cutoff_2023\\temporal_backtest.json": "5bfda31c870fff87af471d823a51573598eb8326b45997d9aa22ea73e024346c"
+  },
+  "script_sha256": "ca4a6eb86f504963eabc130e483bd7b8075113105eb6fdbcb96d3093e0421339"
+}

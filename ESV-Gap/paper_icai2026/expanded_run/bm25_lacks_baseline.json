@@ -1,0 +1,361 @@
+{
+  "status": "offline_extraction_dependent_bm25_lacks_reranking",
+  "interpretation": "BM25 ranks pre-cutoff direct-LACKS subject/capability text, not raw abstracts; generated heuristic controls are not expert labels.",
+  "query_protocol": "Domain label plus fixed generic terms: limitation unresolved challenge. No future-control text is used in ranking.",
+  "bm25_parameters": {
+    "k1": 1.2,
+    "b": 0.75,
+    "idf": "log(1+(N-df+0.5)/(df+0.5))"
+  },
+  "completed_evaluations": 10,
+  "scored_evaluations": 9,
+  "macro_recall_at_k": {
+    "5": 0.0556,
+    "10": 0.0694,
+    "20": 0.0933
+  },
+  "macro_confidence_lacks_recall_at_k": {
+    "5": 0.0,
+    "10": 0.0,
+    "20": 0.0
+  },
+  "macro_esv_gap_recall_at_k": {
+    "5": 0.0,
+    "10": 0.0,
+    "20": 0.0139
+  },
+  "matched_control_rows_at_20_not_independent": 5,
+  "positive_control_rows_not_independent": 64,
+  "rows": [
+    {
+      "domain": "iot_intrusion_detection",
+      "cutoff": 2022,
+      "query": "deep learning IoT intrusion detection limitation unresolved challenge",
+      "positive_controls": 14,
+      "candidate_count": 34,
+      "recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "confidence_lacks_recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "esv_gap_recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "matched_control_ids_at_20": [],
+      "matched_pairs_at_20": [],
+      "saved_replay_sha256": "c39099399308f3ace4df2f9fece19d33e5d61b28b8ce870321f25bd6b202dce3"
+    },
+    {
+      "domain": "iot_intrusion_detection",
+      "cutoff": 2023,
+      "query": "deep learning IoT intrusion detection limitation unresolved challenge",
+      "positive_controls": 14,
+      "candidate_count": 41,
+      "recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "confidence_lacks_recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "esv_gap_recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "matched_control_ids_at_20": [],
+      "matched_pairs_at_20": [],
+      "saved_replay_sha256": "d1f6b4cbfa5e1f747ad91f19bb9c4ae05708362585ce74f2f4286b8a82916cd9"
+    },
+    {
+      "domain": "iot_intrusion_detection",
+      "cutoff": 2024,
+      "query": "deep learning IoT intrusion detection limitation unresolved challenge",
+      "positive_controls": 8,
+      "candidate_count": 71,
+      "recall_at_k": {
+        "5": 0.0,
+        "10": 0.125,
+        "20": 0.125
+      },
+      "confidence_lacks_recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "esv_gap_recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.125
+      },
+      "matched_control_ids_at_20": [
+        "tc_b6c110057a8dd9cc"
+      ],
+      "matched_pairs_at_20": [
+        {
+          "rank": 9,
+          "candidate_subject": "machine learning-driven intrusion detection frameworks",
+          "candidate_capability": "adversarial attacks",
+          "bm25_score": 3.921979610531303,
+          "control_id": "tc_b6c110057a8dd9cc",
+          "control_subject": "AI-driven cybersecurity architectures",
+          "control_capability": "adversarial AI attacks resilience",
+          "future_paper_id": "0ee60e2b32d7dbefd6bf1df7381f5e186f510402"
+        }
+      ],
+      "saved_replay_sha256": "b67a588f05bab461740a32d2787fafede33b8afa31dbcf092b7b371effb6e216"
+    },
+    {
+      "domain": "microservice_security",
+      "cutoff": 2022,
+      "query": "security of microservices limitation unresolved challenge",
+      "positive_controls": 14,
+      "candidate_count": 50,
+      "recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.2143
+      },
+      "confidence_lacks_recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "esv_gap_recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "matched_control_ids_at_20": [
+        "tc_2ebafd792c8973ab",
+        "tc_96be63de98b41f2f",
+        "tc_f22f66824f54178f"
+      ],
+      "matched_pairs_at_20": [
+        {
+          "rank": 12,
+          "candidate_subject": "Retrofitting",
+          "candidate_capability": "Security",
+          "bm25_score": 1.6651253305945657,
+          "control_id": "tc_2ebafd792c8973ab",
+          "control_subject": "Security Analysis of Microservices",
+          "control_capability": "Security Principles",
+          "future_paper_id": "096e9e395b14a23ad60d30e21a118ffd1183475a"
+        },
+        {
+          "rank": 12,
+          "candidate_subject": "Retrofitting",
+          "candidate_capability": "Security",
+          "bm25_score": 1.6651253305945657,
+          "control_id": "tc_96be63de98b41f2f",
+          "control_subject": "Microservices-Based Platforms",
+          "control_capability": "Security Techniques",
+          "future_paper_id": "83f183cfc75b5bfb1555a1769dd30f5d3fa714d3"
+        },
+        {
+          "rank": 19,
+          "candidate_subject": "API service mesh",
+          "candidate_capability": "security framework",
+          "bm25_score": 1.3207222056822532,
+          "control_id": "tc_f22f66824f54178f",
+          "control_subject": "Kubernetes",
+          "control_capability": "comprehensive security framework",
+          "future_paper_id": "ad4a3919ed21d2e362ecb72088f4b94f69a9e824"
+        }
+      ],
+      "saved_replay_sha256": "ed67f92f46ecbf47f6ea1360864926770cc30ab4462ab4bf88526c09c3785798"
+    },
+    {
+      "domain": "microservice_security",
+      "cutoff": 2023,
+      "query": "security of microservices limitation unresolved challenge",
+      "positive_controls": 8,
+      "candidate_count": 84,
+      "recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "confidence_lacks_recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "esv_gap_recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "matched_control_ids_at_20": [],
+      "matched_pairs_at_20": [],
+      "saved_replay_sha256": "75e3f883d843ebb2518d7037cdb549ab4a72a75ca2dee835c221897400881970"
+    },
+    {
+      "domain": "microservice_security",
+      "cutoff": 2024,
+      "query": "security of microservices limitation unresolved challenge",
+      "positive_controls": 2,
+      "candidate_count": 108,
+      "recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "confidence_lacks_recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "esv_gap_recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "matched_control_ids_at_20": [],
+      "matched_pairs_at_20": [],
+      "saved_replay_sha256": "f393a7f4467711e0170afd091eac8d1b4667c2787d67d532ecafa6d89d14260e"
+    },
+    {
+      "domain": "mongodb_security",
+      "cutoff": 2023,
+      "query": "security of MongoDB limitation unresolved challenge",
+      "positive_controls": 2,
+      "candidate_count": 34,
+      "recall_at_k": {
+        "5": 0.5,
+        "10": 0.5,
+        "20": 0.5
+      },
+      "confidence_lacks_recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "esv_gap_recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "matched_control_ids_at_20": [
+        "tc_84d8fb4975472626"
+      ],
+      "matched_pairs_at_20": [
+        {
+          "rank": 5,
+          "candidate_subject": "Big Data platforms",
+          "candidate_capability": "Security",
+          "bm25_score": 2.262357413078437,
+          "control_id": "tc_84d8fb4975472626",
+          "control_subject": "MongoDB",
+          "control_capability": "security measures",
+          "future_paper_id": "6586d6d1d5712eede341e67f8eb1337cd3e54a14"
+        }
+      ],
+      "saved_replay_sha256": "ed1819b4abe16ab3b3a3a7321cc301bb2f96f7d2d2ab8c6afbd5dc417146f87b"
+    },
+    {
+      "domain": "mongodb_security",
+      "cutoff": 2024,
+      "query": "security of MongoDB limitation unresolved challenge",
+      "positive_controls": 1,
+      "candidate_count": 44,
+      "recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "confidence_lacks_recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "esv_gap_recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "matched_control_ids_at_20": [],
+      "matched_pairs_at_20": [],
+      "saved_replay_sha256": "1793365615f490db4573d70f1265e9d64722bc13fb30d63d91e89659a82e97f9"
+    },
+    {
+      "domain": "handwritten_math_recognition",
+      "cutoff": 2022,
+      "query": "handwritten mathematical expression recognition limitation unresolved challenge",
+      "positive_controls": 1,
+      "candidate_count": 1,
+      "recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "confidence_lacks_recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "esv_gap_recall_at_k": {
+        "5": 0.0,
+        "10": 0.0,
+        "20": 0.0
+      },
+      "matched_control_ids_at_20": [],
+      "matched_pairs_at_20": [],
+      "saved_replay_sha256": "ead052af689c4f91c3216396010f641fe6c1b48a5bc72f0180239aaf11d1b666"
+    },
+    {
+      "domain": "handwritten_math_recognition",
+      "cutoff": 2023,
+      "query": "handwritten mathematical expression recognition limitation unresolved challenge",
+      "positive_controls": 0,
+      "candidate_count": 7,
+      "recall_at_k": {
+        "5": null,
+        "10": null,
+        "20": null
+      },
+      "confidence_lacks_recall_at_k": {
+        "5": null,
+        "10": null,
+        "20": null
+      },
+      "esv_gap_recall_at_k": {
+        "5": null,
+        "10": null,
+        "20": null
+      },
+      "matched_control_ids_at_20": [],
+      "matched_pairs_at_20": [],
+      "saved_replay_sha256": "5bfda31c870fff87af471d823a51573598eb8326b45997d9aa22ea73e024346c"
+    }
+  ],
+  "input_hashes": {
+    "iot_intrusion_detection": {
+      "corpus": "852b63bf0b7f3fb641046b416c45723156d5663b56f87352b9145efb22282583",
+      "triples": "a352427bffb0d6d63bce589ec13df54e0f71b615bd6f2f9470d694fee4e21a31"
+    },
+    "microservice_security": {
+      "corpus": "11415c3b8b0a3ae1196a0bfedd362ce4d37e54ea33664fae1b0d6e509da8d42f",
+      "triples": "7f354e30ed76efc9c2fe56253e12c9090434a6b80ee5a89f653b06eac68505a9"
+    },
+    "mongodb_security": {
+      "corpus": "1f47c496466ce241b72330c9a80ceaf384de683f8af49b98bc30b75e7d244853",
+      "triples": "bf17038593413d26c60b1a8d781ed1d5ad580722c8d93542be2cba4b176a0386"
+    },
+    "handwritten_math_recognition": {
+      "corpus": "559e59716ea93e35b4244b92e776e666026a0cdf5a0fea7d0204e704ba9ca044",
+      "triples": "bf90feac5501fabbe78e4ffc9c021e275ba4f0c5043cceb4bacded339e23e55c"
+    }
+  },
+  "script_sha256": "893955033c78604817d3fa8918b313d30e7a2832b9f3395836d57ee1a05d2811"
+}

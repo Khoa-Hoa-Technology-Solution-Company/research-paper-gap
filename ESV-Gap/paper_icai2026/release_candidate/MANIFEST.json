@@ -1,0 +1,142 @@
+{
+  "status": "local_unpublished_review_candidate",
+  "license": "not selected; publication requires author approval and rights review",
+  "verification_scope": "file identity and aggregate arithmetic, not pipeline or scientific reproduction",
+  "excluded": [
+    "corpus abstracts",
+    "raw triples",
+    "raw fold replay",
+    "graph files",
+    "candidate/control text and IDs",
+    "internal inspection notes",
+    "credentials"
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "6a2f787cb166e7c2e37c80774923cbb0802c3a4a150f8eeb2e84176c1e7893a3",
+      "source": "paper_icai2026/ARTIFACT_README.md",
+      "source_sha256": "6a2f787cb166e7c2e37c80774923cbb0802c3a4a150f8eeb2e84176c1e7893a3",
+      "treatment": "byte-preserved"
+    },
+    {
+      "path": "config.yaml",
+      "sha256": "0024f3c746c62d958d96a55d07c41dbfb9b39e21097bfeef9a8da1a750619511",
+      "source": "config.yaml",
+      "source_sha256": "0024f3c746c62d958d96a55d07c41dbfb9b39e21097bfeef9a8da1a750619511",
+      "treatment": "byte-preserved"
+    },
+    {
+      "path": "paper_icai2026/expanded_run/analyze_candidate_sources.py",
+      "sha256": "6044a117ab16bb3a72d40471b985553ca65ab623e3c9e5514cc3053516161f20",
+      "source": "paper_icai2026/expanded_run/analyze_candidate_sources.py",
+      "source_sha256": "6044a117ab16bb3a72d40471b985553ca65ab623e3c9e5514cc3053516161f20",
+      "treatment": "byte-preserved"
+    },
+    {
+      "path": "paper_icai2026/expanded_run/run_bm25_lacks_baseline.py",
+      "sha256": "893955033c78604817d3fa8918b313d30e7a2832b9f3395836d57ee1a05d2811",
+      "source": "paper_icai2026/expanded_run/run_bm25_lacks_baseline.py",
+      "source_sha256": "893955033c78604817d3fa8918b313d30e7a2832b9f3395836d57ee1a05d2811",
+      "treatment": "byte-preserved"
+    },
+    {
+      "path": "paper_icai2026/expanded_run/run_bm25_query_sensitivity.py",
+      "sha256": "3f60fc3269bcda0d462d2edda83235c30c9eea0d167beea031c3d5229395e7fe",
+      "source": "paper_icai2026/expanded_run/run_bm25_query_sensitivity.py",
+      "source_sha256": "3f60fc3269bcda0d462d2edda83235c30c9eea0d167beea031c3d5229395e7fe",
+      "treatment": "byte-preserved"
+    },
+    {
+      "path": "paper_icai2026/expanded_run/run_multidomain_backtest.py",
+      "sha256": "b76ad865a013daaa963374fd6a90d50a295f434664dd65147a1fcd9626c69398",
+      "source": "paper_icai2026/expanded_run/run_multidomain_backtest.py",
+      "source_sha256": "b76ad865a013daaa963374fd6a90d50a295f434664dd65147a1fcd9626c69398",
+      "treatment": "byte-preserved"
+    },
+    {
+      "path": "reports/bm25_lacks_baseline.json",
+      "sha256": "6778ac1aea9babac4f774ba2f4cd00eb2198dcceb79b10263631c47d0a235ca7",
+      "source": "paper_icai2026/expanded_run/bm25_lacks_baseline.json",
+      "source_sha256": "743f97c1432779add0809f0ed0cd6fb89054028f4301dfb8c0858bd85143782e",
+      "treatment": "Removed matched_pairs_at_20; replaced matched_control_ids_at_20 by distinct-ID count."
+    },
+    {
+      "path": "reports/bm25_query_sensitivity.json",
+      "sha256": "b6d7d4290f4b693ad290c40a2f99dc3180475db8669b074f1db48e37a06f5300",
+      "source": "paper_icai2026/expanded_run/bm25_query_sensitivity.json",
+      "source_sha256": "cb1dc5dde77c5c655c519152c82d557f1f8e0e647833ebb55a102dd3e3ace2fe",
+      "treatment": "Replaced query-level matched_control_ids_at_20 by distinct-ID count."
+    },
+    {
+      "path": "reports/candidate_source_ablation.json",
+      "sha256": "7f83fbf00787b929e2a73c992751b6bb510760d55404ba0664b9de605b1a3b60",
+      "source": "paper_icai2026/expanded_run/candidate_source_ablation.json",
+      "source_sha256": "7f83fbf00787b929e2a73c992751b6bb510760d55404ba0664b9de605b1a3b60",
+      "treatment": "byte-preserved"
+    },
+    {
+      "path": "reports/multidomain_summary.json",
+      "sha256": "3687a64cba6c5dc3c612b56b175d3f4f36827876ca8b5871cda762cbeb09c8c7",
+      "source": "paper_icai2026/expanded_run/multidomain_summary.json",
+      "source_sha256": "3687a64cba6c5dc3c612b56b175d3f4f36827876ca8b5871cda762cbeb09c8c7",
+      "treatment": "byte-preserved"
+    },
+    {
+      "path": "requirements-experiments.lock",
+      "sha256": "7d498530731fb5120f60bb525f06a72b56d7866b70ff1bb268b4017318f904d5",
+      "source": "requirements-experiments.lock",
+      "source_sha256": "0e0d4d44230bae84e2f878d3083c0e91f0ebbb6654d579e2b9420be536f0d462",
+      "treatment": "Appended PyYAML==6.0.3 for the original runner's yaml import."
+    },
+    {
+      "path": "src/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "src/__init__.py",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "treatment": "byte-preserved"
+    },
+    {
+      "path": "src/detect_gaps.py",
+      "sha256": "be8f6bdd4259ed324ae95b7d02a9745ba71c65305b7a0dd57140f9a567bffa6f",
+      "source": "src/detect_gaps.py",
+      "source_sha256": "be8f6bdd4259ed324ae95b7d02a9745ba71c65305b7a0dd57140f9a567bffa6f",
+      "treatment": "byte-preserved"
+    },
+    {
+      "path": "src/evidence_graph.py",
+      "sha256": "7f13b2a4cac56bf7824659fc1a3d2e956865b436a7d10dad1ca6fd0937322f7e",
+      "source": "src/evidence_graph.py",
+      "source_sha256": "7f13b2a4cac56bf7824659fc1a3d2e956865b436a7d10dad1ca6fd0937322f7e",
+      "treatment": "byte-preserved"
+    },
+    {
+      "path": "src/temporal_backtest.py",
+      "sha256": "79b7072315bf394340d5343c574b18c5f706a2e99d2689314cfd491da7d34fc2",
+      "source": "src/temporal_backtest.py",
+      "source_sha256": "79b7072315bf394340d5343c574b18c5f706a2e99d2689314cfd491da7d34fc2",
+      "treatment": "byte-preserved"
+    },
+    {
+      "path": "src/utils.py",
+      "sha256": "636fd9ffc348876168b241ca459244396839bbbd7225ec39b2826b167a9a51dc",
+      "source": "src/utils.py",
+      "source_sha256": "636fd9ffc348876168b241ca459244396839bbbd7225ec39b2826b167a9a51dc",
+      "treatment": "byte-preserved"
+    },
+    {
+      "path": "tests/test_temporal_backtest.py",
+      "sha256": "743e0a181df63de59ec8b58027c2f0e39b0dcfaca17d3c86e38742d75eb4bee4",
+      "source": "tests/test_temporal_backtest.py",
+      "source_sha256": "743e0a181df63de59ec8b58027c2f0e39b0dcfaca17d3c86e38742d75eb4bee4",
+      "treatment": "byte-preserved"
+    },
+    {
+      "path": "verify_aggregate_bundle.py",
+      "sha256": "093f53bb7da076b7f6a70bfd2cb01fb1b7f7c2661d46a4c4163730fd23574420",
+      "source": "paper_icai2026/verify_aggregate_bundle.py",
+      "source_sha256": "093f53bb7da076b7f6a70bfd2cb01fb1b7f7c2661d46a4c4163730fd23574420",
+      "treatment": "byte-preserved"
+    }
+  ]
+}
