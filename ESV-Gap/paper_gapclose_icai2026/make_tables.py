@@ -30,11 +30,11 @@ def f3(x):
 # ---------------------------------------------------------------- Table: classification
 names = {"CoMention": "CoMention", "BM25-thr": "BM25", "Dense-thr": "Dense (MiniLM)",
          "BGE-dense": "BGE-large dense", "BGE-rerank": "BGE reranker",
-         "NLI-verify": "NLI-verify", "ESV-Scope": "ESV-Learned"}
+         "LLM-judge": "LLM judge", "NLI-verify": "NLI-verify", "ESV-Scope": "ESV-Learned"}
 allm = dict(main["methods"])
-bge_file = RES / "bge_uncertified.json"
-if bge_file.exists():
-    allm.update(json.load(open(bge_file, encoding="utf-8")))
+for extra in ("bge_uncertified.json", "extra_uncertified.json"):
+    if (RES / extra).exists():
+        allm.update(json.load(open(RES / extra, encoding="utf-8")))
 names = {k: v for k, v in names.items() if k in allm}
 rows = []
 best_f1 = max(allm[k]["macro_f1"] for k in names)
@@ -75,7 +75,7 @@ for r, lab in rules:
 
 # ---------------------------------------------------------------- Table: power
 meths = [("CoMention", "CoMention"), ("Dense", "Dense"), ("BGE-dense", "BGE-large dense"),
-         ("BGE-rerank", "BGE reranker"), ("NLI-verify", "NLI-verify"), ("ESV-Scope", "ESV-Scope"),
+         ("BGE-rerank", "BGE reranker"), ("LLM-judge", "LLM judge"), ("NLI-verify", "NLI-verify"), ("ESV-Scope", "ESV-Scope"),
          ("CoMention+OA", "CoMention +OA"), ("Dense+OA", "Dense +OA"), ("BGE-rerank+OA", "BGE reranker +OA"),
          ("ESV-Scope+OA", "ESV-Scope +OA")]
 meths = [(m, lab) for m, lab in meths if f"{m}|transfer" in G["0.0"]]
@@ -125,6 +125,108 @@ head = (r"\setlength{\tabcolsep}{2.5pt}" "\n" r"\begin{tabular}{lccccc}" "\n" r"
         r"Evaluation setting & in-situ & transfer & in-situ & transfer & ESV-Scope \\" "\n" r"\midrule" "\n")
 tail = "\n" r"\bottomrule" "\n" r"\end{tabular}" "\n"
 (OUT / "robust.tex").write_text(head + "\n".join(rob) + tail, encoding="utf-8")
+
+
+# ---------------------------------------------------------------- Table: second domain (Climate-FEVER)
+RESC = HERE.parent / "gapclose" / "outputs_climate" / "results"
+clim, climmac = None, {}
+if (RESC / "certify_large_pooled_mcar.json").exists():
+    clim = json.load(open(RESC / "certify_large_pooled_mcar.json", encoding="utf-8"))
+    climt = json.load(open(RESC / "certify_large_pooled_targeted.json", encoding="utf-8"))
+    Gc, Gt = clim["grid"], climt["grid"]
+    cm = [("BM25", "BM25"), ("Dense", "Dense"), ("CoMention", "CoMention"), ("NLI-verify", "NLI-verify"),
+          ("ESV-Scope", "ESV-Scope")]
+    lines = []
+    for m, lab in cm:
+        v = [Gc["0.0"][f"{m}|f1-frozen"]["fnov"], Gc["1.0"][f"{m}|f1-frozen"]["fnov"],
+             max(Gc[p][f"{m}|conformal"]["fnov"] for p in P),
+             max(max(Gc[p][f"{m}|{r}"]["fnov"], Gt[p][f"{m}|{r}"]["fnov"]) for p in P for r in ("in-situ", "transfer")),
+             Gc["0.0"][f"{m}|transfer"]["power"], Gc["1.0"][f"{m}|transfer"]["power"]]
+        cells = [(r"\textbf{%.3f}" % x) if i < 4 and x > ALPHA + 0.005 else f"{x:.3f}" for i, x in enumerate(v)]
+        lines.append(lab + " & " + " & ".join(cells) + r" \\")
+    head = (r"\setlength{\tabcolsep}{2.5pt}" "\n" r"\begin{tabular}{lcccccc}" "\n" r"\toprule" "\n"
+            r" & \multicolumn{2}{c}{F1-optimal FN} & Split conf. & Certified & \multicolumn{2}{c}{Power} \\" "\n"
+            r"\cmidrule(lr){2-3}\cmidrule(lr){4-4}\cmidrule(lr){5-5}\cmidrule(lr){6-7}" "\n"
+            r"Score & $p=0$ & $p=1$ & max FN & max FN & $p=0$ & $p=1$ \\" "\n" r"\midrule" "\n")
+    (OUT / "climate.tex").write_text(head + "\n".join(lines) + "\n" r"\bottomrule" "\n" r"\end{tabular}" "\n",
+                                     encoding="utf-8")
+    ms = [m for m, _ in cm]
+    climmac = {
+        "ClimN": f"{clim['n']:,}",
+        "ClimFoneMax": f"{max(Gc['1.0'][f'{m}|f1-frozen']['fnov'] for m in ms):.2f}",
+        "ClimFoneZeroMin": f"{min(Gc['0.0'][f'{m}|f1-frozen']['fnov'] for m in ms):.2f}",
+        "ClimFoneZeroMax": f"{max(Gc['0.0'][f'{m}|f1-frozen']['fnov'] for m in ms):.2f}",
+        "ClimConfMax": f"{max(Gc[p][f'{m}|conformal']['fnov'] for m in ms for p in P):.3f}",
+        "ClimCertMax": f"{max(max(Gc[p][f'{m}|{r}']['fnov'], Gt[p][f'{m}|{r}']['fnov']) for m in ms for p in P for r in ('in-situ', 'transfer')):.3f}",
+        "ClimDensePowZero": f"{Gc['0.0']['Dense|transfer']['power']:.3f}",
+        "ClimDensePowOne": f"{Gc['1.0']['Dense|transfer']['power']:.3f}",
+    }
+
+
+# ---------------------------------------------------------------- Retrospective validation (natural incompleteness)
+retro_f = RES / "retro.json"
+retromac = {}
+if retro_f.exists():
+    rt = json.load(open(retro_f, encoding="utf-8"))
+    RY = "2010" if "2010" in rt["grid"] else sorted(rt["grid"])[0]
+    gy = rt["grid"][RY]["methods"]
+    rlab = [("Dense", "Dense"), ("BGE-rerank", "BGE reranker"), ("LLM-judge", "LLM judge"), ("ESV-Scope", "ESV-Scope"),
+            ("BGE-rerank+OA", "BGE reranker +OA"), ("ESV-Scope+OA", "ESV-Scope +OA")]
+    rlab = [(m, l) for m, l in rlab if f"{m}|in-situ" in gy]
+    lines = []
+    for m, lab in rlab:
+        f, c = gy[f"{m}|f1-frozen"], gy[f"{m}|in-situ"]
+        cells = [f"{f['fn']:.3f}", f"{f['pow_filled']:.3f}", f"{c['fn']:.3f}", f"{c['pow_filled']:.3f}", f"{c['prec']:.3f}"]
+        cells = [(r"\textbf{" + x + "}") if i in (0, 2) and float(x) > ALPHA + 0.005 else x for i, x in enumerate(cells)]
+        lines.append(lab + " & " + " & ".join(cells) + r" \\")
+    head = (r"\setlength{\tabcolsep}{3pt}" "\n" r"\begin{tabular}{lccccc}" "\n" r"\toprule" "\n"
+            r" & \multicolumn{2}{c}{F1-optimal} & \multicolumn{3}{c}{In-situ (Thm.~1)} \\" "\n"
+            r"\cmidrule(lr){2-3}\cmidrule(lr){4-6}" "\n"
+            r"Score & FN & Filled & FN & Filled & Prec. \\" "\n" r"\midrule" "\n")
+    (OUT / "retro.tex").write_text(head + "\n".join(lines) + "\n" r"\bottomrule" "\n" r"\end{tabular}" "\n", encoding="utf-8")
+    best_m = max(rlab, key=lambda x: gy[f"{x[0]}|in-situ"]["pow_filled"])[0]
+    allY = sorted(rt["grid"])
+    retromac = {
+        "RetroY": RY, "RetroYears": ", ".join(allY[:-1]) + " and " + allY[-1],
+        "RetroNclosed": str(rt["grid"][RY]["n_closed"]), "RetroNfilled": str(rt["grid"][RY]["n_filled"]),
+        "RetroNnei": str(rt["grid"][RY]["n_nei"]), "RetroVisible": f"{100 * rt['grid'][RY]['visible_share']:.0f}\\%",
+        "RetroBestPow": f"{100 * gy[f'{best_m}|in-situ']['pow_filled']:.0f}\\%",
+        "RetroBestPrec": f"{100 * gy[f'{best_m}|in-situ']['prec']:.0f}\\%",
+        "RetroMaxFN": f"{max(rt['grid'][y]['methods'][k]['fn'] for y in allY for k in rt['grid'][y]['methods'] if k.endswith('in-situ')):.3f}",
+        "RetroFoneMin": f"{100 * min(gy[k]['fn'] for k in gy if k.endswith('f1-frozen')):.0f}\\%",
+        "RetroFoneMax": f"{100 * max(gy[k]['fn'] for k in gy if k.endswith('f1-frozen')):.0f}\\%",
+    }
+    dos_f = RES / "gap_dossiers.json"
+    if dos_f.exists():
+        dos = json.load(open(dos_f, encoding="utf-8")).get(RY, [])
+        retromac["RetroNdossier"] = str(len(dos))
+        lags = sorted(x["lag_years"] for x in dos)
+        retromac["RetroLag"] = str(lags[len(lags) // 2]) if lags else "n/a"
+
+
+        def tex(t):
+            for a, b in (("\\", ""), ("&", r"\&"), ("%", r"\%"), ("_", r"\_"), ("#", r"\#"), ("$", r"\$"),
+                         ("µ", r"$\mu$"), ("−", "-"), ("–", "-"), ("—", ", "), ("’", "'"), ("“", "``"), ("”", "''")):
+                t = t.replace(a, b)
+            return t
+
+        def short(t, n=150):
+            t = tex(t.strip())
+            return t if len(t) <= n else t[:n].rsplit(" ", 1)[0] + r" \ldots{}"
+        pick = [x for x in dos if x["nearest_local"] and x["filled_by"]["doi"] and len(x["question"]) < 95
+                and not x["filled_by"]["rationale"][0].startswith("Highlights")]
+        pick = sorted(pick, key=lambda x: -x["nearest_local"]["score"])[:3]
+        rows = []
+        for x in pick:
+            nl, fb = x["nearest_local"], x["filled_by"]
+            rows.append(
+                tex(x["question"]) + " & "
+                + f"``{short(nl['sentence'], 110)}'' ({nl['year']}, score {nl['score']:.3f} $<\\tau$={x['tau']:.3f}) & "
+                + f"``{short(fb['rationale'][0], 150)}'' ({tex(fb['label'].lower())}; {fb['year']}, doi:{tex(fb['doi'])}) \\\\")
+        (OUT / "dossier.tex").write_text(
+            r"\begin{tabular}{>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{5.6cm}>{\raggedright\arraybackslash}p{7.2cm}}" "\n"
+            r"\toprule" "\n" rf"Certified open question (cutoff {RY}) & Closest evidence visible at the cutoff & Paper that later answered it \\" "\n"
+            r"\midrule" "\n" + "\n".join(rows) + "\n" r"\bottomrule" "\n" r"\end{tabular}" "\n", encoding="utf-8")
 
 
 # ---------------------------------------------------------------- Figure
@@ -215,6 +317,18 @@ if "BGE-rerank|transfer" in G["0.0"]:
 for key, vals in robmac.items():
     name = {"pooledmcar": "RobPM", "pooledtargeted": "RobPT", "holdoutmcar": "RobHM", "holdouttargeted": "RobHT"}[key]
     mac[name + "EsvIn"], mac[name + "EsvTr"], mac[name + "AllIn"], mac[name + "AllTr"], mac[name + "Conf"] = (f"{v:.3f}" for v in vals)
+mac.update(climmac)
+mac.update(retromac)
+llm = allm.get("LLM-judge")
+mac.update({"LLMfone": f"{llm['macro_f1']:.3f}" if llm else "n/a",
+            "LLMfn": f"{llm['false_novelty_rate']:.3f}" if llm else "n/a",
+            "LLMaucFull": f"{llm['auc_complete_calib']:.3f}" if llm else "n/a",
+            "LLMaucDel": f"{llm['auc_after_deletion_calib']:.3f}" if llm else "n/a"})
+if "LLM-judge|transfer" in G["0.0"]:
+    mac.update({"LLMfoneOne": f"{G['1.0']['LLM-judge|f1-frozen']['fnov']:.3f}",
+                "LLMpowZero": f"{G['0.0']['LLM-judge|transfer']['power']:.3f}"})
+else:
+    mac.update({"LLMfoneOne": "n/a", "LLMpowZero": "n/a"})
 (OUT / "macros.tex").write_text("".join(f"\\newcommand{{\\{k}}}{{{v}}}\n" for k, v in mac.items()), encoding="utf-8")
 
 # ---------------------------------------------------------------- checks for the prose

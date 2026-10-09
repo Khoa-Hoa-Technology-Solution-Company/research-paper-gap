@@ -1,0 +1,14 @@
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{lcccccc}
+\toprule
+ & \multicolumn{2}{c}{F1-optimal FN} & Split conf. & Certified & \multicolumn{2}{c}{Power} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-4}\cmidrule(lr){5-5}\cmidrule(lr){6-7}
+Score & $p=0$ & $p=1$ & max FN & max FN & $p=0$ & $p=1$ \\
+\midrule
+BM25 & \textbf{0.383} & \textbf{0.538} & \textbf{0.165} & 0.103 & 0.143 & 0.090 \\
+Dense & \textbf{0.294} & \textbf{0.432} & \textbf{0.147} & 0.100 & 0.256 & 0.195 \\
+CoMention & \textbf{0.321} & \textbf{0.417} & \textbf{0.129} & 0.094 & 0.145 & 0.116 \\
+NLI-verify & \textbf{0.420} & \textbf{0.603} & \textbf{0.240} & 0.100 & 0.107 & 0.021 \\
+ESV-Scope & \textbf{0.333} & \textbf{0.463} & 0.000 & 0.000 & 0.000 & 0.000 \\
+\bottomrule
+\end{tabular}

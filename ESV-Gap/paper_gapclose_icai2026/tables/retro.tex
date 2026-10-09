@@ -1,0 +1,15 @@
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lccccc}
+\toprule
+ & \multicolumn{2}{c}{F1-optimal} & \multicolumn{3}{c}{In-situ (Thm.~1)} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-6}
+Score & FN & Filled & FN & Filled & Prec. \\
+\midrule
+Dense & \textbf{0.340} & 0.881 & 0.095 & 0.426 & 0.941 \\
+BGE reranker & \textbf{0.278} & 0.921 & 0.097 & 0.684 & 0.961 \\
+LLM judge & \textbf{0.399} & 0.762 & 0.096 & 0.355 & 0.922 \\
+ESV-Scope & \textbf{0.375} & 0.871 & 0.097 & 0.437 & 0.940 \\
+BGE reranker +OA & \textbf{0.302} & 0.924 & 0.098 & 0.681 & 0.958 \\
+ESV-Scope +OA & \textbf{0.340} & 0.798 & 0.099 & 0.426 & 0.935 \\
+\bottomrule
+\end{tabular}
