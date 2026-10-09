@@ -114,8 +114,10 @@ research-paper-gap/
 │   │   ├── main_iot_run.tex        # AMI 2026 IEEE-formatted manuscript
 │   │   ├── main_iot_run.pdf        # Compiled publication-ready PDF
 │   │   └── results_summary.json    # Frozen empirical results manifest
-│   └── runs/
-│       └── deep_learning_iot_intrusion_de_20260831_114802/ # Primary frozen experiment
+│   ├── runs/
+│   │   └── deep_learning_iot_intrusion_de_20260831_114802/ # Primary frozen experiment
+│   ├── gapclose/                   # ICAI-FAI 2026: certified gap claims (code, THEORY.md, README)
+│   └── paper_gapclose_icai2026/    # ICAI-FAI 2026 manuscript (main.tex, make_tables.py)
 └── README.md                       # Repository documentation
 ```
 
@@ -161,6 +163,22 @@ pdflatex -interaction=nonstopmode main_iot_run.tex
 pdflatex -interaction=nonstopmode main_iot_run.tex
 ```
 The compiled manuscript is produced at `paper_v2/main_iot_run.pdf`.
+
+---
+
+## Companion study: certified gap claims (ICAI-FAI 2026)
+
+*Absence of Evidence Is Not a Research Gap: Certified Gap Claims under Corpus Incompleteness*
+asks how often a gap finder calls a question open although the literature already answers it
+(false novelty), and how to bound that error when the corpus is incomplete. It builds two
+benchmarks from expert evidence labels (SciFact, Climate-FEVER), proves that conformal thresholds
+calibrated in situ or with an upper bound on the missing rate keep false novelty below a target,
+and validates the approach retrospectively against papers that answered the questions later.
+
+* Code, data pipeline and reproduction steps: [`ESV-Gap/gapclose/README.md`](ESV-Gap/gapclose/README.md)
+* Theory: [`ESV-Gap/gapclose/THEORY.md`](ESV-Gap/gapclose/THEORY.md)
+* Manuscript: [`ESV-Gap/paper_gapclose_icai2026/`](ESV-Gap/paper_gapclose_icai2026/)
+* Authors: Anh Hoa Le, Ly Van Khoa Phan, Dinh Thanh Nguyen, Duc Hoang Nguyen, Dinh Anh Ho, Long Truong (FPT University)
 
 ---
 

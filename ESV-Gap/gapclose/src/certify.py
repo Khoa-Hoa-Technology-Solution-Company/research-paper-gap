@@ -112,12 +112,16 @@ def main():
             print(f"{split}: {len(claims)} questions with external evidence, {len(dropped)} dropped", flush=True)
         bge_path = OUT / "scores" / f"bge_{split}.json"
         bge = json.load(open(bge_path, encoding="utf-8")) if bge_path.exists() else {}
+        llm_path = OUT / "scores" / f"llm_{split}.json"
+        llm = json.load(open(llm_path, encoding="utf-8")) if llm_path.exists() else {}
         for c in claims:
             lists.append(ranked_lists(ctx, c["id"]))
             if bge:  # modern retrieval baselines (BGE-large dense, BGE cross-encoder reranker)
                 b = bge[str(c["id"])]
                 lists[-1]["BGE-dense"] = [tuple(x) for x in b["bge_dense_top"]]
                 lists[-1]["BGE-rerank"] = sorted((tuple(x) for x in b["bge_rerank"]), key=lambda x: -x[1])
+            if llm:  # local LLM judge (Qwen2.5-1.5B-Instruct), P(Yes) per pooled document
+                lists[-1]["LLM-judge"] = sorted((tuple(x) for x in llm[str(c["id"])]), key=lambda x: -x[1])
             ext.append(es.get(str(c["id"]), 0.0))
             closed.append(c["status"] == "CLOSED")
             wit.append(list(c["witness"]))

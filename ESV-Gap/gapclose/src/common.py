@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import hashlib
+import os
 import json
 import math
 import re
@@ -50,7 +51,7 @@ ENGLISH_STOP_WORDS = frozenset({
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-OUT = ROOT / "outputs"
+OUT = Path(os.environ["GAPCLOSE_OUT"]) if os.environ.get("GAPCLOSE_OUT") else ROOT / "outputs"
 
 _TOKEN = re.compile(r"[a-z0-9]+(?:[-'][a-z0-9]+)*")
 STOP = set(ENGLISH_STOP_WORDS) | {
