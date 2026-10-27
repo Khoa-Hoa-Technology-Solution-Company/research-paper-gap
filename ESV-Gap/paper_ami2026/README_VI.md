@@ -1,12 +1,12 @@
 # Bản sửa ESV-Gap cho AMI 2026
 
-Cập nhật: 01/10/2026, giờ Việt Nam. Đây là bản sửa để tác giả duyệt và một triển khai nghiên cứu có thể chạy. **Chưa có căn cứ để khẳng định bài đạt mức accept cao.** Review mới nhất nằm ở `SELF_REVIEW_VI.md`.
+Cập nhật: 01/10/2026, giờ Việt Nam. Đây là bản sửa để tác giả duyệt và một triển khai nghiên cứu có thể chạy. **Chưa có căn cứ để khẳng định bài đạt mức accept cao.** Lưu ý: đây là bản nháp riêng ("Scope-Aware Decision Control"), không phải bài AMI 2027 đã được nhận; bài đó nằm ở `../paper_v2/main_springer_ami.tex`.
 
 ## Cập nhật mới nhất: benchmark expert-labelled và tự review
 
 Sau phản biện bạn gửi, đã tiếp tục sửa title/abstract theo scope-control contribution, thêm system figure và conditional properties; chạy verifier trên 8,192 constructed inputs; và **regenerate primary audit ba miền** (325 records, không MongoDB) thay cho aggregate omission: ESV proxy R20 0.0179, BM25 0.0485. Historical bốn miền chuyển xuống secondary accounting; không gọi đây là corrected provenance.
 
-Đã freeze pilot nhỏ `pilot_review/`: 12 câu hỏi/53 cặp/40 paper IDs. Hướng dẫn trong `pilot_review/README_VI.md`; `score_scope_review.py` có tùy chọn `--manifest` để dùng chính tập này. Bạn xác nhận chưa có người/nhãn; packet vẫn trống, không có agreement/closure score. Xem `REVIEW_RESPONSE_VI.md` để đối chiếu từng yêu cầu với thay đổi.
+Đã freeze pilot nhỏ `pilot_review/`: 12 câu hỏi/53 cặp/40 paper IDs. Hướng dẫn trong `pilot_review/README_VI.md`; `score_scope_review.py` có tùy chọn `--manifest` để dùng chính tập này. Bạn xác nhận chưa có người/nhãn; packet vẫn trống, không có agreement/closure score.
 
 Hai kiểm tra mới có thể chạy từ ESV-Gap:
 

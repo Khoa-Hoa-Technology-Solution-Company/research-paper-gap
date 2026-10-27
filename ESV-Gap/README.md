@@ -86,7 +86,7 @@ a newer run exists.
 python -m unittest discover -s tests -v
 ```
 
-The current suite contains 99 offline tests. It does not call Groq, Semantic
+The current suite contains 129 offline tests. It does not call Groq, Semantic
 Scholar, or OpenAlex.
 
 Graph construction and the TF-IDF RAG fallback use NumPy-only vector
@@ -194,8 +194,9 @@ recall without bypassing the downstream evidence contract.
 
 - `src/autonomous_reasoning.py`: Core epistemic control loop, fail-closed decision rules, and typed dispositions.
 - `src/synthesize_rankings.py`: Multi-pillar synthesis incorporating external counterevidence and corpus saturation.
-- `paper_v2/main_iot_run.tex`: AMI 2026 IEEE-formatted manuscript.
-- `paper_v2/main_iot_run.pdf`: Compiled publication PDF.
+- `paper_v2/main_springer_ami.tex` / `.pdf`: AMI 2027 manuscript (accepted, Springer LNCS/CCIS).
+- `paper_v2/canonical_results.json`: Numbers reported in the AMI paper, checked by `tests/test_result_consistency.py`.
+- `paper_v2/main_iot_run.tex`: Earlier IEEE-formatted draft.
 - `paper_v2/results_summary.json`: Frozen reported values for run `deep_learning_iot_intrusion_de_20260831_114802`.
 - `paper_v2/REPRODUCIBILITY.md`: Commands, hashes, and interpretation limits.
 - `tests/test_autonomous_reasoning.py`: 9 epistemic decision and fail-closed tests.
