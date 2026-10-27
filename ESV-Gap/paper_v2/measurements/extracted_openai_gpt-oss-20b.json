@@ -1,0 +1,422 @@
+[
+ {
+  "subject": {
+   "name": "LIME",
+   "type": "METHOD"
+  },
+  "relation": "USES",
+  "object": {
+   "name": "any classifier",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.8,
+  "evidence": "LIME explains the predictions of any classifier",
+  "source_paper_id": "gold_xai_002"
+ },
+ {
+  "subject": {
+   "name": "LIME",
+   "type": "METHOD"
+  },
+  "relation": "EVALUATES_ON",
+  "object": {
+   "name": "text classification benchmarks",
+   "type": "DATASET"
+  },
+  "confidence": 1.0,
+  "evidence": "LIME evaluates on text classification benchmarks",
+  "source_paper_id": "gold_xai_002"
+ },
+ {
+  "subject": {
+   "name": "LIME",
+   "type": "METHOD"
+  },
+  "relation": "IMPROVES",
+  "object": {
+   "name": "user trust in machine learning models",
+   "type": "CONCEPT"
+  },
+  "confidence": 1.0,
+  "evidence": "improves user trust in machine learning models",
+  "source_paper_id": "gold_xai_002"
+ },
+ {
+  "subject": {
+   "name": "LIME",
+   "type": "METHOD"
+  },
+  "relation": "LACKS",
+  "object": {
+   "name": "theoretical convergence guarantees",
+   "type": "LIMITATION"
+  },
+  "confidence": 1.0,
+  "evidence": "but lacks theoretical convergence guarantees",
+  "source_paper_id": "gold_xai_002"
+ },
+ {
+  "subject": {
+   "name": "LIME",
+   "type": "METHOD"
+  },
+  "relation": "ADDRESSES",
+  "object": {
+   "name": "interpretability gap",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.9,
+  "evidence": "LIME explains the predictions of any classifier by learning an interpretable model locally",
+  "source_paper_id": "gold_xai_002"
+ },
+ {
+  "subject": {
+   "name": "Grad-CAM",
+   "type": "METHOD"
+  },
+  "relation": "USES",
+  "object": {
+   "name": "gradient localization",
+   "type": "METHOD"
+  },
+  "confidence": 1.0,
+  "evidence": "Grad-CAM uses gradient localization",
+  "source_paper_id": "gold_xai_003"
+ },
+ {
+  "subject": {
+   "name": "Grad-CAM",
+   "type": "METHOD"
+  },
+  "relation": "PRODUCES",
+  "object": {
+   "name": "visual explanations",
+   "type": "FINDING"
+  },
+  "confidence": 0.95,
+  "evidence": "Grad-CAM uses gradient localization to produce visual explanations",
+  "source_paper_id": "gold_xai_003"
+ },
+ {
+  "subject": {
+   "name": "Grad-CAM",
+   "type": "METHOD"
+  },
+  "relation": "ADDRESSES",
+  "object": {
+   "name": "spatial saliency",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.9,
+  "evidence": "It addresses spatial saliency",
+  "source_paper_id": "gold_xai_003"
+ },
+ {
+  "subject": {
+   "name": "Grad-CAM",
+   "type": "METHOD"
+  },
+  "relation": "LACKS",
+  "object": {
+   "name": "pixel-level fine-grained resolution",
+   "type": "LIMITATION"
+  },
+  "confidence": 0.9,
+  "evidence": "though it lacks pixel-level fine-grained resolution",
+  "source_paper_id": "gold_xai_003"
+ },
+ {
+  "subject": {
+   "name": "Integrated Gradients",
+   "type": "METHOD"
+  },
+  "relation": "IMPROVES",
+  "object": {
+   "name": "attribution accuracy",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.9,
+  "evidence": "Integrated Gradients improves attribution accuracy",
+  "source_paper_id": "gold_xai_004"
+ },
+ {
+  "subject": {
+   "name": "Integrated Gradients",
+   "type": "METHOD"
+  },
+  "relation": "ADDRESSES",
+  "object": {
+   "name": "baseline selection sensitivity",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.8,
+  "evidence": "It addresses baseline selection sensitivity",
+  "source_paper_id": "gold_xai_004"
+ },
+ {
+  "subject": {
+   "name": "Integrated Gradients",
+   "type": "METHOD"
+  },
+  "relation": "USES",
+  "object": {
+   "name": "path integrals",
+   "type": "METHOD"
+  },
+  "confidence": 0.8,
+  "evidence": "uses path integrals",
+  "source_paper_id": "gold_xai_004"
+ },
+ {
+  "subject": {
+   "name": "Integrated Gradients",
+   "type": "METHOD"
+  },
+  "relation": "LACKS",
+  "object": {
+   "name": "computational speed during integration",
+   "type": "LIMITATION"
+  },
+  "confidence": 0.9,
+  "evidence": "yet lacks computational speed during integration",
+  "source_paper_id": "gold_xai_004"
+ },
+ {
+  "subject": {
+   "name": "Integrated Gradients",
+   "type": "METHOD"
+  },
+  "relation": "IMPROVES",
+  "object": {
+   "name": "completeness",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.8,
+  "evidence": "satisfying completeness",
+  "source_paper_id": "gold_xai_004"
+ },
+ {
+  "subject": {
+   "name": "Integrated Gradients",
+   "type": "METHOD"
+  },
+  "relation": "IMPROVES",
+  "object": {
+   "name": "implementation invariance",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.8,
+  "evidence": "satisfying implementation invariance",
+  "source_paper_id": "gold_xai_004"
+ },
+ {
+  "subject": {
+   "name": "Counterfactual explanations",
+   "type": "METHOD"
+  },
+  "relation": "IMPROVES",
+  "object": {
+   "name": "algorithmic recourse",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.9,
+  "evidence": "Counterfactual explanations improve algorithmic recourse",
+  "source_paper_id": "gold_xai_005"
+ },
+ {
+  "subject": {
+   "name": "Counterfactual explanations",
+   "type": "METHOD"
+  },
+  "relation": "EVALUATES_ON",
+  "object": {
+   "name": "tabular financial datasets",
+   "type": "DATASET"
+  },
+  "confidence": 0.9,
+  "evidence": "They evaluate on tabular financial datasets",
+  "source_paper_id": "gold_xai_005"
+ },
+ {
+  "subject": {
+   "name": "Counterfactual explanations",
+   "type": "METHOD"
+  },
+  "relation": "ADDRESSES",
+  "object": {
+   "name": "user actionable feedback",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.8,
+  "evidence": "address user actionable feedback",
+  "source_paper_id": "gold_xai_005"
+ },
+ {
+  "subject": {
+   "name": "Counterfactual explanations",
+   "type": "METHOD"
+  },
+  "relation": "PRODUCES",
+  "object": {
+   "name": "minimal input perturbations",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.8,
+  "evidence": "describing minimal input perturbations",
+  "source_paper_id": "gold_xai_005"
+ },
+ {
+  "subject": {
+   "name": "Counterfactual explanations",
+   "type": "METHOD"
+  },
+  "relation": "LACKS",
+  "object": {
+   "name": "robustness under model retraining",
+   "type": "LIMITATION"
+  },
+  "confidence": 0.8,
+  "evidence": "but lack robustness under model retraining",
+  "source_paper_id": "gold_xai_005"
+ },
+ {
+  "subject": {
+   "name": "saliency maps",
+   "type": "METHOD"
+  },
+  "relation": "CONTRADICTS",
+  "object": {
+   "name": "randomized weight baselines",
+   "type": "METHOD"
+  },
+  "confidence": 1.0,
+  "evidence": "saliency maps contradict randomized weight baselines",
+  "source_paper_id": "gold_xai_006"
+ },
+ {
+  "subject": {
+   "name": "study",
+   "type": "METHOD"
+  },
+  "relation": "EVALUATES_ON",
+  "object": {
+   "name": "deep vision architectures",
+   "type": "CONCEPT"
+  },
+  "confidence": 1.0,
+  "evidence": "evaluates on deep vision architectures",
+  "source_paper_id": "gold_xai_006"
+ },
+ {
+  "subject": {
+   "name": "TCAV",
+   "type": "METHOD"
+  },
+  "relation": "USES",
+  "object": {
+   "name": "directional derivatives",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.9,
+  "evidence": "TCAV uses directional derivatives to quantify concept importance.",
+  "source_paper_id": "gold_xai_007"
+ },
+ {
+  "subject": {
+   "name": "TCAV",
+   "type": "METHOD"
+  },
+  "relation": "IMPROVES",
+  "object": {
+   "name": "domain expert interpretability",
+   "type": "FINDING"
+  },
+  "confidence": 0.9,
+  "evidence": "It improves domain expert interpretability.",
+  "source_paper_id": "gold_xai_007"
+ },
+ {
+  "subject": {
+   "name": "TCAV",
+   "type": "METHOD"
+  },
+  "relation": "ADDRESSES",
+  "object": {
+   "name": "semantic alignment",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.9,
+  "evidence": "addresses semantic alignment.",
+  "source_paper_id": "gold_xai_007"
+ },
+ {
+  "subject": {
+   "name": "TCAV",
+   "type": "METHOD"
+  },
+  "relation": "APPLIED_TO",
+  "object": {
+   "name": "medical diagnostic images",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.9,
+  "evidence": "applies to medical diagnostic images.",
+  "source_paper_id": "gold_xai_007"
+ },
+ {
+  "subject": {
+   "name": "TreeSHAP",
+   "type": "METHOD"
+  },
+  "relation": "USES",
+  "object": {
+   "name": "tree structure recursion",
+   "type": "METHOD"
+  },
+  "confidence": 0.9,
+  "evidence": "TreeSHAP uses tree structure recursion to compute exact Shapley values",
+  "source_paper_id": "gold_xai_008"
+ },
+ {
+  "subject": {
+   "name": "TreeSHAP",
+   "type": "METHOD"
+  },
+  "relation": "PRODUCES",
+  "object": {
+   "name": "exact Shapley values",
+   "type": "FINDING"
+  },
+  "confidence": 0.9,
+  "evidence": "TreeSHAP uses tree structure recursion to compute exact Shapley values in polynomial time",
+  "source_paper_id": "gold_xai_008"
+ },
+ {
+  "subject": {
+   "name": "TreeSHAP",
+   "type": "METHOD"
+  },
+  "relation": "ADDRESSES",
+  "object": {
+   "name": "combinatorial explosion in decision trees",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.9,
+  "evidence": "TreeSHAP ... addresses combinatorial explosion in decision trees",
+  "source_paper_id": "gold_xai_008"
+ },
+ {
+  "subject": {
+   "name": "TreeSHAP",
+   "type": "METHOD"
+  },
+  "relation": "APPLIED_TO",
+  "object": {
+   "name": "XGBoost models",
+   "type": "METHOD"
+  },
+  "confidence": 0.9,
+  "evidence": "TreeSHAP ... applies to XGBoost models",
+  "source_paper_id": "gold_xai_008"
+ }
+]

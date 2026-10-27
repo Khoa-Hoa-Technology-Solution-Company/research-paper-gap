@@ -1,0 +1,718 @@
+[
+ {
+  "id": "C4",
+  "subject": "machine learning-driven intrusion detection frameworks",
+  "capability": "computational burdens",
+  "records": [
+   {
+    "source": "semantic_scholar",
+    "id": "52a9d974f1bb2629a99127544bbd1d959a47deb8",
+    "title": "A simulation-driven computational framework for adaptive energy-efficient optimization in machine learning-based intrusion detection systems",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "18ff88687878fce340028687ef49e8d93be507c4",
+    "title": "Performance and Structural Symmetry Evaluation of Machine Learning-Driven Intrusion Detection Systems in Software-Defined Networks",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "d8bf9aa326046bf4252fdf8f02ade8707256131f",
+    "title": "A Secure IoT-Based Biomedical Monitoring System Using Machine Learning–Driven Intrusion Detection and Data Encryption",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "852eef8dbf263a764d1713b72bc6b27522b7244f",
+    "title": "Lightweight AI-Driven intrusion detection for SMEs: Comparative analysis of machine lerning models on Ton_Iot",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "bcd6324b4fe1b9edcfb39f58dc1e8284c6c3226d",
+    "title": "Deep Learning-Driven Intrusion Detection Systems: A Comprehensive Survey of Architectures, Performance Evaluation, and Research Challenges",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "2f94fc8af9fb007e79e89919646d75338a04dfea",
+    "title": "Enhancing Internet of Things (IoT) Network Security: A Machine Learning-Driven Framework for Real-Time Intrusion Detection and Anomaly Classification",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "38b060c83bf3894fde08cf117fcdf4650c588c0c",
+    "title": "IDSIoTAI: An AI-Driven Intrusion Detection Framework for Smart-Home IoT Environments using Naïve Bayes and Support Vector Machine algorithms",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "9d43f938446afe392a95ae7393e7078d56ee4d92",
+    "title": "AI-Driven Intrusion Detection Framework for 5G and Beyond Networks",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "132596cdf1bff9695af557ea87d258094fd6ccec",
+    "title": "DYNAMITE: Dynamic Defense Selection for Enhancing Machine Learning-Based Intrusion Detection Against Adversarial Attacks",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "39c2f95341b3b348c08cf1af8eb59a3fb91db659",
+    "title": "Machine Learning-Based Intrusion Detection Systems for Enhanced Network Security",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "40575a0f726c3d5e865e69e0d9637bf1efe246e7",
+    "title": "Federated Machine Learning to Enable Intrusion Detection Systems in IoT Networks",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "0d70b06ada7302e268205445e2121e9abe41b3f3",
+    "title": "A Review of Intrusion Detection for Internet of Things Using Machine Learning",
+    "year": 2024,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "1680bfc7df950eab0d8c52425474d9f7a70b4e9c",
+    "title": "A Comparative Study of Two-Stage Intrusion Detection Using Modern Machine Learning Approaches on the CSE-CIC-IDS2018 Dataset",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "94effd4b7d9ab88c7912643fc03587c616b8dbaf",
+    "title": "ABIDS-VEM: leveraging an equilibrium optimizer and data ramification in association with ensemble learning for anomaly-based intrusion detection system",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "da03d488d80c52d5dec1d6e914c62c5448b483cf",
+    "title": "Clustering and Classification Techniques in Machine Learning-based Intrusion Detection Systems: A Review",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "f7187660c9b60b8902b4c08c26a28be8bf3a45b9",
+    "title": "Machine Learning-Based Intrusion Detection Systems for Enhancing Network Security",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "974bb34bcd22d8c6da2305161395d0c589a08b63",
+    "title": "Comparative performance evaluation of machine learning classifiers for multi-class intrusion detection on the NSL-KDD dataset.",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "f6cf16b24ab31405ea37e4cc560b791cf15c6143",
+    "title": "Explainable and Uncertainty-Aware Machine Learning-Based Intrusion Detection Using UNSW-NB15",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "6e6fa8ac59b746dcc5da42004f9d93cc4a2c5cf1",
+    "title": "A Deployment-Aware Feasibility Framework for Machine Learning-Based IoT Intrusion Detection Across Edge, Fog, and Cloud Architectures",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "ccc9205422a60af648a8e402c95c01a86f175fcc",
+    "title": "An AI-Driven Framework for Network Intrusion Detection Using ANOVA-Based Feature Selection",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "a6b35feebc783526ebb79a9043cc1af0d0b99ca6",
+    "title": "PriFed-IDS: A Privacy-Preserving Federated Reinforcement Learning Framework for Secure and Intelligent Intrusion Detection in Digital Health Systems",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "ffa3c0d305f41d357ef1a07868e80c3ff4800d09",
+    "title": "Enhancing Network Security With Ai-Driven Intrusion Detection",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "74a5987842b17925d96ef24a7af3b0ec87db9919",
+    "title": "A Systematic Review of Threat Intelligence and Intrusion Detection Systems in Cybersecurity Architecture",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "0ee60e2b32d7dbefd6bf1df7381f5e186f510402",
+    "title": "AI-Driven Cybersecurity Frameworks for Real-Time Intrusion Detection and Threat Intelligence",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "ae032449ff944689c005108e8e7639f787fa752e",
+    "title": "AI-Driven Secure Intrusion Detection for Internet of Things (IOT) Networks",
+    "year": 2024,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "7907f73e6c9b497ff64e1196845ef4c554f76e35",
+    "title": "A Hybrid Machine-Learning Framework for Intrusion Detection: Comparative Evaluation and Statistical Validation",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "8d4e26a29933eeeaedea02d1971a76db684a3f29",
+    "title": "Ensembled Machine Learning Algorithm Based Intrusion Detection with Blockchain Technology",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "7959c68c8c5d77b250505011f47fb1a78a8b2933",
+    "title": "A Comparative Analysis of Machine Learning Models for Intrusion Detection in IoT Networks",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "cd9c41318c5ec7f595d7dfd61bbf40c801d89816",
+    "title": "Artificial Intelligence-Driven Cybersecurity Framework for Enterprise Threat Detection: A Machine Learning Approach",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "f5f0079d50db7debe0d67daa88ef4ec6757a9c62",
+    "title": "TinyML Driven Intrusion Detection for 5G Network Slices with Leakage-Free Validation",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "edb6af1f3d3c51e97e0c6bb16887c15047ff2608",
+    "title": "Hybrid Distributed Learning With Knowledge Distillation for Resource-Efficient Intrusion Detection in Distributed Networks",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "6bc8c98a4b99c0f9af3fb6138cbdea782568b084",
+    "title": "Lightweight principal component analysis-driven ensemble framework for real-time intrusion detection in industrial IoT networks",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "bf3558dbc1df1e3817eeddb8855f5f32381697c8",
+    "title": "LiteShield: Hybrid Feature Selection-Driven Lightweight Intrusion Detection for Resource-Constrained IoT Networks",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "13b6f7e48fff4f7e45b606aac0e05ee9140fc60d",
+    "title": "Toward Adaptive Intelligent Intrusion Detection: A Review of Zero-day Attack Detection Methods and Future Cyber Defence Directions",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "041d76ab5b42ee402cd32c4b2f7f14b939b1ac04",
+    "title": "AI-Powered Intrusion Detection and Prevention Systems for the Next Generation Network",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "c1a4b1fe08acf0ded1c176ffd756e97a775091d2",
+    "title": "Review of Machine Learning Techniques for MANET QoS and Security Enhancements",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "6d5c40869bccef47649541117b309f8642452c34",
+    "title": "A Proactive AI-Driven Intrusion Detection and Prediction Framework for Secure Industrial IoT Systems",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "5c135f46382c2e79ad40b87c64ce8617183e1ad4",
+    "title": "AI-Driven Adaptive Security Frameworks for Decentralized Edge Computing in IoT Ecosystems",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "5b1cdbba50c556f0f06203a7f640e1c2a017b441",
+    "title": "Machine Learning-Based Security Solutions for IoT Networks: A Comprehensive Survey",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "e4be5a82b80172ae561e53a9e88e45c1819c8c4e",
+    "title": "A Machine Learning-Based Intrusion Detection Framework for Enhanced Network Security",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "5506b944119d81e56f7c760f7ec714780125fc29",
+    "title": "Cross-Chain and Energy-Efficient Intrusion Detection for IoT Security using Smart Contracts and Machine Learning",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "aab829c95c2b75cdeff5222e4a65809e05f52933",
+    "title": "Artificial Intelligence-Based Intrusion Detection Systems for Advanced Cyber Threat Detection: A Machine Learning Approach",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "64ba53c04a7f2947649b0e654873f396df59f962",
+    "title": "An Enhanced Machine Learning & Deep Learning based Intrusion Detection System for Intelligent Network Security: A Comprehensive Analysis to Avoid Intrusions in Big Data-based IoT Ecosystem",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "e0583b42ac2f0a09aaa72e598f272930d8d79236",
+    "title": "Proactive Zero Day Threat Detection in 5G Mobile Edge Computing Using Transformer Driven Pre Execution Deep Learning Framework Process",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "94524ff41652fa6ee53bce1212b3200c743f1474",
+    "title": "Quantum-driven security evolution in IoT: AI-powered cryptography and anomaly detection",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "e6680679344ccf4f8ac48ccc9c561040adce4ff5",
+    "title": "An Intelligent Machine Learning Framework for Early Detection of DDoS Attacks in IoT Networks",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "8915a962a267617bef561712d375f57ee3ca2f72",
+    "title": "Uncertainty-based saltwater intrusion prediction using integrated Bayesian machine learning modeling (IBMLM) in a deep aquifer.",
+    "year": 2024,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "e3d9bb4407b4b85ff5f9336828545c4039ae13c1",
+    "title": "A Fine-Grained System Driven of Attacks Over Several New Representation Techniques Using Machine Learning",
+    "year": 2023,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "e3535e3efcd135922c8273dd969522bf310e5699",
+    "title": "Enhancing IoT and cloud Infrastructures Security with an AI-driven Hybrid Intrusion Detection System IDS for Encrypted Next Generation Network Traffic Using Deep Learning",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "257c9cc8b2419f85ea98d615149ba497e931747c",
+    "title": "A Comprehensive Systematic Review of AI-based Network Intrusion Detection Systems: Techniques, Datasets, Challenges, and Future Research Directions",
+    "year": 2026,
+    "doi": null
+   }
+  ],
+  "retrieved": "2026-09-15 (cached)"
+ },
+ {
+  "id": "C2",
+  "subject": "deep learning IoT intrusion detection",
+  "capability": "Standardized security protocols across IoT devices",
+  "records": [
+   {
+    "source": "semantic_scholar",
+    "id": "2fee99145d465012ce3656c260f8d51b672a99ba",
+    "title": "Hybrid-CID: Securing IoT with Mongoose Optimization",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "1c8a044268bc4faf71b280852528431f00594169",
+    "title": "An effective hybrid deep learning metaheuristic model for robust IoT intrusion detection",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "d4ea99aa135a62642ebe1df17bea99c129f0a340",
+    "title": "An Enhanced Data Privacy and Security Mitigation Technique: A Novel Federated Deep Learning (FDL) Model for Intrusion detection and Classification System For Cyber -Physical Systems in Internet of things (IoTs)",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "6c358d7592830b0d11c014880fb6de17b1f045ce",
+    "title": "Advanced intrusion detection for IoT devices using federated deep learning",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "8f397673b01045eaf480f7f275c9e4392594ab81",
+    "title": "A Novel Lightweight IoT Intrusion Detection Model Based on Self-Knowledge Distillation",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "31947d9f9fc937716d7af4eca56829c393f6d58d",
+    "title": "Deep Learning Based Intrusion Detection System for Network Security in IoT System",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "341e154f95b41225df4924c7a8df5ecce06ae890",
+    "title": "Hybrid Deep Learning-Based Security Model for Robust Intrusion Detection in IoT Networks",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "2e277cd8c9b510e16de3ae165d1422012f6a1afa",
+    "title": "Hybrid Deep Learning-Federated Learning Powered Intrusion Detection System for IoT/5G Advanced Edge Computing Network",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "9756fe24f177637fb0ff8a1b8fe7d1c8df8dfdfc",
+    "title": "Enhancing IoT Security: An Explainable Deep Learning-Based Intrusion Detection Framework with Skill Optimization",
+    "year": 2024,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "e4d8888da878787d91d9ad6d19de6192e4d75316",
+    "title": "Smart Defense: Harnessing Hybrid Deep Learning Models for Resilient IoT Intrusion Detection",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "613f83ac5cb9b59707a8169e6a935f923f7639e1",
+    "title": "Enhancing IoT Security Through Deep learning and Evolutionary Bio-Inspired Intrusion Detection in IoT systems",
+    "year": 2024,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "5da0a56bb45f88e37b9a5d033e0374b98cc69083",
+    "title": "Hybrid Deep Learning and Boosting Approach for Iot Intrusion Detection Using Autoencoder and Xgboost",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "0c5c7d5d12429598c4c1b990f0df76da47c5a422",
+    "title": "Optimizing IoT Security:Advanced Intrusion Detection for IoT Networks Using Deep Learning Techniques",
+    "year": 2024,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "a22ab546b21ae41d9759a82167e94507dc2f7602",
+    "title": "Preprocessing-Enhanced Deep Learning for IoT Intrusion Detection",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "92916b408ef0ddc232c878e28009976e040453d4",
+    "title": "Securing WSN-IoT Networks using SwinAlert-GAN: A Deep Learning-based Intrusion Detection Framework",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "c582f96577564c3693b2e01788f8ccc5cd7ec21c",
+    "title": "Building robust lightweight network intrusion detection: a multi-pronged approach with DSSTE and deep learning for securing edge-enabled industrial IoT applications",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "36929c85db4caabff43e340c2d99853e7dec99d8",
+    "title": "A comprehensive survey on deep learning‐based intrusion detection systems in Internet of Things (IoT)",
+    "year": 2024,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "edb3e740860ffe09e66f97998041cd9f3c9d6261",
+    "title": "Hybrid Deep Learning-Based Autoencoder-DNN Model for Intelligent Intrusion Detection System in IoT Networks",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "7c4ffd549d41af56ff365fce54bfc9815e83b52d",
+    "title": "Fog computing deep learning-based intrusion detection model for IOT network security",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "6ca25d801ad1d3a15e589f1c7a936964bd9f8194",
+    "title": "Federated Learning using Deep Learning-Intrusion Detection system (FL DL-IDS) for IoT Applications",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "d87bc3b23244819cf3c9d0ea64714540c1f72c5b",
+    "title": "A Combined Supervised and Unsupervised Deep Learning Approach for Intrusion Detection in IoT Traffic in an Edge Computing Environment",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "1dac7b1a986055e111dbb069145de1a919196510",
+    "title": "Federated Learning Models for Intrusion Detection in Industrial IoT Networks",
+    "year": 2024,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "3bd3e72a20e645995a8a0ce6c1b8681077b1ba66",
+    "title": "Deep Learning Approaches for Intrusion Detection in IoT Networks: A PRISMA‐Guided Systematic Review With Descriptive Meta‐Analysis",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "6e00a06c40a18cb686d09cbe8fc634882bb1b9db",
+    "title": "ENHANCING IIOT SECURITY WITH MACHINE LEARNING AND DEEP LEARNING FOR INTRUSION DETECTION",
+    "year": 2024,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "4bf033540f4271bff88f2ab1cb731bf3bb950efc",
+    "title": "Application of deep reinforcement learning for intrusion detection in Internet of Things: A systematic review",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "a8002c5b5fbbc6a562948835a2394327615de670",
+    "title": "Securing RPL-Based IoT Networks: A Hyperparameter Based Deep Learning Approach for Intrusion Detection",
+    "year": 2024,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "667a6202f878e8a7a28dd8673717f32024d2c6f2",
+    "title": "Lightweight Machine Learning-Deep Learning Framework for IoT Devices",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "abe6fde9173ce18875227e04b077e6cf830ded32",
+    "title": "Optimized Ensemble Deep Learning for Real-Time Intrusion Detection on Resource-Constrained Raspberry Pi Devices",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "8446e0d545f6c94b487e1f1ddfaac82a43c78ec0",
+    "title": "A novel intrusion detection framework using hybrid deep learning to detect IIoT cloud environments attacks",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "5c9e4667671e3dbe42f1100169bf8afec92393e3",
+    "title": "A Comprehensive Review of IOT-Based Security Models for Intrusion Detection Methods Using Deep Learning",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "2219db43d199e121d0609664860d16f34c3c64b7",
+    "title": "Deep Transfer Learning Based on Hybrid Swin Transformers With LSTM for Intrusion Detection Systems in IoT Environment",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "de59a679b2b28e662fb228edcc2e79ef5dab694d",
+    "title": "Optimizing IoT Intrusion Detection Using Balanced Class Distribution, Feature Selection, and Ensemble Machine Learning Techniques",
+    "year": 2024,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "6bcd4be8d4471343a2ad174f614a504502c5fdb4",
+    "title": "Intrusion Detection with Machine Learning and Deep Learning Methods in IoT Healthcare",
+    "year": 2024,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "0006da3e6f5b431a2b975dc61bd25a2e7a68992a",
+    "title": "StaEn-IDS: An Explainable Stacking Ensemble Deep Neural Network-Based Intrusion Detection System for IoT",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "586d1994b32e65827f5e0295cfbb2f6be0edc4ed",
+    "title": "Post-Quantum Cryptography (PQC) for IoT-Consumer Electronics Devices Integrated With Deep Learning",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "93c47541e7291aba1aec0026db4e6ca1a2643224",
+    "title": "Comparing Machine Learning and Deep Learning for Intrusion Detection in MQTT-Based Campus IoT Networks",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "36b73a99ea8d583682b63622c3ac0edd4f666944",
+    "title": "An Explorative Analysis of Detection and Controlling of Security in IOT Using Deep Learning",
+    "year": 2024,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "bb9fc604ce56487a9f557d26ef66c9c58470954a",
+    "title": "Optimized feature selection for IoT intrusion detection using firefly and Harris Hawk Optimization algorithms with a new multi-objective fitness function",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "55e57740dc92e4a79db8289dc54d6ac5d29a52f5",
+    "title": "Network Intrusion Detection for IoT Devices Using Deep Learning",
+    "year": 2023,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "de31428e88da9e500d80effa47153b71e984b6a6",
+    "title": "Confidence-driven lightweight adaptive online deep learning for IoT intrusion detection",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "b980ee903a7c3ded530010a534fd0c2fe868ba01",
+    "title": "A Federated Learning Framework with Self-Attention and Deep Reinforcement Learning for IoT Intrusion Detection",
+    "year": 2024,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "12d035f636ca395773b3a9556a53bc364c0b2a2c",
+    "title": "Block chain assisted deep learning framework for intrusion detection in Zigbee based IoT network",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "c4e00c72a8c1ccada78d80601e01fe35fca3d098",
+    "title": "Leveraging Deep Learning for Intrusion Detection in IoT Through Visualized Network Data",
+    "year": 2024,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "f235c7be177870625219cec3b7339830e70fb213",
+    "title": "Ensemble-Based Deep Learning Models for Enhancing IoT Intrusion Detection",
+    "year": 2023,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "79f7093e0500c206a016a72b3fddaea705dfebe2",
+    "title": "Enhancing anomaly detection and prevention in Internet of Things (IoT) using deep neural networks and blockchain based cyber security",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "c382b1a337f23dfebf66f11e754603347d9d698b",
+    "title": "Attention-based intrusion detection in MQTT-IoT network: a federated learning and deep reinforcement learning approach",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "b6ddda2d5bd277f604486aec6b2be45db6bb5b9a",
+    "title": "Deep Learning and Optimization-Driven Intrusion Detection Systems for Internet of Things Security: A Systematic Literature Review",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "c3dd2836426a5f22ef0cd302446e4dbb4c03122b",
+    "title": "Energy-Aware Federated Deep Learning for Real-Time IoT Intrusion Detection: Toward Scalable and Trustworthy Edge Intelligence",
+    "year": 2025,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "a1a41c31e620acabe16b39ebe8c89986c4a472a8",
+    "title": "Deep Feature Learning Enhanced Ensemble Models for Multi-Class Intrusion Detection in Imbalanced IoT Networks",
+    "year": 2026,
+    "doi": null
+   },
+   {
+    "source": "semantic_scholar",
+    "id": "99290de2d507bf866bd2badcd20dc4497b887323",
+    "title": "A Comparative Study of Machine Learning-based Intrusion Detection Approaches for Securing IoT Networks",
+    "year": 2026,
+    "doi": null
+   }
+  ],
+  "retrieved": "2026-10-27"
+ }
+]

@@ -100,6 +100,26 @@ def test_2_absence_corroborated_and_saturated_yields_evidence_supported():
     assert decision.abstention_reason is None
 
 
+def test_2b_zero_local_provenance_fails_closed_despite_corroboration():
+    """A candidate that reports zero supporting papers must not borrow provenance from Pillar B."""
+    candidate = {
+        "evidence_cell_id": "cell_no_provenance",
+        "subject": "Lightweight IDS",
+        "missing_capability": "On-chip memory bounds",
+        "supporting_paper_count": 0,
+        "supporting_paper_ids": [],
+    }
+    decision = decide_hypothesis(
+        candidate=candidate,
+        external_record={"verdict": "absence_corroborated", "refuting_papers": [], "confirmed_hit_count": 0},
+        author_record={"corroboration_count": 2, "circular_count": 0},
+        saturation_summary={"verdict": "SATURATED"},
+    )
+
+    assert decision.epistemic_disposition == EpistemicDisposition.REVIEW_REQUIRED
+    assert decision.action == AutonomousAction.ABSTAIN_AND_ESCALATE
+
+
 def test_3_absence_corroborated_and_unsaturated_yields_evidence_supported_but_open():
     """Test 3: Zero counterevidence + independent author support + UNSATURATED corpus -> EVIDENCE_SUPPORTED_BUT_OPEN."""
     candidate = {

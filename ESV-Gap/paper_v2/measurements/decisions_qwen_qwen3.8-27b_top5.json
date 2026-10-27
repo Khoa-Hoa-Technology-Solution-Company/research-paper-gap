@@ -1,0 +1,56 @@
+{
+ "model": "qwen/qwen3.8-27b",
+ "candidates": [
+  {
+   "candidate": "C1",
+   "co_mention_records": 5,
+   "verified_counterevidence": 5,
+   "supporting_limitation": 0,
+   "failed_calls": 0,
+   "independent_corroboration": 0,
+   "disposition": "REFUTED"
+  },
+  {
+   "candidate": "C2",
+   "co_mention_records": 4,
+   "verified_counterevidence": 0,
+   "supporting_limitation": 3,
+   "failed_calls": 0,
+   "independent_corroboration": 0,
+   "disposition": "REVIEW_REQUIRED"
+  },
+  {
+   "candidate": "C3",
+   "co_mention_records": 4,
+   "verified_counterevidence": 0,
+   "supporting_limitation": 1,
+   "failed_calls": 0,
+   "independent_corroboration": 0,
+   "disposition": "REVIEW_REQUIRED"
+  },
+  {
+   "candidate": "C4",
+   "co_mention_records": 5,
+   "verified_counterevidence": 4,
+   "supporting_limitation": 1,
+   "failed_calls": 0,
+   "independent_corroboration": 3,
+   "disposition": "REFUTED"
+  },
+  {
+   "candidate": "C5",
+   "co_mention_records": 5,
+   "verified_counterevidence": 2,
+   "supporting_limitation": 3,
+   "failed_calls": 0,
+   "independent_corroboration": 0,
+   "disposition": "REFUTED"
+  }
+ ],
+ "cost": {
+  "calls": 23,
+  "mean_latency_s": 4.204,
+  "prompt_tokens": 12778,
+  "completion_tokens": 2404
+ }
+}

@@ -1,0 +1,548 @@
+[
+ {
+  "subject": {
+   "name": "LIME",
+   "type": "METHOD"
+  },
+  "relation": "EVALUATES_ON",
+  "object": {
+   "name": "text classification benchmarks",
+   "type": "DATASET"
+  },
+  "confidence": 0.96,
+  "evidence": "LIME evaluates on text classification benchmarks",
+  "source_paper_id": "gold_xai_002"
+ },
+ {
+  "subject": {
+   "name": "LIME",
+   "type": "METHOD"
+  },
+  "relation": "IMPROVES",
+  "object": {
+   "name": "user trust in machine learning models",
+   "type": "FINDING"
+  },
+  "confidence": 0.94,
+  "evidence": "improves user trust in machine learning models",
+  "source_paper_id": "gold_xai_002"
+ },
+ {
+  "subject": {
+   "name": "LIME",
+   "type": "METHOD"
+  },
+  "relation": "LACKS",
+  "object": {
+   "name": "theoretical convergence guarantees",
+   "type": "LIMITATION"
+  },
+  "confidence": 0.98,
+  "evidence": "lacks theoretical convergence guarantees",
+  "source_paper_id": "gold_xai_002"
+ },
+ {
+  "subject": {
+   "name": "LIME",
+   "type": "METHOD"
+  },
+  "relation": "PRODUCES",
+  "object": {
+   "name": "interpretable model locally around the prediction",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.92,
+  "evidence": "LIME explains the predictions of any classifier by learning an interpretable model locally around the prediction",
+  "source_paper_id": "gold_xai_002"
+ },
+ {
+  "subject": {
+   "name": "Grad-CAM",
+   "type": "METHOD"
+  },
+  "relation": "USES",
+  "object": {
+   "name": "gradient localization",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.95,
+  "evidence": "Grad-CAM uses gradient localization to produce visual explanations",
+  "source_paper_id": "gold_xai_003"
+ },
+ {
+  "subject": {
+   "name": "Grad-CAM",
+   "type": "METHOD"
+  },
+  "relation": "PRODUCES",
+  "object": {
+   "name": "visual explanations",
+   "type": "FINDING"
+  },
+  "confidence": 0.95,
+  "evidence": "Grad-CAM ... produce visual explanations for convolutional networks",
+  "source_paper_id": "gold_xai_003"
+ },
+ {
+  "subject": {
+   "name": "Grad-CAM",
+   "type": "METHOD"
+  },
+  "relation": "ADDRESSES",
+  "object": {
+   "name": "spatial saliency",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.95,
+  "evidence": "It addresses spatial saliency",
+  "source_paper_id": "gold_xai_003"
+ },
+ {
+  "subject": {
+   "name": "Grad-CAM",
+   "type": "METHOD"
+  },
+  "relation": "LACKS",
+  "object": {
+   "name": "pixel-level fine-grained resolution",
+   "type": "LIMITATION"
+  },
+  "confidence": 0.95,
+  "evidence": "though it lacks pixel-level fine-grained resolution",
+  "source_paper_id": "gold_xai_003"
+ },
+ {
+  "subject": {
+   "name": "visual explanations",
+   "type": "FINDING"
+  },
+  "relation": "APPLIED_TO",
+  "object": {
+   "name": "convolutional networks",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.95,
+  "evidence": "visual explanations for convolutional networks",
+  "source_paper_id": "gold_xai_003"
+ },
+ {
+  "subject": {
+   "name": "Integrated Gradients",
+   "type": "METHOD"
+  },
+  "relation": "IMPROVES",
+  "object": {
+   "name": "attribution accuracy",
+   "type": "FINDING"
+  },
+  "confidence": 0.96,
+  "evidence": "Integrated Gradients improves attribution accuracy by satisfying completeness and implementation invariance.",
+  "source_paper_id": "gold_xai_004"
+ },
+ {
+  "subject": {
+   "name": "Integrated Gradients",
+   "type": "METHOD"
+  },
+  "relation": "ADDRESSES",
+  "object": {
+   "name": "baseline selection sensitivity",
+   "type": "LIMITATION"
+  },
+  "confidence": 0.94,
+  "evidence": "It addresses baseline selection sensitivity",
+  "source_paper_id": "gold_xai_004"
+ },
+ {
+  "subject": {
+   "name": "Integrated Gradients",
+   "type": "METHOD"
+  },
+  "relation": "USES",
+  "object": {
+   "name": "path integrals",
+   "type": "METHOD"
+  },
+  "confidence": 0.93,
+  "evidence": "uses path integrals",
+  "source_paper_id": "gold_xai_004"
+ },
+ {
+  "subject": {
+   "name": "Integrated Gradients",
+   "type": "METHOD"
+  },
+  "relation": "LACKS",
+  "object": {
+   "name": "computational speed during integration",
+   "type": "LIMITATION"
+  },
+  "confidence": 0.95,
+  "evidence": "yet lacks computational speed during integration.",
+  "source_paper_id": "gold_xai_004"
+ },
+ {
+  "subject": {
+   "name": "Integrated Gradients",
+   "type": "METHOD"
+  },
+  "relation": "PRODUCES",
+  "object": {
+   "name": "completeness",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.9,
+  "evidence": "by satisfying completeness",
+  "source_paper_id": "gold_xai_004"
+ },
+ {
+  "subject": {
+   "name": "Counterfactual explanations",
+   "type": "METHOD"
+  },
+  "relation": "IMPROVES",
+  "object": {
+   "name": "algorithmic recourse",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.96,
+  "evidence": "Counterfactual explanations improve algorithmic recourse by describing minimal input perturbations.",
+  "source_paper_id": "gold_xai_005"
+ },
+ {
+  "subject": {
+   "name": "Counterfactual explanations",
+   "type": "METHOD"
+  },
+  "relation": "EVALUATES_ON",
+  "object": {
+   "name": "tabular financial datasets",
+   "type": "DATASET"
+  },
+  "confidence": 0.94,
+  "evidence": "They evaluate on tabular financial datasets",
+  "source_paper_id": "gold_xai_005"
+ },
+ {
+  "subject": {
+   "name": "Counterfactual explanations",
+   "type": "METHOD"
+  },
+  "relation": "ADDRESSES",
+  "object": {
+   "name": "user actionable feedback",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.92,
+  "evidence": "address user actionable feedback",
+  "source_paper_id": "gold_xai_005"
+ },
+ {
+  "subject": {
+   "name": "Counterfactual explanations",
+   "type": "METHOD"
+  },
+  "relation": "LACKS",
+  "object": {
+   "name": "robustness under model retraining",
+   "type": "LIMITATION"
+  },
+  "confidence": 0.95,
+  "evidence": "but lack robustness under model retraining",
+  "source_paper_id": "gold_xai_005"
+ },
+ {
+  "subject": {
+   "name": "Counterfactual explanations",
+   "type": "METHOD"
+  },
+  "relation": "PRODUCES",
+  "object": {
+   "name": "minimal input perturbations",
+   "type": "FINDING"
+  },
+  "confidence": 0.93,
+  "evidence": "by describing minimal input perturbations",
+  "source_paper_id": "gold_xai_005"
+ },
+ {
+  "subject": {
+   "name": "TCAV",
+   "type": "METHOD"
+  },
+  "relation": "USES",
+  "object": {
+   "name": "directional derivatives",
+   "type": "METHOD"
+  },
+  "confidence": 0.95,
+  "evidence": "TCAV uses directional derivatives to quantify concept importance.",
+  "source_paper_id": "gold_xai_007"
+ },
+ {
+  "subject": {
+   "name": "TCAV",
+   "type": "METHOD"
+  },
+  "relation": "IMPROVES",
+  "object": {
+   "name": "domain expert interpretability",
+   "type": "FINDING"
+  },
+  "confidence": 0.95,
+  "evidence": "It improves domain expert interpretability",
+  "source_paper_id": "gold_xai_007"
+ },
+ {
+  "subject": {
+   "name": "TCAV",
+   "type": "METHOD"
+  },
+  "relation": "ADDRESSES",
+  "object": {
+   "name": "semantic alignment",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.95,
+  "evidence": "addresses semantic alignment",
+  "source_paper_id": "gold_xai_007"
+ },
+ {
+  "subject": {
+   "name": "TCAV",
+   "type": "METHOD"
+  },
+  "relation": "APPLIED_TO",
+  "object": {
+   "name": "medical diagnostic images",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.95,
+  "evidence": "applies to medical diagnostic images",
+  "source_paper_id": "gold_xai_007"
+ },
+ {
+  "subject": {
+   "name": "TCAV",
+   "type": "METHOD"
+  },
+  "relation": "PRODUCES",
+  "object": {
+   "name": "concept importance",
+   "type": "FINDING"
+  },
+  "confidence": 0.95,
+  "evidence": "TCAV uses directional derivatives to quantify concept importance.",
+  "source_paper_id": "gold_xai_007"
+ },
+ {
+  "subject": {
+   "name": "TreeSHAP",
+   "type": "METHOD"
+  },
+  "relation": "USES",
+  "object": {
+   "name": "tree structure recursion",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.96,
+  "evidence": "TreeSHAP uses tree structure recursion to compute exact Shapley values",
+  "source_paper_id": "gold_xai_008"
+ },
+ {
+  "subject": {
+   "name": "TreeSHAP",
+   "type": "METHOD"
+  },
+  "relation": "PRODUCES",
+  "object": {
+   "name": "exact Shapley values",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.97,
+  "evidence": "TreeSHAP uses tree structure recursion to compute exact Shapley values",
+  "source_paper_id": "gold_xai_008"
+ },
+ {
+  "subject": {
+   "name": "TreeSHAP",
+   "type": "METHOD"
+  },
+  "relation": "ADDRESSES",
+  "object": {
+   "name": "combinatorial explosion in decision trees",
+   "type": "LIMITATION"
+  },
+  "confidence": 0.94,
+  "evidence": "It addresses combinatorial explosion in decision trees",
+  "source_paper_id": "gold_xai_008"
+ },
+ {
+  "subject": {
+   "name": "TreeSHAP",
+   "type": "METHOD"
+  },
+  "relation": "APPLIED_TO",
+  "object": {
+   "name": "XGBoost models",
+   "type": "TOOL"
+  },
+  "confidence": 0.95,
+  "evidence": "applies to XGBoost models",
+  "source_paper_id": "gold_xai_008"
+ },
+ {
+  "subject": {
+   "name": "Fairness Attribution Framework",
+   "type": "METHOD"
+  },
+  "relation": "USES",
+  "object": {
+   "name": "constrained optimization",
+   "type": "METHOD"
+  },
+  "confidence": 0.9,
+  "evidence": "The framework uses constrained optimization",
+  "source_paper_id": "gold_xai_009"
+ },
+ {
+  "subject": {
+   "name": "Fairness Attribution Framework",
+   "type": "METHOD"
+  },
+  "relation": "ADDRESSES",
+  "object": {
+   "name": "systemic bias in predictions",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.9,
+  "evidence": "addresses systemic bias in predictions",
+  "source_paper_id": "gold_xai_009"
+ },
+ {
+  "subject": {
+   "name": "Fairness Attribution Framework",
+   "type": "METHOD"
+  },
+  "relation": "LACKS",
+  "object": {
+   "name": "empirical validation",
+   "type": "LIMITATION"
+  },
+  "confidence": 0.9,
+  "evidence": "lacks empirical validation",
+  "source_paper_id": "gold_xai_009"
+ },
+ {
+  "subject": {
+   "name": "Fairness Attribution Framework",
+   "type": "METHOD"
+  },
+  "relation": "LACKS",
+  "object": {
+   "name": "validation on large-scale datasets",
+   "type": "LIMITATION"
+  },
+  "confidence": 0.6,
+  "evidence": "lacks empirical validation across large-scale datasets",
+  "source_paper_id": "gold_xai_009"
+ },
+ {
+  "subject": {
+   "name": "fairness",
+   "type": "CONCEPT"
+  },
+  "relation": "APPLIED_TO",
+  "object": {
+   "name": "attribution methods",
+   "type": "METHOD"
+  },
+  "confidence": 0.8,
+  "evidence": "We study fairness in attribution methods",
+  "source_paper_id": "gold_xai_009"
+ },
+ {
+  "subject": {
+   "name": "Explanation manipulation methods",
+   "type": "METHOD"
+  },
+  "relation": "PRODUCES",
+  "object": {
+   "name": "Deception of attribution frameworks",
+   "type": "FINDING"
+  },
+  "confidence": 0.9,
+  "evidence": "Explanation manipulation methods deceive attribution frameworks without altering model predictions.",
+  "source_paper_id": "gold_xai_010"
+ },
+ {
+  "subject": {
+   "name": "Explanation manipulation methods",
+   "type": "METHOD"
+  },
+  "relation": "APPLIED_TO",
+  "object": {
+   "name": "attribution frameworks",
+   "type": "CONCEPT"
+  },
+  "confidence": 0.9,
+  "evidence": "Explanation manipulation methods deceive attribution frameworks without altering model predictions.",
+  "source_paper_id": "gold_xai_010"
+ },
+ {
+  "subject": {
+   "name": "Explanation manipulation methods",
+   "type": "METHOD"
+  },
+  "relation": "EVALUATES_ON",
+  "object": {
+   "name": "ImageNet",
+   "type": "DATASET"
+  },
+  "confidence": 0.9,
+  "evidence": "We evaluate on ImageNet and demonstrate that gradient-based explainers use vulnerable sensitivity points.",
+  "source_paper_id": "gold_xai_010"
+ },
+ {
+  "subject": {
+   "name": "Gradient-based explainers",
+   "type": "METHOD"
+  },
+  "relation": "LACKS",
+  "object": {
+   "name": "robustness to vulnerable sensitivity points",
+   "type": "LIMITATION"
+  },
+  "confidence": 0.85,
+  "evidence": "gradient-based explainers use vulnerable sensitivity points.",
+  "source_paper_id": "gold_xai_010"
+ },
+ {
+  "subject": {
+   "name": "Gradient-based explainers",
+   "type": "METHOD"
+  },
+  "relation": "PRODUCES",
+  "object": {
+   "name": "vulnerable sensitivity points",
+   "type": "FINDING"
+  },
+  "confidence": 0.85,
+  "evidence": "gradient-based explainers use vulnerable sensitivity points.",
+  "source_paper_id": "gold_xai_010"
+ },
+ {
+  "subject": {
+   "name": "Gradient-based explainers",
+   "type": "METHOD"
+  },
+  "relation": "EVALUATES_ON",
+  "object": {
+   "name": "ImageNet",
+   "type": "DATASET"
+  },
+  "confidence": 0.9,
+  "evidence": "We evaluate on ImageNet and demonstrate that gradient-based explainers use vulnerable sensitivity points.",
+  "source_paper_id": "gold_xai_010"
+ }
+]
