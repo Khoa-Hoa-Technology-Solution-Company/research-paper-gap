@@ -193,3 +193,77 @@ pdflatex -interaction=nonstopmode -halt-on-error main_ieee.tex
 
 `main_ieee.tex` is the submission manuscript. The older `main.tex` file is an
 LNCS-format working draft and should not be submitted in place of the IEEE file.
+
+## AMI 2027 triage results (`canonical_results.json`)
+
+The numbers in Tables 3 and 5 of `main_springer_ami.tex` are stored in
+`paper_v2/canonical_results.json`. The file was assembled by hand from
+the frozen run `runs/deep_learning_iot_intrusion_de_20260831_114802`, plus scratch
+scripts in `scratch/` and manual edits. `tests/test_result_consistency.py`
+checks only that file. It does not regenerate it.
+
+To rebuild the file offline from cached data and diff it against the committed
+copy:
+
+```powershell
+$env:PYTHONIOENCODING = "utf-8"
+python experiments\build_canonical_results.py
+```
+
+Outputs: `outputs/canonical_results_rebuilt.json` (rebuilt values, plus
+`_`-prefixed audit fields) and `outputs/canonical_results_diff.json`. Each
+committed field gets one of these statuses: `MATCH`, `MISMATCH`, or
+`NOT_REPRODUCIBLE`. The comparison run on 2026-10-27 gave 157 MATCH,
+17 MISMATCH and 35 NOT_REPRODUCIBLE.
+
+**Reproduced from cached run data:**
+
+- Corpus: 150 retained papers, years 2019–2026.
+- Multigraph: 1,185 canonical entities, 1,404 relation events, 1,396/1,403
+  cumulative raw entities/relations.
+- Raw and canonical saturation statistics (beta, K, R², marginal means, decay).
+- Stage A1 for C1–C5: raw index counts 864/400/146/189/1095, 5 inspected
+  records each, co-mention counts 5/4/4/0/5 (`outputs/external_verification.json`).
+- Pillar B: C4 has 3 independent corroborations, author-disjoint from the
+  origin paper. C2 has 1 circular corroboration traced to paper `04b3ca64`
+  (`outputs/author_stated_gaps.json`).
+- C4 disposition `EVIDENCE_SUPPORTED_BUT_OPEN` / `RETAIN_WITH_WARNING`. With
+  zero co-mentions, this does not depend on Stage A2.
+- For C1, C3 and C5, the primary counterevidence DOIs are among the run's
+  Stage A1 hits, and the quoted spans appear verbatim, as segments split by
+  "...", in abstracts cached in `scratch/`.
+- K_fetch lexical co-mention counts, strict (0/0/1/2) and expanded (4/7/13/33),
+  recomputed from `scratch/c4_s2_50.json`.
+
+**Not reproducible:**
+
+- `semantic_verified_counterevidence_count` (2/0/2/0/1) and the dispositions
+  of C1, C2, C3 and C5. No Stage A2 classifier exists in `src/`, `experiments/`
+  or `scratch/`, and the run stores no Stage A2 labels. Applying the current
+  code to the run gives C2 = `REFUTED`, because lexical co-mention is treated
+  as refutation. If the committed A2 counts are fed into
+  `decide_hypothesis`, it returns the committed dispositions for all five
+  candidates. For C2, though, the code's reason is "no independent
+  corroboration", not circularity.
+- The K_fetch `verified_counterevidence` and `disposition` values are
+  hard-coded constants in `scratch/eval_k_fetch.py`.
+- Free-text fields (`target_domain`, `rationale`, `abstention_reason`) and
+  some bibliographic fields with no cached source.
+
+**Mismatches:**
+
+- `screened_records`: 192 in the file, 191 in the run.
+- The precision Wilson CI is [0.7194, 0.9501] in the file. With z = 1.96 it is
+  [0.7193, 0.9503]. The paper's rounded [71.9%, 95.0%] is correct.
+- The primary-counterevidence author names in the JSON ("T. R. Gadekallu",
+  "S. Ullah") do not match the cached metadata or the paper (Nitrat,
+  Ogundokun).
+- Candidate subject and capability labels are paraphrased from the run's
+  strings.
+
+**Caveat for Pillar C:** `benchmarks/gold_benchmark_extracted.json` is not
+extractor output. `scratch/setup_exact_benchmark.py` builds it by deleting
+eight chosen gold triples and adding four hand-written false positives. The
+28/8/4 counts and the derived precision, recall and CIs are reproducible
+arithmetic over that constructed file. They are not a measurement of the
+extractor.

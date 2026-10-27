@@ -204,3 +204,28 @@ recall without bypassing the downstream evidence contract.
 
 Generated run data are intentionally excluded from Git. Do not commit `.env`,
 API keys, or reviewer data that have not been cleared for release.
+
+## Re-running the synthesis stage on the frozen run
+
+The AMI 2027 triage numbers (Tables 3 and 5 of `paper_v2/main_springer_ami.tex`)
+are stored in `paper_v2/canonical_results.json`. To rebuild that file from the
+frozen run's caches and compare it field by field with the committed copy:
+
+```powershell
+$env:PYTHONIOENCODING = "utf-8"
+python experiments\build_canonical_results.py
+```
+
+The script needs the local run `runs/deep_learning_iot_intrusion_de_20260831_114802`
+(`runs/` is gitignored) and makes no network calls. It writes
+`outputs/canonical_results_rebuilt.json` and `outputs/canonical_results_diff.json`,
+prints every mismatch, and never overwrites the committed file.
+
+Not everything can be rebuilt. No code in this repository implements the
+Stage A2 semantic classifier, and the run stores only the Stage A1 lexical
+co-mention hits. As a result, the per-candidate `semantic_verified_counterevidence_count`
+and the dispositions of C1, C2, C3 and C5 are reported as `NOT_REPRODUCIBLE`.
+Running `src/synthesize_rankings.py` on the same run applies the older
+single-stage rule, in which any co-mention counts as refutation, and gives four
+refuted candidates and none in review. See `paper_v2/REPRODUCIBILITY.md` for the
+full list of fields that do and do not reproduce.
