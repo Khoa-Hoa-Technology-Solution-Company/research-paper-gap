@@ -44,10 +44,8 @@ src/
   fetch_external.py, external.py            OpenAlex evidence recovery (cached)
   certify.py                                deletion experiments, all certification rules (Tables IV-VII)
   fetch_years.py, retro.py                  publication years, retrospective validation, gap dossiers (Tables VIII-IX)
-  make_audit.py, audit_stats.py             optional manual audit sheets (not used in the paper)
   summarize.py                              quick text summary of evaluate.py results
 THEORY.md                                   theorems, proofs, corollary
-overnight_refresh.sh                        example unattended chain (keep the machine awake)
 ```
 
 ## Setup
