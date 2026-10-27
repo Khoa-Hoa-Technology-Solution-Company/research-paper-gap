@@ -1,0 +1,12 @@
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{lcccccc}
+\toprule
+Method & Acc. & FN 95\% CI & FC 95\% CI & Wit.\ doc & Gr.\ rec. & FC hard \\
+\midrule
+CoMention & 0.700 & [0.14, 0.26] & [0.38, 0.56] & 0.596 & 0.479 & 0.283 \\
+BM25 & 0.693 & [0.14, 0.25] & [0.40, 0.58] & 0.768 & 0.617 & 0.345 \\
+Dense (MiniLM) & 0.647 & [0.25, 0.38] & [0.32, 0.50] & 0.727 & 0.495 & 0.348 \\
+NLI-verify & 0.687 & [0.18, 0.30] & [0.35, 0.53] & 0.671 & 0.511 & 0.184 \\
+ESV-Learned & 0.707 & [0.18, 0.30] & [0.31, 0.48] & 0.792 & 0.606 & 0.182 \\
+\bottomrule
+\end{tabular}

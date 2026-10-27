@@ -1,0 +1,14 @@
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.1cm}cccc}
+\toprule
+ & \multicolumn{2}{c}{Run 1 (small)} & \multicolumn{2}{c}{Run 2 (large)} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Method & F1 & FN & F1 & FN \\
+\midrule
+CoMention & 0.669 & 0.197 & 0.669 & 0.197 \\
+BM25 & 0.660 & 0.197 & 0.660 & 0.197 \\
+Dense (MiniLM) & 0.631 & 0.319 & 0.631 & 0.319 \\
+NLI-verify & 0.533 & 0.346 & 0.663 & 0.239 \\
+ESV (run 1: Scope, $a=0.5$, $k=5$; run 2: Learned, $k=3$) & 0.648 & 0.324 & 0.687 & 0.234 \\
+\bottomrule
+\end{tabular}

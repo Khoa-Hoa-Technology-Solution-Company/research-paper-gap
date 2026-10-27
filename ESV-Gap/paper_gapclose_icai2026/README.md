@@ -11,6 +11,9 @@ Long Truong (FPT University).
 python make_tables.py      # regenerate tables/*.tex and tables/macros.tex from ../gapclose/outputs*/results
 pdflatex main.tex
 pdflatex main.tex
+python make_supp.py        # supplementary tables tables/supp_*.tex
+pdflatex supplementary.tex
+pdflatex supplementary.tex
 ```
 
 `make_tables.py` writes every table, the figure data and the number macros used in the text
@@ -25,6 +28,7 @@ Run the experiments first as described in [`../gapclose/README.md`](../gapclose/
 | `tables/robust.tex`, `fn.tex`, `power.tex`, `fig.tex` | certification under deletion (Tables IV to VI, Fig. 2) |
 | `tables/climate.tex` | second domain (Table VII) |
 | `tables/retro.tex`, `dossier.tex` | retrospective validation and gap dossiers (Tables VIII, IX) |
+| `supplementary.tex`, `make_supp.py` | supplementary material (proofs, implementation details, full results; Tables S1 to S15) |
 | `BAO_CAO_DEM_08-10.md` | internal revision log (Vietnamese) |
 
 Writing conventions: no em or en dashes in the prose, result numbers in the text come from the generated macros wherever possible.
