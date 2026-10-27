@@ -1,0 +1,20 @@
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{lccccccc}
+\toprule
+Score & $0$ & $0.1$ & $0.2$ & $0.3$ & $0.5$ & $0.7$ & $1$ \\
+\midrule
+CoMention & 0.068 & 0.087 & \textbf{0.108} & \textbf{0.128} & \textbf{0.171} & \textbf{0.213} & \textbf{0.279} \\
+BM25 & 0.098 & \textbf{0.122} & \textbf{0.144} & \textbf{0.165} & \textbf{0.212} & \textbf{0.254} & \textbf{0.325} \\
+Dense & 0.098 & \textbf{0.117} & \textbf{0.132} & \textbf{0.151} & \textbf{0.185} & \textbf{0.223} & \textbf{0.281} \\
+BGE dense & 0.098 & \textbf{0.136} & \textbf{0.171} & \textbf{0.208} & \textbf{0.282} & \textbf{0.359} & \textbf{0.480} \\
+BGE rerank & 0.097 & \textbf{0.137} & \textbf{0.174} & \textbf{0.212} & \textbf{0.287} & \textbf{0.363} & \textbf{0.486} \\
+LLM judge & 0.099 & \textbf{0.119} & \textbf{0.134} & \textbf{0.151} & \textbf{0.189} & \textbf{0.226} & \textbf{0.286} \\
+NLI-verify & 0.099 & \textbf{0.114} & \textbf{0.131} & \textbf{0.145} & \textbf{0.181} & \textbf{0.216} & \textbf{0.274} \\
+ESV-Scope & 0.099 & \textbf{0.117} & \textbf{0.135} & \textbf{0.153} & \textbf{0.196} & \textbf{0.236} & \textbf{0.302} \\
+\midrule
+CoMention +OA & 0.062 & 0.078 & 0.096 & \textbf{0.112} & \textbf{0.147} & \textbf{0.182} & \textbf{0.235} \\
+Dense +OA & 0.097 & \textbf{0.116} & \textbf{0.129} & \textbf{0.146} & \textbf{0.177} & \textbf{0.209} & \textbf{0.258} \\
+BGE rerank +OA & 0.098 & \textbf{0.126} & \textbf{0.153} & \textbf{0.179} & \textbf{0.233} & \textbf{0.287} & \textbf{0.368} \\
+ESV-Scope +OA & 0.098 & \textbf{0.107} & \textbf{0.119} & \textbf{0.127} & \textbf{0.150} & \textbf{0.168} & \textbf{0.200} \\
+\bottomrule
+\end{tabular}

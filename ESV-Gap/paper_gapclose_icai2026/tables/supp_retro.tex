@@ -1,0 +1,28 @@
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lccccc}
+\toprule
+Score & F1-opt.\ FN & In-situ FN & Filled & \textsc{nei} & Prec. \\
+\midrule
+\multicolumn{6}{l}{\textit{Cutoff 2008: 45\% of documents visible, 221 closed, 415 later filled, 416 \textup{\textsc{nei}}}} \\
+Dense & \textbf{0.378} & 0.101 & 0.499 & 0.501 & 0.966 \\
+BGE rerank & \textbf{0.297} & 0.095 & 0.717 & 0.656 & 0.977 \\
+LLM judge & \textbf{0.467} & 0.100 & 0.380 & 0.291 & 0.954 \\
+ESV-Scope & \textbf{0.405} & 0.098 & 0.431 & 0.418 & 0.962 \\
+BGE rerank +OA & \textbf{0.326} & 0.097 & 0.688 & 0.589 & 0.975 \\
+ESV-Scope +OA & \textbf{0.394} & 0.102 & 0.420 & 0.392 & 0.959 \\
+\multicolumn{6}{l}{\textit{Cutoff 2010: 56\% of documents visible, 310 closed, 326 later filled, 416 \textup{\textsc{nei}}}} \\
+Dense & \textbf{0.340} & 0.095 & 0.426 & 0.426 & 0.941 \\
+BGE rerank & \textbf{0.278} & 0.097 & 0.684 & 0.645 & 0.961 \\
+LLM judge & \textbf{0.399} & 0.096 & 0.355 & 0.261 & 0.922 \\
+ESV-Scope & \textbf{0.375} & 0.097 & 0.437 & 0.414 & 0.940 \\
+BGE rerank +OA & \textbf{0.302} & 0.098 & 0.681 & 0.571 & 0.958 \\
+ESV-Scope +OA & \textbf{0.340} & 0.099 & 0.426 & 0.358 & 0.935 \\
+\multicolumn{6}{l}{\textit{Cutoff 2012: 68\% of documents visible, 407 closed, 229 later filled, 416 \textup{\textsc{nei}}}} \\
+Dense & \textbf{0.352} & 0.100 & 0.375 & 0.384 & 0.893 \\
+BGE rerank & \textbf{0.273} & 0.100 & 0.604 & 0.574 & 0.928 \\
+LLM judge & \textbf{0.341} & 0.098 & 0.301 & 0.236 & 0.858 \\
+ESV-Scope & \textbf{0.371} & 0.097 & 0.412 & 0.361 & 0.897 \\
+BGE rerank +OA & \textbf{0.325} & 0.097 & 0.592 & 0.497 & 0.924 \\
+ESV-Scope +OA & \textbf{0.326} & 0.097 & 0.401 & 0.306 & 0.889 \\
+\bottomrule
+\end{tabular}

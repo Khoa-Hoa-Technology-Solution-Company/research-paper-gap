@@ -1,0 +1,37 @@
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{lccccccc}
+\toprule
+Score & $0$ & $0.1$ & $0.2$ & $0.3$ & $0.5$ & $0.7$ & $1$ \\
+\midrule
+\multicolumn{8}{l}{\emph{False novelty, F1-optimal threshold}} \\
+CoMention & \textbf{0.321} & \textbf{0.328} & \textbf{0.345} & \textbf{0.348} & \textbf{0.360} & \textbf{0.378} & \textbf{0.417} \\
+BM25 & \textbf{0.383} & \textbf{0.384} & \textbf{0.396} & \textbf{0.409} & \textbf{0.428} & \textbf{0.468} & \textbf{0.538} \\
+Dense & \textbf{0.294} & \textbf{0.299} & \textbf{0.314} & \textbf{0.319} & \textbf{0.346} & \textbf{0.366} & \textbf{0.432} \\
+NLI-verify & \textbf{0.420} & \textbf{0.433} & \textbf{0.446} & \textbf{0.459} & \textbf{0.488} & \textbf{0.523} & \textbf{0.603} \\
+ESV-Scope & \textbf{0.333} & \textbf{0.339} & \textbf{0.346} & \textbf{0.356} & \textbf{0.379} & \textbf{0.405} & \textbf{0.463} \\
+\multicolumn{8}{l}{\emph{False novelty, Split conformal}} \\
+CoMention & 0.094 & 0.095 & 0.098 & 0.099 & \textbf{0.107} & \textbf{0.114} & \textbf{0.129} \\
+BM25 & 0.098 & 0.103 & \textbf{0.107} & \textbf{0.113} & \textbf{0.123} & \textbf{0.138} & \textbf{0.165} \\
+Dense & 0.100 & 0.102 & 0.103 & \textbf{0.107} & \textbf{0.115} & \textbf{0.127} & \textbf{0.147} \\
+NLI-verify & 0.099 & 0.103 & \textbf{0.110} & \textbf{0.118} & \textbf{0.138} & \textbf{0.163} & \textbf{0.240} \\
+ESV-Scope & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+\multicolumn{8}{l}{\emph{False novelty, In-situ (Thm.~1)}} \\
+CoMention & 0.094 & 0.094 & 0.093 & 0.092 & 0.092 & 0.092 & 0.092 \\
+BM25 & 0.098 & 0.098 & 0.098 & 0.100 & 0.097 & 0.098 & 0.098 \\
+Dense & 0.100 & 0.099 & 0.098 & 0.097 & 0.098 & 0.099 & 0.098 \\
+NLI-verify & 0.099 & 0.097 & 0.098 & 0.098 & 0.099 & 0.099 & 0.099 \\
+ESV-Scope & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+\multicolumn{8}{l}{\emph{False novelty, Transfer, $\hat p$ (Thm.~2)}} \\
+CoMention & 0.094 & 0.092 & 0.092 & 0.090 & 0.090 & 0.090 & 0.092 \\
+BM25 & 0.096 & 0.096 & 0.095 & 0.096 & 0.093 & 0.095 & 0.098 \\
+Dense & 0.099 & 0.098 & 0.095 & 0.095 & 0.094 & 0.095 & 0.098 \\
+NLI-verify & 0.097 & 0.093 & 0.093 & 0.093 & 0.092 & 0.089 & 0.099 \\
+ESV-Scope & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+\multicolumn{8}{l}{\emph{Power, transfer calibration}} \\
+CoMention & 0.145 & 0.143 & 0.140 & 0.137 & 0.133 & 0.128 & 0.116 \\
+BM25 & 0.143 & 0.137 & 0.131 & 0.128 & 0.117 & 0.107 & 0.090 \\
+Dense & 0.256 & 0.247 & 0.238 & 0.233 & 0.223 & 0.213 & 0.195 \\
+NLI-verify & 0.107 & 0.099 & 0.095 & 0.091 & 0.077 & 0.060 & 0.021 \\
+ESV-Scope & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,22 @@
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{lcccccccc}
+\toprule
+ & \multicolumn{2}{c}{Res., random} & \multicolumn{2}{c}{Res., targeted} & \multicolumn{2}{c}{T$\to$T, random} & \multicolumn{2}{c}{T$\to$T, targeted} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+Score & in-situ & transf. & in-situ & transf. & in-situ & transf. & in-situ & transf. \\
+\midrule
+CoMention & 0.092 & 0.090 & 0.090 & 0.084 & \textbf{0.122} & \textbf{0.122} & \textbf{0.115} & \textbf{0.114} \\
+BM25 & 0.101 & 0.098 & 0.101 & 0.095 & \textbf{0.119} & \textbf{0.110} & \textbf{0.119} & \textbf{0.112} \\
+Dense & 0.100 & 0.097 & 0.100 & 0.096 & \textbf{0.116} & \textbf{0.111} & \textbf{0.116} & \textbf{0.111} \\
+BGE dense & 0.101 & 0.098 & 0.101 & 0.094 & \textbf{0.106} & 0.093 & \textbf{0.106} & 0.093 \\
+BGE rerank & 0.101 & 0.098 & 0.100 & 0.093 & \textbf{0.108} & 0.088 & \textbf{0.108} & 0.088 \\
+LLM judge & 0.101 & 0.099 & 0.100 & 0.103 & 0.080 & 0.076 & 0.080 & 0.077 \\
+NLI-verify & 0.101 & 0.099 & 0.100 & 0.099 & 0.101 & 0.101 & \textbf{0.110} & \textbf{0.107} \\
+ESV-Scope & 0.099 & 0.094 & 0.099 & 0.094 & \textbf{0.117} & 0.104 & \textbf{0.115} & \textbf{0.108} \\
+\midrule
+CoMention +OA & 0.093 & 0.084 & 0.092 & 0.082 & \textbf{0.112} & 0.103 & \textbf{0.109} & 0.100 \\
+Dense +OA & 0.101 & 0.097 & 0.101 & 0.094 & \textbf{0.111} & \textbf{0.107} & \textbf{0.111} & \textbf{0.107} \\
+BGE rerank +OA & 0.100 & 0.099 & 0.100 & 0.091 & \textbf{0.125} & \textbf{0.121} & \textbf{0.125} & \textbf{0.111} \\
+ESV-Scope +OA & 0.100 & 0.100 & 0.100 & 0.104 & \textbf{0.126} & \textbf{0.126} & \textbf{0.122} & \textbf{0.125} \\
+\bottomrule
+\end{tabular}
