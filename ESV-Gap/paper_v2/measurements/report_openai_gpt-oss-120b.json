@@ -1,0 +1,209 @@
+{
+ "summary": {
+  "gold_triples_total": 36,
+  "extracted_triples_evaluated": 39,
+  "true_positives": 25,
+  "false_negatives": 11,
+  "false_positives": 14,
+  "recall": 0.6944,
+  "miss_rate": 0.3056,
+  "precision": 0.641,
+  "f1_score": 0.6666,
+  "interpretation": "The extractor achieves a recall of 69.4%. When a relation is absent from the knowledge graph, there is a 30.6% base rate that the absence is an extractor omission rather than true literature absence.",
+  "recall_wilson95": [
+   0.5314,
+   0.82
+  ],
+  "precision_wilson95": [
+   0.4842,
+   0.7726
+  ],
+  "miss_rate_wilson95": [
+   0.18,
+   0.4686
+  ]
+ },
+ "per_relation": {
+  "ADDRESSES": {
+   "gold_count": 8,
+   "tp": 6,
+   "fn": 2,
+   "recall": 0.75,
+   "miss_rate": 0.25
+  },
+  "LACKS": {
+   "gold_count": 6,
+   "tp": 5,
+   "fn": 1,
+   "recall": 0.8333,
+   "miss_rate": 0.1667
+  },
+  "APPLIED_TO": {
+   "gold_count": 3,
+   "tp": 2,
+   "fn": 1,
+   "recall": 0.6667,
+   "miss_rate": 0.3333
+  },
+  "USES": {
+   "gold_count": 8,
+   "tp": 5,
+   "fn": 3,
+   "recall": 0.625,
+   "miss_rate": 0.375
+  },
+  "EVALUATES_ON": {
+   "gold_count": 4,
+   "tp": 3,
+   "fn": 1,
+   "recall": 0.75,
+   "miss_rate": 0.25
+  },
+  "IMPROVES": {
+   "gold_count": 4,
+   "tp": 4,
+   "fn": 0,
+   "recall": 1.0,
+   "miss_rate": 0.0
+  },
+  "COMPARES": {
+   "gold_count": 2,
+   "tp": 0,
+   "fn": 2,
+   "recall": 0.0,
+   "miss_rate": 1.0
+  },
+  "CONTRADICTS": {
+   "gold_count": 1,
+   "tp": 0,
+   "fn": 1,
+   "recall": 0.0,
+   "miss_rate": 1.0
+  }
+ },
+ "missed_triples": [
+  {
+   "paper_id": "gold_xai_001",
+   "paper_title": "A Unified Approach to Interpreting Model Predictions",
+   "gold_triple": {
+    "subject": "SHAP",
+    "relation": "ADDRESSES",
+    "object": "local explanation fidelity"
+   },
+   "reason": "not_extracted"
+  },
+  {
+   "paper_id": "gold_xai_001",
+   "paper_title": "A Unified Approach to Interpreting Model Predictions",
+   "gold_triple": {
+    "subject": "SHAP",
+    "relation": "LACKS",
+    "object": "computational efficiency"
+   },
+   "reason": "not_extracted"
+  },
+  {
+   "paper_id": "gold_xai_001",
+   "paper_title": "A Unified Approach to Interpreting Model Predictions",
+   "gold_triple": {
+    "subject": "SHAP",
+    "relation": "APPLIED_TO",
+    "object": "deep neural networks"
+   },
+   "reason": "not_extracted"
+  },
+  {
+   "paper_id": "gold_xai_001",
+   "paper_title": "A Unified Approach to Interpreting Model Predictions",
+   "gold_triple": {
+    "subject": "SHAP",
+    "relation": "USES",
+    "object": "Shapley values"
+   },
+   "reason": "not_extracted"
+  },
+  {
+   "paper_id": "gold_xai_002",
+   "paper_title": "Why Should I Trust You?: Explaining the Predictions of Any Classifier",
+   "gold_triple": {
+    "subject": "LIME",
+    "relation": "USES",
+    "object": "sparse linear models"
+   },
+   "reason": "not_extracted"
+  },
+  {
+   "paper_id": "gold_xai_003",
+   "paper_title": "Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization",
+   "gold_triple": {
+    "subject": "Grad-CAM",
+    "relation": "COMPARES",
+    "object": "guided backpropagation"
+   },
+   "reason": "not_extracted"
+  },
+  {
+   "paper_id": "gold_xai_006",
+   "paper_title": "Sanity Checks for Saliency Maps",
+   "gold_triple": {
+    "subject": "Saliency maps",
+    "relation": "CONTRADICTS",
+    "object": "randomized weight baselines"
+   },
+   "reason": "not_extracted"
+  },
+  {
+   "paper_id": "gold_xai_006",
+   "paper_title": "Sanity Checks for Saliency Maps",
+   "gold_triple": {
+    "subject": "Saliency maps",
+    "relation": "EVALUATES_ON",
+    "object": "deep vision architectures"
+   },
+   "reason": "not_extracted"
+  },
+  {
+   "paper_id": "gold_xai_006",
+   "paper_title": "Sanity Checks for Saliency Maps",
+   "gold_triple": {
+    "subject": "Gradient saliency",
+    "relation": "COMPARES",
+    "object": "edge detector baselines"
+   },
+   "reason": "not_extracted"
+  },
+  {
+   "paper_id": "gold_xai_010",
+   "paper_title": "Adversarial Attacks on Explanation Methods",
+   "gold_triple": {
+    "subject": "Gradient explainers",
+    "relation": "USES",
+    "object": "vulnerable sensitivity points"
+   },
+   "reason": "not_extracted"
+  },
+  {
+   "paper_id": "gold_xai_010",
+   "paper_title": "Adversarial Attacks on Explanation Methods",
+   "gold_triple": {
+    "subject": "Adversarial perturbations",
+    "relation": "ADDRESSES",
+    "object": "attribution vulnerability"
+   },
+   "reason": "not_extracted"
+  }
+ ],
+ "model": "openai/gpt-oss-120b",
+ "latency_s_per_text": [
+  3.78,
+  2.03,
+  1.85,
+  1.54,
+  2.23,
+  1.93,
+  15.76,
+  9.98,
+  10.8,
+  13.06
+ ]
+}

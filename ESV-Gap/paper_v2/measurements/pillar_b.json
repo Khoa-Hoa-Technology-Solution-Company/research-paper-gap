@@ -1,0 +1,27 @@
+[
+ {
+  "id": "C1",
+  "independent": 0,
+  "circular": 0
+ },
+ {
+  "id": "C2",
+  "independent": 0,
+  "circular": 1
+ },
+ {
+  "id": "C3",
+  "independent": 0,
+  "circular": 0
+ },
+ {
+  "id": "C4",
+  "independent": 3,
+  "circular": 0
+ },
+ {
+  "id": "C5",
+  "independent": 0,
+  "circular": 0
+ }
+]

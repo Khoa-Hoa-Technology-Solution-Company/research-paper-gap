@@ -145,14 +145,21 @@ def decide_hypothesis(
 
     independent_corrob_count = int(auth_data.get("corroboration_count", 0))
     circular_count = int(auth_data.get("circular_count", 0))
+    # Local provenance comes from the candidate itself. Corroboration is a separate pillar and
+    # must not stand in for provenance: a candidate that explicitly reports zero supporting
+    # papers fails closed even when independent corroboration exists.
+    has_provenance_fields = "supporting_paper_count" in candidate or "supporting_paper_ids" in candidate
     supp_ids = candidate.get("supporting_paper_ids") or []
-    if not supp_ids and author_record:
+    if not has_provenance_fields and author_record:
         supp_ids = [
             pid
             for item in (auth_data.get("corroborating", []) + auth_data.get("circular", []))
             for pid in item.get("source_papers", [])
         ]
-    supporting_paper_count = int(candidate.get("supporting_paper_count") or len(supp_ids) or (1 if independent_corrob_count > 0 else 0))
+    if has_provenance_fields:
+        supporting_paper_count = int(candidate.get("supporting_paper_count") or len(supp_ids))
+    else:
+        supporting_paper_count = len(supp_ids) or (1 if independent_corrob_count > 0 else 0)
 
     # Extract Pillar C (Extractor Reliability)
     ext_rel = {}
