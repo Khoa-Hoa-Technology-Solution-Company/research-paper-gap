@@ -1,9 +1,8 @@
 # ESV-Gap: Auditable Autonomous Scientific Reasoning Framework for Evidence-Grounded Hypothesis Triage
 
-[![Tests](https://img.shields.io/badge/tests-123%20passed-brightgreen.svg)](file:///d:/Workspace/research-paper-gap/ESV-Gap/tests)
-[![Target Conference](https://img.shields.io/badge/Target-AMI%202026-blue.svg)](file:///d:/Workspace/research-paper-gap/ESV-Gap/paper_v2/main_iot_run.pdf)
-[![Epistemic Model](https://img.shields.io/badge/Epistemic%20Model-Fail--Closed-orange.svg)](file:///d:/Workspace/research-paper-gap/ESV-Gap/src/autonomous_reasoning.py)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](file:///d:/Workspace/research-paper-gap/LICENSE)
+[![Tests](https://img.shields.io/badge/tests-129%20passed-brightgreen.svg)](ESV-Gap/tests)
+[![AMI 2027](https://img.shields.io/badge/AMI%202027-accepted-blue.svg)](ESV-Gap/paper_v2/main_springer_ami.pdf)
+[![Epistemic Model](https://img.shields.io/badge/Epistemic%20Model-Fail--Closed-orange.svg)](ESV-Gap/src/autonomous_reasoning.py)
 
 **ESV-Gap** is an auditable autonomous scientific reasoning system designed to bridge the gap between automated hypothesis generation and empirical verification under **bounded autonomy**. Rather than treating missing topological links or isolated entity clusters in an internal knowledge graph as unvetted research gaps, ESV-Gap embeds literature analysis within a closed-loop autonomous epistemic control cycle:
 
@@ -61,8 +60,8 @@ The system operates with **bounded autonomy**: it autonomously queries external 
 ### 2. Four-Pillar Verification and Self-Assessment
 * **Pillar A (External Counterevidence Acquisition):** Targeted bi-directional queries probe Semantic Scholar and OpenAlex. A candidate is refuted if external peer-reviewed literature demonstrates existing solutions bridging the hypothesized gap.
 * **Pillar B (Source-Disjoint Corroboration):** Requires that author-stated limitations originate from sources strictly disjoint from the candidate's origin publication ($\text{Sources}_{\text{candidate}} \cap \text{Sources}_{\text{corrob}} = \emptyset$).
-* **Pillar C (Extractor Fidelity & False-Negative Bound):** Evaluated against a gold-standard diagnostic benchmark (10 papers, 36 triples; Recall = 77.8%, Precision = 87.5%, Miss Rate = 22.2%). *Critical mathematical insight:* An empirical miss rate of 22.2% bounds the risk of extraction false-absences, proving that a missing edge alone cannot logically establish a scientific gap without external verification.
-* **Pillar D (Corpus Coverage Self-Assessment):** Fits Heaps' law vocabulary growth ($E(n) = K \cdot n^\beta$) and marginal entity decay ($\Delta_{\text{decay}}$). In our primary run, $\beta = 0.90$ and $\Delta_{\text{decay}} = 15.8\%$, classifying the corpus as **`UNSATURATED`** and preventing overconfident claims of global absence.
+* **Pillar C (Extractor Fidelity & False-Negative Bound):** Evaluated against a gold-standard diagnostic benchmark (10 papers, 36 triples; Recall = 77.8%, Precision = 87.5%, Miss Rate = 22.2%). The 95% Wilson interval of the miss rate is [11.7%, 38.1%]: roughly one gold relation in five is missed, so a missing edge alone cannot establish a scientific gap without external verification.
+* **Pillar D (Corpus Coverage Self-Assessment):** Fits Heaps' law vocabulary growth ($E(n) = K \cdot n^\beta$) and marginal entity decay ($\Delta_{\text{decay}}$). In our primary run, $\beta = 0.995$ ($R^2 = 0.998$) and $\Delta_{\text{decay}} = -10.3\%$, classifying the corpus as **`UNSATURATED`** and preventing overconfident claims of global absence.
 
 ### 3. Epistemic Dispositions
 
@@ -80,14 +79,14 @@ The system operates with **bounded autonomy**: it autonomously queries external 
 Evaluated on frozen run `deep_learning_iot_intrusion_de_20260831_114802`:
 * **Corpus:** 600 retrieved $\rightarrow$ 192 screened $\rightarrow$ 150 retained papers (2019--2026).
 * **Multigraph:** 1,404 relation events connecting 1,185 canonical entities.
-* **Candidate Triage Outcomes:**
-  1. *Deep learning IoT IDS $\rightarrow$ Zero-day attack detection:* **REFUTED** (5 external counterevidence papers, e.g., transfer learning / federated IDS).
-  2. *Deep learning IoT IDS $\rightarrow$ Standardized security protocols:* **REFUTED** (4 external counterevidence papers).
-  3. *Deep learning IoT IDS $\rightarrow$ Industrial testbed validation:* **REFUTED** (4 external counterevidence papers).
-  4. *ML-driven IoT IDS $\rightarrow$ Adversarial attack mitigation:* **REFUTED** (5 external counterevidence papers).
-  5. *ML-driven IoT IDS $\rightarrow$ Computational burden / latency on edge devices:* **EVIDENCE_SUPPORTED_BUT_OPEN** (0 counterevidence hits, 3 source-disjoint 2026 corroborating papers: `8d724497`, `032c997c`, `0f849816`, with unsaturated corpus qualification).
+* **Candidate Triage Outcomes** (five post-gate candidates, as reported in the AMI 2027 paper, Table 3):
+  1. *C1, Deep learning IoT IDS $\rightarrow$ Zero-day attacks:* **REFUTED** (2 verified counterevidence records, e.g., Nitrat et al. 2025).
+  2. *C2, Deep learning IoT IDS $\rightarrow$ Standardized protocols:* **REVIEW_REQUIRED** (no counterevidence; the only local corroboration traces back to the candidate's own source paper, i.e., circular provenance).
+  3. *C3, Deep learning IoT IDS $\rightarrow$ Industrial testbeds:* **REFUTED** (2 verified counterevidence records, e.g., Ogundokun et al. 2025).
+  4. *C4, ML IoT IDS $\rightarrow$ Edge computational overhead:* **EVIDENCE_SUPPORTED_BUT_OPEN** (`SUPPORTED_OPEN` in the paper; 0 counterevidence, 3 source-disjoint 2026 corroborating papers, unsaturated corpus).
+  5. *C5, ML IoT IDS $\rightarrow$ Adversarial attack defenses:* **REFUTED** (1 verified counterevidence record, Nguyen et al. 2025).
 
-**Autonomous False-Positive Suppression:** In a closed local corpus, candidates 1--4 appeared to be unaddressed scientific gaps. Active external evidence acquisition successfully suppressed all four false-positive novelty claims.
+**False-positive suppression:** relying on graph sparsity alone would have promoted all five candidates. External verification refuted three (60%) and provenance checking escalated one to human review, so four of five (80%) were kept from premature promotion. These are descriptive statistics of a single case study ($n = 5$), not population estimates.
 
 ---
 
@@ -107,17 +106,18 @@ research-paper-gap/
 │   │   ├── extract_triples.py      # Checkpointed relation extraction
 │   │   ├── collect.py              # Semantic Scholar / OpenAlex API collectors
 │   │   └── gap_provenance.py       # Graph-to-text source-disjoint tracing
-│   ├── tests/
-│   │   ├── test_autonomous_reasoning.py # 9 AMI epistemic loop & decision tests
-│   │   └── test_*.py               # 114 offline unit and regression tests (123 total)
+│   ├── tests/                      # 129 offline unit and regression tests
 │   ├── paper_v2/
-│   │   ├── main_iot_run.tex        # AMI 2026 IEEE-formatted manuscript
-│   │   ├── main_iot_run.pdf        # Compiled publication-ready PDF
-│   │   └── results_summary.json    # Frozen empirical results manifest
-│   ├── runs/
-│   │   └── deep_learning_iot_intrusion_de_20260831_114802/ # Primary frozen experiment
+│   │   ├── main_springer_ami.tex   # AMI 2027 manuscript (accepted, Springer LNCS/CCIS)
+│   │   ├── canonical_results.json  # Numbers reported in the AMI paper (checked by tests/test_result_consistency.py)
+│   │   ├── results_summary.json    # Frozen empirical results manifest
+│   │   └── main_iot_run.tex, main_ieee.tex, main.tex   # Earlier drafts
+│   ├── runs/                       # Experiment runs (local only, not in git)
+│   ├── scratch/                    # One-off analyses, e.g. K_fetch sensitivity (eval_k_fetch.py)
+│   ├── paper_ami2026/              # Separate draft: scope-aware decision control
+│   ├── paper_icai2026/expanded_run/ # Multi-domain backtest data used by paper_ami2026
 │   ├── gapclose/                   # ICAI-FAI 2026: certified gap claims (code, THEORY.md, README)
-│   └── paper_gapclose_icai2026/    # ICAI-FAI 2026 manuscript (main.tex, make_tables.py)
+│   └── paper_gapclose_icai2026/    # ICAI-FAI 2026 manuscript and supplementary material
 └── README.md                       # Repository documentation
 ```
 
@@ -140,29 +140,37 @@ python -m venv .venv
 pip install -r requirements.txt
 python -m spacy download en_core_web_sm
 
-# 3. Run all 123 unit tests (offline, deterministic)
+# 3. Run all 129 unit tests (offline, deterministic)
 python -m unittest discover -s tests -v
 
 # 4. Launch the Interactive Workbench
 streamlit run app.py
 ```
 
-### Reproducing the Epistemic Synthesis
-To re-run the calibrated epistemic decision engine over the frozen experimental run without altering raw historical data:
+### Re-running the synthesis stage on the frozen run
+The frozen run `runs/deep_learning_iot_intrusion_de_20260831_114802` is kept locally and is not
+in git (`runs/` is ignored). `synthesize_rankings.py` takes no command-line arguments; it reads
+the `paths` block of a config. To re-run it on the frozen run, point the paths at the run
+directory. Work on a copy, because the stage overwrites `outputs/final_rankings.json`:
 
 ```powershell
-python src/synthesize_rankings.py `
-  --run-dir runs/deep_learning_iot_intrusion_de_20260831_114802 `
-  --output runs/deep_learning_iot_intrusion_de_20260831_114802/outputs/final_rankings.json
+python -c "import yaml; from src.synthesize_rankings import synthesize_final_rankings as s; c=yaml.safe_load(open('config.yaml',encoding='utf-8')); r='runs/COPY_OF_FROZEN_RUN'; c['paths'].update(raw_data=r+'/data/raw', processed_data=r+'/data/processed', triples=r+'/data/triples', graph=r+'/data/graph', outputs=r+'/outputs', figures=r+'/outputs/figures'); print(s(c))"
 ```
 
-### Compiling the Research Manuscript
+This stage reproduces the run's stored `final_rankings.json` (4 refuted, 1 open). The AMI paper
+reports the later two-stage verification (Stage A1 retrieval, Stage A2 semantic check), in which
+C2 is not refuted but escalated for circular provenance. Those numbers are stored in
+`paper_v2/canonical_results.json` and checked by `tests/test_result_consistency.py`; no script
+in this repository regenerates that file yet.
+
+### Compiling the AMI manuscript
 ```powershell
 cd paper_v2
-pdflatex -interaction=nonstopmode main_iot_run.tex
-pdflatex -interaction=nonstopmode main_iot_run.tex
+pdflatex main_springer_ami.tex
+bibtex main_springer_ami
+pdflatex main_springer_ami.tex
+pdflatex main_springer_ami.tex
 ```
-The compiled manuscript is produced at `paper_v2/main_iot_run.pdf`.
 
 ---
 
@@ -182,8 +190,8 @@ and validates the approach retrospectively against papers that answered the ques
 
 ---
 
-## Target Conference & Citation
+## Publication
 
-* **Conference:** AMI 2026 — Autonomous Machine Intelligence
-* **Paper Title:** *ESV-Gap: An Auditable Autonomous Scientific Reasoning Framework for Evidence-Grounded Hypothesis Triage (A Case Study in IoT Cybersecurity)*
-* **Authors:** Senior Research Software Engineer, Autonomous-Agent Researcher, and Academic Paper Author
+* **Conference:** AMI 2027, International Conference on Autonomous Machine Intelligence (Vinh Long, Vietnam, April 22-24, 2027), proceedings in Springer CCIS. Accepted, paper #162.
+* **Title:** *ESV-Gap: An Auditable Autonomous Reasoning Architecture for Evidence-Grounded Scientific Hypothesis Triage*
+* **Authors:** Anh Hoa Le et al. (FPT University)
