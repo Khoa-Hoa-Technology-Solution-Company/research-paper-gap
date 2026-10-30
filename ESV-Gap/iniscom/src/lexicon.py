@@ -1,0 +1,128 @@
+"""Concept lexicon for the 6G/IoT corpus.
+
+Concepts follow the topic list of the EAI INISCOM 2027 call for papers, expanded with
+the enabling technologies those topics name. Each concept is a set of case-insensitive
+regular expressions matched on title + abstract. The lexicon is fixed before any
+outcome is looked at; it is the only hand-written input of the pipeline.
+"""
+import re
+
+LEXICON = {
+    # 1. Wireless communication systems
+    "6G": [r"\b6g\b", r"sixth[- ]generation"],
+    "5G": [r"\b5g\b", r"fifth[- ]generation", r"\bnew radio\b", r"\b5g nr\b"],
+    "satellite communication": [r"\bsatellite\w*", r"\bleo\b", r"low earth orbit", r"non[- ]terrestrial"],
+    "UAV": [r"\buavs?\b", r"unmanned aerial", r"\bdrones?\b"],
+    "digital twin": [r"digital twins?"],
+    "smart city": [r"smart cit(y|ies)"],
+    "URLLC": [r"\burllc\b", r"ultra[- ]reliable"],
+    "eMBB": [r"\bembb\b", r"enhanced mobile broadband"],
+    "mMTC": [r"\bmmtc\b", r"massive machine[- ]type", r"machine[- ]type communication"],
+    "mmWave": [r"mm[- ]?wave", r"millimeter[- ]wave", r"millimetre[- ]wave"],
+    "massive MIMO": [r"massive mimo", r"large[- ]scale antenna", r"\bxl-mimo\b", r"extremely large"],
+    "MIMO": [r"\bmimo\b", r"multiple[- ]input multiple[- ]output"],
+    "body area network": [r"body area network", r"\bwban\b"],
+    "healthcare": [r"health ?care", r"e-?health", r"patient monitoring", r"medical"],
+    "energy efficiency": [r"energy[- ]efficien\w+", r"green communication"],
+    "terahertz": [r"terahertz", r"\bthz\b", r"sub-thz"],
+    "quantum communication": [r"quantum (communication|key distribution|internet|network)", r"\bqkd\b"],
+    "visible light communication": [r"visible light communication", r"\bvlc\b", r"\blifi\b", r"li-fi"],
+    "free-space optical": [r"free[- ]space optic\w*", r"\bfso\b"],
+    "optical camera communication": [r"optical camera communication", r"\bocc\b"],
+    "RIS": [r"reconfigurable intelligent surface", r"intelligent reflecting surface", r"\bris\b", r"\birs\b"],
+    "NOMA": [r"\bnoma\b", r"non[- ]orthogonal multiple access"],
+    "OFDM": [r"\bofdm\w*", r"orthogonal frequency[- ]division"],
+    "OTFS": [r"\botfs\b", r"orthogonal time frequency space"],
+    "ISAC": [r"\bisac\b", r"integrated sensing and communication", r"joint (radar|sensing) and communication",
+             r"dual[- ]function radar"],
+    "semantic communication": [r"semantic communication"],
+    "cell-free": [r"cell[- ]free"],
+    "beamforming": [r"beamform\w*", r"precod\w+"],
+    "channel estimation": [r"channel estimation", r"channel state information", r"\bcsi\b"],
+    "physical layer security": [r"physical[- ]layer security", r"secrecy rate", r"secrecy outage", r"eavesdrop\w*"],
+    "cognitive radio": [r"cognitive radio", r"spectrum sensing", r"dynamic spectrum", r"spectrum shar\w+"],
+    "wireless power transfer": [r"wireless power transfer", r"\bswipt\b", r"wireless energy transfer",
+                                r"energy harvest\w*"],
+    "backscatter": [r"backscatter\w*"],
+    "relay": [r"\brelay\w*", r"cooperative communication"],
+    "full-duplex": [r"full[- ]duplex"],
+    "age of information": [r"age of information", r"\baoi\b"],
+    "localization": [r"locali[sz]ation", r"positioning"],
+    "vehicular network": [r"vehicular", r"\bvanets?\b", r"\bv2x\b", r"vehicle[- ]to[- ]", r"connected vehicles?",
+                          r"autonomous driving"],
+    "underwater communication": [r"underwater"],
+    # 2. Industrial networks and intelligent systems
+    "metaverse": [r"metaverse"],
+    "industrial IoT": [r"industrial (iot|internet of things)", r"\biiot\b", r"industry 4\.0", r"smart factor\w+",
+                       r"smart manufactur\w+"],
+    "IoT": [r"\biot\b", r"internet of things"],
+    "supply chain": [r"supply chain"],
+    "smart grid": [r"smart grids?", r"power grid", r"\bmicrogrid\w*"],
+    "energy management": [r"energy management"],
+    "autonomous network": [r"autonomous network", r"self[- ]organi[sz]ing network", r"zero[- ]touch",
+                           r"intent[- ]based network"],
+    "edge computing": [r"edge computing", r"\bmec\b", r"mobile edge", r"multi-access edge", r"fog computing",
+                       r"computation offload\w*", r"task offload\w*"],
+    "edge intelligence": [r"edge intelligence", r"edge ai\b", r"edge learning"],
+    "cloud computing": [r"cloud computing", r"\bcloud\b"],
+    "deep learning": [r"deep learning", r"deep neural", r"convolutional neural", r"\bcnn\b", r"\blstm\b",
+                      r"transformer", r"neural network"],
+    "reinforcement learning": [r"reinforcement learning", r"\bdrl\b", r"q-learning", r"multi-agent rl"],
+    "federated learning": [r"federated learning", r"federated"],
+    "large language model": [r"large language model", r"\bllms?\b", r"\bgpt\b", r"generative ai",
+                             r"foundation model"],
+    "graph neural network": [r"graph neural network", r"\bgnn\b"],
+    "intrusion detection": [r"intrusion detection", r"anomaly detection", r"\bids\b"],
+    "wireless sensor network": [r"wireless sensor network", r"\bwsns?\b", r"sensor nodes?"],
+    "embedded system": [r"embedded system", r"microcontroller", r"\bfpga\b", r"tinyml"],
+    "smart home": [r"smart home", r"home automation", r"building automation", r"smart building"],
+    "smart agriculture": [r"smart (agricultur\w+|farming)", r"precision agricultur\w+"],
+    "LoRa": [r"\blora\w*", r"\blpwan\b", r"low[- ]power wide[- ]area", r"nb-iot", r"narrowband iot",
+             r"\bsigfox\b"],
+    "routing": [r"\brouting\b", r"clustering protocol", r"\bleach\b"],
+    "network slicing": [r"network slic\w+"],
+    "resource allocation": [r"resource allocation", r"power allocation", r"scheduling"],
+    "optimization": [r"convex optimi[sz]ation", r"successive convex", r"alternating optimi[sz]ation",
+                     r"game[- ]theor\w+"],
+    # 3. Security and privacy
+    "blockchain": [r"blockchain\w*", r"smart contract", r"distributed ledger"],
+    "authentication": [r"authenticat\w+", r"key agreement", r"access control"],
+    "encryption": [r"encrypt\w*", r"cryptograph\w+", r"lightweight cipher"],
+    "privacy": [r"privacy", r"differential privacy"],
+    "jamming": [r"jamm\w+", r"spoofing", r"denial[- ]of[- ]service", r"\bddos\b"],
+    "post-quantum cryptography": [r"post[- ]quantum"],
+    "hardware security": [r"hardware (security|trojan)", r"side[- ]channel", r"physical unclonable", r"\bpuf\b",
+                          r"rf fingerprint\w*"],
+    # 4. Hardware/software design
+    "SDN": [r"software[- ]defined network\w*", r"\bsdn\b", r"programmable network", r"\bp4\b"],
+    "NFV": [r"network function virtuali[sz]ation", r"\bnfv\b"],
+    "O-RAN": [r"\bo-ran\b", r"open ran", r"\bc-ran\b", r"cloud radio access"],
+    "wearable": [r"wearable\w*"],
+    "antenna design": [r"antenna design", r"antenna array", r"phased array", r"metasurface\w*",
+                       r"fluid antenna", r"movable antenna"],
+    # 5. Signal processing and data analysis
+    "compressive sensing": [r"compress(ive|ed) sensing", r"sparse recovery"],
+    "fault diagnosis": [r"fault (detection|diagnosis)", r"predictive maintenance"],
+    "big data": [r"big data", r"data analytics"],
+    "channel coding": [r"channel cod\w+", r"\bldpc\b", r"polar code\w*", r"turbo code\w*", r"error[- ]correct\w+"],
+    "modulation": [r"modulation", r"\bqam\b", r"index modulation"],
+    "signal detection": [r"signal detection", r"symbol detection", r"\bdetector\b", r"modulation classification",
+                         r"modulation recognition"],
+    "radar": [r"\bradar\w*"],
+    "DOA estimation": [r"direction[- ]of[- ]arrival", r"\bdoa\b", r"angle estimation"],
+    "image processing": [r"image processing", r"computer vision", r"object detection", r"video analytics"],
+    "speech processing": [r"speech", r"acoustic", r"audio"],
+    "information fusion": [r"data fusion", r"information fusion", r"sensor fusion"],
+    "channel modeling": [r"channel model\w*", r"path loss", r"propagation measurement"],
+    "spectrum efficiency": [r"spectral efficiency", r"spectrum efficiency", r"sum[- ]rate"],
+    # 6. Quantum
+    "quantum computing": [r"quantum comput\w+", r"quantum annealing", r"quantum algorithm\w*",
+                          r"quantum machine learning", r"variational quantum"],
+}
+
+_COMPILED = {c: re.compile("|".join(f"(?:{p})" for p in ps), re.I) for c, ps in LEXICON.items()}
+CONCEPTS = sorted(LEXICON)
+
+
+def tag(text: str) -> list[str]:
+    return [c for c in CONCEPTS if _COMPILED[c].search(text)]

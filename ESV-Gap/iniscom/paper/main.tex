@@ -1,0 +1,325 @@
+\documentclass[runningheads]{llncs}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usetikzlibrary{positioning}
+\usepackage{hyperref}
+\hypersetup{hidelinks,colorlinks=true,allcolors=blue!60!black}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\bench}{GapCast-6G}
+\input{tables/macros}
+
+\begin{document}
+
+\title{Which Research Gaps Close? Forecasting Gap Closure in the 6G and IoT Literature}
+\titlerunning{Forecasting Research Gap Closure in 6G and IoT}
+
+\ifdefined\anonymous
+\author{Anonymous Authors}
+\authorrunning{Anonymous Authors}
+\institute{Anonymous Institution}
+\else
+\author{Anh Hoa Le\thanks{Corresponding author.} \and Long Truong}
+\authorrunning{A. H. Le and L. Truong}
+\institute{FPT University, Vietnam\\
+\email{leanhhoa30012004@gmail.com, longt5@fpt.edu.vn}}
+\fi
+
+\maketitle
+
+\ifdefined\anonymous
+\hypersetup{pdfauthor={},pdftitle={Which Research Gaps Close? Forecasting Gap Closure in the 6G and IoT Literature}}
+\fi
+
+\begin{abstract}
+Concept co-occurrence can identify missing combinations in the 6G and Internet of Things (IoT) literature, but many such combinations appear within a few years. We introduce \bench{}, a temporal benchmark of \nWorks{} OpenAlex papers (2010 to 2025) tagged with \nConcepts{} concepts aligned with INISCOM topics. A structural gap at cutoff year $T$ is an established concept pair with no detected joint title or abstract mention, and closure requires at least three joint mentions in papers published within the next three years. Between \fillMin{}\% and \fillMax{}\% of gaps close within three years. A logistic forecaster reaches mean AUC \learnedAUC{} across four publication-year-separated test cutoffs, compared with \bestBaseAUC{} for Adamic--Adar; concept-bootstrap intervals for this difference exclude zero at \ciClAaExcludeW{} cutoffs. Popularity and growth alone reach \lrpgAUC{}, accounting for most of the gain over single-feature scores. Across \subN{} subsets of \subK{} concepts, median mean AUC is \subLearnedMed{} (range \subLearnedMin{}--\subLearnedMax{}). Finally, we trace three closed 2022 gaps to specific corpus papers and rank the open gaps at the end of \fcT{} for the 2026--2028 window as relative priorities for literature inspection.
+
+\keywords{Research gap \and Link prediction \and Science of science \and 6G \and Internet of Things \and Big data analytics.}
+\end{abstract}
+
+\section{Introduction}
+
+Finding open problems is a routine step of research planning. Survey papers on 6G and IoT list open challenges~\cite{saad2020vision,dang2020what,letaief2019roadmap}, and literature-based discovery tools seek missing connections between concepts~\cite{swanson1986fish,krenn2020semnet,krenn2023forecasting}. An absent combination is a candidate for investigation, but absence can be short-lived. For someone inspecting potential topics, it is useful to distinguish combinations likely to appear in the literature within a near-term window from those likely to remain absent. We investigate whether simple count-based signals can make that distinction in a wireless and IoT corpus.
+
+To study this question, we freeze counts at a publication-year cutoff, list concept pairs with no detected joint mentions, and check which pairs meet a co-occurrence threshold within a three-year window. This formulates gap persistence as an application of temporal link prediction~\cite{liben2007link,krenn2023forecasting} using lexical co-occurrence proxies.
+
+We use two terms in a deliberately narrow sense. A \emph{structural gap} is an established concept pair with no detected joint mention in the selected corpus, and its \emph{closure} is a threshold number of subsequent papers mentioning both concepts. Such mentions indicate co-occurrence activity that can motivate closer inspection, though they do not by themselves prove deep technical integration or problem resolution. Our contributions are as follows.
+\begin{itemize}
+\item \textbf{A temporal benchmark for 6G and IoT.} \bench{} contains \nWorks{} papers from \nTopics{} OpenAlex topics~\cite{priem2022openalex}, tagged with \nConcepts{} concepts derived from the INISCOM 2027 topic list, with yearly concept and pair counts from 2010 to 2025.
+\item \textbf{A measurement of how fast gaps close.} Between \fillMin{}\% and \fillMax{}\% of the gaps open at a cutoff are filled within three years, and the gaps that classic rankings place first (the largest expected co-occurrence) are filled more often than the rest.
+\item \textbf{A publication-year-separated evaluation of simple forecasters.} A logistic model trained on completed outcome windows reaches mean AUC \learnedAUC{} against \bestBaseAUC{} for the strongest single score. Multi-feature baselines, concept bootstrap, ablation and fixed-seed vocabulary subsets assess how much the result depends on popularity, growth and the concept list.
+\item \textbf{Traceable examples and a forward-window ranking.} We connect three 2022 gaps to individual later corpus papers, and rank the \fcGaps{} gaps open at the end of \fcT{} for the 2026--2028 window to support expert inspection.
+\end{itemize}
+
+\section{Related Work}
+
+\textbf{Literature-based discovery.} Swanson's work on undiscovered public knowledge~\cite{swanson1986fish} started a line of methods that connect concepts through shared intermediate terms. Later systems use word embeddings~\cite{tshitoyan2019unsupervised} or semantic networks~\cite{krenn2020semnet} to propose links that the literature has not yet made. Sourati and Evans~\cite{sourati2023accelerating} showed that adding the distribution of researchers improves such predictions. Our study examines the formation and persistence of missing concept combinations in a wireless and IoT corpus.
+
+\textbf{Link prediction in growing networks.} Classic methods score node pairs with neighbourhood measures such as common neighbours and the Adamic--Adar index~\cite{adamic2003friends,liben2007link}. Science4Cast~\cite{krenn2023forecasting} predicts future links between previously unconnected concepts in artificial intelligence, varying link-count thresholds and prediction horizons across engineered features and learned models.
+
+\textbf{Distinction from Science4Cast and implications for planning.} With a fixed horizon and closure threshold, gap persistence is the complement of future-link formation. Rather than proposing a new link-prediction algorithm, \bench{} contributes a focused, interpretable 6G/IoT vocabulary, measurements of persistence across INISCOM topic areas, dependence-aware comparisons of simple baselines, vocabulary sensitivity checks and paper-level evidence traces. For research planning, a high closure score can prioritise an emerging combination for literature monitoring, whereas a low score can prompt an expert to check whether a persistent omission is technically meaningful.
+
+\textbf{Novelty and recombination.} Studies of scientific novelty measure how atypical a combination of references or concepts is~\cite{uzzi2013atypical,foster2015tradition}. A combination that is rare relative to the popularity of its parts is usually read as novel. Our results show that, for forecasting, the same quantity has a second reading: a large expected but absent combination is also one that the field is likely to fill soon.
+
+\textbf{Research gap verification.} The ESV-Gap system~\cite{le2027esvgap} checks individual gap candidates against external evidence before reporting them. The present work estimates whether a lexical gap will cross a co-occurrence threshold within a fixed horizon. Claim verification would be a separate step.
+
+\textbf{6G and IoT roadmaps.} Vision papers on 6G~\cite{saad2020vision,dang2020what,letaief2019roadmap} list enabling technologies such as reconfigurable intelligent surfaces, terahertz links, integrated sensing and communication, and edge intelligence. Our concept list covers these technologies and the INISCOM topic areas, so the forecast can be read against these roadmaps.
+
+\section{The \bench{} Benchmark}
+
+\textbf{Corpus.} We used the OpenAlex API~\cite{priem2022openalex} to download article-type works from 2010 to 2025 with an abstract and a primary topic among \nTopics{} wireless and IoT topics, including advanced wireless communication technologies, MIMO systems, millimetre-wave propagation, optical wireless communication, satellite communication, UAV networks, IoT and edge/fog computing, wireless sensor networks, vehicular networks, cognitive radio and age of information. Each work enters once, through its primary topic. Cursor pagination applied filters for primary topic, publication years 2010--2025, article type and abstract availability, at a cost of about 0.1 USD of API credit. All queries were run on 30 October 2026. Because OpenAlex records and classifications can change, the planned artifact includes the frozen work-ID list, yearly count tensors, cached semantic similarities, lexicon, analysis code and seeds. These support reproduction from the fixed snapshot; repeating the API query need not recover that snapshot. The final corpus has \nWorks{} works (Table~\ref{tab:topics}).
+
+\begin{table}[t]
+\centering
+\caption{OpenAlex primary topics of the corpus and the number of works per topic (2010 to 2025, articles with an abstract).}
+\label{tab:topics}
+\scriptsize
+\input{tables/topics}
+\end{table}
+
+\textbf{Concepts.} We use a fixed lexicon of \nConcepts{} concepts following the six INISCOM 2027 areas (wireless systems, industrial networks and intelligent systems, security and privacy, hardware and software design, signal processing and data analysis, quantum computing), expanded with enabling techniques such as RIS, NOMA, OTFS, ISAC, cell-free MIMO and semantic communication. Each concept has case-insensitive patterns; for example, \emph{RIS} matches ``reconfigurable intelligent surface'', ``intelligent reflecting surface'', ``RIS'' and ``IRS''. A work mentions a concept if a pattern matches its title or abstract. Whole-word acronym matching can still mislabel ambiguous terms such as \emph{IDS} or \emph{OCC} (Section~\ref{sec:limits}).
+
+The lexicon is held fixed across cutoffs, and a concept enters a cutoff only after reaching $m$ mentions. Section~\ref{sec:robust} examines a 2013-established vocabulary and random concept subsets to assess vocabulary sensitivity. Overall, \taggedShare{}\% of works mention at least one concept, with a mean of \meanConcepts{} concepts per work. Table~\ref{tab:lexicon} lists the concepts by area; the most frequent are \topConcepts{}.
+
+\begin{table}[t]
+\centering
+\caption{The \nConcepts{} concepts of \bench{}, grouped by INISCOM 2027 area (counts in brackets). Pattern definitions are provided in the accompanying lexicon source.}
+\label{tab:lexicon}
+\scriptsize
+\input{tables/lexicon}
+\end{table}
+
+\textbf{Counts.} For every year $y$ we store the work count $N_y$, the count $n_y(a)$ mentioning concept $a$, and the count $n_y(a,b)$ mentioning both $a$ and $b$. A stricter count $s_y(a,b)$ requires both concepts in the title or in the same sentence of the abstract. It filters separated mentions, but still admits lists and survey sentences. Cumulative counts are $N_{\le T}$, $n_{\le T}(a)$ and $n_{\le T}(a,b)$.
+
+\section{Problem Definition and Methods}
+
+\textbf{Gaps and closure.} Fix a cutoff year $T$, a minimum support $m$, a gap tolerance $g$, a horizon $H$ and a closure threshold $k$. A pair of concepts $(a,b)$ is a \emph{gap at $T$} if both concepts are established, $n_{\le T}(a)\ge m$ and $n_{\le T}(b)\ge m$, and the pair has been studied together at most $g$ times, $n_{\le T}(a,b)\le g$. The gap is \emph{filled} if
+\begin{equation}
+\sum_{y=T+1}^{T+H} n_y(a,b) \;\ge\; k .
+\end{equation}
+Our main setting uses $m=50$, $g=0$, $H=3$ and $k=3$. Requiring three papers reduces sensitivity to one isolated mention; repeated incidental mentions can still satisfy the label. Section~\ref{sec:robust} varies each parameter.
+
+\textbf{Scores.} Every score is computed from counts up to $T$ only.
+\begin{itemize}
+\item \emph{Expected co-occurrence}: we use the log expected joint count under independence, $\log\big(n_{\le T}(a)\,n_{\le T}(b)/N_{\le T}\big)$. A larger value indicates a more expected absent combination. This is a frequency-product analogue of preferential attachment; support counts papers, rather than graph neighbours.
+\item \emph{Concept growth}: for each concept, $\log$ of the ratio of its mentions in the last three years to the three years before, $+1$ smoothed. We use the smaller and the larger of the two values.
+\item \emph{PPMI profile cosine}: each concept is represented by its positive pointwise mutual information~\cite{church1990word} with every other concept, and two concepts are compared by the cosine of these profiles. This is a weighted form of the common-neighbour idea~\cite{adamic2003friends}: concepts that keep the same company are likely to meet. \emph{Recent PPMI cosine} uses only the last three years.
+\item \emph{Adamic--Adar index}~\cite{adamic2003friends}: the sum of $1/\log d(z)$ over the concepts $z$ that have co-occurred with both $a$ and $b$ up to $T$, where $d(z)$ is the number of concepts $z$ has co-occurred with.
+\item \emph{Semantic similarity}: the cosine between sentence embeddings of each concept's name and patterns, computed with the \texttt{all-MiniLM-L6-v2} checkpoint~\cite{reimers2019sentence}.
+\item \emph{Learned forecaster}: an $\ell_2$-regularised logistic model ($C{=}1$, at most 2,000 solver iterations) with standardisation fitted on training rows only. Its seven inputs are expected co-occurrence, minimum log support, the two growth values, the two PPMI cosines and semantic similarity (plus the prior pair count $n_{\le T}(a,b)$ when $g{>}0$).
+\end{itemize}
+We also evaluate two multi-feature baselines under the same protocol: logistic regression restricted to the four popularity and growth features, and gradient boosting (scikit-learn \texttt{HistGradientBoostingClassifier}, maximum depth 3, 200 iterations, learning rate 0.05) on the full feature set with fixed default hyperparameters.
+
+\textbf{Temporal protocol.} Test cutoffs are $T\in\{2019,2020,2021,2022\}$, with the final outcome window covering 2023--2025. At cutoff $T$, training uses gaps from cutoffs $2013,\dots,T-H$, whose outcome windows end no later than $T$. A pair can contribute training rows at multiple cutoffs, and all splits are strictly by publication year rather than random pair partitioning. Count features and training labels use no publication years after $T$. We report ROC AUC, average precision (AP), the filled share among the 20 highest-scoring gaps (P@20), and the open share among the 20 lowest-scoring gaps (Open@20).
+
+\textbf{Uncertainty.} We report pointwise 95\% percentile intervals for paired AUC differences against expected co-occurrence, Adamic--Adar and the popularity-and-growth logistic model (1,000 bootstrap draws with fixed random seeds, conditional on the fitted models at each test cutoff). Pair bootstrap resamples gap pairs independently, whereas concept bootstrap resamples the \nConcepts{} concepts with replacement and weights each pair $(a,b)$ by the product of its endpoint multiplicities to account for shared-node dependence (discarding draws with fewer than ten retained pairs or a single outcome class).
+
+\textbf{Pipeline.} Fig.~\ref{fig:pipeline} summarises the steps. The whole pipeline runs on a laptop CPU: tagging the corpus takes about 25 minutes and all experiments take a few minutes.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[node distance=0.35cm, every node/.style={font=\scriptsize, align=center},
+  box/.style={draw, rounded corners=2pt, fill=blue!6, minimum height=0.95cm, text width=1.75cm}]
+\node[box] (a) {OpenAlex\\15 topics\\2010 to 2025};
+\node[box, right=of a] (b) {Concept tagging\\(90 concepts,\\INISCOM areas)};
+\node[box, right=of b] (c) {Yearly counts\\$n_y(a)$, $n_y(a,b)$};
+\node[box, right=of c] (d) {Gaps at cutoff $T$\\features from\\counts $\le T$};
+\node[box, right=of d, fill=orange!12] (e) {Logistic\\forecaster\\(train $\le T{-}H$)};
+\draw[-latex] (a) -- (b); \draw[-latex] (b) -- (c); \draw[-latex] (c) -- (d); \draw[-latex] (d) -- (e);
+\node[below=0.45cm of d, text width=4.8cm, draw, dashed, rounded corners=2pt] (f) {Label: $\ge k$ joint papers in $T{+}1,\dots,T{+}H$};
+\draw[-latex, dashed] (c.south) |- (f.west);
+\draw[-latex, dashed] (f.east) -| (e.south);
+\end{tikzpicture}
+\caption{The \bench{} pipeline. Features use counts up to the cutoff only; labels use the following $H$ years and are seen in training only for cutoffs whose window has ended.}
+\label{fig:pipeline}
+\end{figure}
+
+\section{Results}
+
+\subsection{How Fast Do Gaps Close?}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[name=left, width=0.48\textwidth, height=4.2cm, xlabel={Year}, ylabel={Share filled}, ymin=0, ymax=1,
+  title={\small Gaps open in \survT{}}, xtick={2014,2017,2020,2023,2025}, xticklabel style={/pgf/number format/1000 sep={}}, tick label style={font=\scriptsize}, label style={font=\small}]
+\addplot[thick, blue!70!black, mark=*, mark size=1.2pt] table[x=year, y=rate] {tables/survival.dat};
+\end{axis}
+\begin{axis}[at={(left.east)}, anchor=west, xshift=1.4cm, width=0.48\textwidth, height=4.2cm, ybar, bar width=9pt,
+  xlabel={Expected co-occurrence quintile}, ylabel={Filled within 3 years}, ymin=0, xtick={1,2,3,4,5},
+  title={\small Mean over test cutoffs}, tick label style={font=\scriptsize}, label style={font=\small}]
+\addplot[fill=orange!70, draw=orange!50!black] table[x=q, y=rate] {tables/quintile.dat};
+\end{axis}
+\end{tikzpicture}
+\caption{Left: cumulative share of the \survGaps{} gaps open in \survT{} that were filled ($\ge3$ joint papers) by each later year. Right: three-year fill rate by quintile of expected co-occurrence; quintile 5 holds the ``largest'' gaps by the classic ranking.}
+\label{fig:survival}
+\end{figure}
+
+Fig.~\ref{fig:survival} (left) follows the \survGaps{} gaps that were open in \survT{}. Within three years \survThree{}\% of them were filled, and by \survLastYear{} the share had reached \survLast{}\%. At the four test cutoffs, between \minGaps{} and \maxGaps{} pairs are gaps and \fillMin{}\% to \fillMax{}\% of them close within three years (Table~\ref{tab:main}, last row). A list of absent combinations is therefore a mix of long-lasting gaps and openings that the field is already moving into.
+
+Fig.~\ref{fig:survival} (right) splits the gaps by expected co-occurrence. Gaps in the top quintile, which a classic ranking reports as the most striking omissions, were filled in \fillQhigh{}\% of cases, against \fillQlow{}\% in the bottom quintile. Expected co-occurrence does carry signal, but in the opposite direction from how it is often used: a large expected-but-absent pair is more likely to be a short-lived gap than a durable one.
+
+\subsection{Forecasting Gap Closure}
+
+\begin{table}[t]
+\centering
+\caption{Forecasting which gaps are filled within three years ($m{=}50$, $g{=}0$, $k{=}3$, $H{=}3$). Higher is better for every column. P@20: share filled among the 20 top-ranked gaps; Open@20: share still open among the 20 lowest-ranked gaps.}
+\label{tab:main}
+\small
+\setlength{\tabcolsep}{3pt}
+\resizebox{\textwidth}{!}{\input{tables/main}}
+\end{table}
+
+Table~\ref{tab:main} compares the scores. The learned forecaster reaches mean AUC \learnedAUC{} and AP \learnedAP{}. The strongest single score by mean AUC is the \bestBaseName{} (\bestBaseAUC{}), followed by expected co-occurrence (\expectedAUC{}). Popularity and growth alone reach \lrpgAUC{}, accounting for most of the improvement over single scores, while the default gradient boosting baseline reaches \gbmAUC{}. Semantic similarity alone is close to chance (\semanticAUC{}). Among the 20 highest-scoring gaps, the mean filled share is \learnedPtw{}; among the 20 lowest-scoring gaps, the mean open share is \learnedOpen{}. Expected co-occurrence achieves the same Open@20, indicating that the forecaster's main advantage lies in ranking near-term closures rather than isolating the most persistent tail.
+
+\begin{table}[t]
+\centering
+\caption{Pointwise 95\% bootstrap intervals for learned AUC minus comparator AUC at each cutoff. Concept resampling assigns pair weights from shared endpoint multiplicities.}
+\label{tab:ci}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\input{tables/ci}
+\end{table}
+
+Table~\ref{tab:ci} gives paired AUC-difference intervals. Pair resampling excludes zero against expected co-occurrence at every cutoff, and concept resampling does so at \ciClExpExcludeW{} cutoffs. Against the strongest single score, Adamic--Adar, the mean point-estimate gain is \aaGain{}, with concept intervals excluding zero at \ciClAaExcludeW{} cutoffs (the 2021 interval crosses zero and the 2019 lower bound is close to zero). By contrast, the full model's gain over popularity-and-growth logistic regression excludes zero at only \ciClLrpgExcludeW{} cutoff. Thus, while the full model outperforms every single score in mean AUC, its additional network and semantic features offer only a modest incremental gain over popularity and growth.
+
+\subsection{What Drives the Forecast?}
+
+\begin{table}[t]
+\centering
+\caption{Left: drop-one and keep-only ablation of the learned forecaster (mean over the four test cutoffs). Right: standardised weights of the model trained for $T{=}2022$.}
+\label{tab:ablation}
+\scriptsize
+\begin{minipage}{0.55\textwidth}\centering\input{tables/ablation}\end{minipage}%
+\begin{minipage}{0.4\textwidth}\centering\input{tables/coef}\end{minipage}
+\end{table}
+
+Table~\ref{tab:ablation} shows the ablation and model weights. Removing growth lowers mean AUC to \ablNoGrowth{}; removing popularity lowers it to \ablNoPop{}. Growth alone reaches \ablOnlyGrowth{} and popularity alone \ablOnlyPop{}. Removing semantic similarity gives \ablNoSem{}, with no loss in performance. The largest positive weights belong to expected co-occurrence (\coefExpected{}), the faster concept's growth (\coefGrowthMax{}) and PPMI profile cosine (\coefProfile{}), indicating that combinations of popular or rapidly expanding concepts are the primary predictors of near-term closure.
+
+\begin{table}[t]
+\centering
+\caption{The ten highest- and lowest-ranked gaps at $T{=}\exT{}$ and later papers with detected joint mentions in 2023--2025 (closure needs $\ge3$).}
+\label{tab:examples}
+\scriptsize
+\input{tables/examples}
+\end{table}
+
+Table~\ref{tab:examples} lists concrete cases at $T{=}\exT{}$. Of the ten top-ranked gaps, \exTopFilled{} were filled in the next three years; of the ten lowest-ranked, \exBottomFilled{} were.
+
+\subsection{Gaps Across the INISCOM Areas}
+
+\begin{table}[t]
+\centering
+\caption{Three-year fill rate of gaps by the INISCOM areas of the two concepts, pooled over the four test cutoffs (number of gaps in brackets; cells with fewer than 20 gaps are greyed). The quantum area has a single concept, so it has no gaps within itself.}
+\label{tab:areas}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\resizebox{\textwidth}{!}{\input{tables/areas}}
+\end{table}
+
+Table~\ref{tab:areas} groups \pooledN{} pair--cutoff observations across the four test cutoffs. Within-area gaps close in \withinRate{}\% of observations (\withinN{}), compared with \acrossRate{}\% for cross-area gaps (\acrossN{}). Gaps within the industrial and intelligent systems area close most frequently, whereas those between hardware/software and signal processing rarely close.
+
+\subsection{Calibration}
+\label{sec:calib}
+
+\begin{table}[t]
+\centering
+\caption{Calibration of the learned forecaster on the \pooledN{} pooled test gaps, by quintile of the predicted probability.}
+\label{tab:calib}
+\scriptsize
+\input{tables/calib}
+\end{table}
+
+A forecast is easier to use if its probabilities can be read at face value. On the pooled test gaps the forecaster has a Brier score of \brier{}, against \brierBase{} for a constant forecast at the pooled fill rate of \pooledRate{}\% (a rate that is only known in hindsight). Table~\ref{tab:calib} shows, however, that the probabilities are too high in every quintile: gaps in the top quintile have a mean forecast of \relTopP{} and an observed fill rate of \relTopObs{}, and gaps in the bottom quintile \relLowP{} against \relLowObs{}. The training cutoffs had higher fill rates than the test cutoffs, and the model carries that base rate forward.
+
+We tried temporal Platt scaling: the forecaster is trained on cutoffs up to $T{-}H{-}1$, a logistic score-to-outcome map is fitted on cutoff $T{-}H$, and that map is applied at $T$. It did not improve the pooled Brier score (\brierCal{}; top quintile \relCalTopP{} predicted against \relCalTopObs{} observed), consistent with continuing base-rate drift. The backtest supports ranking discrimination, but absolute outputs, including Table~\ref{tab:forecast}, should be read as relative closure scores.
+
+\subsection{Robustness}
+\label{sec:robust}
+
+\begin{table}[t]
+\centering
+\caption{Mean AUC over the four test cutoffs under alternative definitions of gap and closure.}
+\label{tab:robust}
+\scriptsize
+\input{tables/robust}
+\end{table}
+
+Table~\ref{tab:robust} varies one choice at a time: gaps that allow up to two earlier joint papers ($g{=}2$), a looser or stricter closure threshold ($k{=}1$, $k{=}5$), a two-year horizon, a lower or higher support threshold for established concepts, a stricter closure label and a vocabulary restricted to 2013.
+
+\emph{Same-sentence label.} This label filters mentions separated across sentences while retaining the document-level gap definition and count features. Over the corpus, \pairsSentShare{}\% of document-level pair occurrences survive. The mean closure rate becomes \sentFill{}\%, and mean AUC is \sentLearned{} against \sentBest{} for the strongest single score (\sentLrpg{} for popularity-and-growth logistic regression). Co-mention within a sentence remains a lexical proxy, including when a sentence lists technologies.
+
+\emph{Vocabulary of 2013.} Restricting the vocabulary to concepts with at least $m$ mentions by 2013 removes concepts that became established later. Only \vocabGapsLo{}--\vocabGapsHi{} gaps remain per cutoff, with very few closures at some cutoffs. The AUC of \vocabLearned{} (strongest single score \vocabBest{}) is therefore too unstable to establish an improvement or resolve retrospective vocabulary bias.
+
+Across the eight settings other than the 2013 vocabulary, the learned forecaster stays between \robLo{} and \robHi{} mean AUC and is ahead of the best single score in every setting.
+
+\begin{table}[t]
+\centering
+\caption{Vocabulary sensitivity over \subN{} fixed-seed subsets of \subK{}/\nConcepts{} concepts. Each run first averages AUC over the four cutoffs; entries summarise those run means. The single-score comparator is chosen retrospectively within each subset. Ranges are descriptive, not confidence intervals.}
+\label{tab:subsets}
+\small
+\input{tables/subsets}
+\end{table}
+
+\emph{Random concept subsets.} To test sensitivity to concept selection, we draw \subN{} subsets of \subK{} concepts without replacement (NumPy seed 2027) and recompute graph profiles, eligible pairs and both logistic models on each induced vocabulary. The average number of gaps across cutoffs ranges from \subGapMin{} to \subGapMax{}. Table~\ref{tab:subsets} shows a median mean AUC of \subLearnedMed{} (range \subLearnedMin{}--\subLearnedMax{}) for the full model, which exceeds the strongest single score in all \subWins{}/\subN{} subsets and achieves a median paired gain of \subLrpgGainMed{} over popularity-and-growth logistic regression.
+
+\subsection{What the Backtest Means for 6G Research Planning}
+
+We trace three top-ranked 2022 pairs from Table~\ref{tab:examples} to their underlying corpus records. Each pair had zero detected joint mentions through 2022. In 2023--2025, RIS with semantic communication accumulated 26 joint-mention papers (23 same-sentence); age of information (AoI) with digital twins had 28 (15); and ISAC with wireless power transfer had 16 (12). While these totals include surveys and passing mentions, we highlight two representative papers per pair below (with DOIs and OpenAlex IDs) to illustrate how the concepts were combined in practice.
+
+\emph{RIS and semantic communication.} Du et al.~\cite{du2023sensing} (\texttt{W4382119085}) design RIS-aided encoding of wireless sensing spectra with self-supervised decoding. Huang et al.~\cite{huang2024beamforming} (\texttt{W4401113937}) align a semantic classification objective with active transmitter and passive RIS beamforming. Both studies directly couple propagation hardware with task-oriented representations rather than merely listing the two terms.
+
+\emph{AoI and digital twins.} Li et al.~\cite{li2024satisfaction} (\texttt{W4387831770}) optimise digital-twin placement in mobile edge computing using an AoI-based service-satisfaction metric (indexed under its 2023 online publication date in OpenAlex and published in a 2024 issue). A second study~\cite{li2024query} (\texttt{W4396667043}) jointly optimises the freshness of twin-enabled query results and query-service delay under edge capacity constraints, making information freshness an explicit part of digital-twin state management.
+
+\emph{ISAC and wireless power transfer.} Cui et al.~\cite{cui2024swipt} (\texttt{W4393955155}) analyse a vehicular NOMA--ISAC system with IRS-assisted simultaneous wireless information and power transfer (SWIPT), using time switching to supply energy to a sensing vehicle. Yaswanth et al.~\cite{yaswanth2025swipt} (\texttt{W4407690662}) optimise sensing and communication in an active/STAR-RIS-assisted MIMO system under energy-harvesting constraints, jointly addressing sensing, data transmission and power delivery.
+
+At the opposite end of the ranking, low-scoring pairs such as direction-of-arrival estimation with supply chains remain absent. In practice, a high closure score can help researchers prioritise emerging intersections for literature monitoring, whereas a low score flags persistent omissions that require domain judgment to separate unpromising pairings from overlooked problems.
+
+\subsection{Forward-Window Ranking for 2026 to 2028}
+
+\begin{table}[t]
+\centering
+\caption{Gaps open at the end of \fcT{} with the highest and lowest closure scores $\hat p$ for 2026--2028 (trained on cutoffs through 2022, using publications up to 2025; scores are uncalibrated, see Section~\ref{sec:calib}).}
+\label{tab:forecast}
+\scriptsize
+\input{tables/forecast}
+\end{table}
+
+Finally, we trained the forecaster on cutoffs 2013--2022 and scored the \fcGaps{} gaps remaining open at the end of \fcT{} for the 2026--2028 window (Table~\ref{tab:forecast}, constructed from pre-2026 records). The highest-scoring candidates are dominated by large language models paired with established areas such as energy management, post-quantum cryptography and network function virtualisation, whereas low-scoring pairs largely pair specialised physical-layer techniques with distant application domains.
+
+\section{Discussion and Limitations}
+\label{sec:limits}
+
+\textbf{Label validity and research utility.} Joint mentions can reflect a shared technical design, background discussion, a survey or an incidental list, and the same-sentence filter cannot fully separate these cases. Our paper traces in Section 5.7 illustrate substantive integration in three closed gaps, but a blinded human annotation study and an expert decision evaluation remain necessary to measure label precision and downstream planning utility. Claim-level verification systems such as ESV-Gap~\cite{le2027esvgap} address a complementary evidential question.
+
+\textbf{Lexical and retrospective resources.} Pattern matching misses paraphrases and can confuse ambiguous acronyms, and such errors may correlate with concept popularity or community-specific terminology. In addition, the 90-concept lexicon and pretrained sentence encoder are retrospective resources; the 2013 vocabulary check and random concept subsets assess sensitivity within this corpus, but do not reconstruct historical vocabularies or test generalisation to external corpora.
+
+\textbf{Model scope.} The logistic forecaster relies on standard engineered features and fixed hyperparameters. Its strong performance relative to a default gradient-boosting baseline does not rule out gains from tuned nonlinear ensembles or temporal graph neural networks, and we do not claim algorithmic novelty over general link-prediction frameworks.
+
+\textbf{Corpus coverage and historical availability.} Our snapshot includes only article-type works with abstracts in the 15 selected OpenAlex primary topics, omitting preprints, records without abstracts and papers assigned to other primary topics. Because OpenAlex backfills metadata and topic classifications over time, publication-year separation prevents future-count leakage in features and labels but does not replicate real-time historical indexing; delayed indexing may also depress the observed closure rate in the final window.
+
+\textbf{Small and dependent test sets.} Each cutoff contains a few hundred gaps, and pairs share concepts and recur across cutoffs with overlapping outcome windows. Concept bootstrap accounts for shared-endpoint dependence within each cutoff conditional on the fitted models, without adjusting for training variance or cross-year correlation.
+
+\section{Conclusion}
+
+In this 6G and IoT corpus, between \fillMin{}\% and \fillMax{}\% of established concept pairs with no prior joint mentions cross a three-paper co-occurrence threshold within three years. Combining concept popularity and recent growth provides substantially stronger closure discrimination than single-score heuristics: the full logistic forecaster reaches mean AUC \learnedAUC{} compared with \aaAUC{} for Adamic--Adar (with concept-bootstrap intervals excluding zero at \ciClAaExcludeW{} of four test cutoffs), while most of this gain is already captured by popularity and growth (\lrpgAUC{}). Across \subN{} fixed-seed concept subsets, the model maintains a median mean AUC of \subLearnedMed{}. Together, \bench{} and our backtest offer a domain-specific benchmark and empirical baseline for tracking how quickly missing technical combinations close in the wireless and IoT literature. Future work will focus on human-annotated label validation and expert evaluation of closure forecasts in research planning. The analysis code, lexicon, frozen work-ID list, count tensors, cached semantic similarities and paper-level evidence traces will be released upon publication.
+
+\begin{credits}
+\subsubsection{\ackname} AI-based writing and coding assistants were used for language editing, code development and assistance with literature search. Responsibility for the study and the final manuscript rests with the authors.
+
+\subsubsection{\discintname}
+The authors have no competing interests to declare that are relevant to the content of this article.
+\end{credits}
+
+\bibliographystyle{splncs04}
+\bibliography{references}
+
+\end{document}

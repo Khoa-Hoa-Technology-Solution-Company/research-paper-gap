@@ -1,0 +1,3 @@
+# Versions used for the fixed-count / cached-semantic experiments (Python 3.14.6).
+numpy==2.5.3
+scikit-learn==1.9.1
