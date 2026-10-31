@@ -52,6 +52,18 @@ def main():
         y = np.array([r["filled"] for r in rows])
         close(y.mean(), saved["filled_rate"])
         models = gaps.fit_models(train)
+        if T == 2022:
+            sc_l, m_l = models["learned"]
+            X_22 = sc_l.transform(gaps.matrix(rows))
+            w_22 = m_l.coef_[0]
+            fp = {tuple( (concepts[r["a"]], concepts[r["b"]]) ): {
+                f: round(float(xi * wi), 2) for f, xi, wi in zip(gaps.FEATURES, x, w_22) if f != "co_prior"
+            } for r, x in zip(rows, X_22)}
+            assert fp[("intrusion detection", "semantic communication")]["profile_cos"] == 1.93
+            assert fp[("intrusion detection", "semantic communication")]["growth_max"] == 1.57
+            assert fp[("intrusion detection", "semantic communication")]["expected"] == -1.07
+            assert fp[("RIS", "wearable")]["growth_max"] == 1.85
+            assert fp[("RIS", "wearable")]["expected"] == 1.20
         for name in (n for n in gaps.SCORES if n != "random"):
             score = gaps.score(rows, name, models)
             metrics = saved["methods"][name]

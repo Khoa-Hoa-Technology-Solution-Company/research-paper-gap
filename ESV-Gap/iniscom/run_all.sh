@@ -13,6 +13,7 @@ $PY gaps.py --tag h2 --h 2
 $PY gaps.py --tag occ20 --min-occ 20
 $PY gaps.py --tag occ100 --min-occ 100
 $PY gaps.py --tag sent --label sentence
+$PY gaps.py --tag sentns --label sentence_ns
 $PY gaps.py --tag vocab2013 --vocab-year 2013
 $PY ablation.py
 $PY extra.py

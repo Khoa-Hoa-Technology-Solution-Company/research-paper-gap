@@ -11,6 +11,12 @@
 \pgfplotsset{compat=1.17}
 \usetikzlibrary{positioning}
 \usepackage{hyperref}
+% \FloatBarrier as in the placein package: flush pending floats (page break only if any remain)
+\makeatletter
+\providecommand{\FloatBarrier}{\par\begingroup\let\@elt\relax
+  \edef\@tempa{\@botlist\@deferlist\@dbldeferlist}\def\@tempb{}%
+  \ifx\@tempa\@tempb\else\clearpage\fi\endgroup}
+\makeatother
 \hypersetup{hidelinks,colorlinks=true,allcolors=blue!60!black}
 
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
@@ -97,7 +103,7 @@ The lexicon is held fixed across cutoffs, and a concept enters a cutoff only aft
 \input{tables/lexicon}
 \end{table}
 
-\textbf{Counts.} For every year $y$ we store the work count $N_y$, the count $n_y(a)$ mentioning concept $a$, and the count $n_y(a,b)$ mentioning both $a$ and $b$. A stricter count $s_y(a,b)$ requires both concepts in the title or in the same sentence of the abstract. It filters separated mentions, but still admits lists and survey sentences. Cumulative counts are $N_{\le T}$, $n_{\le T}(a)$ and $n_{\le T}(a,b)$.
+\textbf{Counts.} For every year $y$ we store the work count $N_y$, the count $n_y(a)$ mentioning concept $a$, and the count $n_y(a,b)$ mentioning both $a$ and $b$. A stricter count $s_y(a,b)$ requires both concepts in the title or in the same sentence of the abstract. It filters separated mentions, but still admits lists and survey sentences; a third count $s'_y(a,b)$ additionally drops works whose title marks them as a survey, review or tutorial (Section~\ref{sec:robust}). Cumulative counts are $N_{\le T}$, $n_{\le T}(a)$ and $n_{\le T}(a,b)$.
 
 \section{Problem Definition and Methods}
 
@@ -185,7 +191,7 @@ Table~\ref{tab:main} compares the scores. The learned forecaster reaches mean AU
 \caption{Pointwise 95\% bootstrap intervals for learned AUC minus comparator AUC at each cutoff. Concept resampling assigns pair weights from shared endpoint multiplicities.}
 \label{tab:ci}
 \footnotesize
-\setlength{\tabcolsep}{3pt}
+\setlength{\tabcolsep}{4pt}
 \input{tables/ci}
 \end{table}
 
@@ -209,7 +215,8 @@ Table~\ref{tab:ablation} shows the ablation and model weights. Removing growth l
 \caption{The ten highest- and lowest-ranked gaps at $T{=}\exT{}$ and later papers with detected joint mentions in 2023--2025 (closure needs $\ge3$).}
 \label{tab:examples}
 \scriptsize
-\input{tables/examples}
+\setlength{\tabcolsep}{3pt}
+\resizebox{\textwidth}{!}{\input{tables/examples}}
 \end{table}
 
 Table~\ref{tab:examples} lists concrete cases at $T{=}\exT{}$. Of the ten top-ranked gaps, \exTopFilled{} were filled in the next three years; of the ten lowest-ranked, \exBottomFilled{} were.
@@ -253,13 +260,15 @@ We tried temporal Platt scaling: the forecaster is trained on cutoffs up to $T{-
 \input{tables/robust}
 \end{table}
 
-Table~\ref{tab:robust} varies one choice at a time: gaps that allow up to two earlier joint papers ($g{=}2$), a looser or stricter closure threshold ($k{=}1$, $k{=}5$), a two-year horizon, a lower or higher support threshold for established concepts, a stricter closure label and a vocabulary restricted to 2013.
+Table~\ref{tab:robust} varies one choice at a time: gaps that allow up to two earlier joint papers ($g{=}2$), a looser or stricter closure threshold ($k{=}1$, $k{=}5$), a two-year horizon, a lower or higher support threshold for established concepts, two stricter closure labels and a vocabulary restricted to 2013.
 
 \emph{Same-sentence label.} This label filters mentions separated across sentences while retaining the document-level gap definition and count features. Over the corpus, \pairsSentShare{}\% of document-level pair occurrences survive. The mean closure rate becomes \sentFill{}\%, and mean AUC is \sentLearned{} against \sentBest{} for the strongest single score (\sentLrpg{} for popularity-and-growth logistic regression). Co-mention within a sentence remains a lexical proxy, including when a sentence lists technologies.
 
+\emph{Surveys excluded.} Surveys and reviews often name many technologies side by side without combining them. We therefore also drop, from the same-sentence label, every work whose title contains \emph{survey}, \emph{review}, \emph{tutorial}, \emph{overview}, \emph{roadmap}, \emph{vision}, \emph{perspective}, \emph{trends} or \emph{challenges and opportunities}. This removes \pairsSurveyShare{}\% of same-sentence pair occurrences. The mean closure rate becomes \sentnsFill{}\%, and mean AUC is \sentnsLearned{} against \sentnsBest{} for the strongest single score (\sentnsLrpg{} for popularity-and-growth logistic regression), so the result is not driven by the survey articles that this title filter can detect. The check is limited to titles: surveys with other titles are kept, survey-like passages inside research articles are kept, and the filter says nothing about whether a remaining joint mention reflects genuine co-design or background discussion.
+
 \emph{Vocabulary of 2013.} Restricting the vocabulary to concepts with at least $m$ mentions by 2013 removes concepts that became established later. Only \vocabGapsLo{}--\vocabGapsHi{} gaps remain per cutoff, with very few closures at some cutoffs. The AUC of \vocabLearned{} (strongest single score \vocabBest{}) is therefore too unstable to establish an improvement or resolve retrospective vocabulary bias.
 
-Across the eight settings other than the 2013 vocabulary, the learned forecaster stays between \robLo{} and \robHi{} mean AUC and is ahead of the best single score in every setting.
+Across the nine settings other than the 2013 vocabulary, the learned forecaster stays between \robLo{} and \robHi{} mean AUC and is ahead of the best single score in every setting.
 
 \begin{table}[t]
 \centering
@@ -271,42 +280,45 @@ Across the eight settings other than the 2013 vocabulary, the learned forecaster
 
 \emph{Random concept subsets.} To test sensitivity to concept selection, we draw \subN{} subsets of \subK{} concepts without replacement (NumPy seed 2027) and recompute graph profiles, eligible pairs and both logistic models on each induced vocabulary. The average number of gaps across cutoffs ranges from \subGapMin{} to \subGapMax{}. Table~\ref{tab:subsets} shows a median mean AUC of \subLearnedMed{} (range \subLearnedMin{}--\subLearnedMax{}) for the full model, which exceeds the strongest single score in all \subWins{}/\subN{} subsets and achieves a median paired gain of \subLrpgGainMed{} over popularity-and-growth logistic regression.
 
-\subsection{What the Backtest Means for 6G Research Planning}
-
-We trace three top-ranked 2022 pairs from Table~\ref{tab:examples} to their underlying corpus records. Each pair had zero detected joint mentions through 2022. In 2023--2025, RIS with semantic communication accumulated 26 joint-mention papers (23 same-sentence); age of information (AoI) with digital twins had 28 (15); and ISAC with wireless power transfer had 16 (12). While these totals include surveys and passing mentions, we highlight two representative papers per pair below (with DOIs and OpenAlex IDs) to illustrate how the concepts were combined in practice.
-
-\emph{RIS and semantic communication.} Du et al.~\cite{du2023sensing} (\texttt{W4382119085}) design RIS-aided encoding of wireless sensing spectra with self-supervised decoding. Huang et al.~\cite{huang2024beamforming} (\texttt{W4401113937}) align a semantic classification objective with active transmitter and passive RIS beamforming. Both studies directly couple propagation hardware with task-oriented representations rather than merely listing the two terms.
-
-\emph{AoI and digital twins.} Li et al.~\cite{li2024satisfaction} (\texttt{W4387831770}) optimise digital-twin placement in mobile edge computing using an AoI-based service-satisfaction metric (indexed under its 2023 online publication date in OpenAlex and published in a 2024 issue). A second study~\cite{li2024query} (\texttt{W4396667043}) jointly optimises the freshness of twin-enabled query results and query-service delay under edge capacity constraints, making information freshness an explicit part of digital-twin state management.
-
-\emph{ISAC and wireless power transfer.} Cui et al.~\cite{cui2024swipt} (\texttt{W4393955155}) analyse a vehicular NOMA--ISAC system with IRS-assisted simultaneous wireless information and power transfer (SWIPT), using time switching to supply energy to a sensing vehicle. Yaswanth et al.~\cite{yaswanth2025swipt} (\texttt{W4407690662}) optimise sensing and communication in an active/STAR-RIS-assisted MIMO system under energy-harvesting constraints, jointly addressing sensing, data transmission and power delivery.
-
-At the opposite end of the ranking, low-scoring pairs such as direction-of-arrival estimation with supply chains remain absent. In practice, a high closure score can help researchers prioritise emerging intersections for literature monitoring, whereas a low score flags persistent omissions that require domain judgment to separate unpromising pairings from overlooked problems.
-
-\subsection{Forward-Window Ranking for 2026 to 2028}
-
 \begin{table}[t]
 \centering
 \caption{Gaps open at the end of \fcT{} with the highest and lowest closure scores $\hat p$ for 2026--2028 (trained on cutoffs through 2022, using publications up to 2025; scores are uncalibrated, see Section~\ref{sec:calib}).}
 \label{tab:forecast}
 \scriptsize
-\input{tables/forecast}
+\setlength{\tabcolsep}{3pt}
+\resizebox{\textwidth}{!}{\input{tables/forecast}}
 \end{table}
+
+\subsection{What the Backtest Means for 6G Research Planning}
+
+We trace three top-ranked 2022 pairs from Table~\ref{tab:examples} to their matched records in the frozen \nWorks{}-paper snapshot (zero detected joint mentions through 2022). In 2023--2025, RIS with semantic communication accumulated 26 joint-mention papers (23 same-sentence); age of information (AoI) with digital twins had 28 (15); and ISAC with wireless power transfer had 16 (12). Below we inspect two matched corpus records per pair (with DOIs, OpenAlex IDs and primary topics from Table~\ref{tab:topics}).
+
+\emph{RIS and semantic communication.} Du et al.~\cite{du2023sensing} (\texttt{W4382119085}, \texttt{T11458}) design RIS-aided encoding of wireless sensing spectra with self-supervised decoding (published in JSAC in 2023 and thus in our 2023--2025 window, following a November 2022 arXiv preprint). Huang et al.~\cite{huang2024beamforming} (\texttt{W4401113937}, \texttt{T11458}) align a semantic classification objective with active transmitter and passive RIS beamforming. Both studies directly couple propagation hardware with task-oriented representations.
+
+\emph{AoI and digital twins.} Li et al.~\cite{li2024satisfaction} (\texttt{W4387831770}, \texttt{T10273}) optimise digital-twin placement in mobile edge computing using an AoI-based service-satisfaction metric (dated 2023 in the snapshot from its online publication and printed in 2024). A second study~\cite{li2024query} (\texttt{W4396667043}, \texttt{T10273}) jointly optimises the freshness of twin-enabled query results and query-service delay under edge capacity constraints.
+
+\emph{ISAC and wireless power transfer.} Cui et al.~\cite{cui2024swipt} (\texttt{W4393955155}, \texttt{T11458}) analyse a vehicular NOMA--ISAC system with IRS-assisted simultaneous wireless information and power transfer (SWIPT), using time switching to power a sensing vehicle. Yaswanth et al.~\cite{yaswanth2025swipt} (\texttt{W4407690662}, \texttt{T11458}) optimise sensing and communication in an active/STAR-RIS-assisted MIMO system under energy-harvesting constraints.
+
+As the 2022 preprint of Du et al.~\cite{du2023sensing} illustrates, a gap at cutoff $T$ reflects absence from the selected indexed article corpus rather than the earliest appearance of an idea across preprints or external venues. Table~\ref{tab:examples} also includes two top-ten false positives with zero joint mentions in 2023--2025: \emph{intrusion detection $\times$ semantic communication} (rank 5) and \emph{RIS $\times$ wearable} (rank 8). Decomposing their feature-to-logit contributions $c_j = w_j(x_j - \mu_j)/\sigma_j$ (each standardised feature value multiplied by its fitted $T{=}2022$ logistic coefficient, excluding the intercept) shows that \emph{intrusion detection $\times$ semantic communication} is elevated by PPMI profile cosine ($+1.93$) and faster-concept growth ($+1.57$, offsetting expected co-occurrence $-1.07$), whereas \emph{RIS $\times$ wearable} is driven by faster-concept growth ($+1.85$) and expected co-occurrence ($+1.20$). High scores can thus arise when a rapidly expanding concept shares third-party neighbours or volume with another layer without direct co-study. At the bottom of the ranking, pairs such as direction-of-arrival estimation with supply chains remain absent. High scores help track combinations entering indexed journals, while false positives and low-scoring omissions require domain judgment.
+
+\subsection{Forward-Window Ranking for 2026 to 2028}
 
 Finally, we trained the forecaster on cutoffs 2013--2022 and scored the \fcGaps{} gaps remaining open at the end of \fcT{} for the 2026--2028 window (Table~\ref{tab:forecast}, constructed from pre-2026 records). The highest-scoring candidates are dominated by large language models paired with established areas such as energy management, post-quantum cryptography and network function virtualisation, whereas low-scoring pairs largely pair specialised physical-layer techniques with distant application domains.
 
+% keep the results tables inside Section 5 so they do not split the Discussion text
+\FloatBarrier
 \section{Discussion and Limitations}
 \label{sec:limits}
 
-\textbf{Label validity and research utility.} Joint mentions can reflect a shared technical design, background discussion, a survey or an incidental list, and the same-sentence filter cannot fully separate these cases. Our paper traces in Section 5.7 illustrate substantive integration in three closed gaps, but a blinded human annotation study and an expert decision evaluation remain necessary to measure label precision and downstream planning utility. Claim-level verification systems such as ESV-Gap~\cite{le2027esvgap} address a complementary evidential question.
+\textbf{Label validity and research utility.} Joint mentions can reflect a shared technical design, background discussion, a survey or an incidental list, and neither the same-sentence filter nor the survey-title filter can fully separate these cases. Our paper traces in Section 5.7 illustrate substantive integration in three closed gaps, but a blinded human annotation study and an expert decision evaluation remain necessary to measure label precision and downstream planning utility. Claim-level verification systems such as ESV-Gap~\cite{le2027esvgap} address a complementary evidential question.
 
 \textbf{Lexical and retrospective resources.} Pattern matching misses paraphrases and can confuse ambiguous acronyms, and such errors may correlate with concept popularity or community-specific terminology. In addition, the 90-concept lexicon and pretrained sentence encoder are retrospective resources; the 2013 vocabulary check and random concept subsets assess sensitivity within this corpus, but do not reconstruct historical vocabularies or test generalisation to external corpora.
 
 \textbf{Model scope.} The logistic forecaster relies on standard engineered features and fixed hyperparameters. Its strong performance relative to a default gradient-boosting baseline does not rule out gains from tuned nonlinear ensembles or temporal graph neural networks, and we do not claim algorithmic novelty over general link-prediction frameworks.
 
-\textbf{Corpus coverage and historical availability.} Our snapshot includes only article-type works with abstracts in the 15 selected OpenAlex primary topics, omitting preprints, records without abstracts and papers assigned to other primary topics. Because OpenAlex backfills metadata and topic classifications over time, publication-year separation prevents future-count leakage in features and labels but does not replicate real-time historical indexing; delayed indexing may also depress the observed closure rate in the final window.
+\textbf{Corpus coverage and historical availability.} Our snapshot includes only article-type works with abstracts in the 15 selected OpenAlex primary topics, omitting preprints, records without abstracts and other topics. Because OpenAlex backfills metadata and topic assignments over time, publication-year separation prevents future-count leakage in features and labels but does not replicate real-time historical indexing; delayed indexing may also lower the observed closure rate in the final window.
 
-\textbf{Small and dependent test sets.} Each cutoff contains a few hundred gaps, and pairs share concepts and recur across cutoffs with overlapping outcome windows. Concept bootstrap accounts for shared-endpoint dependence within each cutoff conditional on the fitted models, without adjusting for training variance or cross-year correlation.
+\textbf{Small and dependent test sets.} Each cutoff has a few hundred gaps, and pairs share concepts and recur across cutoffs with overlapping windows. Concept bootstrap accounts for shared-endpoint dependence within each cutoff conditional on the fitted models, without adjusting for training variance or cross-year correlation.
 
 \section{Conclusion}
 

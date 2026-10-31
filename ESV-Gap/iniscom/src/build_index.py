@@ -6,6 +6,7 @@ Output: data/index.npz with
   occ              (Y, C)      works per year mentioning concept c
   co               (Y, C, C)   works per year mentioning both c and c' (title or abstract)
   co_sent          (Y, C, C)   works per year with c and c' in the same sentence (stricter label)
+  co_sent_ns       (Y, C, C)   as co_sent, excluding works whose title marks a survey/review/tutorial
   concepts                     concept names (lexicon order)
 plus data/work_ids.txt (OpenAlex IDs of the corpus) and outputs/corpus_stats.json.
 """
@@ -22,7 +23,7 @@ from lexicon import _COMPILED, CONCEPTS, tag
 
 ROOT = Path(__file__).resolve().parents[1]
 Y0, Y1 = 2010, 2025
-SURVEY = re.compile(r"(survey|review|tutorial|overview|roadmap|vision|perspective|trends|challenges and opportunities)", re.I)
+SURVEY = re.compile(r"\b(survey|review|tutorial|overview|roadmap|vision|perspective|trends|challenges and opportunities)\b", re.I)
 SENT = re.compile(r"(?<=[.!?])\s+(?=[A-Z0-9])")
 
 

@@ -32,6 +32,7 @@ SCORES = ["random", "expected", "growth_min", "profile_cos", "recent_cos", "adam
 def load():
     d = np.load(ROOT / "data" / "index.npz")
     load.co_sent = d["co_sent"] if "co_sent" in d.files else None
+    load.co_sent_ns = d["co_sent_ns"] if "co_sent_ns" in d.files else None
     return d["years"], d["docs"], d["occ"], d["co"], list(d["concepts"])
 
 
@@ -177,7 +178,7 @@ def run(args):
     years, docs, occ, co, concepts = load()
     sem = semantic_sim(concepts)
     rng = np.random.default_rng(BOOTSTRAP_SEED)
-    lab = load.co_sent if args.label == "sentence" else None
+    lab = {"doc": None, "sentence": load.co_sent, "sentence_ns": load.co_sent_ns}[args.label]
     tables = {T: cutoff_table(T, years, docs, occ, co, sem, args, lab=lab)
               for T in range(FIRST_TRAIN, TEST_CUTOFFS[-1] + 1)}
     res = {"args": vars(args), "bootstrap": {
@@ -240,7 +241,7 @@ def forecast(tables, data, args, top=12):
     years, docs, occ, co, concepts, sem = data
     T = int(years[-1])
     rows = cutoff_table(T, years, docs, occ, co, sem, args, with_outcome=False)
-    lab = load.co_sent if args.label == "sentence" else None
+    lab = {"doc": None, "sentence": load.co_sent, "sentence_ns": load.co_sent_ns}[args.label]
     for Tp in range(FIRST_TRAIN, T - args.h + 1):  # every cutoff whose outcome window has ended
         if not tables.get(Tp):
             tables[Tp] = cutoff_table(Tp, years, docs, occ, co, sem, args, lab=lab)
@@ -264,7 +265,7 @@ if __name__ == "__main__":
     ap.add_argument("--k", type=int, default=3)
     ap.add_argument("--h", type=int, default=3)
     ap.add_argument("--tag", default="main")
-    ap.add_argument("--label", choices=["doc", "sentence"], default="doc")
+    ap.add_argument("--label", choices=["doc", "sentence", "sentence_ns"], default="doc")
     ap.add_argument("--vocab-year", type=int, default=0,
                     help="only concepts already established (>= min-occ works) by this year")
     args = ap.parse_args()

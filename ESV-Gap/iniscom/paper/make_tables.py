@@ -31,6 +31,7 @@ mac("taggedShare", f"{100 * stats['tagged_share']:.1f}")
 mac("meanConcepts", f"{stats['mean_concepts_per_work']:.2f}")
 mac("nTopics", str(len(stats["per_topic"])))
 mac("pairsSentShare", f"{100 * stats['pairs_sentence'] / stats['pairs_doc']:.0f}")
+mac("pairsSurveyShare", f"{100 * (1 - stats['pairs_sentence_nosurvey'] / stats['pairs_sentence']):.1f}")
 
 # ------------------------------------------------------------- main table
 best = {m: max(main["mean"][n][m] for n in NAMES if n != "learned") for m in ("auc", "ap", "p@20", "open@20")}
@@ -156,7 +157,8 @@ mac("ablNoPop", f"{abl['-expected,min_occ']['auc']:.3f}")
 # ------------------------------------------------------------- robustness
 rob = [("main", r"main ($m{=}50$, $g{=}0$, $k{=}3$, $H{=}3$)"), ("g2", r"$g{=}2$ (sparse, not only absent)"),
        ("k1", r"$k{=}1$"), ("k5", r"$k{=}5$"), ("h2", r"$H{=}2$"), ("occ20", r"$m{=}20$"), ("occ100", r"$m{=}100$"),
-       ("sent", "same-sentence closure label"), ("vocab2013", "concepts established by 2013 only")]
+       ("sent", "same-sentence closure label"), ("sentns", "same sentence, surveys/reviews excluded"),
+       ("vocab2013", "concepts established by 2013 only")]
 rr = [r"\begin{tabular}{lcccc}", r"\toprule", r"Setting & Gaps (mean) & Filled & Best single score & Learned\\",
       r"\midrule"]
 lo, hi = 9, 0
@@ -177,6 +179,11 @@ for tag, label in rob:
         mac("vocabBest", f"{b:.2f}")
     else:
         lo, hi = min(lo, la), max(hi, la)
+    if tag == "sentns":
+        mac("sentnsLearned", f"{la:.3f}")
+        mac("sentnsBest", f"{b:.3f}")
+        mac("sentnsFill", f"{100 * fr_:.0f}")
+        mac("sentnsLrpg", f"{r['mean']['lr_pop_growth']['auc']:.3f}")
     if tag == "sent":
         mac("sentLearned", f"{la:.3f}")
         mac("sentBest", f"{b:.3f}")
@@ -194,7 +201,7 @@ mac("fcT", str(fc["T"]))
 mac("fcGaps", str(fc["gaps"]))
 def pair(p):
     return r" $\times$ ".join(p)
-fl = [r"\begin{tabular}{L{4.3cm}c@{\hspace{12pt}}L{4.3cm}c}", r"\toprule",
+fl = [r"\begin{tabular}{lc@{\hspace{12pt}}lc}", r"\toprule",
       r"\multicolumn{2}{c}{Most likely to be filled by 2028} & \multicolumn{2}{c}{Most likely to stay open}\\",
       r"\cmidrule(lr){1-2}\cmidrule(lr){3-4}", r"Concept pair & $\hat p$ & Concept pair & $\hat p$\\", r"\midrule"]
 for a, b in zip(fc["likely_filled"][:10], fc["persistent"][:10]):
@@ -206,7 +213,7 @@ ex = abl["examples"]
 mac("exT", str(ex["T"]))
 mac("exTopFilled", str(sum(e["filled"] for e in ex["top"])))
 mac("exBottomFilled", str(sum(e["filled"] for e in ex["bottom"])))
-el = [r"\begin{tabular}{L{4.5cm}r@{\hspace{12pt}}L{4.5cm}r}", r"\toprule",
+el = [r"\begin{tabular}{lr@{\hspace{12pt}}lr}", r"\toprule",
       r"\multicolumn{2}{c}{Top-ranked at $T{=}" + str(ex["T"]) + r"$} & \multicolumn{2}{c}{Bottom-ranked at $T{=}" + str(ex["T"]) + r"$}\\",
       r"\cmidrule(lr){1-2}\cmidrule(lr){3-4}", r"Concept pair & Co-occ. & Concept pair & Co-occ.\\", r"\midrule"]
 for a, b in zip(ex["top"], ex["bottom"]):
