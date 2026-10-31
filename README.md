@@ -117,7 +117,8 @@ research-paper-gap/
 │   ├── paper_ami2026/              # Separate draft: scope-aware decision control
 │   ├── paper_icai2026/expanded_run/ # Multi-domain backtest data used by paper_ami2026
 │   ├── gapclose/                   # ICAI-FAI 2026: certified gap claims (code, THEORY.md, README)
-│   └── paper_gapclose_icai2026/    # ICAI-FAI 2026 manuscript and supplementary material
+│   ├── paper_gapclose_icai2026/    # ICAI-FAI 2026 manuscript and supplementary material
+│   └── iniscom/                    # EAI INISCOM 2027: GapCast-6G benchmark, forecaster, and LNICST manuscript
 └── README.md                       # Repository documentation
 ```
 
@@ -187,6 +188,24 @@ and validates the approach retrospectively against papers that answered the ques
 * Theory: [`ESV-Gap/gapclose/THEORY.md`](ESV-Gap/gapclose/THEORY.md)
 * Manuscript: [`ESV-Gap/paper_gapclose_icai2026/`](ESV-Gap/paper_gapclose_icai2026/)
 * Authors: Anh Hoa Le, Ly Van Khoa Phan, Dinh Thanh Nguyen, Duc Hoang Nguyen, Dinh Anh Ho, Long Truong (FPT University)
+
+---
+
+## Companion study: forecasting gap closure in 6G and IoT (EAI INISCOM 2027)
+
+*Which Research Gaps Close? Forecasting Gap Closure in the 6G and IoT Literature* introduces
+**GapCast-6G**, a temporal benchmark of 194,221 OpenAlex works (2010–2025) across 15 wireless and
+IoT primary topics tagged with 90 concepts aligned with the six EAI INISCOM 2027 areas. Between 14%
+and 25% of structural gaps close ($\ge 3$ joint-mention papers) within three years. Across four
+publication-year-separated test cutoffs (2019–2022), a regularised logistic forecaster reaches mean
+ROC AUC 0.809 against 0.659 for the Adamic–Adar index (concept-bootstrap intervals excluding zero
+at three of four cutoffs; median mean AUC 0.797 across 20 fixed-seed 60-concept subsets), with
+paper-level evidence traces and instance-level feature-to-logit error analysis at $T{=}2022$.
+
+* Code, benchmark snapshot and reproduction steps: [`ESV-Gap/iniscom/README.md`](ESV-Gap/iniscom/README.md)
+* Revision and verification report (Vietnamese): [`ESV-Gap/iniscom/REVISION_REPORT_VI.md`](ESV-Gap/iniscom/REVISION_REPORT_VI.md)
+* Manuscript (Springer LNICST): [`ESV-Gap/iniscom/paper/main.tex`](ESV-Gap/iniscom/paper/main.tex) and [`ESV-Gap/iniscom/gapcast_iniscom2027_submission.pdf`](ESV-Gap/iniscom/gapcast_iniscom2027_submission.pdf)
+* Authors: Anh Hoa Le, Long Truong (FPT University)
 
 ---
 

@@ -1,0 +1,7 @@
+data/corpus_*
+__pycache__/
+paper/*.aux
+paper/*.log
+paper/*.blg
+paper/*.out
+paper/*.toc
