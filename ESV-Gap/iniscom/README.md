@@ -55,7 +55,7 @@ To fetch a new corpus, set `OPENALEX_API_KEY` and run `python src/fetch_corpus.p
 This is a new API snapshot and need not reproduce the 2026 count tensors. Work IDs
 alone do not freeze changing abstracts, publication dates or topic assignments.
 
-## Build the anonymous PDF
+## Build and verify the anonymous PDF
 
 Run these commands sequentially from `paper/`:
 
@@ -65,11 +65,21 @@ pdflatex -interaction=nonstopmode -halt-on-error main_submission.tex
 bibtex main_submission
 pdflatex -interaction=nonstopmode -halt-on-error main_submission.tex
 pdflatex -interaction=nonstopmode -halt-on-error main_submission.tex
+python check_submission.py
 ```
 
-The tables and number macros are generated from analysis JSON files. Build logs and
-analysis checks are saved in `outputs/` for this revision. Descriptions of figures and
-tables are in `paper/ALT_TEXT.md`.
+Alternatively, compile directly from `main.tex` with the anonymous flag:
+
+```bash
+pdflatex -interaction=nonstopmode -jobname=main_submission "\def\anonymous{1}\input{main.tex}"
+```
+
+The compiled anonymous submission (`paper/main_submission.pdf`, copied to
+`gapcast_iniscom2027_submission.pdf`) is 15 pages (13 pages before References, 22
+bibliography entries, all fonts embedded, zero overfull/underfull boxes). The tables and
+number macros are generated from analysis JSON files. Build logs and mechanical checks
+are saved in `outputs/submission_pdf_checks.json` and `outputs/revision_analysis_checks.json`.
+Descriptions of figures and tables are in `paper/ALT_TEXT.md`.
 
 ## Results in the revised submission
 
@@ -91,6 +101,14 @@ Twenty fixed-seed subsets of 60 concepts give median mean AUC 0.797 (range
 0.737--0.845); the strongest single score in each subset has median 0.651. These
 overlapping subsets assess vocabulary sensitivity within this corpus, not external
 generalisation or independent statistical replication.
+
+At cutoff T=2022, Section 5.7 traces three closed top-ten gaps to six matched corpus
+records (with DOIs, OpenAlex IDs and primary topics `T11458`/`T10273`), and decomposes
+the standardised feature-to-logit contributions $c_j = w_j(x_j - \mu_j)/\sigma_j$ of the
+two top-ten false positives (`intrusion detection × semantic communication` at rank 5:
+PPMI profile cosine +1.93, faster-concept growth +1.57, expected co-occurrence −1.07;
+`RIS × wearable` at rank 8: faster-concept growth +1.85, expected co-occurrence +1.20).
+All counts and logit decompositions are verified by `src/verify_revision.py`.
 
 See `REVISION_REPORT_VI.md` for the changes, six concrete paper references and the
 submission checks. A public artifact release is planned upon publication; this local

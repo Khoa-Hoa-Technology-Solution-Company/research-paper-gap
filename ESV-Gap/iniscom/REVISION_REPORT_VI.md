@@ -1,6 +1,6 @@
 # GapCast-6G: thay đổi bản submission INISCOM 2027
 
-Ngày cập nhật: 30/10/2026. Bản nộp: `gapcast_iniscom2027_submission.pdf`.
+Ngày cập nhật: 31/10/2026. Bản nộp: `gapcast_iniscom2027_submission.pdf`.
 
 ## 1. Bootstrap so với Adamic–Adar
 
@@ -61,17 +61,28 @@ bằng chứng khái quát sang corpus mới hay loại bỏ hoàn toàn hindsig
 | Age of information × digital twin | 0 | 28 | 15 |
 | ISAC × wireless power transfer | 0 | 16 | 12 |
 
-Section 5.7 hiện dẫn hai nghiên cứu cho mỗi cặp, kèm DOI trong References và
-OpenAlex ID ngay trong nội dung:
+Section 5.7 hiện dẫn hai nghiên cứu cho mỗi cặp từ đúng frozen snapshot 194.221 bài,
+kèm DOI trong References, OpenAlex ID và primary topic ngay trong nội dung:
 
-| Cặp | Nghiên cứu và nội dung liên quan | DOI | OpenAlex |
-|---|---|---|---|
-| RIS × semantic communication | Du et al., *Semantic Communications for Wireless Sensing: RIS-Aided Encoding and Self-Supervised Decoding* (2023): mã hóa phổ sensing bằng RIS và giải mã tự giám sát. | [10.1109/JSAC.2023.3288231](https://doi.org/10.1109/JSAC.2023.3288231) | [W4382119085](https://openalex.org/W4382119085) |
-| RIS × semantic communication | Huang et al., *Joint Active and Passive Beamforming for RIS-Aided Semantic Communication* (2024): liên kết mục tiêu phân loại semantic với beamforming phát/RIS. | [10.1109/TVT.2024.3435754](https://doi.org/10.1109/TVT.2024.3435754) | [W4401113937](https://openalex.org/W4401113937) |
-| AoI × digital twin | Li et al., *AoI-Aware User Service Satisfaction Enhancement in Digital Twin-Empowered Edge Computing*: tối ưu placement của digital twin bằng thước đo hài lòng dựa trên AoI. | [10.1109/TNET.2023.3324704](https://doi.org/10.1109/TNET.2023.3324704) | [W4387831770](https://openalex.org/W4387831770) |
-| AoI × digital twin | Li et al., *AoI-Aware, Digital Twin-Empowered IoT Query Services in Mobile Edge Computing* (2024): tối ưu freshness và độ trễ query trong MEC. | [10.1109/TNET.2024.3395709](https://doi.org/10.1109/TNET.2024.3395709) | [W4396667043](https://openalex.org/W4396667043) |
-| ISAC × WPT | Cui et al., *Communication and Sensing Performance Study of NOMA-ISAC System with IRS-Assisted SWIPT* (2024): cấp năng lượng bằng time switching cho xe thực hiện sensing. | [10.23977/jeis.2024.090113](https://doi.org/10.23977/jeis.2024.090113) | [W4393955155](https://openalex.org/W4393955155) |
-| ISAC × WPT | Yaswanth et al., *Active and STAR-RIS-Assisted MIMO ISAC Systems With SWIPT* (2025): tối ưu sensing/communication dưới ràng buộc thu năng lượng. | [10.1109/TCCN.2025.3543405](https://doi.org/10.1109/TCCN.2025.3543405) | [W4407690662](https://openalex.org/W4407690662) |
+| Cặp | Nghiên cứu và nội dung liên quan | DOI | OpenAlex | Topic |
+|---|---|---|---|---|
+| RIS × semantic communication | Du et al., *Semantic Communications for Wireless Sensing: RIS-Aided Encoding and Self-Supervised Decoding* (2023): mã hóa phổ sensing bằng RIS và giải mã tự giám sát (xuất bản JSAC 2023 sau bản preprint arXiv tháng 11/2022). | [10.1109/JSAC.2023.3288231](https://doi.org/10.1109/JSAC.2023.3288231) | [W4382119085](https://openalex.org/W4382119085) | `T11458` |
+| RIS × semantic communication | Huang et al., *Joint Active and Passive Beamforming for RIS-Aided Semantic Communication* (2024): liên kết mục tiêu phân loại semantic với beamforming phát/RIS. | [10.1109/TVT.2024.3435754](https://doi.org/10.1109/TVT.2024.3435754) | [W4401113937](https://openalex.org/W4401113937) | `T11458` |
+| AoI × digital twin | Li et al., *AoI-Aware User Service Satisfaction Enhancement in Digital Twin-Empowered Edge Computing*: tối ưu placement của digital twin bằng thước đo hài lòng dựa trên AoI. | [10.1109/TNET.2023.3324704](https://doi.org/10.1109/TNET.2023.3324704) | [W4387831770](https://openalex.org/W4387831770) | `T10273` |
+| AoI × digital twin | Li et al., *AoI-Aware, Digital Twin-Empowered IoT Query Services in Mobile Edge Computing* (2024): tối ưu freshness và độ trễ query trong MEC. | [10.1109/TNET.2024.3395709](https://doi.org/10.1109/TNET.2024.3395709) | [W4396667043](https://openalex.org/W4396667043) | `T10273` |
+| ISAC × WPT | Cui et al., *Communication and Sensing Performance Study of NOMA-ISAC System with IRS-Assisted SWIPT* (2024): cấp năng lượng bằng time switching cho xe thực hiện sensing. | [10.23977/jeis.2024.090113](https://doi.org/10.23977/jeis.2024.090113) | [W4393955155](https://openalex.org/W4393955155) | `T11458` |
+| ISAC × WPT | Yaswanth et al., *Active and STAR-RIS-Assisted MIMO ISAC Systems With SWIPT* (2025): tối ưu sensing/communication dưới ràng buộc thu năng lượng. | [10.1109/TCCN.2025.3543405](https://doi.org/10.1109/TCCN.2025.3543405) | [W4407690662](https://openalex.org/W4407690662) | `T11458` |
+
+Ngoài ba cặp dự báo đúng, Section 5.7 phân tích cụ thể hai trường hợp false positive
+trong top 10 tại $T{=}2022$ (có 0 bài đồng xuất hiện trong giai đoạn 2023–2025) bằng
+đóng góp từng đặc trưng vào logit $c_j = w_j(x_j - \mu_j)/\sigma_j$ (tích của giá trị
+đặc trưng đã chuẩn hóa với hệ số logistic đã huấn luyện tại $T{=}2022$, không tính
+intercept):
+- **intrusion detection × semantic communication** (hạng 5): được đẩy lên bởi PPMI
+  profile cosine ($+1,93$) và tốc độ tăng trưởng của khái niệm nhanh hơn ($+1,57$), bù
+  trừ cho kỳ vọng đồng xuất hiện âm ($-1,07$).
+- **RIS × wearable** (hạng 8): được đẩy lên bởi tốc độ tăng trưởng của khái niệm nhanh
+  hơn ($+1,85$) và kỳ vọng đồng xuất hiện ($+1,20$).
 
 Bài AoI về service satisfaction xuất bản online ngày 20/10/2023, nhưng nằm trong
 issue tháng 4/2024; corpus dùng năm 2023, còn BibTeX ghi năm issue 2024 và chú thích
@@ -109,7 +120,9 @@ incidental mention; đã ghi rõ trong caption và nội dung. Không dùng sáu
 
 ## 5. Biên dịch và kiểm tra bản nộp
 
-- PDF ẩn danh **16 trang**, References bắt đầu ở trang 14; có **22 tài liệu tham khảo**.
+- PDF ẩn danh **15 trang** (13 trang nội dung trước References; References nằm ở trang
+  14–15 với **22 tài liệu tham khảo**). Table 11 nằm gọn trong Section 5.8 ở trang 12
+  trước khi Section 6 bắt đầu.
 - Author block dùng Anonymous Authors/Institution; trường PDF Author trống; không có
   tên tác giả, đơn vị hoặc email riêng trong phần thân trước References.
 - Giữ self-citation ESV-Gap bình thường ở ngôi thứ ba, sửa thứ tự tác giả theo
